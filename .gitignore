@@ -1,0 +1,21 @@
+# Too Large or Unwanted
+/doc/help_harmony.chm
+/doc/help_harmony.pdf
+/doc/html/html.zip
+/uninstall
+/uninstall.dat
+/uninstall.exe
+/uninstall.app/
+# Application Demos
+**/build/
+!/build/
+**/debug/
+**/disassembly/
+**/dist/
+**/html/
+**/nbbuild/
+**/nbdist/
+**/nbproject/Makefile-*.mk
+**/nbproject/Makefile-*.properties
+**/nbproject/Package-*.bash
+**/nbproject/private/*
