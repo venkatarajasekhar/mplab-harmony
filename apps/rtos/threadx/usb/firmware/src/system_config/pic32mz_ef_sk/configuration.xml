@@ -1,0 +1,1219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration version="2.0.0.10">
+  <Designer>
+    <Assets>
+      <Settings bpp="16">
+        <MemoryLocations>
+          <MemoryLocation address="0" id="default"/>
+        </MemoryLocations>
+      </Settings>
+    </Assets>
+    <Screens height="200" width="320">
+      <Screen active="true" background="000000" clearOnShow="true" doubleBuffer="false" export="true" name="Screen1" primary="true" visible="true">
+        <Objects/>
+      </Screen>
+    </Screens>
+    <Schemes defaultSchemeName="default">
+      <Scheme name="default">
+        <Alpha>100</Alpha>
+        <BackgroundOffset>0,0</BackgroundOffset>
+        <EmbossSize>3</EmbossSize>
+        <Colors>
+          <Primary>FFFFFF</Primary>
+          <Secondary>404040</Secondary>
+          <Disabled>C0C0C0</Disabled>
+          <Background>000000</Background>
+          <EmbossLight>C0C0C0</EmbossLight>
+          <EmbossDark>404040</EmbossDark>
+          <TextPrimary>000000</TextPrimary>
+          <TextSecondary>FFFFFF</TextSecondary>
+          <TextDisabled>404040</TextDisabled>
+          <GradientStart>000000</GradientStart>
+          <GradientEnd>FFFFFF</GradientEnd>
+        </Colors>
+        <FillStyle>Color</FillStyle>
+        <BackgroundType>None</BackgroundType>
+      </Scheme>
+    </Schemes>
+  </Designer>
+  <General>
+    <HarmonyPath path="../../../.."/>
+    <Processor name="PIC32MZ2048EFM144"/>
+    <Board name=""/>
+    <ForceOptimization flag="true"/>
+    <MergeStrategy flag="ALL"/>
+  </General>
+  <Manifest>
+    <Files>
+      <File>
+        <Name>txe_byte_pool_prioritize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_semaphore_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_byte_pool_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_byte_allocate.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_initialize_kernel_setup.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>usb_device_local.h</Name>
+        <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
+        <Name>tx_timer_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_trace_object_unregister.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_thread_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>usb_device.c</Name>
+        <Path>Source Files/framework/usb/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>tx_event_flags_cleanup.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_semaphore_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_queue_prioritize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_trace_interrupt_control.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_queue_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>osal_threadx.c</Name>
+        <Path>Source Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>tx_trace.h</Name>
+        <Path>Header Files/threadx</Path>
+      </File>
+      <File>
+        <Name>system.h</Name>
+        <Path>Header Files/framework/system</Path>
+      </File>
+      <File>
+        <Name>tx_thread_resume.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_block_pool_prioritize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_timer_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>osal_threadx.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>tx_queue.h</Name>
+        <Path>Header Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_timer_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_timer_deactivate.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_queue_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>osal_impl_basic.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>tx_event_flags_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>drv_tmr.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
+      </File>
+      <File>
+        <Name>tx_thread_reset.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>osal.h</Name>
+        <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>tx_thread_initialize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_mutex_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_timer_system_activate.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_semaphore.h</Name>
+        <Path>Header Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_trace_initialize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_initialize.h</Name>
+        <Path>Header Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_timer_change.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_queue_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_block_pool_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_event_flags_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_semaphore_ceiling_put.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>sys_int_mapping.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>tx_thread_stack_error_handler.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>sys_devcon.h</Name>
+        <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>txe_block_release.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_queue_front_send.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_event_flags_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_queue_flush.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>sys_debug.h</Name>
+        <Path>Header Files/framework/system/debug</Path>
+      </File>
+      <File>
+        <Name>tx_trace_buffer_full_notify.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_timer_activate.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_trace_isr_exit_insert.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_queue_send_notify.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_block_allocate.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_mapping.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
+      </File>
+      <File>
+        <Name>tx_semaphore_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_block_pool_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_block_pool_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_byte_release.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_priority_change.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_thread_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>driver.h</Name>
+        <Path>Header Files/framework/driver</Path>
+      </File>
+      <File>
+        <Name>sys_int_pic32.c</Name>
+        <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>tx_event_flags.h</Name>
+        <Path>Header Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_stack_analyze.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_mutex_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_preemption_change.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_semaphore_put_notify.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>usb_device.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>tx_byte_pool_initialize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_thread_wait_abort.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
+      </File>
+      <File>
+        <Name>sys_tmr_local.h</Name>
+        <Path>Header Files/framework/system/tmr/src</Path>
+      </File>
+      <File>
+        <Name>tx_mutex_cleanup.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_timer_change.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_semaphore_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_thread_terminate.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_queue_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_block_pool_cleanup.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_terminate.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_thread_resume.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_event_flags_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_thread_reset.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_relinquish.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_event_flags_set_notify.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_thread_relinquish.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_semaphore_prioritize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_thread_preemption_change.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>sys_int.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>drv_usb.h</Name>
+        <Path>Header Files/framework/driver/usb</Path>
+      </File>
+      <File>
+        <Name>txe_timer_deactivate.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_sleep.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_trace_event_unfilter.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_interrupt_control.S</Name>
+        <Path>Source Files/threadx/pic32mz</Path>
+      </File>
+      <File>
+        <Name>txe_thread_entry_exit_notify.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_timer_expiration_process.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_semaphore_ceiling_put.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>usb_common.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>usb_device_hid.c</Name>
+        <Path>Source Files/framework/usb/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>tx_thread_time_slice.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_timer_performance_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>usb_hub.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_common.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_buffer.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>tx_event_flags_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_byte_allocate.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_initialize_kernel_enter.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_queue_send.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_initialize_low_level.S</Name>
+        <Path>Source Files/threadx/pic32mz</Path>
+      </File>
+      <File>
+        <Name>osal_impl_none.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>txe_mutex_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_queue_performance_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_thread_suspend.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>sys_clk_mapping.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_cache_pic32mz.S</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>tx_semaphore_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_block_pool_performance_system_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_trace_user_event_insert.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread.h</Name>
+        <Path>Header Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_semaphore_prioritize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_semaphore_put.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_byte_pool_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>sys_module.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_pic32mz.c</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>txe_event_flags_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_semaphore_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_mutex_put.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>sys_queue.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>tx_byte_pool_prioritize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_queue_send_notify.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_semaphore_put.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_semaphore_cleanup.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_timer_initialize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_local.h</Name>
+        <Path>Header Files/framework/driver/tmr/src</Path>
+      </File>
+      <File>
+        <Name>txe_byte_pool_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>drv_usbhs.h</Name>
+        <Path>Header Files/framework/driver/usb/usbhs</Path>
+      </File>
+      <File>
+        <Name>tx_timer_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_block_pool_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_api.h</Name>
+        <Path>Header Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_byte_pool_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>usb_chapter_9.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>tx_port.h</Name>
+        <Path>Header Files/threadx</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>tx_thread_context_restore.S</Name>
+        <Path>Source Files/threadx/pic32mz</Path>
+      </File>
+      <File>
+        <Name>txe_semaphore_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_queue_prioritize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_mutex_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_timer_thread_entry.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_queue_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_trace_disable.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_system_resume.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_event_flags_set.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_system_return.S</Name>
+        <Path>Source Files/threadx/pic32mz</Path>
+      </File>
+      <File>
+        <Name>tx_thread_shell_entry.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_mutex_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_semaphore_initialize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_semaphore_performance_system_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_mutex_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>sys_devcon.c</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>tx_event_flags_initialize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_block_pool_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_byte_pool_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>sys_tmr.h</Name>
+        <Path>Header Files/framework/system/tmr</Path>
+      </File>
+      <File>
+        <Name>usb_host.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>tx_thread_system_preempt_check.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_entry_exit_notify.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_time_slice_change.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_block_pool_initialize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_byte_pool_search.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_performance_system_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_byte_release.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>usb_host_hub.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>tx_byte_pool.h</Name>
+        <Path>Header Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_block_pool_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_mutex_performance_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_block_release.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_mutex_initialize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_byte_pool_performance_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>osal_definitions.h</Name>
+        <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>tx_byte_pool_performance_system_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_byte_pool_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_block_pool.h</Name>
+        <Path>Header Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_mutex_performance_system_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_time_set.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_local.h</Name>
+        <Path>Header Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>tx_initialize_high_level.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_queue_flush.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_event_flags_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_timer_activate.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_queue_receive.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_event_flags_set.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>driver_common.h</Name>
+        <Path>Header Files/framework/driver</Path>
+      </File>
+      <File>
+        <Name>txe_semaphore_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_event_flags_performance_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>sys_tmr.c</Name>
+        <Path>Source Files/framework/system/tmr/src</Path>
+      </File>
+      <File>
+        <Name>drv_usbhs.c</Name>
+        <Path>Source Files/framework/driver/usb/usbhs/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>txe_block_allocate.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_trace_object_register.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_queue_initialize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_wait_abort.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_thread_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_timer_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_queue_performance_system_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_timer.h</Name>
+        <Path>Header Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_semaphore_put_notify.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_mutex_priority_change.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>usb_device_hid.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_clk.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>tx_thread_performance_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_stack_error_notify.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_thread_priority_change.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_block_pool_performance_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>drv_tmr.c</Name>
+        <Path>Source Files/framework/driver/tmr/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>sys_int_private.h</Name>
+        <Path>Header Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>tx_event_flags_set_notify.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_mutex_prioritize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_block_pool_prioritize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_mutex_prioritize.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_byte_pool_cleanup.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_queue_cleanup.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_time_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_event_flags_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_schedule.S</Name>
+        <Path>Source Files/threadx/pic32mz</Path>
+      </File>
+      <File>
+        <Name>tx_timer_interrupt.S</Name>
+        <Path>Source Files/threadx/pic32mz</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_variant_mapping.h</Name>
+        <Path>Header Files/framework/driver/tmr/src</Path>
+      </File>
+      <File>
+        <Name>usb_billboard.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>tx_semaphore_performance_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_context_save.S</Name>
+        <Path>Source Files/threadx/pic32mz</Path>
+      </File>
+      <File>
+        <Name>tx_thread_identify.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_mutex_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>drv_usbhs_variant_mapping.h</Name>
+        <Path>Header Files/framework/driver/usb/usbhs/src</Path>
+      </File>
+      <File>
+        <Name>usb_hid.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>usb_device_hid_local.h</Name>
+        <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
+        <Name>txe_queue_receive.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>usb_host_hub_interface.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>txe_thread_time_slice_change.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>sys_ports.h</Name>
+        <Path>Header Files/framework/system/ports</Path>
+      </File>
+      <File>
+        <Name>tx_mutex.h</Name>
+        <Path>Header Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_event_flags_performance_system_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_mutex_put.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>usb_device_mapping.h</Name>
+        <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
+        <Name>tx_trace_isr_enter_insert.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_system_suspend.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_trace_event_filter.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_trace_enable.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_timer_performance_system_info_get.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>drv_usbhs_local.h</Name>
+        <Path>Header Files/framework/driver/usb/usbhs/src</Path>
+      </File>
+      <File>
+        <Name>txe_timer_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>drv_usbhs_device.c</Name>
+        <Path>Source Files/framework/driver/usb/usbhs/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>tx_queue_front_send.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_stack_build.S</Name>
+        <Path>Source Files/threadx/pic32mz</Path>
+      </File>
+      <File>
+        <Name>tx_thread_timeout.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_thread_suspend.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_mutex_delete.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>tx_timer_system_deactivate.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>usb_host_client_driver.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>txe_queue_send.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+      <File>
+        <Name>txe_queue_create.c</Name>
+        <Path>Source Files/threadx</Path>
+      </File>
+    </Files>
+    <Templates>
+      <Template>
+        <Name>bsp.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk/bsp</Path>
+        <Checksum>DD885EBE1893567826AD0E35E9F24594</Checksum>
+        <ProjectFileChecksum>B3A701B08E915DC5FD6FFAD3864956EC</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>main.c</Name>
+        <Path>Source Files/app</Path>
+      </Template>
+      <Template>
+        <Name>system_init.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>66C2879366221A86DD27A45C6E907359</Checksum>
+        <ProjectFileChecksum>8B60B8303B46957504880455329A35D4</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>app1.c</Name>
+        <Path>Source Files/app</Path>
+      </Template>
+      <Template>
+        <Name>sys_clk_static.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/system/clk</Path>
+        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <ProjectFileChecksum>DBFD31FEC144903A3360312BE224A019</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>sys_clk_static.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/clk/src</Path>
+        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <ProjectFileChecksum>01B395FE8494CA9BB314A7C590341621</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_interrupt.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>9AF3258D5DECA63F147E097420F49B70</Checksum>
+        <ProjectFileChecksum>223A062A76F3277EC9B8B5F93ECC69D1</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>tx_user.h</Name>
+        <Path>Header Files/app/rtos_config/pic32mz_ef_sk</Path>
+        <Checksum>BEF9FBC056EDB70982A98C6390C6D182</Checksum>
+        <ProjectFileChecksum>0B2D356FB7A5AAEF74E0BC5D99B5D427</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_config.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>EF1E01955EDBFCDC7AD0F8C67B17103C</Checksum>
+        <ProjectFileChecksum>57CEB377E7FC49A30A7D7753474368AC</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>app.c</Name>
+        <Path>Source Files/app</Path>
+      </Template>
+      <Template>
+        <Name>app1.h</Name>
+        <Path>Header Files/app</Path>
+      </Template>
+      <Template>
+        <Name>sys_ports_static.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/ports/src</Path>
+        <Checksum>3DFB0BC56732FDD6D5377CC83C754517</Checksum>
+        <ProjectFileChecksum>B312B1B1D744758ED1164EC7B58CA027</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_exceptions.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
+        <ProjectFileChecksum>688A976021D47110260D3039CD5067F3</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>app.h</Name>
+        <Path>Header Files/app</Path>
+      </Template>
+      <Template>
+        <Name>system_definitions.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>5D89A72AE4A6D9DCE173DC965736723E</Checksum>
+        <ProjectFileChecksum>FC53763F7976FDC0259FFF887A20209A</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_interrupt_a.S</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>3F12D55DC2FD4E383C5DE0A6C789FAD4</Checksum>
+        <ProjectFileChecksum>6F43C4245CE2C68F1A54C60F82496F88</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>bsp.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk/bsp</Path>
+        <Checksum>F740DA09253C01A3D03B3FD6565F5267</Checksum>
+        <ProjectFileChecksum>07D16733B2F2438856E6AE1C5B0043C4</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>rtos_hooks.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>EABABE6F6504F002BE5D5D186F6DB9FA</Checksum>
+        <ProjectFileChecksum>6FE7970C1CED79C832730313A33809F1</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_tasks.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>072B35BC541096FCC07EF98E1F730983</Checksum>
+        <ProjectFileChecksum>32741ABE1D1C01C2745B3D4E855BE2F7</ProjectFileChecksum>
+      </Template>
+    </Templates>
+    <CompilerItems>
+      <C32>
+        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\threadx\usb\firmware\src"/>
+        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\threadx\usb\firmware\src\system_config\pic32mz_ef_sk"/>
+        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\framework"/>
+        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\threadx\usb\firmware\src\system_config\pic32mz_ef_sk\framework"/>
+        <Include value="../src/system_config/pic32mz_ef_sk/bsp"/>
+        <Define value="TX_INCLUDE_USER_DEFINE_FILE"/>
+        <Include value="../../../../../../third_party/rtos/ThreadX"/>
+        <Include value="../src/rtos_config/pic32mz_ef_sk"/>
+      </C32>
+    </CompilerItems>
+    <Libraries>
+      <Library value="../../../../../../bin/framework/peripheral/PIC32MZ2048EFM144_peripherals.a"/>
+    </Libraries>
+  </Manifest>
+</configuration>

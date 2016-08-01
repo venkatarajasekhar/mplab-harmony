@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration version="2.0.0.8">
+  <Designer>
+    <Assets>
+      <Settings bpp="16">
+        <MemoryLocations>
+          <MemoryLocation address="0" id="default"/>
+        </MemoryLocations>
+      </Settings>
+    </Assets>
+    <Screens height="200" width="320">
+      <Screen active="true" background="000000" clearOnShow="true" doubleBuffer="false" export="true" name="Screen1" primary="true" visible="true">
+        <Objects/>
+      </Screen>
+    </Screens>
+    <Schemes defaultSchemeName="default">
+      <Scheme name="default">
+        <Alpha>100</Alpha>
+        <BackgroundOffset>0,0</BackgroundOffset>
+        <EmbossSize>3</EmbossSize>
+        <Colors>
+          <Primary>FFFFFF</Primary>
+          <Secondary>404040</Secondary>
+          <Disabled>C0C0C0</Disabled>
+          <Background>000000</Background>
+          <EmbossLight>C0C0C0</EmbossLight>
+          <EmbossDark>404040</EmbossDark>
+          <TextPrimary>000000</TextPrimary>
+          <TextSecondary>FFFFFF</TextSecondary>
+          <TextDisabled>404040</TextDisabled>
+          <GradientStart>000000</GradientStart>
+          <GradientEnd>FFFFFF</GradientEnd>
+        </Colors>
+        <FillStyle>Color</FillStyle>
+        <BackgroundType>None</BackgroundType>
+      </Scheme>
+    </Schemes>
+  </Designer>
+  <General>
+    <HarmonyPath path="../../../.."/>
+    <Processor name="PIC32MZ2048EFM144"/>
+    <Board name=""/>
+    <ForceOptimization flag="true"/>
+    <MergeStrategy flag="ALL"/>
+  </General>
+  <Manifest>
+    <Files>
+      <File>
+        <Name>osal_impl_basic.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>sys_devcon.c</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>OSCHIP.h</Name>
+        <Path>Header Files/embOS</Path>
+      </File>
+      <File>
+        <Name>osal.h</Name>
+        <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>sys_ports.h</Name>
+        <Path>Header Files/framework/system/ports</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>sys_common.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_buffer.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_int_pic32.c</Name>
+        <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>osal_embos.c</Name>
+        <Path>Source Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>OS_Priv.h</Name>
+        <Path>Header Files/embOS</Path>
+      </File>
+      <File>
+        <Name>osal_impl_none.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_mapping.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_cache_pic32mz.S</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>osal_definitions.h</Name>
+        <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>sys_int_mapping.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>sys_int_private.h</Name>
+        <Path>Header Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_devcon.h</Name>
+        <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>system.h</Name>
+        <Path>Header Files/framework/system</Path>
+      </File>
+      <File>
+        <Name>OSInt.h</Name>
+        <Path>Header Files/embOS</Path>
+      </File>
+      <File>
+        <Name>sys_debug.h</Name>
+        <Path>Header Files/framework/system/debug</Path>
+      </File>
+      <File>
+        <Name>osal_embos.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>sys_module.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_pic32mz.c</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_local.h</Name>
+        <Path>Header Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>sys_queue.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_int.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+    </Files>
+    <Templates>
+      <Template>
+        <Name>bsp.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk/bsp</Path>
+        <Checksum>F05FA6CD752CCFEC85C6B17BF6B61604</Checksum>
+        <ProjectFileChecksum>A29E86ECB929A891DB40AE3D4EE3888E</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>main.c</Name>
+        <Path>Source Files/app</Path>
+      </Template>
+      <Template>
+        <Name>system_init.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>51D54B1FD992A9DD403C524C18EBFFD6</Checksum>
+        <ProjectFileChecksum>92A5119E405AECB25A830218788B2FE1</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>sys_clk_static.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/system/clk</Path>
+        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <ProjectFileChecksum>718601C71946BEE232E95E3B15B3FE85</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>RTOS.h</Name>
+        <Path>Header Files/app/rtos_config/pic32mz_ef_sk</Path>
+        <Checksum>5EE013B210F5F61A0B5DE6B377A3C32A</Checksum>
+        <ProjectFileChecksum>5D1332AF99BBDC62D61F62C4BB3BB090</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>sys_clk_static.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/clk/src</Path>
+        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <ProjectFileChecksum>A825860A015FCE2A0180E6A47A187624</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_interrupt.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>C934CFD980878E57EE336D976F540A07</Checksum>
+        <ProjectFileChecksum>B8326AE3BFE4373386A42D0E397E0DE7</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>RTOSInit.c</Name>
+        <Path>Source Files/app/rtos_config/pic32mz_ef_sk</Path>
+        <Checksum>7C3C5370FDD01E69F593A516163C4D65</Checksum>
+        <ProjectFileChecksum>F0CA452831E303836CA304430D3A6982</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_config.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>E036F5153BAEB084DF4655C4CEFC9CAA</Checksum>
+        <ProjectFileChecksum>0E2C2E77297F352520D091065282CF4D</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>app.c</Name>
+        <Path>Source Files/app</Path>
+      </Template>
+      <Template>
+        <Name>OS_Error.c</Name>
+        <Path>Source Files/app/rtos_config/pic32mz_ef_sk</Path>
+        <Checksum>B90C38D0534E50ED1F12503829C27C7F</Checksum>
+        <ProjectFileChecksum>2333A7C9CCFB809586D51594ACE8FC29</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>sys_ports_static.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/ports/src</Path>
+        <Checksum>3DFB0BC56732FDD6D5377CC83C754517</Checksum>
+        <ProjectFileChecksum>A1AF4094A365242216FF9152E929FDDA</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_exceptions.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
+        <ProjectFileChecksum>6C3D6BAE6070892355BEFC2E39B07E48</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>app.h</Name>
+        <Path>Header Files/app</Path>
+      </Template>
+      <Template>
+        <Name>system_definitions.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>DBEB0754128518EED6C16904F3E85E5D</Checksum>
+        <ProjectFileChecksum>7DDFF02F5FC78DADADFE253CB708D947</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_interrupt_a.S</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>3F53B946C453AA96D630786443DB1CF9</Checksum>
+        <ProjectFileChecksum>7C335740BC7664580267E6AC4D62A552</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>bsp.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk/bsp</Path>
+        <Checksum>D48E3F4A4C9EC7A73FF9E95DB499B155</Checksum>
+        <ProjectFileChecksum>C37CC215A915462F2CB63499F1D0F987</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>rtos_hooks.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>EABABE6F6504F002BE5D5D186F6DB9FA</Checksum>
+        <ProjectFileChecksum>C3706B00B2EEB96472F545531D83405F</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_tasks.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
+        <Checksum>7432E24A386A828CEDDB3D118AAB7FBC</Checksum>
+        <ProjectFileChecksum>F3531CE7757F00B053F3E6586CF887E4</ProjectFileChecksum>
+      </Template>
+    </Templates>
+    <CompilerItems>
+      <C32>
+        <Include value="D:/sources/GitSathiyan/rtos/dft_july2016/rtos/apps/rtos/embos/basic/firmware/src"/>
+        <Include value="D:/sources/GitSathiyan/rtos/dft_july2016/rtos/apps/rtos/embos/basic/firmware/src/system_config/pic32mz_ef_sk"/>
+        <Include value="D:/sources/GitSathiyan/rtos/dft_july2016/rtos/apps/rtos/embos/basic/firmware/src/pic32mz_ef_sk"/>
+        <Include value="D:/sources/GitSathiyan/rtos/dft_july2016/rtos/framework"/>
+        <Include value="D:/sources/GitSathiyan/rtos/dft_july2016/rtos/apps/rtos/embos/basic/firmware/src/system_config/pic32mz_ef_sk/framework"/>
+        <Include value="../src/system_config/pic32mz_ef_sk/bsp"/>
+        <Define value="OS_LIBMODE_DP"/>
+        <Include value="../../../../../../third_party/rtos/embOS/GenOSSrc"/>
+        <Include value="../../../../../../third_party/rtos/embOS/CPU"/>
+        <Include value="../src/rtos_config/pic32mz_ef_sk"/>
+      </C32>
+    </CompilerItems>
+    <Libraries>
+      <Library value="../../../../../../bin/framework/peripheral/PIC32MZ2048EFM144_peripherals.a"/>
+      <Library value="../../../../../../third_party/rtos/embOS/Start/Lib/RtosMips32fpuDP.a"/>
+    </Libraries>
+  </Manifest>
+</configuration>

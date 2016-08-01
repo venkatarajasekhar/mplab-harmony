@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration version="2.0.0.8">
+  <General>
+    <HarmonyPath path="../../../../.."/>
+    <Processor name="PIC32MX795F512L"/>
+    <Board name=""/>
+    <ForceOptimization flag="true"/>
+    <MergeStrategy flag="ALL"/>
+  </General>
+  <Manifest>
+    <Files>
+      <File>
+        <Name>lib_mem.h</Name>
+        <Path>Header Files/micrium/ucos_lib</Path>
+      </File>
+      <File>
+        <Name>INT.h</Name>
+        <Path>Header Files/third_party/rtos/MicriumOSII/Software/CPU/Microchip/PIC32</Path>
+      </File>
+      <File>
+        <Name>os_mem.c</Name>
+        <Path>Source Files/micrium/ucos-II</Path>
+      </File>
+      <File>
+        <Name>cpu.h</Name>
+        <Path>Header Files/micrium/ucos_cpu/pic32mx</Path>
+      </File>
+      <File>
+        <Name>lib_str.h</Name>
+        <Path>Header Files/micrium/ucos_lib</Path>
+      </File>
+      <File>
+        <Name>os_q.c</Name>
+        <Path>Source Files/micrium/ucos-II</Path>
+      </File>
+      <File>
+        <Name>os_cpu_a.S</Name>
+        <Path>Source Files/micrium/ucos-II/pic32mx</Path>
+      </File>
+      <File>
+        <Name>uart.h</Name>
+        <Path>Header Files/third_party/rtos/MicriumOSII/Software/CPU/Microchip/PIC32</Path>
+      </File>
+      <File>
+        <Name>cpu_a.s</Name>
+        <Path>Source Files/micrium/ucos_cpu/pic32mx</Path>
+      </File>
+      <File>
+        <Name>system.h</Name>
+        <Path>Header Files/third_party/rtos/MicriumOSII/Software/CPU/Microchip/PIC32</Path>
+      </File>
+      <File>
+        <Name>timer.h</Name>
+        <Path>Header Files/third_party/rtos/MicriumOSII/Software/CPU/Microchip/PIC32</Path>
+      </File>
+      <File>
+        <Name>CoreTimer.h</Name>
+        <Path>Header Files/third_party/rtos/MicriumOSII/Software/CPU/Microchip/PIC32</Path>
+      </File>
+      <File>
+        <Name>osc.h</Name>
+        <Path>Header Files/third_party/rtos/MicriumOSII/Software/CPU/Microchip/PIC32</Path>
+      </File>
+      <File>
+        <Name>sys_int_pic32.c</Name>
+        <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>os_flag.c</Name>
+        <Path>Source Files/micrium/ucos-II</Path>
+      </File>
+      <File>
+        <Name>sys_int_private.h</Name>
+        <Path>Header Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>cpu_def.h</Name>
+        <Path>Header Files/micrium/ucos_cpu</Path>
+      </File>
+      <File>
+        <Name>ports.h</Name>
+        <Path>Header Files/third_party/rtos/MicriumOSII/Software/CPU/Microchip/PIC32</Path>
+      </File>
+      <File>
+        <Name>system.h</Name>
+        <Path>Header Files/framework/system</Path>
+      </File>
+      <File>
+        <Name>lib_str.c</Name>
+        <Path>Source Files/micrium/ucos_lib</Path>
+      </File>
+      <File>
+        <Name>os_sem.c</Name>
+        <Path>Source Files/micrium/ucos-II</Path>
+      </File>
+      <File>
+        <Name>sys_int.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>osal_impl_basic.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>os_cpu.h</Name>
+        <Path>Header Files/micrium/ucos-II/pic32mx</Path>
+      </File>
+      <File>
+        <Name>ucos_ii.h</Name>
+        <Path>Header Files/micrium/ucos-II</Path>
+      </File>
+      <File>
+        <Name>os_time.c</Name>
+        <Path>Source Files/micrium/ucos-II</Path>
+      </File>
+      <File>
+        <Name>sys_devcon.c</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>osal.h</Name>
+        <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>osal_ucos2.c</Name>
+        <Path>Source Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>os_core.c</Name>
+        <Path>Source Files/micrium/ucos-II</Path>
+      </File>
+      <File>
+        <Name>os_mutex.c</Name>
+        <Path>Source Files/micrium/ucos-II</Path>
+      </File>
+      <File>
+        <Name>sys_ports.h</Name>
+        <Path>Header Files/framework/system/ports</Path>
+      </File>
+      <File>
+        <Name>osal_ucos2.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>lib_def.h</Name>
+        <Path>Header Files/third_party/rtos/MicriumOSII/Software/uC-LIB</Path>
+      </File>
+      <File>
+        <Name>sys_common.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_buffer.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>adc10.h</Name>
+        <Path>Header Files/third_party/rtos/MicriumOSII/Software/CPU/Microchip/PIC32</Path>
+      </File>
+      <File>
+        <Name>osal_impl_none.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>os_task.c</Name>
+        <Path>Source Files/micrium/ucos-II</Path>
+      </File>
+      <File>
+        <Name>os_tmr.c</Name>
+        <Path>Source Files/micrium/ucos-II</Path>
+      </File>
+      <File>
+        <Name>sys_clk_mapping.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>lib_mem.c</Name>
+        <Path>Source Files/micrium/ucos_lib</Path>
+      </File>
+      <File>
+        <Name>osal_definitions.h</Name>
+        <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>sys_int_mapping.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>sys_devcon.h</Name>
+        <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>sys_debug.h</Name>
+        <Path>Header Files/framework/system/debug</Path>
+      </File>
+      <File>
+        <Name>sys_module.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>os_cpu_c.c</Name>
+        <Path>Source Files/micrium/ucos-II/pic32mx</Path>
+      </File>
+      <File>
+        <Name>os_dbg.c</Name>
+        <Path>Header Files/micrium/ucos-II/pic32mx</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_pic32mx.c</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_local.h</Name>
+        <Path>Header Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>sys_queue.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+    </Files>
+    <Templates>
+      <Template>
+        <Name>system_definitions.h</Name>
+        <Path>Header Files/app/system_config/pic32mx_sk</Path>
+        <Checksum>F4B4CC67C36B71357B2DE4A337A75606</Checksum>
+        <ProjectFileChecksum>3275BFFA9F678FC3B4031A38B5065725</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_exceptions.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_sk</Path>
+        <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
+        <ProjectFileChecksum>B8DD5D1485A8D0636943110971692BD0</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_config.h</Name>
+        <Path>Header Files/app/system_config/pic32mx_sk</Path>
+        <Checksum>7FCB12BFF166D70FA4C4F950B9DDDD75</Checksum>
+        <ProjectFileChecksum>E5FF121E50EB462EF811CB0D07F4A6C1</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>main.c</Name>
+        <Path>Source Files/app</Path>
+      </Template>
+      <Template>
+        <Name>sys_ports_static.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_sk/framework/system/ports/src</Path>
+        <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
+        <ProjectFileChecksum>D0225E9FCBCD4CE139026F099D0D3832</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>sys_clk_static.h</Name>
+        <Path>Header Files/app/system_config/pic32mx_sk/framework/system/clk</Path>
+        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <ProjectFileChecksum>5263025C8EAD8BF40EE264944F01DD7F</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_init.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_sk</Path>
+        <Checksum>C326D86F42F01A09AA5CC7976F59B3FA</Checksum>
+        <ProjectFileChecksum>A4C2873324E475A72D9977B151C6B659</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>os_cfg.h</Name>
+        <Path>Header Files/app/rtos_config/pic32mx_sk</Path>
+        <Checksum>211FB4C52056339E4DF370BDBC2AC8D7</Checksum>
+        <ProjectFileChecksum>5500E0DB3155699059CA43FBD9B519B5</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_interrupt.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_sk</Path>
+        <Checksum>C934CFD980878E57EE336D976F540A07</Checksum>
+        <ProjectFileChecksum>E44BBA83870B93A1F114578ECDF4BE9A</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>app.c</Name>
+        <Path>Source Files/app</Path>
+      </Template>
+      <Template>
+        <Name>app_cfg.h</Name>
+        <Path>Header Files/app/rtos_config/pic32mx_sk</Path>
+        <Checksum>0AD848928B5D7D1602DAF0D55274C430</Checksum>
+        <ProjectFileChecksum>B986D1E600F4C71D2703C7FEFB022372</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>bsp.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_sk/bsp</Path>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
+      </Template>
+      <Template>
+        <Name>system_tasks.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_sk</Path>
+        <Checksum>D0CB6C751D8FD7981697209F03EF45B4</Checksum>
+        <ProjectFileChecksum>7EFAD3B54B08E529C2AD7BE8883479CD</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>sys_clk_static.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_sk/framework/system/clk/src</Path>
+        <Checksum>45DCC5FDCEA03577B1B40B781BCC20C5</Checksum>
+        <ProjectFileChecksum>C9B202E793BABA2A5F69BC4F155EDA60</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>app.h</Name>
+        <Path>Header Files/app</Path>
+      </Template>
+      <Template>
+        <Name>bsp.h</Name>
+        <Path>Header Files/app/system_config/pic32mx_sk/bsp</Path>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
+      </Template>
+      <Template>
+        <Name>system_interrupt_a.S</Name>
+        <Path>Source Files/app/system_config/pic32mx_sk</Path>
+        <Checksum>820357720FC0443C338EFE1152ED5F67</Checksum>
+        <ProjectFileChecksum>CC15E5D2375872AB339359CA7EC4E6E6</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>rtos_hooks.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_sk</Path>
+        <Checksum>EABABE6F6504F002BE5D5D186F6DB9FA</Checksum>
+        <ProjectFileChecksum>F4FBFA0191152BCF9FA393F1A01E94E1</ProjectFileChecksum>
+      </Template>
+    </Templates>
+    <CompilerItems>
+      <C32-AS>
+        <Define value="PIC32MX"/>
+        <Define value="PIC32_SRS_SET_COUNT=2"/>
+        <Include value="../../../../../../../third_party/rtos/MicriumOSII/Software/uCOS_II/Ports/MIPS32-4K/Vectored-Interrupt/MPLAB-PIC32-GCC"/>
+      </C32-AS>
+      <C32>
+        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\uC_OS_II\basic\basic_uc_OS_II\firmware\src"/>
+        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\uC_OS_II\basic\basic_uc_OS_II\firmware\src\system_config\pic32mx_sk"/>
+        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\uC_OS_II\basic\basic_uc_OS_II\firmware\src\pic32mx_sk"/>
+        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\framework"/>
+        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\uC_OS_II\basic\basic_uc_OS_II\firmware\src\system_config\pic32mx_sk\framework"/>
+        <Include value="../src/system_config/pic32mx_sk/bsp"/>
+        <Include value="../../../../../../../third_party/rtos/MicriumOSII/Software/uC-CPU/MIPS32-4K/MPLAB-PIC32-GCC"/>
+        <Include value="../../../../../../../third_party/rtos/MicriumOSII/Software/uCOS-II/Ports/MIPS32-4K/Vectored-Interrupt/MPLAB-PIC32-GCC"/>
+        <Include value="../../../../../../../third_party/rtos/MicriumOSII/Software/uCOS-II/Source"/>
+        <Include value="../../../../../../../third_party/rtos/MicriumOSII/Software/uC-CPU"/>
+        <Include value="../../../../../../../third_party/rtos/MicriumOSII/Software/uC-LIB"/>
+        <Include value="../src/rtos_config/pic32mx_sk"/>
+        <Include value="../../../../../../../third_party/rtos/MicriumOSII/Software/CPU/Microchip/PIC32"/>
+      </C32>
+    </CompilerItems>
+    <Libraries>
+      <Library value="../../../../../../../bin/framework/peripheral/PIC32MX795F512L_peripherals.a"/>
+    </Libraries>
+  </Manifest>
+</configuration>
