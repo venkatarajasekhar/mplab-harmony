@@ -306,14 +306,12 @@ const TCPIP_TCP_MODULE_CONFIG tcpipTCPInitData =
 const TCPIP_HTTP_MODULE_CONFIG tcpipHTTPInitData =
 {
     .nConnections   = TCPIP_HTTP_MAX_CONNECTIONS,
-    .nTlsConnections    = TCPIP_HTTP_MAX_TLS_CONNECTIONS,
     .dataLen		= TCPIP_HTTP_MAX_DATA_LEN,
     .sktTxBuffSize	= TCPIP_HTTP_SKT_TX_BUFF_SIZE,
     .sktRxBuffSize	= TCPIP_HTTP_SKT_RX_BUFF_SIZE,
-    .tlsSktTxBuffSize	= TCPIP_HTTP_TLS_SKT_TX_BUFF_SIZE,
-    .tlsSktRxBuffSize	= TCPIP_HTTP_TLS_SKT_RX_BUFF_SIZE,
     .configFlags	= TCPIP_HTTP_CONFIG_FLAGS,
 };
+
 
 
 
@@ -329,11 +327,16 @@ const TCPIP_DHCP_MODULE_CONFIG tcpipDHCPInitData =
 };
 
 
+/*** ICMP Server Initialization Data ***/
+const TCPIP_ICMP_MODULE_CONFIG tcpipICMPInitData = 
+{
+};
 
 /*** NBNS Server Initialization Data ***/
 const TCPIP_NBNS_MODULE_CONFIG tcpipNBNSInitData =
 { 
 };
+
 
 /*** ETH MAC Initialization Data ***/
 const TCPIP_MODULE_MAC_PIC32INT_CONFIG tcpipMACPIC32INTInitData =
@@ -406,6 +409,7 @@ const TCPIP_NETWORK_CONFIG __attribute__((unused))  TCPIP_HOSTS_CONFIGURATION[] 
 const TCPIP_STACK_MODULE_CONFIG TCPIP_STACK_MODULE_CONFIG_TBL [] =
 {
     {TCPIP_MODULE_IPV4,          0},
+    {TCPIP_MODULE_ICMP,          0},                           // TCPIP_MODULE_ICMP
     {TCPIP_MODULE_ARP,           &tcpipARPInitData},              // TCPIP_MODULE_ARP
     {TCPIP_MODULE_UDP,           &tcpipUDPInitData},              // TCPIP_MODULE_UDP,
     {TCPIP_MODULE_TCP,           &tcpipTCPInitData},              // TCPIP_MODULE_TCP,

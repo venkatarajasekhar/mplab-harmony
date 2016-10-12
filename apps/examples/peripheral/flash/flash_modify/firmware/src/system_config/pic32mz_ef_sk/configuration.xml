@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<pic32mz_ef_sk version="2.0.0.8">
+<pic32mz_ef_sk version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2048EFH144"/>
@@ -114,6 +118,10 @@
         <Path>Header Files/framework/driver</Path>
       </File>
       <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
         <Name>sys_common.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -129,12 +137,16 @@
         <Name>sys_queue.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
     </Files>
     <Templates>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/bsp</Path>
-        <Checksum>F05FA6CD752CCFEC85C6B17BF6B61604</Checksum>
+        <Checksum>DD885EBE1893567826AD0E35E9F24594</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -146,14 +158,9 @@
         <Checksum>05354A5CD89065B87E2553186180F4B7</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -163,8 +170,8 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>C46F562E81270023CC4A5BD6A2491753</Checksum>
-        <ProjectFileChecksum>78C56319C39793E9C467FF1D96DF0A7D</ProjectFileChecksum>
+        <Checksum>BDF26DBEF289199E982EA460FD0F3A15</Checksum>
+        <ProjectFileChecksum>5C99653F786A44AE773DCEBEBAA3148E</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -192,18 +199,17 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>0FFE11D7C30D8F0989F4E6FD6D2FCFCD</Checksum>
+        <Checksum>176F8A9D36A26F7C71C9BF71B5F9F07E</Checksum>
       </Template>
       <Template>
         <Name>drv_flash_static.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/driver/flash</Path>
         <Checksum>7612FC23AE86243D05F4B5B71DEEEAC8</Checksum>
-        <ProjectFileChecksum>55D71F96AD063F516449B51E72900A86</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk/bsp</Path>
-        <Checksum>D48E3F4A4C9EC7A73FF9E95DB499B155</Checksum>
+        <Checksum>F740DA09253C01A3D03B3FD6565F5267</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -213,11 +219,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/flash/flash_modify/firmware/src"/>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/flash/flash_modify/firmware/src/system_config/pic32mz_ef_sk"/>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/flash/flash_modify/firmware/src/pic32mz_ef_sk"/>
-        <Include value="E:/official/git/core_ldra/framework"/>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/flash/flash_modify/firmware/src/system_config/pic32mz_ef_sk/framework"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/flash/flash_modify/firmware/src"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/flash/flash_modify/firmware/src/system_config/pic32mz_ef_sk"/>
+        <Include value="E:/official/git/core/framework"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/flash/flash_modify/firmware/src/system_config/pic32mz_ef_sk/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk/bsp"/>
       </C32>
     </CompilerItems>

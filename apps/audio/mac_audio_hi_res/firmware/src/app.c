@@ -63,6 +63,24 @@ USB_DEVICE_AUDIO_V2_RESULT audioErr =0;
 uint32_t loopCount;
 uint32_t usbOverLap, usbCount;
 
+uint32_t LRClockSync;
+#define LRCLOCKSYNC 2000        // # of times we let the DMA ISR call syncLRClock, to make sure it is sync'ed with incoming USB packets
+// the number is somewhat arbitrary; 100 is too low and a much higher number will result in too long a delay before audio begins playing
+
+uint32_t blinkTimer, checkTimer, checkUSBtimer;
+uint8_t blinkSwitch, checkSwitch, checkUSBswitch;
+
+uint8_t led1On, led2On, led3On, led4On, led5On;
+uint32_t led1StuckOn, led2StuckOff, led2StuckOn, led3StuckOff, led3StuckOn, led5StuckOn, led5StuckOff;
+uint32_t led2StuckOnMax, led2StuckOffMax, led3StuckOnMax, led3StuckOffMax, led5StuckOnMax, led5StuckOffMax;
+
+#define LED5_TASK   1     // uncomment for LED5 to monitor APP_TASKS function
+//#define LED5_USB   1     // uncomment for LED5 to monitor USB read activity
+
+#define LEVEL1_ERROR 1      // mute, init, submit read request
+#define LEVEL2_ERROR 2      // mute, init, detach/attach usb, wait for config
+
+#define MAX_BAD_PACKETS 20
 
 // *****************************************************************************
 /* Application Data
@@ -112,7 +130,8 @@ APP_DATA appData =
     // Clock Source
     .clockSource = APP_USB_AUDIO_SAMPLING_RATE_INITIAL,
     .clockValid = 1,
-    
+ 
+#ifdef SUPPORT_ALL_SAMPLE_RATES
     .clockSourceRange.numSampleRate = 7,
     .clockSourceRange.sampleRate32.dMin = APP_USB_AUDIO_SAMPLING_RATE_32KHZ,
     .clockSourceRange.sampleRate32.dMax = APP_USB_AUDIO_SAMPLING_RATE_32KHZ,
@@ -135,6 +154,21 @@ APP_DATA appData =
     .clockSourceRange.sampleRate192.dMin = APP_USB_AUDIO_SAMPLING_RATE_192KHZ,
     .clockSourceRange.sampleRate192.dMax = APP_USB_AUDIO_SAMPLING_RATE_192KHZ,
     .clockSourceRange.sampleRate192.dRes = 0,
+#else
+    .clockSourceRange.numSampleRate = 4,        // limited to 44.1, 88.2, 176.4 and 192
+    .clockSourceRange.sampleRate44.dMin = APP_USB_AUDIO_SAMPLING_RATE_44_1KHZ,
+    .clockSourceRange.sampleRate44.dMax = APP_USB_AUDIO_SAMPLING_RATE_44_1KHZ,
+    .clockSourceRange.sampleRate44.dRes = 0,
+    .clockSourceRange.sampleRate88.dMin = APP_USB_AUDIO_SAMPLING_RATE_88_2KHZ,
+    .clockSourceRange.sampleRate88.dMax = APP_USB_AUDIO_SAMPLING_RATE_88_2KHZ,
+    .clockSourceRange.sampleRate88.dRes = 0,
+    .clockSourceRange.sampleRate176.dMin = APP_USB_AUDIO_SAMPLING_RATE_176_4KHZ,
+    .clockSourceRange.sampleRate176.dMax = APP_USB_AUDIO_SAMPLING_RATE_176_4KHZ,
+    .clockSourceRange.sampleRate176.dRes = 0,
+    .clockSourceRange.sampleRate192.dMin = APP_USB_AUDIO_SAMPLING_RATE_192KHZ,
+    .clockSourceRange.sampleRate192.dMax = APP_USB_AUDIO_SAMPLING_RATE_192KHZ,
+    .clockSourceRange.sampleRate192.dRes = 0,
+#endif    
      
     // Clock Select
     .clockSelectIndex = 1,
@@ -174,6 +208,10 @@ void APP_USBDeviceAudioEventHandler
                         if (readEventData->handle == appData.usbReadQueue.readTransferHandle[queueCount])
                         {
                             appData.usbReadQueue.dataAvailable[queueCount] = true;
+#ifdef LED5_USB                            
+                            APP_LED5_ON();
+#endif
+                            led5On = 1;                            
                             appData.codecClient.bufferSize[queueCount] = readEventData->length;
                             usbReadComplete++;
                         }
@@ -635,7 +673,18 @@ void APP_UsbDeviceEventCallBack( USB_DEVICE_EVENT event, void * pEventData, uint
     uint8_t * configuredEventData;
     switch( event )
     {
-        case USB_DEVICE_EVENT_RESET:
+        case USB_DEVICE_EVENT_RESET:            
+            // called when USB cable is plugged  in
+            APP_LED1_OFF();
+            APP_LED2_ON();
+            APP_LED3_OFF();
+            APP_LED4_ON();            
+            APP_LED5_OFF(); 
+            led1On = 0; led2On = 1; led3On = 0; led4On = 1; led1StuckOn = 0;
+            usbReadError = 0;
+            
+            muteAudio();        // mutes audio during initial plugging in of USB cable
+            
             break;
         case USB_DEVICE_EVENT_DECONFIGURED:
             // USB device is reset or device is de-configured.
@@ -665,12 +714,16 @@ void APP_UsbDeviceEventCallBack( USB_DEVICE_EVENT event, void * pEventData, uint
             break;
 
         case USB_DEVICE_EVENT_SUSPENDED:
+                // called when USB cable is unplugged
                 if(appData.isConfigured == true)
                 {
                     appData.isConfigured = false;                    
                     appData.display.status = APP_DISP_STATUS_USB_DISCONNECTED; 
-                    appData.display.update = true;   
-                    appData.state = APP_REINITIALIZE;
+                    appData.display.update = true; 
+                    
+                    muteAudio();
+                    
+                    appData.state = APP_REINITIALIZE;                   
                 }            
             break;
 
@@ -692,9 +745,75 @@ void APP_UsbDeviceEventCallBack( USB_DEVICE_EVENT event, void * pEventData, uint
             break;
     }
 }
+void doErrorRecovery(uint8_t level)
+{
+    muteAudio();
+    initData();
+    if (level > LEVEL1_ERROR)
+    {
+        USB_DEVICE_Detach(appData.usbDevHandle);                        
+        USB_DEVICE_Attach(appData.usbDevHandle);                        
+        appData.isConfigured = false;                        
+        appData.state = APP_STATE_WAIT_FOR_CONFIGURATION;
+    }
+    else
+    {
+        appData.state = APP_SUBMIT_READ_REQUEST;
+    }
+}
+
+void muteAudio ( void )
+{
+    //appData.codecClient.isMute = true;                       
+    DRV_CODEC_MuteOn(appData.codecClient.handle);
+    BSP_AK4201_AMPLIFIER_PDNOff();  // turn off amplifier
+}
+/*****************************************************
+ * This function is called from the DMA Channel 0 interrupt handler in system_interrupt.c
+ * to synchronize up the I2S LRCLK when the audio stream is restarted.  Otherwise, the left/right
+ * channels may become swapped.
+ *****************************************************/
+/******************************************************************************
+  Function:
+    void syncLRClock( void )
+ */
+
+void syncLRClock( void )
+{    
+    if (LRClockSync>0)
+    {       
+        if (LRClockSync!=1)
+        {
+            APP_LED4_OFF();
+            APP_LED4_ON();
+            led4On = 1;
+        }
+        else    // = 1, therefore will be decremented to 0 before leaving function
+        {
+            APP_LED4_OFF();
+            led4On = 0;
+            
+            PLIB_SPI_Disable(DRV_I2S_PERIPHERAL_ID_IDX0);       // turn off SPI interface
+            if (appData.codecClient.samplingRate <= APP_USB_AUDIO_SAMPLING_RATE_48KHZ)
+            {
+                PLIB_SPI_FrameSyncPulsePolaritySelect(DRV_I2S_PERIPHERAL_ID_IDX0, 1);   // invert polarity, otherwise L/R are always backwards           
+            }
+            else
+            {
+                PLIB_SPI_FrameSyncPulsePolaritySelect(DRV_I2S_PERIPHERAL_ID_IDX0, 0);   // regular polarity for higher bitrates
+            }
+            PLIB_SPI_Enable(DRV_I2S_PERIPHERAL_ID_IDX0);        // turn SPI interface back on again (restarts LRCLK)           
+            
+            DRV_CODEC_MuteOff(appData.codecClient.handle);      // if muted, unmuted
+            BSP_AK4201_AMPLIFIER_PDNOn();      // if amp was powred down, power it back up again
+        }
+
+        LRClockSync--;          // seems to work better if we do this more than once, # is defined as LRCLOCKSYNC
+    }
+}
 
 /*****************************************************
- * This function is called in from the SYS_Initialize function.
+* This function is called in from the SYS_Initialize function.
  *****************************************************/
 /******************************************************************************
   Function:
@@ -705,7 +824,7 @@ void APP_UsbDeviceEventCallBack( USB_DEVICE_EVENT event, void * pEventData, uint
  */
 
 void APP_Initialize ( void )
-{        
+{  
     return;
 }
 
@@ -720,16 +839,18 @@ void APP_Initialize ( void )
   Remarks:
     See prototype in app.h.
  */
-
 void initData ( void )
 {
     APP_LED1_OFF();
     APP_LED2_OFF();
     APP_LED3_OFF();
     APP_LED4_OFF();
+    led1On = 0; led2On = 0; led3On = 0; led4On = 0;
+    blinkSwitch = 0;
+    
     someVar=0;
     usbSkip=0; 
-    usbReadComplete=0; 
+    usbReadComplete=0;
     codecSkip=0; 
     codecWriteComplete=0;
     codecWriteCount = 0;
@@ -740,8 +861,18 @@ void initData ( void )
     appData.isWriteComplete = true;
     usbNextBuffer = 0; 
     codecNextBuffer=0;           
-    usbReadError = 0;
+    //usbReadError = 0;
     usbOverLap = 0;
+    
+    LRClockSync = LRCLOCKSYNC;
+
+    led2StuckOnMax = 0;
+    led3StuckOffMax = 0;    
+    led3StuckOnMax = 0;
+    led3StuckOffMax = 0;
+    led5StuckOnMax = 0;
+    led5StuckOffMax = 0;
+    
     /* Initializing appData members*/
     for (loopCount = 0; loopCount < APP_USB_AUDIO_BUFFER_QUEUE_MAX_COUNT; loopCount++)
     {
@@ -754,10 +885,252 @@ void initData ( void )
     }
 }
 
+void APP_TasksCheckStuck()
+{
+    // here we check for various conditions which represent potentials for the playback to hang
+    // if met, we kickstart the audio audio to resubmit a read request via USB
+    // normally during playback, LED 1 is off, and LEDs 2 and/or 3 are flashing indicating packets are being read
+    // led4 on means we are paused
+    if ((appData.codecClient.isMute==0) && (led1On!=0))               // stuck high is an error
+    {
+        led1StuckOn++;
+        if (led1StuckOn > 20)
+        {
+            initData();
+            muteAudio();
+            appData.state = APP_SUBMIT_READ_REQUEST;
+            
+            led1StuckOn = 0;
+        }
+    }
+    else if (led1On==0)
+    {
+        led1StuckOn = 0;
+    }    
+
+    if ((APP_USB_AUDIO_SAMPLING_RATE_48KHZ == appData.codecClient.samplingRate)||
+        (APP_USB_AUDIO_SAMPLING_RATE_96KHZ == appData.codecClient.samplingRate)||
+        (APP_USB_AUDIO_SAMPLING_RATE_192KHZ == appData.codecClient.samplingRate))            
+    { 
+        // for these three (48, 96 and 192 kHz), normal pattern is LED2 always off and LED3 always on
+        // so error if LED2 on, or LED3 off for more than certain minimum
+        if ((appData.codecClient.isMute==0) && (led2On!=0))           // stuck high is an error
+        {
+            led2StuckOn++;
+            if (led2StuckOn > led2StuckOnMax)
+            {
+                led2StuckOnMax = led2StuckOn;    
+            }             
+            if (led2StuckOn > 15)
+            {
+                doErrorRecovery(LEVEL1_ERROR);
+
+                led2StuckOn = 0;
+                led2StuckOnMax = 0;
+            }
+        }
+        else if (led2On==0)
+        {
+            led2StuckOn = 0;
+        } 
+        
+        if ((appData.codecClient.isMute==0) && (led3On==0))          // stuck low is an error
+        {
+            led3StuckOff++;
+            if (led3StuckOff > led3StuckOffMax)
+            {
+                led3StuckOffMax = led3StuckOff;    
+            }               
+            if (led3StuckOff > 15) 
+            {
+                doErrorRecovery(LEVEL1_ERROR);
+
+                led3StuckOff = 0;      
+                led3StuckOffMax = 0;                
+            }
+        }   
+        else if (led3On!=0)
+        {
+            led3StuckOff = 0;
+        }        
+    }
+    
+    if ((APP_USB_AUDIO_SAMPLING_RATE_32KHZ == appData.codecClient.samplingRate)||
+        (APP_USB_AUDIO_SAMPLING_RATE_44_1KHZ == appData.codecClient.samplingRate)||
+        (APP_USB_AUDIO_SAMPLING_RATE_88_2KHZ == appData.codecClient.samplingRate)||            
+        (APP_USB_AUDIO_SAMPLING_RATE_176_4KHZ == appData.codecClient.samplingRate))            
+    {
+        // for these four (32, 44.1, 88.2 and 176.4 kHz), normal pattern is LED2 to be normally high and pulsing low,
+        // and LED3 to be normally low and pulsing high       
+        if ((appData.codecClient.isMute==0) && (led2On==0))          // stuck low is an error
+        {      
+            led2StuckOff++;
+            if (led2StuckOff > led2StuckOffMax)
+            {
+                led2StuckOffMax = led2StuckOff;    
+            }             
+            if (led2StuckOff > 20)      // highest measured was 1
+            {
+                doErrorRecovery(LEVEL1_ERROR);
+                
+                led2StuckOffMax = 0;
+                led2StuckOff = 0;                
+            }
+        }  
+        else if (led2On!=0)
+        {
+            led2StuckOff = 0;
+        }
+        
+        if ((appData.codecClient.isMute==0) && (led3On!=0))          // stuck high is an error
+        {      
+            led3StuckOn++;
+            if (led3StuckOn > led3StuckOnMax)
+            {
+                led3StuckOnMax = led3StuckOn;    
+            }            
+            if (led3StuckOn > 250)      // highest measured was 150
+            {
+                doErrorRecovery(LEVEL1_ERROR);
+
+                led3StuckOn = 0;      
+                led3StuckOnMax = 0;                   
+            }
+        }
+        else if (led3On==0)
+        {
+            led3StuckOn = 0;
+        }
+
+       if ((appData.codecClient.isMute==0) && (led3On==0))          // stuck low is an error
+        {
+            led3StuckOff++;
+            if (led3StuckOff > led3StuckOffMax)
+            {
+                led3StuckOffMax = led3StuckOff;    
+            }               
+            if (led3StuckOff > 20) 
+            {
+                doErrorRecovery(LEVEL1_ERROR);
+
+                led3StuckOff = 0;      
+                led3StuckOffMax = 0;                
+            }
+        }   
+        else if (led3On!=0)
+        {
+            led3StuckOff = 0;
+        }                
+    }  
+ }
+void APP_TasksCheckUSBStuck()
+{
+   if ((appData.codecClient.isMute==0) && (led5On!=0))
+    {
+        led5StuckOff = 0;
+        led5StuckOn++;
+        if (led5StuckOn > led5StuckOnMax)
+        {
+            led5StuckOnMax = led5StuckOn;    
+        }
+        if (led5StuckOn>250)        // highest measured was 130
+        {
+            doErrorRecovery(LEVEL1_ERROR);
+
+            led5StuckOn = 0;
+            led5StuckOnMax = 0;
+        }
+    }
+    else if ((appData.codecClient.isMute==0) && (led5On==0))
+    {
+        led5StuckOn = 0;
+        led5StuckOff++;
+        if (led5StuckOff > led5StuckOffMax)
+        {
+            led5StuckOffMax = led5StuckOff;    
+        }        
+        if (led5StuckOff>250)       // highest measured was 155
+        {
+            doErrorRecovery(LEVEL1_ERROR);
+
+            led5StuckOff = 0;
+            led5StuckOffMax = 0;
+        }
+    }  
+    else if (appData.codecClient.isMute==1)
+    {
+        led5StuckOn = 0;
+        led5StuckOff = 0;
+    }
+}
+
 void APP_Tasks ( void )
 {
     bool intStatus = false;
     uint32_t usbReadCompleteStatus;
+    
+    blinkTimer++;
+    
+    if (blinkTimer & 0x8000)
+    {
+#ifdef  LED5_TASK           // enable to blink LED5 every 32000 times this function is entered,
+                            // blinks 30 times in 19 seconds (while playing music at 44.1 kHz)
+                            // 60/19 = 3.15 * 32000 = 101052 calls/sec, or every 9.85 µS
+        APP_LED5_ON();      
+#endif        
+        if (blinkSwitch==0)
+        {
+            blinkSwitch = 1;   //lockout
+        }
+    }
+    else
+    {
+#ifdef  LED5_TASK
+        APP_LED5_OFF();
+#endif        
+        if (blinkSwitch==1)
+        {
+            blinkSwitch = 0;   //lockout         
+        }               
+    }
+    
+    if (appData.isConfigured)
+    {
+        if (blinkTimer & 0x8000)                
+        {                               // for now, this is executed every 317 ms        
+            if (checkSwitch==0)
+            {
+                checkSwitch = 1;   //lockout
+                //APP_TasksCheckStuck();           
+            }
+        }
+        else
+        {       
+            if (checkSwitch==1)
+            {
+                checkSwitch = 0;   //lockout
+                //APP_TasksCheckStuck();            
+            }               
+        }
+
+        if (blinkTimer & 0x0080)
+        {                              // for now, this is executed every 1.26 ms    
+            if (checkUSBswitch==0)
+            {
+                checkUSBswitch = 1;   //lockout
+                //APP_TasksCheckUSBStuck();
+            }
+        }
+        else
+        {       
+            if (checkUSBswitch==1)
+            {
+                checkUSBswitch = 0;   //lockout
+                //APP_TasksCheckUSBStuck();            
+            }               
+        }
+    }
+    
     switch(appData.state)
     {
         case APP_STATE_INIT:           
@@ -829,17 +1202,21 @@ void APP_Tasks ( void )
                 for (usbNextBuffer=0; usbNextBuffer < (APP_USB_AUDIO_BUFFER_QUEUE_MAX_COUNT-4); usbNextBuffer++)
                 {
                     audioErr = USB_DEVICE_AUDIO_V2_Read ( USB_DEVICE_INDEX_0 , &appData.usbReadQueue.readTransferHandle[usbNextBuffer], 1 , &appData.usbReadQueue.rxBuffer[usbNextBuffer], 1024 );
+#ifdef LED5_USB                            
+                    APP_LED5_OFF();
+#endif
+                    led5On = 0;
                     if (audioErr != USB_DEVICE_AUDIO_V2_RESULT_OK)
                     {
                         usbReadError++;
-                        USB_DEVICE_Detach(appData.usbDevHandle);
-                        initData();                        
-                        USB_DEVICE_Attach(appData.usbDevHandle);                        
-                        appData.isConfigured = false;                        
-                        appData.state = APP_STATE_WAIT_FOR_CONFIGURATION;
-                        break;
+                        if (usbReadError > MAX_BAD_PACKETS)
+                        {
+                            doErrorRecovery(LEVEL2_ERROR);
+                            usbReadError = 0;
+                            break;
+                        }                      
                     }                    
-                    appData.usbReadQueue.dataAvailable[usbNextBuffer] = false;
+                    //appData.usbReadQueue.dataAvailable[usbNextBuffer] = false;
                 }                                     
                 txBuffer[0] =  appData.usbFeedbackNormalValue[0];
                 txBuffer[1] =  appData.usbFeedbackNormalValue[1]; 
@@ -848,7 +1225,7 @@ void APP_Tasks ( void )
             }
 
             if (appData.isWriteComplete == true)
-            {
+            {                      
                 appData.isWriteComplete = false;
                 audioErr = USB_DEVICE_AUDIO_V2_Write ( USB_DEVICE_INDEX_0 , &appData.writeTransferHandle, 1 , txBuffer, 4 );
             }
@@ -873,14 +1250,13 @@ void APP_Tasks ( void )
                             bufferWriteError++;
                         }
                         else
-                        {
+                        {                                                   
                             codecNextBuffer++;
                         }
                     }
                 }                
                 appData.state = APP_PROCESS_DATA;
             }
-            // otherwise stays in this state until USB read is complete
          
         break;
 
@@ -889,9 +1265,11 @@ void APP_Tasks ( void )
                 bufferCount = DRV_CODEC_BufferCombinedQueueSizeGet(appData.codecClient.handle);
                 if ( bufferCount >= (appData.usbAudioBufferUpperLimit*appData.maxAudioSamples))                
                 {
-                    APP_LED2_ON();
-                    APP_LED3_OFF();
-                    APP_LED1_OFF();                    
+                    APP_LED1_ON();                     
+                    APP_LED2_OFF();
+                    APP_LED3_OFF(); 
+                    led1On = 1; led2On = 0; led3On = 0;
+                    led1StuckOn = 1;
                     /*Slow down the host data rate*/                    
                     txBuffer[0] = appData.usbFeedbackSlowDownValue[0]; 
                     txBuffer[1] = appData.usbFeedbackSlowDownValue[1]; 
@@ -900,9 +1278,12 @@ void APP_Tasks ( void )
                 }                
                 else if ( bufferCount < appData.usbAudioBufferLowerLimit*appData.maxAudioSamples)                
                 {
-                    APP_LED1_ON();
-                    APP_LED2_OFF();
-                    APP_LED3_OFF();                                    
+                    APP_LED1_OFF();
+                    APP_LED2_ON();
+                    APP_LED3_OFF();                    
+                    led1On = 1; led2On = 1; led3On = 0;
+                    led1StuckOn = 0;
+                    led2StuckOff = 0;                    
                     /*Speed up the host data rate*/
                     txBuffer[0] = appData.usbFeedbackSpeedUpValue[0];  
                     txBuffer[1] = appData.usbFeedbackSpeedUpValue[1];
@@ -913,14 +1294,15 @@ void APP_Tasks ( void )
                 {
                     APP_LED1_OFF();
                     APP_LED2_OFF();
-                    APP_LED3_ON();                    
-                    /*Revert to normal data rate*/
+                    APP_LED3_ON();
+                    led1On = 1; led2On = 0; led3On = 1;
+                    led1StuckOn = 0;
+                    led3StuckOff = 0;
                     txBuffer[0] =  appData.usbFeedbackNormalValue[0];
                     txBuffer[1] =  appData.usbFeedbackNormalValue[1]; 
                     txBuffer[2] =  appData.usbFeedbackNormalValue[2]; 
                     txBuffer[3] =  appData.usbFeedbackNormalValue[3];                                       
                 }
-                
                 if(appData.usbReadQueue.dataAvailable[codecNextBuffer] == true)
                 {
                     DRV_CODEC_BufferAddWrite(appData.codecClient.handle, &appData.codecClient.writeBufHandle[codecNextBuffer],
@@ -930,7 +1312,7 @@ void APP_Tasks ( void )
                         bufferWriteError++;
                     }
                     else
-                    {
+                    {                       
                         codecNextBuffer+=1;
                         codecNextBuffer = (codecNextBuffer == APP_USB_AUDIO_BUFFER_QUEUE_MAX_COUNT)?0:codecNextBuffer;
                     }
@@ -943,7 +1325,7 @@ void APP_Tasks ( void )
                 if(usbNextBuffer == codecNextBuffer)
                 {
                     if(bufferCount == 0)
-                    {                    
+                    {
                         usbOverLap++;         
                         /* Initializing appData members*/
                         initData();
@@ -953,6 +1335,8 @@ void APP_Tasks ( void )
                 if(appData.usbReadQueue.dataAvailable[usbNextBuffer] == false)
                 {
                     audioErr = USB_DEVICE_AUDIO_V2_Read ( USB_DEVICE_INDEX_0 , &appData.usbReadQueue.readTransferHandle[usbNextBuffer], 1 , &appData.usbReadQueue.rxBuffer[usbNextBuffer], 1024 );
+                    APP_LED5_OFF();
+                    led5On = 0;
                     if (audioErr == USB_DEVICE_AUDIO_V2_RESULT_OK)
                     {
                         usbNextBuffer+=1;
@@ -961,12 +1345,12 @@ void APP_Tasks ( void )
                     else
                     {
                         usbReadError++;
-                        USB_DEVICE_Detach(appData.usbDevHandle);
-                        initData();                        
-                        USB_DEVICE_Attach(appData.usbDevHandle);                        
-                        appData.isConfigured = false;                        
-                        appData.state = APP_STATE_WAIT_FOR_CONFIGURATION;
-                        break;
+                        if (usbReadError > MAX_BAD_PACKETS)
+                        {
+                            doErrorRecovery(LEVEL1_ERROR);
+                            usbReadError = 0;
+                        }
+                        break;                        
                     }
                 }
                 else
@@ -975,7 +1359,7 @@ void APP_Tasks ( void )
                 }
 
                 if (appData.isWriteComplete == true)
-                {
+                {                        
                     appData.isWriteComplete = false;
                     audioErr = USB_DEVICE_AUDIO_V2_Write ( USB_DEVICE_INDEX_0 , &appData.writeTransferHandle, 1 , txBuffer, 4 );
                 }
@@ -1003,6 +1387,8 @@ void APP_Tasks ( void )
             
             usbReadError = 0;
             usbOverLap = 0;
+            
+            LRClockSync = LRCLOCKSYNC;
 
             for (loopCount = 0; loopCount < APP_USB_AUDIO_BUFFER_QUEUE_MAX_COUNT; loopCount++) {
                 appData.codecClient.bufferSize[loopCount] = appData.usbAudioFrameSizeUa2;
@@ -1015,7 +1401,8 @@ void APP_Tasks ( void )
             APP_LED1_OFF();
             APP_LED2_OFF();
             APP_LED3_OFF();
-            APP_LED4_OFF();
+            led1On = 0; led2On = 0; led3On = 0;
+            //APP_LED4_OFF();
             appData.state = APP_IDLE;          
         }   
         break;
@@ -1037,15 +1424,19 @@ void APP_Tasks ( void )
                 DRV_CODEC_SamplingRateSet(appData.codecClient.handle, appData.clockSource);                
                 if(appData.lastClockSource!= appData.clockSource)
                 {
-                    appData.lastClockSource = appData.clockSource;                                    
+                    appData.lastClockSource = appData.clockSource;  // changed
+                    // these two lines commented out because we assume for now user has to pause the audio before changing sample rates
+                    //muteAudio();
+                    //LRClockSync = LRCLOCKSYNC;      // reset LRCLK
                 }
             }
 
             appData.codecClient.samplingRate = appData.clockSource;
             sprintf(appData.display.samplingRate,"%d",appData.codecClient.samplingRate);
             appData.display.status = APP_DISP_STATUS_SAMPLING_RATE;
-            appData.display.update = true;                             
+            appData.display.update = true;                                             
             appData.state = APP_IDLE;            
+           
             break;
 
         case APP_CLOCKSELECT_SET:
@@ -1053,7 +1444,7 @@ void APP_Tasks ( void )
             break;
 
         case APP_USB_INTERFACE_ALTERNATE_SETTING_RCVD:
-            if (appData.activeInterfaceAlternateSetting == APP_USB_SPEAKER_PLAYBACK_NONE)   // muted
+            if (appData.activeInterfaceAlternateSetting == APP_USB_SPEAKER_PLAYBACK_NONE)
             {        
                 memset(&appData.usbReadQueue.rxBuffer,0,sizeof(appData.usbReadQueue.rxBuffer));  
                 memset(&txBuffer, 0, sizeof (txBuffer));                
@@ -1086,7 +1477,8 @@ void APP_Tasks ( void )
                 APP_LED1_OFF();
                 APP_LED2_OFF();
                 APP_LED3_OFF();
-                APP_LED4_OFF();               
+                led1On = 0; led2On = 0; led3On = 0;
+                //APP_LED4_OFF();               
                 appData.state = APP_IDLE;
             }
             else if(appData.activeInterfaceAlternateSetting == APP_USB_SPEAKER_PLAYBACK_STEREO)
@@ -1096,8 +1488,8 @@ void APP_Tasks ( void )
             }
         break;
     
-        case APP_IDLE:
-        break;
+        case APP_IDLE:           
+        break;             
 
         case APP_DAC_MUTE:
             if(appData.isConfigured == true) 
@@ -1107,17 +1499,20 @@ void APP_Tasks ( void )
                     appData.codecClient.isMute = true;
                     appData.display.status = APP_DISP_STATUS_APP_MUTE_ON; 
                     appData.display.update = true;                        
-                    DRV_CODEC_MuteOn(appData.codecClient.handle);                  
+
+                    muteAudio();                                      
+                    initData();
+                    appData.state = APP_IDLE;                                                         
                 } 
                 else 
                 {
                     appData.codecClient.isMute = false;        
                     appData.display.status = APP_DISP_STATUS_MUTE_OFF; 
-                    appData.display.update = true;                      
-                    DRV_CODEC_MuteOff(appData.codecClient.handle);  
-                    
+                    appData.display.update = true; 
+                    LRClockSync = LRCLOCKSYNC;
                 }
-                if (appData.activeInterfaceAlternateSetting == APP_USB_SPEAKER_PLAYBACK_NONE)
+                if ((appData.activeInterfaceAlternateSetting == APP_USB_SPEAKER_PLAYBACK_NONE)||
+                    (appData.codecClient.isMute == true))
                 {
                     appData.state = APP_IDLE;
                 }
@@ -1152,12 +1547,13 @@ void APP_Tasks ( void )
                         appData.codecClient.volume = APP_VOLUME_MAX_VALUE;
                         DRV_CODEC_VolumeSet(appData.codecClient.handle, DRV_CODEC_CHANNEL_LEFT_RIGHT, appData.codecClient.volume);                  
                     }                  
-                     appData.display.volumeP = (100*appData.codecClient.volume)/APP_VOLUME_MAX_VALUE;            
-                     sprintf(appData.display.volumePercent,"%d",appData.display.volumeP);
-                     appData.display.status = APP_DISP_STATUS_VOLUME_INCREASE;
-                     appData.display.update = true;                
+                    appData.display.volumeP = (100*appData.codecClient.volume)/APP_VOLUME_MAX_VALUE;            
+                    sprintf(appData.display.volumePercent,"%d",appData.display.volumeP);
+                    appData.display.status = APP_DISP_STATUS_VOLUME_INCREASE;
+                    appData.display.update = true;                
                 }
-                if (appData.activeInterfaceAlternateSetting == APP_USB_SPEAKER_PLAYBACK_NONE)
+                if ((appData.activeInterfaceAlternateSetting == APP_USB_SPEAKER_PLAYBACK_NONE)||
+                    (appData.codecClient.isMute == true))
                 {
                     appData.state = APP_IDLE;
                 }
@@ -1196,7 +1592,8 @@ void APP_Tasks ( void )
                     appData.display.status = APP_DISP_STATUS_VOLUME_DECREASE;
                     appData.display.update = true;      
                 }
-                if (appData.activeInterfaceAlternateSetting == APP_USB_SPEAKER_PLAYBACK_NONE)
+                if ((appData.activeInterfaceAlternateSetting == APP_USB_SPEAKER_PLAYBACK_NONE)||
+                    (appData.codecClient.isMute == true))
                 {
                     appData.state = APP_IDLE;
                 }
@@ -1265,7 +1662,7 @@ uint32_t __attribute__((nomips16)) APP_ReadCoreTimer(void)
     uint32_t timer;
     // get the count reg
     asm volatile("mfc0   %0, $9" : "=r"(timer));
-    return(timer);
+    return (timer);
 }
 
 /*******************************************************************************

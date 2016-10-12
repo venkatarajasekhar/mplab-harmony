@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -87,6 +83,36 @@ extern "C" {
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         8000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       0ul
    
+/*** Command Processor System Service Configuration ***/
+#define SYS_CMD_ENABLE
+#define SYS_CMD_DEVICE_MAX_INSTANCES    SYS_CONSOLE_DEVICE_MAX_INSTANCES
+#define SYS_CMD_PRINT_BUFFER_SIZE       512
+#define SYS_CMD_BUFFER_DMA_READY
+#define SYS_CMD_REMAP_SYS_CONSOLE_MESSAGE
+#define SYS_CMD_REMAP_SYS_DEBUG_MESSAGE
+// *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
+/*** Console System Service Configuration ***/
+
+#define SYS_CONSOLE_OVERRIDE_STDIO
+#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        2
+#define SYS_CONSOLE_INSTANCES_NUMBER            1
+#define SYS_CONSOLE_APPIO_RD_QUEUE_DEPTH    8
+#define SYS_CONSOLE_APPIO_WR_QUEUE_DEPTH    128
+#define SYS_CONSOLE_BUFFER_DMA_READY
+
+
+
+/*** Debug System Service Configuration ***/
+#define SYS_DEBUG_ENABLE
+#define DEBUG_PRINT_BUFFER_SIZE       512
+#define SYS_DEBUG_BUFFER_DMA_READY
+#define SYS_DEBUG_USE_CONSOLE
+
 /*** Ports System Service Configuration ***/
 #define SYS_PORT_AD1PCFG        ~0xffdf
 #define SYS_PORT_CNPUE          0x98000
@@ -120,36 +146,29 @@ extern "C" {
 #define SYS_PORT_G_ODC          0x0000
 
 
-/*** Console System Service Configuration ***/
-
-#define SYS_CONSOLE_OVERRIDE_STDIO
-#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        2
-#define SYS_CONSOLE_INSTANCES_NUMBER            1
-#define SYS_CONSOLE_APPIO_RD_QUEUE_DEPTH    8
-#define SYS_CONSOLE_APPIO_WR_QUEUE_DEPTH    128
-#define SYS_CONSOLE_BUFFER_DMA_READY
-
-
-
-/*** Debug System Service Configuration ***/
-#define SYS_DEBUG_ENABLE
-#define DEBUG_PRINT_BUFFER_SIZE       512
-#define SYS_DEBUG_BUFFER_DMA_READY
-#define SYS_DEBUG_USE_CONSOLE
-
-/*** Command Processor System Service Configuration ***/
-#define SYS_CMD_ENABLE
-#define SYS_CMD_DEVICE_MAX_INSTANCES    SYS_CONSOLE_DEVICE_MAX_INSTANCES
-#define SYS_CMD_PRINT_BUFFER_SIZE       512
-#define SYS_CMD_BUFFER_DMA_READY
-#define SYS_CMD_REMAP_SYS_CONSOLE_MESSAGE
-#define SYS_CMD_REMAP_SYS_DEBUG_MESSAGE
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
+
+/*** Graphics Display Configuration ***/
+#define DISP_ORIENTATION                        0
+#define DISP_HOR_RESOLUTION                     480
+#define DISP_VER_RESOLUTION                     272
+#define DISP_DATA_WIDTH			                24
+#define DISP_HOR_PULSE_WIDTH                    42
+#define DISP_HOR_BACK_PORCH                     2
+#define DISP_HOR_FRONT_PORCH                    2
+#define DISP_VER_PULSE_WIDTH                    10
+#define DISP_VER_BACK_PORCH                     2
+#define DISP_VER_FRONT_PORCH                    2
+#define DISP_INV_LSHIFT                         0
+#define GFX_LCD_TYPE                            GFX_LCD_TFT
+#define BACKLIGHT_ENABLE_LEVEL                  1
+#define BACKLIGHT_DISABLE_LEVEL                 0
+#define TCON_MODULE                             NULL
+// DOM-IGNORE-END
 
 // *****************************************************************************
 // *****************************************************************************

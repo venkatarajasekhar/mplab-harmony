@@ -94,6 +94,7 @@ void DRV_ADC_Initialize(void)
 					))
 					{ while(1);}
 
+
     PLIB_ADCHS_EarlyInterruptEnable(DRV_ADC_ID_1);
     PLIB_ADCHS_AnalogInputDataReadyInterruptEnable(DRV_ADC_ID_1, ADCHS_CLASS12_AN0);
 
@@ -110,7 +111,8 @@ void DRV_ADC_Initialize(void)
 			ADCHS_CLASS12_AN0,
 			ADCHS_TRIGGER_SOURCE_GLOBAL_SOFTWARE_EDGE
 	);
-
+    if (DEVADC0 != 0xFFFFFFFF)
+        PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ADCHS_CHANNEL_0, DEVADC0);
 
 
 

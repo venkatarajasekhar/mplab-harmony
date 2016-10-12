@@ -123,7 +123,19 @@ int32_t DRV_SPI_${taskMode}Master${bufferMode}${DRV_BIT_WIDTH}BitTasks ( struct 
             /* Check the baud rate.  If its different set the new baud rate*/
             if (pClient->baudRate != pDrvInstance->currentBaudRate)
             {
-                PLIB_SPI_BaudRateSet( spiId , SYS_CLK_PeripheralFrequencyGet(pDrvInstance->spiClk), pClient->baudRate );
+                #if defined (PLIB_SPI_ExistsBaudRateClock)
+                    if (pDrvInstance->baudClockSource == SPI_BAUD_RATE_PBCLK_CLOCK)
+                    {
+                        PLIB_SPI_BaudRateSet( spiId , SYS_CLK_PeripheralFrequencyGet(pDrvInstance->spiClk), pClient->baudRate );
+                    }
+                    else // if baud clock source is reference clock
+                    {
+                        PLIB_SPI_BaudRateSet( spiId , SYS_CLK_ReferenceFrequencyGet(CLK_BUS_REFERENCE_1), pClient->baudRate );
+                    }
+                #else
+                    PLIB_SPI_BaudRateSet( spiId , SYS_CLK_PeripheralFrequencyGet(pDrvInstance->spiClk), pClient->baudRate );
+                #endif
+
                 pDrvInstance->currentBaudRate = pClient->baudRate;
             }
             
@@ -779,6 +791,16 @@ void DRV_SPI_SetupDMA( struct DRV_SPI_DRIVER_OBJECT * pDrvInstance)
             }
             break;
     </#list>
+<#elseif CONFIG_PIC32WK == true>
+<#-- PIC32WK has SPI instances 0,1 and 2 -->
+    <#list 1..CONFIG_SPI_NUMBER_OF_MODULES?number as idx>
+            case SPI_ID_${idx-1}:
+            {
+                txSource = DMA_TRIGGER_SPI_${idx-1}_TRANSMIT;
+                rxSource = DMA_TRIGGER_SPI_${idx-1}_RECEIVE;
+            }
+            break;
+    </#list>	
 <#else>
     <#list 1..CONFIG_SPI_NUMBER_OF_MODULES?number as idx>
             case SPI_ID_${idx}:

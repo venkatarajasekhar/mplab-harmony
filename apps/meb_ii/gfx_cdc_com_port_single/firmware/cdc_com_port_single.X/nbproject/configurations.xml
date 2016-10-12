@@ -11,11 +11,17 @@
               <itemPath>../src/system_config/pic32mz_ef_sk_meb2/bsp/bsp.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/sys_clk_static.h</itemPath>
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
                 </logicalFolder>
-                <logicalFolder name="f2" displayName="dma" projectFiles="true">
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
+                <logicalFolder name="f1" displayName="dma" projectFiles="true">
                   <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/dma/sys_dma_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
@@ -32,21 +38,9 @@
         <logicalFolder name="f1" displayName="driver" projectFiles="true">
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="controller" projectFiles="true">
-              <logicalFolder name="f1" displayName="lcc" projectFiles="true">
-                <itemPath>../../../../../framework/driver/gfx/controller/lcc/drv_gfx_lcc.h</itemPath>
-              </logicalFolder>
               <itemPath>../../../../../framework/driver/gfx/controller/drv_gfx_controller.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/driver/gfx/gfx_common.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="f4" displayName="pmp" projectFiles="true">
-            <logicalFolder name="f1" displayName="config" projectFiles="true">
-              <itemPath>../../../../../framework/driver/pmp/config/drv_pmp_config.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f2" displayName="src" projectFiles="true">
-              <itemPath>../../../../../framework/driver/pmp/src/drv_pmp_local.h</itemPath>
-            </logicalFolder>
-            <itemPath>../../../../../framework/driver/pmp/drv_pmp.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="tmr" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
@@ -73,9 +67,6 @@
         <logicalFolder name="f2" displayName="gfx" projectFiles="true">
           <itemPath>../../../../../framework/gfx/gfx.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_primitive.h</itemPath>
-          <itemPath>../../../../../framework/gfx/gfx_gol.h</itemPath>
-          <itemPath>../../../../../framework/gfx/gfx_gol_scheme.h</itemPath>
-          <itemPath>../../../../../framework/gfx/gfx_gol_edit_box.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_colors.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_types_font.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_types_macros.h</itemPath>
@@ -83,11 +74,12 @@
           <itemPath>../../../../../framework/gfx/gfx_types_palette.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_types_resource.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_palette.h</itemPath>
-          <itemPath>../../../../../framework/gfx/gfx_gol_scan_codes.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_gol_check_box.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_gol_button.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_gol_custom_control.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_gol_digital_meter.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_edit_box.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_gol_group_box.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_gol_list_box.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_gol_meter.h</itemPath>
@@ -99,6 +91,8 @@
           <itemPath>../../../../../framework/gfx/gfx_gol_surface.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_gol_text_entry.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_gol_window.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_scheme.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_scan_codes.h</itemPath>
         </logicalFolder>
         <logicalFolder name="f5" displayName="net" projectFiles="true">
           <logicalFolder name="f1" displayName="pres" projectFiles="true">
@@ -113,7 +107,7 @@
             <itemPath>../../../../../framework/net/pres/net_pres_socketapiconversion.h</itemPath>
           </logicalFolder>
         </logicalFolder>
-        <logicalFolder name="f6" displayName="osal" projectFiles="true">
+        <logicalFolder name="f3" displayName="osal" projectFiles="true">
           <logicalFolder name="f1" displayName="src" projectFiles="true">
             <itemPath>../../../../../framework/osal/src/osal_impl_basic.h</itemPath>
             <itemPath>../../../../../framework/osal/src/osal_impl_none.h</itemPath>
@@ -132,43 +126,44 @@
           <itemPath>../../../../../framework/peripheral/peripheral_common.h</itemPath>
           <itemPath>../../../../../framework/peripheral/peripheral_common_32bit.h</itemPath>
         </logicalFolder>
-        <logicalFolder name="f3" displayName="system" projectFiles="true">
-          <logicalFolder name="f7" displayName="clk" projectFiles="true">
+        <logicalFolder name="f4" displayName="system" projectFiles="true">
+          <logicalFolder name="f1" displayName="clk" projectFiles="true">
             <itemPath>../../../../../framework/system/clk/sys_clk.h</itemPath>
+            <itemPath>../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
             <itemPath>../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f1" displayName="common" projectFiles="true">
+          <logicalFolder name="f2" displayName="common" projectFiles="true">
             <itemPath>../../../../../framework/system/common/sys_common.h</itemPath>
             <itemPath>../../../../../framework/system/common/sys_module.h</itemPath>
             <itemPath>../../../../../framework/system/common/sys_buffer.h</itemPath>
             <itemPath>../../../../../framework/system/common/sys_queue.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f8" displayName="debug" projectFiles="true">
+          <logicalFolder name="f3" displayName="debug" projectFiles="true">
             <itemPath>../../../../../framework/system/debug/sys_debug.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="devcon" projectFiles="true">
+          <logicalFolder name="f4" displayName="devcon" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/devcon/src/sys_devcon_local.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/system/devcon/sys_devcon.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="dma" projectFiles="true">
+          <logicalFolder name="f5" displayName="dma" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/dma/src/sys_dma_local.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/system/dma/sys_dma.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f4" displayName="int" projectFiles="true">
+          <logicalFolder name="f6" displayName="int" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/int/src/sys_int_private.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/system/int/sys_int.h</itemPath>
             <itemPath>../../../../../framework/system/int/sys_int_mapping.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f5" displayName="ports" projectFiles="true">
+          <logicalFolder name="f7" displayName="ports" projectFiles="true">
             <itemPath>../../../../../framework/system/ports/sys_ports.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f6" displayName="tmr" projectFiles="true">
+          <logicalFolder name="f8" displayName="tmr" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/tmr/src/sys_tmr_local.h</itemPath>
             </logicalFolder>
@@ -176,15 +171,12 @@
           </logicalFolder>
           <itemPath>../../../../../framework/system/system.h</itemPath>
         </logicalFolder>
-        <logicalFolder name="f4" displayName="usb" projectFiles="true">
+        <logicalFolder name="f6" displayName="usb" projectFiles="true">
           <logicalFolder name="f1" displayName="src" projectFiles="true">
             <itemPath>../../../../../framework/usb/src/usb_device_local.h</itemPath>
             <itemPath>../../../../../framework/usb/src/usb_device_mapping.h</itemPath>
             <itemPath>../../../../../framework/usb/src/usb_device_cdc_local.h</itemPath>
           </logicalFolder>
-          <itemPath>../../../../../framework/usb/usb_device.h</itemPath>
-          <itemPath>../../../../../framework/usb/usb_cdc.h</itemPath>
-          <itemPath>../../../../../framework/usb/usb_device_cdc.h</itemPath>
           <itemPath>../../../../../framework/usb/usb_common.h</itemPath>
           <itemPath>../../../../../framework/usb/usb_chapter_9.h</itemPath>
           <itemPath>../../../../../framework/usb/usb_hub.h</itemPath>
@@ -192,7 +184,10 @@
           <itemPath>../../../../../framework/usb/usb_host_client_driver.h</itemPath>
           <itemPath>../../../../../framework/usb/usb_host.h</itemPath>
           <itemPath>../../../../../framework/usb/usb_host_hub_interface.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_device.h</itemPath>
           <itemPath>../../../../../framework/usb/usb_billboard.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_cdc.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_device_cdc.h</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -210,7 +205,16 @@
               <itemPath>../src/system_config/pic32mz_ef_sk_meb2/bsp/bsp.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
+                </logicalFolder>
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
                 <logicalFolder name="f1" displayName="clk" projectFiles="true">
                   <logicalFolder name="f1" displayName="src" projectFiles="true">
                     <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c</itemPath>
@@ -237,23 +241,14 @@
       </logicalFolder>
       <logicalFolder name="f1" displayName="framework" projectFiles="true">
         <logicalFolder name="f1" displayName="driver" projectFiles="true">
-          <logicalFolder name="f1" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f1" displayName="controller" projectFiles="true">
-              <logicalFolder name="f1" displayName="lcc" projectFiles="true">
-                <logicalFolder name="f1" displayName="src" projectFiles="true">
-                  <itemPath>../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c</itemPath>
-                </logicalFolder>
-              </logicalFolder>
-            </logicalFolder>
-          </logicalFolder>
-          <logicalFolder name="f2" displayName="tmr" projectFiles="true">
+          <logicalFolder name="f1" displayName="tmr" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
                 <itemPath>../../../../../framework/driver/tmr/src/dynamic/drv_tmr.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="usb" projectFiles="true">
+          <logicalFolder name="f2" displayName="usb" projectFiles="true">
             <logicalFolder name="f1" displayName="usbhs" projectFiles="true">
               <logicalFolder name="f1" displayName="src" projectFiles="true">
                 <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
@@ -290,7 +285,7 @@
               <itemPath>../../../../../framework/system/int/src/sys_int_pic32.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f5" displayName="tmr" projectFiles="true">
+          <logicalFolder name="f4" displayName="tmr" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/tmr/src/sys_tmr.c</itemPath>
             </logicalFolder>
@@ -409,7 +404,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config/pic32mz_ef_sk_meb2;../src/pic32mz_ef_sk_meb2;../../../../../framework;../src/system_config/pic32mz_ef_sk_meb2/framework;../src/system_config/pic32mz_ef_sk_meb2/bsp"/>
+                  value="../src/pic32mz_ef_sk_meb2;../src;../src/system_config/pic32mz_ef_sk_meb2;../../../../../framework;../src/system_config/pic32mz_ef_sk_meb2/framework;../src/system_config/pic32mz_ef_sk_meb2/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>

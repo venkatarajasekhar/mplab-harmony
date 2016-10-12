@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -86,7 +82,30 @@ extern "C" {
 #define SYS_CLK_UPLL_BEFORE_DIV2_FREQ       48000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         8000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       0ul
-   
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
+/*** Console System Service Configuration ***/
+
+#define SYS_CONSOLE_OVERRIDE_STDIO
+#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        2
+#define SYS_CONSOLE_INSTANCES_NUMBER            1
+#define SYS_CONSOLE_UART_IDX               DRV_USART_INDEX_0
+#define SYS_CONSOLE_UART_RD_QUEUE_DEPTH    1
+#define SYS_CONSOLE_UART_WR_QUEUE_DEPTH    64
+#define SYS_CONSOLE_BUFFER_DMA_READY
+
+
+
+/*** Debug System Service Configuration ***/
+#define SYS_DEBUG_ENABLE
+#define DEBUG_PRINT_BUFFER_SIZE       512
+#define SYS_DEBUG_BUFFER_DMA_READY
+#define SYS_DEBUG_USE_CONSOLE
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
@@ -122,24 +141,6 @@ extern "C" {
 #define SYS_PORT_G_LAT          0x0000
 #define SYS_PORT_G_ODC          0x0000
 
-
-/*** Console System Service Configuration ***/
-
-#define SYS_CONSOLE_OVERRIDE_STDIO
-#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        2
-#define SYS_CONSOLE_INSTANCES_NUMBER            1
-#define SYS_CONSOLE_UART_IDX               DRV_USART_INDEX_0
-#define SYS_CONSOLE_UART_RD_QUEUE_DEPTH    1
-#define SYS_CONSOLE_UART_WR_QUEUE_DEPTH    64
-#define SYS_CONSOLE_BUFFER_DMA_READY
-
-
-
-/*** Debug System Service Configuration ***/
-#define SYS_DEBUG_ENABLE
-#define DEBUG_PRINT_BUFFER_SIZE       512
-#define SYS_DEBUG_BUFFER_DMA_READY
-#define SYS_DEBUG_USE_CONSOLE
 
 // *****************************************************************************
 // *****************************************************************************
@@ -192,7 +193,7 @@ extern "C" {
 // *****************************************************************************
 // *****************************************************************************
 /*** OSAL Configuration ***/
-#define OSAL_USE_RTOS          1
+#define OSAL_USE_RTOS          9
 
 // *****************************************************************************
 /* BSP Configuration Options

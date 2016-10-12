@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.11">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2048EFH144"/>
@@ -28,6 +32,10 @@
       <File>
         <Name>croutine.c</Name>
         <Path>Source Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>portmacro.h</Name>
@@ -162,6 +170,10 @@
         <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -234,7 +246,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_freertos</Path>
-        <Checksum>5B811D0877F8E0C1CC122AFCFD17525A</Checksum>
+        <Checksum>71BE830FD648C91B7F05491F9B006732</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -273,6 +285,7 @@
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_freertos</Path>
         <Checksum>6E17D646FD71EA64215AC20F9065EAE2</Checksum>
+        <ProjectFileChecksum>845F84E005C029B899D2396BB1BDB342</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_rtcc_static.h</Name>
@@ -282,7 +295,7 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_freertos</Path>
-        <Checksum>B6DEE7DA05C95620907CBDA81AE60E30</Checksum>
+        <Checksum>2446D022524EBD50067548EA6050C57C</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -321,10 +334,10 @@
         <Include value="../src/system_config/pic32mz_ef_sk_freertos"/>
       </C32-AS>
       <C32>
-        <Include value="E:\harmony\core\apps\examples\peripheral\rtcc\rtcc_alarm\firmware\src"/>
-        <Include value="E:\harmony\core\apps\examples\peripheral\rtcc\rtcc_alarm\firmware\src\system_config\pic32mz_ef_sk_freertos"/>
-        <Include value="E:\harmony\core\framework"/>
-        <Include value="E:\harmony\core\apps\examples\peripheral\rtcc\rtcc_alarm\firmware\src\system_config\pic32mz_ef_sk_freertos\framework"/>
+        <Include value="E:/harmony/core/apps/examples/peripheral/rtcc/rtcc_alarm/firmware/src"/>
+        <Include value="E:/harmony/core/apps/examples/peripheral/rtcc/rtcc_alarm/firmware/src/system_config/pic32mz_ef_sk_freertos"/>
+        <Include value="E:/harmony/core/framework"/>
+        <Include value="E:/harmony/core/apps/examples/peripheral/rtcc/rtcc_alarm/firmware/src/system_config/pic32mz_ef_sk_freertos/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_freertos/bsp"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>

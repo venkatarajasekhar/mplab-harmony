@@ -57,7 +57,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
   Remarks:
     None
 */
-SYS_FS_REGISTRATION_TABLE gSYSFSObj[ SYS_FS_MAX_FILE_SYSTEM_TYPE ];
+SYS_FS_REGISTRATION_TABLE gSYSFSObj[SYS_FS_MAX_FILE_SYSTEM_TYPE];
 
 // *****************************************************************************
 /* Mount point
@@ -416,7 +416,7 @@ SYS_FS_RESULT _SYS_FS_DiskGet(const char *path, SYS_FS_MOUNT_POINT **disk)
     uint8_t diskIndex;
     SYS_FS_MOUNT_POINT *diskMounted = (SYS_FS_MOUNT_POINT *)NULL;
 
-    if(strncmp((const char*)path, (const char *)"/mnt/",5) == 0)
+    if (strncmp((const char*)path, (const char *)"/mnt/", 5) == 0)
     {
         // Start with 0th disk and find a disk which is available (not in use)
         for(diskIndex = 0; diskIndex != SYS_FS_VOLUME_NUMBER; diskIndex++)
@@ -462,7 +462,7 @@ SYS_FS_RESULT _SYS_FS_DiskGet(const char *path, SYS_FS_MOUNT_POINT **disk)
 }
 //******************************************************************************
 /*Function:
-    void _SYS_FS_DiskNumberAppend(const char *path, uint8_t diskNumber, uint8_t *buffer, uint32_t len)
+    bool _SYS_FS_DiskNumberAppend(const char *path, uint8_t diskNumber, uint8_t *buffer, uint32_t len)
 
     Summary:
         Appends the disk number to the begining of the file name.
@@ -482,33 +482,36 @@ SYS_FS_RESULT _SYS_FS_DiskGet(const char *path, SYS_FS_MOUNT_POINT **disk)
 
 
     Returns:
-        If Success	-	SYS_FS_RES_SUCCESS
-
-        If Failure	-	SYS_FS_RES_FAILURE
+        True - If the append operation was successful.
+        False - If the append oepration was unsuccessful.
 
 		The reason for failure could be retrieved with SYS_FS_Error
   Remarks:
-	None
+    None
 ***************************************************************************/
-void _SYS_FS_DiskNumberAppend(const char *path, uint8_t diskNumber, uint8_t *buffer)
+bool _SYS_FS_DiskNumberAppend
+(
+    const char *path, 
+    uint8_t diskNumber, 
+    uint8_t *buffer
+)
 {
     const char *ptr;
-    uint32_t    len = 0;
+    uint32_t len = 0;
 
     ptr = path;
     len = strlen(path);
 
-    if (0 == strncmp(path ,"/mnt/",5))
+    if (strncmp(path, "/mnt/", 5) == 0)
     {
         /* Ignore the first 5 chars --> "/mnt/" */
         ptr = (path + 5);
         len = len - 5;
 
         /* Compare until the beginning of the path name is reached.
-           Ex: path name = "/mnt/mydrive1/test/file.txt"
-           where test is a subdirectory and file.txt a file under the sub
-           directory test.
-           Move the pointer to point to /test/file.txt
+           Ex: path name = "/mnt/mydrive1/test/file.txt" where test is a
+           subdirectory and file.txt a file under the sub directory test. Move
+           the pointer to point to /test/file.txt
         */
         while ((len) && (*ptr != '/'))
         {
@@ -517,21 +520,27 @@ void _SYS_FS_DiskNumberAppend(const char *path, uint8_t diskNumber, uint8_t *buf
         }
     }
 
-    /* Need to set up the file name with disk number. Initialize
-     * the path name array. */
-    memset(buffer, 0, FAT_FS_MAX_LFN);
+    if ((len + 3) > SYS_FS_PATH_LEN_WITH_DISK_NUM)
+    {
+        return false;
+    }
 
-     /* Append "0:" before the file name. This is required
-     * for different disks */
+    memset(buffer, 0, len + 3);
+
+     /* Append "0:" before the file name. This is required for different disks
+      * */
     *buffer++ = diskNumber + '0';
     *buffer++ = ':';
 
-    /* If the file name doesn't exist the the given path do not copy to buffer */
-    if (len != 0)
+    if (len)
     {
-        /* Form the name with the drive letter */
-        strcpy((char *)buffer, (const char *)ptr);
+        strncpy((char *)buffer, (const char *)ptr, len);
+        len ++;
     }
+
+    buffer[len] = '\0';
+
+    return true;
 }
 
 //******************************************************************************
@@ -610,22 +619,37 @@ bool _SYS_FS_StringWildCardCompare(const char * ptr1, const char *ptr2)
 
 //******************************************************************************
 /* Function:
-	SYS_FS_HANDLE SYS_FS_FileOpen(const char* fname, int attributes);
+    SYS_FS_HANDLE SYS_FS_FileOpen
+    (
+        const char* fname, 
+        SYS_FS_FILE_OPEN_ATTRIBUTES attributes
+    );
 
   Summary:
-     Open a file
+     Opens a file
 
   Description:
-	The SYS_FS_FileOpen opens a requested file.
+     This function opens a file with the requested attributes.
 
   Precondition:
-    None.
+    Prior to opening a file, the name of the volume on which the file resides
+    should be known and the volume should be mounted. 
 
   Parameters:
-    path      	     			- Path to the file
+    fname         - The name of the file to be opened along with the path.
+                    The fname format is as follows:
+                    "/mnt/volumeName/dirName/fileName" where 
+                    volumeName - name of the volume/drive
+                    dirName - name of the directory under which the file is
+                              located 
+                    fileName - name of the file to be opened
+                      
+                    The "/mnt/volumeName" portion from the fName can be omitted
+                    if the SYS_FS_CurrentDriveSet () has been invoked to set
+                    the current drive/volume.
 
-    attributes				- Access mode of the file
-
+    attributes    - Access mode of the file, of type
+                    SYS_FS_FILE_OPEN_ATTRIBUTES
 
   Returns:
         If Success: Valid handle will be returned
@@ -637,14 +661,14 @@ bool _SYS_FS_StringWildCardCompare(const char * ptr1, const char *ptr2)
 
 SYS_FS_HANDLE SYS_FS_FileOpen
 (
- const char *fname,
- SYS_FS_FILE_OPEN_ATTRIBUTES attributes
- )
+    const char *fname,
+    SYS_FS_FILE_OPEN_ATTRIBUTES attributes
+)
 {
     int fileStatus = SYS_FS_ERROR_NOT_READY;
     uint32_t j = 0;
     SYS_FS_OBJ * obj = (SYS_FS_OBJ *)NULL;
-    uint8_t pathWithDiskNo[FAT_FS_MAX_LFN] = {};
+    uint8_t pathWithDiskNo[SYS_FS_PATH_LEN_WITH_DISK_NUM] = {};
     const uint8_t *Temp  = (const uint8_t *)NULL;
     SYS_FS_MOUNT_POINT *disk = (SYS_FS_MOUNT_POINT *) NULL;
     uint8_t mode = 0;
@@ -657,8 +681,11 @@ SYS_FS_HANDLE SYS_FS_FileOpen
     }
 
     /* Now, get the file name with disk number appended in front like this "0:file.txt" */
-    _SYS_FS_DiskNumberAppend(fname, (uint8_t)disk->diskNumber, pathWithDiskNo);
-
+    if (_SYS_FS_DiskNumberAppend(fname, (uint8_t)disk->diskNumber, pathWithDiskNo) == false)
+    {
+        errorValue = SYS_FS_ERROR_INVALID_NAME;
+        return SYS_FS_HANDLE_INVALID;
+    }
 
     /* For MPFS file system, opening a file is possible only in "READ" mode */
     if((disk->fsType == MPFS2) && (attributes != SYS_FS_FILE_OPEN_READ))
@@ -1363,14 +1390,15 @@ bool SYS_FS_FileEOF
   Remarks:
 	None
 */
+
 SYS_FS_RESULT SYS_FS_FileStat
 (
     const char *fname,
     SYS_FS_FSTAT *buf
- )
+)
 {
     int fileStatus = -1;
-    uint8_t pathWithDiskNo[FAT_FS_MAX_LFN] = {};
+    uint8_t pathWithDiskNo[SYS_FS_PATH_LEN_WITH_DISK_NUM] = {};
     SYS_FS_MOUNT_POINT *disk = (SYS_FS_MOUNT_POINT *) NULL;
 
     /* Get disk number */
@@ -1385,8 +1413,11 @@ SYS_FS_RESULT SYS_FS_FileStat
     }
 
     /* Now, get the file name with disk number appended in front like this "0:file.txt" */
-    _SYS_FS_DiskNumberAppend(fname, (uint8_t)disk->diskNumber, pathWithDiskNo);
-
+    if (_SYS_FS_DiskNumberAppend(fname, (uint8_t)disk->diskNumber, pathWithDiskNo) == false)
+    {
+        errorValue = SYS_FS_ERROR_INVALID_NAME;
+        return SYS_FS_RES_FAILURE;
+    }
 
     if(disk->fsFunctions->fstat == NULL)
     {
@@ -1619,7 +1650,7 @@ void SYS_FS_Tasks ( void )
 SYS_FS_RESULT SYS_FS_DirectoryMake(const char* path)
 {
     volatile int fileStatus = SYS_FS_ERROR_NOT_READY;
-    uint8_t pathWithDiskNo[FAT_FS_MAX_LFN];
+    uint8_t pathWithDiskNo[SYS_FS_PATH_LEN_WITH_DISK_NUM] = {};
     SYS_FS_MOUNT_POINT *disk = (SYS_FS_MOUNT_POINT *)NULL;;
 
 
@@ -1638,7 +1669,11 @@ SYS_FS_RESULT SYS_FS_DirectoryMake(const char* path)
     }
 
     /* Now, get the file name with disk number appended in front like this "0:file.txt" */
-    _SYS_FS_DiskNumberAppend(path, (uint8_t)disk->diskNumber, pathWithDiskNo);
+    if (_SYS_FS_DiskNumberAppend(path, (uint8_t)disk->diskNumber, pathWithDiskNo) == false)
+    {
+        errorValue = SYS_FS_ERROR_INVALID_NAME;
+        return SYS_FS_RES_FAILURE;
+    }
 
     if(disk->fsFunctions->mkdir == NULL)
     {
@@ -1691,7 +1726,7 @@ SYS_FS_RESULT SYS_FS_DirectoryMake(const char* path)
 SYS_FS_RESULT SYS_FS_DirectoryChange(const char* path)
 {
     volatile int fileStatus = SYS_FS_ERROR_NOT_READY;
-    uint8_t pathWithDiskNo[FAT_FS_MAX_LFN] = {};
+    uint8_t pathWithDiskNo[SYS_FS_PATH_LEN_WITH_DISK_NUM] = {};
     SYS_FS_MOUNT_POINT *disk = (SYS_FS_MOUNT_POINT *) NULL;
 
     /* Get disk number */
@@ -1709,7 +1744,11 @@ SYS_FS_RESULT SYS_FS_DirectoryChange(const char* path)
     }
 
     /* Now, get the file name with disk number appended in front like this "0:file.txt" */
-    _SYS_FS_DiskNumberAppend(path, (uint8_t)disk->diskNumber, pathWithDiskNo);
+    if(_SYS_FS_DiskNumberAppend(path, (uint8_t)disk->diskNumber, pathWithDiskNo) == false)
+    {
+        errorValue = SYS_FS_ERROR_INVALID_NAME;
+        return SYS_FS_RES_FAILURE;
+    }
 
     if(disk->fsFunctions->chdir == NULL)
     {
@@ -1767,7 +1806,7 @@ SYS_FS_RESULT SYS_FS_DirectoryChange(const char* path)
 SYS_FS_RESULT SYS_FS_FileDirectoryRemove(const char* path)
 {
     volatile int fileStatus = SYS_FS_ERROR_NOT_READY;
-    uint8_t pathWithDiskNo[FAT_FS_MAX_LFN] = {};
+    uint8_t pathWithDiskNo[SYS_FS_PATH_LEN_WITH_DISK_NUM] = {};
     SYS_FS_MOUNT_POINT *disk = (SYS_FS_MOUNT_POINT *) NULL;
 
     /* Get disk number */
@@ -1785,7 +1824,11 @@ SYS_FS_RESULT SYS_FS_FileDirectoryRemove(const char* path)
     }
 
     /* Now, get the file name with disk number appended in front like this "0:file.txt" */
-    _SYS_FS_DiskNumberAppend(path, (uint8_t)disk->diskNumber, pathWithDiskNo);
+    if (_SYS_FS_DiskNumberAppend(path, (uint8_t)disk->diskNumber, pathWithDiskNo) == false)
+    {
+        errorValue = SYS_FS_ERROR_INVALID_NAME;
+        return SYS_FS_RES_FAILURE;
+    }
 
     if(disk->fsFunctions->remove == NULL)
     {
@@ -2056,7 +2099,7 @@ SYS_FS_RESULT SYS_FS_DriveLabelSet(const char *drive, const char *label)
 {
     int fileStatus = SYS_FS_ERROR_NOT_READY;
     SYS_FS_MOUNT_POINT *disk = (SYS_FS_MOUNT_POINT *) NULL;
-    char pathWithDiskNo[FAT_FS_MAX_LFN] = {};
+    char pathWithDiskNo[SYS_FS_PATH_LEN_WITH_DISK_NUM] = {};
 
     if(label == NULL)
     {
@@ -2424,7 +2467,7 @@ SYS_FS_RESULT SYS_FS_FileDirectoryModeSet(const char* fname, SYS_FS_FILE_DIR_ATT
         SYS_FS_FILE_DIR_ATTR mask)
 {
     int fileStatus = SYS_FS_ERROR_NOT_READY;
-    uint8_t pathWithDiskNo[FAT_FS_MAX_LFN] = {};
+    uint8_t pathWithDiskNo[SYS_FS_PATH_LEN_WITH_DISK_NUM] = {};
     SYS_FS_MOUNT_POINT *disk = (SYS_FS_MOUNT_POINT *) NULL;
 
     /* Get disk number */
@@ -2442,7 +2485,11 @@ SYS_FS_RESULT SYS_FS_FileDirectoryModeSet(const char* fname, SYS_FS_FILE_DIR_ATT
     }
 
     /* Now, get the file name with disk number appended in front like this "0:file.txt" */
-    _SYS_FS_DiskNumberAppend(fname, (uint8_t)disk->diskNumber, pathWithDiskNo);
+    if (_SYS_FS_DiskNumberAppend(fname, (uint8_t)disk->diskNumber, pathWithDiskNo) == false)
+    {
+        errorValue = SYS_FS_ERROR_INVALID_NAME;
+        return SYS_FS_RES_FAILURE;
+    }
 
     /* Now, call the real file open function */
 
@@ -2506,7 +2553,7 @@ SYS_FS_RESULT SYS_FS_FileDirectoryModeSet(const char* fname, SYS_FS_FILE_DIR_ATT
 SYS_FS_RESULT SYS_FS_FileDirectoryTimeSet(const char* fname, SYS_FS_TIME *time)
 {
     int fileStatus = SYS_FS_ERROR_NOT_READY;
-    uint8_t pathWithDiskNo[FAT_FS_MAX_LFN] = {};
+    uint8_t pathWithDiskNo[SYS_FS_PATH_LEN_WITH_DISK_NUM] = {};
     SYS_FS_MOUNT_POINT *disk = (SYS_FS_MOUNT_POINT *) NULL;
     SYS_FS_FSTAT stat = {};
 
@@ -2525,7 +2572,11 @@ SYS_FS_RESULT SYS_FS_FileDirectoryTimeSet(const char* fname, SYS_FS_TIME *time)
     }
 
     /* Now, get the file name with disk number appended in front like this "0:file.txt" */
-    _SYS_FS_DiskNumberAppend(fname, (uint8_t)disk->diskNumber, pathWithDiskNo);
+    if (_SYS_FS_DiskNumberAppend(fname, (uint8_t)disk->diskNumber, pathWithDiskNo) == false)
+    {
+        errorValue = SYS_FS_ERROR_INVALID_NAME;
+        return SYS_FS_RES_FAILURE;
+    }
 
     /* Now, transfer the time from elements of "SYS_FS_TIME" to elements of "SYS_FS_FSTAT" */
     stat.fdate = time->timeDate.date;
@@ -2593,8 +2644,8 @@ SYS_FS_RESULT SYS_FS_FileDirectoryTimeSet(const char* fname, SYS_FS_TIME *time)
 SYS_FS_RESULT SYS_FS_FileDirectoryRenameMove(const char *oldPath, const char *newPath)
 {
     int fileStatus = SYS_FS_ERROR_NOT_READY;
-    uint8_t oldPathWithDiskNo[FAT_FS_MAX_LFN] = {};
-    uint8_t newPathWithDiskNo[FAT_FS_MAX_LFN] = {};
+    uint8_t oldPathWithDiskNo[SYS_FS_PATH_LEN_WITH_DISK_NUM] = {};
+    uint8_t newPathWithDiskNo[SYS_FS_PATH_LEN_WITH_DISK_NUM] = {};
     SYS_FS_MOUNT_POINT *disk = (SYS_FS_MOUNT_POINT *) NULL;
 
     /* Get disk number */
@@ -2612,7 +2663,11 @@ SYS_FS_RESULT SYS_FS_FileDirectoryRenameMove(const char *oldPath, const char *ne
     }
 
     /* Now, get the file name with disk number appended in front like this "0:file.txt" */
-    _SYS_FS_DiskNumberAppend(oldPath, (uint8_t)disk->diskNumber, oldPathWithDiskNo);
+    if (_SYS_FS_DiskNumberAppend(oldPath, (uint8_t)disk->diskNumber, oldPathWithDiskNo) == false)
+    {
+        errorValue = SYS_FS_ERROR_INVALID_NAME;
+        return SYS_FS_RES_FAILURE;
+    }
 
     /***********************************************************************************/
     /**************************NOW, repeat the above steps for other new path***********/
@@ -2632,8 +2687,11 @@ SYS_FS_RESULT SYS_FS_FileDirectoryRenameMove(const char *oldPath, const char *ne
     }
 
     /* Now, get the file name with disk number appended in front like this "0:file.txt" */
-    _SYS_FS_DiskNumberAppend(newPath, (uint8_t)disk->diskNumber, newPathWithDiskNo);
-
+    if (_SYS_FS_DiskNumberAppend(newPath, (uint8_t)disk->diskNumber, newPathWithDiskNo) == false)
+    {
+        errorValue = SYS_FS_ERROR_INVALID_NAME;
+        return SYS_FS_RES_FAILURE;
+    }
 
     /* Now, call the real file open function */
     if(disk->fsFunctions->rename == NULL)
@@ -3214,7 +3272,7 @@ SYS_FS_RESULT SYS_FS_DriveFormat(const char* drive, SYS_FS_FORMAT fmt, uint32_t 
 SYS_FS_HANDLE SYS_FS_DirOpen(const char* path)
 {
     int fileStatus = SYS_FS_ERROR_NOT_READY;
-    uint8_t pathWithDiskNo[FAT_FS_MAX_LFN] = {};
+    uint8_t pathWithDiskNo[SYS_FS_PATH_LEN_WITH_DISK_NUM] = {};
     SYS_FS_MOUNT_POINT *disk = (SYS_FS_MOUNT_POINT *) NULL;
     uint32_t j = 0;
     SYS_FS_DIR_OBJ * obj = (SYS_FS_DIR_OBJ *) NULL;
@@ -3227,7 +3285,11 @@ SYS_FS_HANDLE SYS_FS_DirOpen(const char* path)
     }
 
     /* Now, get the file name with disk number appended in front like this "0:file.txt" */
-    _SYS_FS_DiskNumberAppend(path, (uint8_t)disk->diskNumber, pathWithDiskNo);
+    if (_SYS_FS_DiskNumberAppend(path, (uint8_t)disk->diskNumber, pathWithDiskNo) == false)
+    {
+        errorValue = SYS_FS_ERROR_INVALID_NAME;
+        return SYS_FS_HANDLE_INVALID;
+    }
 
     obj = NULL;
 

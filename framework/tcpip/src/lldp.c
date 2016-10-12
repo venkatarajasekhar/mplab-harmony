@@ -262,7 +262,7 @@ static void TCPIP_LLDP_Timeout(void)
 static bool TCPIP_LLDP_SetMulticastFilter(void)
 {
     while(lldpMcastFilterSet == false)
-    {
+    {   
         int netIx;
         TCPIP_NET_IF* pNetIf;
         const TCPIP_MAC_OBJECT*  pMacObj;
@@ -418,7 +418,7 @@ static void rxStateMachine(void)
             lldp_port.rx.rxInfoAge = false;
             if(lldp_port.rx.rcvFrame == true)
             {
-                bool rxChanges = lldp_port.rxChanges; 
+                bool rxChanges = lldp_port.rxChanges;   
                 lldp_port.rx.rcvFrame = false;
                 lldp_port.rxChanges = false;
                 if(lldp_port.rx.timers.rxTTL == 0)

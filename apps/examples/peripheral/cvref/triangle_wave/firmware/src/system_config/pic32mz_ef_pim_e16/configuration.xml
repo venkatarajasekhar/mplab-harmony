@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<pic32mz_ef_pim_e16 version="2.0.0.9">
+<pic32mz_ef_pim_e16 version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2048EFH100"/>
@@ -101,6 +105,10 @@
         <Name>sys_int.h</Name>
         <Path>Header Files/framework/system/int</Path>
       </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
     </Files>
     <Templates>
       <Template>
@@ -121,11 +129,6 @@
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_pim_e16/framework/system/ports/src</Path>
         <Checksum>D9054704DD87FED0FBA7F6E763DB9568</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_pim_e16/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -149,7 +152,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_pim_e16/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>drv_cmp_static.h</Name>
@@ -159,7 +162,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_pim_e16</Path>
-        <Checksum>88B2F05A674CD0799CA5C17DE6FCB88C</Checksum>
+        <Checksum>7F3E86E395629B5B65D83E67A203541B</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -173,7 +176,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_pim_e16</Path>
-        <Checksum>AFDA7E948D40A89441074B2D2CF7BB6B</Checksum>
+        <Checksum>94082B7552ED90284124FA9E312534BD</Checksum>
       </Template>
       <Template>
         <Name>drv_cmp_static.c</Name>
@@ -183,11 +186,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/examples/peripheral/cvref/triangle_wave/firmware/src"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/examples/peripheral/cvref/triangle_wave/firmware/src/system_config/pic32mz_ef_pim_e16"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/examples/peripheral/cvref/triangle_wave/firmware/src/pic32mz_ef_pim_e16"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/framework"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/examples/peripheral/cvref/triangle_wave/firmware/src/system_config/pic32mz_ef_pim_e16/framework"/>
+        <Include value="E:/Git/core/apps/examples/peripheral/cvref/triangle_wave/firmware/src"/>
+        <Include value="E:/Git/core/apps/examples/peripheral/cvref/triangle_wave/firmware/src/system_config/pic32mz_ef_pim_e16"/>
+        <Include value="E:/Git/core/framework"/>
+        <Include value="E:/Git/core/apps/examples/peripheral/cvref/triangle_wave/firmware/src/system_config/pic32mz_ef_pim_e16/framework"/>
         <Include value="../src/system_config/pic32mz_ef_pim_e16/bsp"/>
       </C32>
     </CompilerItems>

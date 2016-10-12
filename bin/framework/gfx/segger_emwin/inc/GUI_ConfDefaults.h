@@ -9,7 +9,7 @@
 *                                                                    *
 **********************************************************************
 
-** emWin V5.34 - Graphical user interface for embedded applications **
+** emWin V5.36 - Graphical user interface for embedded applications **
 All  Intellectual Property rights  in the Software belongs to  SEGGER.
 emWin is protected by  international copyright laws.  Knowledge of the
 source code may not be used to write a similar product.  This file may
@@ -26,16 +26,6 @@ libraries. Full source code is available at: www.segger.com
 
 We appreciate your understanding and fairness.
 ----------------------------------------------------------------------
-Licensing information
-
-Licensor:                 SEGGER Microcontroller Systems LLC
-Licensed to:              Microchip Technology Inc., 2355 W Chandler Blvd., Chandler, AZ 85224, US
-Licensed SEGGER software: emWin
-License number:           GUI-00614
-License model:            CPU Object Code License, dated Sept. 8, 2015
-Licensed product:         Any
-Licensed platform:        PIC24, PIC32, dsPIC, PIC16, PIC18 / MPLAB X Integrated Development Evironment, XC16 C Compiler, XC32 C/C++ Compiler
-Licensed number of seats: -
 ----------------------------------------------------------------------
 File        : GUI_ConfDefaults.h
 Purpose     : Defaults for GUI config switches.
@@ -50,6 +40,10 @@ Attention : Do not modify this file ! If you do, you will not
 #define  GUI_CONFDEFAULTS_H
 
 #include "GUIConf.h"
+
+#ifndef   GUI_USE_BIDI2
+  #define GUI_USE_BIDI2 1
+#endif
 
 #ifndef   LCD_MAX_LOG_COLORS
   #define LCD_MAX_LOG_COLORS 256
@@ -107,7 +101,11 @@ Attention : Do not modify this file ! If you do, you will not
 #endif
 
 #ifndef GUI_BIDI_MAX_CHARS_PER_LINE
-  #define GUI_BIDI_MAX_CHARS_PER_LINE 80
+  #if GUI_USE_BIDI2
+    #define GUI_BIDI_MAX_CHARS_PER_LINE 200
+  #else
+    #define GUI_BIDI_MAX_CHARS_PER_LINE  80
+  #endif
 #endif
 
 #ifndef GUI_SUPPORT_TOUCH

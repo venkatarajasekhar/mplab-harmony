@@ -220,7 +220,7 @@ typedef enum{
 
 //*******************************************************************************
 /* Function:
-    SPEEX_ERROR_MSG SPEEX_Initialize();
+    SPEEX_ERROR_MSG SPEEX_Initialize(uintptr_t spx_file_handle);
 
   Summary:
     Reads the Speex header page and initializes the Speex Decoder state.
@@ -244,8 +244,7 @@ typedef enum{
 
   Example:
     <code>
-    SPEEX_Cleanup();
-    APP_ERROR_MSG res = SPEEX_Initialize();
+    APP_ERROR_MSG res = SPEEX_Initialize(spx_file_handle);
     </code>
 	
 */

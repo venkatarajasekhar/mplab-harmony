@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MZ2064DAB288"/>
@@ -282,6 +286,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -395,7 +403,6 @@
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk_meb2/bsp</Path>
         <Checksum>7CCA7CD1966811EA4D95D64D6AD2DB35</Checksum>
-        <ProjectFileChecksum>EA3D75C2C874888BCF21C619121E40A5</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -406,7 +413,6 @@
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_meb2/bsp</Path>
         <Checksum>1C2469902DE8F6FA7C85AA73C4B628FF</Checksum>
-        <ProjectFileChecksum>2E59C5A3206F5286A5A0DCA1D711F24C</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -425,12 +431,12 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_meb2</Path>
-        <Checksum>E15192495C061E16D734ED84E391FD63</Checksum>
+        <Checksum>0413D70BA3B06137D7B473169B95D6A2</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk_meb2/framework/system/clk/src</Path>
-        <Checksum>FF4D629152BD260A507C21094458B50C</Checksum>
+        <Checksum>0EBBCF03BF140B322C4D11BF25C349A2</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -440,17 +446,11 @@
         <Name>nvm_disk_images.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_meb2/framework/system/fs</Path>
         <Checksum>B00B90E021F15FFD6B0B1B7F2D0650A5</Checksum>
-        <ProjectFileChecksum>49AACC6DA70E45F1792483F9E201858C</ProjectFileChecksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_da_sk_meb2/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_meb2</Path>
-        <Checksum>C862FE8950AFA59F9E3BFE968A5BEB60</Checksum>
+        <Checksum>B678974B2D621ACB69AA31EA1EC0EB7A</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -471,7 +471,6 @@
       <C32>
         <Include value="D:\trunk_sbx\apps\fs\sdcard_msd_fat_multi_disk\firmware\src"/>
         <Include value="D:\trunk_sbx\apps\fs\sdcard_msd_fat_multi_disk\firmware\src\system_config\pic32mz_da_sk_meb2"/>
-        <Include value="D:\trunk_sbx\apps\fs\sdcard_msd_fat_multi_disk\firmware\src\pic32mz_da_sk_meb2"/>
         <Include value="D:\trunk_sbx\framework"/>
         <Include value="D:\trunk_sbx\apps\fs\sdcard_msd_fat_multi_disk\firmware\src\system_config\pic32mz_da_sk_meb2\framework"/>
         <Include value="../src/system_config/pic32mz_da_sk_meb2/bsp"/>

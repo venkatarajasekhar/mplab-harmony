@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -194,6 +198,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -278,34 +286,29 @@
         <Checksum>A1731E4019AE3037833CE2E94F06A134</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn/bsp</Path>
-        <Checksum>F68C0372DEED2BB3ED0908D6ED83CB54</Checksum>
+        <Checksum>F17134C042B81B3876554237536D7229</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn</Path>
-        <Checksum>885E488E2FF01FBA3893097087F3AEFE</Checksum>
+        <Checksum>A259363FB120546E30B889A3533DA776</Checksum>
         <ProjectFileChecksum>72B96001D186DE8F42F9AA06CB55ED92</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn</Path>
-        <Checksum>9FC16A28F76EC70CC6FE623D9A86435E</Checksum>
+        <Checksum>A166C57A4AFA9616DCCEFFA0F2247DF7</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn/bsp</Path>
-        <Checksum>3DB509F6CDE7AB7F7CA13F4917B64C7D</Checksum>
+        <Checksum>8405F93FE0218536B85400099346BEF4</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -319,7 +322,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -329,7 +332,7 @@
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn</Path>
-        <Checksum>0BDE04CFAF8F9CD2246ED51A680C7D97</Checksum>
+        <Checksum>B4DA062CC3E3982C7139FE952611151A</Checksum>
         <ProjectFileChecksum>9083D11223912C6C13F9A20286559B5E</ProjectFileChecksum>
       </Template>
     </Templates>
@@ -337,7 +340,6 @@
       <C32>
         <Include value="D:\usbdev\apps\usb\device\cdc_serial_emulator\firmware\src"/>
         <Include value="D:\usbdev\apps\usb\device\cdc_serial_emulator\firmware\src\system_config\pic32mz_ef_sk_int_dyn"/>
-        <Include value="D:\usbdev\apps\usb\device\cdc_serial_emulator\firmware\src\pic32mz_ef_sk_int_dyn"/>
         <Include value="D:\usbdev\framework"/>
         <Include value="D:\usbdev\apps\usb\device\cdc_serial_emulator\firmware\src\system_config\pic32mz_ef_sk_int_dyn\framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_int_dyn/bsp"/>

@@ -186,7 +186,28 @@ typedef enum
 
 } BSP_LED_STATE;
 
+// *****************************************************************************
+/* LED Active Level
 
+  Summary:
+    Enumerates the supported LED active level.
+
+  Description:
+    This enumeration defines the supported LED sactive levels.
+
+  Remarks:
+    None.
+*/
+
+typedef enum
+{
+    /* LED active level is low */
+    BSP_LED_ACTIVE_LOW = /*DOM-IGNORE-BEGIN*/0/*DOM-IGNORE-END*/,
+
+    /* LED active level is high */
+    BSP_LED_ACTIVE_HIGH = /*DOM-IGNORE-BEGIN*/1/*DOM-IGNORE-END*/
+
+} BSP_LED_ACTIVE_LEVEL;
 // *****************************************************************************
 /* Function: 
     void BSP_LEDStateSet(BSP_LED led, BSP_LED_STATE state);

@@ -1910,9 +1910,10 @@ void USB_HOST_SCSI_TransferTasks(USB_HOST_MSD_LUN_HANDLE lunHandle)
                 else if(result == USB_HOST_MSD_RESULT_FAILURE  ||
                         result == USB_HOST_MSD_RESULT_LUN_HANDLE_INVALID)
                 {
-                    /* These errors return due to a bad handle, invalid parameter, and so on;
-                       things that no amount of spinning and retrying will fix.  In this case
-                       just set the callback and get out. */
+                    /* The USB_HOST_MSD_Transfer may fail here if the device was
+                     * disconnected or if some fatal error has occurred on the
+                     * bus. In such a case, we must stop the transfer. */
+
                     doEventCallback = true;
                 }
 
@@ -1997,6 +1998,7 @@ void USB_HOST_SCSI_TransferTasks(USB_HOST_MSD_LUN_HANDLE lunHandle)
             default:
                 break;
         }
+
         if(doEventCallback)
         {
             /* We should let the client know that transfer has failed.

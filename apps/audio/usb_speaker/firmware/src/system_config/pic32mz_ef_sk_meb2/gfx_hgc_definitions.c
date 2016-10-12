@@ -12,7 +12,7 @@
     Build-time generated implementation from the MPLAB Harmony
     Graphics Composer.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 // DOM-IGNORE-BEGIN
 /*******************************************************************************

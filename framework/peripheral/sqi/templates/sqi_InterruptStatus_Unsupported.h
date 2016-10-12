@@ -13,6 +13,8 @@
     and its Variant : Unsupported
     For following APIs :
         PLIB_SQI_InterruptFlagGet
+        PLIB_SQI_InterruptWordGet
+        PLIB_SQI_InterruptWordClear
         PLIB_SQI_ExistsInterruptStatus
 
 *******************************************************************************/
@@ -79,6 +81,40 @@ PLIB_TEMPLATE bool SQI_InterruptFlagGet_Unsupported( SQI_MODULE_ID index , SQI_I
     PLIB_ASSERT(false, "The device selected does not implement PLIB_SQI_InterruptFlagGet");
 
     return false;
+}
+
+
+//******************************************************************************
+/* Function :  SQI_InterruptWordGet_Unsupported
+
+  Summary:
+    Implements Unsupported variant of PLIB_SQI_InterruptWordGet 
+
+  Description:
+    This template implements the Unsupported variant of the PLIB_SQI_InterruptWordGet function.
+*/
+
+PLIB_TEMPLATE uint32_t SQI_InterruptWordGet_Unsupported( SQI_MODULE_ID index )
+{
+    PLIB_ASSERT(false, "The device selected does not implement PLIB_SQI_InterruptWordGet");
+
+    return (uint32_t) 0;
+}
+
+
+//******************************************************************************
+/* Function :  SQI_InterruptWordClear_Unsupported
+
+  Summary:
+    Implements Unsupported variant of PLIB_SQI_InterruptWordClear 
+
+  Description:
+    This template implements the Unsupported variant of the PLIB_SQI_InterruptWordClear function.
+*/
+
+PLIB_TEMPLATE void SQI_InterruptWordClear_Unsupported( SQI_MODULE_ID index , uint32_t flags )
+{
+    PLIB_ASSERT(false, "The device selected does not implement PLIB_SQI_InterruptWordClear");
 }
 
 

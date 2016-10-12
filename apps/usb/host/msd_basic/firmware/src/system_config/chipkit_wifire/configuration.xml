@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2048EFG100"/>
@@ -194,6 +198,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -289,11 +297,6 @@
         <Checksum>895CE429153BF46C436357BEF92AA6C2</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/chipkit_wifire/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_exceptions.c</Name>
         <Path>Source Files/app/system_config/chipkit_wifire</Path>
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
@@ -301,7 +304,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/chipkit_wifire/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -316,7 +319,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/chipkit_wifire</Path>
-        <Checksum>124550A964A0A3139B876754993A3695</Checksum>
+        <Checksum>F86E7AE7DD7C65CAD576E8FC9CA07729</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -340,7 +343,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/chipkit_wifire</Path>
-        <Checksum>EC953A4B2529FE5A24406A4DF4C30C1E</Checksum>
+        <Checksum>8A17698B438452FA08B505129412FFDF</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -354,10 +357,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\cm\Harmony\apps\usb\host\msd_basic\firmware\src"/>
-        <Include value="C:\cm\Harmony\apps\usb\host\msd_basic\firmware\src\system_config\chipkit_wifire"/>
-        <Include value="C:\cm\Harmony\framework"/>
-        <Include value="C:\cm\Harmony\apps\usb\host\msd_basic\firmware\src\system_config\chipkit_wifire\framework"/>
+        <Include value="D:\git_repositories\usb\apps\usb\host\msd_basic\firmware\src"/>
+        <Include value="D:\git_repositories\usb\apps\usb\host\msd_basic\firmware\src\system_config\chipkit_wifire"/>
+        <Include value="D:\git_repositories\usb\framework"/>
+        <Include value="D:\git_repositories\usb\apps\usb\host\msd_basic\firmware\src\system_config\chipkit_wifire\framework"/>
         <Include value="../src/system_config/chipkit_wifire/bsp"/>
       </C32>
     </CompilerItems>

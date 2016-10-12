@@ -1,39 +1,24 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Logical Link Control and Adaptation Protocol
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    channel.h
-
-  Summary:
-    Bluetooth API Library interface to the L2CAP Functions.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 #ifndef __L2CAP_CHANNEL_H
 #define __L2CAP_CHANNEL_H
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
 
 #define CID_NULL         0x0000
 #define CID_SIG          0x0001
@@ -204,19 +189,19 @@ bt_bool bt_l2cap_send_cmd(struct _bt_l2cap_mgr_s *mgr, struct _bt_hci_conn_state
 bt_bool bt_l2cap_read_data(bt_l2cap_channel_t* channel, bt_l2cap_read_data_callback_fp callback);
 
 /**
- * Summary:  Send data over an L2CAP channel
- * , Functional Group:  l2cap
+ * \brief Send data over an L2CAP channel
+ * \ingroup l2cap
  *
- * Description:  This function sends data over the specified L2CAP channel.
+ * \details This function sends data over the specified L2CAP channel.
  *
- * Parameters:  channel - The L2CAP channel to send data over.
- *   data - The pointer to the data.
- *   len - The length of the data.
- *   callback - The callback function that is called when sending the data has been completed.
+ * \param channel The L2CAP channel to send data over.
+ * \param data The pointer to the data.
+ * \param len The length of the data.
+ * \param callback The callback function that is called when sending the data has been completed.
  *
- * Returns:
- *        - TRUE if the function succeeds.
- *        - FALSE otherwise. The callback function is not called in this case.
+ * \return
+ *        \li \c TRUE if the function succeeds.
+ *        \li \c FALSE otherwise. The callback function is not called in this case. 
 */
 bt_bool bt_l2cap_send_data(bt_l2cap_channel_t* channel, const bt_byte_p data, bt_int len, 
 	bt_l2cap_send_data_callback_fp callback, void* cb_param);

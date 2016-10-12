@@ -57,12 +57,6 @@ typedef struct
 // stack private API
 // 
    
-bool TCPIP_IPV4_TaskPending (void);
-
-void TCPIP_IPV4_Task (void);
-
-// misc IP functions
-// 
 
 bool TCPIP_IPV4_Initialize(const TCPIP_STACK_MODULE_CTRL* const stackInit, const TCPIP_IPV4_MODULE_CONFIG* pIpInit);
 void TCPIP_IPV4_DeInitialize(const TCPIP_STACK_MODULE_CTRL* const stackInit);
@@ -95,6 +89,20 @@ IPV4_FILTER_HANDLE      IPv4RegisterFilter(IPV4_FILTER_FUNC handler, const void*
 // returns true or false if no such handler registered
 bool                    Ipv4DeRegisterFilter(IPV4_FILTER_HANDLE hFilter);
 
+
+// helper to transform a RX packet to a TX packet
+// IPv4 header:
+//          - source and destination addresses are switched
+//          - total length and fragment info are converted to network order
+//          - data segment is re-adjusted with the IPv4 header length
+// MAC header:
+//          - source and destination addresses are switched
+//          - data segment is re-adjusted with the MAC header length
+//
+void                    TCPIP_IPV4_MacPacketSwitchTxToRx(TCPIP_MAC_PACKET* pRxPkt);
+
+
+// 
 
 #endif // _IPV4_MANAGER_H_
 

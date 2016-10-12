@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -9,10 +13,6 @@
   </General>
   <Manifest>
     <Files>
-      <File>
-        <Name>drv_pmp.h</Name>
-        <Path>Header Files/framework/driver/pmp</Path>
-      </File>
       <File>
         <Name>osal_impl_basic.h</Name>
         <Path>Header Files/framework/osal/src</Path>
@@ -24,10 +24,6 @@
       <File>
         <Name>sys_devcon.c</Name>
         <Path>Source Files/framework/system/devcon/src</Path>
-      </File>
-      <File>
-        <Name>drv_pmp_config.h</Name>
-        <Path>Header Files/framework/driver/pmp/config</Path>
       </File>
       <File>
         <Name>sys_dma.h</Name>
@@ -46,20 +42,12 @@
         <Path>Header Files/framework/system/ports</Path>
       </File>
       <File>
-        <Name>drv_gfx_lcc_int_pe.c</Name>
-        <Path>Source Files/framework/driver/gfx/controller/lcc/src</Path>
-      </File>
-      <File>
         <Name>driver.h</Name>
         <Path>Header Files/framework/driver</Path>
       </File>
       <File>
         <Name>sys_devcon_cache.h</Name>
         <Path>Source Files/framework/system/devcon/src</Path>
-      </File>
-      <File>
-        <Name>drv_pmp_local.h</Name>
-        <Path>Header Files/framework/driver/pmp/src</Path>
       </File>
       <File>
         <Name>sys_common.h</Name>
@@ -76,6 +64,10 @@
       <File>
         <Name>gfx_common.h</Name>
         <Path>Header Files/framework/driver/gfx</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -142,20 +134,11 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
-        <Name>drv_gfx_lcc.h</Name>
-        <Path>Header Files/framework/driver/gfx/controller/lcc</Path>
-      </File>
-      <File>
         <Name>sys_int.h</Name>
         <Path>Header Files/framework/system/int</Path>
       </File>
     </Files>
     <Templates>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
       <Template>
         <Name>main.c</Name>
         <Path>Source Files/app</Path>
@@ -163,7 +146,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>B94CFE04367183B963A60799A54C52F4</Checksum>
+        <Checksum>F8C0BF7BD088AFBBE8D239274E48D6B2</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -181,9 +164,14 @@
         <Checksum>3DFB0BC56732FDD6D5377CC83C754517</Checksum>
       </Template>
       <Template>
+        <Name>drv_gfx_lcc_generic.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>43202FF875E91AE678E480419B7F819E</Checksum>
+      </Template>
+      <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>897EDF63E80E27B7D40A81BAC66176AB</Checksum>
+        <Checksum>698C7620AAC63B12E67741D1652973CF</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -205,6 +193,11 @@
         <Checksum>E25CE2E8561A30622F0189580F28A92A</Checksum>
       </Template>
       <Template>
+        <Name>drv_gfx_lcc_generic.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>F4F43432E95696173C5E3E32925D34CA</Checksum>
+      </Template>
+      <Template>
         <Name>app.h</Name>
         <Path>Header Files/app</Path>
       </Template>
@@ -216,7 +209,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -226,11 +219,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="E:\git\harmony_trunk\gfx\apps\meb_ii\segger_emwin\firmware\src"/>
-        <Include value="E:\git\harmony_trunk\gfx\apps\meb_ii\segger_emwin\firmware\src\system_config\pic32mz_ef_sk_meb2"/>
-        <Include value="E:\git\harmony_trunk\gfx\apps\meb_ii\segger_emwin\firmware\src\pic32mz_ef_sk_meb2"/>
-        <Include value="E:\git\harmony_trunk\gfx\framework"/>
-        <Include value="E:\git\harmony_trunk\gfx\apps\meb_ii\segger_emwin\firmware\src\system_config\pic32mz_ef_sk_meb2\framework"/>
+        <Include value="C:\Git_harmony_trunk\gfx_dev\apps\meb_ii\segger_emwin\firmware\src"/>
+        <Include value="C:\Git_harmony_trunk\gfx_dev\apps\meb_ii\segger_emwin\firmware\src\system_config\pic32mz_ef_sk_meb2"/>
+        <Include value="C:\Git_harmony_trunk\gfx_dev\framework"/>
+        <Include value="C:\Git_harmony_trunk\gfx_dev\apps\meb_ii\segger_emwin\firmware\src\system_config\pic32mz_ef_sk_meb2\framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_meb2/bsp"/>
         <Include value="../../../../../bin/framework/gfx/segger_emwin/inc"/>
       </C32>

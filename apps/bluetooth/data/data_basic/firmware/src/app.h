@@ -63,6 +63,7 @@ extern "C" {
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /* PIC32 related includes */
 #include <p32xxxx.h>
@@ -115,8 +116,12 @@ extern "C" {
 
 /* Error and assert support */
 #include "app_error.h"
+
+#ifdef ENABLE_SYS_LOG
+#include "app_queue.h"
+#endif
     
-    // Link state
+// Link state
 #define BTLINK_STATE_IDLE        0
 #define BTLINK_STATE_CONNECTING  1
 #define BTLINK_STATE_CONNECTED   2
@@ -209,6 +214,9 @@ typedef enum
     APP_STATE_BT_RESET_MODULE_PROCESSING,
     APP_STATE_BT_SETUP_USART_DRIVER,
     APP_STATE_SETUP_BUTTON_TIMER,
+#ifdef ENABLE_SYS_LOG
+    APP_STATE_BT_SYS_LOG,
+#endif
     APP_STATE_BT_TASK_RUN,
     APP_STATE_BUTTON_TASK_RUN,
     APP_STATE_ERROR,

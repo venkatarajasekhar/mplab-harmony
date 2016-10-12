@@ -89,7 +89,19 @@ int32_t DRV_SPI_ISRMasterEBM8BitTasks ( struct DRV_SPI_DRIVER_OBJECT * pDrvInsta
             /* Check the baud rate.  If its different set the new baud rate*/
             if (pClient->baudRate != pDrvInstance->currentBaudRate)
             {
-                PLIB_SPI_BaudRateSet( spiId , SYS_CLK_PeripheralFrequencyGet(pDrvInstance->spiClk), pClient->baudRate );
+                #if defined (PLIB_SPI_ExistsBaudRateClock)
+                    if (pDrvInstance->baudClockSource == SPI_BAUD_RATE_PBCLK_CLOCK)
+                    {
+                        PLIB_SPI_BaudRateSet( spiId , SYS_CLK_PeripheralFrequencyGet(pDrvInstance->spiClk), pClient->baudRate );
+                    }
+                    else // if baud clock source is reference clock
+                    {
+                        PLIB_SPI_BaudRateSet( spiId , SYS_CLK_ReferenceFrequencyGet(CLK_BUS_REFERENCE_1), pClient->baudRate );
+                    }
+                #else
+                    PLIB_SPI_BaudRateSet( spiId , SYS_CLK_PeripheralFrequencyGet(pDrvInstance->spiClk), pClient->baudRate );
+                #endif
+
                 pDrvInstance->currentBaudRate = pClient->baudRate;
             }
             

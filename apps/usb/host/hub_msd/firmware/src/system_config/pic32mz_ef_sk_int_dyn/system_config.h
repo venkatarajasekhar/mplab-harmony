@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -91,7 +87,48 @@ extern "C" {
 #define SYS_CLK_BUS_PERIPHERAL_8            200000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         24000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       0ul
-   
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
+/*** File System Service Configuration ***/
+
+#define SYS_FS_MEDIA_NUMBER         	2
+
+#define SYS_FS_VOLUME_NUMBER		(1 + 1)
+
+#define SYS_FS_AUTOMOUNT_ENABLE		true
+#define SYS_FS_MAX_FILES	    	2
+#define SYS_FS_MAX_FILE_SYSTEM_TYPE 	1
+#define SYS_FS_MEDIA_MAX_BLOCK_SIZE  	512
+#define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE 2048
+
+
+#define SYS_FS_MEDIA_TYPE_IDX0 				SYS_FS_MEDIA_TYPE_MSD
+#define SYS_FS_TYPE_IDX0 					FAT
+
+
+
+
+
+
+#define SYS_FS_MEDIA_TYPE_IDX1 				SYS_FS_MEDIA_TYPE_MSD
+#define SYS_FS_TYPE_IDX1 					FAT
+
+
+
+
+
+
+
+#define SYS_FS_MEDIA_IDX0_MOUNT_NAME_VOLUME_IDX0 			"/mnt/myDrive1"
+#define SYS_FS_MEDIA_IDX0_DEVICE_NAME_VOLUME_IDX0 			"/dev/sda1"
+
+#define SYS_FS_MEDIA_IDX1_MOUNT_NAME_VOLUME_IDX0 			"/mnt/myDrive2"
+#define SYS_FS_MEDIA_IDX1_DEVICE_NAME_VOLUME_IDX0 			"/dev/sdb1"
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
@@ -186,43 +223,6 @@ extern "C" {
 #define SYS_TMR_CLIENT_TOLERANCE        10
 #define SYS_TMR_INTERRUPT_NOTIFICATION  false
 
-
-/*** File System Service Configuration ***/
-
-#define SYS_FS_MEDIA_NUMBER         	2
-
-#define SYS_FS_VOLUME_NUMBER		(1 + 1)
-
-#define SYS_FS_AUTOMOUNT_ENABLE		true
-#define SYS_FS_MAX_FILES	    	2
-#define SYS_FS_MAX_FILE_SYSTEM_TYPE 	1
-#define SYS_FS_MEDIA_MAX_BLOCK_SIZE  	512
-#define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE 2048
-
-
-#define SYS_FS_MEDIA_TYPE_IDX0 				SYS_FS_MEDIA_TYPE_MSD
-#define SYS_FS_TYPE_IDX0 					FAT
-
-
-
-
-
-
-#define SYS_FS_MEDIA_TYPE_IDX1 				SYS_FS_MEDIA_TYPE_MSD
-#define SYS_FS_TYPE_IDX1 					FAT
-
-
-
-
-
-
-
-#define SYS_FS_MEDIA_IDX0_MOUNT_NAME_VOLUME_IDX0 			"/mnt/myDrive1"
-#define SYS_FS_MEDIA_IDX0_DEVICE_NAME_VOLUME_IDX0 			"/dev/sda1"
-
-#define SYS_FS_MEDIA_IDX1_MOUNT_NAME_VOLUME_IDX0 			"/mnt/myDrive2"
-#define SYS_FS_MEDIA_IDX1_DEVICE_NAME_VOLUME_IDX0 			"/dev/sdb1"
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
@@ -252,6 +252,7 @@ extern "C" {
 // Section: Middleware & Other Library Configuration
 // *****************************************************************************
 // *****************************************************************************
+
 /*** USB Driver Configuration ***/
 
 
@@ -330,7 +331,6 @@ extern "C" {
 
 /* Number of ports supported per Instance */
 #define USB_HOST_HUB_PORTS_NUMBER            8
-
 
 
 

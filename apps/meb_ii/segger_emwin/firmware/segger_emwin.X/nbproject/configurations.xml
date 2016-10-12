@@ -11,11 +11,17 @@
               <itemPath>../src/system_config/pic32mz_ef_sk_meb2/bsp/bsp.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/sys_clk_static.h</itemPath>
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
                 </logicalFolder>
-                <logicalFolder name="f2" displayName="dma" projectFiles="true">
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
+                <logicalFolder name="f1" displayName="dma" projectFiles="true">
                   <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/dma/sys_dma_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
@@ -23,45 +29,16 @@
             <itemPath>../src/system_config/pic32mz_ef_sk_meb2/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk_meb2/system_definitions.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f3"
-                         displayName="pic32mz_ef_sk_meb2_freertos"
-                         projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
-              <itemPath>../src/system_config/pic32mz_ef_sk_meb2_freertos/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk_meb2_freertos/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
-            </logicalFolder>
-            <itemPath>../src/system_config/pic32mz_ef_sk_meb2_freertos/FreeRTOSConfig.h</itemPath>
-            <itemPath>../src/system_config/pic32mz_ef_sk_meb2_freertos/system_config.h</itemPath>
-            <itemPath>../src/system_config/pic32mz_ef_sk_meb2_freertos/system_definitions.h</itemPath>
-          </logicalFolder>
         </logicalFolder>
         <itemPath>../src/app.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="framework" projectFiles="true">
         <logicalFolder name="f1" displayName="driver" projectFiles="true">
-          <logicalFolder name="f2" displayName="gfx" projectFiles="true">
+          <logicalFolder name="f1" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="controller" projectFiles="true">
-              <logicalFolder name="f1" displayName="lcc" projectFiles="true">
-                <itemPath>../../../../../framework/driver/gfx/controller/lcc/drv_gfx_lcc.h</itemPath>
-              </logicalFolder>
               <itemPath>../../../../../framework/driver/gfx/controller/drv_gfx_controller.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/driver/gfx/gfx_common.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="f1" displayName="pmp" projectFiles="true">
-            <logicalFolder name="f1" displayName="config" projectFiles="true">
-              <itemPath>../../../../../framework/driver/pmp/config/drv_pmp_config.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f2" displayName="src" projectFiles="true">
-              <itemPath>../../../../../framework/driver/pmp/src/drv_pmp_local.h</itemPath>
-            </logicalFolder>
-            <itemPath>../../../../../framework/driver/pmp/drv_pmp.h</itemPath>
           </logicalFolder>
           <itemPath>../../../../../framework/driver/driver.h</itemPath>
           <itemPath>../../../../../framework/driver/driver_common.h</itemPath>
@@ -85,6 +62,7 @@
         <logicalFolder name="f2" displayName="system" projectFiles="true">
           <logicalFolder name="f1" displayName="clk" projectFiles="true">
             <itemPath>../../../../../framework/system/clk/sys_clk.h</itemPath>
+            <itemPath>../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
             <itemPath>../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="common" projectFiles="true">
@@ -120,29 +98,6 @@
           </logicalFolder>
           <itemPath>../../../../../framework/system/system.h</itemPath>
         </logicalFolder>
-      </logicalFolder>
-      <logicalFolder name="f3" displayName="FreeRTOS" projectFiles="true">
-        <logicalFolder name="f1" displayName="portable" projectFiles="true">
-          <logicalFolder name="f1" displayName="MPLAB" projectFiles="true">
-            <logicalFolder name="f1" displayName="PIC32MZ" projectFiles="true">
-              <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/ISR_Support.h</itemPath>
-              <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/portmacro.h</itemPath>
-            </logicalFolder>
-          </logicalFolder>
-        </logicalFolder>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/include/croutine.h</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/include/event_groups.h</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/include/FreeRTOS.h</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/include/list.h</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_wrappers.h</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/include/portable.h</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/include/projdefs.h</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/include/queue.h</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/include/semphr.h</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/include/StackMacros.h</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/include/deprecated_definitions.h</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/include/task.h</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/include/timers.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -195,7 +150,16 @@
               <itemPath>../src/system_config/pic32mz_ef_sk_meb2/bsp/bsp.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
+                </logicalFolder>
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
                 <logicalFolder name="f1" displayName="clk" projectFiles="true">
                   <logicalFolder name="f1" displayName="src" projectFiles="true">
                     <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c</itemPath>
@@ -213,55 +177,12 @@
             <itemPath>../src/system_config/pic32mz_ef_sk_meb2/system_exceptions.c</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk_meb2/system_tasks.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f3"
-                         displayName="pic32mz_ef_sk_meb2_freertos"
-                         projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
-              <itemPath>../src/system_config/pic32mz_ef_sk_meb2_freertos/bsp/bsp.c</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <logicalFolder name="f1" displayName="src" projectFiles="true">
-                    <itemPath>../src/system_config/pic32mz_ef_sk_meb2_freertos/framework/system/clk/src/sys_clk_static.c</itemPath>
-                  </logicalFolder>
-                </logicalFolder>
-                <logicalFolder name="f2" displayName="ports" projectFiles="true">
-                  <logicalFolder name="f1" displayName="src" projectFiles="true">
-                    <itemPath>../src/system_config/pic32mz_ef_sk_meb2_freertos/framework/system/ports/src/sys_ports_static.c</itemPath>
-                  </logicalFolder>
-                </logicalFolder>
-              </logicalFolder>
-            </logicalFolder>
-            <itemPath>../src/system_config/pic32mz_ef_sk_meb2_freertos/system_init.c</itemPath>
-            <itemPath>../src/system_config/pic32mz_ef_sk_meb2_freertos/system_interrupt.c</itemPath>
-            <itemPath>../src/system_config/pic32mz_ef_sk_meb2_freertos/system_exceptions.c</itemPath>
-            <itemPath>../src/system_config/pic32mz_ef_sk_meb2_freertos/system_tasks.c</itemPath>
-            <itemPath>../src/system_config/pic32mz_ef_sk_meb2_freertos/system_interrupt_a.S</itemPath>
-            <itemPath>../src/system_config/pic32mz_ef_sk_meb2_freertos/rtos_hooks.c</itemPath>
-          </logicalFolder>
         </logicalFolder>
         <itemPath>../src/app.c</itemPath>
         <itemPath>../src/main.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="framework" projectFiles="true">
-        <logicalFolder name="f1" displayName="driver" projectFiles="true">
-          <logicalFolder name="f1" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f1" displayName="controller" projectFiles="true">
-              <logicalFolder name="f1" displayName="lcc" projectFiles="true">
-                <logicalFolder name="f1" displayName="src" projectFiles="true">
-                  <itemPath>../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c</itemPath>
-                </logicalFolder>
-              </logicalFolder>
-            </logicalFolder>
-          </logicalFolder>
-        </logicalFolder>
-        <logicalFolder name="f3" displayName="osal" projectFiles="true">
-          <logicalFolder name="f1" displayName="src" projectFiles="true">
-            <itemPath>../../../../../framework/osal/src/osal_freertos.c</itemPath>
-          </logicalFolder>
-        </logicalFolder>
-        <logicalFolder name="f2" displayName="system" projectFiles="true">
+        <logicalFolder name="f1" displayName="system" projectFiles="true">
           <logicalFolder name="f1" displayName="devcon" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/devcon/src/sys_devcon.c</itemPath>
@@ -279,25 +200,6 @@
             </logicalFolder>
           </logicalFolder>
         </logicalFolder>
-      </logicalFolder>
-      <logicalFolder name="f3" displayName="FreeRTOS" projectFiles="true">
-        <logicalFolder name="f1" displayName="portable" projectFiles="true">
-          <logicalFolder name="f1" displayName="MemMang" projectFiles="true">
-            <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/portable/MemMang/heap_1.c</itemPath>
-          </logicalFolder>
-          <logicalFolder name="f2" displayName="MPLAB" projectFiles="true">
-            <logicalFolder name="f1" displayName="PIC32MZ" projectFiles="true">
-              <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/port.c</itemPath>
-              <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/port_asm.S</itemPath>
-            </logicalFolder>
-          </logicalFolder>
-        </logicalFolder>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/croutine.c</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/list.c</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/queue.c</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/tasks.c</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/timers.c</itemPath>
-        <itemPath>../../../../../third_party/rtos/FreeRTOS/Source/event_groups.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -333,7 +235,7 @@
         <targetDevice>PIC32MZ2048EFM144</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PKOBSKDEPlatformTool</platformTool>
+        <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>1.42</languageToolchainVersion>
         <platform>3</platform>
@@ -362,22 +264,6 @@
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
-      <item path="../../../../../framework/osal/src/osal_freertos.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../../../../../framework/osal/src/osal_freertos.h"
             ex="true"
             overriding="false">
@@ -410,623 +296,16 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/croutine.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/event_groups.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/include/FreeRTOS.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/include/StackMacros.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/include/croutine.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/include/deprecated_definitions.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/include/event_groups.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/include/list.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_wrappers.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/include/portable.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/include/projdefs.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/include/queue.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/include/semphr.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/include/task.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/include/timers.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/list.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/ISR_Support.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/port.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/port_asm.S"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/portmacro.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/portable/MemMang/heap_1.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/queue.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/tasks.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../third_party/rtos/FreeRTOS/Source/timers.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_freertos/FreeRTOSConfig.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_freertos/bsp/bsp.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_freertos/bsp/bsp.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_freertos/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_freertos/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_freertos/framework/system/ports/src/sys_ports_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_freertos/rtos_hooks.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_freertos/system_config.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_freertos/system_definitions.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_freertos/system_exceptions.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_freertos/system_init.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_freertos/system_interrupt.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_freertos/system_interrupt_a.S"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_freertos/system_tasks.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <C32>
         <property key="additional-warnings" value="true"/>
+        <property key="addresss-attribute-use" value="false"/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src/Config;../src;../src/system_config/pic32mz_ef_sk_meb2;../src/pic32mz_ef_sk_meb2;../../../../../framework;../src/system_config/pic32mz_ef_sk_meb2/framework;../src/system_config/pic32mz_ef_sk_meb2/bsp;../../../../../bin/framework/gfx/segger_emwin/inc"/>
+                  value="../src/Config;../src/pic32mz_ef_sk_meb2;../src;../src/system_config/pic32mz_ef_sk_meb2;../../../../../framework;../src/system_config/pic32mz_ef_sk_meb2/framework;../src/system_config/pic32mz_ef_sk_meb2/bsp;../../../../../bin/framework/gfx/segger_emwin/inc"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -1038,10 +317,10 @@
         <property key="preprocessor-macros" value=""/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
+        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
-        <appendMe value="-msoft-float"/>
       </C32>
       <C32-AR>
         <property key="additional-options-chop-files" value="false"/>
@@ -1068,6 +347,9 @@
       </C32-AS>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
+        <property key="allocate-dinit" value="false"/>
+        <property key="code-dinit" value="false"/>
+        <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
         <property key="exclude-floating-point-library" value="false"/>
         <property key="exclude-standard-libraries" value="false"/>
@@ -1084,14 +366,18 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="heap-size" value="0"/>
         <property key="input-libraries" value=""/>
+        <property key="kseg-length" value=""/>
+        <property key="kseg-origin" value=""/>
         <property key="linker-symbols" value=""/>
         <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
         <property key="no-startup-files" value="false"/>
-        <property key="oXC32ld-extra-opts" value="-msoft-float"/>
+        <property key="oXC32ld-extra-opts" value=""/>
         <property key="optimization-level" value=""/>
         <property key="preprocessor-macros" value=""/>
         <property key="remove-unused-sections" value="true"/>
         <property key="report-memory-usage" value="false"/>
+        <property key="serial-length" value=""/>
+        <property key="serial-origin" value=""/>
         <property key="stack-size" value=""/>
         <property key="symbol-stripping" value=""/>
         <property key="trace-symbols" value=""/>
@@ -1099,6 +385,7 @@
       </C32-LD>
       <C32CPP>
         <property key="additional-warnings" value="false"/>
+        <property key="addresss-attribute-use" value="false"/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -1119,6 +406,7 @@
         <property key="preprocessor-macros" value=""/>
         <property key="rtti" value="true"/>
         <property key="strict-ansi" value="false"/>
+        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -1250,6 +538,11 @@
         <property key="memories.eeprom" value="true"/>
         <property key="memories.flashdata" value="true"/>
         <property key="memories.id" value="true"/>
+        <property key="memories.instruction.ram" value="true"/>
+        <property key="memories.instruction.ram.end"
+                  value="${memories.instruction.ram.end.value}"/>
+        <property key="memories.instruction.ram.start"
+                  value="${memories.instruction.ram.start.value}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.end" value="0x1d1fffff"/>
         <property key="memories.programmemory.partition2" value="true"/>

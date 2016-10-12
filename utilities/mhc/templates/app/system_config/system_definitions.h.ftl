@@ -61,9 +61,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 <#if CONFIG_HAVE_MPLL == true>
 #include "peripheral/devcon/plib_devcon.h"
 </#if>
-<#if CONFIG_SYS_CLK_MODE == "STATIC">
-#include "system/clk/sys_clk_static.h"
-</#if></#if>
+</#if>
 <#if CONFIG_USE_SYS_DEVCON == true> 
 #include "system/devcon/sys_devcon.h"
 </#if>
@@ -201,6 +199,11 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 </#if>
 </#if>
 </#if>
+<#if CONFIG_USE_DRV_SST25 == true>
+<#if CONFIG_DRV_SST25_DRIVER_MODE == "DYNAMIC">
+#include "driver/spi_flash/sst25/drv_sst25.h"
+</#if>
+</#if>
 <#if CONFIG_USE_DRV_SST25VF020B == true>
 <#if CONFIG_DRV_SST25VF020B_DRIVER_MODE == "DYNAMIC">
 #include "driver/spi_flash/sst25vf020b/drv_sst25vf020b.h"
@@ -223,6 +226,9 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 </#if>
 <#if CONFIG_USE_SYS_PORTS == true>
 #include "system/ports/sys_ports.h"
+</#if>
+<#if CONFIG_USE_DRV_SRAM == true>
+#include "driver/sram/drv_sram.h"
 </#if>
 <#if CONFIG_USE_DRV_SDCARD == true>
 #include "driver/sdcard/drv_sdcard.h"
@@ -279,6 +285,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 <#else>
 #include "driver/spi/static/drv_spi_static.h"
 </#if>
+</#if>
+<#if CONFIG_USE_DRV_SQI == true>
+#include "driver/sqi/drv_sqi.h"
+</#if>
+<#if CONFIG_USE_DRV_SST26 == true>
+#include "driver/sqi_flash/sst26/drv_sst26.h"
 </#if>
 <#if CONFIG_DRV_ENCX24J600_USE_DRIVER == true>
 #include "driver/encx24j600/drv_encx24j600.h"
@@ -377,6 +389,9 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "wdrv_mrf24wn_common.h"
  </#if>
 </#if>
+<#if CONFIG_USE_DRV_WIFI_WK == true>
+#include "tcpip/tcpip_mac_object.h"
+</#if>
 <#if CONFIG_USE_SYS_MSG == true>
 #include "system/msg/sys_msg.h"
 </#if>
@@ -401,7 +416,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 <#if CONFIG_USE_DRV_OVM7690 == true>
 #include "driver/camera/ovm7690/drv_camera_ovm7690.h"
 </#if>
-<#if (CONFIG_3RDPARTY_RTOS_USED == "FreeRTOS_V8.x.x") || (CONFIG_3RDPARTY_RTOS_USED == "OpenRTOS_V8.x.x")>
+<#if (CONFIG_3RDPARTY_RTOS_USED == "FreeRTOS") || (CONFIG_3RDPARTY_RTOS_USED == "OpenRTOS_V8.x.x")>
 #include "FreeRTOS.h"
 #include "task.h"
 </#if>
@@ -618,6 +633,19 @@ typedef struct
     SYS_MODULE_OBJ  drvUsart5;
 </#if>
 </#if>
+<#if CONFIG_USE_DRV_SST25 == true>
+<#if CONFIG_DRV_SST25_DRIVER_MODE == "DYNAMIC">
+<#if CONFIG_DRV_SST25_INST_IDX0 == true>
+    SYS_MODULE_OBJ  drvSst25Obj0;
+</#if>
+<#if CONFIG_DRV_SST25_INST_IDX1 == true>
+    SYS_MODULE_OBJ  drvSst25Obj1;
+</#if>
+<#if CONFIG_DRV_SST25_INST_IDX2 == true>
+    SYS_MODULE_OBJ  drvSst25Obj2;
+</#if>
+</#if>
+</#if>
 <#if CONFIG_USE_DRV_SST25VF020B == true>
 <#if CONFIG_DRV_SST25VF020B_DRIVER_MODE == "DYNAMIC">
 <#if CONFIG_DRV_SST25VF020B_INST_IDX0 == true>
@@ -684,11 +712,23 @@ typedef struct
 <#if CONFIG_USE_DRV_NVM = true >
     SYS_MODULE_OBJ  drvNvm;
 </#if>
+<#if CONFIG_USE_DRV_SQI = true >
+    SYS_MODULE_OBJ  drvSqi;
+</#if>
+<#if CONFIG_DRV_SST26_INST_IDX0 == true>
+    SYS_MODULE_OBJ  drvSst26Obj0;
+</#if>
+<#if CONFIG_DRV_SST26_INST_IDX1 == true>
+    SYS_MODULE_OBJ  drvSst26Obj1;
+</#if>
 <#if CONFIG_USE_DRV_SDCARD = true >
     SYS_MODULE_OBJ  drvSDCard;
 </#if>
 <#if CONFIG_USE_DRV_SDHC = true >
     SYS_MODULE_OBJ  drvSDHC;
+</#if>
+<#if CONFIG_USE_DRV_SRAM = true >
+    SYS_MODULE_OBJ  drvSram;
 </#if>
 <#if CONFIG_USE_DRV_PMP = true >
     SYS_MODULE_OBJ  drvPMP0;
@@ -769,7 +809,7 @@ extern SYSTEM_OBJECTS sysObj;
 <#if LIST_SYSTEM_DEFINITIONS_H_EXTERNS?has_content>
 <@mhc_expand_list list=LIST_SYSTEM_DEFINITIONS_H_EXTERNS/>
 </#if>
-<#if CONFIG_USE_GFX_TRULY_32_240X320 == true>
+<#if CONFIG_USE_GFX_TCON_SSD1289 == true>
 extern void GFX_TCON_SSD1289Init(void);
 
 </#if>

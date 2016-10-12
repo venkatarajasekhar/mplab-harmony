@@ -48,7 +48,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 
 
-SPEEX_ERROR_MSG SPEEX_Initialize(void *heap)
+SPEEX_ERROR_MSG SPEEX_Initialize(uintptr_t spx_file_handle)
 {
     return SPEEX_GENERAL_ERROR;
 }

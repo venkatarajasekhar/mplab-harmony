@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -152,7 +156,7 @@
             <Visible>true</Visible>
             <ZOrder>8</ZOrder>
             <Origin>8,33</Origin>
-            <Text>audio_tone MPLAB Harmony V1.07</Text>
+            <Text>audio_tone MPLAB Harmony V2.01</Text>
             <Font>Arial12pt</Font>
             <Color>FFFFFF</Color>
           </Primitive>
@@ -581,6 +585,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>libq_C.h</Name>
+        <Path>Header Files/framework/math/libq</Path>
+      </File>
+      <File>
         <Name>sys_clk_local.h</Name>
         <Path>Header Files/framework/system/clk/src</Path>
       </File>
@@ -599,6 +607,10 @@
       <File>
         <Name>gfx_gol_meter.h</Name>
         <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
@@ -673,42 +685,42 @@
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_24bit_44100_I2S</Path>
-        <Checksum>3596CEAC1050AEDF00D2EBE03939630B</Checksum>
+        <Checksum>721C919A16F6CB2508F667E699A2330A</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_24bit_44100_I2S</Path>
-        <Checksum>3861AB58D983C81F8D94AF12346AD3AC</Checksum>
+        <Checksum>F8DEE51921C82CBED73249E587DD965E</Checksum>
       </Template>
       <Template>
         <Name>drv_pmp_static.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_24bit_44100_I2S/framework/driver/pmp/src</Path>
         <Checksum>EBA6F2FDB6E29B656D510A05D6EBFA29</Checksum>
-        <ProjectFileChecksum>6F8B1B2C860017AE756C44ABF1F17D96</ProjectFileChecksum>
+        <ProjectFileChecksum>CC5669A1A13D00B9E9473FBAE8CF9D03</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_24bit_44100_I2S</Path>
         <Checksum>F0FAAE1AAFA0C52789E71435EB1F3B0F</Checksum>
-        <ProjectFileChecksum>6709C83BE7B8830A7731108D86E31AB7</ProjectFileChecksum>
+        <ProjectFileChecksum>FC5F9795D97179B4D8FF469952A7C0B9</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_pmp_static.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_24bit_44100_I2S/framework/driver/pmp</Path>
         <Checksum>799BFBF404CEF514B5929A7011B8FCD7</Checksum>
-        <ProjectFileChecksum>91E2E94BD95189907742B8B94FD0778D</ProjectFileChecksum>
+        <ProjectFileChecksum>29016B11721B63BD9555D26D9B9B7F33</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_24bit_44100_I2S</Path>
-        <Checksum>EB71E5E635BE579784D9826DCAB60EC9</Checksum>
-        <ProjectFileChecksum>AAA909F998AF470823ED216E44079F36</ProjectFileChecksum>
+        <Checksum>27EEF995DD3767D02EEB70E19E19C745</Checksum>
+        <ProjectFileChecksum>EBBA92EDD343D4E51414AA8F6D2FEE71</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_24bit_44100_I2S</Path>
         <Checksum>9AD8D41098F09D8F5004B25AE2D642C2</Checksum>
-        <ProjectFileChecksum>B8E2A81B15267D993A4E3DADA880B653</ProjectFileChecksum>
+        <ProjectFileChecksum>A7DC2960842E233703BB3A1F02BDB0ED</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -718,25 +730,25 @@
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_24bit_44100_I2S</Path>
         <Checksum>D5B5968B183D92D685C4C464040E360E</Checksum>
-        <ProjectFileChecksum>EE84DEB9E787AC740FE4EC5C44927F41</ProjectFileChecksum>
+        <ProjectFileChecksum>B9BAE4CC7082E29AC05E6853025B52DF</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_dma_static.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_24bit_44100_I2S/framework/system/dma</Path>
         <Checksum>0CE14BBEB78DCA8EA4AE6AABF57ACD8D</Checksum>
-        <ProjectFileChecksum>C24909D77A39CC3BE197A3BCFAC34DDF</ProjectFileChecksum>
+        <ProjectFileChecksum>B534BE4908D1C6BC5CE342393CDA4847</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_adc_static.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_24bit_44100_I2S/framework/driver/adc</Path>
         <Checksum>6306FA3AA2E8E5D02F29D465112271C4</Checksum>
-        <ProjectFileChecksum>87126BDAA833C7A73F2E33597E71BA97</ProjectFileChecksum>
+        <ProjectFileChecksum>C7D74A63700E6E479B8A0377648F1DD8</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_24bit_44100_I2S</Path>
-        <Checksum>441AE7FC5A4F865786F5ED8FCF0A8C22</Checksum>
-        <ProjectFileChecksum>DA08D41CDF51BFA2E4EF06A14625D050</ProjectFileChecksum>
+        <Checksum>66BBB24C786D9D004F289E937C8F057C</Checksum>
+        <ProjectFileChecksum>6478F4F69CDAF3C32D18068BD734A5A9</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -746,25 +758,25 @@
         <Name>system_exceptions.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_24bit_44100_I2S</Path>
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
-        <ProjectFileChecksum>A256C1B6CE519851422F7C557822CFF3</ProjectFileChecksum>
+        <ProjectFileChecksum>0E9415919484090D8A26A9E787FB75B3</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_24bit_44100_I2S</Path>
-        <Checksum>DD7744B63BB882EB107F2ECD18596FE2</Checksum>
-        <ProjectFileChecksum>9BFA234B51D837ACC2F55BD6F77EF93B</ProjectFileChecksum>
+        <Checksum>532ECA0D0D3713C5454B01F7BC0FAFF7</Checksum>
+        <ProjectFileChecksum>748EC67D3E52782130676382D78B40D5</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_24bit_44100_I2S/bsp</Path>
         <Checksum>6C27001AD5C4526C15064459F08B4CF4</Checksum>
-        <ProjectFileChecksum>F43541974ADC93B793D20C67EE0962C3</ProjectFileChecksum>
+        <ProjectFileChecksum>EE7DBA919271B975A20A8ADF831F80AD</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_24bit_44100_I2S/bsp</Path>
         <Checksum>50665A37873737D7242C7D516906366F</Checksum>
-        <ProjectFileChecksum>14E9B1878B3FB04B64E8936EB40D92F7</ProjectFileChecksum>
+        <ProjectFileChecksum>A1BB5AB9DCB9CFC101E36A66285538B8</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -774,37 +786,37 @@
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_24bit_44100_I2S</Path>
         <Checksum>8B0ABD9C36E71048E2088B0A62B40B1D</Checksum>
-        <ProjectFileChecksum>671087DAEFC96090E43EC2CEB55D7A5F</ProjectFileChecksum>
+        <ProjectFileChecksum>2ABDBEC6B06E20FE22B21E06A46134A9</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_24bit_44100_I2S</Path>
-        <Checksum>A4F3F191FF263007D1401A4052057406</Checksum>
+        <Checksum>C732C3E262255F48C15E3F670396711D</Checksum>
       </Template>
       <Template>
         <Name>drv_adc_static.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_24bit_44100_I2S/framework/driver/adc/src</Path>
         <Checksum>F3A6F2766BC93C5E3C607E442CD9A603</Checksum>
-        <ProjectFileChecksum>77533F1EB33AB8BD2AA42A7F5F87917B</ProjectFileChecksum>
+        <ProjectFileChecksum>0043E0090C4BBC45DE95F01E9F489DE1</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_24bit_44100_I2S/framework/system/ports/src</Path>
         <Checksum>2F85B624E077C3FB4F6EB643429441BD</Checksum>
-        <ProjectFileChecksum>4F0BFB92A863EFE07EBDF693EF993F34</ProjectFileChecksum>
+        <ProjectFileChecksum>BAFD596943E3EE8C6D477E67EA7A6409</ProjectFileChecksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/microchip/harmony/btaudio_btaudiodev(2.0)NEW/apps/audio/audio_tone/firmware/src"/>
-        <Include value="C:/microchip/harmony/btaudio_btaudiodev(2.0)NEW/apps/audio/audio_tone/firmware/src/system_config/bt_audio_dk_24bit_44100_I2S"/>
-        <Include value="C:/microchip/harmony/btaudio_btaudiodev(2.0)NEW/apps/audio/audio_tone/firmware/src/bt_audio_dk_24bit_44100_I2S"/>
-        <Include value="C:/microchip/harmony/btaudio_btaudiodev(2.0)NEW/framework"/>
-        <Include value="C:/microchip/harmony/btaudio_btaudiodev(2.0)NEW/apps/audio/audio_tone/firmware/src/system_config/bt_audio_dk_24bit_44100_I2S/framework"/>
+        <Include value="C:\Microchip\harmony\2xxDev\apps\audio\audio_tone\firmware\src"/>
+        <Include value="C:\Microchip\harmony\2xxDev\apps\audio\audio_tone\firmware\src\system_config\bt_audio_dk_24bit_44100_I2S"/>
+        <Include value="C:\Microchip\harmony\2xxDev\framework"/>
+        <Include value="C:\Microchip\harmony\2xxDev\apps\audio\audio_tone\firmware\src\system_config\bt_audio_dk_24bit_44100_I2S\framework"/>
         <Include value="../src/system_config/bt_audio_dk_24bit_44100_I2S/bsp"/>
       </C32>
     </CompilerItems>
     <Libraries>
+      <Library value="../../../../../bin/framework/math/libq/LIBQ_C_Library.a"/>
       <Library value="../../../../../bin/framework/peripheral/PIC32MX470F512L_peripherals.a"/>
     </Libraries>
   </Manifest>

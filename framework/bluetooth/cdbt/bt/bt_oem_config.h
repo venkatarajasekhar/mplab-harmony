@@ -1,30 +1,17 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Bluetooth General Functions
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    bt_oem_config.h
-
-  Summary:
-    Bluetooth API Library interface to Bluetooth General Functions.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.  
-	
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 #ifndef __BT_APP_CONFIG_H
 #define __BT_APP_CONFIG_H
@@ -41,15 +28,16 @@
 #endif
 #endif
 
-#include "bluetooth/cdbt/bt/bt_std.h"
-#include "bluetooth/cdbt/hci/hci.h"
-#include "bluetooth/cdbt/hci/hci_evt_handlers.h"
-#include "bluetooth/cdbt/hci/hci_config.h"
-#include "bluetooth/cdbt/l2cap/l2cap.h"
-#include "bluetooth/cdbt/l2cap/l2cap_config.h"
-#include "bluetooth/cdbt/sdp/sdp.h"
-#include "bluetooth/cdbt/sdp/sdp_config.h"
-#include "bluetooth/cdbt/bt/bt_log.h"
+#include "cdbt/bt/bt_std.h"
+#include "cdbt/hci/hci.h"
+#include "cdbt/hci/hci_evt_handlers.h"
+#include "cdbt/hci/hci_config.h"
+#include "cdbt/hci/hcitr_bcsp_config.h"
+#include "cdbt/l2cap/l2cap.h"
+#include "cdbt/l2cap/l2cap_config.h"
+#include "cdbt/sdp/sdp.h"
+#include "cdbt/sdp/sdp_config.h"
+#include "cdbt/bt/bt_log.h"
 
 #ifndef BT_LOG_LEVEL
 	#define BT_LOG_LEVEL_MIN    BT_LOG_LEVEL_INFO
@@ -65,15 +53,15 @@ bt_byte _bt_log_level_max = BT_LOG_LEVEL_MAX;
 
 HCI_ALLOCATE_BUFFERS();
 
-void HCITR_BCSP_ALLOCATE_BUFFERS();
+HCITR_BCSP_ALLOCATE_BUFFERS();
 
 L2CAP_ALLOCATE_BUFFERS();
 
 SDP_ALLOCATE_BUFFERS();
 
 #ifdef BT_INCLUDE_RFCOMM
-	#include "bluetooth/cdbt/rfcomm/rfcomm.h"
-	#include "bluetooth/cdbt/rfcomm/rfcomm_config.h"
+	#include "cdbt/rfcomm/rfcomm.h"
+	#include "cdbt/rfcomm/rfcomm_config.h"
 
 	RFCOMM_ALLOCATE_BUFFERS();
 #endif
@@ -83,8 +71,8 @@ SDP_ALLOCATE_BUFFERS();
 	#error "BT_INCLUDE_RFCOMM required"
 	#endif
 
-	#include "bluetooth/cdbt/spp/spp.h"
-	#include "bluetooth/cdbt/spp/spp_config.h"
+	#include "cdbt/spp/spp.h"
+	#include "cdbt/spp/spp_config.h"
 
 	SPP_ALLOCATE_BUFFERS();
 #endif
@@ -94,8 +82,8 @@ SDP_ALLOCATE_BUFFERS();
 	#error "BT_INCLUDE_RFCOMM required"
 	#endif
 
-	#include "bluetooth/cdbt/hfp/hfp.h"
-	#include "bluetooth/cdbt/hfp/hfp_config.h"
+	#include "cdbt/hfp/hfp.h"
+	#include "cdbt/hfp/hfp_config.h"
 
 	HFP_ALLOCATE_BUFFERS();
 #endif
@@ -105,8 +93,8 @@ SDP_ALLOCATE_BUFFERS();
 	#error "BT_INCLUDE_RFCOMM required"
 	#endif
 
-	#include "bluetooth/cdbt/hsp/hsp.h"
-	#include "bluetooth/cdbt/hsp/hsp_config.h"
+	#include "cdbt/hsp/hsp.h"
+	#include "cdbt/hsp/hsp_config.h"
 
 	HSP_ALLOCATE_BUFFERS();
 #endif
@@ -116,15 +104,15 @@ SDP_ALLOCATE_BUFFERS();
 	#error "BT_INCLUDE_SPP required"
 	#endif
 
-	#include "bluetooth/cdbt/hsp/hsp_ag.h"
-	#include "bluetooth/cdbt/hsp/hsp_ag_config.h"
+	#include "cdbt/hsp/hsp_ag.h"
+	#include "cdbt/hsp/hsp_ag_config.h"
 
 	HSP_AG_ALLOCATE_BUFFERS();
 #endif
 
 #ifdef BT_INCLUDE_HID
-	#include "bluetooth/cdbt/hid/hid.h"
-	#include "bluetooth/cdbt/hid/hid_config.h"
+	#include "cdbt/hid/hid.h"
+	#include "cdbt/hid/hid_config.h"
 
 	HID_ALLOCATE_BUFFERS();
 #endif
@@ -134,8 +122,8 @@ SDP_ALLOCATE_BUFFERS();
 	#error "BT_INCLUDE_RFCOMM required"
 	#endif
 
-	#include "bluetooth/cdbt/obex/obex.h"
-	#include "bluetooth/cdbt/obex/obex_config.h"
+	#include "cdbt/obex/obex.h"
+	#include "cdbt/obex/obex_config.h"
 
 	OBEX_ALLOCATE_BUFFERS();
 #endif
@@ -145,8 +133,8 @@ SDP_ALLOCATE_BUFFERS();
 	#error "BT_INCLUDE_OBEX required"
 	#endif
 
-	#include "bluetooth/cdbt/pbap/pbap.h"
-	#include "bluetooth/cdbt/pbap/pbap_config.h"
+	#include "cdbt/pbap/pbap.h"
+	#include "cdbt/pbap/pbap_config.h"
 
 	PBAP_ALLOCATE_BUFFERS();
 #endif
@@ -156,21 +144,28 @@ SDP_ALLOCATE_BUFFERS();
 	#error "BT_INCLUDE_OBEX required"
 	#endif
 
-	#include "bluetooth/cdbt/ftp/ftp_config.h"
+	#include "cdbt/ftp/ftp_config.h"
 
 	FTP_ALLOCATE_BUFFERS();
+#endif
+
+#ifdef BT_INCLUDE_MAP
+	#ifndef BT_INCLUDE_OBEX
+	#error "BT_INCLUDE_OBEX required"
+	#endif
+
+	#include "cdbt/map/map.h"
+	#include "cdbt/map/map_config.h"
+
+	MAP_ALLOCATE_BUFFERS();
 #endif
 
 #if defined(BT_INCLUDE_IAP) || defined(BT_INCLUDE_IAP2) ||  defined(BT_INCLUDE_IAPEA)
 	#ifndef BT_INCLUDE_SPP
 		#error "BT_INCLUDE_SPP required"
 	#endif
+#endif
 
-
-	#include "bluetooth/cdbt/iapbt/iap_bt.h"
-	#include "bluetooth/cdbt/iapbt/iap_bt_config.h"
-
- #endif   
 #ifdef BT_INCLUDE_IAPEA
 	#ifndef BT_INCLUDE_IAP
 		#define BT_INCLUDE_IAP
@@ -209,34 +204,19 @@ SDP_ALLOCATE_BUFFERS();
 #endif
 
 #ifdef BT_INCLUDE_IAP
-//	#ifndef BT_INCLUDE_SPP
-//		#error "BT_INCLUDE_SPP required"
-//	#endif
-
-	#include "bluetooth/cdbt/iapbt/iap_bt.h"
-	#include "bluetooth/cdbt/iap/iap_config.h"
-//	#include "bluetooth/cdbt/iap2/iap2_config.h"
-//	#include "bluetooth/cdbt/iapbt/iap_bt_config.h"
+	#include "cdbt/iapbt/iap_bt.h"
+	#include "cdbt/iap/iap_config.h"
 
 	IAP_ALLOCATE_BUFFERS();
-//	IAP2_ALLOCATE_BUFFERS();
-//	IAP_BT_ALLOCATE_BUFFERS();
 #endif
 
 #ifdef BT_INCLUDE_IAP2
-//	#ifndef BT_INCLUDE_SPP
-//		#error "BT_INCLUDE_SPP required"
-//	#endif
+	#include "cdbt/iapbt/iap_bt.h"
+	#include "cdbt/iap2/iap2.h"
+	#include "cdbt/iap2/iap2_config.h"
+	#include "cdbt/iapbt/iap_bt_config.h"
 
-	#include "bluetooth/cdbt/iapbt/iap_bt.h"
-//	#include "bluetooth/cdbt/iap/iap_config.h"
-	#include "bluetooth/cdbt/iap2/iap2.h"
-	#include "bluetooth/cdbt/iap2/iap2_config.h"
-	#include "bluetooth/cdbt/iapbt/iap_bt_config.h"
-
-//	IAP_ALLOCATE_BUFFERS();
 	IAP2_ALLOCATE_BUFFERS();
-//	IAP_BT_ALLOCATE_BUFFERS();
 #endif
 
 #if defined(BT_INCLUDE_IAP) || defined(BT_INCLUDE_IAP2) ||  defined(BT_INCLUDE_IAPEA)
@@ -247,33 +227,33 @@ SDP_ALLOCATE_BUFFERS();
 #endif
 
 #ifdef BT_INCLUDE_AVDTP
-	#include "bluetooth/cdbt/avdtp/avdtp_config.h"
+	#include "cdbt/avdtp/avdtp_config.h"
 
 	AVDTP_ALLOCATE_BUFFERS();
 #endif
 
 #ifdef BT_INCLUDE_AVCTP
-#include "bluetooth/cdbt/avctp/avctp_config.h"
+#include "cdbt/avctp/avctp_config.h"
 
 	AVCTP_ALLOCATE_BUFFERS();
 #endif
 
 #ifdef BT_INCLUDE_AVRCP
-#include "bluetooth/cdbt/avrcp/avrcp_config.h"
+#include "cdbt/avrcp/avrcp_config.h"
 
 	AVRCP_ALLOCATE_BUFFERS();
 #endif
 
 #ifdef BT_INCLUDE_ATT
-	#include "bluetooth/cdbt/att/att_config.h"
+	#include "cdbt/att/att_config.h"
 
 	ATT_ALLOCATE_BUFFERS();
 #endif
 
 #ifdef BT_INCLUDE_GATT_CLIENT
-	#include "bluetooth/cdbt/att/att_client_config.h"
-	#include "bluetooth/cdbt/gatt/gatt_client_config.h"
-	#include "bluetooth/cdbt/gatt/gatt_ancs.h"
+	#include "cdbt/att/att_client_config.h"
+	#include "cdbt/gatt/gatt_client_config.h"
+	#include "cdbt/gatt/gatt_ancs.h"
 
 	ATT_CLIENT_ALLOCATE_BUFFERS();
 	GATT_CLIENT_ALLOCATE_BUFFERS();
@@ -284,15 +264,22 @@ SDP_ALLOCATE_BUFFERS();
 #endif
 
 #ifdef BT_INCLUDE_ATT_CLIENT
-	#include "bluetooth/cdbt/att/att_client_config.h"
+	#include "cdbt/att/att_client_config.h"
 
 	ATT_CLIENT_ALLOCATE_BUFFERS();
 #endif
 
 #ifdef BT_INCLUDE_SM
-	#include "bluetooth/cdbt/sm/sm_config.h"
+	#include "cdbt/sm/sm_config.h"
 
 	SMP_ALLOCATE_BUFFERS();
+#endif
+
+#ifdef BT_INCLUDE_HCRP
+	#include "cdbt/hcrp/hcrp_server.h"
+	#include "cdbt/hcrp/hcrp_config.h"
+
+	HCRP_ALLOCATE_BUFFERS();
 #endif
 
 #endif // __BT_APP_CONFIG_H

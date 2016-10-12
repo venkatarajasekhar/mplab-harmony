@@ -1010,6 +1010,63 @@ TCPIP_NET_HANDLE    TCPIP_STACK_NetDefaultGet(void);
  */
 bool                TCPIP_STACK_NetDefaultSet(TCPIP_NET_HANDLE netH);
 
+//*********************************************************************
+/*
+   Function:        
+    TCPIP_NET_HANDLE TCPIP_STACK_NetMulticastGet(void)
+  
+   Summary:
+    Default multicast network interface handle.
+
+   Description:
+     The function returns the current default multicast network interface in the TCP/IP stack.
+     This is the interface on which IGMP and multicast packets will be transmitted
+     when a default interface is specified.
+ 
+   Precondition:    
+    The TCP/IP stack should have been initialized by TCPIP_STACK_Initialize 
+    and the TCPIP_STACK_Status returned SYS_STATUS_READY.
+  
+   Parameters:      
+   None.
+  
+   Returns:         
+    The default multicast network interface.
+  
+   Remarks:        
+    This function is intended for a TCP/IP stack implementing IGMP.
+
+ */
+TCPIP_NET_HANDLE    TCPIP_STACK_NetMulticastGet(void);
+
+//*********************************************************************
+/*
+   Function:        
+    bool TCPIP_STACK_NetMulticastSet(TCPIP_NET_HANDLE netH)
+  
+   Summary:
+    Sets the default multicast network interface.
+
+   Description:
+     The function sets the current default multicast network interface in the TCP/IP stack.
+  
+   Precondition:    
+    The TCP/IP stack should have been initialized by TCPIP_STACK_Initialize 
+    and the TCPIP_STACK_Status returned SYS_STATUS_READY.
+    The selected network interface should be up and running.
+  
+   Parameters:      
+   netH - Interface handle.
+  
+   Returns:         
+   - true  - if success
+   - false - if failed (the old interface does not change)
+  
+   Remarks:         
+    At stack start up the default multicast network is the same with the default network interface.
+    This functon allows the user to change it.
+ */
+bool                TCPIP_STACK_NetMulticastSet(TCPIP_NET_HANDLE netH);
 
 //*********************************************************************
 /*

@@ -70,6 +70,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // *****************************************************************************
 // *****************************************************************************
 
+// KEEP ALL THE CODE INSIDE THESE ISR's
+
 void __ISR(_CHANGE_NOTICE_A_VECTOR, ipl5AUTO) _IntHandlerChangeNotification_PortA(void)
 {  
     read_buttons();     // clear interrupt source by reading buttons
@@ -99,6 +101,8 @@ void __ISR(_CHANGE_NOTICE_K_VECTOR, ipl5AUTO) _IntHandlerChangeNotification_Port
     buttons_handleInterrupt();
 }
     
+
+    
 void __ISR(_TIMER_2_VECTOR, ipl1AUTO) IntHandlerDrvTmrInstance0(void)
 {
     DRV_TMR_Tasks(sysObj.drvTmr0);
@@ -112,6 +116,8 @@ void __ISR(_TIMER_4_VECTOR, ipl1AUTO) IntHandlerDrvTmrInstance1(void)
 void __ISR(_DMA0_VECTOR, ipl5AUTO) _IntHandlerSysDmaCh0(void)
 {          
     SYS_DMA_TasksISR(sysObj.sysDma, DMA_CHANNEL_0);
+    
+    syncLRClock();          // synchronize up I2S LRCLK 
 }
 
 void __ISR(_DMA1_VECTOR, ipl5AUTO) _IntHandlerSysDmaCh1(void)

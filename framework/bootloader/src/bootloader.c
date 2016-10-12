@@ -53,8 +53,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "bootloader/src/bootloader.h"
 #include "peripheral/nvm/plib_nvm.h"
 #include "peripheral/int/plib_int.h"
-#include "peripheral/reset/plib_reset.h"
 #include "system/devcon/sys_devcon.h"
+#include "system/reset/sys_reset.h"
 
 #if(SYS_FS_MAX_FILES > 0)
 uint8_t fileBuffer[512] __attribute__((coherent, aligned(16)));
@@ -237,6 +237,11 @@ void Bootloader_Initialize ( const BOOTLOADER_INIT *drvBootloaderInit )
     bootloaderData.BlankCheckFunc = (BOOTLOADER_CALLBACK)NULL;
     bootloaderData.ProgramCompleteFunc = (BOOTLOADER_CALLBACK)NULL;
     bootloaderData.ForceBootloadFunc = (BOOTLOADER_CALLBACK)NULL;
+    bootloaderData.softReset = (SYS_RESET_ReasonGet() & RESET_REASON_SOFTWARE) == RESET_REASON_SOFTWARE;
+    SYS_RESET_ReasonClear(RESET_REASON_SOFTWARE);
+    /* Delay to allow the internal pullups to stabilize */
+    _CP0_SET_COUNT(0);
+    while (_CP0_GET_COUNT() < SYS_CLK_FREQ / 5000);
 }
 
 void BOOTLOADER_FlashEraseRegister(BOOTLOADER_CALLBACK newFunc)
@@ -285,31 +290,30 @@ void Bootloader_Tasks ()
     /* Check the application state*/
     switch ( bootloaderData.currentState )
     {
-        case BOOTLOADER_STATE_INIT:
-        {
-            bootloaderData.currentState = BOOTLOADER_CHECK_FOR_TRIGGER;
-            break;
-        }
-
         case BOOTLOADER_CHECK_FOR_TRIGGER:
         {
+            bool forceBootloadMode = false;
 #if defined(BOOTLOADER_LEGACY)
             if(BootloaderTriggerCheck != NULL)
             {
                  bootloaderData.currentState = BootloaderTriggerCheck(); //Perform Trig Check
+                 forceBootloadMode = bootloaderData.currentState != BOOTLOADER_ENTER_APPLICATION;
             }
             else
 #else
-            if ((bootloaderData.ForceBootloadFunc != NULL) &&
-                    (1 == bootloaderData.ForceBootloadFunc()))
+            if (bootloaderData.ForceBootloadFunc != NULL)
             {
-                bootloaderData.currentState = BOOTLOADER_OPEN_DATASTREAM;
-                break;
+                forceBootloadMode = (1 == bootloaderData.ForceBootloadFunc());
             }
 #endif
             /* Check if the User reset address is erased. */
-            if (0xFFFFFFFF == *(unsigned int *)BOOTLOADER_RESET_ADDRESS)
+            forceBootloadMode |= (0xFFFFFFFF == *(unsigned int *)BOOTLOADER_RESET_ADDRESS);
+            
+            if (forceBootloadMode)
             {
+                /* Override any soft reset from the bootloader, so we will do
+                 one when bootloader mode is done. */
+                bootloaderData.softReset = false;
                 bootloaderData.currentState = BOOTLOADER_OPEN_DATASTREAM;
             }
             else
@@ -329,7 +333,7 @@ void Bootloader_Tasks ()
             if (bootloaderData.streamHandle != DRV_HANDLE_INVALID )
             {
                 
-                if(bootloaderData.type != TYPE_USB_HOST)
+                if((bootloaderData.type != TYPE_USB_HOST) && (bootloaderData.type != TYPE_SD_CARD))
                 {
                 DATASTREAM_BufferEventHandlerSet(bootloaderData.streamHandle,
                         Bootloader_BufferEventHandler, APP_USR_CONTEXT);
@@ -505,6 +509,7 @@ void Bootloader_Tasks ()
             {
                 SYS_FS_FileClose(bootloaderData.fileHandle);
                 bootloaderData.currentState = BOOTLOADER_CLOSE_DATASTREAM;
+                SYS_RESET_SoftwareReset();
             }
             else
             {
@@ -524,7 +529,7 @@ void Bootloader_Tasks ()
             SYS_DEVCON_InstructionCacheFlush();
             SwapFlashPanels();
 #else
-            
+            /* Do a soft reset in order to reset peripherals */
             /* Disable Global Interrupts */
             PLIB_INT_Disable(INT_ID_0);
             if (bootloaderData.StartAppFunc != NULL)
@@ -547,7 +552,10 @@ void Bootloader_Tasks ()
             break;
     }
 
-    #if((DRV_USBFS_HOST_SUPPORT == false) && (DRV_USBHS_HOST_SUPPORT == false))
+#if((DRV_USBFS_HOST_SUPPORT == false) && \
+    (DRV_USBHS_HOST_SUPPORT == false) && \
+    !defined(DRV_SDCARD_INSTANCES_NUMBER) && \
+    !defined(DRV_SDHC_INSTANCES_NUMBER))
     /* Maintain Device Drivers */
     DATASTREAM_Tasks();
     #endif

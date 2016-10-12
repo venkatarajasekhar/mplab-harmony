@@ -780,7 +780,7 @@ void GFX_GOL_ListBoxSelectionChange(
 #define GFX_GOL_ListBoxItemSelectStatusSet(pObject, pItem)                  \
                                                                             \
                 if(!(pItem->status & GFX_GOL_LISTBOX_ITEM_STATUS_SELECTED)) \
-                    GFX_GOL_ListBoxSelectionChange((LISTBOX *)pObject, pItem);
+                    GFX_GOL_ListBoxSelectionChange((GFX_GOL_LISTBOX *)pObject, pItem);
 
 // *****************************************************************************
 /*  GFX GOL box item select status clear.
@@ -815,7 +815,7 @@ void GFX_GOL_ListBoxSelectionChange(
 #define GFX_GOL_ListBoxItemSelectStatusClear(pObject, pItem)                \
                                                                             \
                 if(pItem->status & GFX_GOL_LISTBOX_ITEM_STATUS_SELECTED)    \
-                    GFX_GOL_ListBoxSelectionChange((LISTBOX *)pObject, pItem);
+                    GFX_GOL_ListBoxSelectionChange((GFX_GOL_LISTBOX *)pObject, pItem);
 
 // *****************************************************************************
 /*  GFX GOL list box item count get.

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -618,6 +618,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -678,7 +682,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga</Path>
-        <Checksum>D1DEB33A8B7BA2D5DC6DCB4F762B5783</Checksum>
+        <Checksum>E6B3DEEA8C1213C6CC0009179360068D</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -693,12 +697,7 @@
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga</Path>
-        <Checksum>162D403A02370EFD3BD9D7235378FD19</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>1041DE8ADE9483E2739919B17BED7FC3</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -712,12 +711,12 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga</Path>
-        <Checksum>CAE438DDC5EFBD01F65D775A1D44FEAD</Checksum>
+        <Checksum>D11883F05B7F28DB06B2432C7A78291E</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga</Path>
-        <Checksum>98F63CFA7FEFC9D617EDF21D56C04C2F</Checksum>
+        <Checksum>45A1432BE0E4A59B15619C6CBAED22DB</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -742,22 +741,22 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/clk/src</Path>
-        <Checksum>45DCC5FDCEA03577B1B40B781BCC20C5</Checksum>
+        <Checksum>FFBC0ECD02319812A90B6AACC6A7F7F0</Checksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga</Path>
-        <Checksum>ED4E8A9541CEE1A0901B57010BD0185D</Checksum>
+        <Checksum>CDE722770E53744C698AA79662474D41</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga</Path>
-        <Checksum>3FED8377B8DFAF8C7BCCED6D8BA29126</Checksum>
+        <Checksum>B8563F0F177C57A34E5E2C9681265C52</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga</Path>
-        <Checksum>685EF30BA461DC88701C2E7A62D24E65</Checksum>
+        <Checksum>063F5604702E6C61E6A7424D6FA5AC0F</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -776,11 +775,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/pic32mx_usb_sk2_s1d_pictail_wqvga"/>
-        <Include value="C:/Harmony/gfx2-1/framework"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework"/>
+        <Include value="C:/Harmony/v2_02/apps/gfx/primitive/firmware/src"/>
+        <Include value="C:/Harmony/v2_02/apps/gfx/primitive/firmware/src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga"/>
+        <Include value="C:/Harmony/v2_02/framework"/>
+        <Include value="C:/Harmony/v2_02/apps/gfx/primitive/firmware/src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/bsp"/>
       </C32>
     </CompilerItems>

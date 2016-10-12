@@ -182,11 +182,11 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
         // USER START (Optionally insert code for reacting on notification message)
-          emWin_GuiScreenChange( EMWIN_APP_SCREEN_TEXT_ALIGNMENT );
         // USER END
         break;
       case WM_NOTIFICATION_RELEASED:
         // USER START (Optionally insert code for reacting on notification message)
+          emWin_GuiScreenChange( EMWIN_APP_SCREEN_TEXT_ALIGNMENT );
         // USER END
         break;
       // USER START (Optionally insert additional code for further notification handling)
@@ -197,11 +197,11 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
         // USER START (Optionally insert code for reacting on notification message)
-        emWin_GuiScreenChange(EMWIN_APP_SCREEN_HOME_PAGE);
         // USER END
         break;
       case WM_NOTIFICATION_RELEASED:
         // USER START (Optionally insert code for reacting on notification message)
+          emWin_GuiScreenChange(EMWIN_APP_SCREEN_HOME_PAGE);
         // USER END
         break;
       // USER START (Optionally insert additional code for further notification handling)

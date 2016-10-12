@@ -68,12 +68,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 <#macro SYS_CLK_PERIPHERAL_CLK_ENABLE_INSTANCE SYS_CLK_PBCLKX SYS_CLK_PBDIV SYS_CLK_PBCLKNUM>
     /* Enable Peripheral Bus ${SYS_CLK_PBCLKNUM} */
     PLIB_OSC_PBClockDivisorSet (OSC_ID_0, ${SYS_CLK_PBCLKX}, ${SYS_CLK_PBDIV} );
-<#if (CONFIG_PIC32MZ == true || CONFIG_PIC32MK == true || CONFIG_PIC32WK == true)>   
+<#if (CONFIG_PIC32MZ == true || CONFIG_PIC32MK == true || CONFIG_PIC32WK == true || CONFIG_DS60001404 = true)>   
     PLIB_OSC_PBOutputClockEnable (OSC_ID_0, ${SYS_CLK_PBCLKX} );
 </#if>
 </#macro>
 <#macro SYS_CLK_PERIPHERAL_CLK_DISABLE_INSTANCE SYS_CLK_PBCLKX SYS_CLK_PBCLKNUM>
-<#if (CONFIG_PIC32MZ == true || CONFIG_PIC32MK == true || CONFIG_PIC32WK == true)>       /* Disable Peripheral Bus ${SYS_CLK_PBCLKNUM} */
+<#if (CONFIG_PIC32MZ == true || CONFIG_PIC32MK == true || CONFIG_PIC32WK == true || CONFIG_DS60001404 = true)>       /* Disable Peripheral Bus ${SYS_CLK_PBCLKNUM} */
     PLIB_OSC_PBOutputClockDisable (OSC_ID_0, ${SYS_CLK_PBCLKX} );
 </#if>
 
@@ -131,17 +131,36 @@ void SYS_CLK_Initialize( const SYS_CLK_INIT const * clkInit )
     
     PLIB_OSC_FRCDivisorSelect( OSC_ID_0, ${CONFIG_SYS_CLK_FRCDIV});
 
-<#if CONFIG_PIC32MX == true && CONFIG_SYS_CLK_CONFIG_UFRCEN == "ON">
+<#if CONFIG_PIC32MX == true && CONFIG_SYS_CLK_CONFIG_UFRCEN == "ON"  && CONFIG_DS60001404 = false>
     /* Enable Secondary Oscillator */
     PLIB_OSC_UsbClockSourceSelect( OSC_ID_0 , SYS_OSC_USBCLK_FRC );
 
-<#elseif CONFIG_PIC32MX == true && CONFIG_SYS_CLK_CONFIG_UFRCEN == "OFF">
+<#elseif CONFIG_PIC32MX == true && CONFIG_SYS_CLK_CONFIG_UFRCEN == "OFF"  && CONFIG_DS60001404 = false>
     /* Disable Secondary Oscillator */
     PLIB_OSC_UsbClockSourceSelect( OSC_ID_0 , SYS_OSC_USBCLK_PRIMARY );
 
 </#if>
+<#if (CONFIG_PIC32MK == true || CONFIG_DS60001404 == true) && (CONFIG_USE_USB_STACK == true)>	
+	/* Configure UPLL */
+<#if CONFIG_DS60001404 == false>
+<#if CONFIG_SYS_CLK_UPOSCEN == "POSC">
+	// PLIB_OSC_PLLBypassEnable(OSC_ID_0, OSC_PLL_USB);
+<#else>
+	// PLIB_OSC_PLLBypassDisable(OSC_ID_0, OSC_PLL_USB);
+</#if>
+	PLIB_OSC_UPLLInputDivisorSet(OSC_ID_0, ${CONFIG_SYS_CLK_UPLLIDIV});
+	PLIB_OSC_UPLLFrequencyRangeSet(OSC_ID_0, ${CONFIG_SYS_CLK_UPLLRNG});	
+</#if>
+	PLIB_OSC_UPLLMultiplierSelect(OSC_ID_0, ${CONFIG_SYS_CLK_UPLLMULT});
+	PLIB_OSC_UPLLOutputDivisorSet(OSC_ID_0, ${CONFIG_SYS_CLK_UPLLODIV});
 
-<#if CONFIG_PIC32WK == true>
+<#if CONFIG_SYS_CLK_UFRCEN == "FRC">	
+	PLIB_OSC_UsbClockSourceSelect (OSC_ID_0, SYS_OSC_USBCLK_FRC);
+<#else>
+	PLIB_OSC_UsbClockSourceSelect (OSC_ID_0, SYS_OSC_USBCLK_PRIMARY);
+</#if>
+</#if>
+<#if CONFIG_PIC32WK == true >
 	/* Configure SPLL */
 <#if CONFIG_SYS_CLK_SBYPASS == true>
 	PLIB_OSC_PLLBypassEnable(OSC_ID_0, OSC_PLL_SYSTEM);
@@ -155,7 +174,7 @@ void SYS_CLK_Initialize( const SYS_CLK_INIT const * clkInit )
 	PLIB_OSC_SysPLLFrequencyRangeSet(OSC_ID_0, ${CONFIG_SYS_CLK_SPLLRNG});
 	
 	/* Configure UPLL */
-<#if CONFIG_SYS_CLK_UBYPASS == true>
+<#if CONFIG_SYS_CLK_UPOSCEN == "POSC">
 	PLIB_OSC_PLLBypassEnable(OSC_ID_0, OSC_PLL_USB);
 <#else>
 	PLIB_OSC_PLLBypassDisable(OSC_ID_0, OSC_PLL_USB);
@@ -164,7 +183,7 @@ void SYS_CLK_Initialize( const SYS_CLK_INIT const * clkInit )
 	PLIB_OSC_UPLLMultiplierSelect(OSC_ID_0, ${CONFIG_SYS_CLK_UPLLMULT});
 	PLIB_OSC_UPLLOutputDivisorSet(OSC_ID_0, ${CONFIG_SYS_CLK_UPLLODIV});
 	PLIB_OSC_UPLLFrequencyRangeSet(OSC_ID_0, ${CONFIG_SYS_CLK_UPLLRNG});	
-<#if CONFIG_SYS_CLK_UFRCEN == true>	
+<#if CONFIG_SYS_CLK_UFRCEN == "FRC">	
 	PLIB_OSC_UsbClockSourceSelect (OSC_ID_0, SYS_OSC_USBCLK_FRC);
 <#else>
 	PLIB_OSC_UsbClockSourceSelect (OSC_ID_0, SYS_OSC_USBCLK_PRIMARY);
@@ -230,6 +249,8 @@ void SYS_CLK_Initialize( const SYS_CLK_INIT const * clkInit )
 <#if CONFIG_SYS_CLK_PBCLK0_ENABLE == true>
 <@SYS_CLK_PERIPHERAL_CLK_ENABLE_INSTANCE SYS_CLK_PBCLKX="0" SYS_CLK_PBCLKNUM="1" SYS_CLK_PBDIV=CONFIG_SYS_CLK_PBDIV0 />
 </#if>
+<#if CONFIG_DS60001404 == false>
+
 <#if CONFIG_SYS_CLK_PBCLK1_ENABLE == true>
 <@SYS_CLK_PERIPHERAL_CLK_ENABLE_INSTANCE SYS_CLK_PBCLKX="1" SYS_CLK_PBCLKNUM="2" SYS_CLK_PBDIV=CONFIG_SYS_CLK_PBDIV1 />
 <#else>
@@ -267,7 +288,8 @@ void SYS_CLK_Initialize( const SYS_CLK_INIT const * clkInit )
 <@SYS_CLK_PERIPHERAL_CLK_ENABLE_INSTANCE SYS_CLK_PBCLKX="7" SYS_CLK_PBCLKNUM="8" SYS_CLK_PBDIV=CONFIG_SYS_CLK_PBDIV7 />
 <#else>
 <@SYS_CLK_PERIPHERAL_CLK_DISABLE_INSTANCE SYS_CLK_PBCLKX="7" SYS_CLK_PBCLKNUM="8" />
-</#if></#if></#if>  
+</#if></#if></#if> </#if> 
+ 
 <#if CONFIG_HAVE_REFCLOCK == true>    
 <#if CONFIG_PIC32MX == true>    
 <#if CONFIG_SYS_CLK_REFCLK_ENABLE == true>
@@ -283,6 +305,7 @@ SYS_CLK_REFCLK_ROSEL=CONFIG_SYS_CLK_REFCLK_ROSEL/>
 <#else>
 <@SYS_CLK_REFCLK_OUTPUT_DISABLE_INSTANCE SYS_CLK_REFCLKX="OSC_REFERENCE_1" SYS_CLK_REFCLKNUM="1" />
 </#if></#if>
+
 <#if (CONFIG_PIC32MZ == true || CONFIG_PIC32MK == true || CONFIG_PIC32WK == true)>   <#if CONFIG_SYS_CLK_REFCLK0_ENABLE == true>
 <@SYS_CLK_REFCLK_ENABLE_INSTANCE SYS_CLK_REFCLKX="OSC_REFERENCE_1" SYS_CLK_REFCLKNUM="1" 
 SYS_CLK_REFCLK_RODIV=CONFIG_SYS_CLK_RODIV0
@@ -484,7 +507,7 @@ inline uint32_t SYS_CLK_PeripheralFrequencyGet ( CLK_BUSES_PERIPHERAL peripheral
 
 //******************************************************************************
 /* Function:
-    inline uint32_t SYS_CLK_ReferenceClockFrequencyGet ( CLK_BUSES_REFERENCE referenceBus )
+    inline uint32_t SYS_CLK_ReferenceFrequencyGet ( CLK_BUSES_REFERENCE referenceBus )
 
   Summary:
     Gets the selected Reference clock bus frequency in Hertz.
@@ -508,21 +531,22 @@ inline uint32_t SYS_CLK_PeripheralFrequencyGet ( CLK_BUSES_PERIPHERAL peripheral
     <code>
     unsigned long sysClockOutputHz;
 
-    sysClockOutputHz = SYS_CLK_ReferenceClockFrequencyGet ( CLK_BUS_REFERENCE_3 );
+    sysClockOutputHz = SYS_CLK_ReferenceFrequencyGet ( CLK_BUS_REFERENCE_3 );
     </code>
 
   Remarks:
+    None.
  */
 
-inline uint32_t SYS_CLK_ReferenceClockFrequencyGet ( CLK_BUSES_REFERENCE referenceBus )
+inline uint32_t SYS_CLK_ReferenceFrequencyGet ( CLK_BUSES_REFERENCE referenceBus )
 {
-<#if CONFIG_PIC32MX == true>
+<#if CONFIG_PIC32MX == true && CONFIG_DS60001404 = false>
 <#if CONFIG_SYS_CLK_REFCLK0_ENABLE == true>
     return SYS_CLK_BUS_REFERENCE_1;
 <#else>
 	return 0;
 </#if></#if>
-<#if (CONFIG_PIC32MZ == true || CONFIG_PIC32MK == true || CONFIG_PIC32WK == true)>       uint32_t freq = 0;
+<#if (CONFIG_PIC32MZ == true || CONFIG_PIC32MK == true || CONFIG_PIC32WK == true || CONFIG_DS60001404 = true)>       uint32_t freq = 0;
 
     switch (referenceBus)
     {

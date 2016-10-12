@@ -186,6 +186,7 @@ const DRV_SDCARD_INIT drvSDCardInit =
     .allowIdleRun = DRV_SPI_ALLOW_IDLE_RUN_IDX0,
     .spiProtocolType = DRV_SPI_SPI_PROTOCOL_TYPE_IDX0,
     .commWidth = DRV_SPI_COMM_WIDTH_IDX0,
+    .baudClockSource = DRV_SPI_CLOCK_SOURCE_IDX0,
     .spiClk = DRV_SPI_SPI_CLOCK_IDX0,
     .baudRate = DRV_SPI_BAUD_RATE_IDX0,
     .bufferType = DRV_SPI_BUFFER_TYPE_IDX0,

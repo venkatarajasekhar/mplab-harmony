@@ -118,33 +118,5 @@ bool TCPIP_TCP_SourceIPAddressSet(TCP_SOCKET s, IP_ADDRESS_TYPE addType, IP_MULT
 
 bool TCPIP_TCP_DestinationIPAddressSet(TCP_SOCKET s, IP_ADDRESS_TYPE addType, IP_MULTI_ADDRESS* remoteAddress);
 
-int     TCPIP_TCP_SocketsNumberGet(void);
-
-
-// debug/trace support
-//
-
-//#define TCPIP_TCP_DEBUG
-
-typedef struct
-{
-    uint16_t    addType;        // IPv4/IPv6/unknown socket type
-    uint16_t    remotePort;     // port no
-    uint16_t    localPort;      // port no
-    uint16_t    rxSize;         // RX buffer size
-    uint16_t    txSize;         // TX buffer size
-    uint16_t    state;          // TCP state
-    uint16_t    rxPending;      // pending in RX buffer
-    uint16_t    txPending;      // pending in TX buffer
-
-}TCPIP_TCP_SKT_DEBUG_INFO;
-
-// number of TCP sockets
-int     TCPIP_TCP_DebugSktNo(void);
-
-// fills in a debug info structure for the specified socket
-bool    TCPIP_TCP_DebugSktInfo(int sktNo, TCPIP_TCP_SKT_DEBUG_INFO* pInfo);
-
-
 
 #endif  // __TCP_MANAGER_H_

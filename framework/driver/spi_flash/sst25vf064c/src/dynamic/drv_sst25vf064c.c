@@ -1303,7 +1303,7 @@ void DRV_SST25VF064C_Tasks ( SYS_MODULE_OBJ object )
 
                     /* If there is a callback registered with client, then call it. */
                     client = (DRV_SST25VF064C_CLIENT_OBJ *)bufferObj->hClient;
-                    if(client->eventHandler != DRV_SPI_BUFFER_HANDLE_INVALID)
+                    if(client->eventHandler != NULL)
                     {
                         client->eventHandler(DRV_SST25VF064C_EVENT_BLOCK_COMMAND_COMPLETE,
                             (DRV_SST25VF064C_BLOCK_COMMAND_HANDLE)bufferObj->commandHandle,

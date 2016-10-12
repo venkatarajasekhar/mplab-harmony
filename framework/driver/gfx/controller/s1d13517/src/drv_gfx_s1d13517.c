@@ -764,15 +764,19 @@ void  DRV_GFX_S1D13517_BarFill(uint16_t left, uint16_t top, uint16_t right, uint
     #endif
 
     WindowSetup(left, top, count, lineCount);
-
-    if(((count-(8-(left&7)))>7) && (lineCount > 1))
-    {
-        _CopyPixels(drvS1D13517Obj.initData->color, left, top, count, lineCount);
-    }
-    else
-    {
-        _PutPixels(drvS1D13517Obj.initData->color, count, lineCount);
-    }
+	
+#if (DISP_ORIENTATION == 0)
+	if(((count-(8-(left&7)))>7) && (lineCount > 1))
+	{
+		_CopyPixels(drvS1D13517Obj.initData->color, left, top, count, lineCount);
+	}
+	else
+	{
+		_PutPixels(drvS1D13517Obj.initData->color, count, lineCount);
+	}
+#else
+	_PutPixels(drvS1D13517Obj.initData->color, count, lineCount);
+#endif
 
 }  
 
@@ -822,7 +826,7 @@ void  DRV_GFX_S1D13517_PixelArrayPut(GFX_COLOR *color, uint16_t x, uint16_t y, u
         while(tempCount--)
         {
             drvS1D13517Obj.initData->color = *color++;
-            while(DRV_GFX_S1D13517_PixelPut(x++, y) == 1);
+            DRV_GFX_S1D13517_PixelPut(x++, y);
         }
 
         x = tempx;

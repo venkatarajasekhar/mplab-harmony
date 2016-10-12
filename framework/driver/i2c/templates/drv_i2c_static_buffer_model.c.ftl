@@ -1110,7 +1110,7 @@ void DRV_I2C${DRV_INSTANCE}_Tasks(void)
             if (IsQueueEmpty_${DRV_INSTANCE}() == false)
             {
                 i2c${DRV_INSTANCE}State = DRV_I2C_TASK_SEND_DEVICE_ADDRESS;
-                PLIB_I2C_MasterStart(I2C_ID_2);
+                PLIB_I2C_MasterStart(${I2C_INSTANCE});
                 Nop();
             }
         }

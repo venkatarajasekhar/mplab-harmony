@@ -66,4 +66,13 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // overflow on slow connections
 #define TCPIP_IPERF_TX_QUEUE_LIMIT              2 
 
+
+// iperf timing error, ms. Accounts for timing uncertainty
+// The higher the value, the more relaxed is the iperf timing
+// Lower limit is 0
+#define TCPIP_IPERF_TIMING_ERROR_MARGIN     0
+
+// maximum number of simultaneously running iperf instances
+#define TCPIP_IPERF_MAX_INSTANCES                1
+
 #endif /* __IPERFAPP_H__ */

@@ -55,7 +55,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "driver/oc/drv_oc.h" 
 #include "system/clk/sys_clk.h"
 #include "peripheral/devcon/plib_devcon.h"
-#include "system/clk/sys_clk_static.h"
 #include "system/devcon/sys_devcon.h"
 #include "driver/tmr/drv_tmr_static.h"
 #include "system/ports/sys_ports.h"

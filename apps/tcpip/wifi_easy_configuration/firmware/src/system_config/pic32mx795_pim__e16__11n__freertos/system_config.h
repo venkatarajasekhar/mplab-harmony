@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -87,6 +83,61 @@ extern "C" {
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         8000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       32768ul
    
+/*** Command Processor System Service Configuration ***/
+#define SYS_CMD_ENABLE
+#define SYS_CMD_DEVICE_MAX_INSTANCES    SYS_CONSOLE_DEVICE_MAX_INSTANCES
+#define SYS_CMD_PRINT_BUFFER_SIZE       1024
+#define SYS_CMD_BUFFER_DMA_READY
+#define SYS_CMD_REMAP_SYS_CONSOLE_MESSAGE
+#define SYS_CMD_REMAP_SYS_DEBUG_MESSAGE
+// *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
+/*** Console System Service Configuration ***/
+
+#define SYS_CONSOLE_OVERRIDE_STDIO
+#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        2
+#define SYS_CONSOLE_INSTANCES_NUMBER            1
+#define SYS_CONSOLE_UART_IDX               DRV_USART_INDEX_0
+#define SYS_CONSOLE_UART_RD_QUEUE_DEPTH    1
+#define SYS_CONSOLE_UART_WR_QUEUE_DEPTH    128
+#define SYS_CONSOLE_BUFFER_DMA_READY
+
+
+
+/*** Debug System Service Configuration ***/
+#define SYS_DEBUG_ENABLE
+#define DEBUG_PRINT_BUFFER_SIZE       512
+#define SYS_DEBUG_BUFFER_DMA_READY
+#define SYS_DEBUG_USE_CONSOLE
+
+/*** File System Service Configuration ***/
+
+#define SYS_FS_MEDIA_NUMBER         	1
+
+#define SYS_FS_VOLUME_NUMBER		1
+
+#define SYS_FS_AUTOMOUNT_ENABLE		false
+#define SYS_FS_MAX_FILES	    	25
+#define SYS_FS_MAX_FILE_SYSTEM_TYPE 	1
+#define SYS_FS_MEDIA_MAX_BLOCK_SIZE  	512
+#define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE 512
+
+
+#define SYS_FS_MEDIA_TYPE_IDX0 				
+#define SYS_FS_TYPE_IDX0 					
+
+
+
+
+
+
+
+
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
@@ -122,6 +173,12 @@ extern "C" {
 #define SYS_PORT_G_LAT          0x0000
 #define SYS_PORT_G_ODC          0x0000
 
+// *****************************************************************************
+/* Random System Service Configuration Options
+*/
+
+#define SYS_RANDOM_CRYPTO_SEED_SIZE  55
+
 /*** Timer System Service Configuration ***/
 #define SYS_TMR_POWER_STATE             SYS_MODULE_POWER_RUN_FULL
 #define SYS_TMR_DRIVER_INDEX            DRV_TMR_INDEX_0
@@ -132,124 +189,11 @@ extern "C" {
 #define SYS_TMR_CLIENT_TOLERANCE        10
 #define SYS_TMR_INTERRUPT_NOTIFICATION  true
 
-/*** Console System Service Configuration ***/
-
-#define SYS_CONSOLE_OVERRIDE_STDIO
-#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        2
-#define SYS_CONSOLE_INSTANCES_NUMBER            1
-#define SYS_CONSOLE_UART_IDX               DRV_USART_INDEX_0
-#define SYS_CONSOLE_UART_RD_QUEUE_DEPTH    1
-#define SYS_CONSOLE_UART_WR_QUEUE_DEPTH    128
-#define SYS_CONSOLE_BUFFER_DMA_READY
-
-
-
-/*** Debug System Service Configuration ***/
-#define SYS_DEBUG_ENABLE
-#define DEBUG_PRINT_BUFFER_SIZE       512
-#define SYS_DEBUG_BUFFER_DMA_READY
-#define SYS_DEBUG_USE_CONSOLE
-
-/*** Command Processor System Service Configuration ***/
-#define SYS_CMD_ENABLE
-#define SYS_CMD_DEVICE_MAX_INSTANCES    SYS_CONSOLE_DEVICE_MAX_INSTANCES
-#define SYS_CMD_PRINT_BUFFER_SIZE       1024
-#define SYS_CMD_BUFFER_DMA_READY
-#define SYS_CMD_REMAP_SYS_CONSOLE_MESSAGE
-#define SYS_CMD_REMAP_SYS_DEBUG_MESSAGE
-
-/*** File System Service Configuration ***/
-
-#define SYS_FS_MEDIA_NUMBER         	1
-
-#define SYS_FS_VOLUME_NUMBER		1
-
-#define SYS_FS_AUTOMOUNT_ENABLE		false
-#define SYS_FS_MAX_FILES	    	25
-#define SYS_FS_MAX_FILE_SYSTEM_TYPE 	1
-#define SYS_FS_MEDIA_MAX_BLOCK_SIZE  	512
-#define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE 512
-
-
-#define SYS_FS_MEDIA_TYPE_IDX0 				
-#define SYS_FS_TYPE_IDX0 					
-
-
-
-
-
-
-
-
-// *****************************************************************************
-/* Random System Service Configuration Options
-*/
-
-#define SYS_RANDOM_CRYPTO_SEED_SIZE  55
-
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
-/*** Timer Driver Configuration ***/
-#define DRV_TMR_INTERRUPT_MODE             true
-#define DRV_TMR_INSTANCES_NUMBER           1
-#define DRV_TMR_CLIENTS_NUMBER             1
-
-/*** Timer Driver 0 Configuration ***/
-#define DRV_TMR_PERIPHERAL_ID_IDX0          TMR_ID_2
-#define DRV_TMR_INTERRUPT_SOURCE_IDX0       INT_SOURCE_TIMER_2
-#define DRV_TMR_INTERRUPT_VECTOR_IDX0       INT_VECTOR_T2
-#define DRV_TMR_ISR_VECTOR_IDX0             _TIMER_2_VECTOR
-#define DRV_TMR_INTERRUPT_PRIORITY_IDX0     INT_PRIORITY_LEVEL4
-#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX0 INT_SUBPRIORITY_LEVEL0
-#define DRV_TMR_CLOCK_SOURCE_IDX0           DRV_TMR_CLKSOURCE_INTERNAL
-#define DRV_TMR_PRESCALE_IDX0               TMR_PRESCALE_VALUE_256
-#define DRV_TMR_OPERATION_MODE_IDX0         DRV_TMR_OPERATION_MODE_16_BIT
-#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX0     false
-#define DRV_TMR_POWER_STATE_IDX0            SYS_MODULE_POWER_RUN_FULL
-
- // *****************************************************************************
-/* USART Driver Configuration Options
-*/
-#define DRV_USART_INTERRUPT_MODE                    true
-
-#define DRV_USART_BYTE_MODEL_SUPPORT                false
-
-#define DRV_USART_READ_WRITE_MODEL_SUPPORT          true
-
-#define DRV_USART_BUFFER_QUEUE_SUPPORT              true
-
-#define DRV_USART_CLIENTS_NUMBER                    1
-#define DRV_USART_INSTANCES_NUMBER                  1
-
-#define DRV_USART_PERIPHERAL_ID_IDX0                USART_ID_2
-#define DRV_USART_OPER_MODE_IDX0                    DRV_USART_OPERATION_MODE_NORMAL
-#define DRV_USART_OPER_MODE_DATA_IDX0               
-#define DRV_USART_INIT_FLAG_WAKE_ON_START_IDX0      false
-#define DRV_USART_INIT_FLAG_AUTO_BAUD_IDX0          false
-#define DRV_USART_INIT_FLAG_STOP_IN_IDLE_IDX0       false
-#define DRV_USART_INIT_FLAGS_IDX0                   0
-#define DRV_USART_BRG_CLOCK_IDX0                    80000000
-#define DRV_USART_BAUD_RATE_IDX0                    115200
-#define DRV_USART_LINE_CNTRL_IDX0                   DRV_USART_LINE_CONTROL_8NONE1
-#define DRV_USART_HANDSHAKE_MODE_IDX0               DRV_USART_HANDSHAKE_NONE
-#define DRV_USART_XMIT_INT_SRC_IDX0                 INT_SOURCE_USART_2_TRANSMIT
-#define DRV_USART_RCV_INT_SRC_IDX0                  INT_SOURCE_USART_2_RECEIVE
-#define DRV_USART_ERR_INT_SRC_IDX0                  INT_SOURCE_USART_2_ERROR
-#define DRV_USART_INT_VECTOR_IDX0                   INT_VECTOR_UART2
-#define DRV_USART_INT_PRIORITY_IDX0                 INT_PRIORITY_LEVEL1
-#define DRV_USART_INT_SUB_PRIORITY_IDX0             INT_SUBPRIORITY_LEVEL0
-
-#define DRV_USART_XMIT_QUEUE_SIZE_IDX0              10
-#define DRV_USART_RCV_QUEUE_SIZE_IDX0               10
-
-
-#define DRV_USART_POWER_STATE_IDX0                  SYS_MODULE_POWER_RUN_FULL
-
-#define DRV_USART_QUEUE_DEPTH_COMBINED              20
 
 /*** NVM Driver Configuration ***/
 
@@ -316,8 +260,66 @@ extern "C" {
 #define DRV_SPI_TX_DMA_THRESHOLD_IDX0 		16
 #define DRV_SPI_RX_DMA_CHANNEL_IDX0 		DMA_CHANNEL_0
 #define DRV_SPI_RX_DMA_THRESHOLD_IDX0 		16
+/*** Timer Driver Configuration ***/
+#define DRV_TMR_INTERRUPT_MODE             true
+#define DRV_TMR_INSTANCES_NUMBER           1
+#define DRV_TMR_CLIENTS_NUMBER             1
+
+/*** Timer Driver 0 Configuration ***/
+#define DRV_TMR_PERIPHERAL_ID_IDX0          TMR_ID_2
+#define DRV_TMR_INTERRUPT_SOURCE_IDX0       INT_SOURCE_TIMER_2
+#define DRV_TMR_INTERRUPT_VECTOR_IDX0       INT_VECTOR_T2
+#define DRV_TMR_ISR_VECTOR_IDX0             _TIMER_2_VECTOR
+#define DRV_TMR_INTERRUPT_PRIORITY_IDX0     INT_PRIORITY_LEVEL4
+#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX0 INT_SUBPRIORITY_LEVEL0
+#define DRV_TMR_CLOCK_SOURCE_IDX0           DRV_TMR_CLKSOURCE_INTERNAL
+#define DRV_TMR_PRESCALE_IDX0               TMR_PRESCALE_VALUE_256
+#define DRV_TMR_OPERATION_MODE_IDX0         DRV_TMR_OPERATION_MODE_16_BIT
+#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX0     false
+#define DRV_TMR_POWER_STATE_IDX0            SYS_MODULE_POWER_RUN_FULL
+
+ // *****************************************************************************
+/* USART Driver Configuration Options
+*/
+#define DRV_USART_INTERRUPT_MODE                    true
+
+#define DRV_USART_BYTE_MODEL_SUPPORT                false
+
+#define DRV_USART_READ_WRITE_MODEL_SUPPORT          true
+
+#define DRV_USART_BUFFER_QUEUE_SUPPORT              true
+
+#define DRV_USART_CLIENTS_NUMBER                    1
+#define DRV_USART_INSTANCES_NUMBER                  1
+
+#define DRV_USART_PERIPHERAL_ID_IDX0                USART_ID_2
+#define DRV_USART_OPER_MODE_IDX0                    DRV_USART_OPERATION_MODE_NORMAL
+#define DRV_USART_OPER_MODE_DATA_IDX0               
+#define DRV_USART_INIT_FLAG_WAKE_ON_START_IDX0      false
+#define DRV_USART_INIT_FLAG_AUTO_BAUD_IDX0          false
+#define DRV_USART_INIT_FLAG_STOP_IN_IDLE_IDX0       false
+#define DRV_USART_INIT_FLAGS_IDX0                   0
+#define DRV_USART_BRG_CLOCK_IDX0                    80000000
+#define DRV_USART_BAUD_RATE_IDX0                    115200
+#define DRV_USART_LINE_CNTRL_IDX0                   DRV_USART_LINE_CONTROL_8NONE1
+#define DRV_USART_HANDSHAKE_MODE_IDX0               DRV_USART_HANDSHAKE_NONE
+#define DRV_USART_XMIT_INT_SRC_IDX0                 INT_SOURCE_USART_2_TRANSMIT
+#define DRV_USART_RCV_INT_SRC_IDX0                  INT_SOURCE_USART_2_RECEIVE
+#define DRV_USART_ERR_INT_SRC_IDX0                  INT_SOURCE_USART_2_ERROR
+#define DRV_USART_INT_VECTOR_IDX0                   INT_VECTOR_UART2
+#define DRV_USART_INT_PRIORITY_IDX0                 INT_PRIORITY_LEVEL1
+#define DRV_USART_INT_SUB_PRIORITY_IDX0             INT_SUBPRIORITY_LEVEL0
+
+#define DRV_USART_XMIT_QUEUE_SIZE_IDX0              10
+#define DRV_USART_RCV_QUEUE_SIZE_IDX0               10
+
+
+#define DRV_USART_POWER_STATE_IDX0                  SYS_MODULE_POWER_RUN_FULL
+
+#define DRV_USART_QUEUE_DEPTH_COMBINED              20
 
 /*** Wi-Fi Driver Configuration ***/
+
 
 
 #define MODULE_EVENT_PRINT 0
@@ -384,6 +386,9 @@ extern "C" {
 #define NO_AES
 #define NO_ASN
 #define NO_RSA
+
+/*** OSAL Configuration ***/
+#define OSAL_USE_RTOS          9
 
 
 // *****************************************************************************
@@ -512,7 +517,6 @@ extern "C" {
 #define TCPIP_HTTP_CACHE_LEN		        		"600"
 #define TCPIP_HTTP_TIMEOUT		            		45
 #define TCPIP_HTTP_MAX_CONNECTIONS		    		4
-#define TCPIP_HTTP_MAX_TLS_CONNECTIONS		  		0
 #define TCPIP_HTTP_DEFAULT_FILE		        		"index.htm"
 #define TCPIP_HTTPS_DEFAULT_FILE	        		"index.htm"
 #define TCPIP_HTTP_DEFAULT_LEN		        		10
@@ -520,8 +524,6 @@ extern "C" {
 #define TCPIP_HTTP_MIN_CALLBACK_FREE				16
 #define TCPIP_HTTP_SKT_TX_BUFF_SIZE		    		0
 #define TCPIP_HTTP_SKT_RX_BUFF_SIZE		    		0
-#define TCPIP_HTTP_TLS_SKT_TX_BUFF_SIZE		                0
-#define TCPIP_HTTP_TLS_SKT_RX_BUFF_SIZE		                0
 #define TCPIP_HTTP_CONFIG_FLAGS		        		1
 #define TCPIP_HTTP_FILE_UPLOAD_ENABLE
 #define TCPIP_HTTP_FILE_UPLOAD_NAME				"mpfsupload"
@@ -538,11 +540,14 @@ extern "C" {
 /*** ICMPv4 Client Configuration ***/
 #define TCPIP_STACK_USE_ICMP_CLIENT
 #define TCPIP_ICMP_CLIENT_USER_NOTIFICATION   true
+#define TCPIP_ICMP_ECHO_REQUEST_TIMEOUT       500
+#define TCPIP_ICMP_TASK_TICK_RATE             33
 
 
 /*** NBNS Configuration ***/
 #define TCPIP_STACK_USE_NBNS
 #define TCPIP_NBNS_TASK_TICK_RATE   110
+
 
 
 
@@ -566,8 +571,10 @@ extern "C" {
 #define TCPIP_TCP_MAX_SYN_RETRIES		        	2
 #define TCPIP_TCP_AUTO_TRANSMIT_TIMEOUT_VAL			40
 #define TCPIP_TCP_WINDOW_UPDATE_TIMEOUT_VAL			200
-#define TCPIP_TCP_MAX_SOCKETS		            		10
+#define TCPIP_TCP_MAX_SOCKETS		                10
 #define TCPIP_TCP_TASK_TICK_RATE		        	5
+#define TCPIP_TCP_MSL_TIMEOUT		        	    0
+#define TCPIP_TCP_QUIET_TIME		        	    0
 
 /*** announce Configuration ***/
 #define TCPIP_STACK_USE_ANNOUNCE
@@ -620,7 +627,6 @@ extern "C" {
 #define TCPIP_ZC_MDNS_ANNOUNCE_INTERVAL 250
 #define TCPIP_ZC_MDNS_ANNOUNCE_WAIT 250
 
-
 /*** Network Configuration Index 0 ***/
 #define TCPIP_NETWORK_DEFAULT_INTERFACE_NAME 			"MRF24WN"
 #define TCPIP_IF_MRF24WN
@@ -647,7 +653,11 @@ extern "C" {
 #define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DELAY    1000
 #define TCPIP_STACK_COMMANDS_ICMP_ECHO_TIMEOUT          5000
 #define TCPIP_STACK_COMMANDS_WIFI_ENABLE             	true
+#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_BUFF_SIZE    2000
+#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DATA_SIZE    100
 
+
+/*** IPv4 Configuration ***/
 
 /*** TCPIP SYS FS Wrapper ***/
 #define SYS_FS_MAX_PATH						80
@@ -657,9 +667,6 @@ extern "C" {
 #define SYS_FS_NVM_VOL						"/dev/nvma1"
 #define SYS_FS_FATFS_STRING					"FATFS"
 #define SYS_FS_MPFS_STRING					"MPFS2"
-
-/*** OSAL Configuration ***/
-#define OSAL_USE_RTOS          1
 
 // *****************************************************************************
 /* BSP Configuration Options

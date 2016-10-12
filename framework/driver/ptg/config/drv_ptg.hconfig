@@ -596,6 +596,7 @@ source "$HARMONY_VERSION_PATH/framework/driver/ptg/config/drv_ptg_steps.ftl" 32 
 endif	
 
 add "<#include \"/framework/driver/ptg/templates/drv_ptg_static_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS
+#add "<#include \"/framework/driver/ptg/templates/drv_ptg.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION
 
 endmenu
 

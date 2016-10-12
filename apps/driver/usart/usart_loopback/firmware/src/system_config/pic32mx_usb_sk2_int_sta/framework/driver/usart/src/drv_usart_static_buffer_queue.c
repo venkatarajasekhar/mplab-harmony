@@ -132,12 +132,14 @@ void DRV_USART0_BufferAddWrite (DRV_USART_BUFFER_HANDLE * bufferHandle, void * s
              * Configure the object and then
              * break */
             bufferObj = &gDrvUSARTBufferObj[i];
+            bufferObj->drvInstance = 0;
             bufferObj->size     = nBytes;
             bufferObj->inUse    = true;
             bufferObj->buffer   = (uint8_t*)source;
             bufferObj->nCurrentBytes = 0;
             bufferObj->next = NULL;
             bufferObj->previous = NULL;
+            bufferObj->currentState    = DRV_USART_BUFFER_IS_IN_WRITE_QUEUE;
             bufferObj->flags = (DRV_USART_BUFFER_OBJ_FLAG_BUFFER_ADD);
 
             /* Assign a handle to this buffer. The buffer handle must be unique.
@@ -296,12 +298,14 @@ void DRV_USART0_BufferAddRead(DRV_USART_BUFFER_HANDLE * const bufferHandle,void 
              * Configure the object and then
              * break */
             bufferObj = &gDrvUSARTBufferObj[i];
+            bufferObj->drvInstance = 0;
             bufferObj->size     = nBytes;
             bufferObj->inUse    = true;
             bufferObj->buffer   = (uint8_t*)destination;
             bufferObj->next     = NULL;
             bufferObj->previous = NULL;
             bufferObj->nCurrentBytes = 0;
+            bufferObj->currentState    = DRV_USART_BUFFER_IS_IN_READ_QUEUE;
             bufferObj->flags = (DRV_USART_BUFFER_OBJ_FLAG_BUFFER_ADD);
 
             /* Assign a handle to this buffer. The buffer handle must be unique.
@@ -422,6 +426,195 @@ size_t DRV_USART0_BufferProcessedSizeGet( DRV_USART_BUFFER_HANDLE bufferHandle )
     /* Return the processed number of bytes */
     return(bufferObj->nCurrentBytes);
 }
+
+size_t DRV_USART0_BufferCompletedBytesGet(DRV_USART_BUFFER_HANDLE bufferHandle)
+{
+    DRV_USART_BUFFER_OBJ * bufferObj;
+    size_t processedBytes = DRV_USART_BUFFER_HANDLE_INVALID;
+
+    /* Validate the handle */
+    if(DRV_USART_BUFFER_HANDLE_INVALID != bufferHandle)
+    {
+        /* The buffer index is the contained in the lower 16 bits 
+         * of the buffer handle */
+        bufferObj = &gDrvUSARTBufferObj[bufferHandle & 0xFFFF];
+        
+        /* Check if the buffer object is being used by any client */
+        if(bufferObj->inUse)
+        {
+            /* Get the number of bytes processed. */
+            processedBytes = bufferObj->nCurrentBytes;
+        }
+    }
+
+    /* Return the processed number of bytes..
+     * If the buffer handle is invalid or bufferObj is expired
+     * then return DRV_USART_BUFFER_HANDLE_INVALID */
+    return processedBytes;
+}
+
+DRV_USART_BUFFER_RESULT DRV_USART0_BufferRemove(DRV_USART_BUFFER_HANDLE bufferHandle)
+{
+    DRV_USART_OBJ *dObj;
+    DRV_USART_BUFFER_OBJ * bufferObj;
+    bool mutexGrabbed = true;
+    bool interruptWasEnabled = false;
+    DRV_USART_BUFFER_RESULT bufferResult = DRV_USART_BUFFER_RESULT_REMOVAL_FAILED;
+
+    /* Validate the handle */
+    if(DRV_USART_BUFFER_HANDLE_INVALID == bufferHandle)
+    {
+        bufferResult = DRV_USART_BUFFER_RESULT_HANDLE_INVALID;
+    }
+    else
+    {
+
+        /* The buffer index is the contained in the lower 16 bits of the buffer
+         * handle */
+        bufferObj = &gDrvUSARTBufferObj[bufferHandle & 0xFFFF];
+        
+        /* Get the driver object */
+        dObj = &gDrvUSART0Obj;
+        
+        /* We will allow modifications to buffer queue in the interrupt
+         * context of this USART driver. But we must make
+         * sure that if we are in interrupt, then we should
+         * not modify mutexes. */
+
+        if(dObj->interruptNestingCount == 0)
+        {   
+
+            /* We will disable interrupts so that the queue
+             * status does not get updated asynchronously.
+             * This code will always execute. */
+            if( DRV_USART_BUFFER_IS_IN_WRITE_QUEUE == bufferObj->currentState)
+            {
+                interruptWasEnabled = SYS_INT_SourceDisable(INT_SOURCE_USART_1_TRANSMIT);
+            }
+            else if( DRV_USART_BUFFER_IS_IN_READ_QUEUE == bufferObj->currentState)
+            {
+                interruptWasEnabled = SYS_INT_SourceDisable(INT_SOURCE_USART_1_RECEIVE);
+            }
+        }
+
+        /* mutexGrabbed will always be true for non-RTOS case.
+         * Will be false when mutex aquisition timed out in RTOS mode */
+        if(true == mutexGrabbed)
+        {
+            /* Check if the buffer object is being used by any client */
+            if(!bufferObj->inUse)
+            {
+                /* Buffer is not present in the queue */
+                bufferResult = DRV_USART_BUFFER_RESULT_HANDLE_EXPIRED;
+            }
+            else
+            {
+                if( DRV_USART_BUFFER_IS_IN_WRITE_QUEUE == bufferObj->currentState)
+                {
+
+                    if(dObj->queueWrite == bufferObj)
+                    {
+                        /* This is the first buffer in the
+                           queue */
+
+                        /* Get the next buffer in the write queue */
+                         dObj->queueWrite = bufferObj->next;
+                         
+                        if (dObj->queueWrite != NULL)
+                        {
+                            /* Reset the new head's previous pointer */
+                            dObj->queueWrite->previous = NULL;
+                        }
+                        else
+                        {
+                            /* The queue is empty. We can disable the interrupt */
+                            SYS_INT_SourceDisable(INT_SOURCE_USART_1_TRANSMIT);
+                        }
+                    }
+                    else
+                    {
+                        /* Buffer queue link updates */
+                        
+                        /* Update previous buffer objects next pointer 
+                         * to the next buffer object of current buffer */
+                        bufferObj->previous->next = bufferObj->next;
+                        
+                        /* This may be the last buffer in the queue, if not 
+                         * then update the previous pointer of the next one */
+                        if(NULL != bufferObj->next)
+                        {
+                            bufferObj->next->previous = bufferObj->previous;
+                        }
+                    }
+             
+                    /* Update the write queue size */
+                    dObj->queueSizeCurrentWrite --;
+                }
+                
+                else if( DRV_USART_BUFFER_IS_IN_READ_QUEUE == bufferObj->currentState)
+                {
+                    if(dObj->queueRead == bufferObj)
+                    {
+                        /* This is the first buffer in the
+                           queue */
+
+                        /* Get the next buffer in the read queue */
+                         dObj->queueRead = bufferObj->next;
+                         
+                        if (dObj->queueRead != NULL)
+                        {
+                            /* Reset the new head's previous pointer */
+                            dObj->queueRead->previous = NULL;
+                        }
+                    }
+                    else
+                    {
+                        /* Buffer queue link updates */
+                        
+                        /* Update previous buffer objects next pointer 
+                         * to the next buffer object of current buffer */
+                        bufferObj->previous->next = bufferObj->next;
+                        
+                        /* This may be the last buffer in the queue, if not 
+                         * then update the previous pointer of the next one */
+                        if(NULL != bufferObj->next)
+                        {
+                            bufferObj->next->previous = bufferObj->previous;
+                        }
+                    }
+             
+                    /* Update the read queue size */
+                    dObj->queueSizeCurrentRead --;
+                }
+
+                /* Reset the current buffers flags and pointers */
+                bufferObj->inUse = false;
+                bufferObj->next = NULL;
+                bufferObj->previous = NULL;
+                bufferObj->currentState = DRV_USART_BUFFER_IS_FREE;
+
+                if(interruptWasEnabled)
+                {
+                    /* Restore interrupts. */
+                    if( DRV_USART_BUFFER_IS_IN_WRITE_QUEUE == bufferObj->currentState)
+                    {
+                        SYS_INT_SourceEnable(INT_SOURCE_USART_1_TRANSMIT);
+                    }
+                    else if( DRV_USART_BUFFER_IS_IN_READ_QUEUE == bufferObj->currentState)
+                    {
+                        SYS_INT_SourceEnable(INT_SOURCE_USART_1_RECEIVE);
+                    }
+                }
+
+                /* Update the buffer processing result */
+                bufferResult = DRV_USART_BUFFER_RESULT_REMOVED_SUCCESFULLY;
+            }
+        }
+    }
+
+    /* Return the buffer result */
+    return bufferResult;
+}
 extern DRV_USART_OBJ  gDrvUSART1Obj ;
 
 // *****************************************************************************
@@ -489,12 +682,14 @@ void DRV_USART1_BufferAddWrite (DRV_USART_BUFFER_HANDLE * bufferHandle, void * s
              * Configure the object and then
              * break */
             bufferObj = &gDrvUSARTBufferObj[i];
+            bufferObj->drvInstance = 1;
             bufferObj->size     = nBytes;
             bufferObj->inUse    = true;
             bufferObj->buffer   = (uint8_t*)source;
             bufferObj->nCurrentBytes = 0;
             bufferObj->next = NULL;
             bufferObj->previous = NULL;
+            bufferObj->currentState    = DRV_USART_BUFFER_IS_IN_WRITE_QUEUE;
             bufferObj->flags = (DRV_USART_BUFFER_OBJ_FLAG_BUFFER_ADD);
 
             /* Assign a handle to this buffer. The buffer handle must be unique.
@@ -653,12 +848,14 @@ void DRV_USART1_BufferAddRead(DRV_USART_BUFFER_HANDLE * const bufferHandle,void 
              * Configure the object and then
              * break */
             bufferObj = &gDrvUSARTBufferObj[i];
+            bufferObj->drvInstance = 1;
             bufferObj->size     = nBytes;
             bufferObj->inUse    = true;
             bufferObj->buffer   = (uint8_t*)destination;
             bufferObj->next     = NULL;
             bufferObj->previous = NULL;
             bufferObj->nCurrentBytes = 0;
+            bufferObj->currentState    = DRV_USART_BUFFER_IS_IN_READ_QUEUE;
             bufferObj->flags = (DRV_USART_BUFFER_OBJ_FLAG_BUFFER_ADD);
 
             /* Assign a handle to this buffer. The buffer handle must be unique.
@@ -778,6 +975,195 @@ size_t DRV_USART1_BufferProcessedSizeGet( DRV_USART_BUFFER_HANDLE bufferHandle )
 
     /* Return the processed number of bytes */
     return(bufferObj->nCurrentBytes);
+}
+
+size_t DRV_USART1_BufferCompletedBytesGet(DRV_USART_BUFFER_HANDLE bufferHandle)
+{
+    DRV_USART_BUFFER_OBJ * bufferObj;
+    size_t processedBytes = DRV_USART_BUFFER_HANDLE_INVALID;
+
+    /* Validate the handle */
+    if(DRV_USART_BUFFER_HANDLE_INVALID != bufferHandle)
+    {
+        /* The buffer index is the contained in the lower 16 bits 
+         * of the buffer handle */
+        bufferObj = &gDrvUSARTBufferObj[bufferHandle & 0xFFFF];
+        
+        /* Check if the buffer object is being used by any client */
+        if(bufferObj->inUse)
+        {
+            /* Get the number of bytes processed. */
+            processedBytes = bufferObj->nCurrentBytes;
+        }
+    }
+
+    /* Return the processed number of bytes..
+     * If the buffer handle is invalid or bufferObj is expired
+     * then return DRV_USART_BUFFER_HANDLE_INVALID */
+    return processedBytes;
+}
+
+DRV_USART_BUFFER_RESULT DRV_USART1_BufferRemove(DRV_USART_BUFFER_HANDLE bufferHandle)
+{
+    DRV_USART_OBJ *dObj;
+    DRV_USART_BUFFER_OBJ * bufferObj;
+    bool mutexGrabbed = true;
+    bool interruptWasEnabled = false;
+    DRV_USART_BUFFER_RESULT bufferResult = DRV_USART_BUFFER_RESULT_REMOVAL_FAILED;
+
+    /* Validate the handle */
+    if(DRV_USART_BUFFER_HANDLE_INVALID == bufferHandle)
+    {
+        bufferResult = DRV_USART_BUFFER_RESULT_HANDLE_INVALID;
+    }
+    else
+    {
+
+        /* The buffer index is the contained in the lower 16 bits of the buffer
+         * handle */
+        bufferObj = &gDrvUSARTBufferObj[bufferHandle & 0xFFFF];
+        
+        /* Get the driver object */
+        dObj = &gDrvUSART1Obj;
+        
+        /* We will allow modifications to buffer queue in the interrupt
+         * context of this USART driver. But we must make
+         * sure that if we are in interrupt, then we should
+         * not modify mutexes. */
+
+        if(dObj->interruptNestingCount == 0)
+        {   
+
+            /* We will disable interrupts so that the queue
+             * status does not get updated asynchronously.
+             * This code will always execute. */
+            if( DRV_USART_BUFFER_IS_IN_WRITE_QUEUE == bufferObj->currentState)
+            {
+                interruptWasEnabled = SYS_INT_SourceDisable(INT_SOURCE_USART_2_TRANSMIT);
+            }
+            else if( DRV_USART_BUFFER_IS_IN_READ_QUEUE == bufferObj->currentState)
+            {
+                interruptWasEnabled = SYS_INT_SourceDisable(INT_SOURCE_USART_2_RECEIVE);
+            }
+        }
+
+        /* mutexGrabbed will always be true for non-RTOS case.
+         * Will be false when mutex aquisition timed out in RTOS mode */
+        if(true == mutexGrabbed)
+        {
+            /* Check if the buffer object is being used by any client */
+            if(!bufferObj->inUse)
+            {
+                /* Buffer is not present in the queue */
+                bufferResult = DRV_USART_BUFFER_RESULT_HANDLE_EXPIRED;
+            }
+            else
+            {
+                if( DRV_USART_BUFFER_IS_IN_WRITE_QUEUE == bufferObj->currentState)
+                {
+
+                    if(dObj->queueWrite == bufferObj)
+                    {
+                        /* This is the first buffer in the
+                           queue */
+
+                        /* Get the next buffer in the write queue */
+                         dObj->queueWrite = bufferObj->next;
+                         
+                        if (dObj->queueWrite != NULL)
+                        {
+                            /* Reset the new head's previous pointer */
+                            dObj->queueWrite->previous = NULL;
+                        }
+                        else
+                        {
+                            /* The queue is empty. We can disable the interrupt */
+                            SYS_INT_SourceDisable(INT_SOURCE_USART_2_TRANSMIT);
+                        }
+                    }
+                    else
+                    {
+                        /* Buffer queue link updates */
+                        
+                        /* Update previous buffer objects next pointer 
+                         * to the next buffer object of current buffer */
+                        bufferObj->previous->next = bufferObj->next;
+                        
+                        /* This may be the last buffer in the queue, if not 
+                         * then update the previous pointer of the next one */
+                        if(NULL != bufferObj->next)
+                        {
+                            bufferObj->next->previous = bufferObj->previous;
+                        }
+                    }
+             
+                    /* Update the write queue size */
+                    dObj->queueSizeCurrentWrite --;
+                }
+                
+                else if( DRV_USART_BUFFER_IS_IN_READ_QUEUE == bufferObj->currentState)
+                {
+                    if(dObj->queueRead == bufferObj)
+                    {
+                        /* This is the first buffer in the
+                           queue */
+
+                        /* Get the next buffer in the read queue */
+                         dObj->queueRead = bufferObj->next;
+                         
+                        if (dObj->queueRead != NULL)
+                        {
+                            /* Reset the new head's previous pointer */
+                            dObj->queueRead->previous = NULL;
+                        }
+                    }
+                    else
+                    {
+                        /* Buffer queue link updates */
+                        
+                        /* Update previous buffer objects next pointer 
+                         * to the next buffer object of current buffer */
+                        bufferObj->previous->next = bufferObj->next;
+                        
+                        /* This may be the last buffer in the queue, if not 
+                         * then update the previous pointer of the next one */
+                        if(NULL != bufferObj->next)
+                        {
+                            bufferObj->next->previous = bufferObj->previous;
+                        }
+                    }
+             
+                    /* Update the read queue size */
+                    dObj->queueSizeCurrentRead --;
+                }
+
+                /* Reset the current buffers flags and pointers */
+                bufferObj->inUse = false;
+                bufferObj->next = NULL;
+                bufferObj->previous = NULL;
+                bufferObj->currentState = DRV_USART_BUFFER_IS_FREE;
+
+                if(interruptWasEnabled)
+                {
+                    /* Restore interrupts. */
+                    if( DRV_USART_BUFFER_IS_IN_WRITE_QUEUE == bufferObj->currentState)
+                    {
+                        SYS_INT_SourceEnable(INT_SOURCE_USART_2_TRANSMIT);
+                    }
+                    else if( DRV_USART_BUFFER_IS_IN_READ_QUEUE == bufferObj->currentState)
+                    {
+                        SYS_INT_SourceEnable(INT_SOURCE_USART_2_RECEIVE);
+                    }
+                }
+
+                /* Update the buffer processing result */
+                bufferResult = DRV_USART_BUFFER_RESULT_REMOVED_SUCCESFULLY;
+            }
+        }
+    }
+
+    /* Return the buffer result */
+    return bufferResult;
 }
 /*******************************************************************************
  End of File

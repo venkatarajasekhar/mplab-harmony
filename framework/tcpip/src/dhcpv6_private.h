@@ -1219,6 +1219,7 @@ typedef struct _tag_TCPIP_DHCPV6_IA_DCPT
     TCPIP_DHCPV6_OPTION_MASK_SET_3*         pOroOptMask;    // pointer to current ORO options mask
     TCPIP_DHCPV6_MSG_WRITE_DCPT             wrDcpt;         // current write descriptor
     TCPIP_DHCPV6_MSG_BUFFER*                msgBuffer;      // buffer for the DHCP message to be assembled
+    // status
     volatile TCPIP_DHCPV6_IA_STATE          iaState;
     volatile TCPIP_DHCPV6_IA_SUBSTATE       iaSubState;
 

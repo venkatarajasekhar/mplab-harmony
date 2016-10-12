@@ -189,21 +189,18 @@ const SYS_DEVCON_INIT sysDevconInit =
 
 void SYS_Initialize ( void* data )
 {
-    /* The power system service must be initialized first. */
-    SYS_POWER_Initialize(NULL);
-    
     /* Core Processor Initialization */
     SYS_CLK_Initialize( NULL );
     sysObj.sysDevcon = SYS_DEVCON_Initialize(SYS_DEVCON_INDEX_0, (SYS_MODULE_INIT*)&sysDevconInit);
     SYS_DEVCON_PerformanceConfig(SYS_CLK_SystemFrequencyGet());
     SYS_PORTS_Initialize();
     /* Board Support Package Initialization */
-    BSP_Initialize();  
+    BSP_Initialize();        
 
     /* Initialize Drivers */
     /* Disable SDHC module */
-    PLIB_POWER_PeripheralModuleDisable(POWER_ID_0, POWER_MODULE_SDHC);    
-    
+    PLIB_POWER_PeripheralModuleDisable(POWER_ID_0, POWER_MODULE_SDHC);
+
     /* Initialize System Services */
   
     /* Initialize Middleware */

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.11">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -158,6 +162,10 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
+        <Name>smtpc.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
         <Name>zero_conf_helper.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
@@ -202,12 +210,12 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
-        <Name>snmpv3_private.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>ipv4.h</Name>
         <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>snmpv3_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>inflate.c</Name>
@@ -322,15 +330,15 @@
         <Path>Header Files/framework/system/devcon</Path>
       </File>
       <File>
+        <Name>ipv4_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>nbns.h</Name>
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>tcpip_packet.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
-        <Name>ipv4_manager.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
@@ -514,6 +522,10 @@
         <Path>Source Files/framework/system/fs/src/dynamic</Path>
       </File>
       <File>
+        <Name>igmp_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>usb_cdc.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
@@ -662,6 +674,10 @@
         <Path>Header Files/framework/driver/ethmac/src/dynamic</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>tcpip_announce.c</Name>
         <Path>Source Files/framework/tcpip/src</Path>
       </File>
@@ -704,6 +720,10 @@
       <File>
         <Name>crc32.h</Name>
         <Path>Header Files/framework/crypto/src/zlib-1.2.7</Path>
+      </File>
+      <File>
+        <Name>igmp.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>md2.h</Name>
@@ -796,6 +816,10 @@
       <File>
         <Name>drv_tmr_local.h</Name>
         <Path>Header Files/framework/driver/tmr/src</Path>
+      </File>
+      <File>
+        <Name>igmp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>infback.c</Name>
@@ -920,6 +944,10 @@
       <File>
         <Name>net_pres_transportapi.h</Name>
         <Path>Header Files/framework/net/pres</Path>
+      </File>
+      <File>
+        <Name>smtpc_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>sys_devcon.c</Name>
@@ -1210,6 +1238,10 @@
         <Path>Source Files/framework/tcpip/src</Path>
       </File>
       <File>
+        <Name>dns.c</Name>
+        <Path>Source Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>aes_ctr.h</Name>
         <Path>Header Files/framework/tcpip/src/crypto</Path>
       </File>
@@ -1457,6 +1489,11 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
+        <Name>net_pres_enc_glue.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/net/pres</Path>
+        <Checksum>3FDF1EF72050D3301433F2D1893EC89D</Checksum>
+      </Template>
+      <Template>
         <Name>nvm_disk_images.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/system/fs</Path>
         <Checksum>B00B90E021F15FFD6B0B1B7F2D0650A5</Checksum>
@@ -1464,17 +1501,12 @@
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>55DFEDF1229A37825EB74EE47C3F5324</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>8808AA9117C2FF28282FA2D00B7F6D76</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -1489,7 +1521,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>FB6689AAF88493A2EF261BD909B72491</Checksum>
+        <Checksum>1CCE0473A09D017A99E4CC6BAD980CAF</Checksum>
       </Template>
       <Template>
         <Name>custom_http_app.c</Name>
@@ -1517,7 +1549,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>483866F034F26C95D0A00D2D14B67E62</Checksum>
+        <Checksum>AD51AC45EE71D2622A15C792CD2AD930</Checksum>
       </Template>
       <Template>
         <Name>mpfs_img2.c</Name>
@@ -1542,10 +1574,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\cm\Harmony\apps\tcpip\web_server_nvm_mpfs\firmware\src"/>
-        <Include value="C:\cm\Harmony\apps\tcpip\web_server_nvm_mpfs\firmware\src\system_config\pic32mz_ef_sk"/>
-        <Include value="C:\cm\Harmony\framework"/>
-        <Include value="C:\cm\Harmony\apps\tcpip\web_server_nvm_mpfs\firmware\src\system_config\pic32mz_ef_sk\framework"/>
+        <Include value="C:/isp/git/release_master/apps/tcpip/web_server_nvm_mpfs/firmware/src"/>
+        <Include value="C:/isp/git/release_master/apps/tcpip/web_server_nvm_mpfs/firmware/src/system_config/pic32mz_ef_sk"/>
+        <Include value="C:/isp/git/release_master/framework"/>
+        <Include value="C:/isp/git/release_master/apps/tcpip/web_server_nvm_mpfs/firmware/src/system_config/pic32mz_ef_sk/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk/bsp"/>
       </C32>
     </CompilerItems>

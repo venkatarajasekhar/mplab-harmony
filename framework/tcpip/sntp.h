@@ -89,13 +89,15 @@ typedef enum
     SNTP_RES_BUSY               = -1,   // module is busy
     SNTP_RES_TSTAMP_STALE       = -2,   // timestamp is stale, there's no recent timestamp
     SNTP_RES_SKT_ERR            = -3,   // NTP socket could not be opened
-    SNTP_RES_NTP_SERVER_TMO     = -4,   // NTP server could not be accessed
-    SNTP_RES_NTP_VERSION_ERR    = -5,   // wrong NTP version received
-    SNTP_RES_NTP_TSTAMP_ERR     = -6,   // wrong NTP time stamp received
-    SNTP_RES_NTP_SYNC_ERR       = -7,   // NTP time synchronization error
-    SNTP_RES_NTP_KOD_ERR        = -8,   // an NTP KissOfDeath code has been received
-    SNTP_RES_NTP_DNS_ERR        = -9,   // an NTP DNS error
-    SNTP_RES_NTP_IF_ERR         = -10,  // an NTP interface error
+    SNTP_RES_SKT_BIND_ERR       = -4,   // NTP socket bind failed
+    SNTP_RES_NTP_SERVER_TMO     = -5,   // NTP server could not be accessed
+    SNTP_RES_NTP_VERSION_ERR    = -6,   // wrong NTP version received
+    SNTP_RES_NTP_TSTAMP_ERR     = -7,   // wrong NTP time stamp received
+    SNTP_RES_NTP_SYNC_ERR       = -8,   // NTP time synchronization error
+    SNTP_RES_NTP_KOD_ERR        = -9,   // an NTP KissOfDeath code has been received
+    SNTP_RES_NTP_DNS_ERR        = -10,  // an NTP DNS error
+    SNTP_RES_NTP_IF_ERR         = -11,  // an NTP interface error
+    SNTP_RES_NTP_CONN_ERR       = -12,  // an NTP connection type error
 } TCPIP_SNTP_RESULT;
 
 //*****************************************************************************
@@ -183,7 +185,8 @@ TCPIP_SNTP_RESULT    TCPIP_SNTP_ConnectionParamSet(TCPIP_NET_HANDLE netH, IP_ADD
 
   Returns:
     - SNTP_RES_OK - if the call succeeded
-    - SNTP_RES_BUSY error code - if the connection could not be started
+    - SNTP_RES_PROGRESS  - if a connection already in progress
+                           another one could not be started
 
   Remarks:
     None.

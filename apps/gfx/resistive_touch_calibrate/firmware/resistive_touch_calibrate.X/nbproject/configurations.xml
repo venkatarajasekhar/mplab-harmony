@@ -11,11 +11,17 @@
               <itemPath>../src/system_config/pic32_gdb_ef/bsp/bsp.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32_gdb_ef/framework/system/clk/sys_clk_static.h</itemPath>
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32_gdb_ef/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
                 </logicalFolder>
-                <logicalFolder name="f2" displayName="dma" projectFiles="true">
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
+                <logicalFolder name="f1" displayName="dma" projectFiles="true">
                   <itemPath>../src/system_config/pic32_gdb_ef/framework/system/dma/sys_dma_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
@@ -37,11 +43,6 @@
                   <itemPath>../src/system_config/pic32mx_usb_sk2_s1d_pictail_vga/framework/driver/pmp/drv_pmp_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx_usb_sk2_s1d_pictail_vga/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mx_usb_sk2_s1d_pictail_vga/gfx_resources_int.h</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2_s1d_pictail_vga/system_config.h</itemPath>
@@ -55,9 +56,6 @@
         <logicalFolder name="f1" displayName="driver" projectFiles="true">
           <logicalFolder name="f4" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="controller" projectFiles="true">
-              <logicalFolder name="f2" displayName="lcc" projectFiles="true">
-                <itemPath>../../../../../framework/driver/gfx/controller/lcc/drv_gfx_lcc.h</itemPath>
-              </logicalFolder>
               <logicalFolder name="f1" displayName="s1d13517" projectFiles="true">
                 <itemPath>../../../../../framework/driver/gfx/controller/s1d13517/drv_gfx_s1d13517.h</itemPath>
               </logicalFolder>
@@ -156,6 +154,7 @@
           <logicalFolder name="f3" displayName="clk" projectFiles="true">
             <itemPath>../../../../../framework/system/clk/sys_clk.h</itemPath>
             <itemPath>../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
+            <itemPath>../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f4" displayName="common" projectFiles="true">
             <itemPath>../../../../../framework/system/common/sys_common.h</itemPath>
@@ -231,7 +230,14 @@
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
               <logicalFolder name="f1" displayName="driver" projectFiles="true">
-                <logicalFolder name="f1" displayName="spi" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32_gdb_ef/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
+                </logicalFolder>
+                <logicalFolder name="f2" displayName="spi" projectFiles="true">
                   <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
                     <itemPath>../src/system_config/pic32_gdb_ef/framework/driver/spi/dynamic/drv_spi_tasks.c</itemPath>
                     <itemPath>../src/system_config/pic32_gdb_ef/framework/driver/spi/dynamic/drv_spi_api.c</itemPath>
@@ -310,11 +316,6 @@
         <logicalFolder name="f1" displayName="driver" projectFiles="true">
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="controller" projectFiles="true">
-              <logicalFolder name="f2" displayName="lcc" projectFiles="true">
-                <logicalFolder name="f1" displayName="src" projectFiles="true">
-                  <itemPath>../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c</itemPath>
-                </logicalFolder>
-              </logicalFolder>
               <logicalFolder name="f1" displayName="s1d13517" projectFiles="true">
                 <logicalFolder name="f1" displayName="src" projectFiles="true">
                   <itemPath>../../../../../framework/driver/gfx/controller/s1d13517/src/drv_gfx_s1d13517.c</itemPath>
@@ -494,6 +495,70 @@
         <C32Global>
         </C32Global>
       </item>
+      <item path="../../../../../framework/driver/pmp/config/drv_pmp_config.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../../../../../framework/driver/pmp/drv_pmp.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../../../../../framework/driver/pmp/src/drv_pmp_local.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../../../../../framework/system/clk/sys_clk_compatibility.h"
+            ex="false"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
       <item path="../../../../../framework/system/devcon/src/sys_devcon_pic32mx.c"
             ex="true"
             overriding="false">
@@ -623,22 +688,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_vga/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_vga/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -854,7 +903,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config/pic32_gdb_ef;../src/pic32_gdb_ef;../../../../../framework;../src/system_config/pic32_gdb_ef/framework;../src/system_config/pic32_gdb_ef/bsp"/>
+                  value="../src/pic32_gdb_ef;../src;../src/system_config/pic32_gdb_ef;../../../../../framework;../src/system_config/pic32_gdb_ef/framework;../src/system_config/pic32_gdb_ef/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -881,6 +930,7 @@
         <property key="extra-include-directories-for-assembler" value=""/>
         <property key="extra-include-directories-for-preprocessor" value=""/>
         <property key="false-conditionals" value="false"/>
+        <property key="generate-micro-compressed-code" value="false"/>
         <property key="keep-locals" value="false"/>
         <property key="list-assembly" value="false"/>
         <property key="list-source" value="false"/>
@@ -1212,14 +1262,6 @@
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/drv_gfx_lcc.h"
-            ex="true"
-            overriding="false">
-      </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c"
-            ex="true"
-            overriding="false">
-      </item>
       <item path="../../../../../framework/system/devcon/src/sys_devcon_cache.h"
             ex="true"
             overriding="false">
@@ -1248,6 +1290,14 @@
             ex="true"
             overriding="false">
       </item>
+      <item path="../src/system_config/pic32_gdb_ef/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32_gdb_ef/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
+      </item>
       <item path="../src/system_config/pic32_gdb_ef/framework/driver/spi/dynamic/drv_spi_api.c"
             ex="true"
             overriding="false">
@@ -1261,10 +1311,6 @@
             overriding="false">
       </item>
       <item path="../src/system_config/pic32_gdb_ef/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-      </item>
-      <item path="../src/system_config/pic32_gdb_ef/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
       </item>
@@ -1328,7 +1374,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config/pic32mx_usb_sk2_s1d_pictail_vga;../src/pic32mx_usb_sk2_s1d_pictail_vga;../../../../../framework;../src/system_config/pic32mx_usb_sk2_s1d_pictail_vga/framework;../src/system_config/pic32mx_usb_sk2_s1d_pictail_vga/bsp"/>
+                  value="../src/pic32mx_usb_sk2_s1d_pictail_vga;../src;../src/system_config/pic32mx_usb_sk2_s1d_pictail_vga;../../../../../framework;../src/system_config/pic32mx_usb_sk2_s1d_pictail_vga/framework;../src/system_config/pic32mx_usb_sk2_s1d_pictail_vga/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -1355,6 +1401,7 @@
         <property key="extra-include-directories-for-assembler" value=""/>
         <property key="extra-include-directories-for-preprocessor" value=""/>
         <property key="false-conditionals" value="false"/>
+        <property key="generate-micro-compressed-code" value="false"/>
         <property key="keep-locals" value="false"/>
         <property key="list-assembly" value="false"/>
         <property key="list-source" value="false"/>

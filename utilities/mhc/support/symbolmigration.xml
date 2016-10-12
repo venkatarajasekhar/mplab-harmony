@@ -130,5 +130,7 @@
 	</Version>
 	<Version ver="1.08" next="1.08.01"/>
 	<Version ver="1.08.01" next="2.00"/>
-	<Version ver="2.00"/>
+    <Version ver="2.00" next="2.01">
+        <Rule name="CONFIG_3RDPARTY_RTOS_USED" ifValEquals="FreeRTOS_V8.x.x" rename="CONFIG_3RDPARTY_RTOS_USED" type="string" val="FreeRTOS"/>
+	</Version>
 </MigrationManifest>

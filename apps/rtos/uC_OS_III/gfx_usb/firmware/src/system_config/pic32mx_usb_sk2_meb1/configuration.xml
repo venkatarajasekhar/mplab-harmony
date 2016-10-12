@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration version="2.0.0.12">
+  <Designer>
+    <Assets>
+      <Settings bpp="16">
+        <MemoryLocations>
+          <MemoryLocation address="0" id="default"/>
+        </MemoryLocations>
+      </Settings>
+    </Assets>
+    <Screens height="200" width="320">
+      <Screen active="true" background="000000" clearOnShow="true" export="true" name="Untitled" primary="true" visible="true">
+        <Objects/>
+      </Screen>
+    </Screens>
+    <Schemes defaultSchemeName="default">
+      <Scheme name="default">
+        <Alpha>100</Alpha>
+        <BackgroundOffset>0,0</BackgroundOffset>
+        <EmbossSize>3</EmbossSize>
+        <Colors>
+          <Primary>FFFFFF</Primary>
+          <Secondary>404040</Secondary>
+          <Disabled>C0C0C0</Disabled>
+          <Background>000000</Background>
+          <EmbossLight>C0C0C0</EmbossLight>
+          <EmbossDark>404040</EmbossDark>
+          <TextPrimary>000000</TextPrimary>
+          <TextSecondary>FFFFFF</TextSecondary>
+          <TextDisabled>404040</TextDisabled>
+          <GradientStart>000000</GradientStart>
+          <GradientEnd>FFFFFF</GradientEnd>
+        </Colors>
+        <FillStyle>Color</FillStyle>
+        <BackgroundType>None</BackgroundType>
+      </Scheme>
+    </Schemes>
+  </Designer>
+  <General>
+    <HarmonyPath path="../../../.."/>
+    <Processor name="PIC32MX795F512L"/>
+    <Board name=""/>
+    <ForceOptimization flag="true"/>
+    <MergeStrategy flag="ALL"/>
+  </General>
+  <Manifest>
+    <Files>
+      <File>
+        <Name>cpu.h</Name>
+        <Path>Header Files/micrium/ucos_cpu/pic32mx</Path>
+      </File>
+      <File>
+        <Name>os_var.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_picture.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_progress_bar.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>cpu_core.h</Name>
+        <Path>Header Files/micrium/ucos_cpu</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_static_text.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>drv_pmp_config.h</Name>
+        <Path>Header Files/framework/driver/pmp/config</Path>
+      </File>
+      <File>
+        <Name>osal_ucos3.c</Name>
+        <Path>Source Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>drv_usbhs.h</Name>
+        <Path>Header Files/framework/driver/usb/usbhs</Path>
+      </File>
+      <File>
+        <Name>usb_device_local.h</Name>
+        <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
+        <Name>gfx.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_window.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>osal_ucos3.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>usb_chapter_9.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>cpu_c.c</Name>
+        <Path>Source Files/micrium/ucos_cpu/pic32mx</Path>
+      </File>
+      <File>
+        <Name>drv_pmp_local.h</Name>
+        <Path>Header Files/framework/driver/pmp/src</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_digital_meter.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>gfx_gol.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>os_mutex.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>os_prio.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>gfx_common.h</Name>
+        <Path>Header Files/framework/driver/gfx</Path>
+      </File>
+      <File>
+        <Name>drv_gfx_ssd1289.h</Name>
+        <Path>Header Files/framework/driver/gfx/controller/gfx_ssd1289</Path>
+      </File>
+      <File>
+        <Name>usb_device.c</Name>
+        <Path>Source Files/framework/usb/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>gfx_primitive.c</Name>
+        <Path>Source Files/framework/gfx/src</Path>
+      </File>
+      <File>
+        <Name>gfx_types_image.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>system.h</Name>
+        <Path>Header Files/framework/system</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_edit_box.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>drv_gfx_controller.h</Name>
+        <Path>Header Files/framework/driver/gfx/controller</Path>
+      </File>
+      <File>
+        <Name>drv_usbfs.h</Name>
+        <Path>Header Files/framework/driver/usb/usbfs</Path>
+      </File>
+      <File>
+        <Name>os_cpu.h</Name>
+        <Path>Header Files/micrium/ucos_III/pic32mx</Path>
+      </File>
+      <File>
+        <Name>os_cpu_a.S</Name>
+        <Path>Source Files/micrium/ucos_III/pic32mx</Path>
+      </File>
+      <File>
+        <Name>drv_pmp.h</Name>
+        <Path>Header Files/framework/driver/pmp</Path>
+      </File>
+      <File>
+        <Name>osal_impl_basic.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>os_flag.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_list_box.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>sys_devcon.c</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>usb_host.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>osal.h</Name>
+        <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>gfx_types_resource.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>gfx_types_palette.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>os_mem.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>gfx_types_font.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>os_msg.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>usb_host_hub.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>os_time.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_surface.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>osal_definitions.h</Name>
+        <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>sys_int_mapping.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>sys_devcon.h</Name>
+        <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>sys_debug.h</Name>
+        <Path>Header Files/framework/system/debug</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_pic32mx.c</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_local.h</Name>
+        <Path>Header Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>drv_usbfs_variant_mapping.h</Name>
+        <Path>Header Files/framework/driver/usb/usbfs/src</Path>
+      </File>
+      <File>
+        <Name>drv_gfx_ssd1289.c</Name>
+        <Path>Source Files/framework/driver/gfx/controller/gfx_ssd1289/src</Path>
+      </File>
+      <File>
+        <Name>drv_gfx_ssd1926.h</Name>
+        <Path>Header Files/framework/driver/gfx/controller/ssd1926</Path>
+      </File>
+      <File>
+        <Name>lib_mem.h</Name>
+        <Path>Header Files/micrium/ucos_lib</Path>
+      </File>
+      <File>
+        <Name>drv_usbfs_local.h</Name>
+        <Path>Header Files/framework/driver/usb/usbfs/src</Path>
+      </File>
+      <File>
+        <Name>driver_common.h</Name>
+        <Path>Header Files/framework/driver</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_text_entry.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>cpu_a.s</Name>
+        <Path>Source Files/micrium/ucos_cpu/pic32mx</Path>
+      </File>
+      <File>
+        <Name>gfx_colors.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>os_tick.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>os_cpu_a.inc</Name>
+        <Path>Header Files/micrium/ucos_III/pic32mx</Path>
+      </File>
+      <File>
+        <Name>gfx_primitive.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>os_int.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_group_box.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>drv_usbfs_static.h</Name>
+        <Path>Header Files/framework/driver/usb/usbfs</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_scroll_bar.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>os_tmr.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>driver.h</Name>
+        <Path>Header Files/framework/driver</Path>
+      </File>
+      <File>
+        <Name>sys_int_pic32.c</Name>
+        <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>drv_xc2c64a.c</Name>
+        <Path>Source Files/framework/driver/cpld/xc2c64a/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>usb_device_hid.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_button.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>sys_clk.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>os_core.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>os_pend_multi.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>usb_device.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>os_cpu_c.c</Name>
+        <Path>Source Files/micrium/ucos_III/pic32mx</Path>
+      </File>
+      <File>
+        <Name>sys_int_private.h</Name>
+        <Path>Header Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>os_q.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>cpu_def.h</Name>
+        <Path>Header Files/micrium/ucos_cpu</Path>
+      </File>
+      <File>
+        <Name>drv_gfx_ssd1926.c</Name>
+        <Path>Source Files/framework/driver/gfx/controller/ssd1926/src</Path>
+      </File>
+      <File>
+        <Name>cpu_core.c</Name>
+        <Path>Source Files/micrium/ucos_cpu</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_check_box.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>gfx_types_macros.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>drv_xc2c64a.h</Name>
+        <Path>Header Files/framework/driver/cpld/xc2c64a</Path>
+      </File>
+      <File>
+        <Name>os_stat.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>sys_int.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>drv_usb.h</Name>
+        <Path>Header Files/framework/driver/usb</Path>
+      </File>
+      <File>
+        <Name>usb_billboard.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>drv_usbfs.c</Name>
+        <Path>Source Files/framework/driver/usb/usbfs/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>usb_hid.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>usb_device_hid_local.h</Name>
+        <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
+        <Name>gfx.c</Name>
+        <Path>Source Files/framework/gfx/src</Path>
+      </File>
+      <File>
+        <Name>usb_host_hub_interface.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>usb_common.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_ports.h</Name>
+        <Path>Header Files/framework/system/ports</Path>
+      </File>
+      <File>
+        <Name>usb_device_hid.c</Name>
+        <Path>Source Files/framework/usb/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>os_task.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>usb_hub.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_common.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_buffer.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>usb_device_mapping.h</Name>
+        <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
+        <Name>os_cfg_app.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_meter.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>osal_impl_none.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>os_sem.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_custom_control.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>sys_clk_mapping.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>os.h</Name>
+        <Path>Header Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>lib_mem.c</Name>
+        <Path>Source Files/micrium/ucos_lib</Path>
+      </File>
+      <File>
+        <Name>gfx_palette.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>gfx_gol_radio_button.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>drv_usbfs_device.c</Name>
+        <Path>Source Files/framework/driver/usb/usbfs/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>sys_module.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>os_type.h</Name>
+        <Path>Header Files/micrium/ucos_III</Path>
+      </File>
+      <File>
+        <Name>sys_queue.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>drv_usbfs_mapping.h</Name>
+        <Path>Header Files/framework/driver/usb/usbfs</Path>
+      </File>
+      <File>
+        <Name>usb_host_client_driver.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>os_dbg.c</Name>
+        <Path>Source Files/micrium/ucos_III</Path>
+      </File>
+    </Files>
+    <Templates>
+      <Template>
+        <Name>system_definitions.h</Name>
+        <Path>Header Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
+        <Checksum>29501279C075AF2D7FB5F198C4C52AF8</Checksum>
+        <ProjectFileChecksum>8F288719E4D030CAAD640311A842121B</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>app1.c</Name>
+        <Path>Source Files/app</Path>
+      </Template>
+      <Template>
+        <Name>system_interrupt_a.S</Name>
+        <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
+        <Checksum>4D74AACAC7BD05F3E66A8F678321B8FD</Checksum>
+        <ProjectFileChecksum>8A95ABD2BFFBA09F08DC3C5288004648</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>app2.c</Name>
+        <Path>Source Files/app</Path>
+      </Template>
+      <Template>
+        <Name>app2.h</Name>
+        <Path>Header Files/app</Path>
+      </Template>
+      <Template>
+        <Name>bsp.h</Name>
+        <Path>Header Files/app/system_config/pic32mx_usb_sk2_meb1/bsp</Path>
+        <Checksum>64FA289D89D7817BE8ACE3899BF4CA98</Checksum>
+        <ProjectFileChecksum>C24142697C5A01068CC753A45C9E1B6E</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>app1.h</Name>
+        <Path>Header Files/app</Path>
+      </Template>
+      <Template>
+        <Name>system_init.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
+        <Checksum>A4902E2F21188204C8EF4BA07D813D5A</Checksum>
+        <ProjectFileChecksum>5E20A8BF86BDD5DFF76FD102E21AD947</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_interrupt.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
+        <Checksum>CBBC50C85883254ADD25D76249B37C90</Checksum>
+        <ProjectFileChecksum>CF3F653AA7C6997AB297E5C6826D8C81</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>rtos_hooks.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
+        <Checksum>EABABE6F6504F002BE5D5D186F6DB9FA</Checksum>
+        <ProjectFileChecksum>051D3D4192CAC0E06309ACC6930E761C</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>drv_pmp_static.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1/framework/driver/pmp/src</Path>
+        <Checksum>7E0E8C7B51328EA63F3F919C820E179F</Checksum>
+        <ProjectFileChecksum>E28A488FAA14E1398565884B55E4D985</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>main.c</Name>
+        <Path>Source Files/app</Path>
+      </Template>
+      <Template>
+        <Name>cpu_cfg.h</Name>
+        <Path>Header Files/app/rtos_config/pic32mx_usb_sk2_meb1</Path>
+        <Checksum>56C5FBE62FAA3B23B2F81030474182BA</Checksum>
+        <ProjectFileChecksum>1C33ED4663791043E01F8F17693C3767</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>drv_pmp_static.h</Name>
+        <Path>Header Files/app/system_config/pic32mx_usb_sk2_meb1/framework/driver/pmp</Path>
+        <Checksum>799BFBF404CEF514B5929A7011B8FCD7</Checksum>
+        <ProjectFileChecksum>5A1704B6E2E24B49AB17C4F803C0D814</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>os_cfg.h</Name>
+        <Path>Header Files/app/rtos_config/pic32mx_usb_sk2_meb1</Path>
+        <Checksum>9884F135D35C344365ADC9228F79A296</Checksum>
+        <ProjectFileChecksum>09C79319EAF9274B53D2E0C77EE68E9E</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>app.c</Name>
+        <Path>Source Files/app</Path>
+      </Template>
+      <Template>
+        <Name>os_cfg_app.h</Name>
+        <Path>Header Files/app/rtos_config/pic32mx_usb_sk2_meb1</Path>
+        <Checksum>207A10FC2AC185D8E084F206AF91F8E6</Checksum>
+        <ProjectFileChecksum>CEC2CCD4ECE09FF855B97C5D6CCE83F5</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>bsp.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1/bsp</Path>
+        <Checksum>822861F3A30A6A4849445760FFE88F83</Checksum>
+        <ProjectFileChecksum>8442B135F1DE07B891D6CB6AC3F38007</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_config.h</Name>
+        <Path>Header Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
+        <Checksum>B449F0D947D19557088E7109F826F0AF</Checksum>
+        <ProjectFileChecksum>9F057D60130620EC31E921908D0A567B</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>app.h</Name>
+        <Path>Header Files/app</Path>
+      </Template>
+      <Template>
+        <Name>sys_ports_static.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1/framework/system/ports/src</Path>
+        <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
+        <ProjectFileChecksum>0B35886124BB783F06AE7D485A32A5AA</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_exceptions.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
+        <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
+        <ProjectFileChecksum>3280531867800FD8BC64A47ACED16CD4</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>sys_clk_static.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1/framework/system/clk/src</Path>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
+        <ProjectFileChecksum>FF4467C03854D9C6D64C8D6CDD62223C</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>app_cfg.h</Name>
+        <Path>Header Files/app/rtos_config/pic32mx_usb_sk2_meb1</Path>
+        <Checksum>B41B0C7280CCA6A4A9D795DD61B67A31</Checksum>
+        <ProjectFileChecksum>385D67E04BD7BE1E780C6171D8E1C582</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>system_tasks.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
+        <Checksum>A76DA89F69B33E1BF424B5E0B5AE30F3</Checksum>
+        <ProjectFileChecksum>82DBCFA8557C895F7132332B57CFF11E</ProjectFileChecksum>
+      </Template>
+    </Templates>
+    <CompilerItems>
+      <C32-AS>
+        <Define value="PIC32MX"/>
+        <Define value="PIC32_SRS_SET_COUNT=2"/>
+        <Include value="../../../../../../third_party/rtos/MicriumOSIII/Software/uCOS_III/Ports/MIPS32-4K/Vectored-Interrupt/MPLAB-PIC32-GCC"/>
+      </C32-AS>
+      <C32>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/uC_OS_III/gfx_usb/firmware/src"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/uC_OS_III/gfx_usb/firmware/src/system_config/pic32mx_usb_sk2_meb1"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/framework"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/uC_OS_III/gfx_usb/firmware/src/system_config/pic32mx_usb_sk2_meb1/framework"/>
+        <Include value="../src/system_config/pic32mx_usb_sk2_meb1/bsp"/>
+        <Include value="../../../../../../third_party/rtos/MicriumOSIII/Software/uC_CPU/MIPS32-4K/MPLAB-PIC32-GCC"/>
+        <Include value="../../../../../../third_party/rtos/MicriumOSIII/Software/uCOS_III/Ports/MIPS32-4K/Vectored-Interrupt/MPLAB-PIC32-GCC"/>
+        <Include value="../../../../../../third_party/rtos/MicriumOSIII/Software/uCOS_III/Source"/>
+        <Include value="../../../../../../third_party/rtos/MicriumOSIII/Software/uC_CPU"/>
+        <Include value="../../../../../../third_party/rtos/MicriumOSIII/Software/uC_LIB"/>
+        <Include value="../src/rtos_config/pic32mx_usb_sk2_meb1"/>
+      </C32>
+    </CompilerItems>
+    <Libraries>
+      <Library value="../../../../../../bin/framework/peripheral/PIC32MX795F512L_peripherals.a"/>
+    </Libraries>
+  </Manifest>
+</configuration>

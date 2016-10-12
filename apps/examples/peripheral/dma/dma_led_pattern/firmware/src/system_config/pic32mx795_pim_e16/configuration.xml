@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -102,6 +106,10 @@
         <Path>Source Files/framework/system/int/src</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>sys_clk.h</Name>
         <Path>Header Files/framework/system/clk</Path>
       </File>
@@ -128,6 +136,10 @@
       <File>
         <Name>sys_devcon.h</Name>
         <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
         <Name>system.h</Name>
@@ -176,12 +188,12 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16/bsp</Path>
-        <Checksum>D0BABDD8CC269B7DE3BA98239B5ECC8D</Checksum>
+        <Checksum>EE96DD12865E6C7F0453E07B26BCF042</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16/bsp</Path>
-        <Checksum>999832C5BD5B6EC600BB84C682241D0C</Checksum>
+        <Checksum>7567B3DF8AD82B4BA40BB70A80E7AC51</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -205,8 +217,8 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16</Path>
-        <Checksum>690D0857C0ACB5ED73B4450F6F962912</Checksum>
-        <ProjectFileChecksum>4E4A6B93EB734CC24979EF8EEF8BFDB3</ProjectFileChecksum>
+        <Checksum>A8ACC1554654401FD14018C9A8966778</Checksum>
+        <ProjectFileChecksum>A6D63071BBE26851006590B6A5D61421</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -230,7 +242,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16/framework/system/clk/src</Path>
-        <Checksum>DEA20F93FDBADA754C29D50EBF5283DA</Checksum>
+        <Checksum>810F692A508112FD7B1C78F2F25EF9BE</Checksum>
       </Template>
       <Template>
         <Name>sys_dma_static.h</Name>
@@ -238,14 +250,9 @@
         <Checksum>0CE14BBEB78DCA8EA4AE6AABF57ACD8D</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16</Path>
-        <Checksum>DCE363E63CF72550E46F93A99805E187</Checksum>
+        <Checksum>77A9388564D8AFF6047B18460E35BDFA</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -255,11 +262,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\microchip\harmony\core\apps\examples\peripheral\dma\dma_led_pattern\firmware\src"/>
-        <Include value="C:\microchip\harmony\core\apps\examples\peripheral\dma\dma_led_pattern\firmware\src\system_config\pic32mx795_pim_e16"/>
-        <Include value="C:\microchip\harmony\core\apps\examples\peripheral\dma\dma_led_pattern\firmware\src\pic32mx795_pim_e16"/>
-        <Include value="C:\microchip\harmony\core\framework"/>
-        <Include value="C:\microchip\harmony\core\apps\examples\peripheral\dma\dma_led_pattern\firmware\src\system_config\pic32mx795_pim_e16\framework"/>
+        <Include value="E:/Git/core/apps/examples/peripheral/dma/dma_led_pattern/firmware/src"/>
+        <Include value="E:/Git/core/apps/examples/peripheral/dma/dma_led_pattern/firmware/src/system_config/pic32mx795_pim_e16"/>
+        <Include value="E:/Git/core/framework"/>
+        <Include value="E:/Git/core/apps/examples/peripheral/dma/dma_led_pattern/firmware/src/system_config/pic32mx795_pim_e16/framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16/bsp"/>
       </C32>
     </CompilerItems>

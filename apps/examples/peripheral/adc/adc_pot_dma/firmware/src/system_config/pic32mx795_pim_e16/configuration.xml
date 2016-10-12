@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <HarmonyPath path="../../../../.."/>
   <ForceOptimization flag="true"/>
   <Templates>
@@ -221,13 +221,17 @@
         <Name>sys_int.h</Name>
         <Path>Header Files/framework/system/int</Path>
       </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
     </Files>
     <Templates>
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16</Path>
         <Checksum>5C78ADB9E111EB575EE8397B8E69456D</Checksum>
-        <ProjectFileChecksum>92A7F4A5C3DD55B423EB580CB0F120D1</ProjectFileChecksum>
+        <ProjectFileChecksum>767B2866CF32BB6F0ADB88F597994A52</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -270,8 +274,8 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16</Path>
-        <Checksum>6E65BF00E21833CCEC62870536BB5110</Checksum>
-        <ProjectFileChecksum>50B442B39CEFFDFB0EB9271D58DDECFD</ProjectFileChecksum>
+        <Checksum>BB00B366DBC6D3798E03192DBF1E15D2</Checksum>
+        <ProjectFileChecksum>BE5413F810734F4C099DAB5F08C64344</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -290,7 +294,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>sys_dma_static.h</Name>
@@ -298,14 +302,9 @@
         <Checksum>0CE14BBEB78DCA8EA4AE6AABF57ACD8D</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16</Path>
-        <Checksum>1D84CCA9F0645D2032FEC851DDDC91FC</Checksum>
+        <Checksum>B514BFADF7CF7DAEFCC9427DD149FC2C</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -315,10 +314,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\cm\Harmony\apps\examples\peripheral\adc\adc_pot_dma\firmware\src"/>
-        <Include value="C:\cm\Harmony\apps\examples\peripheral\adc\adc_pot_dma\firmware\src\system_config\pic32mx795_pim_e16"/>
-        <Include value="C:\cm\Harmony\framework"/>
-        <Include value="C:\cm\Harmony\apps\examples\peripheral\adc\adc_pot_dma\firmware\src\system_config\pic32mx795_pim_e16\framework"/>
+        <Include value="C:\Git_repository\core1\apps\examples\peripheral\adc\adc_pot_dma\firmware\src"/>
+        <Include value="C:\Git_repository\core1\apps\examples\peripheral\adc\adc_pot_dma\firmware\src\system_config\pic32mx795_pim_e16"/>
+        <Include value="C:\Git_repository\core1\framework"/>
+        <Include value="C:\Git_repository\core1\apps\examples\peripheral\adc\adc_pot_dma\firmware\src\system_config\pic32mx795_pim_e16\framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16/bsp"/>
       </C32>
     </CompilerItems>

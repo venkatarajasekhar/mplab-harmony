@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2048EFH144"/>
@@ -206,6 +210,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -281,14 +289,9 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_poll_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_poll_dyn</Path>
-        <Checksum>749BD7C18010FCFBAE92938ABB557B9F</Checksum>
+        <Checksum>CA78C33A875AE2848A64CCFED91ACE39</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -298,7 +301,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_poll_dyn/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -331,7 +334,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_poll_dyn</Path>
-        <Checksum>4376867E50F3AE9E782127CA9BE20EDC</Checksum>
+        <Checksum>2192702B952F36704C75E5DBF60729D4</Checksum>
         <ProjectFileChecksum>576D3A40877342E60851448F43BEA994</ProjectFileChecksum>
       </Template>
       <Template>

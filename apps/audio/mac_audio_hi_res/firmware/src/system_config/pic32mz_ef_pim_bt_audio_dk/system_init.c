@@ -964,7 +964,8 @@ void SYS_Initialize ( void* data )
     SYS_DEVCON_PerformanceConfig(SYS_CLK_SystemFrequencyGet());
     SYS_PORTS_Initialize();
     /* Board Support Package Initialization */
-    BSP_Initialize();        
+    BSP_Initialize();
+    // keep the following line
     BSP_USBSwitchSelect(BSP_USB_DEVICE);
 
     /* Initialize Drivers */

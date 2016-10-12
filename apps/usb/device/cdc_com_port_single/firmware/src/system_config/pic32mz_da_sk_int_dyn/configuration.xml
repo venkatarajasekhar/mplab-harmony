@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2064DAB288"/>
@@ -170,6 +174,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -243,7 +251,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_int_dyn</Path>
-        <Checksum>07C028BE3220920AD7C81C201FE46396</Checksum>
+        <Checksum>1B5B4E40A786CDCF3A31FCD330D1E840</Checksum>
         <ProjectFileChecksum>9B14F8976D0CA6DB081026453F6BD8A1</ProjectFileChecksum>
       </Template>
       <Template>
@@ -254,11 +262,6 @@
       <Template>
         <Name>main.c</Name>
         <Path>Source Files/app</Path>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_da_sk_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -283,7 +286,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_int_dyn</Path>
-        <Checksum>03F75263CF5DF0163BF52766459EBB1A</Checksum>
+        <Checksum>75A1DA94F0DE10CC562CADFFB02202AD</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -292,7 +295,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk_int_dyn/framework/system/clk/src</Path>
-        <Checksum>4ACBE80AD6E6B9C5B8788224DF3C6EE8</Checksum>
+        <Checksum>5DEC6FBF578D0F2E0CFD7A4E273CFADC</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>

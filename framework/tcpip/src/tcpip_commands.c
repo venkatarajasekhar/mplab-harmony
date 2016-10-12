@@ -11,7 +11,8 @@
 
 /*******************************************************************************
 File Name:  tcpip_commands.c
-Copyright (c) 2013 released Microchip Technology Inc.  All rights reserved.
+Copyright ©2012 released Microchip Technology Inc.  All rights
+reserved.
 
 Microchip licenses to you the right to use, modify, copy and distribute
 Software only when embedded on a Microchip microcontroller or digital signal
@@ -21,7 +22,7 @@ controller that is integrated into your product or third party product
 You should refer to the license agreement accompanying this Software for
 additional information regarding your rights and obligations.
 
-SOFTWARE AND DOCUMENTATION ARE PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND,
+SOFTWARE AND DOCUMENTATION ARE PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND,
 EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF
 MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE.
 IN NO EVENT SHALL MICROCHIP OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER
@@ -39,8 +40,9 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #if defined(TCPIP_STACK_COMMAND_ENABLE)
 
-#if defined(TCPIP_STACK_USE_IPV4) && defined(TCPIP_STACK_USE_ICMP_CLIENT) && (TCPIP_ICMP_CLIENT_USER_NOTIFICATION != 0)
+#if defined(TCPIP_STACK_USE_IPV4) && defined(TCPIP_STACK_USE_ICMP_CLIENT)
 #define _TCPIP_COMMAND_PING4
+#define _TCPIP_COMMAND_PING4_DEBUG      0   // enable/disable extra ping debugging messages
 #endif
 
 #if defined(TCPIP_STACK_USE_IPV6) && defined(TCPIP_STACK_USE_ICMPV6_CLIENT) && (TCPIP_ICMPV6_CLIENT_USER_NOTIFICATION != 0)
@@ -120,7 +122,6 @@ static int _Command_StackOnOff(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** arg
 #endif  // (TCPIP_STACK_DOWN_OPERATION != 0)
 static int _Command_HeapInfo(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
 static int _CommandArp(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
-static int _Command_DNSOnOff(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
 static int _Command_MacInfo(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
 #if defined(TCPIP_STACK_USE_TFTP_CLIENT)
 static int _Command_TFTPC_Service(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
@@ -133,6 +134,7 @@ static int _CommandDhcpv6Options(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** a
 static int _Command_DHCPLeaseInfo(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
 #endif  //  defined(TCPIP_STACK_USE_DHCP_SERVER)
 #if defined(TCPIP_STACK_USE_DNS)
+static int _Command_DNSOnOff(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
 static int _Command_DNS_Service(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
 static int _Command_ShowDNSResolvedInfo(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
 #endif
@@ -155,6 +157,10 @@ static int _Command_SsiInfo(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
 #endif
 #endif
 
+#if defined(TCPIP_STACK_USE_SMTPC) && defined(TCPIP_SMTPC_USE_MAIL_COMMAND)
+static int _CommandMail(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
+#endif  // defined(TCPIP_STACK_USE_SMTPC) && defined(TCPIP_SMTPC_USE_MAIL_COMMAND)
+
 #if defined(_TCPIP_STACK_COMMAND_TASK)
 // command task status
 typedef enum
@@ -166,6 +172,7 @@ typedef enum
 
     TCPIP_PING_CMD_DNS_GET = TCPIP_CMD_STAT_PING_START,     // get DNS
     TCPIP_PING_CMD_DNS_WAIT,        // wait for DNS
+    TCPIP_PING_CMD_START_PING,      // start ping process
     TCPIP_PING_CMD_DO_PING,         // send pings
     TCPIP_PING6_CMD_DNS_GET,        // send pings
     TCPIP_PING6_CMD_DNS_WAIT,       // wait for DNS    
@@ -209,15 +216,16 @@ static void                 TCPIPCmdDnsTask(void);
 #if defined(_TCPIP_COMMAND_PING4)
 
 static int                  _CommandPing(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
-static void                 CommandPingHandler(TCPIP_NET_HANDLE hNetIf, IPV4_ADDR * remoteIP, void * data);
+
+static void                 CommandPingHandler(const  TCPIP_ICMP_ECHO_REQUEST* pEchoReq, TCPIP_ICMP_REQUEST_HANDLE iHandle, TCPIP_ICMP_ECHO_REQUEST_RESULT result);
 
 static void                 TCPIPCmdPingTask(void);
 
 static void                 _PingStop(SYS_CMD_DEVICE_NODE* pCmdIO, const void* cmdIoParam);
 
-static ICMP_HANDLE          hIcmp = 0;
-
 static IPV4_ADDR            icmpTargetAddr;         // current target address
+uint8_t                     icmpPingBuff[TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_BUFF_SIZE];
+int                         icmpPingSize = TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DATA_SIZE;
 #endif  // defined(_TCPIP_COMMAND_PING4)
 
 #if defined(_TCPIP_COMMAND_PING6)
@@ -239,6 +247,7 @@ static char                 icmpTargetHost[31];     // current target host name
 static char                 icmpTargetAddrStr[17];  // current target address string
 static uint16_t             icmpSequenceNo;         // current sequence number
 static uint16_t             icmpIdentifier;         // current ID number
+static TCPIP_ICMP_REQUEST_HANDLE icmpReqHandle;     // current transaction handle
 
 static int                  icmpReqNo;              // number of requests to send
 static int                  icmpReqCount;           // current request counter
@@ -274,7 +283,7 @@ static const SYS_CMD_DESCRIPTOR    tcpipCmdTbl[]=
 #endif  // (TCPIP_STACK_DOWN_OPERATION != 0)
     {"heapinfo",    _Command_HeapInfo,             ": Check heap status"},
 #if defined(TCPIP_STACK_USE_DHCP_SERVER)
-    {"dhcpsinfo",   _Command_DHCPLeaseInfo,        ": Display DHCP server lease details" },
+    {"dhcpsinfo",   _Command_DHCPLeaseInfo,        ": Display DHCP Server Lease Details" },
 #endif  //  defined(TCPIP_STACK_USE_DHCP_SERVER)
 #if defined(_TCPIP_COMMAND_PING4)
     {"ping",        _CommandPing,                  ": Ping an IP address"},
@@ -291,7 +300,7 @@ static const SYS_CMD_DESCRIPTOR    tcpipCmdTbl[]=
 #endif
     {"macinfo",     _Command_MacInfo,              ": Check MAC statistics"},
 #if defined(TCPIP_STACK_USE_TFTP_CLIENT)
-    {"tftpc",       _Command_TFTPC_Service,        ": TFTP client service"},
+    {"tftpc",       _Command_TFTPC_Service,        ": TFTP client Service"},
 #endif
 #if defined(TCPIP_STACK_USE_DHCPV6_CLIENT)
     {"dhcpv6",      _CommandDhcpv6Options,         ": DHCPV6 client commands"},
@@ -302,6 +311,9 @@ static const SYS_CMD_DESCRIPTOR    tcpipCmdTbl[]=
     {"ssi",        _Command_SsiInfo,              ": SSI information"},
 #endif
 #endif
+#if defined(TCPIP_STACK_USE_SMTPC) && defined(TCPIP_SMTPC_USE_MAIL_COMMAND)
+	{"mail", 	    _CommandMail,			        ": Send Mail Message"},
+#endif  // defined(TCPIP_STACK_USE_SMTPC) && defined(TCPIP_SMTPC_USE_MAIL_COMMAND)
 
 };
 
@@ -338,7 +350,6 @@ bool TCPIP_Commands_Initialize(const TCPIP_STACK_MODULE_CTRL* const stackCtrl, c
 #endif  // defined(_TCPIP_STACK_COMMANDS_STORAGE_ENABLE) && ((TCPIP_STACK_DOWN_OPERATION != 0) || (TCPIP_STACK_IF_UP_DOWN_OPERATION != 0))
 
 #if defined(_TCPIP_COMMAND_PING4)
-    hIcmp = 0;
     icmpAckRecv = 0;
 #endif  // defined(_TCPIP_COMMAND_PING4)
 #if defined(_TCPIP_COMMAND_PING6)
@@ -392,12 +403,6 @@ void TCPIP_Commands_Deinitialize(const TCPIP_STACK_MODULE_CTRL* const stackCtrl)
             TCPIP_ICMPV6_CallbackDeregister(hIcmpv6);
         }
 #endif  // defined(_TCPIP_COMMAND_PING6)
-#if defined(_TCPIP_COMMAND_PING4)
-        if(hIcmp)
-        {
-            TCPIP_ICMP_CallbackDeregister(hIcmp);
-        }
-#endif  // defined(_TCPIP_COMMAND_PING4)
         
     }
 }
@@ -507,31 +512,31 @@ static int _Command_NetInfo(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
         dhcpActive = false;
         if(TCPIP_DHCP_IsActive(netH))
         {
-            msgAdd = "DHCP";
+            msgAdd = "dhcp";
             dhcpActive = true;
         }
 #if defined(TCPIP_STACK_USE_ZEROCONF_LINK_LOCAL)
         else if(TCPIP_ZCLL_IsEnabled(netH))
         {
-            msgAdd = "ZCLL";
+            msgAdd = "zcll";
         }
 #endif
 #if defined(TCPIP_STACK_USE_DHCP_SERVER)
         else if(TCPIP_DHCPS_IsEnabled(netH))
         {
-            msgAdd = "DHCPS";
+            msgAdd = "dhcps";
         }
 #endif  // defined(TCPIP_STACK_USE_DHCP_SERVER)
         else
         {
-            msgAdd = "Default IP Address";
+            msgAdd = "default IP address";
         }
 
         (*pCmdIO->pCmdApi->print)(cmdIoParam, "%s is ON\r\n", msgAdd);
 
         if(!dhcpActive)
         {
-            (*pCmdIO->pCmdApi->print)(cmdIoParam, "DHCP is %s\r\n", TCPIP_DHCP_IsEnabled(netH) ? "ENABLED" : "DISABLED");
+            (*pCmdIO->pCmdApi->print)(cmdIoParam, "dhcp is %s\r\n", TCPIP_DHCP_IsEnabled(netH) ? "enabled" : "disabled");
         }
         
         (*pCmdIO->pCmdApi->print)(cmdIoParam, "Link is %s\r\n", TCPIP_STACK_NetIsLinked(netH) ? "UP" : "DOWN");
@@ -963,85 +968,6 @@ static int _Command_AddressService(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char**
 }
 
 
-static int _Command_DNSOnOff(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
-{
-    TCPIP_NET_HANDLE netH;
-    bool             addRes, svcEnable;
-    const char       *msgOK, *msgFail;
-    bool             clearCache = false;
-    TCPIP_DNS_ENABLE_FLAGS enableFlags = TCPIP_DNS_ENABLE_DEFAULT;
-    const void* cmdIoParam = pCmdIO->cmdIoParam;
-
-    if (argc < 3)
-    {
-        (*pCmdIO->pCmdApi->print)(cmdIoParam, "Usage: %s <on/off> <interface> <strict/pref>/<clear> \r\n", argv[0]);
-        (*pCmdIO->pCmdApi->print)(cmdIoParam, "Ex: %s on eth0\r\n", argv[0]);
-        return false;
-    }
-
-    netH = TCPIP_STACK_NetHandleGet(argv[2]);
-    if (netH == 0)
-    {
-        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Unknown interface\r\n");
-        return false;
-    }
-
-    if (memcmp(argv[1], "on", 2) == 0)
-    {   // turning on a service
-        svcEnable = true;
-        if(argc > 3)
-        {
-            if(strcmp(argv[3], "strict") == 0)
-            {
-                enableFlags = TCPIP_DNS_ENABLE_STRICT;
-            }
-            else if(strcmp(argv[3], "pref") == 0)
-            {
-                enableFlags = TCPIP_DNS_ENABLE_PREFERRED;
-            }
-        }
-        
-    }
-    else if (memcmp(argv[1], "off", 2) == 0)
-    {   // turning off a service
-        svcEnable = false;
-        if(argc > 3)
-        {
-            if(strcmp(argv[3], "clear") == 0)
-            {
-                clearCache = true;
-            }
-        }
-    }
-    else
-    {
-        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Unknown option\r\n");
-        return false;
-    }
-
-    if(svcEnable)
-    {
-        msgOK   = "enabled";
-        msgFail = "enable";
-        addRes = TCPIP_DNS_Enable(netH, enableFlags);
-    }
-    else
-    {
-        msgOK   = "disabled";
-        msgFail = "disable";
-        addRes = TCPIP_DNS_Disable(netH, clearCache);
-    }
-
-    if(addRes)
-    {
-        (*pCmdIO->pCmdApi->print)(cmdIoParam, "%s %s\r\n", argv[0], msgOK);
-    }
-    else
-    {
-        (*pCmdIO->pCmdApi->print)(cmdIoParam, "Failed to %s %s\r\n", msgFail, argv[0]);
-    }
-    return true;
-}
 
 static int _Command_IPAddressSet(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
 {
@@ -1342,6 +1268,85 @@ static int _Command_TFTPC_Service(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** 
 }
 #endif
 #if defined(TCPIP_STACK_USE_DNS)
+static int _Command_DNSOnOff(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
+{
+    TCPIP_NET_HANDLE netH;
+    bool             addRes, svcEnable;
+    const char       *msgOK, *msgFail;
+    bool             clearCache = false;
+    TCPIP_DNS_ENABLE_FLAGS enableFlags = TCPIP_DNS_ENABLE_DEFAULT;
+    const void* cmdIoParam = pCmdIO->cmdIoParam;
+
+    if (argc < 3)
+    {
+        (*pCmdIO->pCmdApi->print)(cmdIoParam, "Usage: %s <on/off> <interface> <strict/pref>/<clear> \r\n", argv[0]);
+        (*pCmdIO->pCmdApi->print)(cmdIoParam, "Ex: %s on eth0\r\n", argv[0]);
+        return false;
+    }
+
+    netH = TCPIP_STACK_NetHandleGet(argv[2]);
+    if (netH == 0)
+    {
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Unknown interface\r\n");
+        return false;
+    }
+
+    if (memcmp(argv[1], "on", 2) == 0)
+    {   // turning on a service
+        svcEnable = true;
+        if(argc > 3)
+        {
+            if(strcmp(argv[3], "strict") == 0)
+            {
+                enableFlags = TCPIP_DNS_ENABLE_STRICT;
+            }
+            else if(strcmp(argv[3], "pref") == 0)
+            {
+                enableFlags = TCPIP_DNS_ENABLE_PREFERRED;
+            }
+        }
+        
+    }
+    else if (memcmp(argv[1], "off", 2) == 0)
+    {   // turning off a service
+        svcEnable = false;
+        if(argc > 3)
+        {
+            if(strcmp(argv[3], "clear") == 0)
+            {
+                clearCache = true;
+            }
+        }
+    }
+    else
+    {
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Unknown option\r\n");
+        return false;
+    }
+
+    if(svcEnable)
+    {
+        msgOK   = "enabled";
+        msgFail = "enable";
+        addRes = TCPIP_DNS_Enable(netH, enableFlags);
+    }
+    else
+    {
+        msgOK   = "disabled";
+        msgFail = "disable";
+        addRes = TCPIP_DNS_Disable(netH, clearCache);
+    }
+
+    if(addRes)
+    {
+        (*pCmdIO->pCmdApi->print)(cmdIoParam, "%s %s\r\n", argv[0], msgOK);
+    }
+    else
+    {
+        (*pCmdIO->pCmdApi->print)(cmdIoParam, "Failed to %s %s\r\n", msgFail, argv[0]);
+    }
+    return true;
+}
 static int _Command_DNS_Service(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
 {
     uint8_t             *hostName;
@@ -2469,13 +2474,13 @@ void TCPIPCmdDnsTask(void)
 #if defined(_TCPIP_COMMAND_PING4)
 static int _CommandPing(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
 {
-    TCPIP_NET_HANDLE netH;
-    int     argIx;
+    int     currIx;    
+    TCPIP_COMMANDS_STAT  newCmdStat;
     const void* cmdIoParam = pCmdIO->cmdIoParam;
 
     if (argc < 2)
     {
-        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ping Usage: ping <stop> <if> <name/address> <n> <msDelay>\r\n");
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ping Usage: ping <stop>/<name/address> <i interface> <n nPings> <t msPeriod> <s size>\r\n");
         return true;
     }
 
@@ -2494,52 +2499,75 @@ static int _CommandPing(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
         return true;
     }
 
-    // check the 1st parameter type
-    netH = TCPIP_STACK_NetHandleGet(argv[1]);
-    if(netH == 0)
-    {   // use default interface
-        icmpNetH = 0;
-        argIx = 1; 
-    }
-    else
+    // get the host
+    if(TCPIP_Helper_StringToIPAddress(argv[1], &icmpTargetAddr))
     {
-        icmpNetH = netH;
-        argIx = 2; 
-        if (argc < 3)
-        {
-            (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ping Usage: ping <stop> <if> <name/address> <n> <msDelay>\r\n");
-            return true;
-        }
-    }
-
-    if(TCPIP_Helper_StringToIPAddress(argv[argIx], &icmpTargetAddr))
-    {
-        strncpy(icmpTargetAddrStr, argv[argIx], sizeof(icmpTargetAddrStr));
+        strncpy(icmpTargetAddrStr, argv[1], sizeof(icmpTargetAddrStr));
         icmpTargetHost[0] = '\0';
-        tcpipCmdStat = TCPIP_PING_CMD_DO_PING;
+        newCmdStat = TCPIP_PING_CMD_START_PING;
     }
     else
     {   // assume host address
-        if(strlen(argv[argIx]) > sizeof(icmpTargetHost) - 1)
+        if(strlen(argv[1]) > sizeof(icmpTargetHost) - 1)
         {
             (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ping: Host name too long. Retry.\r\n");
             return true;
         }
-        strcpy(icmpTargetHost, argv[argIx]);
-        tcpipCmdStat = TCPIP_PING_CMD_DNS_GET;
+        strcpy(icmpTargetHost, argv[1]);
+        newCmdStat = TCPIP_PING_CMD_DNS_GET;
     }
 
+    // get additional parameters, if any
+    //
+    icmpReqNo = 0;
+    icmpReqDelay = 0;
 
-    if(hIcmp == 0)
-    {
-        if((hIcmp = TCPIP_ICMP_CallbackRegister(CommandPingHandler)) == 0)
+    currIx = 2;
+
+    while(currIx + 1 < argc)
+    { 
+        char* param = argv[currIx];
+        char* paramVal = argv[currIx + 1];
+
+        if(strcmp(param, "i") == 0)
         {
-            (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ping: Failed to register ICMP handler\r\n");
-            _PingStop(pCmdIO, cmdIoParam);
-            return true;
+            if((icmpNetH = TCPIP_STACK_NetHandleGet(paramVal)) == 0)
+            {   // use default interface
+                icmpNetH = TCPIP_STACK_NetDefaultGet();
+            }
         }
+        else if(strcmp(param, "n") == 0)
+        {
+            icmpReqNo = atoi(paramVal);
+        }
+        else if(strcmp(param, "t") == 0)
+        {
+            icmpReqDelay = atoi(paramVal);
+        }
+        else if(strcmp(param, "s") == 0)
+        {
+            int pingSize = atoi(paramVal);
+            if(pingSize <= sizeof(icmpPingBuff))
+            {
+                icmpPingSize = pingSize;
+            }
+            else
+            {
+                (*pCmdIO->pCmdApi->print)(cmdIoParam, "Ping: Data size too big. Max: %d. Retry\r\n", sizeof(icmpPingBuff));
+                return true;
+            }
+
+        }
+        else
+        {
+            (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ping: Unknown parameter\r\n");
+        }
+
+        currIx += 2;
     }
 
+
+    tcpipCmdStat = newCmdStat;
     if(tcpipCmdStat == TCPIP_PING_CMD_DNS_GET)
     {
         (*pCmdIO->pCmdApi->print)(cmdIoParam, "Ping: resolving host: %s\r\n", icmpTargetHost);
@@ -2547,19 +2575,6 @@ static int _CommandPing(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
 
     icmpSequenceNo = SYS_RANDOM_PseudoGet();
     icmpIdentifier = SYS_RANDOM_PseudoGet();
-
-    icmpReqNo = 0;
-    icmpReqDelay = 0;
-    argIx ++; 
-    if(argc > argIx)
-    {
-        icmpReqNo = atoi(argv[argIx]);
-        argIx++;
-        if(argc > argIx)
-        {
-            icmpReqDelay = atoi(argv[argIx]);
-        }
-    }
 
     if(icmpReqNo == 0)
     {
@@ -2587,40 +2602,81 @@ static int _CommandPing(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
 
 }
 
-static void CommandPingHandler(TCPIP_NET_HANDLE hNetIf, IPV4_ADDR * remoteIP, void * data)
+static void CommandPingHandler(const  TCPIP_ICMP_ECHO_REQUEST* pEchoReq, TCPIP_ICMP_REQUEST_HANDLE iHandle, TCPIP_ICMP_ECHO_REQUEST_RESULT result)
 {
     char addBuff[20];
 
-    if(tcpipCmdStat == TCPIP_CMD_STAT_IDLE)
-    {
-        return; // not our reply?
-    }
+    if(result == TCPIP_ICMP_ECHO_REQUEST_RES_OK)
+    {   // reply has been received
+        uint32_t errorMask = 0;     // error mask:
+        // 0x1: wrong id
+        // 0x2: wrong seq
+        // 0x4: wrong target
+        // 0x8: wrong size
+        // 0x10: wrong data
+        //
+        if(pEchoReq->identifier != icmpIdentifier)
+        {
+            errorMask |= 0x1;
+        }
 
-    uint16_t* pReply = (uint16_t*)data;
-    uint16_t myRecvId = *pReply;
-    uint16_t myRecvSequenceNumber = *(pReply + 1);
+        if(pEchoReq->sequenceNumber != icmpSequenceNo)
+        {
+            errorMask |= 0x2;
+        }
 
+        if(pEchoReq->targetAddr.Val != icmpTargetAddr.Val)
+        {
+            errorMask |= 0x4;
+        }
 
-    if (myRecvSequenceNumber != icmpSequenceNo || myRecvId != icmpIdentifier)
-    {
-        (*pTcpipCmdDevice->pCmdApi->msg)(icmpCmdIoParam, "Ping: wrong reply received\r\n");
+        if(pEchoReq->dataSize != icmpPingSize)
+        {
+            errorMask |= 0x8;
+        }
+
+        // check the data
+        int ix;
+        int checkSize = pEchoReq->dataSize < icmpPingSize ? pEchoReq->dataSize : icmpPingSize;
+        uint8_t* pSrc = icmpPingBuff;
+        uint8_t* pDst = pEchoReq->pData;
+        for(ix = 0; ix < checkSize; ix++)
+        {
+            if(*pSrc++ != *pDst++)
+            {
+                errorMask |= 0x10;
+                break;
+            }
+        }
+
+        if(errorMask != 0)
+        {   // some errors
+            (*pTcpipCmdDevice->pCmdApi->print)(icmpCmdIoParam, "Ping: wrong reply received. Mask: 0x%2x\r\n", errorMask);
+        }
+        else
+        {   // good reply
+            uint32_t pingTicks = SYS_TMR_TickCountGet() - icmpStartTick;
+            int pingMs = (pingTicks * 1000) / SYS_TMR_TickCounterFrequencyGet();
+            if(pingMs == 0)
+            {
+                pingMs = 1;
+            }
+
+            TCPIP_Helper_IPAddressToString(&pEchoReq->targetAddr, addBuff, sizeof(addBuff));
+
+            (*pTcpipCmdDevice->pCmdApi->print)(icmpCmdIoParam, "Ping: reply[%d] from %s: time = %dms\r\n", ++icmpAckRecv, addBuff, pingMs);
+        }
     }
     else
     {
-        uint32_t pingTicks = SYS_TMR_TickCountGet() - icmpStartTick;
-        int pingMs = (pingTicks * 1000) / SYS_TMR_TickCounterFrequencyGet();
-        if(pingMs == 0)
-        {
-            pingMs = 1;
-        }
-
-        TCPIP_Helper_IPAddressToString(remoteIP, addBuff, sizeof(addBuff));
-
-        (*pTcpipCmdDevice->pCmdApi->print)(icmpCmdIoParam, "Ping: reply from %s: time = %dms\r\n", addBuff, pingMs);
-        icmpAckRecv++;
+#if (_TCPIP_COMMAND_PING4_DEBUG != 0)
+        (*pTcpipCmdDevice->pCmdApi->print)(icmpCmdIoParam, "Ping: request aborted by ICMP with result %d\r\n", result);
+#endif  // (_TCPIP_COMMAND_PING4_DEBUG != 0)
     }
-
+    // one way or the other, request is done
+    icmpReqHandle = 0;
 }
+
 #endif  // defined(_TCPIP_COMMAND_PING4)
 
 #if defined(_TCPIP_COMMAND_PING6)
@@ -2777,6 +2833,24 @@ static void CommandPing6Handler(TCPIP_NET_HANDLE hNetIf,uint8_t type, const IPV6
 #if defined(_TCPIP_COMMAND_PING4) || defined(_TCPIP_COMMAND_PING6)
 static void _PingStop(SYS_CMD_DEVICE_NODE* pCmdIO, const void* cmdIoParam)
 {
+    if(icmpReqHandle != 0)
+    {
+#if (_TCPIP_COMMAND_PING4_DEBUG == 0)
+        TCPIP_ICMP_EchoRequestCancel(icmpReqHandle);
+#else
+        if(TCPIP_ICMP_EchoRequestCancel(icmpReqHandle) != ICMP_ECHO_OK)
+        {   // this should NOT happen!
+            (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ping stop failed!\r\n");
+        }
+        else
+        { 
+            (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ping: request aborted by tcpip CMD: stop!\r\n");
+        }
+#endif  // (_TCPIP_COMMAND_PING4_DEBUG == 0)
+
+        icmpReqHandle = 0;
+    }
+
     _TCPIPStackSignalHandlerSetParams(TCPIP_THIS_MODULE_ID, tcpipCmdSignalHandle, 0);
     tcpipCmdStat = TCPIP_CMD_STAT_IDLE;
     if(pCmdIO)
@@ -2791,6 +2865,8 @@ static void TCPIPCmdPingTask(void)
 {
 #if defined(_TCPIP_COMMAND_PING4)
     ICMP_ECHO_RESULT echoRes;
+    TCPIP_ICMP_ECHO_REQUEST echoRequest;
+    bool cancelReq, newReq;
 #endif  // defined(_TCPIP_COMMAND_PING4)
 #if defined(_TCPIP_COMMAND_PING6)
     bool ipv6EchoRes=false;
@@ -2809,7 +2885,6 @@ static void TCPIPCmdPingTask(void)
                 killIcmp = true;
                 break;
             }
-            icmpStartTick = SYS_TMR_TickCountGet();
             tcpipCmdStat = TCPIP_PING_CMD_DNS_WAIT;
             // else wait some more
             break;
@@ -2829,40 +2904,93 @@ static void TCPIPCmdPingTask(void)
             // success
  
             TCPIP_Helper_IPAddressToString(&icmpTargetAddr, icmpTargetAddrStr, sizeof(icmpTargetAddrStr));
-            tcpipCmdStat = TCPIP_PING_CMD_DO_PING;            
+            tcpipCmdStat = TCPIP_PING_CMD_START_PING;            
             break;
-        case TCPIP_PING_CMD_DO_PING:
-            if(icmpReqCount != 0 && icmpAckRecv == 0)
-            {   // no reply received; 
-                if(SYS_TMR_TickCountGet() - icmpStartTick > (SYS_TMR_TickCounterFrequencyGet() * TCPIP_STACK_COMMANDS_ICMP_ECHO_TIMEOUT) / 1000)
-                {   // timeout
-                    (*pTcpipCmdDevice->pCmdApi->print)(icmpCmdIoParam, "Ping: request timeout.\r\n");
-                    killIcmp = true;
-                    break;
-                }
-                // else wait some more
-            }
 
+        case TCPIP_PING_CMD_START_PING:
+            icmpStartTick = 0;  // try to start as quickly as possible
+            tcpipCmdStat = TCPIP_PING_CMD_DO_PING;            
+            // no break needed here!
+
+        case TCPIP_PING_CMD_DO_PING:
             if(icmpReqCount == icmpReqNo)
             {   // no more requests to send
                 killIcmp = true;
                 break;
             }
 
+            // check if time for another request
+            cancelReq = newReq = false;
+            if(SYS_TMR_TickCountGet() - icmpStartTick > (SYS_TMR_TickCounterFrequencyGet() * icmpReqDelay) / 1000)
+            {
+                cancelReq = icmpReqCount != icmpAckRecv && icmpReqHandle != 0;    // cancel if there is another one ongoing
+                newReq = true;
+            }
+            else if(icmpReqCount != icmpAckRecv)
+            {   // no reply received to the last ping 
+                if(SYS_TMR_TickCountGet() - icmpStartTick > (SYS_TMR_TickCounterFrequencyGet() * TCPIP_STACK_COMMANDS_ICMP_ECHO_TIMEOUT) / 1000)
+                {   // timeout
+#if (_TCPIP_COMMAND_PING4_DEBUG != 0)
+                    (*pTcpipCmdDevice->pCmdApi->print)(icmpCmdIoParam, "Ping: request timeout.\r\n");
+#endif  // (_TCPIP_COMMAND_PING4_DEBUG != 0)
+                    cancelReq = icmpReqHandle != 0;    // cancel if there is another one ongoing
+                    newReq = true;
+                }
+                // else wait some more
+            }
+
+            if(cancelReq)
+            {
+#if (_TCPIP_COMMAND_PING4_DEBUG != 0)
+                if(TCPIP_ICMP_EchoRequestCancel(icmpReqHandle) != ICMP_ECHO_OK)
+                {   // this should NOT happen!
+                    (*pTcpipCmdDevice->pCmdApi->msg)(icmpCmdIoParam, "Ping cancel failed!!!\r\n");
+                }
+                else
+                {
+                    (*pTcpipCmdDevice->pCmdApi->msg)(icmpCmdIoParam, "Ping: request aborted by tcpip CMD: tmo!\r\n");
+                }
+#else
+                TCPIP_ICMP_EchoRequestCancel(icmpReqHandle);
+#endif  // (_TCPIP_COMMAND_PING4_DEBUG != 0)
+            }
+
+            if(!newReq)
+            {   // nothing else to do
+                break;
+            }
+
             // send another request
-            echoRes = TCPIP_ICMP_EchoRequestSend (icmpNetH, &icmpTargetAddr, ++icmpSequenceNo, icmpIdentifier);
+            echoRequest.netH = icmpNetH;
+            echoRequest.targetAddr = icmpTargetAddr;
+            echoRequest.sequenceNumber = ++icmpSequenceNo;
+            echoRequest.identifier = icmpIdentifier;
+            echoRequest.pData = icmpPingBuff;
+            echoRequest.dataSize = icmpPingSize;
+            echoRequest.callback = CommandPingHandler;
+
+            int ix;
+            uint8_t* pBuff = icmpPingBuff;
+            for(ix = 0; ix < icmpPingSize; ix++)
+            {
+                *pBuff++ = SYS_RANDOM_PseudoGet();
+            }
+
+            echoRes = TCPIP_ICMP_EchoRequest (&echoRequest, &icmpReqHandle);
 
             if(echoRes >= 0 )
             {
                 icmpStartTick = SYS_TMR_TickCountGet();
-                if(icmpReqCount++ == 0)
-                {
-                    (*pTcpipCmdDevice->pCmdApi->print)(icmpCmdIoParam, "Ping: request sent to: %s [%s]\r\n", icmpTargetHost, icmpTargetAddrStr);
-                }
+                icmpReqCount++;
+#if (_TCPIP_COMMAND_PING4_DEBUG != 0)
+                (*pTcpipCmdDevice->pCmdApi->print)(icmpCmdIoParam, "Ping: sent request %d to: %s [%s]\r\n", icmpReqCount, icmpTargetHost, icmpTargetAddrStr);
+#endif  // (_TCPIP_COMMAND_PING4_DEBUG != 0)
             }
             else
             {
-                (*pTcpipCmdDevice->pCmdApi->print)(icmpCmdIoParam, "Ping: failed to send request to: %s\r\n", icmpTargetAddrStr);
+#if (_TCPIP_COMMAND_PING4_DEBUG != 0)
+                (*pTcpipCmdDevice->pCmdApi->print)(icmpCmdIoParam, "Ping: failed to send request %d to: %s, error %d\r\n", icmpReqCount, icmpTargetAddrStr, echoRes);
+#endif  // (_TCPIP_COMMAND_PING4_DEBUG != 0)
                 killIcmp = true;
             }
 
@@ -2975,6 +3103,9 @@ void TCPIP_COMMAND_Task(void)
 #endif  // defined(TCPIP_STACK_USE_DNS)
     }
 }
+
+
+
 
 static int _CommandArp(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
 {
@@ -3098,6 +3229,7 @@ static int _CommandArp(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "arp: Unknown option\r\n");
     }
 
+
     return false;
 }
 
@@ -3153,9 +3285,11 @@ static int _Command_HttpInfo(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "HTTP: unknown parameter\r\n");
     }
 
+
+
+
     return false;
 }
-
 #if (TCPIP_HTTP_NET_SSI_PROCESS != 0)
 static int _Command_SsiInfo(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
 {
@@ -3190,8 +3324,285 @@ static int _Command_SsiInfo(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
 
     return false;
 }
-#endif // (TCPIP_HTTP_NET_SSI_PROCESS != 0)
-
+#endif  // (TCPIP_HTTP_NET_SSI_PROCESS != 0)
 #endif // defined(TCPIP_STACK_USE_HTTP_NET_SERVER)
 
-#endif // defined(TCPIP_STACK_COMMAND_ENABLE)
+
+#if defined(TCPIP_STACK_USE_SMTPC) && defined(TCPIP_SMTPC_USE_MAIL_COMMAND)
+
+static void tcpipMailCallback(TCPIP_SMTPC_MESSAGE_HANDLE messageHandle, const TCPIP_SMTPC_MESSAGE_REPORT* pMailReport);
+static void tcpipReplyCallback(TCPIP_SMTPC_MESSAGE_HANDLE messageHandle, TCPIP_SMTPC_MESSAGE_STATUS currStat, const char* serverReply);
+
+
+static const char* tcpipMailBody = "OK, now an email from the command line using the SMTPC mail client.\r\n\
+Add your own message body here.\r\n\
+Do not exceed the recommended 78 characters per line.\r\n\
+End of mail body for now. Bye bye.\r\n";
+
+static TCPIP_SMTPC_ATTACH_BUFFER smtpBuffAttachTbl[] = 
+{
+    {
+    TCPIP_SMTPC_ATTACH_TYPE_TEXT,       // type
+    TCPIP_SMTPC_ENCODE_TYPE_7BIT,       // encode
+    "test_attach.txt",                  // attachName
+    (const uint8_t*)"This is a simple buffer attachment. It will show as a file.\r\n\
+     However, it is presented to the mail client as buffer where the data is present.\r\n\
+     Real files are added using a file attachment.\r\n\
+     That's a short buffer for now.\r\n\
+     Adjust to you preferences.\r\n",            // attachBuffer 
+     0,                                 // attachSize
+    },
+    {
+    TCPIP_SMTPC_ATTACH_TYPE_TEXT,       // type
+    TCPIP_SMTPC_ENCODE_TYPE_7BIT,       // encode
+    "second_attach.txt",                  // attachName
+    (const uint8_t*)"This is yet another text attachment but supplied as a buffer.\r\n.Enjoy!\r\
+     Some real files are attached separately.\r\n",            // attachBuffer 
+     0,                                 // attachSize
+    },
+};
+
+static TCPIP_SMTPC_ATTACH_FILE smtpFileAttachTbl[] = 
+{
+    {
+    TCPIP_SMTPC_ATTACH_TYPE_TEXT,       // type
+    TCPIP_SMTPC_ENCODE_TYPE_7BIT,       // encode
+    "ssi.htm",                          // fileName
+    },
+    {
+    TCPIP_SMTPC_ATTACH_TYPE_TEXT,       // type
+    TCPIP_SMTPC_ENCODE_TYPE_7BIT,       // encode
+    "index.htm",                        // fileName
+    },
+    
+};
+
+static TCPIP_SMTPC_MAIL_MESSAGE myMailTestMsg = 
+{
+    .from = 0,
+    .to = 0,
+    .sender = 0,
+    .cc = 0,
+    .bcc = 0,
+    .date = "Thu, 21 July 2016 11:17:06 -0600",
+    .subject = "my test message",
+    .body = 0,
+    .bodySize = 0,  
+    .nBuffers = 0,
+    .attachBuffers = 0,
+    .nFiles = 0,
+    .attachFiles = 0,
+    .username = 0,
+    .password = 0,
+    .smtpServer = 0,
+    .serverPort = 0,
+    .messageFlags = 0,
+    .messageCallback = tcpipMailCallback,
+    .replyCallback = tcpipReplyCallback,
+};
+
+static TCPIP_SMTPC_MESSAGE_HANDLE tcpipMailHandle = 0;
+
+
+static char        tcpipMailServer[20] = "";    // IPv4 mail server address string
+static uint16_t    tcpipServerPort = 587;
+static char        tcpipAuthUser[80 + 1] = "";
+static char        tcpipAuthPass[80 + 1] = "";
+static char        tcpipMailFrom[80 + 1] = "";
+static char        tcpipMailTo[80 + 1] = "";
+static bool        tcpipTlsFlag = 0;
+static bool        tcpipAuthPlain = 0;
+
+
+// returns:
+//      1 for success
+//      0 if already in progress
+//     -1 if failure
+static int tcpipSendMail(void)
+{
+
+    if(tcpipMailHandle != 0)
+    {   // already ongoing
+        return 0;
+    }
+
+    TCPIP_SMTPC_MESSAGE_RESULT mailRes;
+
+    myMailTestMsg.body = (const uint8_t*)tcpipMailBody;
+    myMailTestMsg.bodySize = strlen(tcpipMailBody);
+    myMailTestMsg.smtpServer = tcpipMailServer;
+    myMailTestMsg.serverPort = tcpipServerPort;
+    myMailTestMsg.username = tcpipAuthUser;
+    myMailTestMsg.password = tcpipAuthPass;
+    myMailTestMsg.from = tcpipMailFrom;
+    myMailTestMsg.to = tcpipMailTo;
+    myMailTestMsg.messageFlags = (tcpipTlsFlag == 1) ? TCPIP_SMTPC_MAIL_FLAG_CONNECT_TLS : (tcpipTlsFlag == 2) ? TCPIP_SMTPC_MAIL_FLAG_SKIP_TLS : (tcpipTlsFlag == 3) ? TCPIP_SMTPC_MAIL_FLAG_FORCE_TLS : 0;
+    if(tcpipAuthPlain)
+    {
+        myMailTestMsg.messageFlags |= TCPIP_SMTPC_MAIL_FLAG_AUTH_PLAIN;
+    }
+
+    int nBuffs = sizeof(smtpBuffAttachTbl) / sizeof(*smtpBuffAttachTbl);
+    int ix;
+    TCPIP_SMTPC_ATTACH_BUFFER* pAttachBuff = smtpBuffAttachTbl;
+    for(ix = 0; ix < nBuffs; ix++, pAttachBuff++)
+    {
+        pAttachBuff->attachSize = strlen((const char*)pAttachBuff->attachBuffer);
+    }
+    
+    myMailTestMsg.attachBuffers = smtpBuffAttachTbl;
+    myMailTestMsg.nBuffers = nBuffs;
+
+    int nFiles = sizeof(smtpFileAttachTbl) / sizeof(*smtpFileAttachTbl);
+    myMailTestMsg.nFiles = nFiles;
+    myMailTestMsg.attachFiles = smtpFileAttachTbl;
+
+
+    tcpipMailHandle = TCPIP_SMTPC_MailMessage(&myMailTestMsg, &mailRes);
+
+    return tcpipMailHandle == 0 ? -1 : 1;
+}
+
+
+
+static void tcpipMailCallback(TCPIP_SMTPC_MESSAGE_HANDLE messageHandle, const TCPIP_SMTPC_MESSAGE_REPORT* pMailReport)
+{
+    if(pMailReport->messageRes == TCPIP_SMTPC_RES_OK)
+    {
+        SYS_CONSOLE_PRINT("app: Mail succeeded. Hurrah...warn: 0x%4x\r\n", pMailReport->messageWarn);
+    }
+    else
+    {
+        SYS_CONSOLE_PRINT("app: Mail failed err stat: %d, res: %d, warn: 0x%4x, retries: %d\r\n", pMailReport->errorStat, pMailReport->messageRes, pMailReport->messageWarn, pMailReport->leftRetries);
+    }
+
+    tcpipMailHandle = 0;
+}
+
+static void tcpipReplyCallback(TCPIP_SMTPC_MESSAGE_HANDLE messageHandle, TCPIP_SMTPC_MESSAGE_STATUS currStat, const char* serverReply)
+{
+#if 0
+    SYS_CONSOLE_PRINT("app: Mail server reply - stat: %d, msg: %s\r\n", currStat, serverReply);
+#endif
+}
+
+static int _CommandMail(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
+{
+    int currIx;    
+    const void* cmdIoParam = pCmdIO->cmdIoParam;
+
+    if(argc < 2)
+    {
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Usage: mail <srv server> <port portNo>\r\n");
+        (*pCmdIO->pCmdApi->print)(cmdIoParam, "mail srv: %s port: %d\r\n", tcpipMailServer, tcpipServerPort);
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Usage: mail <user uname> <pass password>\r\n");
+        (*pCmdIO->pCmdApi->print)(cmdIoParam, "mail user: %s pass: %s\r\n", tcpipAuthUser, tcpipAuthPass);
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Usage: mail <from add> <to add>\r\n");
+        (*pCmdIO->pCmdApi->print)(cmdIoParam, "mail from: %s to: %s\r\n", tcpipMailFrom, tcpipMailTo);
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Usage: mail <tls 0/1/2/3> <plain 0/1>\r\n");
+        (*pCmdIO->pCmdApi->print)(cmdIoParam, "mail tls: %d plain: %d\r\n", tcpipTlsFlag, tcpipAuthPlain);
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Usage: mail <send> <info>\r\n");
+        return false;
+    }
+
+    if(strcmp(argv[1], "send") == 0)
+    {
+        int mailRes = tcpipSendMail();
+        if(mailRes == 0)
+        {   // ongoing
+            (*pCmdIO->pCmdApi->msg)(cmdIoParam, "mail send: already in progress\r\n");
+        }
+        else if(mailRes > 0)
+        {
+            (*pCmdIO->pCmdApi->msg)(cmdIoParam, "mail send: success!\r\n");
+        }
+        else
+        {   // some error
+            (*pCmdIO->pCmdApi->msg)(cmdIoParam, "mail send: failed!\r\n");
+        }
+        return false;  // no more parameters
+    }
+    else if(strcmp(argv[1], "info") == 0)
+    {
+        TCPIP_SMTPC_MESSAGE_QUERY mailQuery;
+        TCPIP_SMTPC_MESSAGE_RESULT queryRes = TCPIP_SMTPC_MessageQuery(tcpipMailHandle, &mailQuery);
+        if(queryRes == TCPIP_SMTPC_RES_OK)
+        {
+            (*pCmdIO->pCmdApi->print)(cmdIoParam, "mail info - stat: %d, warn: 0x%4x, retries: %d, skt: %d\r\n", mailQuery.messageStat, mailQuery.messageWarn, mailQuery.messageRetries, mailQuery.messageSkt);
+        }
+        else
+        {
+            (*pCmdIO->pCmdApi->msg)(cmdIoParam, "mail info: failed!\r\n");
+        }
+        return false;  // no more parameters
+    }
+
+
+    currIx = 1;
+    while(currIx + 1 < argc)
+    { 
+        char* param = argv[currIx];
+
+        if(strcmp(param, "srv") == 0)
+        {
+            strcpy(tcpipMailServer, argv[currIx + 1]);
+            (*pCmdIO->pCmdApi->print)(cmdIoParam, "mail: Set the server to: %s\r\n", tcpipMailServer);
+        }
+        else if(strcmp(param, "port") == 0)
+        {
+            tcpipServerPort = atoi(argv[currIx + 1]); 
+            (*pCmdIO->pCmdApi->print)(cmdIoParam, "mail: Set the server port to: %d\r\n", tcpipServerPort);
+        }
+        else if(strcmp(param, "user") == 0)
+        {
+            strncpy(tcpipAuthUser, argv[currIx + 1], sizeof(tcpipAuthUser) - 1);
+            tcpipAuthUser[sizeof(tcpipAuthUser) - 1] = 0;
+            (*pCmdIO->pCmdApi->print)(cmdIoParam, "mail: Set auth user to: %s\r\n", tcpipAuthUser);
+        }
+        else if(strcmp(param, "pass") == 0)
+        {
+            strncpy(tcpipAuthPass, argv[currIx + 1], sizeof(tcpipAuthPass) - 1);
+            tcpipAuthPass[sizeof(tcpipAuthPass) - 1] = 0;
+            (*pCmdIO->pCmdApi->print)(cmdIoParam, "mail: Set auth pass to: %s\r\n", tcpipAuthPass);
+        }
+        else if(strcmp(param, "from") == 0)
+        {
+            strncpy(tcpipMailFrom, argv[currIx + 1], sizeof(tcpipMailFrom) - 1);
+            tcpipMailFrom[sizeof(tcpipMailFrom) - 1] = 0;
+            (*pCmdIO->pCmdApi->print)(cmdIoParam, "mail: Set mail-from to: %s\r\n", tcpipMailFrom);
+        }
+        else if(strcmp(param, "to") == 0)
+        {
+            strncpy(tcpipMailTo, argv[currIx + 1], sizeof(tcpipMailTo) - 1);
+            tcpipMailTo[sizeof(tcpipMailTo) - 1] = 0;
+            (*pCmdIO->pCmdApi->print)(cmdIoParam, "mail: Set mail-to to: %s\r\n", tcpipMailTo);
+        }
+        else if(strcmp(param, "tls") == 0)
+        {
+            tcpipTlsFlag = atoi(argv[currIx + 1]);
+            (*pCmdIO->pCmdApi->print)(cmdIoParam, "mail: TLS flag set to: %s\r\n", (tcpipTlsFlag == 1) ? "conn" : (tcpipTlsFlag == 2) ? "skip" : (tcpipTlsFlag == 3) ? "force" : "none");
+        }
+        else if(strcmp(param, "plain") == 0)
+        {
+            tcpipAuthPlain = atoi(argv[currIx + 1]);
+            (*pCmdIO->pCmdApi->print)(cmdIoParam, "mail: Skip TLS set to: %d\r\n", tcpipAuthPlain);
+        }
+        else
+        {
+            (*pCmdIO->pCmdApi->msg)(cmdIoParam, "mail: Unknown option\r\n");
+        }
+
+        currIx += 2;
+    }
+
+
+
+    return false;
+}
+
+#endif  // defined(TCPIP_STACK_USE_SMTPC) && defined(TCPIP_SMTPC_USE_MAIL_COMMAND)
+
+
+#endif    // defined(TCPIP_STACK_COMMAND_ENABLE)
+
+

@@ -792,7 +792,7 @@ typedef union {
 //Virtual PHY Basic Control Register 13.2.6.1
 typedef union {
     struct {
-        unsigned :5;
+        unsigned :6;
         unsigned VPHY_SPEED_SEL_MSB:1; // Speed Select MSB
         unsigned VPHY_COL_TEST:1; //Collision Test
         unsigned VPHY_DUPLEX:1; //Duplex Mode

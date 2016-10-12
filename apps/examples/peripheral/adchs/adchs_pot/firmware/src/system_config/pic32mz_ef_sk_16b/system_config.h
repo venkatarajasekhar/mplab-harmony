@@ -17,8 +17,8 @@
     definitions (or include any files that do).  It only provides macro
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
-    
-    Created with MPLAB Harmony Version 1.08
+
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -57,7 +57,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 /*  This section Includes other configuration headers necessary to completely
     define this configuration.
 */
-#include "bsp_config.h"
+#include "bsp.h"
+
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
@@ -65,18 +66,13 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 extern "C" {
 
 #endif
-// DOM-IGNORE-END 
+// DOM-IGNORE-END
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "1.08"
-#define SYS_VERSION               10800
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -90,48 +86,16 @@ extern "C" {
 #define SYS_CLK_BUS_PERIPHERAL_7            200000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         24000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       0ul
-   
-/*** Interrupt System Service Configuration ***/
-#define SYS_INT                     true
-
-/*** Ports System Service Configuration ***/
-
-#define SYS_PORT_B_ANSEL        0x8fdf
-#define SYS_PORT_B_TRIS         0xffdf
-#define SYS_PORT_B_LAT          0x0
-#define SYS_PORT_B_ODC          0x0
-#define SYS_PORT_B_CNPU         0x3000
-#define SYS_PORT_B_CNPD         0x0
-#define SYS_PORT_B_CNEN         0x0
-
-#define SYS_PORT_C_ANSEL        0xe01e
-#define SYS_PORT_C_TRIS         0xf01e
-#define SYS_PORT_C_LAT          0x0
-#define SYS_PORT_C_ODC          0x0
-#define SYS_PORT_C_CNPU         0x0
-#define SYS_PORT_C_CNPD         0x0
-#define SYS_PORT_C_CNEN         0x0
-
-#define SYS_PORT_G_ANSEL        0x8380
-#define SYS_PORT_G_TRIS         0xf3c3
-#define SYS_PORT_G_LAT          0x0
-#define SYS_PORT_G_ODC          0x0
-#define SYS_PORT_G_CNPU         0x0
-#define SYS_PORT_G_CNPD         0x0
-#define SYS_PORT_G_CNEN         0x0
-
-#define SYS_PORT_H_ANSEL        0x70
-#define SYS_PORT_H_TRIS         0xfff8
-#define SYS_PORT_H_LAT          0x0
-#define SYS_PORT_H_ODC          0x0
-#define SYS_PORT_H_CNPU         0x0
-#define SYS_PORT_H_CNPD         0x0
-#define SYS_PORT_H_CNEN         0x0
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
 
 /*** Console System Service Configuration ***/
 
 #define SYS_CONSOLE_OVERRIDE_STDIO
-#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        1
+#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        2
 #define SYS_CONSOLE_INSTANCES_NUMBER            1
 #define SYS_CONSOLE_UART_IDX               DRV_USART_INDEX_0
 #define SYS_CONSOLE_UART_RD_QUEUE_DEPTH    1
@@ -145,6 +109,91 @@ extern "C" {
 #define DEBUG_PRINT_BUFFER_SIZE       512
 #define SYS_DEBUG_BUFFER_DMA_READY
 #define SYS_DEBUG_USE_CONSOLE
+
+/*** Interrupt System Service Configuration ***/
+#define SYS_INT                     true
+
+/*** Ports System Service Configuration ***/
+#define SYS_PORT_A_ANSEL        0x3F23
+#define SYS_PORT_A_TRIS         0xFFFF
+#define SYS_PORT_A_LAT          0x0000
+#define SYS_PORT_A_ODC          0x0000
+#define SYS_PORT_A_CNPU         0x0000
+#define SYS_PORT_A_CNPD         0x0000
+#define SYS_PORT_A_CNEN         0x0000
+
+#define SYS_PORT_B_ANSEL        0x8FDF
+#define SYS_PORT_B_TRIS         0xFFDF
+#define SYS_PORT_B_LAT          0x0000
+#define SYS_PORT_B_ODC          0x0000
+#define SYS_PORT_B_CNPU         0x3000
+#define SYS_PORT_B_CNPD         0x0000
+#define SYS_PORT_B_CNEN         0x0000
+
+#define SYS_PORT_C_ANSEL        0xEFFF
+#define SYS_PORT_C_TRIS         0xFFFF
+#define SYS_PORT_C_LAT          0x0000
+#define SYS_PORT_C_ODC          0x0000
+#define SYS_PORT_C_CNPU         0x0000
+#define SYS_PORT_C_CNPD         0x0000
+#define SYS_PORT_C_CNEN         0x0000
+
+#define SYS_PORT_D_ANSEL        0xC100
+#define SYS_PORT_D_TRIS         0xFFFF
+#define SYS_PORT_D_LAT          0x0000
+#define SYS_PORT_D_ODC          0x0000
+#define SYS_PORT_D_CNPU         0x0000
+#define SYS_PORT_D_CNPD         0x0000
+#define SYS_PORT_D_CNEN         0x0000
+
+#define SYS_PORT_E_ANSEL        0xFFF0
+#define SYS_PORT_E_TRIS         0xFFFF
+#define SYS_PORT_E_LAT          0x0000
+#define SYS_PORT_E_ODC          0x0000
+#define SYS_PORT_E_CNPU         0x0000
+#define SYS_PORT_E_CNPD         0x0000
+#define SYS_PORT_E_CNEN         0x0000
+
+#define SYS_PORT_F_ANSEL        0xFEC0
+#define SYS_PORT_F_TRIS         0xFFFF
+#define SYS_PORT_F_LAT          0x0000
+#define SYS_PORT_F_ODC          0x0000
+#define SYS_PORT_F_CNPU         0x0000
+#define SYS_PORT_F_CNPD         0x0000
+#define SYS_PORT_F_CNEN         0x0000
+
+#define SYS_PORT_G_ANSEL        0x8FBC
+#define SYS_PORT_G_TRIS         0xFFFF
+#define SYS_PORT_G_LAT          0x0000
+#define SYS_PORT_G_ODC          0x0000
+#define SYS_PORT_G_CNPU         0x0000
+#define SYS_PORT_G_CNPD         0x0000
+#define SYS_PORT_G_CNEN         0x0000
+
+#define SYS_PORT_H_ANSEL        0x0070
+#define SYS_PORT_H_TRIS         0xFFF8
+#define SYS_PORT_H_LAT          0x0000
+#define SYS_PORT_H_ODC          0x0000
+#define SYS_PORT_H_CNPU         0x0000
+#define SYS_PORT_H_CNPD         0x0000
+#define SYS_PORT_H_CNEN         0x0000
+
+#define SYS_PORT_J_ANSEL        0x0B00
+#define SYS_PORT_J_TRIS         0xFFFF
+#define SYS_PORT_J_LAT          0x0000
+#define SYS_PORT_J_ODC          0x0000
+#define SYS_PORT_J_CNPU         0x0000
+#define SYS_PORT_J_CNPD         0x0000
+#define SYS_PORT_J_CNEN         0x0000
+
+#define SYS_PORT_K_ANSEL        0xFF00
+#define SYS_PORT_K_TRIS         0xFFFF
+#define SYS_PORT_K_LAT          0x0000
+#define SYS_PORT_K_ODC          0x0000
+#define SYS_PORT_K_CNPU         0x0000
+#define SYS_PORT_K_CNPD         0x0000
+#define SYS_PORT_K_CNEN         0x0000
+
 
 // *****************************************************************************
 // *****************************************************************************
@@ -179,8 +228,6 @@ extern "C" {
 #define DRV_USART_BUFFER_QUEUE_SUPPORT              true
 
 #define DRV_USART_CLIENTS_NUMBER                    1
-#define DRV_USART_SUPPORT_TRANSMIT_DMA              false
-#define DRV_USART_SUPPORT_RECEIVE_DMA               false
 #define DRV_USART_INSTANCES_NUMBER                  1
 
 #define DRV_USART_PERIPHERAL_ID_IDX0                USART_ID_2
@@ -227,13 +274,39 @@ extern "C" {
 #define BSP_OSC_FREQUENCY 24000000
 
 
-
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Configuration
 // *****************************************************************************
 // *****************************************************************************
+
+/*** Application Defined Pins ***/
+
+/*** Functions for BSP_LED_1 pin ***/
+#define BSP_LED_1Toggle() PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_H, PORTS_BIT_POS_0)
+#define BSP_LED_1On() PLIB_PORTS_PinSet(PORTS_ID_0, PORT_CHANNEL_H, PORTS_BIT_POS_0)
+#define BSP_LED_1Off() PLIB_PORTS_PinClear(PORTS_ID_0, PORT_CHANNEL_H, PORTS_BIT_POS_0)
+#define BSP_LED_1StateGet() PLIB_PORTS_PinGetLatched(PORTS_ID_0, PORT_CHANNEL_H, PORTS_BIT_POS_0)
+
+/*** Functions for BSP_LED_2 pin ***/
+#define BSP_LED_2Toggle() PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_H, PORTS_BIT_POS_1)
+#define BSP_LED_2On() PLIB_PORTS_PinSet(PORTS_ID_0, PORT_CHANNEL_H, PORTS_BIT_POS_1)
+#define BSP_LED_2Off() PLIB_PORTS_PinClear(PORTS_ID_0, PORT_CHANNEL_H, PORTS_BIT_POS_1)
+#define BSP_LED_2StateGet() PLIB_PORTS_PinGetLatched(PORTS_ID_0, PORT_CHANNEL_H, PORTS_BIT_POS_1)
+
+/*** Functions for BSP_LED_3 pin ***/
+#define BSP_LED_3Toggle() PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_H, PORTS_BIT_POS_2)
+#define BSP_LED_3On() PLIB_PORTS_PinSet(PORTS_ID_0, PORT_CHANNEL_H, PORTS_BIT_POS_2)
+#define BSP_LED_3Off() PLIB_PORTS_PinClear(PORTS_ID_0, PORT_CHANNEL_H, PORTS_BIT_POS_2)
+#define BSP_LED_3StateGet() PLIB_PORTS_PinGetLatched(PORTS_ID_0, PORT_CHANNEL_H, PORTS_BIT_POS_2)
+
+/*** Functions for BSP_SWITCH_1 pin ***/
+#define BSP_SWITCH_1StateGet() PLIB_PORTS_PinGet(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_12)
+
+/*** Functions for BSP_SWITCH_2 pin ***/
+#define BSP_SWITCH_2StateGet() PLIB_PORTS_PinGet(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_13)
+
+
 
 /*** Application Instance 0 Configuration ***/
 

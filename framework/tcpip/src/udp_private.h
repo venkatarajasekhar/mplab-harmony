@@ -54,6 +54,9 @@ typedef struct
 // minimum size of buffer in the pool
 #define UDP_SOCKET_POOL_BUFFER_MIN_SIZE 256
 
+// default TTL for multicast traffic
+#define UDP_MULTICAST_DEFAULT_TTL       1
+
 // incoming packet match flags
 typedef enum
 {
@@ -115,18 +118,63 @@ typedef struct
     // socket info
     UDP_SOCKET      sktIx;
     IPV4_ADDR       destAddress;    // requested destination address
+                                    // packet destination address. Set by:
+                                    //  - packet rx _UDPsetPacketInfo(), if destSet == 0; copied from packet source address
+                                    //      destSet left to 0!
+                                    //  - client open with a host + destSet = 1
+                                    //  - TCPIP_UDP_BcastIPV4AddressSet() + destSet = 1;
+                                    //  - UDP_OPTION_BROADCAST + destSet = 1/0 if broadcast is set or cleared  
+                                    //  - TCPIP_UDP_DestinationIPAddressSet or TCPIP_UDP_RemoteBind + destSet = 1
     IPV4_ADDR       srcAddress;     // only if bound, else 0
+                                    // tx packet source address;
+                                    // Set by TCPIP_IPV4_SelectSourceInterface when srcSolved == 0 || pSktNet == 0
+                                    //      srcSolved = srcValid = 1;
+                                    //      An interface address is used
+                                    // Set by:
+                                    //  - packet rx _UDPsetPacketInfo(), if srcSet == 0 && !bcast address; copied from packet destination address
+                                    //          srcSolved = 0; srcValid = 1;
+                                    //  TCPIP_UDP_SourceIPAddressSet() + TCPIP_UDP_Bind() + _UDPSetSourceAddress() + _UDPSocketBind() + srcSet = srvValid = 1; srcSolved =0; 
+                                    //  - cleared by TCPIP_UDP_Disconnect() (if openBindAdd == 0): srcValid = srcSolved = 0; 
     IPV4_ADDR       pktSrcAddress;  // source address of last received packet
+                                    // used in match find, if not looseRemAddress
     IPV4_ADDR       pktDestAddress; // destination address of last received packet
+                                    // info only
     TCPIP_NET_IF*   pSktNet;        // local interface; 
                                     // srcAddress can be outside of pSktNet to allow
                                     // sending packets with chosen IP address  
+                                    // Used by:
+                                    //  - socket match if == packet arriving if: pPktIf
+                                    //  - source interface for a TX packet
+                                    // Set by:
+                                    //  - packet rx: _UDPsetPacketInfo !
+                                    //  - _UDPSocketBind() + looseNetIf = 0!
+                                    //  - TCPIP_IPV4_SelectSourceInterface - selects a network interface when TX packt
+                                    //  - cleared by TCPIP_UDP_Disconnect()
+                                    //  - TCPIP_UDP_SocketNetSet + looseNetIf = 0
+                                    //
+                                    //
     UDP_PORT        remotePort;		// Remote node's UDP port number
+                                    // Destination port of a tx packet
+                                    // Used in socket match find against imcpming packet sourcePort
+                                    // Set by:
+                                    //  - packet rx _UDPsetPacketInfo() !
+                                    //  - _UDPOpen()
+                                    //  - Cleared in TCPIP_UDP_Disconnect()
+                                    //  - TCPIP_UDP_RemoteBind() + looseRemPort = 0!!!!
+                                    //  - TCPIP_UDP_DestinationPortSet()
     UDP_PORT        localPort;		// Local UDP port number, or 0 when free
+                                    // Source port for the tx packet
+                                    // Used for skt match:  == h->DestinationPort 
+                                    // Set by:
+                                    //      - _UDPOpen for server; 0/ephemeral for client
+                                    //      - TCPIP_UDP_Bind()
     // rx side
     TCPIP_MAC_PACKET       *pCurrRxPkt;   // current RX packet 
     TCPIP_MAC_DATA_SEGMENT *pCurrRxSeg;   // current segment in the current packet
                                           // support for multi segment packets
+#if (TCPIP_IPV4_FRAGMENTATION != 0)
+    TCPIP_MAC_PACKET       *pCurrFrag;    // current RX fragment; fragmentation support 
+#endif  // (TCPIP_IPV4_FRAGMENTATION != 0)
     uint16_t        rxSegLen;       // current segment len
     uint16_t        rxTotLen;       // total remaining data length, across segments 
     uint8_t*        rxCurr;         // current RX pointer 
@@ -141,7 +189,12 @@ typedef struct
         {
             uint8_t     rxAutoAdvance    : 1;   // automatic RX socket advance
             uint8_t     rxEnable         : 1;   // enable socket receive
-            uint8_t     reserved         : 6;   // reserved for future use
+            uint8_t     mcastLoop        : 1;   // loop internally the multicast traffic
+            uint8_t     mcastSkipCheck   : 1;   // skip the checking of the incoming multicast traffic
+            uint8_t     ignoreSrcAdd     : 1;   // ignore packet source address
+            uint8_t     ignoreSrcPort    : 1;   // ignore packet source port
+            uint8_t     mcastOnly        : 1;   // ignore non multicast packets
+            uint8_t     reserved         : 1;   // reserved for future use
         };
         uint8_t     Val;
     }extFlags;      // additional socket flags
@@ -149,9 +202,10 @@ typedef struct
     uint8_t         rxQueueLimit;   // max number of RX packets that can be queued at a certain time
     SINGLE_LIST     rxQueue;        // queued RX packets belonging to this socket
     TCPIP_UDP_SIGNAL_FUNCTION sigHandler;  // socket event handler
-    uint16_t        sigMask;         // TCPIP_UDP_SIGNAL_TYPE: active events
+    uint16_t        sigMask;        // TCPIP_UDP_SIGNAL_TYPE: active events
+    uint8_t         ttl;            // socket TTL value 
     
-    uint8_t      padding[2];        // padding; not used
+    uint8_t         padding[1];     // padding; not used
 
 } UDP_SOCKET_DCPT;
 

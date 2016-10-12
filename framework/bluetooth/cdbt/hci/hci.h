@@ -1,47 +1,37 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Host Controller Interface
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    hci.h
-
-  Summary:
-    Bluetooth API Library interface to the HCI Functions.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 #ifndef __HCI_H
 #define __HCI_H
 
-#include "bluetooth/cdbt/utils/packet.h"
+#include "cdbt/utils/packet.h"
 
-// Enable device specific code for TI BRF6150 module
-//#define CDBT_TI_BRF6150
+/**
+ * \defgroup hci HCI
+ *
+ * The Host Controller Interface (HCI) provides a uniform interface method of accessing a Bluetooth Controller's capabilities.
+ * This module describes function and data structures used to send HCI commands and receive responses.
+ *
+ */
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
 
 #define HCI_CONFIG_ENABLE_AUTHENTICATION    0x01
-#define HCI_CONFIG_ENABLE_ENCRYPTION        0x02
+#define HCI_CONFIG_ENABLE_ENCRYPTION        0x02	
 #define HCI_CONFIG_BECOME_MASTER            0x04
 
 #define HCI_OPCODE(ogf, ocf)	(((int)ogf << 10) | ((int)ocf & 0x3ff))
@@ -55,7 +45,16 @@ extern "C" {
 #define OGF_LE				0x08
 #define OGF_VENDOR			0x3F
 
-// Link control commands
+/** \addtogroup hci
+* @{
+*/
+/** @name Link control commands
+*
+* \details The Link Control commands allow a Controller to control connections to 
+*          other BR/EDR Controllers.
+*/
+/**@{
+*/
 #define HCI_INQUIRY									HCI_OPCODE(OGF_LINK_CONTROL, 0x0001)
 #define HCI_INQUIRY_CANCEL							HCI_OPCODE(OGF_LINK_CONTROL, 0x0002)
 #define HCI_PERIODIC_INQUIRY_MODE					HCI_OPCODE(OGF_LINK_CONTROL, 0x0003)
@@ -92,9 +91,19 @@ extern "C" {
 #define HCI_REMOTE_OOB_DATA_REQUEST_REPLY			HCI_OPCODE(OGF_LINK_CONTROL, 0x0030)
 #define HCI_REMOTE_OOB_DATA_REQUEST_NEGATIVE_REPLY	HCI_OPCODE(OGF_LINK_CONTROL, 0x0033)
 #define HCI_IO_CAPABILITY_REQUEST_NEGATIVE_REPLY	HCI_OPCODE(OGF_LINK_CONTROL, 0x0034)
+/**@}*/
+/**@}*/
 
-// Link policy commands
-
+/** \addtogroup hci
+* @{
+*/
+/** @name Link policy commands
+*
+* \details The Link Policy Commands provide methods for the Host to affect how the Link
+*          Manager manages the piconet.
+*/
+/**@{
+*/
 #define HCI_HOLD_MODE								HCI_OPCODE(OGF_LINK_POLICY, 0x0001)
 #define HCI_SNIFF_MODE								HCI_OPCODE(OGF_LINK_POLICY, 0x0003)
 #define HCI_EXIT_SNIFF_MODE							HCI_OPCODE(OGF_LINK_POLICY, 0x0004)
@@ -109,9 +118,19 @@ extern "C" {
 #define HCI_WRITE_DEFAULT_POLICY_SETTINGS			HCI_OPCODE(OGF_LINK_POLICY, 0x000F)
 #define HCI_FLOW_SPECIFICATION						HCI_OPCODE(OGF_LINK_POLICY, 0x0010)
 #define HCI_SNIFF_SUBRATING							HCI_OPCODE(OGF_LINK_POLICY, 0x0011)
+/**@}*/
+/**@}*/
 
-// Controller & Baseband commands
-
+/** \addtogroup hci
+* @{
+*/
+/** @name Controller & Baseband commands
+*
+* \details The Controller & Baseband Commands provide access and control to various
+*          capabilities of the Bluetooth hardware.
+*/
+/**@{
+*/
 #define HCI_SET_EVENT_MASK							HCI_OPCODE(OGF_CTRL_BASEBAND, 0x0001)
 #define HCI_RESET									HCI_OPCODE(OGF_CTRL_BASEBAND, 0x0003)
 #define HCI_SET_EVENT_FILTER						HCI_OPCODE(OGF_CTRL_BASEBAND, 0x0005)
@@ -184,34 +203,80 @@ extern "C" {
 #define HCI_SEND_KEY_PRESS_NOTIFICATION				HCI_OPCODE(OGF_CTRL_BASEBAND, 0x0060)
 #define HCI_READ_LE_HOST_SUPPORT					HCI_OPCODE(OGF_CTRL_BASEBAND, 0x006C)
 #define HCI_WRITE_LE_HOST_SUPPORT					HCI_OPCODE(OGF_CTRL_BASEBAND, 0x006D)
+/**@}*/
+/**@}*/
 
-// Informational Parameters
-
+/** \addtogroup hci
+* @{
+*/
+/** @name Informational Parameters
+*
+* \details The Informational Parameters are fixed by the manufacturer of the Bluetooth
+*          hardware. These parameters provide information about the BR/EDR Controller
+*          and the capabilities of the Link Manager and Baseband in the BR/EDR
+*          Controller and PAL in the AMP Controller. The host device cannot modify any
+*          of these parameters.
+*/
+/**@{
+*/
 #define HCI_READ_LOCAL_VERSION_INFORMATION			HCI_OPCODE(OGF_INFORMATION, 0x0001)
 #define HCI_READ_LOCAL_SUPPORTED_COMMANDS			HCI_OPCODE(OGF_INFORMATION, 0x0002)
 #define HCI_READ_LOCAL_SUPPORTED_FEATURES			HCI_OPCODE(OGF_INFORMATION, 0x0003)
 #define HCI_READ_LOCAL_EXTENDED_FEATURES			HCI_OPCODE(OGF_INFORMATION, 0x0004)
 #define HCI_READ_BUFFER_SIZE						HCI_OPCODE(OGF_INFORMATION, 0x0005)
 #define HCI_READ_BD_ADDR							HCI_OPCODE(OGF_INFORMATION, 0x0009)
+/**@}*/
+/**@}*/
 
-// Status Parameters
-
+/** \addtogroup hci
+* @{
+*/
+/** @name Status Parameters
+*
+* \details The Controller modifies all status parameters. These parameters provide
+*          information about the current state of the Link Manager and Baseband in the
+*          BR/EDR Controller and the PAL in an AMP Controller. The host device cannot
+*          modify any of these parameters other than to reset certain specific parameters.
+*/
+/**@{
+*/
 #define HCI_READ_FAILED_CONTACT_COUNTER				HCI_OPCODE(OGF_STATUS, 0x0001)
 #define HCI_RESET_FAILED_CONTACT_COUNTER			HCI_OPCODE(OGF_STATUS, 0x0002)
 #define HCI_READ_LINK_QUALITY						HCI_OPCODE(OGF_STATUS, 0x0003)
 #define HCI_READ_RSSI								HCI_OPCODE(OGF_STATUS, 0x0005)
 #define HCI_READ_AFH_CHANNEL_MAP					HCI_OPCODE(OGF_STATUS, 0x0006)
 #define HCI_READ_CLOCK_COMMAND						HCI_OPCODE(OGF_STATUS, 0x0007)
+/**@}*/
+/**@}*/
 
-// Testing Commands
-
+/** \addtogroup hci
+* @{
+*/
+/** @name Testing Commands
+*
+* \details The Testing commands are used to provide the ability to test various functional
+*          capabilities of the Bluetooth hardware.
+*/
+/**@{
+*/
 #define HCI_READ_LOOPBACK_MODE						HCI_OPCODE(OGF_TESTING, 0x0001)
 #define HCI_WRITE_LOOPBACK_MODE						HCI_OPCODE(OGF_TESTING, 0x0002)
 #define HCI_ENABLE_DEVICE_UNDER_TEST_MODE			HCI_OPCODE(OGF_TESTING, 0x0003)
 #define HCI_WRITE_SIMPLE_PAIRING_DEBUG_MODE			HCI_OPCODE(OGF_TESTING, 0x0004)
+/**@}*/
+/**@}*/
 
-// LE controller commands
-
+/** \addtogroup hci
+* @{
+*/
+/** @name LE controller commands
+*
+* \details The LE Controller Commands provide access and control to various
+*          capabilities of the Bluetooth hardware, as well as methods for the Host to affect
+*          how the Link Layer manages the piconet, and controls connections.
+*/
+/**@{
+*/
 #define HCI_LE_SET_EVENT_MASK						HCI_OPCODE(OGF_LE, 0x0001)
 #define HCI_LE_READ_BUFFER_SIZE						HCI_OPCODE(OGF_LE, 0x0002)
 #define HCI_LE_READ_LOCAL_SUPPORTED_FEATURES		HCI_OPCODE(OGF_LE, 0x0003)
@@ -242,9 +307,17 @@ extern "C" {
 #define HCI_LE_RECEIVE_TEST							HCI_OPCODE(OGF_LE, 0x001D)
 #define HCI_LE_TRANSMITTER_TEST						HCI_OPCODE(OGF_LE, 0x001E)
 #define HCI_LE_TEST_END								HCI_OPCODE(OGF_LE, 0x001F)
+/**@}*/
+/**@}*/
 
-// Events
-
+/** \addtogroup hci
+* @{
+*/
+/** @name Events
+*
+*/
+/**@{
+*/
 #define HCI_EVT_INQUIRY_COMPLETE				0x01
 #define HCI_EVT_INQUIRY_RESULT					0x02
 #define HCI_EVT_CONNECTION_COMPLETE				0x03
@@ -298,9 +371,11 @@ extern "C" {
 #define HCI_EVT_LE_META_EVENT					0x3E
 #define HCI_EVT_LAST							HCI_EVT_LE_META_EVENT
 #define HCI_EVT_FIRST							HCI_EVT_INQUIRY_COMPLETE
+/**@}*/
+/**@}*/
 
 // Used in bt_hci_ctrl_register_event_listener
-// to indicate that the listener is called
+// to indicate that the listener is called 
 // for all HCI events (excluding dotstack internal ones)
 #define HCI_EVT_ALL_HCI_EVENTS                  0xffff
 
@@ -339,7 +414,7 @@ extern "C" {
 #define HCI_PACKET_BOUNDARY_CONTINUE			0x1
 #define HCI_PACKET_BOUNDARY_FIRST				0x2
 #define HCI_PACKET_BOUNDARY_FIRST_AUTO_FLUSH	0x2
-#define HCI_PACKET_BOUNDARY_RESERVED2			0x3
+#define HCI_PACKET_BOUNDARY_COMPLETE			0x3
 
 #define HCI_H2C_BROADCAST_NO_BROADCATS		0x0
 #define HCI_H2C_BROADCAST_ACTIVE_SLAVE		0x1
@@ -446,7 +521,7 @@ extern "C" {
 #define HCI_SCO_PACKET_TYPE_NO_3_EV5    0x0200
 
 
-#define HCI_SCO_PACKET_TYPE_ALL	0xFFFF
+#define HCI_SCO_PACKET_TYPE_ALL	0x003F
 	
 #define HCI_LINK_POLICY_ENABLE_ROLE_SWITCH    0x0001
 #define HCI_LINK_POLICY_ENABLE_HOLD_MODE      0x0002
@@ -481,20 +556,6 @@ struct _bt_hci_data_s;
 typedef bt_int bt_hci_hconn_t, *bt_hci_hconn_p;
 
 typedef struct _bt_hci_conn_state_s bt_hci_conn_state_t, *bt_hci_conn_state_p;
-
-typedef struct _hci_param {
-	bt_int type;
-	bt_int param_len;
-	union {
-		bt_byte b;
-		bt_int  i;
-		bt_long l;
-		bt_bdaddr_t bdaddr;
-		bt_hci_hconn_t h;
-		bt_long dc;
-		char *ps;
-	} data;
-} bt_hci_param_t, *bt_hci_param_p;
 
 typedef void (*bt_hci_cmd_callback_fp) (bt_int, struct _bt_hci_command_s*, struct _bt_hci_event_s*);
 typedef void (*bt_hci_event_listener_fp)(bt_int evcode, void* evt_params, void* cb_param);
@@ -549,69 +610,89 @@ typedef struct _bt_hci_inquiry_response_t
 } bt_hci_inquiry_response_t;
 
 /**
-* Summary:  Allocate and initialize an HCI command structure.
+* \brief Allocate and initialize an HCI command structure.
+* \ingroup hci
 *
 */
 bt_hci_command_p bt_hci_alloc_command(bt_int opcode, bt_hci_cmd_callback_fp callback);
 
 
 /**
-* Summary:  Free HCI command.
+* \brief Free HCI command.
+* \ingroup hci
 *
 */
 void bt_hci_free_command(bt_hci_command_p cmd);
 
 
 /**
-* Summary:  Allocate and initialize an HCI command structure for a canned (pre-formatted) command.
+* \brief Allocate and initialize an HCI command structure for a canned (pre-formatted) command.
+* \ingroup hci
 *
 */
 bt_hci_command_p bt_hci_alloc_canned_command(const bt_byte* canned_command, bt_hci_cmd_callback_fp callback);
 
 
 /**
-* Summary:  Add byte parameter to an HCI command
+* \brief Add byte parameter to an HCI command
+* \ingroup hci
 *
 */
 bt_bool bt_hci_add_param_byte(bt_hci_command_p pcmd, bt_byte value);
 
 /**
-* Summary:  Add int parameter to an HCI command
+* \brief Add int parameter to an HCI command
+* \ingroup hci
 *
 */
 bt_bool bt_hci_add_param_int(bt_hci_command_p pcmd, bt_int value);
 
 /**
-* Summary:  Add long parameter to an HCI command
+* \brief Add long parameter to an HCI command
+* \ingroup hci
 *
 */
 bt_bool bt_hci_add_param_long(bt_hci_command_p pcmd, bt_long value);
 
+/**
+* \brief Add unsigned int parameter to an HCI command
+* \ingroup hci
+*
+*/
 #define bt_hci_add_param_uint(cmd, value)  bt_hci_add_param_int(cmd, (bt_int)(value))
 
+/**
+* \brief Add unsigned long parameter to an HCI command
+* \ingroup hci
+*
+*/
 #define bt_hci_add_param_ulong(cmd, value) bt_hci_add_param_long(cmd, (bt_long)(value))
 
 /**
-* Summary:  Add connection handle parameter to an HCI command
+* \brief Add connection handle parameter to an HCI command
+* \ingroup hci
 *
 */
 #define bt_hci_add_param_hconn(pcmd, value)	\
 	bt_hci_add_param_int(pcmd, value)
 
 /**
-* Summary:  Add BD address parameter to an HCI command
+* \brief Add BD address parameter to an HCI command
+* \ingroup hci
 *
 */
 bt_bool bt_hci_add_param_bdaddr(bt_hci_command_p pcmd, const bt_bdaddr_t* pbdaddr);
 
 /**
-* Summary:  Add string parameter to an HCI command
+* \brief Add string parameter to an HCI command
+* \ingroup hci
 *
 */
 bt_bool bt_hci_add_param_string(bt_hci_command_p pcmd, const char *ps, bt_int len);
 
 /**
-* Summary:  Add class of device parameter to an HCI command
+* \brief Add class of device parameter to an HCI command
+* \ingroup hci
 *
 */
 bt_bool bt_hci_add_param_cod(bt_hci_command_p pcmd, bt_long value);
@@ -620,191 +701,313 @@ bt_bool bt_hci_add_param_cod(bt_hci_command_p pcmd, bt_long value);
 #define bt_hci_add_param_lap(cmd, lap)  bt_hci_add_param_cod(cmd, lap)
 
 /**
-* Summary:  Add link key parameter to an HCI command
+* \brief Add link key parameter to an HCI command
+* \ingroup hci
 *
 */
 bt_bool bt_hci_add_param_linkkey(bt_hci_command_p pcmd, const bt_linkkey_t* linkkey);
 
-bt_bool bt_hci_get_param(bt_hci_command_p pcm, bt_hci_param_p pparam, bt_int_p poffset);
-
 /**
-* Summary:  Get byte parameter from HCI command
+* \brief Get byte parameter from HCI command
+* \ingroup hci
 *
 */
 bt_bool bt_hci_get_param_byte(bt_hci_command_p pcmd, bt_byte* pvalue, bt_int* offset);
 
 /**
-* Summary:  Get int parameter from HCI command
+* \brief Get int parameter from HCI command
+* \ingroup hci
 *
 */
 bt_bool bt_hci_get_param_int(bt_hci_command_p pcmd, bt_int* pvalue, bt_int* poffset);
 
 /**
-* Summary:  Get long parameter from HCI command
+* \brief Get long parameter from HCI command
+* \ingroup hci
 *
 */
 bt_bool bt_hci_get_param_long(bt_hci_command_p pcmd, bt_long* pvalue, bt_int* poffset);
 
 /**
-* Summary:  Get connection handle parameter from HCI command
+* \brief Get connection handle parameter from HCI command
+* \ingroup hci
 *
 */
 #define bt_hci_get_param_hconn(pcmd, pvalue, poffset)  bt_hci_get_param_int(pcmd, pvalue, poffset)
 
 /**
-* Summary:  Get BD address parameter from HCI command
+* \brief Get BD address parameter from HCI command
+* \ingroup hci
 *
 */
 bt_bool bt_hci_get_param_bdaddr(bt_hci_command_p pcm, bt_bdaddr_p pvalue, bt_int_p poffset);
 
 /**
-* Summary:  Get link key parameter from HCI command
+* \brief Get link key parameter from HCI command
+* \ingroup hci
 *
 */
 bt_bool bt_hci_get_param_linkkey(bt_hci_command_p pcmd, bt_byte_p pvalue, bt_int_p poffset);
 
 /**
-* Summary:  Get byte parameter from HCI event
+* \brief Get byte parameter from HCI event
+* \ingroup hci
 *
 */
 bt_bool bt_hci_get_evt_param_byte(bt_hci_event_p pevt, bt_byte* pvalue, bt_int* poffset);
 
 /**
-* Summary:  Get int parameter from HCI event
+* \brief Get int parameter from HCI event
+* \ingroup hci
 *
 */
 bt_bool bt_hci_get_evt_param_int(bt_hci_event_p pevt, bt_int* pvalue, bt_int* poffset);
 
 #ifdef BT_DO_NOT_USE_TYPE_CAST_MACROS
+	/**
+	* \brief Get unsigned int parameter from HCI event
+	* \ingroup hci
+	*
+	*/
 	bt_bool bt_hci_get_evt_param_uint(bt_hci_event_p pevt, bt_uint* pvalue, bt_int* poffset);
 #else
 	#define bt_hci_get_evt_param_uint(pevt, pvalue, poffset) bt_hci_get_evt_param_int(pevt, (bt_int*)pvalue, poffset)
 #endif
 
 /**
-* Summary:  Get long parameter from HCI event
+* \brief Get long parameter from HCI event
+* \ingroup hci
 *
 */
 bt_bool bt_hci_get_evt_param_long(bt_hci_event_p pevt, bt_long* pvalue, bt_int* poffset);
 
 #ifdef BT_DO_NOT_USE_TYPE_CAST_MACROS
+	/**
+	* \brief Get unsigned long parameter from HCI event
+	* \ingroup hci
+	*
+	*/
 	bt_bool bt_hci_get_evt_param_ulong(bt_hci_event_p pevt, bt_ulong* pvalue, bt_int* poffset);
 #else
 	#define bt_hci_get_evt_param_ulong(pevt, pvalue, poffset) bt_hci_get_evt_param_long(pevt, (bt_long*)pvalue, poffset)
 #endif
 
 /**
-* Summary:  Get connection handle parameter from HCI event
+* \brief Get connection handle parameter from HCI event
+* \ingroup hci
 *
 */
 #define bt_hci_get_evt_param_hconn(pevt, pvalue, poffset)	\
 	bt_hci_get_evt_param_int(pevt, pvalue, poffset)
 
 /**
-* Summary:  Get bd address parameter from HCI event
+* \brief Get bd address parameter from HCI event
+* \ingroup hci
 *
 */
 bt_bool bt_hci_get_evt_param_bdaddr(bt_hci_event_p pevt, bt_bdaddr_p pvalue, bt_int_p poffset);
 
 /**
-* Summary:  Get class of device parameter from HCI event
+* \brief Get class of device parameter from HCI event
+* \ingroup hci
 *
 */
 bt_bool bt_hci_get_evt_param_devclass(bt_hci_event_p pevt, bt_long_p pvalue, bt_int_p poffset);
 
 /**
-* Summary:  Get link key parameter from HCI event
+* \brief Get link key parameter from HCI event
+* \ingroup hci
 *
 */
 bt_bool bt_hci_get_evt_param_linkkey(bt_hci_event_p pevt, bt_linkkey_p pvalue, bt_int_p poffset);
 
 
 /**
- * Summary:  HCI initialization callback.
- * , Functional Group:  hci
+ * \brief HCI initialization callback.
+ * \ingroup hci
  *
- * Description:  This typedef defines a function pointer type for the HCI initailization callback
- * functions. Such a function must be passed to the hci_init() function.
+ * \details This typedef defines a function pointer type for the HCI initialization callback
+ * functions. Such a function must be passed to the bt_hci_start() function.
  *
- * Parameters:  success - Specifies whether HCI initialization succeeded or not.
+ * \param success Specifies whether HCI initialization succeeded or not. 
  */
 typedef void (*bt_hci_start_callback_fp)(bt_bool success, void* param);
 
 
-typedef void (*bt_hci_stop_callback_fp)(void* param);
+/**
+* \brief HCI stop callback.
+* \ingroup hci
+*
+* \details This typedef defines a function pointer type for the HCI stop callback
+* functions. Such a function must be passed to the bt_hci_stop() function.
+*
+*/
+typedef void(*bt_hci_stop_callback_fp)(void* param);
 
 
+/** 
+ * \brief Initialize the HCI layer.
+ * \ingroup hci
+ *
+ *  This function initializes all internal variables of the HCI layer. The application,
+ *  unless it's going to use only HCI layer, does not need to call this function as it is
+ *  implicitly called by bt_sys_init.
+ *
+ *  This function essentially calls bt_hci_init_ex(HCI_LINK_POLICY_ENABLE_ALL) so all link policy
+ *  setting are enabled.
+ */
 void bt_hci_init(void);
 
 /**
- * Summary:  Initialize HCI layer.
- * , Functional Group:  hci
+ * \brief Initialize the HCI layer.
+ * \ingroup hci
  *
- * Description:  This function initializes the HCI layer of the stack. Upon completion of initialization
- * the callback function passed in the callback parameter is called.
+ *  This function initializes all internal variables of the HCI layer. The application,
+ *  unless it's going to use only HCI layer, does not need to call this function as it is
+ *  implicitly called by bt_sys_init_ex.
  *
- * Parameters:  callback - Completion callback. Called when initialization is complete.
+ *  @param default_link_policy default link policy settings. This is a bitmask that defines the initial value of the
+ *                             link policy settings for all new BR/EDR connections. This value can be a combination of the following values:
+ *                             \li HCI_LINK_POLICY_ENABLE_ROLE_SWITCH
+ *                             \li HCI_LINK_POLICY_ENABLE_HOLD_MODE
+ *                             \li HCI_LINK_POLICY_ENABLE_SNIFF_MODE
+ *                             \li HCI_LINK_POLICY_ENABLE_PARK_STATE
  *
- * Returns:
- *         -  TRUE when the function succeeds.
- *         -  FALSE otherwise. The callback function is not called in this case.
+ *  To enable all settings pass HCI_LINK_POLICY_ENABLE_ALL.
+*/
+void bt_hci_init_ex(bt_byte default_link_policy);
+
+/**
+ * \brief Start HCI layer.
+ * \ingroup hci
+ *
+ * \details This function starts the HCI layer of the stack. Starting the HCI layer consists essentially of two steps:
+ *          1. Make the HCI transport receive packets from the controller. This results in a call to bt_oem_recv.
+ *          2. Reset and configure the controller.
+ *
+ *          Upon completion of controller initialization the callback function passed in the \c callback parameter is called.
+ *
+ * \param callback Completion callback. Called when controller initialization is complete.
+ * \param callback_param A pointer to arbitrary data to be passed to the \c callback callback.
+ * \param enable_scan This is a bitmask that defines which scans are enabled during the controller configuration.
+ *                    This value can be a combination of the following values:
+ *                             \li HCI_SCAN_INQUIRY (the controller is discoverable)
+ *                             \li HCI_SCAN_PAGE  (the controller is connectable)
+ *
+ * \return
+ *         \li \c TRUE when the function succeeds.
+ *         \li \c FALSE otherwise. The callback function is not called in this case.
  *
  */
 bt_bool bt_hci_start(bt_hci_start_callback_fp callback, void* callback_param, bt_byte enable_scan);
 
 
+/**
+* \brief Start HCI layer without controller configuration.
+* \ingroup hci
+*
+* \details This function is similar to bt_hci_start but unlike the former it does not perform the controller configuration. 
+*          I.e., bt_hci_start_no_init simply calls the HCI transport and makes it receive packets from the controller.
+*          The main purpose of this function is make the HCI transport ready to exchange packets if controller needs some 
+*          vendor specific configuration before it can be used with the stack. E.g., controllers based on CRS8811 chip need loading 
+*          various values that configure its operating mode using CSR's proprietary protocol. So the application after
+*          configuring the HCI transport would call bt_hci_init(), bt_hci_start_no_init() and then load configuration values. Once
+*          the vendor specific configuration is done, the application will re-initialize the HCI transport and perform full start of
+*          the stack with bt_sys_init() and bt_sys_start().
+*
+*/
 void bt_hci_start_no_init(void);
 
 
+/**
+* \brief Stop HCI layer.
+* \ingroup hci
+*
+* \details This function makes the HCI layer inoperable. After this call the application must perform 
+*          the full reset of the HCI transport and stack.
+*
+* \param callback Completion callback. Called when the HCI layer has been stopped.
+* \param callback_param A pointer to arbitrary data to be passed to the \c callback callback.
+*/
 void bt_hci_stop(bt_hci_stop_callback_fp callback, void* callback_param);
 
 /**
- * Summary:  HCI connect callback.
- * , Functional Group:  hci
+* \brief Reset controller.
+* \ingroup hci
+*
+* \details This function resets the BT controller.
+*
+* \param callback Completion callback. Called when the controller has been reset.
+* \param callback_param A pointer to arbitrary data to be passed to the \c callback callback.
+*/
+bt_bool bt_hci_reset(bt_hci_cmd_callback_fp callback, void* callback_param);
+
+/**
+ * \brief HCI connect callback.
+ * \ingroup hci
  *
- * Description:  This typedef defines a type for the callback function that is called when HCI connect operation
- * initiated by a call to hci_init() is complete.
+ * \details This typedef defines a type for the callback function that is called when HCI connect operation
+ * initiated by a call to bt_hci_connect() is complete.
  *
- * Parameters:  status - Operation status. It is 0 if connection was successfully established.
- *   pconn - pointer to a structure representing the established connection.
- *   param - pointer to arbitrary data passed to the hci_connect() function through its param parameter.
+ * \param status Operation status. \c It is 0 if connection was successfully established.
+ * \param pconn pointer to a structure representing the established connection.
+ * \param param pointer to arbitrary data passed to the bt_hci_connect() function through its \c param parameter.
  *
  */
 typedef void (*bt_hci_connect_callback_fp)(bt_byte status, bt_hci_conn_state_t *pconn, void* param);
 
-typedef void (*bt_hci_disconnect_callback_fp)(bt_byte status, bt_byte reason, bt_hci_conn_state_t *pconn, void* param);
+/**
+* \brief HCI disconnect callback.
+* \ingroup hci
+*
+* \details This typedef defines a type for the callback function that is called when an HCI connection
+*          has been terminated.
+*
+* \param status Operation status. \c It is 0 if connection has been successfully terminated.
+* \param reason Reason for disconnection.
+* \param pconn pointer to a structure representing the connection.
+* \param param pointer to arbitrary data associated with an event listener.
+*
+*/
+typedef void(*bt_hci_disconnect_callback_fp)(bt_byte status, bt_byte reason, bt_hci_conn_state_t *pconn, void* param);
 
 /**
- * Summary:  Connect to a remote device.
- * , Functional Group:  hci
+ * \brief Connect to a remote device.
+ * \ingroup hci
  *
- * Description:  This function tries to establish an HCI connection with a remote device specified by the
- * Bluetooth address dest. Upon completion, the callback function specified by the callback parameter
+ * \details This function tries to establish an HCI connection with a remote device specified by the
+ * Bluetooth address \c dest. Upon completion, the callback function specified by the \c callback parameter
  * is called.
  *
- * Parameters:  dest - Bluetooth address of the remote device.
- *   packet_type -
- *   role_switch -
- *   acl_config -
- *   callback - Pointer to a callback function that is called when the connect operation completes.
- *   param - Pointer to arbitrary data that is to be passed to the callback function.
+ * \param dest Bluetooth address of the remote device.
+ * \param packet_type
+ * \param role_switch
+ * \param acl_config
+ * \param callback Pointer to a callback function that is called when the connect operation completes.
+ * \param param Pointer to arbitrary data that is to be passed to the callback function.
  *
- * Returns:
- *         -  TRUE when the function succeeds.
- *         -  FALSE otherwise. The callback function is not called in this case.
+ * \return
+ *         \li \c TRUE when the function succeeds.
+ *         \li \c FALSE otherwise. The callback function is not called in this case.
  *
  */
-bt_bool bt_hci_connect(bt_bdaddr_p dest,
-	bt_uint packet_type, bt_byte pg_scan_rpt_mode,
+bt_bool bt_hci_connect(bt_bdaddr_p dest, 
+	bt_uint packet_type, bt_byte pg_scan_rpt_mode, 
 	bt_byte role_switch, bt_uint acl_config,
 	bt_hci_connect_callback_fp callback, void* param);
 
 /**
- * Summary:  Listen for incoming connections.
- * , Functional Group:  hci
+ * \brief Listen for incoming connections.
+ * \ingroup hci
  *
- * Description:
+ * \details 
  *
+ * \param callback Pointer to a callback function that is called when a new incoming connection has been established.
+ * \param param Pointer to arbitrary data that is to be passed to the callback function.
+ *
+ * \return
+ *         \li \c TRUE when the function succeeds.
+ *         \li \c FALSE otherwise. The callback function is not called in this case.
  */
 bt_bool bt_hci_listen(bt_hci_connect_callback_fp cb, void* param);
 
@@ -828,8 +1031,8 @@ bt_bool bt_hci_connect_sco(
 	bt_hci_connect_callback_fp cb, void *param);
 
 /**
- * Summary:  Abort connection
- * , Functional Group:  hci
+ * \brief Abort connection
+ * \ingroup hci
  *
  */
 bt_bool bt_hci_disconnect(bt_hci_conn_state_t *pconn);
@@ -838,7 +1041,7 @@ bt_bool bt_hci_disconnect(bt_hci_conn_state_t *pconn);
 typedef void (*bt_hci_inquiry_callback_fp)(bt_byte status, bt_hci_inquiry_response_t* response);
 
 /**
-* Summary:  Start inquiry
+* \brief Start inquiry
 *
 */
 bt_bool bt_hci_find_devices(bt_byte max_responses, bt_byte length, bt_hci_inquiry_callback_fp cb);
@@ -848,27 +1051,33 @@ bt_bool bt_hci_find_devices_ex(
 	bt_hci_inquiry_callback_fp cb);
 
 /**
-* Summary:  Stop inquiry
+* \brief Stop inquiry
 *
 */
 bt_bool bt_hci_cancel_find_devices(bt_hci_cmd_callback_fp cb);
 
+/**
+* \brief Stop inquiry
+*
+*/
+bt_bool bt_hci_cancel_find_devices_ex(bt_hci_cmd_callback_fp cb, void* cb_param);
+
 typedef void (*bt_hci_request_remote_name_callback_fp)(bt_bdaddr_p pdbaddr, const char* name);
 
 /**
-* Summary:  Request remote device's name
+* \brief Request remote device's name
 *
 */
 bt_bool bt_hci_request_remote_name(bt_bdaddr_p pbdaddr, bt_byte pg_scan_rpt_mode, bt_int clock_offset, bt_hci_request_remote_name_callback_fp cb);
 
 /**
-* Summary:  Cancel remote device name request
+* \brief Cancel remote device name request
 *
 */
 bt_bool bt_hci_cancel_request_remote_name(bt_bdaddr_p pbdaddr);
 
 /**
-* Summary:  Change local device's role
+* \brief Change local device's role
 *
 */
 bt_bool bt_hci_role_change_ex(bt_bdaddr_p pbdaddr, bt_byte role, bt_hci_cmd_callback_fp cb, void* cb_param);
@@ -878,7 +1087,7 @@ bt_bool bt_hci_authenticate_ex(bt_hci_conn_state_t *pconn, bt_hci_cmd_callback_f
 #define bt_hci_authenticate(pconn, cb)    bt_hci_authenticate_ex(pconn, cb, NULL)
 
 /**
-* Summary:  Set connection encryption
+* \brief Set connection encryption
 *
 */
 
@@ -891,31 +1100,31 @@ typedef void (*pf_hci_wakeup_callback)(bt_bool status);
 
 
 /**
-* Summary:  Put local device to sleep
+* \brief Put local device to sleep
 *
 */
 void hci_sleep(pf_hci_sleep_callback cb);
 
 /**
-* Summary:  Awaken local device
+* \brief Awaken local device
 *
 */
 void hci_wakeup(pf_hci_wakeup_callback cb);
 
 /**
-* Summary:  Put local device to sniff mode
+* \brief Put local device to sniff mode
 *
 */
 #define bt_hci_sniff_mode(pconn, min_interval, max_interval, attempt_slots, timeout, cb)	\
 	bt_hci_sniff_mode_ex(pconn, min_interval, max_interval, attempt_slots, timeout, cb, NULL)
 
 bt_bool bt_hci_sniff_mode_ex(
-	bt_hci_conn_state_t *pconn, bt_int min_interval, bt_int max_interval,
+	bt_hci_conn_state_t *pconn, bt_int min_interval, bt_int max_interval, 
 	bt_int attempt_slots, bt_int timeout, bt_hci_cmd_callback_fp cb,
 	void* cb_param);
 
 /**
-* Summary:  Cancel sniff mode
+* \brief Cancel sniff mode
 *
 */
 #define bt_hci_exit_sniff_mode(pconn, cb)	bt_hci_exit_sniff_mode_ex(pconn, cb, NULL)
@@ -933,56 +1142,56 @@ bt_bool bt_hci_sniff_subrating_ex(
 	void* cb_param);
 
 /**
-* Summary:  Put local device to park state
+* \brief Put local device to park state
 *
 */
 bt_bool bt_hci_park_state(bt_hci_conn_state_t *pconn, bt_int min_interval, bt_int max_interval, bt_hci_cmd_callback_fp cb);
 
 /**
-* Summary:  Exit park state
+* \brief Exit park state
 *
 */
 bt_bool bt_hci_exit_park_state(bt_hci_conn_state_t *pconn, bt_hci_cmd_callback_fp cb);
 
 /**
-* Summary:  Send a command to local device
+* \brief Send a command to local device
 *
 */
 bt_bool bt_hci_send_cmd(bt_hci_command_p pcmd);
 
 /**
-* Summary:  Send data over ACL connection
+* \brief Send data over ACL connection
 *
 */
 bt_bool bt_hci_send_acl_data(bt_hci_hconn_t h, bt_byte_p pdata, bt_int len, bt_hci_data_callback_fp cb, void *param);
 
 
 /**
-* Summary:  Cancel sending data over ACL connection
+* \brief Cancel sending data over ACL connection
 *
 */
 void bt_hci_cancel_send_acl_data(bt_byte* data);
 
 /**
-* Summary:  Send data over SCO connection
+* \brief Send data over SCO connection
 *
 */
 bt_bool bt_hci_send_sco_data(bt_hci_hconn_t h, bt_byte_p pdata, bt_uint len, bt_hci_data_callback_fp cb, void *param);
 
 /**
-* Summary:  Configure inquiry scan activity
+* \brief Configure inquiry scan activity
 *
 */
 bt_bool bt_hci_write_inquiry_scan_activity(bt_uint interval, bt_uint window, bt_hci_cmd_callback_fp cb);
 
 /**
-* Summary:  Configure inquiry scan type
+* \brief Configure inquiry scan type
 *
 */
 bt_bool bt_hci_write_inquiry_scan_type(bt_byte scanType, bt_hci_cmd_callback_fp cb);
 
 /**
-* Summary:  Configure inquiry mode
+* \brief Configure inquiry mode
 *
 */
 bt_bool bt_hci_write_inquiry_mode(bt_byte scanMode, bt_hci_cmd_callback_fp cb);
@@ -992,44 +1201,44 @@ typedef void (*bt_hci_read_inquiry_scan_type_callback_fp)(bt_byte status, bt_byt
 typedef void (*bt_hci_read_inquiry_mode_callback_fp)(bt_byte status, bt_byte mode);
 
 /**
-* Summary:  Get current inquiry scan activity configuration
+* \brief Get current inquiry scan activity configuration
 *
 */
 bt_bool bt_hci_read_inquiry_scan_activity(bt_hci_read_inquiry_scan_activity_callback_fp cb);
 
 /**
-* Summary:  Get current inquiry scan type
+* \brief Get current inquiry scan type
 *
 */
 bt_bool bt_hci_read_inquiry_scan_type(bt_hci_read_inquiry_scan_type_callback_fp cb);
 
 /**
-* Summary:  Get current inquiry mode
+* \brief Get current inquiry mode
 *
 */
 bt_bool bt_hci_read_inquiry_mode(bt_hci_read_inquiry_mode_callback_fp cb);
 
 
 /**
-* Summary:  Configure page scan activity
+* \brief Configure page scan activity
 *
 */
 bt_bool bt_hci_write_page_scan_activity(bt_uint interval, bt_uint window, bt_hci_cmd_callback_fp cb);
 
 /**
-* Summary:  Configure page timeout
+* \brief Configure page timeout
 *
 */
 bt_bool bt_hci_write_page_timeout(bt_uint timeout, bt_hci_cmd_callback_fp cb);
 
 /**
-* Summary:  Configure page scan period mode
+* \brief Configure page scan period mode
 *
 */
 bt_bool bt_hci_write_page_scan_period_mode(bt_byte mode, bt_hci_cmd_callback_fp cb);
 
 /**
-* Summary:  Configure page scan type
+* \brief Configure page scan type
 *
 */
 bt_bool bt_hci_write_page_scan_type(bt_byte scanType, bt_hci_cmd_callback_fp cb);
@@ -1040,36 +1249,46 @@ typedef void (*bt_hci_read_page_scan_period_mode_callback_fp)(bt_byte status, bt
 typedef void (*bt_hci_read_page_scan_type_callback_fp)(bt_byte status, bt_byte scanType);
 
 /**
-* Summary:  Get current page scan activity configuration
+* \brief Get current page scan activity configuration
 *
 */
 bt_bool bt_hci_read_page_scan_activity(bt_hci_read_page_scan_activity_callback_fp cb);
 
 /**
-* Summary:  Get current page timeout
+* \brief Get current page timeout
 *
 */
 bt_bool bt_hci_read_page_timeout(bt_hci_read_page_timeout_callback_fp cb);
 
 /**
-* Summary:  Get current page scan period mode
+* \brief Get current page scan period mode
 *
 */
 bt_bool bt_hci_read_page_scan_period_mode(bt_hci_read_page_scan_period_mode_callback_fp cb);
 
 /**
-* Summary:  Get current page scan type
+* \brief Get current page scan type
 *
 */
 bt_bool bt_hci_read_page_scan_type(bt_hci_read_page_scan_type_callback_fp cb);
 
 /**
-* Summary:  Write local device name
+* \brief Write local device name
+* \ingroup hci
+*
+* \details The Write_Local_Name command provides the ability to modify the userfriendly
+*          name for the BR/EDR Controller.
 *
 */
 bt_bool bt_hci_write_local_name(const char *device_name, bt_hci_cmd_callback_fp cb);
 
-void bt_hci_send_pin_code(bt_bdaddr_p pbdaddr_remote, const char* pincode);
+bt_bool bt_hci_write_local_name_ex(const char *device_name, bt_hci_cmd_callback_fp cb, void* callback_param);
+
+#define bt_hci_send_pin_code(pbdaddr_remote, pincode)    bt_hci_send_pin_code_ex(pbdaddr_remote, pincode, NULL, NULL)
+
+bt_bool bt_hci_send_pin_code_ex(
+	bt_bdaddr_p pbdaddr_remote, const char* pin,
+	bt_hci_cmd_callback_fp callback, void* callback_param);
 
 void bt_hci_reject_pin_code(bt_bdaddr_p pbdaddr_remote);
 
@@ -1083,7 +1302,7 @@ bt_bool bt_hci_set_scan(
 bt_bool bt_hci_set_scan_ex(
    bt_bool discoverable, bt_ulong discoverable_period, bt_byte discoverable_mode,
    bt_bool connectable, bt_ulong connectable_period, 
-   bt_hci_cmd_callback_fp cb);
+   bt_hci_cmd_callback_fp cb, void* cb_param);
 
 bt_byte bt_hci_get_last_cmd_status(void);
 
@@ -1095,23 +1314,27 @@ bt_int bt_hci_get_send_buffer_len(void);
 
 bt_bool bt_hci_write_default_link_policy_settings(bt_uint settings, bt_hci_cmd_callback_fp cb);
 
+bt_bool bt_hci_write_link_policy_settings(bt_hci_conn_state_t* conn, bt_uint settings, bt_hci_cmd_callback_fp cb, void* cb_param);
+
 void bt_hci_set_incoming_connection_role(bt_byte role);
 
-#include "bluetooth/cdbt/utils/buffer.h"
-#include "bluetooth/cdbt/utils/bufferutils.h"
-#include "bluetooth/cdbt/utils/queue.h"
-#include "bluetooth/cdbt/hci/hci_cmd_queue.h"
-#include "bluetooth/cdbt/hci/hci_cmd_buffer.h"
-#include "bluetooth/cdbt/hci/hci_data_queue.h"
-#include "bluetooth/cdbt/hci/hci_data_buffer.h"
-#include "bluetooth/cdbt/hci/hci_linkkey_buffer.h"
-#include "bluetooth/cdbt/hci/hci_ctrl_state.h"
-#include "bluetooth/cdbt/hci/hci_evt_handlers.h"
-#include "bluetooth/cdbt/hci/hci_conn_state.h"
-#include "bluetooth/cdbt/hci/hci_transport.h"
-#include "bluetooth/cdbt/hci/hci_errors.h"
-#include "bluetooth/cdbt/hci/hci_eir.h"
-#include "bluetooth/cdbt/hci/hci_private.h"
+bt_byte bt_hci_get_inquiry_response_tx_power_level(void);
+
+#include "cdbt/utils/buffer.h"
+#include "cdbt/utils/bufferutils.h"
+#include "cdbt/utils/queue.h"
+#include "cdbt/hci/hci_cmd_queue.h"
+#include "cdbt/hci/hci_cmd_buffer.h"
+#include "cdbt/hci/hci_data_queue.h"
+#include "cdbt/hci/hci_data_buffer.h"
+#include "cdbt/hci/hci_linkkey_buffer.h"
+#include "cdbt/hci/hci_ctrl_state.h"
+#include "cdbt/hci/hci_evt_handlers.h"
+#include "cdbt/hci/hci_conn_state.h"
+#include "cdbt/hci/hci_transport.h"
+#include "cdbt/hci/hci_errors.h"
+#include "cdbt/hci/hci_eir.h"
+#include "cdbt/hci/hci_private.h"
 
 #ifdef __cplusplus
 }

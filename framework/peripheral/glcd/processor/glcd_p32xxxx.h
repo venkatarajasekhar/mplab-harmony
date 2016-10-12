@@ -132,6 +132,55 @@
 
     #include "glcd_p32mx270f256d.h"
 
+    #elif defined(__32MX154F128B__)
+    #include "glcd_p32mx154f128b.h"
+    
+#elif defined(__32MX154F128D__)
+    #include "glcd_p32mx154f128d.h"
+    
+#elif defined(__32MX155F128B__)
+    #include "glcd_p32mx155f128b.h"
+    
+#elif defined(__32MX155F128D__)
+    #include "glcd_p32mx155f128d.h"
+
+#elif defined(__32MX174F256B__)
+    #include "glcd_p32mx174f256b.h"
+    
+#elif defined(__32MX174F256D__)
+    #include "glcd_p32mx174f256d.h"
+    
+#elif defined(__32MX175F256B__)
+    #include "glcd_p32mx175f256b.h"
+    
+#elif defined(__32MX175F256D__)
+    #include "glcd_p32mx175f256d.h"
+
+#elif defined(__32MX254F128B__)
+    #include "glcd_p32mx254f128b.h"
+    
+#elif defined(__32MX254F128D__)
+    #include "glcd_p32mx254f128d.h"
+    
+#elif defined(__32MX255F128B__)
+    #include "glcd_p32mx255f128b.h"
+    
+#elif defined(__32MX255F128D__)
+    #include "glcd_p32mx255f128d.h"
+
+#elif defined(__32MX274F256B__)
+    #include "glcd_p32mx274f256b.h"
+    
+#elif defined(__32MX274F256D__)
+    #include "glcd_p32mx274f256d.h"
+    
+#elif defined(__32MX275F256B__)
+    #include "glcd_p32mx275f256b.h"
+    
+#elif defined(__32MX275F256D__)
+    #include "glcd_p32mx275f256d.h"
+    
+
 #elif defined(__32MX320F032H__)
 
     #include "glcd_p32mx320f032h.h"
@@ -907,6 +956,7 @@
 #elif defined(__32WK2057GPD132__)
 
     #include "glcd_p32wk2057gpd132.h"	
+
 
 #else
 

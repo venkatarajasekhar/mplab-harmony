@@ -53,7 +53,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
  *******************************************************************************/
 // DOM-IGNORE-END
 
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Included Files
@@ -82,7 +81,11 @@ void ReloadTimer(void);
 Core timer is used as the RTOS tick source, user is free to change this to any
 timer source wanted.
 *******************************************************************************/
+#if ( __mips_micromips == 1 ) 
+void __attribute__((micromips)) __attribute__((interrupt(IPL2SOFT))) __attribute__((vector(_CORE_TIMER_VECTOR))) CoreTimerHandler(void)
+#else 
 void __ISR(_CORE_TIMER_VECTOR, IPL2SOFT) CoreTimerHandler(void)
+#endif
 {
 
    /* Call ThreadX context save.  */
@@ -121,7 +124,7 @@ void ReloadTimer(void)
 }
 
     
-void __ISR(_TIMER_2_VECTOR, ipl4SOFT) IntHandlerDrvTmrInstance0(void)
+void __ISR(_TIMER_2_VECTOR, ipl2SOFT) IntHandlerDrvTmrInstance0(void)
 {
    /* Call ThreadX context save.  */
    _tx_thread_context_save();
@@ -132,7 +135,7 @@ void __ISR(_TIMER_2_VECTOR, ipl4SOFT) IntHandlerDrvTmrInstance0(void)
  	
 	
 	
-void __ISR(_USB_VECTOR, ipl3SOFT) _IntHandlerUSBInstance0(void)
+void __ISR(_USB_VECTOR, ipl2SOFT) _IntHandlerUSBInstance0(void)
 {
    /* Call ThreadX context save.  */
    _tx_thread_context_save();
@@ -141,7 +144,7 @@ void __ISR(_USB_VECTOR, ipl3SOFT) _IntHandlerUSBInstance0(void)
    _tx_thread_context_restore();
 }
 
-void __ISR ( _USB_DMA_VECTOR,ipl4SOFT) _IntHandlerUSBInstance0_USBDMA ( void )
+void __ISR ( _USB_DMA_VECTOR,ipl2SOFT) _IntHandlerUSBInstance0_USBDMA ( void )
 {
    /* Call ThreadX context save.  */
    _tx_thread_context_save();

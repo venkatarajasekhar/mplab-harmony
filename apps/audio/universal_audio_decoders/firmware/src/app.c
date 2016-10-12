@@ -180,7 +180,7 @@ void APP_handlePeriodicTimerSignal(uintptr_t context, uint32_t alarmCount)
     }
     
     // Display play time
-    if(appData.currentStreamType == APP_STREAM_AAC || appData.currentStreamType == APP_STREAM_WMA)
+    if(appData.currentStreamType == APP_STREAM_AAC || appData.currentStreamType == APP_STREAM_WMA || appData.currentStreamType == APP_STREAM_FLAC)
     {
         if(playerPlay && playerStreaming)
         {
@@ -610,6 +610,16 @@ bool APP_IsSupportedAudioFile(char *name)
             return true;
         }
     }
+	// Tobe added
+/*
+    if(appData.FLAC_decoder_enabled) {
+        if((name[i+1] == 'f' && name[i+2] == 'l' && name[i+3] == 'a' ) || (name[i+1] == 'F' && name[i+2] == 'L' && name[i+3] == 'A' ))
+        {
+            Nop();
+            return true;
+        }
+    }   
+*/ 
     return false;
 }
 
@@ -658,6 +668,14 @@ APP_DECODER_TYPE APP_GetCurrentFileType ( char *ext )
     {
         return APP_DECODER_OPUS;
     }
+	// Tobe added
+/*
+    if(( ext[0] == 'F' && ext[1] == 'L' && ext[2] == 'A')||( ext[0] == 'f' && ext[1] == 'l' && ext[2] == 'a'))
+    {
+        Nop();
+        return APP_DECODER_FLAC;
+    }
+*/
     return APP_DECODER_UNKNOWN;
 }
 

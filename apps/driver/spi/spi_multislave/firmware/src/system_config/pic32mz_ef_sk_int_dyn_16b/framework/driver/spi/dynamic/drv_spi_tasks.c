@@ -86,7 +86,19 @@ int32_t DRV_SPI_ISRMasterRM8BitTasks ( struct DRV_SPI_DRIVER_OBJECT * pDrvInstan
             /* Check the baud rate.  If its different set the new baud rate*/
             if (pClient->baudRate != pDrvInstance->currentBaudRate)
             {
-                PLIB_SPI_BaudRateSet( spiId , SYS_CLK_PeripheralFrequencyGet(pDrvInstance->spiClk), pClient->baudRate );
+                #if defined (PLIB_SPI_ExistsBaudRateClock)
+                    if (pDrvInstance->baudClockSource == SPI_BAUD_RATE_PBCLK_CLOCK)
+                    {
+                        PLIB_SPI_BaudRateSet( spiId , SYS_CLK_PeripheralFrequencyGet(pDrvInstance->spiClk), pClient->baudRate );
+                    }
+                    else // if baud clock source is reference clock
+                    {
+                        PLIB_SPI_BaudRateSet( spiId , SYS_CLK_ReferenceFrequencyGet(CLK_BUS_REFERENCE_1), pClient->baudRate );
+                    }
+                #else
+                    PLIB_SPI_BaudRateSet( spiId , SYS_CLK_PeripheralFrequencyGet(pDrvInstance->spiClk), pClient->baudRate );
+                #endif
+
                 pDrvInstance->currentBaudRate = pClient->baudRate;
             }
             
@@ -104,7 +116,7 @@ int32_t DRV_SPI_ISRMasterRM8BitTasks ( struct DRV_SPI_DRIVER_OBJECT * pDrvInstan
         {
             DRV_SPI_MasterRMSend8BitISR(pDrvInstance);
         }
-
+        
         DRV_SPI_ISRErrorTasks(pDrvInstance);
         
         /* Figure out how many bytes are left to be received */
@@ -116,7 +128,7 @@ int32_t DRV_SPI_ISRMasterRM8BitTasks ( struct DRV_SPI_DRIVER_OBJECT * pDrvInstan
             DRV_SPI_MasterRMReceive8BitISR(pDrvInstance);
             bytesLeft = currentJob->dataLeftToRx + currentJob->dummyLeftToRx;
         }
-        
+     
         if (bytesLeft == 0)
         {
                     // Disable the interrupt, or more correctly don't re-enable it later*/
@@ -175,8 +187,8 @@ int32_t DRV_SPI_ISRMasterRM8BitTasks ( struct DRV_SPI_DRIVER_OBJECT * pDrvInstan
                 continue;                            
             }
             /* If we're here then we know that the interrupt should not be firing again immediately, so re-enable them and exit*/
-                SYS_INT_SourceEnable(pDrvInstance->rxInterruptSource);
-                SYS_INT_SourceEnable(pDrvInstance->txInterruptSource);
+            SYS_INT_SourceEnable(pDrvInstance->rxInterruptSource);
+            SYS_INT_SourceEnable(pDrvInstance->txInterruptSource);
 
             return 0;            
         }
@@ -305,7 +317,7 @@ int32_t DRV_SPI_ISRSlaveRM8BitTasks ( struct DRV_SPI_DRIVER_OBJECT * pDrvInstanc
                 continue;                            
             }
             /* If we're here then we know that the interrupt should not be firing immediately so enable it and exit */
-                SYS_INT_SourceEnable(pDrvInstance->rxInterruptSource);
+            SYS_INT_SourceEnable(pDrvInstance->rxInterruptSource);
 
             return 0;            
         }

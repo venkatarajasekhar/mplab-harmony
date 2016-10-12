@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX695F512H"/>
@@ -154,6 +158,10 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
+        <Name>smtpc.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
         <Name>zero_conf_helper.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
@@ -206,12 +214,12 @@
         <Path>Source Files/framework/driver/wifi/mrf24w/src</Path>
       </File>
       <File>
-        <Name>snmpv3_private.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>ipv4.h</Name>
         <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>snmpv3_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>inflate.c</Name>
@@ -260,6 +268,10 @@
       <File>
         <Name>drv_wifi_config_data.h</Name>
         <Path>Header Files/framework/driver/wifi/mrf24w/src</Path>
+      </File>
+      <File>
+        <Name>smtpc_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>dns_manager.h</Name>
@@ -338,15 +350,15 @@
         <Path>Header Files/framework/system/devcon</Path>
       </File>
       <File>
+        <Name>ipv4_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>nbns.h</Name>
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>tcpip_packet.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
-        <Name>ipv4_manager.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
@@ -534,6 +546,10 @@
         <Path>Source Files/framework/system/fs/src/dynamic</Path>
       </File>
       <File>
+        <Name>igmp_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>zero_conf_multicast_dns.h</Name>
         <Path>Header Files/framework/tcpip</Path>
       </File>
@@ -662,6 +678,10 @@
         <Path>Header Files/framework/driver/ethmac/src/dynamic</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>drv_wifi_raw.h</Name>
         <Path>Header Files/framework/driver/wifi/mrf24w/src</Path>
       </File>
@@ -704,6 +724,10 @@
       <File>
         <Name>crc32.h</Name>
         <Path>Header Files/framework/crypto/src/zlib-1.2.7</Path>
+      </File>
+      <File>
+        <Name>igmp.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>md2.h</Name>
@@ -792,6 +816,10 @@
       <File>
         <Name>drv_tmr_local.h</Name>
         <Path>Header Files/framework/driver/tmr/src</Path>
+      </File>
+      <File>
+        <Name>igmp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>infback.c</Name>
@@ -916,6 +944,10 @@
       <File>
         <Name>port.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>smtpc_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>drv_wifi_commands.h</Name>
@@ -1463,7 +1495,7 @@
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/wifi_g_db</Path>
-        <Checksum>5EC42348C1D61919DFF8BB4DFF5B8625</Checksum>
+        <Checksum>2ADED4021F003F09EF849C1B06F9F375</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -1482,22 +1514,17 @@
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/wifi_g_db/framework/driver/spi/dynamic</Path>
-        <Checksum>6DF212C00F510FF9651B4D92E4A5DFBE</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/wifi_g_db/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>C86DF70607CA43DACF8B79C77D66BBFE</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/wifi_g_db/framework/driver/spi/dynamic</Path>
-        <Checksum>EF2B317D186490A5369BCF83A3620C4E</Checksum>
+        <Checksum>D4288CA682CC90154C300A284ED949EF</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/wifi_g_db</Path>
-        <Checksum>58140F00148AA25016FC52956B73A5AA</Checksum>
+        <Checksum>4C64EF07CF8CF41B73C5181027F33673</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -1521,7 +1548,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/wifi_g_db</Path>
-        <Checksum>DE41240C10B0F42EFDF7C221E089D012</Checksum>
+        <Checksum>C97AA73781E16FD1A40095EC94E65418</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_master_ebm_tasks.c</Name>
@@ -1531,7 +1558,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/wifi_g_db/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
     </Templates>
     <CompilerItems>

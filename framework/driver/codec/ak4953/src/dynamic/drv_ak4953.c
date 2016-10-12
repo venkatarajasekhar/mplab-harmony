@@ -174,7 +174,7 @@ SYS_MODULE_OBJ  DRV_AK4953_Initialize
     
     drvObj->drvI2CMasterHandle              = DRV_I2C_Open(DRV_AK4953_I2C_DRIVER_MODULE_INDEX_IDX0,
                                                             DRV_IO_INTENT_WRITE );
-    if(drvObj->drvI2CMasterHandle == (DRV_HANDLE) NULL)
+    if(drvObj->drvI2CMasterHandle == DRV_HANDLE_INVALID)
     {
         return SYS_MODULE_OBJ_INVALID;
     }
@@ -1173,7 +1173,6 @@ void DRV_AK4953_SamplingRateSet(DRV_HANDLE handle, uint32_t samplingRate)
     clientObj = (DRV_AK4953_CLIENT_OBJ *) handle;
     drvObj = (DRV_AK4953_OBJ *)clientObj->hDriver;
 
-    drvObj->command = DRV_AK4953_COMMAND_SAMPLING_RATE_SET;
     _DRV_AK4953_MasterClockSet(samplingRate, drvObj->mclk_multiplier);
 
 
@@ -1182,7 +1181,6 @@ void DRV_AK4953_SamplingRateSet(DRV_HANDLE handle, uint32_t samplingRate)
                         samplingRate);
 
     drvObj->samplingRate = samplingRate;
-    drvObj->controlCommandStatus = false;
 
     return;
 }
@@ -1384,21 +1382,17 @@ void DRV_AK4953_MuteOn(DRV_HANDLE handle)
     }
     drvObj->command = DRV_AK4953_COMMAND_SEND;
 
-    regValue = _DRV_AK4953_CONTROL_REG_BIT_WRITE_Wrapper(drvObj,
-               AK4953A_REG_MODE_CTRL3,
-               5,
-               0x1
-               );
-//            DRV_AK4953_CONTROL_REG_BIT_WRITE(drvObj->lastRegValue[AK4953A_REG_MODE_CTRL3],
-//               5, 0x1);
-
     AK4953_COMMAND *muteOnCmd;
     muteOnCmd = _DRV_AK4953_CommandQueueGetSlot();
     if(muteOnCmd == NULL)
     {
         return;
     }
-    
+    regValue = _DRV_AK4953_CONTROL_REG_BIT_WRITE_Wrapper(drvObj,
+               AK4953A_REG_MODE_CTRL3,
+               5,
+               0x1
+               );
     
     muteOnCmd->command = DRV_AK4953_COMMAND_MUTE_ON;
     muteOnCmd->control_data[0] = (uint8_t)(AK4953A_REG_MODE_CTRL3&0xFF);

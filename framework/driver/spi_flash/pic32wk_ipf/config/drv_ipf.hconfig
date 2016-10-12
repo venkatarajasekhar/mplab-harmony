@@ -146,6 +146,7 @@ ifblock USE_DRV_IPF
 add "<#include \"/framework/driver/spi_flash/pic32wk_ipf/templates/drv_ipf.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
 add "<#include \"/framework/driver/spi_flash/pic32wk_ipf/templates/drv_ipf_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS
 add "<#include \"/framework/driver/spi_flash/pic32wk_ipf/templates/drv_ipf_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_DRIVER_TASKS
+add "<#include \"/framework/driver/spi_flash/pic32wk_ipf/templates/drv_ipf.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 
 file DRV_IPF_H "$HARMONY_VERSION_PATH/framework/driver/spi_flash/pic32wk_ipf/drv_ipf.h" to "$PROJECT_HEADER_FILES/framework/driver/spi_flash/pic32wk_ipf/drv_ipf.h"
 file  DRV_IPF_SYS_FS_MEDIA_MANAGER_H "$HARMONY_VERSION_PATH/framework/system/fs/sys_fs_media_manager.h"  to "$PROJECT_HEADER_FILES/framework/system/fs/sys_fs_media_manager.h"
@@ -156,6 +157,9 @@ file DRV_IPF_VAR_MAPPING_H "$HARMONY_VERSION_PATH/framework/driver/spi_flash/pic
 file DRV_IPF_C "$HARMONY_VERSION_PATH/framework/driver/spi_flash/pic32wk_ipf/src/dynamic/drv_ipf.c" to "$PROJECT_SOURCE_FILES/framework/driver/spi_flash/pic32wk_ipf/src/dynamic/drv_ipf.c"
 file DRV_IPF_PROT_C "$HARMONY_VERSION_PATH/framework/driver/spi_flash/pic32wk_ipf/src/dynamic/drv_ipf_prot.c" to "$PROJECT_SOURCE_FILES/framework/driver/spi_flash/pic32wk_ipf/src/dynamic/drv_ipf_prot.c"
 template DRV_IPF_PINS_C "$HARMONY_VERSION_PATH/framework/driver/spi_flash/pic32wk_ipf/templates/drv_ipf_pins.c.ftl" to "$PROJECT_SOURCE_FILES/framework/driver/spi_flash/pic32wk_ipf/src/dynamic/drv_ipf_pins.c"
+ifblock DRV_IPF_USE_FS
+file DRV_IPF_FS_C "$HARMONY_VERSION_PATH/framework/driver/spi_flash/pic32wk_ipf/src/dynamic/drv_ipf_fs.c" to "$PROJECT_SOURCE_FILES/framework/driver/spi_flash/pic32wk_ipf/src/dynamic/drv_ipf_fs.c"
+endif
 
 file DRV_SPI_IPF_H "$HARMONY_VERSION_PATH/framework/driver/spi/drv_spi.h" to "$PROJECT_HEADER_FILES/framework/driver/spi/drv_spi.h"
 file DRV_SPI_SYS_INT_IPF_H "$HARMONY_VERSION_PATH/framework/system/int/sys_int.h" to "$PROJECT_HEADER_FILES/framework/system/int/sys_int.h"

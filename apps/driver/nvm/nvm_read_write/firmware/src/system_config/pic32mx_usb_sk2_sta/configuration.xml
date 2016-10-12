@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -48,6 +52,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -130,7 +138,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_sta/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -148,19 +156,14 @@
         <Checksum>48B745A32D710CA495F0E51A502BBEDC</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_sta/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_sta</Path>
-        <Checksum>5EB9325918E400E1C461E0EC36C6F304</Checksum>
+        <Checksum>973F54AD4E958AEBE65EBE17451FB8A2</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_sta/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -193,19 +196,18 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_sta</Path>
-        <Checksum>714F93E2DCF5D00FF789DAB86C0439CB</Checksum>
+        <Checksum>277D7B6D6FA7C9F9B9B486CF5AD49434</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_sta/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
         <Include value="D:\trunk_sbx\apps\driver\nvm\nvm_read_write\firmware\src"/>
         <Include value="D:\trunk_sbx\apps\driver\nvm\nvm_read_write\firmware\src\system_config\pic32mx_usb_sk2_sta"/>
-        <Include value="D:\trunk_sbx\apps\driver\nvm\nvm_read_write\firmware\src\pic32mx_usb_sk2_sta"/>
         <Include value="D:\trunk_sbx\framework"/>
         <Include value="D:\trunk_sbx\apps\driver\nvm\nvm_read_write\firmware\src\system_config\pic32mx_usb_sk2_sta\framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_sta/bsp"/>

@@ -148,6 +148,40 @@ typedef enum
 } DRV_USART_BUFFER_OBJ_FLAGS;
 
 // *****************************************************************************
+/* USART Driver Buffer States
+
+   Summary
+    Identifies the possible state of the buffer that can result from a 
+    buffer add/delete request.
+
+   Description
+    This enumeration identifies the possible state of the buffer that can 
+    result from a buffer add/delete request by the client by calling,
+      - DRV_USART_BufferAddRead : Updates state to DRV_USART_BUFFER_IS_IN_READ_QUEUE
+      - DRV_USART_BufferAddWrite : Updates state to DRV_USART_BUFFER_IS_IN_WRITE_QUEUE
+      - DRV_USART_BufferRemove : Updates state to DRV_USART_BUFFER_IS_FREE.
+    
+   Remarks:
+    DRV_USART_BUFFER_IS_FREE is the state of the buffer which is in the 
+    free buffer pool.
+
+*/
+
+typedef enum
+{
+    /* Buffer is not added to either write or read queue. In other words,
+     * the buffer is in the free pool. */
+    DRV_USART_BUFFER_IS_FREE,
+
+    /* Buffer is added to the write queue. */
+    DRV_USART_BUFFER_IS_IN_WRITE_QUEUE,
+
+    /* Buffer is added to the read queue */
+    DRV_USART_BUFFER_IS_IN_READ_QUEUE
+
+} DRV_USART_BUFFER_STATE;
+
+// *****************************************************************************
 /* USART Driver Buffer Object
 
   Summary:
@@ -192,6 +226,9 @@ typedef struct _DRV_USART_BUFFER_OBJ
 
     /* Flags that indicate the type of buffer */
     DRV_USART_BUFFER_OBJ_FLAGS flags;
+    
+    /* Current state of the buffer */
+    DRV_USART_BUFFER_STATE currentState;
 
     /* Buffer Handle that was assigned to this buffer when it was added to the
      * queue. */

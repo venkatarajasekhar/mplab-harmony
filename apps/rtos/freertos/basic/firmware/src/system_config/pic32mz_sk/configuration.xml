@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2048ECH144"/>
@@ -46,12 +50,80 @@
   <Manifest>
     <Files>
       <File>
-        <Name>osal_impl_basic.h</Name>
+        <Name>semphr.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>queue.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>croutine.c</Name>
+        <Path>Source Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>portmacro.h</Name>
+        <Path>Header Files/FreeRTOS/portable/MPLAB/PIC32MZ</Path>
+      </File>
+      <File>
+        <Name>list.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>sys_int_pic32.c</Name>
+        <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>sys_int_private.h</Name>
+        <Path>Header Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>deprecated_definitions.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>system.h</Name>
+        <Path>Header Files/framework/system</Path>
+      </File>
+      <File>
+        <Name>timers.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>heap_1.c</Name>
+        <Path>Source Files/FreeRTOS/portable/MemMang</Path>
+      </File>
+      <File>
+        <Name>task.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>port.c</Name>
+        <Path>Source Files/FreeRTOS/portable/MPLAB/PIC32MZ</Path>
+      </File>
+      <File>
+        <Name>sys_int.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>osal_freertos.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
       <File>
-        <Name>semphr.h</Name>
-        <Path>Header Files/FreeRTOS</Path>
+        <Name>osal_impl_basic.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
       </File>
       <File>
         <Name>list.c</Name>
@@ -62,16 +134,8 @@
         <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
-        <Name>queue.h</Name>
-        <Path>Header Files/FreeRTOS</Path>
-      </File>
-      <File>
         <Name>osal.h</Name>
         <Path>Header Files/framework/osal</Path>
-      </File>
-      <File>
-        <Name>croutine.c</Name>
-        <Path>Source Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>StackMacros.h</Name>
@@ -90,10 +154,6 @@
         <Path>Header Files/framework/system/ports</Path>
       </File>
       <File>
-        <Name>portmacro.h</Name>
-        <Path>Header Files/FreeRTOS/portable/MPLAB/PIC32MZ</Path>
-      </File>
-      <File>
         <Name>projdefs.h</Name>
         <Path>Header Files/FreeRTOS</Path>
       </File>
@@ -110,10 +170,6 @@
         <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
-        <Name>list.h</Name>
-        <Path>Header Files/FreeRTOS</Path>
-      </File>
-      <File>
         <Name>sys_common.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -122,15 +178,11 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
-        <Name>sys_int_pic32.c</Name>
-        <Path>Source Files/framework/system/int/src</Path>
-      </File>
-      <File>
         <Name>event_groups.h</Name>
         <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
-        <Name>sys_clk.h</Name>
+        <Name>sys_clk_compatibility.h</Name>
         <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
@@ -158,24 +210,12 @@
         <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
-        <Name>sys_int_private.h</Name>
-        <Path>Header Files/framework/system/int/src</Path>
-      </File>
-      <File>
-        <Name>deprecated_definitions.h</Name>
-        <Path>Header Files/FreeRTOS</Path>
-      </File>
-      <File>
         <Name>sys_devcon.h</Name>
         <Path>Header Files/framework/system/devcon</Path>
       </File>
       <File>
         <Name>event_groups.c</Name>
         <Path>Source Files/FreeRTOS</Path>
-      </File>
-      <File>
-        <Name>system.h</Name>
-        <Path>Header Files/framework/system</Path>
       </File>
       <File>
         <Name>port_asm.S</Name>
@@ -198,28 +238,12 @@
         <Path>Header Files/framework/system/devcon/src</Path>
       </File>
       <File>
-        <Name>timers.h</Name>
-        <Path>Header Files/FreeRTOS</Path>
-      </File>
-      <File>
         <Name>timers.c</Name>
         <Path>Source Files/FreeRTOS</Path>
       </File>
       <File>
-        <Name>heap_1.c</Name>
-        <Path>Source Files/FreeRTOS/portable/MemMang</Path>
-      </File>
-      <File>
-        <Name>task.h</Name>
-        <Path>Header Files/FreeRTOS</Path>
-      </File>
-      <File>
         <Name>mpu_wrappers.h</Name>
         <Path>Header Files/FreeRTOS</Path>
-      </File>
-      <File>
-        <Name>port.c</Name>
-        <Path>Source Files/FreeRTOS/portable/MPLAB/PIC32MZ</Path>
       </File>
       <File>
         <Name>sys_queue.h</Name>
@@ -229,21 +253,13 @@
         <Name>queue.c</Name>
         <Path>Source Files/FreeRTOS</Path>
       </File>
-      <File>
-        <Name>sys_int.h</Name>
-        <Path>Header Files/framework/system/int</Path>
-      </File>
-      <File>
-        <Name>osal_freertos.h</Name>
-        <Path>Header Files/framework/osal/src</Path>
-      </File>
     </Files>
     <Templates>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_sk/framework/system/clk/src</Path>
-        <Checksum>EF512160AC144F6C0C8FDFDC9B506A08</Checksum>
-        <ProjectFileChecksum>F736DD7943233918C637791435D1A85A</ProjectFileChecksum>
+        <Checksum>F74D73D240DFD8E4AFEC53879B8F07AB</Checksum>
+        <ProjectFileChecksum>549A00E4BC4510C347D93CA7D5A28928</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -252,30 +268,24 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_sk</Path>
-        <Checksum>B72F586F9C61601BD1A8E5BB88D9172B</Checksum>
-        <ProjectFileChecksum>5B4AFAD152F039A94B2B513CABA500BF</ProjectFileChecksum>
+        <Checksum>06BBE1C87BB59C75F1E82352EAC96A6F</Checksum>
+        <ProjectFileChecksum>DADDB4E5E7B6A5EA0B304881ED173BD7</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_sk</Path>
         <Checksum>89A2A88BFA33FB7AE5EF2B4A1395528B</Checksum>
-        <ProjectFileChecksum>28A5A81C0BDA896D5FA95D7436266DA0</ProjectFileChecksum>
+        <ProjectFileChecksum>024769429B235A842EB9BB7C8EB82DDC</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app3.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-        <ProjectFileChecksum>E39C438D098DE46245FBC8DF02F6182E</ProjectFileChecksum>
-      </Template>
-      <Template>
         <Name>system_interrupt_a.S</Name>
         <Path>Source Files/app/system_config/pic32mz_sk</Path>
         <Checksum>F8E29721D7D91213A568F3DC060408EC</Checksum>
-        <ProjectFileChecksum>6305818EB4DB0B1B4CFF2FB84F75519A</ProjectFileChecksum>
+        <ProjectFileChecksum>DEF4D092AF1732A74AABF3086B4AB8B0</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app1.c</Name>
@@ -297,19 +307,19 @@
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_sk</Path>
         <Checksum>AC621656A8B12A918B9C08B644A75095</Checksum>
-        <ProjectFileChecksum>C86A32F2040AE46C2C2C995D9A456AB9</ProjectFileChecksum>
+        <ProjectFileChecksum>5BE9167E4E658420549F46991E2804AF</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
         <Path>Source Files/app/system_config/pic32mz_sk</Path>
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
-        <ProjectFileChecksum>6D957A6333B3A1A07762F2B4B766FD13</ProjectFileChecksum>
+        <ProjectFileChecksum>10051ED4B221FA8B1B9A02E13FD35C40</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>rtos_hooks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_sk</Path>
-        <Checksum>9D217063A54A1B2BC5324CADA65686FF</Checksum>
-        <ProjectFileChecksum>324C9504EB36A0BD5F7A4C726AFEAB9B</ProjectFileChecksum>
+        <Checksum>1B1A60B954C976ED9682C9D68D82942F</Checksum>
+        <ProjectFileChecksum>690A6B783783DF0E5DBE4DD221A4D80F</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -322,30 +332,32 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_sk</Path>
-        <Checksum>FC02ABA450604CD0227A8054DBEA0EB8</Checksum>
-        <ProjectFileChecksum>C757A5DE532AD0D73E70E4E9E1C608A9</ProjectFileChecksum>
+        <Checksum>BAE822D0CCF080F26EC49497EFF38772</Checksum>
+        <ProjectFileChecksum>131B6036DDF66D99BB049D2677BA43DF</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_sk/bsp</Path>
-        <Checksum>F05FA6CD752CCFEC85C6B17BF6B61604</Checksum>
+        <Checksum>DD885EBE1893567826AD0E35E9F24594</Checksum>
+        <ProjectFileChecksum>BDE026C415CE491BFA509D7356B45FF5</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_sk</Path>
         <Checksum>CA60ED521B5C0B1374051D55A79C1B6B</Checksum>
-        <ProjectFileChecksum>2324FD201B13F28EE270F1E07027A888</ProjectFileChecksum>
+        <ProjectFileChecksum>DD7050A8510D7F844A6A29FA5295CD58</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_sk/bsp</Path>
-        <Checksum>D48E3F4A4C9EC7A73FF9E95DB499B155</Checksum>
+        <Checksum>F740DA09253C01A3D03B3FD6565F5267</Checksum>
+        <ProjectFileChecksum>6817C970A813289D299EF7207A8CDFA4</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mz_sk</Path>
-        <Checksum>9A6B503FF5FF50044D34417F455DDC9C</Checksum>
-        <ProjectFileChecksum>E769DED56AA9891BF914610F34DA4816</ProjectFileChecksum>
+        <Checksum>50D49B2C79F13E2732F98DA9B4321629</Checksum>
+        <ProjectFileChecksum>0DDEF6583A4F1C30CA658384E8E5CDAD</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -355,7 +367,7 @@
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_sk/framework/system/ports/src</Path>
         <Checksum>3DFB0BC56732FDD6D5377CC83C754517</Checksum>
-        <ProjectFileChecksum>1838F351120673B6F0F4B5D60A8B7840</ProjectFileChecksum>
+        <ProjectFileChecksum>3927C42077F2329FA59D6C8FC11789A4</ProjectFileChecksum>
       </Template>
     </Templates>
     <CompilerItems>
@@ -365,11 +377,10 @@
         <Include value="../src/system_config/pic32mz_sk"/>
       </C32-AS>
       <C32>
-        <Include value="D:/sources/GitSathiyan/rtos/dft_july2016/rtos/apps/rtos/freertos/basic/firmware/src"/>
-        <Include value="D:/sources/GitSathiyan/rtos/dft_july2016/rtos/apps/rtos/freertos/basic/firmware/src/system_config/pic32mz_sk"/>
-        <Include value="D:/sources/GitSathiyan/rtos/dft_july2016/rtos/apps/rtos/freertos/basic/firmware/src/pic32mz_sk"/>
-        <Include value="D:/sources/GitSathiyan/rtos/dft_july2016/rtos/framework"/>
-        <Include value="D:/sources/GitSathiyan/rtos/dft_july2016/rtos/apps/rtos/freertos/basic/firmware/src/system_config/pic32mz_sk/framework"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/freertos/basic/firmware/src"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/freertos/basic/firmware/src/system_config/pic32mz_sk"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/framework"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/freertos/basic/firmware/src/system_config/pic32mz_sk/framework"/>
         <Include value="../src/system_config/pic32mz_sk/bsp"/>
         <Include value="../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ"/>
         <Include value="../../../../../../third_party/rtos/FreeRTOS/Source/include"/>

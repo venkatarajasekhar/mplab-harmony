@@ -219,6 +219,7 @@ ifblock USE_DRV_CTR
 
 add "<#include \"/framework/driver/ctr/templates/drv_ctr.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
 add "<#include \"/framework/driver/ctr/templates/drv_ctr_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS
+add "<#include \"/framework/driver/ctr/templates/drv_ctr.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 
 file DRV_CTR_LOCAL_H "$HARMONY_VERSION_PATH/framework/driver/ctr/src/drv_ctr_local.h" to "$PROJECT_HEADER_FILES/framework/driver/ctr/src/drv_ctr_local.h"
 file DRV_CTR_H "$HARMONY_VERSION_PATH/framework/driver/ctr/drv_ctr.h" to "$PROJECT_HEADER_FILES/framework/driver/ctr/drv_ctr.h"

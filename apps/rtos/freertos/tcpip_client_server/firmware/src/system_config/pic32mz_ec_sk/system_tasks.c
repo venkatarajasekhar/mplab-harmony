@@ -76,6 +76,7 @@ void _SYS_CONSOLE_IDX0_Tasks(void);
 void _SYS_COMMAND_Tasks(void);
 
 void _TCPIP_Tasks(void);
+void _NET_PRES_Tasks(void);
 static void _APP_Tasks(void);
 static void _APP1_Tasks(void);
 static void _APP2_Tasks(void);
@@ -129,6 +130,11 @@ void SYS_Tasks ( void )
     xTaskCreate((TaskFunction_t) _TCPIP_Tasks,
                 "TCPIP Tasks",
                 1024, NULL, 9, NULL);
+
+    /* Create OS Thread for Net Pres Tasks. */
+    xTaskCreate((TaskFunction_t) _NET_PRES_Tasks,
+                "Net Pres Tasks",
+                1024, NULL, 1, NULL);
 
     /* Create OS Thread for APP Tasks. */
     xTaskCreate((TaskFunction_t) _APP_Tasks,
@@ -220,6 +226,15 @@ void _TCPIP_Tasks(void)
         /* Maintain the TCP/IP Stack*/
         TCPIP_STACK_Task(sysObj.tcpip);
         vTaskDelay(1 / portTICK_PERIOD_MS);
+    }
+}
+void _NET_PRES_Tasks(void)
+{
+    while(1)
+    {
+        /* Maintain the TCP/IP Stack*/
+        NET_PRES_Tasks(sysObj.netPres);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }
 

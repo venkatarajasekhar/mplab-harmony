@@ -12,7 +12,7 @@
     Build-time generated implementation from the MPLAB Harmony
     Graphics Composer.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
@@ -744,8 +744,17 @@ void GFX_HGC_SetupScreen(uint8_t screenId)
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case SlideScreen:
-			// disable double buffering
+			// NOTE: The following is code custom to this application to handle
+			// double-buffering.  DO NOT REMOVE
+            if (appData.doubleBufferingEnable == true)
+            {
+                GFX_DoubleBufferEnable(GFX_INDEX_0);
+                GFX_DoubleBufferPause(GFX_INDEX_0);                                        
+            }
+            else
+            {
             GFX_DoubleBufferDisable(GFX_INDEX_0);
+            }
 			
             GFX_ColorSet(GFX_INDEX_0, GFX_RGBConvert(0x00,0x00,0x00));
             GFX_ScreenClear(GFX_INDEX_0);

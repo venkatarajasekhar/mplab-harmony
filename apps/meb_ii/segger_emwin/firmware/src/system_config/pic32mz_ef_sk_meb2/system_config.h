@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -91,7 +87,12 @@ extern "C" {
 #define SYS_CLK_BUS_PERIPHERAL_8            200000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         24000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       0ul
-   
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
@@ -177,7 +178,6 @@ extern "C" {
 #define SYS_PORT_K_CNEN         0x0000
 
 
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
@@ -187,9 +187,9 @@ extern "C" {
 #define GFX_USE_DISPLAY_CONTROLLER_LCC
 #define DRV_GFX_LCC_INTERNAL_MEMORY
 #define DRV_GFX_LCC_DMA_CHANNEL_INDEX                 DMA_CHANNEL_1
-#define DRV_GFX_LCC_DMA_TRIGGER_SOURCE                DMA_TRIGGER_TIMER_5
+#define DRV_GFX_LCC_DMA_TRIGGER_SOURCE                DMA_TRIGGER_TIMER_4
 #define DRV_GFX_LCC_DMA_TRANSFER_LENGTH               2
-#define DRV_GFX_LCC_TMR_INDEX                         TMR_ID_5
+#define DRV_GFX_LCC_TMR_INDEX                         TMR_ID_4
 
 /*** Graphics Display Configuration ***/
 #define DISP_ORIENTATION                        0
@@ -216,16 +216,16 @@ extern "C" {
 // *****************************************************************************
 // *****************************************************************************
 
+// *****************************************************************************
+/* BSP Configuration Options
+*/
+#define BSP_OSC_FREQUENCY 24000000
+
 /***** SEGGER emWin Library Configuration *****/
 
 #define GFX_INSTANCES_NUMBER               1
 #define GFX_CONFIG_COLOR_DEPTH             16
 
-
-// *****************************************************************************
-/* BSP Configuration Options
-*/
-#define BSP_OSC_FREQUENCY 24000000
 
 
 // *****************************************************************************

@@ -324,11 +324,11 @@ void DRV_I2S_Deinitialize(SYS_MODULE_OBJ object)
     PLIB_SPI_Disable(spiID);
 
     /* Deallocate all the mutexes */
-    if((OSAL_MUTEX_Delete(&(drvObj->mutexDriverInstance)) != OSAL_RESULT_TRUE))
-    {
-       SYS_DEBUG(0, "Unable to delete client handle mutex \r\n");
-       return;
-    }
+     if((OSAL_MUTEX_Delete(&(drvObj->mutexDriverInstance)) != OSAL_RESULT_TRUE))
+     {
+        SYS_DEBUG(0, "Unable to delete client handle mutex \r\n");
+        return;
+     }
 
     /* Remove all objects from the queue */
     iterator = drvObj->queueHead;
@@ -446,6 +446,10 @@ void DRV_I2S_Tasks(SYS_MODULE_OBJ object)
     txChannelInterruptWasEnabled = _DRV_I2S_InterruptSourceDisable(drvObj->dmaInterruptTransmitSource);
     rxChannelInterruptWasEnabled = _DRV_I2S_InterruptSourceDisable(drvObj->dmaInterruptReceiveSource);
     lQueueObj = drvObj->queueHead;
+    if(lQueueObj == (DRV_I2S_BUFFER_OBJECT*) NULL)
+    {        
+        return;
+    }        
     clientObj = lQueueObj->clientObject;
     if ((lQueueObj != (DRV_I2S_BUFFER_OBJECT*) NULL))
     {
@@ -470,10 +474,13 @@ void DRV_I2S_Tasks(SYS_MODULE_OBJ object)
             
             lQueueObj->inUse = false;
             /* Update the driver object's head pointer */
-            drvObj->queueHead = drvObj->queueHead->next;
-            /* Release the location of a queue size */
-            drvObj->queueSizeTransmit++;
-            drvObj->queueCurrentTransmitSize--;
+			if(drvObj->queueHead != (DRV_I2S_BUFFER_OBJECT*) NULL)
+            {
+                drvObj->queueHead = drvObj->queueHead->next;
+                /* Release the location of a queue size */
+                drvObj->queueSizeTransmit++;
+                drvObj->queueCurrentTransmitSize--;
+            }
             
             if(drvObj->queueHead==NULL)
             {
@@ -582,14 +589,13 @@ void DRV_I2S_ReadTasks(SYS_MODULE_OBJ object){
    
     rxChannelInterruptWasEnabled = _DRV_I2S_InterruptSourceDisable(drvObj->dmaInterruptReceiveSource);
     lQueueObj = drvObj->readQueueHead;
-    clientObj = lQueueObj->clientObject;
     if(lQueueObj == (DRV_I2S_BUFFER_OBJECT*) NULL)
     {
         return;
-    }
+    }    
+    clientObj = lQueueObj->clientObject;
     
-
-    /* DMA mode of operation */
+        /* DMA mode of operation */
     if(SYS_DMA_CHANNEL_HANDLE_INVALID != drvObj->dmaChannelHandleRead)
     {
         drvObj->task = DRV_I2S_TASK_PROCESS_QUEUE;
@@ -600,11 +606,14 @@ void DRV_I2S_ReadTasks(SYS_MODULE_OBJ object){
                 clientObj->hClientArg);
 
         lQueueObj->inUse = false;
-        /* Update the driver object's head pointer */
-        drvObj->readQueueHead = drvObj->readQueueHead->next;
-        /* Release the location of a queue size */
-        drvObj->queueSizeReceive++;
-        drvObj->queueCurrentReceiveSize--;
+        if(drvObj->readQueueHead != (DRV_I2S_BUFFER_OBJECT*) NULL)
+        {
+            /* Update the driver object's head pointer */
+            drvObj->readQueueHead = drvObj->readQueueHead->next;
+            /* Release the location of a queue size */
+            drvObj->queueSizeReceive++;
+            drvObj->queueCurrentReceiveSize--;
+        }
 
         if(drvObj->readQueueHead==NULL)
         {
@@ -624,21 +633,21 @@ void DRV_I2S_ReadTasks(SYS_MODULE_OBJ object){
                         lQueueObj->size,drvObj->cellSize);
         }
         
-       
+
         if(rxChannelInterruptWasEnabled)
-        {
+            {
             _DRV_I2S_InterruptSourceEnable(drvObj->dmaInterruptReceiveSource);
         }
-    }
+            }
     else
     {
         /* Disable SPI In pin to avoid dummy receives when no requests are made */
         PLIB_SPI_PinDisable(drvObj->spiID, SPI_PIN_DATA_IN);         
-    }
+        }
    _DRV_I2S_isInInterruptContextClear(drvObj->isInInterruptContext);
    
    return;
-}
+    }
 
 // *****************************************************************************
 /* Function:
@@ -689,15 +698,15 @@ void DRV_I2S_ReadTasks(SYS_MODULE_OBJ object){
 
     txChannelInterruptWasEnabled = _DRV_I2S_InterruptSourceDisable(drvObj->dmaInterruptTransmitSource);
     
-    lQueueObj = drvObj->writeQueueHead;
-    clientObj = lQueueObj->clientObject;
+    lQueueObj = drvObj->writeQueueHead;    
     if(lQueueObj == (DRV_I2S_BUFFER_OBJECT*) NULL){
         
         return;
     }
+    clientObj = lQueueObj->clientObject;
+    
     drvObj->task = DRV_I2S_TASK_PROCESS_WRITE_ONLY;
-
-    /* DMA mode of operation */
+        /* DMA mode of operation */
     if(SYS_DMA_CHANNEL_HANDLE_INVALID != drvObj->dmaChannelHandleWrite)
     {
         drvObj->task = DRV_I2S_TASK_PROCESS_QUEUE;
@@ -708,16 +717,19 @@ void DRV_I2S_ReadTasks(SYS_MODULE_OBJ object){
                 clientObj->hClientArg);
 
         lQueueObj->inUse = false;
-        /* Update the driver object's head pointer */
-        drvObj->writeQueueHead = drvObj->writeQueueHead->next;
-        /* Release the location of a queue size */
-        drvObj->queueSizeTransmit++;
-        drvObj->queueCurrentTransmitSize--;
-
+        if(drvObj->writeQueueHead != (DRV_I2S_BUFFER_OBJECT*) NULL)
+        {
+            /* Update the driver object's head pointer */
+            drvObj->writeQueueHead = drvObj->writeQueueHead->next;
+            /* Release the location of a queue size */
+            drvObj->queueSizeTransmit++;
+            drvObj->queueCurrentTransmitSize--;
+        }
+            
         if(drvObj->writeQueueHead==NULL)
         {
-           /* We don't have any buffers to process. We can disable the interrupt. */
-            _DRV_I2S_InterruptSourceDisable(drvObj->dmaInterruptTransmitSource);
+            /* We don't have any buffers to process. We can disable the interrupt. */
+             _DRV_I2S_InterruptSourceDisable(drvObj->dmaInterruptTransmitSource);
         }
     }
     
@@ -725,14 +737,14 @@ void DRV_I2S_ReadTasks(SYS_MODULE_OBJ object){
     {
         lQueueObj = drvObj->writeQueueHead;
        
-        
+
         {
             SYS_DMA_ChannelTransferAdd(drvObj->dmaChannelHandleWrite,
                         lQueueObj->txbuffer, lQueueObj->size,
                         PLIB_SPI_BufferAddressGet(drvObj->spiID),
                         drvObj->srcDestSize,drvObj->cellSize);
         }
-       
+            
         if(txChannelInterruptWasEnabled)
         {
             _DRV_I2S_InterruptSourceEnable(drvObj->dmaInterruptTransmitSource);
@@ -740,7 +752,7 @@ void DRV_I2S_ReadTasks(SYS_MODULE_OBJ object){
         
     }
     else
-    {       
+    {
     }
    _DRV_I2S_isInInterruptContextClear(drvObj->isInInterruptContext);
    
@@ -1017,6 +1029,7 @@ DRV_HANDLE DRV_I2S_Open(const SYS_MODULE_INDEX iDriver,
     operation has completed.  The driver will abort any ongoing operations
     when this routine is called.
 */
+
 void DRV_I2S_Close(const DRV_HANDLE client)
 {
     DRV_I2S_CLIENT_OBJ *clientObj;
@@ -1049,10 +1062,14 @@ void DRV_I2S_Close(const DRV_HANDLE client)
         dmaReadInterruptWasEnabled = _DRV_I2S_InterruptSourceDisable(drvObj->dmaInterruptReceiveSource);
 
         iterator1 = drvObj->queueHead;
-        while(iterator1 != NULL){
-            if(clientObj == (DRV_I2S_CLIENT_OBJ *)iterator1->clientObject){
+        while(iterator1 != NULL)
+        {
+            if(clientObj == (DRV_I2S_CLIENT_OBJ *)iterator1->clientObject)
+            {
                 iterator1->inUse = false;
                 iterator1 = iterator1->next;
+                drvObj->queueSizeTransmit++;
+                drvObj->queueCurrentTransmitSize--;
             }
         }
         
@@ -1061,6 +1078,8 @@ void DRV_I2S_Close(const DRV_HANDLE client)
             if(clientObj == (DRV_I2S_CLIENT_OBJ *)iterator1->clientObject){
                 iterator1->inUse = false;
                 iterator1 = iterator1->next;
+                drvObj->queueSizeReceive++;
+                drvObj->queueCurrentReceiveSize--;
             }
         }
         
@@ -1069,9 +1088,10 @@ void DRV_I2S_Close(const DRV_HANDLE client)
             if(clientObj == (DRV_I2S_CLIENT_OBJ *)iterator1->clientObject){
                 iterator1->inUse = false;
                 iterator1 = iterator1->next;
+                drvObj->queueSizeTransmit++;
+                drvObj->queueCurrentTransmitSize--;
             }
         }
-        
 
         /* After removing the closed clientobj,
          * If there are no buffers in the queue.
@@ -1082,7 +1102,19 @@ void DRV_I2S_Close(const DRV_HANDLE client)
             drvObj->queueHead = (DRV_I2S_BUFFER_OBJECT *)0;
             drvObj->readQueueHead = (DRV_I2S_BUFFER_OBJECT *)0;
             drvObj->writeQueueHead = (DRV_I2S_BUFFER_OBJECT *)0;
-        }
+            
+            /* Once the queue becomes empty as a consequence to the calling of DRV_I2S_Close, 
+             * Any interrupt which was enabled and pending and earlier to the call to 'DRV_I2S_Close'
+             * needs to be cleared as it might lead to a false handling of interrupt */
+            if(dmaWriteInterruptWasEnabled && _DRV_I2S_InterruptSourceStatusGet(drvObj->dmaInterruptTransmitSource))
+            {            
+                _DRV_I2S_InterruptSourceClear(drvObj->dmaInterruptTransmitSource);                                
+            }
+            if(dmaReadInterruptWasEnabled && _DRV_I2S_InterruptSourceStatusGet(drvObj->dmaInterruptReceiveSource))
+            {
+                _DRV_I2S_InterruptSourceClear(drvObj->dmaInterruptReceiveSource);                
+            }          
+        }  
         else
         {
             /* Iterate to update the head pointer to point
@@ -1790,11 +1822,18 @@ void DRV_I2S_BufferEventHandlerSet(DRV_HANDLE handle,
     if(SYS_DMA_CHANNEL_HANDLE_INVALID != drvObj->dmaChannelHandleRead 
             && SYS_DMA_CHANNEL_HANDLE_INVALID != drvObj->dmaChannelHandleWrite)
     {
-        if((DRV_IO_INTENT_READWRITE == (DRV_IO_INTENT_READWRITE & clientObj->ioIntent))){
+        if((DRV_IO_INTENT_READWRITE == (DRV_IO_INTENT_READWRITE & clientObj->ioIntent)))
+        {
             SYS_DMA_ChannelTransferEventHandlerSet(drvObj->dmaChannelHandleRead,
                 (SYS_DMA_CHANNEL_TRANSFER_EVENT_HANDLER)_DRV_I2S_DMA_EventHandler,
                 (uintptr_t)drvObj);
-        }else{
+
+            SYS_DMA_ChannelTransferEventHandlerSet(drvObj->dmaChannelHandleWrite,
+                (SYS_DMA_CHANNEL_TRANSFER_EVENT_HANDLER)_DRV_I2S_DMA_EventHandler,
+                (uintptr_t)drvObj);                                    
+        }
+        else
+        {
             if((DRV_IO_INTENT_WRITE == (DRV_IO_INTENT_WRITE & clientObj->ioIntent))){
                 SYS_DMA_ChannelTransferEventHandlerSet(drvObj->dmaChannelHandleWrite,
                         (SYS_DMA_CHANNEL_TRANSFER_EVENT_HANDLER)_DRV_I2S_DMA_WriteEventHandler,
@@ -1809,24 +1848,24 @@ void DRV_I2S_BufferEventHandlerSet(DRV_HANDLE handle,
         } 
         
     }else{
-        if(SYS_DMA_CHANNEL_HANDLE_INVALID != drvObj->dmaChannelHandleWrite )
+    if(SYS_DMA_CHANNEL_HANDLE_INVALID != drvObj->dmaChannelHandleWrite )
+    {
+        if((DRV_IO_INTENT_WRITE == (DRV_IO_INTENT_WRITE & clientObj->ioIntent)))
         {
-            if((DRV_IO_INTENT_WRITE == (DRV_IO_INTENT_WRITE & clientObj->ioIntent)))
-            {
-                SYS_DMA_ChannelTransferEventHandlerSet(drvObj->dmaChannelHandleWrite,
+            SYS_DMA_ChannelTransferEventHandlerSet(drvObj->dmaChannelHandleWrite,
                     (SYS_DMA_CHANNEL_TRANSFER_EVENT_HANDLER)_DRV_I2S_DMA_WriteEventHandler,
-                    (uintptr_t)drvObj);
-            }
+                (uintptr_t)drvObj);
         }
+    }
         else if(SYS_DMA_CHANNEL_HANDLE_INVALID != drvObj->dmaChannelHandleRead)
+    {
+        if((DRV_IO_INTENT_READ == (DRV_IO_INTENT_READ & clientObj->ioIntent)))
         {
-            if((DRV_IO_INTENT_READ == (DRV_IO_INTENT_READ & clientObj->ioIntent)))
-            {
-                SYS_DMA_ChannelTransferEventHandlerSet(drvObj->dmaChannelHandleRead,
+            SYS_DMA_ChannelTransferEventHandlerSet(drvObj->dmaChannelHandleRead,
                     (SYS_DMA_CHANNEL_TRANSFER_EVENT_HANDLER)_DRV_I2S_DMA_ReadEventHandler,
-                    (uintptr_t)drvObj);
-            }
+                (uintptr_t)drvObj);
         }
+    }
     }
     return;
 }
@@ -2037,7 +2076,7 @@ void DRV_I2S_BufferQueueFlush(DRV_HANDLE handle)
     }
     ioIntent = clientObj->ioIntent;
     drvObj = (DRV_I2S_OBJ *) clientObj->hDriver;    
-    iterator1 = drvObj->queueHead;
+    iterator1 = drvObj->queueHead;       
     readItr = drvObj->readQueueHead;
     writeItr = drvObj->writeQueueHead;
     
@@ -2046,41 +2085,59 @@ void DRV_I2S_BufferQueueFlush(DRV_HANDLE handle)
         
 
     /* If the object being processed at the head of queue is owned 
-     * by this client. (clientObj) */
+    * by this client. (clientObj) */
     if (DRV_IO_INTENT_READWRITE == (ioIntent & DRV_IO_INTENT_READWRITE))
     {                        
-        SYS_DMA_ChannelForceAbort(drvObj->dmaChannelHandleWrite);
-        SYS_DMA_ChannelForceAbort(drvObj->dmaChannelHandleRead);
-        while(iterator1!=NULL){
-            if(clientObj == (DRV_I2S_CLIENT_OBJ *)iterator1->clientObject ){
+        if(clientObj == (DRV_I2S_CLIENT_OBJ *)iterator1->clientObject )
+        {
+            SYS_DMA_ChannelForceAbort(drvObj->dmaChannelHandleWrite);
+            SYS_DMA_ChannelForceAbort(drvObj->dmaChannelHandleRead);                     
+        }
+        while(iterator1!=NULL)
+        {
+            if(clientObj == (DRV_I2S_CLIENT_OBJ *)iterator1->clientObject )
+            {
                 iterator1->inUse = false;
                 iterator1 = iterator1->next;
+                drvObj->queueSizeTransmit++;
+                drvObj->queueCurrentTransmitSize--;
             }
         }
-    }
+    }   
     else if (DRV_IO_INTENT_READ == (ioIntent & DRV_IO_INTENT_READ))
     {
-        SYS_DMA_ChannelForceAbort(drvObj->dmaChannelHandleRead);
-        while(readItr!=NULL){
-            if(clientObj == (DRV_I2S_CLIENT_OBJ *)readItr->clientObject ){
+        if(clientObj == (DRV_I2S_CLIENT_OBJ *)iterator1->clientObject )
+        {                
+            SYS_DMA_ChannelForceAbort(drvObj->dmaChannelHandleRead);                
+        }
+        while(readItr!=NULL)
+        {
+            if(clientObj == (DRV_I2S_CLIENT_OBJ *)readItr->clientObject )
+            {
                 readItr->inUse = false;
                 readItr = readItr->next;
-            }
-        }
-
+                drvObj->queueSizeReceive++;
+                drvObj->queueCurrentReceiveSize--;
+            } 
+        }        
     }
     else if (DRV_IO_INTENT_WRITE == (ioIntent & DRV_IO_INTENT_WRITE))
     {
-        SYS_DMA_ChannelForceAbort(drvObj->dmaChannelHandleWrite);
-        while(writeItr!=NULL){
-            if(clientObj == (DRV_I2S_CLIENT_OBJ *)writeItr->clientObject ){
+        if(clientObj == (DRV_I2S_CLIENT_OBJ *)iterator1->clientObject )
+        {                 
+            SYS_DMA_ChannelForceAbort(drvObj->dmaChannelHandleWrite);
+        }
+        while(writeItr!=NULL)
+        {
+            if(clientObj == (DRV_I2S_CLIENT_OBJ *)writeItr->clientObject )
+            {
                 writeItr->inUse = false;
                 writeItr = writeItr->next;
+                drvObj->queueSizeTransmit++;
+                drvObj->queueCurrentTransmitSize--;
             }
         }
-    }
-    
-    
+    }        
     /* After removing the closed clientobj, 
      * If there are no buffers in the queue.
      * Make the head pointer point to NULL */
@@ -2090,6 +2147,19 @@ void DRV_I2S_BufferQueueFlush(DRV_HANDLE handle)
         drvObj->queueHead = (DRV_I2S_BUFFER_OBJECT *)0;
         drvObj->readQueueHead = (DRV_I2S_BUFFER_OBJECT *)0;
         drvObj->writeQueueHead = (DRV_I2S_BUFFER_OBJECT *)0;
+        
+        /* Once the queue becomes empty as a consequence to the calling of DRV_I2S_BufferQueueFlush, 
+        * Any interrupt which was enabled and pending and earlier to the call to 'DRV_I2S_BufferQueueFlush'
+        * needs to be cleared as it might lead to a false handling of interrupt */
+        if(dmaWriteInterruptWasEnabled && _DRV_I2S_InterruptSourceStatusGet(drvObj->dmaInterruptTransmitSource))
+        {            
+            _DRV_I2S_InterruptSourceClear(drvObj->dmaInterruptTransmitSource);                                
+        }
+        if(dmaReadInterruptWasEnabled && _DRV_I2S_InterruptSourceStatusGet(drvObj->dmaInterruptReceiveSource))
+        {
+            _DRV_I2S_InterruptSourceClear(drvObj->dmaInterruptReceiveSource);                
+        }
+        
     }
     else
     {
@@ -2124,7 +2194,7 @@ void DRV_I2S_BufferQueueFlush(DRV_HANDLE handle)
             writeItr = writeItr->next;
         }
     }
-    
+
 
     if(drvObj->queueHead != NULL){
         SYS_DMA_ChannelEnable(drvObj->dmaChannelHandleWrite);
@@ -2135,10 +2205,10 @@ void DRV_I2S_BufferQueueFlush(DRV_HANDLE handle)
             SYS_DMA_ChannelEnable(drvObj->dmaChannelHandleRead);
         }
         if(drvObj->writeQueueHead != NULL){
-            SYS_DMA_ChannelEnable(drvObj->dmaChannelHandleWrite);
+            SYS_DMA_ChannelEnable(drvObj->dmaChannelHandleWrite);         
         }
     }
-        
+                        
     /* Re-enable the interrupt if it was disabled */
     if(dmaWriteInterruptWasEnabled)
     {
@@ -2147,7 +2217,7 @@ void DRV_I2S_BufferQueueFlush(DRV_HANDLE handle)
     if(dmaReadInterruptWasEnabled)
     {
         _DRV_I2S_InterruptSourceEnable(drvObj->dmaInterruptReceiveSource);
-    } 
+    }  
         
     return;
 }
@@ -2629,6 +2699,7 @@ static DRV_I2S_BUFFER_OBJECT_INDEX _DRV_I2S_WriteQueueObjectIndexGet(void)
   Remarks:
     None
  */
+
 void _DRV_I2S_DMA_EventHandler(SYS_DMA_TRANSFER_EVENT event,
         SYS_DMA_CHANNEL_HANDLE handle, uintptr_t contextHandle)
 {
@@ -2667,7 +2738,7 @@ void _DRV_I2S_DMA_ReadEventHandler(SYS_DMA_TRANSFER_EVENT event,
     DRV_I2S_OBJ *drvObj;
 
     if(SYS_DMA_CHANNEL_HANDLE_INVALID == handle || 0 == handle)
-    {
+        {
         /* This means the handle is invalid */
         SYS_DEBUG(0, "Handle is invalid \r\n");
         return;
@@ -2676,7 +2747,7 @@ void _DRV_I2S_DMA_ReadEventHandler(SYS_DMA_TRANSFER_EVENT event,
     DRV_I2S_ReadTasks((SYS_MODULE_OBJ)drvObj);
     return;
 }
- 
+
 void _DRV_I2S_DMA_WriteEventHandler(SYS_DMA_TRANSFER_EVENT event,
         SYS_DMA_CHANNEL_HANDLE handle, uintptr_t contextHandle)
 {

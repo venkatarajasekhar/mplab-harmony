@@ -454,6 +454,7 @@ ifblock USE_SYS_CONSOLE
 
 add "<#include \"/framework/system/console/templates/sys_console.c.ftl\">"  to list SYSTEM_INIT_C_MODULE_INITIALIZATION_DATA
 add "<#include \"/framework/system/console/templates/sys_console_init.c.ftl\">"  to list SYSTEM_INIT_C_INITIALIZE_SYSTEM_SERVICES
+add "<#include \"/framework/system/console/templates/sys_console.h.ftl\">"  to list SYSTEM_CONFIG_H_SYSTEM_SERVICE_CONFIGURATION
 add "<#assign SYS_CONSOLE_TASKS = \"TASK_CALL_NO_RTOS\"><#include \"/framework/system/console/templates/sys_console_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_SYSTEM_TASKS
 
 file SYS_CONSOLE_H "$HARMONY_VERSION_PATH/framework/system/console/sys_console.h" to "$PROJECT_HEADER_FILES/framework/system/console/sys_console.h"

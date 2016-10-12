@@ -24,6 +24,7 @@ file FREERTOS_STACK_MACROS_H "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/So
 file FREERTOS_DEPRECATED_DEFINITIONS_H "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/include/deprecated_definitions.h" to "$PROJECT_HEADER_FILES/FreeRTOS/deprecated_definitions.h"
 file FREERTOS_TASK_H "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/include/task.h" to "$PROJECT_HEADER_FILES/FreeRTOS/task.h"
 file FREERTOS_TIMERS_H "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/include/timers.h" to "$PROJECT_HEADER_FILES/FreeRTOS/timers.h"
+file FREERTOS_MPU_PROTOTYPES_H "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/include/mpu_prototypes.h" to "$PROJECT_HEADER_FILES/FreeRTOS/mpu_prototypes.h"
 
 file FREERTOS_PIC32MZ_PORT_C "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/port.c" to "$PROJECT_SOURCE_FILES/FreeRTOS/portable/MPLAB/PIC32MZ/port.c" if PIC32MZ
 file FREERTOS_PIC32MZ_PORTASM_S "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/port_asm.S" to "$PROJECT_SOURCE_FILES/FreeRTOS/portable/MPLAB/PIC32MZ/port_asm.S" if PIC32MZ
@@ -35,12 +36,20 @@ file FREERTOS_PIC32MX_PORTASM_S "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS
 file FREERTOS_PIC32MX_ISR_SUPPORT_H "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX/ISR_Support.h" to "$PROJECT_HEADER_FILES/FreeRTOS/portable/MPLAB/PIC32MX/ISR_Support.h" if PIC32MX
 file FREERTOS_PIC32MX_PORTMACRO_H "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX/portmacro.h" to "$PROJECT_HEADER_FILES/FreeRTOS/portable/MPLAB/PIC32MX/portmacro.h" if PIC32MX
 
+file FREERTOS_PIC32WK_PORT_C "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32WK/port.c" to "$PROJECT_SOURCE_FILES/FreeRTOS/portable/MPLAB/PIC32WK/port.c" if PIC32WK
+file FREERTOS_PIC32WK_PORTASM_S "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32WK/port_asm.S" to "$PROJECT_SOURCE_FILES/FreeRTOS/portable/MPLAB/PIC32WK/port_asm.S" if PIC32WK
+file FREERTOS_PIC32WK_ISR_SUPPORT_H "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32WK/ISR_Support.h" to "$PROJECT_HEADER_FILES/FreeRTOS/portable/MPLAB/PIC32WK/ISR_Support.h" if PIC32WK
+file FREERTOS_PIC32WK_PORTMACRO_H "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32WK/portmacro.h" to "$PROJECT_HEADER_FILES/FreeRTOS/portable/MPLAB/PIC32WK/portmacro.h" if PIC32WK
+
+
 ifblock PROJECT_STANDALONE = n
 compiler FREERTOS_PIC32MX_COMPILER_INCLUDEPATH1 includepath "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX" if PIC32MX
 compiler FREERTOS_PIC32MZ_COMPILER_INCLUDEPATH1 includepath "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ" if PIC32MZ
+compiler FREERTOS_PIC32WK_COMPILER_INCLUDEPATH1 includepath "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32WK" if PIC32WK
 compiler FREERTOS_COMPILER_INCLUDEPATH1_1       includepath "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/include"
 assembler FREERTOS_PIC32MX_ASSEMBLER_INCLUDEPATH1 includepath "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX" if PIC32MX
 assembler FREERTOS_PIC32MZ_ASSEMBLER_INCLUDEPATH1 includepath "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ" if PIC32MZ
+assembler FREERTOS_PIC32WK_ASSEMBLER_INCLUDEPATH1 includepath "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32WK" if PIC32WK
 assembler FREERTOS_ASSEMBLER_INCLUDEPATH1_1       includepath "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/Source/include"
 endif
 

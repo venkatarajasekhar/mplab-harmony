@@ -1906,7 +1906,6 @@ static TCPIP_HTTP_NET_CONN_STATE _HTTP_ProcessPost(TCPIP_HTTP_NET_CONN* pHttpCon
 // Note: all the previous parsing states should branch here after parsing the headers
 // when an error detected // (except timeouts/file errors that go to TCPIP_HTTP_CONN_STATE_DISCONNECT)!
 // Processing should get here with all headers processed!
-//
 static TCPIP_HTTP_NET_CONN_STATE _HTTP_ServeHeaders(TCPIP_HTTP_NET_CONN* pHttpCon, bool* pWait)
 {
     bool isConnDone;
@@ -1921,7 +1920,7 @@ static TCPIP_HTTP_NET_CONN_STATE _HTTP_ServeHeaders(TCPIP_HTTP_NET_CONN* pHttpCo
     {   // output headers now; Send header corresponding to the current state
         headerLen = sprintf(responseBuffer, TCPIP_HTTP_NET_HEADER_PREFIX "%s", HTTPResponseHeaders[pHttpCon->httpStatus]);
         if(pHttpCon->httpStatus == TCPIP_HTTP_NET_STAT_REDIRECT)
-        {
+        {   // special case here, this header message takes arguments; 
             headerLen += sprintf(responseBuffer + headerLen, "%s \r\n", (char*)pHttpCon->httpData);
         }
 
@@ -2534,7 +2533,7 @@ static TCPIP_HTTP_NET_READ_STATUS _HTTP_ReadTo(TCPIP_HTTP_NET_CONN* pHttpCon, ui
 
   ***************************************************************************/
 #if defined(TCPIP_HTTP_NET_FILE_UPLOAD_ENABLE) && defined(NVM_DRIVER_V080_WORKAROUND)
-#define     SYS_FS_MEDIA_SECTOR_SIZE        512
+#define     SYS_FS_MEDIA_SECTOR_SIZE        512     
 static TCPIP_HTTP_NET_IO_RESULT TCPIP_HTTP_NET_FSUpload(TCPIP_HTTP_NET_CONN* pHttpCon)
 {
     uint8_t mpfsBuffer[sizeof(MPFS_SIGNATURE) - 1];  // large enough to hold the MPFS signature
@@ -3019,7 +3018,7 @@ static bool _HTTP_DataTryOutput(TCPIP_HTTP_NET_CONN* pHttpCon, const char* data,
     return false;
 }
 
-
+// Note that the search will fail if there's more data in the TCP socket than could be read at once.
 static uint16_t _HTTP_ConnectionStringFind(TCPIP_HTTP_NET_CONN* pHttpCon, const char* str, uint16_t startOffs, uint16_t searchLen)
 {
     char srchBuff[TCPIP_HTTP_NET_FIND_PEEK_BUFF_SIZE + 1];
@@ -3932,7 +3931,7 @@ static bool  _HTTP_DynVarExtract(TCPIP_HTTP_NET_CONN* pHttpCon, TCPIP_HTTP_CHUNK
 {
     int32_t fileLen, extraLen, len;
     char    *argStart, *argEnd, *argStr;
-    char    *startDynName, *endDynName;
+    char    *startDynName, *endDynName = 0;
     uint16_t nArgs;
     int32_t  argInt;
     TCPIP_HTTP_DYN_VAR_DCPT* pDestDcpt;
@@ -4425,7 +4424,7 @@ static char* _HTTP_SSILineParse(char* lineBuff, char** pEndProcess, bool verifyO
         char* cmdStart = ssiStart + strlen(TCPIP_HTTP_SSI_COMMAND_START);
         char* lineEnd = strchr(lineBuff, TCPIP_HTTP_NET_LINE_END); 
         if(lineEnd != 0)
-        { 
+        {   
             char* ssiEnd = strstr(cmdStart, TCPIP_HTTP_SSI_COMMENT_DELIM);
             if(ssiEnd)
             {   // found valid end --

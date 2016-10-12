@@ -45,6 +45,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "usb/usb_chapter_9.h"
 #include "usb/usb_device.h"
 #include "usb/usb_device_hid.h"
+#include "peripheral/tmr/plib_tmr.h"
 
 extern BOOTLOADER_DATA bootloaderData __attribute__((coherent, aligned(16)));
 extern DATASTREAM_HandlerType* handler;
@@ -270,11 +271,22 @@ void DATASTREAM_Close(void)
     {
         USB_DEVICE_Detach(bootloaderData.datastreamBufferHandle);
         USB_DEVICE_Close(bootloaderData.datastreamBufferHandle);
-        USB_DEVICE_Deinitialize(bootloaderData.datastreamBufferHandle);
+//        USB_DEVICE_Deinitialize(bootloaderData.datastreamBufferHandle);
         coreCount = _CP0_GET_COUNT() + SYS_CLK_FREQ / 20;
         while (coreCount > _CP0_GET_COUNT());
     }
     //Disable Interrupt sources so bootloader application runs without issues
     SYS_INT_SourceDisable(DRV_TMR_INTERRUPT_SOURCE_IDX0);
+    SYS_INT_VectorPrioritySet(DRV_TMR_INTERRUPT_VECTOR_IDX0, INT_DISABLE_INTERRUPT);
+    SYS_INT_VectorSubprioritySet(DRV_TMR_INTERRUPT_VECTOR_IDX0, INT_SUBPRIORITY_LEVEL0);
     SYS_INT_SourceDisable(INT_SOURCE_USB_1);
+    SYS_INT_VectorPrioritySet(INT_VECTOR_USB1, INT_DISABLE_INTERRUPT);
+    SYS_INT_VectorSubprioritySet(INT_VECTOR_USB1, INT_SUBPRIORITY_LEVEL0);
+#if defined(_USB_DMA_VECTOR)
+    SYS_INT_SourceDisable(INT_SOURCE_USB_1_DMA);
+    SYS_INT_VectorPrioritySet(INT_VECTOR_USB1_DMA, INT_DISABLE_INTERRUPT);
+    SYS_INT_VectorSubprioritySet(INT_VECTOR_USB1_DMA, INT_SUBPRIORITY_LEVEL0);
+#endif    
+        
+    PLIB_TMR_Stop(DRV_TMR_PERIPHERAL_ID_IDX0);
 }

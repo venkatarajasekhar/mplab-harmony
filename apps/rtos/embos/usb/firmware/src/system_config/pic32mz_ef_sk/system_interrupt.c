@@ -77,7 +77,7 @@ void __attribute__( (interrupt(ipl4AUTO), vector(_TIMER_2_VECTOR))) IntHandlerDr
 void IntHandlerDrvTmrInstance0(void)
 {
     OS_EnterNestableInterrupt();
-    DRV_TMR_Tasks_ISR(sysObj.drvTmr0);
+    DRV_TMR_Tasks(sysObj.drvTmr0);
     OS_LeaveNestableInterrupt();
 }
  	

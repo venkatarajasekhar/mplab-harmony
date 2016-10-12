@@ -112,8 +112,8 @@ typedef enum
 #define    TCPIP_MAC_PKT_FLAG_UDP           (0)                             // UDP packet data; set when the packet is UDP
 #define    TCPIP_MAC_PKT_FLAG_TCP           (TCPIP_MAC_PKT_FLAG_USER << 5)  // TCP packet data; set when the packet is TCP
 
-// available                                (TCPIP_MAC_PKT_FLAG_USER << 6)
-//
+#define    TCPIP_MAC_PKT_FLAG_IGMP          (TCPIP_MAC_PKT_FLAG_USER << 6)  // IGMP packet
+
 
                                             // packet type extraction mask
 #define    TCPIP_MAC_PKT_FLAG_TYPE_MASK     (TCPIP_MAC_PKT_FLAG_ARP | TCPIP_MAC_PKT_FLAG_NET_TYPE | TCPIP_MAC_PKT_FLAG_LLDP | TCPIP_MAC_PKT_FLAG_ICMP_TYPE | TCPIP_MAC_PKT_FLAG_NDP | TCPIP_MAC_PKT_FLAG_TRANSP_TYPE)

@@ -196,7 +196,7 @@ void SYS_Initialize ( void* data )
     SYS_DEVCON_JTAGDisable();
     SYS_PORTS_Initialize();
     /* Board Support Package Initialization */
-    BSP_Initialize();
+    BSP_Initialize();        
 
     /* Initialize Drivers */
     /* Disable SDHC module */
@@ -205,8 +205,8 @@ void SYS_Initialize ( void* data )
     /* Initialize System Services */
 
     /*** Interrupt Service Initialization Code ***/
-    SYS_INT_Initialize();  
-
+    SYS_INT_Initialize();
+  
     /* Initialize Middleware */
 
     /* Enable Global Interrupts */

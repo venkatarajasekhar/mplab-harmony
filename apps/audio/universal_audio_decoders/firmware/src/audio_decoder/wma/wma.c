@@ -1,4 +1,4 @@
-#include "decoder.h"
+#include "wma.h"
 
 int32_t wma_packet_offset = 0;
 

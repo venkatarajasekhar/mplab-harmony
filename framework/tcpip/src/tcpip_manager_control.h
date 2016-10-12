@@ -228,6 +228,7 @@ typedef struct
                                                 // link up/down events are not 
                                                 // necessarily triggered by hardware
     uint16_t            currEvents;             // current TCPIP_MAC_EVENT processed event
+    uint16_t            linkMtu;                // current interface link MTU
     union
     {
         struct
@@ -534,6 +535,12 @@ void _TCPIPStackModuleRxPurge(TCPIP_STACK_MODULE modId, TCPIP_NET_IF* pNetIf);
 
 // return the stack heap configuration parameters
 const TCPIP_STACK_HEAP_CONFIG* _TCPIPStackHeapConfig(void);
+            
+extern __inline__ uint16_t  __attribute__((always_inline)) _TCPIPStackNetLinkMtu(TCPIP_NET_IF* pNetIf)
+{
+    return pNetIf ? pNetIf->linkMtu : 0;
+}
+
 
 // debugging, tracing, etc.
 

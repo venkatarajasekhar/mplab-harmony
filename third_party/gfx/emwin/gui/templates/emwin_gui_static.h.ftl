@@ -232,6 +232,52 @@ void emWin_GuiScreenChange( int32_t screenId );
   Remarks:
 
  */
+
+WM_HWIN emWin_GuiScreenGet( int32_t screenId );
+
+/*******************************************************************************
+  Function:
+
+  Summary:
+
+  Description:
+
+  Precondition:
+
+  Parameters:
+
+  Returns:
+
+  Example:
+    <code>
+    </code>
+
+  Remarks:
+
+ */
+
+void emWin_GuiScreenEnd( int32_t screenId );
+
+/*******************************************************************************
+  Function:
+
+  Summary:
+
+  Description:
+
+  Precondition:
+
+  Parameters:
+
+  Returns:
+
+  Example:
+    <code>
+    </code>
+
+  Remarks:
+
+ */
 void emWin_GuiTasks(void);
 
 //DOM-IGNORE-BEGIN

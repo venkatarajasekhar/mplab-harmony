@@ -190,7 +190,7 @@ typedef uintptr_t USB_DEVICE_CDC_INDEX;
                 // data to the host. The application must send the 
                 // USB_DEVICE_ControlSend function to send the data. 
 
-                USB_DEVICE_ControlSend(usbDeviceHandle, &lineCoding, sizeof(USB_DEVICE_CDC_LINE_CODING));
+                USB_DEVICE_ControlSend(usbDeviceHandle, &lineCoding, sizeof(USB_CDC_LINE_CODING));
                 break;
 
             case USB_DEVICE_CDC_EVENT_SET_CONTROL_LINE_STATE:

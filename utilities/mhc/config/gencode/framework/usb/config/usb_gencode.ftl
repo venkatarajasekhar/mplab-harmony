@@ -289,25 +289,25 @@ endmenu
 
 ifblock USB_DEV_CDC_TX${INSTANCE} || USB_DEV_CDC_RX${INSTANCE}
 
-add "^#include \"/utilities/mhc/config/gencode/framework/USB/config/usb_dev_cdc_com_port_macros_app.h.ftl\">" to list APP_FREEMARKER_MACROS
-add "^#include \"/utilities/mhc/config/gencode/framework/USB/config/usb_dev_cdc_com_port_macros_app.c.ftl\">" to list APP_FREEMARKER_MACROS
-add "^#include \"/utilities/mhc/config/gencode/framework/USB/config/usb_dev_cdc_com_port_macros_system_config.h.ftl\">" to list APP_FREEMARKER_MACROS
+add "^#include \"/utilities/mhc/config/gencode/framework/usb/config/usb_dev_cdc_com_port_macros_app.h.ftl\">" to list APP_FREEMARKER_MACROS
+add "^#include \"/utilities/mhc/config/gencode/framework/usb/config/usb_dev_cdc_com_port_macros_app.c.ftl\">" to list APP_FREEMARKER_MACROS
+add "^#include \"/utilities/mhc/config/gencode/framework/usb/config/usb_dev_cdc_com_port_macros_system_config.h.ftl\">" to list APP_FREEMARKER_MACROS
 
 endif
 
 ifblock GENERATE_USB_MOUSE_DEMO${INSTANCE}
 
-add "^#include \"/utilities/mhc/config/gencode/framework/USB/config/usb_mouse_device_macros_app.h.ftl\">" to list APP_FREEMARKER_MACROS
-add "^#include \"/utilities/mhc/config/gencode/framework/USB/config/usb_mouse_device_macros_app.c.ftl\">" to list APP_FREEMARKER_MACROS
-add "^#include \"/utilities/mhc/config/gencode/framework/USB/config/usb_mouse_device_macros_system_config.h.ftl\">" to list APP_FREEMARKER_MACROS
+add "^#include \"/utilities/mhc/config/gencode/framework/usb/config/usb_mouse_device_macros_app.h.ftl\">" to list APP_FREEMARKER_MACROS
+add "^#include \"/utilities/mhc/config/gencode/framework/usb/config/usb_mouse_device_macros_app.c.ftl\">" to list APP_FREEMARKER_MACROS
+add "^#include \"/utilities/mhc/config/gencode/framework/usb/config/usb_mouse_device_macros_system_config.h.ftl\">" to list APP_FREEMARKER_MACROS
 
 endif
 
 ifblock USB_HOST_CDC_TX${INSTANCE} || USB_HOST_CDC_RX${INSTANCE}
 
-add "^#include \"/utilities/mhc/config/gencode/framework/USB/config/usb_host_cdc_com_port_macros_app.h.ftl\">" to list APP_FREEMARKER_MACROS
-add "^#include \"/utilities/mhc/config/gencode/framework/USB/config/usb_host_cdc_com_port_macros_app.c.ftl\">" to list APP_FREEMARKER_MACROS
-add "^#include \"/utilities/mhc/config/gencode/framework/USB/config/usb_host_cdc_com_port_macros_system_config.h.ftl\">" to list APP_FREEMARKER_MACROS
+add "^#include \"/utilities/mhc/config/gencode/framework/usb/config/usb_host_cdc_com_port_macros_app.h.ftl\">" to list APP_FREEMARKER_MACROS
+add "^#include \"/utilities/mhc/config/gencode/framework/usb/config/usb_host_cdc_com_port_macros_app.c.ftl\">" to list APP_FREEMARKER_MACROS
+add "^#include \"/utilities/mhc/config/gencode/framework/usb/config/usb_host_cdc_com_port_macros_system_config.h.ftl\">" to list APP_FREEMARKER_MACROS
 
 endif
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2048EFH144"/>
@@ -68,6 +68,10 @@
       <File>
         <Name>deprecated_definitions.h</Name>
         <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
         <Name>system.h</Name>
@@ -198,6 +202,10 @@
         <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -286,16 +294,11 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_freertos</Path>
-        <Checksum>DD505694E5F9849E900A911A85E05D8C</Checksum>
+        <Checksum>C68A2067B9456E71E53C1D0C2E390C3C</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
         <Path>Source Files/app</Path>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>rtos_hooks.c</Name>
@@ -315,7 +318,7 @@
       <Template>
         <Name>drv_adc_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_freertos/framework/driver/adc/src</Path>
-        <Checksum>4F8B8F6C39DA17198E63754C0BCCAE4D</Checksum>
+        <Checksum>0294B995153065F4F4AE32E8AAAC08ED</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -335,7 +338,7 @@
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_freertos</Path>
         <Checksum>BC6F0D83D5AECBE6B3154FA89DAA0E97</Checksum>
-        <ProjectFileChecksum>5CD16D8559175351CAAF4DC6634B82E6</ProjectFileChecksum>
+        <ProjectFileChecksum>FECDE06F11277CB5F4AC93E7EFF93498</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_tmr_static.c</Name>
@@ -374,7 +377,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_freertos/framework/system/clk/src</Path>
-        <Checksum>5382624B6F94F7F6DE3177E0830D223D</Checksum>
+        <Checksum>9DCB2BB28856A4537AB9488D70276FEF</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -389,7 +392,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_freertos</Path>
-        <Checksum>539950FEF52E7E22B3F7509372529E18</Checksum>
+        <Checksum>4759AA8F9F92D503A068F4D8E20CA989</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
@@ -399,10 +402,10 @@
         <Include value="../src/system_config/pic32mz_ef_sk_freertos"/>
       </C32-AS>
       <C32>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_pot\firmware\src"/>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_pot\firmware\src\system_config\pic32mz_ef_sk_freertos"/>
-        <Include value="C:\Git_repository\core\framework"/>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_pot\firmware\src\system_config\pic32mz_ef_sk_freertos\framework"/>
+        <Include value="C:/Git_repository/core1/apps/examples/peripheral/adchs/adchs_pot/firmware/src"/>
+        <Include value="C:/Git_repository/core1/apps/examples/peripheral/adchs/adchs_pot/firmware/src/system_config/pic32mz_ef_sk_freertos"/>
+        <Include value="C:/Git_repository/core1/framework"/>
+        <Include value="C:/Git_repository/core1/apps/examples/peripheral/adchs/adchs_pot/firmware/src/system_config/pic32mz_ef_sk_freertos/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_freertos/bsp"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>

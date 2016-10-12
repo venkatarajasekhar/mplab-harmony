@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -622,6 +622,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -686,12 +690,12 @@
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_s1d_pictail_wqvga</Path>
-        <Checksum>13970C709EFA48E2F812C2CE79501A5F</Checksum>
+        <Checksum>54091665EABDED365B4BEC6829A1001E</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -711,16 +715,11 @@
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_s1d_pictail_wqvga</Path>
-        <Checksum>827D575ED6CBFC9AB702BA3E8424AC2B</Checksum>
+        <Checksum>EE036DBEE95A87E9805076CB30337089</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -730,7 +729,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_s1d_pictail_wqvga</Path>
-        <Checksum>9ADDB4C0C012CD161641CFEF22FBCE70</Checksum>
+        <Checksum>9DE9345605EBC639097D989FBA8DC7F1</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -745,12 +744,12 @@
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_s1d_pictail_wqvga</Path>
-        <Checksum>162D403A02370EFD3BD9D7235378FD19</Checksum>
+        <Checksum>1041DE8ADE9483E2739919B17BED7FC3</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_s1d_pictail_wqvga</Path>
-        <Checksum>A64EF1EB66C9990BE8E454A9B4B183BD</Checksum>
+        <Checksum>3D493F249041C9D38B025D537F766CC8</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -760,7 +759,7 @@
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_s1d_pictail_wqvga</Path>
-        <Checksum>7D9BC62FC3FFC2905D65E2388600BE64</Checksum>
+        <Checksum>553E974F7AB88CBE5EA1EE2062AA6A53</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -779,16 +778,15 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_s1d_pictail_wqvga</Path>
-        <Checksum>D1DEB33A8B7BA2D5DC6DCB4F762B5783</Checksum>
+        <Checksum>E6B3DEEA8C1213C6CC0009179360068D</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\primitive\firmware\src"/>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\primitive\firmware\src\system_config\pic32mz_ef_sk_s1d_pictail_wqvga"/>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\primitive\firmware\src\pic32mz_ef_sk_s1d_pictail_wqvga"/>
-        <Include value="C:\Harmony\gfx2-1\framework"/>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\primitive\firmware\src\system_config\pic32mz_ef_sk_s1d_pictail_wqvga\framework"/>
+        <Include value="C:\Harmony\v2_02\apps\gfx\primitive\firmware\src"/>
+        <Include value="C:\Harmony\v2_02\apps\gfx\primitive\firmware\src\system_config\pic32mz_ef_sk_s1d_pictail_wqvga"/>
+        <Include value="C:\Harmony\v2_02\framework"/>
+        <Include value="C:\Harmony\v2_02\apps\gfx\primitive\firmware\src\system_config\pic32mz_ef_sk_s1d_pictail_wqvga\framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/bsp"/>
       </C32>
     </CompilerItems>

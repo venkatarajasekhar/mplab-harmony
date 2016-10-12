@@ -25,6 +25,8 @@ source "$HARMONY_VERSION_PATH/framework/system/memory/ebi/config/sys_memory_ebi.
 endmenu
 
 ifblock USE_SYS_MEMORY
+add "<#include \"/framework/system/memory/templates/sys_memory.h.ftl\">"  to list SYSTEM_CONFIG_H_SYSTEM_SERVICE_CONFIGURATION
+
 file SYSTEM_MEMORY_H "$HARMONY_VERSION_PATH/framework/system/memory/sys_memory.h" to "$PROJECT_HEADER_FILES/framework/system/memory/sys_memory.h"
 add "<#include \"/framework/system/memory/templates/sys_memory_init.c.ftl\">"  to list SYSTEM_INIT_C_INITIALIZE_SYSTEM_SERVICES
 template STATIC_SYS_MEMORY_C_FTL "$HARMONY_VERSION_PATH/framework/system/memory/templates/sys_memory_static.c.ftl" to "$PROJECT_SOURCE_FILES/app/system_config/$CONFIGURATION/framework/system/memory/src/sys_memory_static.c"

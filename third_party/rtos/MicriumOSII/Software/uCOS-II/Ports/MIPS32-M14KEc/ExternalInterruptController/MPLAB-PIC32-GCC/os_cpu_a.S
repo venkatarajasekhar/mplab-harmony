@@ -18,7 +18,11 @@
     .section .text,code
     .set noreorder
     .set nomips16
-    .set nomicromips    
+#if ( __mips_micromips == 1 )  
+    .set micromips
+#else
+    .set nomicromips
+#endif 
     .set noat
 
 /*

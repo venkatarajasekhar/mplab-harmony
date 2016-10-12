@@ -96,6 +96,9 @@ static TCPIP_NET_IF* tcpipNetIf = 0;       // dynamically allocated
 typedef struct
 {
     TCPIP_NET_IF* defaultNet;     // default network interface
+#if defined(TCPIP_STACK_USE_IPV4) && defined(TCPIP_STACK_USE_IGMP)
+    TCPIP_NET_IF* defaultMcastNet; // default multicast network interface
+#endif
 }TCPIPDefaultIF;
 
 
@@ -156,6 +159,7 @@ static SINGLE_LIST      TCPIP_MODULES_QUEUE_TBL [TCPIP_MODULE_LAYER3] =
     { 0 }, // TCPIP_MODULE_NDP
     { 0 }, // TCPIP_MODULE_UDP
     { 0 }, // TCPIP_MODULE_TCP
+    { 0 }, // TCPIP_MODULE_IGMP
 
     // add other types of supported frames here
 
@@ -411,6 +415,13 @@ static const TCPIP_STACK_MODULE_ENTRY  TCPIP_STACK_MODULE_ENTRY_TBL [] =
     {TCPIP_MODULE_DHCPV6_CLIENT, (tcpipModuleInitFunc)TCPIP_DHCPV6_Initialize,      TCPIP_DHCPV6_Deinitialize},          // TCPIP_MODULE_DHCPV6_CLIENT
 #endif
     
+#if defined(TCPIP_STACK_USE_SMTPC)
+    {TCPIP_MODULE_SMTPC,        (tcpipModuleInitFunc)TCPIP_SMTPC_Initialize,        TCPIP_SMTPC_Deinitialize},          // TCPIP_MODULE_SMTPC
+#endif
+    
+#if defined(TCPIP_STACK_USE_IGMP)
+    {TCPIP_MODULE_IGMP,        (tcpipModuleInitFunc)TCPIP_IGMP_Initialize,        TCPIP_IGMP_Deinitialize},          // TCPIP_MODULE_IGMP
+#endif
     // Add other stack modules here
      
 };
@@ -507,6 +518,12 @@ static const TCPIP_STACK_MODULE_ENTRY  TCPIP_STACK_MODULE_ENTRY_TBL [] =
     {TCPIP_MODULE_DHCPV6_CLIENT, (tcpipModuleInitFunc)TCPIP_DHCPV6_Initialize},          // TCPIP_MODULE_DHCPV6_CLIENT
 #endif
     
+#if defined(TCPIP_STACK_USE_SMTPC)
+    {TCPIP_MODULE_SMTPC,        (tcpipModuleInitFunc)TCPIP_SMTPC_Initialize},            // TCPIP_MODULE_SMTPC
+#endif
+#if defined(TCPIP_STACK_USE_IGMP)
+    {TCPIP_MODULE_IGMP,        (tcpipModuleInitFunc)TCPIP_IGMP_Initialize},             // TCPIP_MODULE_IGMP
+#endif
     // Add other stack modules here
      
 };
@@ -633,7 +650,7 @@ SYS_MODULE_OBJ TCPIP_STACK_Initialize(const SYS_MODULE_INDEX index, const SYS_MO
             // get the power mode
             powerMode = TCPIP_Helper_StringToPowerMode(pUsrConfig->powerMode);
             if(powerMode == TCPIP_MAC_POWER_NONE || powerMode != TCPIP_MAC_POWER_FULL)
-            {  
+            {   
                 SYS_ERROR_PRINT(SYS_ERROR_ERROR, TCPIP_STACK_HDR_MESSAGE "Power Mode initialization fail: %d\r\n", powerMode);
                 initFail = 5;
                 break;
@@ -654,6 +671,9 @@ SYS_MODULE_OBJ TCPIP_STACK_Initialize(const SYS_MODULE_INDEX index, const SYS_MO
             if(tcpipDefIf.defaultNet == 0)
             {
                 tcpipDefIf.defaultNet = pIf;    // set as the 1st valid interface
+#if defined(TCPIP_STACK_USE_IPV4) && defined(TCPIP_STACK_USE_IGMP)
+                tcpipDefIf.defaultMcastNet = pIf;    // set as the 1st valid interface
+#endif
             }
 
         }
@@ -875,7 +895,7 @@ bool TCPIP_STACK_NetUp(TCPIP_NET_HANDLE netH, const TCPIP_NETWORK_CONFIG* pUsrCo
 
         powerMode = TCPIP_Helper_StringToPowerMode(pUsrConfig->powerMode);
         if(powerMode == TCPIP_MAC_POWER_NONE || powerMode != TCPIP_MAC_POWER_FULL)
-        {  
+        {   
             SYS_ERROR_PRINT(SYS_ERROR_ERROR, TCPIP_STACK_HDR_MESSAGE "Power Mode initialization fail: %d\r\n", powerMode);
             return false;
         }
@@ -919,6 +939,12 @@ bool TCPIP_STACK_NetDown(TCPIP_NET_HANDLE netH)
                     }
                 }
                 tcpipDefIf.defaultNet = pNewIf;
+#if defined(TCPIP_STACK_USE_IPV4) && defined(TCPIP_STACK_USE_IGMP)
+                if(tcpipDefIf.defaultMcastNet == pDownIf)
+                {
+                    tcpipDefIf.defaultMcastNet = pNewIf;
+                }
+#endif
             }
 
         }
@@ -1313,11 +1339,14 @@ static bool _TCPIPStackIsRunState(void)
                 }
                 else if(macStat == SYS_STATUS_READY)
                 {   // get the MAC address and MAC processing flags
+                    // set the default MTU; MAC driver will override if needed
                     TCPIP_MAC_PARAMETERS macParams;
+                    macParams.linkMtu = TCPIP_MAC_LINK_MTU_DEFAULT; 
                     (*pNetIf->pMacObj->TCPIP_MAC_ParametersGet)(pNetIf->hIfMac, &macParams);
                     memcpy(pNetIf->netMACAddr.v, macParams.ifPhyAddress.v, sizeof(pNetIf->netMACAddr));
                     pNetIf->Flags.bMacProcessOnEvent = macParams.processFlags != TCPIP_MAC_PROCESS_FLAG_NONE;
                     pNetIf->macType = macParams.macType;
+                    pNetIf->linkMtu = macParams.linkMtu;
                     // enable this interface
                     pNetIf->Flags.bInterfaceEnabled = true;
                     pNetIf->Flags.bMacInitialize = false;
@@ -1626,6 +1655,29 @@ bool TCPIP_STACK_NetDefaultSet(TCPIP_NET_HANDLE netH)
     return false;
 }
 
+TCPIP_NET_HANDLE TCPIP_STACK_NetMulticastGet(void)
+{
+#if defined(TCPIP_STACK_USE_IPV4) && defined(TCPIP_STACK_USE_IGMP)
+    return tcpipDefIf.defaultMcastNet;
+#endif
+
+    return 0;
+}
+
+bool TCPIP_STACK_NetMulticastSet(TCPIP_NET_HANDLE netH)
+{
+#if defined(TCPIP_STACK_USE_IPV4) && defined(TCPIP_STACK_USE_IGMP)
+    TCPIP_NET_IF* pNewIf = _TCPIPStackHandleToNetUp(netH);
+    if(pNewIf)
+    {
+        tcpipDefIf.defaultMcastNet = pNewIf;
+        return true;
+    }
+#endif
+
+    return false;
+
+}
 /*********************************************************************
  * Function:        TCPIP_STACK_IPAddToNet(IPV4_ADDR* pIpAddress, bool useDefault)
  *
@@ -2839,13 +2891,17 @@ TCPIP_STACK_ADDRESS_SERVICE_TYPE _TCPIPStackAddressServiceIsRunning(TCPIP_NET_IF
 void TCPIP_STACK_AddressServiceEvent(TCPIP_NET_IF* pNetIf, TCPIP_STACK_ADDRESS_SERVICE_TYPE adSvcType,
                                     TCPIP_STACK_ADDRESS_SERVICE_EVENT evType)
 {
-    typedef bool(*addSvcFnc)(TCPIP_NET_HANDLE hNet);
+    typedef bool(*addSvcFnc)(TCPIP_NET_IF* pNetIf, bool enable);
     addSvcFnc   addFnc;
 
     if(evType == TCPIP_STACK_ADDRESS_SERVICE_EVENT_RUN_RESTORE)
     {   // run time connection restore; it should be the DHCPc
         if(adSvcType == TCPIP_STACK_ADDRESS_SERVICE_DHCPC)
         {
+            // make sure any running service is cleared
+#if defined(TCPIP_STACK_USE_ZEROCONF_LINK_LOCAL)
+            TCPIP_ZCLL_ServiceEnable(pNetIf, false);
+#endif  // defined(TCPIP_STACK_USE_ZEROCONF_LINK_LOCAL)
             pNetIf->Flags.bIsDHCPEnabled = 1;
             return;
         }
@@ -2867,6 +2923,9 @@ void TCPIP_STACK_AddressServiceEvent(TCPIP_NET_IF* pNetIf, TCPIP_STACK_ADDRESS_S
     // TCPIP_STACK_ADDRESS_SERVICE_EVENT_RUN_FAIL, TCPIP_STACK_ADDRESS_SERVICE_EVENT_USER_STOP
     //
     // make sure any running service is cleared
+#if defined(TCPIP_STACK_USE_ZEROCONF_LINK_LOCAL)
+    TCPIP_ZCLL_ServiceEnable(pNetIf, false);
+#endif  // defined(TCPIP_STACK_USE_ZEROCONF_LINK_LOCAL)
     pNetIf->Flags.v &= ~TCPIP_STACK_ADDRESS_SERVICE_MASK;
     _TCPIPStackSetConfig(pNetIf, true);
     addFnc = 0;
@@ -2876,7 +2935,7 @@ void TCPIP_STACK_AddressServiceEvent(TCPIP_NET_IF* pNetIf, TCPIP_STACK_ADDRESS_S
 #if defined(TCPIP_STACK_USE_ZEROCONF_LINK_LOCAL)
         if((pNetIf->startFlags & TCPIP_NETWORK_CONFIG_ZCLL_ON) != 0)
         {   // OK, we can use ZCLL
-            addFnc = TCPIP_ZCLL_Enable;
+            addFnc = TCPIP_ZCLL_ServiceEnable;
         }
 #endif
     }
@@ -2886,7 +2945,7 @@ void TCPIP_STACK_AddressServiceEvent(TCPIP_NET_IF* pNetIf, TCPIP_STACK_ADDRESS_S
 
     if(addFnc)
     {
-        if((*addFnc)(pNetIf) == true)
+        if((*addFnc)(pNetIf, true) == true)
         {   // success
             return;
         }
@@ -3042,7 +3101,7 @@ static bool _LoadNetworkConfig(const TCPIP_NETWORK_CONFIG* pUsrConfig, TCPIP_NET
     addDynamicNameService =  TCPIP_STACK_DNSServiceSelect(pNetIf, pUsrConfig->startFlags);
 
     if(addDynamicNameService == TCPIP_STACK_DNS_SERVICE_NONE)
-    {
+    {   
          pNetIf->Flags.bIsDnsClientEnabled = 1;
     }
 

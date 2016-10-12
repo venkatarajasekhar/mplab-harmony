@@ -326,7 +326,7 @@ char APP_ProgramHexRecord(uint8_t* HexRecord, int32_t totalLen)
                     break;
 
                 case EXT_SEG_ADRS_RECORD:  // Record Type 02, defines 4th to 19th bits of the data address.
-                    HexRecordSt.ExtSegAddress >>= (HexRecordSt.Data[0]<<12) + (HexRecordSt.Data[1]<<4);
+                    HexRecordSt.ExtSegAddress = (HexRecordSt.Data[0]<<12) + (HexRecordSt.Data[1]<<4);
                     
                     // Reset linear address.
                     HexRecordSt.ExtLinAddress = 0;

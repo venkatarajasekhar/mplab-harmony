@@ -60,7 +60,9 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #if defined(TCPIP_IF_MRF24W)
     #define TCPIP_MAC_FRAME_OFFSET      6  // aligns ethernet packet and allows room for MRF 4-byte internal header
-#elif defined(TCPIP_IF_MRF24WN)
+#elif defined(TCPIP_IF_PIC32WK)
+#define TCPIP_MAC_FRAME_OFFSET		(34 + 4) //bytes to store the Packet pointer
+#elif defined(TCPIP_IF_MRF24WN) /* TCPIP_IF_PIC32WK */
     #define TCPIP_MAC_FRAME_OFFSET      2
 #else
     #define TCPIP_MAC_FRAME_OFFSET      2
@@ -822,6 +824,7 @@ void TCPIP_PKT_FlightFlagsUpdate(TCPIP_STACK_MODULE moduleId, TCPIP_PKT_FLIGHT_F
         if(enable)
         {
             *pModFlags |= flags;
+            _pktFlightLogEnabled = true;
         }
         else
         {

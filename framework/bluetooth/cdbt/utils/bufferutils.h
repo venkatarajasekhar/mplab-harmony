@@ -1,41 +1,26 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Utilities
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    bufferutils.h
-
-  Summary:
-    Bluetooth API Library interface Utilities.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
-#ifndef __UTILS_BUFFERUTILS_H  // Guards against multiple inclusion
+#ifndef __UTILS_BUFFERUTILS_H
 #define __UTILS_BUFFERUTILS_H
 
 #include <stddef.h>
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
 
 #define bt_min(a,b) (((a) < (b)) ? (a) : (b))
 #ifdef __BT_PRIVATE_H_INCLUDED__
@@ -90,7 +75,9 @@ void _bt_memcpy(bt_byte_p pdst, bt_uint dst_offset, bt_byte_cp psrc, bt_uint len
 
 const char* _ulong2str(bt_ulong data);
 const char* _ulong2str_dec(bt_ulong data);
+bt_ulong _str2ulong(const char* s);
 bt_ulong _str2ulong_dec(const char* s);
+bt_bool _is_empty_str(const char* s);
 
 void _write_bdaddr(bt_bdaddr_cp pbdaddr, bt_byte_p buffer);
 void _read_bdaddr(bt_bdaddr_p pbdaddr, bt_byte_cp buffer);

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="UTF16">
@@ -2459,10 +2463,6 @@ and Chinese Simplified)
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
-        <Name>drv_pmp_config.h</Name>
-        <Path>Header Files/framework/driver/pmp/config</Path>
-      </File>
-      <File>
         <Name>sys_console_uart.c</Name>
         <Path>Source Files/framework/system/console/src</Path>
       </File>
@@ -2485,10 +2485,6 @@ and Chinese Simplified)
       <File>
         <Name>sys_devcon_cache.h</Name>
         <Path>Source Files/framework/system/devcon/src</Path>
-      </File>
-      <File>
-        <Name>drv_pmp_local.h</Name>
-        <Path>Header Files/framework/driver/pmp/src</Path>
       </File>
       <File>
         <Name>gfx_gol_digital_meter.h</Name>
@@ -2527,10 +2523,6 @@ and Chinese Simplified)
         <Path>Header Files/framework/system/console</Path>
       </File>
       <File>
-        <Name>drv_gfx_lcc_ext.c</Name>
-        <Path>Source Files/framework/driver/gfx/controller/lcc/src</Path>
-      </File>
-      <File>
         <Name>gfx_gol_edit_box.h</Name>
         <Path>Header Files/framework/gfx</Path>
       </File>
@@ -2549,10 +2541,6 @@ and Chinese Simplified)
       <File>
         <Name>sys_dma.c</Name>
         <Path>Source Files/framework/system/dma</Path>
-      </File>
-      <File>
-        <Name>drv_pmp.h</Name>
-        <Path>Header Files/framework/driver/pmp</Path>
       </File>
       <File>
         <Name>osal_impl_basic.h</Name>
@@ -2863,6 +2851,10 @@ and Chinese Simplified)
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -2931,29 +2923,20 @@ and Chinese Simplified)
         <Path>Header Files/framework/system/console/src</Path>
       </File>
       <File>
-        <Name>drv_gfx_lcc.h</Name>
-        <Path>Header Files/framework/driver/gfx/controller/lcc</Path>
-      </File>
-      <File>
         <Name>drv_i2c_bb_a_compatibility.h</Name>
         <Path>Header Files/framework/driver/i2c</Path>
       </File>
     </Files>
     <Templates>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>162C5B43A1C67AB93A0BD94D7482300C</Checksum>
+        <Checksum>07219D9C56390E50F3853C35A6960C33</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>9FB10FA03A919C12FCB4066A7D0E541A</Checksum>
+        <Checksum>D4040B825AF7D1443BF7721F17158685</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -2962,12 +2945,12 @@ and Chinese Simplified)
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>8AB9DD87D3BC2164F445FF4F0BC4DE20</Checksum>
+        <Checksum>B462991B2056EF45CEF4964062B77E0B</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>4E5C405D1870ABCA0AB8C0E60DB42DF3</Checksum>
+        <Checksum>E162D21399D2B526A56D869D38C4F2DC</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -2977,7 +2960,7 @@ and Chinese Simplified)
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>98BDCA2038CE1917FAB1EB67FA2F11BF</Checksum>
+        <Checksum>701FC44E777E56275E0F080FB497480E</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -2992,12 +2975,17 @@ and Chinese Simplified)
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>985460BF900CAAA3789FEB23E763A22E</Checksum>
+        <Checksum>F057BADACED2229EF0634133025FB08B</Checksum>
+      </Template>
+      <Template>
+        <Name>drv_gfx_lcc_generic.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>43202FF875E91AE678E480419B7F819E</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>59DD2CE302A6AEA54C033DDABD15C33F</Checksum>
+        <Checksum>1CFB4C9C57722B4D8D9A8A8A70B31754</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -3019,6 +3007,11 @@ and Chinese Simplified)
         <Checksum>EE0C108D8D70B7A027DDD334790C5AEB</Checksum>
       </Template>
       <Template>
+        <Name>drv_gfx_lcc_generic.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>5F10BF806747025D8C65C805E21A4C3A</Checksum>
+      </Template>
+      <Template>
         <Name>app.h</Name>
         <Path>Header Files/app</Path>
       </Template>
@@ -3030,7 +3023,7 @@ and Chinese Simplified)
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -3040,11 +3033,10 @@ and Chinese Simplified)
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\graphics_showcase\firmware\src"/>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\graphics_showcase\firmware\src\system_config\pic32mz_ef_sk_meb2"/>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\graphics_showcase\firmware\src\pic32mz_ef_sk_meb2"/>
-        <Include value="C:\Harmony\gfx2-1\framework"/>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\graphics_showcase\firmware\src\system_config\pic32mz_ef_sk_meb2\framework"/>
+        <Include value="C:/Users/c16118/Desktop/Git/gfx/apps/gfx/graphics_showcase/firmware/src"/>
+        <Include value="C:/Users/c16118/Desktop/Git/gfx/apps/gfx/graphics_showcase/firmware/src/system_config/pic32mz_ef_sk_meb2"/>
+        <Include value="C:/Users/c16118/Desktop/Git/gfx/framework"/>
+        <Include value="C:/Users/c16118/Desktop/Git/gfx/apps/gfx/graphics_showcase/firmware/src/system_config/pic32mz_ef_sk_meb2/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_meb2/bsp"/>
       </C32>
     </CompilerItems>

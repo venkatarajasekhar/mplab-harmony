@@ -222,7 +222,8 @@ bool APP_Read_Tasks(void);
 
 typedef enum{
     
-        TxRx_TO_EXTERNAL_SLAVE_1 = 0,
+        TxRx_OPEN = 0,
+        TxRx_TO_EXTERNAL_SLAVE_1,
         TxRx_EXTERNAL_SLAVE_STATUS_CHECK_1,
         TxRx_TO_EXTERNAL_SLAVE_2,
         TxRx_EXTERNAL_SLAVE_STATUS_CHECK_2,
@@ -237,7 +238,7 @@ typedef enum{
 
 }APP_EEPROM_WR_STATES;
 
-static APP_EEPROM_WR_STATES appWriteState = TxRx_TO_EXTERNAL_SLAVE_1;
+static APP_EEPROM_WR_STATES appWriteState = TxRx_OPEN;
 
 /*******************************************************************************
   Function:
@@ -274,19 +275,7 @@ void APP_Tasks ( void )
         /* Application's initial state. */
         case APP_STATE_INIT:
         {
-            /* Open the I2C Driver for Master */
-            appData.drvI2CHandle_Master = DRV_I2C_Open( DRV_I2C_INDEX_0,
-                                                     DRV_IO_INTENT_WRITE );
-
-            if(appData.drvI2CHandle_Master != (DRV_HANDLE) NULL)
-            {
               appData.state = APP_WRITE_DATA;
-//              DRV_I2C_BufferEventHandlerSet(appData.drvI2CHandle_Master, I2C_MasterBufferStatusCallback, operationStatus );
-            }
-            else
-            {
-                appData.state = APP_STATE_ERROR;
-            }
 
             break;
         }
@@ -318,6 +307,24 @@ bool APP_Write_Tasks(void)
     
     switch (appWriteState)
     {
+        case TxRx_OPEN:
+        {
+            /* Open the I2C Driver for Master */
+            appData.drvI2CHandle_Master = DRV_I2C_Open( DRV_I2C_INDEX_0,
+                                                     DRV_IO_INTENT_WRITE );
+
+            if(appData.drvI2CHandle_Master != DRV_HANDLE_INVALID)
+            {
+                appWriteState = TxRx_TO_EXTERNAL_SLAVE_1;
+//              DRV_I2C_BufferEventHandlerSet(appData.drvI2CHandle_Master, I2C_MasterBufferStatusCallback, operationStatus );
+            }
+            else
+            {
+                appData.state = APP_STATE_ERROR;
+            }
+
+            break;
+        }
         case TxRx_TO_EXTERNAL_SLAVE_1:
         {    
             /* Number of bytes to transfer */
@@ -486,7 +493,12 @@ bool APP_Write_Tasks(void)
         }  
         case TxRx_STATUS_CHECK:
         {
-            DelayMs(30);
+extern const DRV_I2C_INIT drvI2C0InitData;
+            
+            DRV_I2C_Close( appData.drvI2CHandle_Master );
+            DRV_I2C_Deinitialize (sysObj.drvI2C0);
+            DelayMs(300);
+            sysObj.drvI2C0 = DRV_I2C_Initialize(DRV_I2C_INDEX_0, (SYS_MODULE_INIT *)&drvI2C0InitData);
             
             LED_SUCCESS_STAGE1Toggle();
             LED_SUCCESS_STAGE2Toggle();
@@ -496,8 +508,8 @@ bool APP_Write_Tasks(void)
 //            appWriteState = TxRx_COMPLETED;
             
             /* to run the application in a continuous loop,  
-             * set next state to TxRx_TO_EXTERNAL_SLAVE_1 */
-            appWriteState = TxRx_TO_EXTERNAL_SLAVE_1;
+             * set next state to TxRx_OPEN */
+            appWriteState = TxRx_OPEN;
             
             
             break;

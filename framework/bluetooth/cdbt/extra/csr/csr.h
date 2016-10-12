@@ -1,33 +1,26 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Extra Files
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    extra/patch.h
-
-  Summary:
-    Bluetooth API Library interface to the CSR driver.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory. 
-	
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
-*
-*
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 #ifndef __BTX_CSR_H_INCLUDED__
 #define __BTX_CSR_H_INCLUDED__
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+* \defgroup btx Vendor specific extensions to HCI
+*
+* \details This module defines functions and data structures used to access
+*          and control various capabilities of CSR's controllers.
+*
+* \defgroup btx_csr CSR
+* \ingroup btx
+*/
 
 // Select Variable definitions
 #define CSR_VARID_MESSAGE_FROM_OPERATOR             0x101a
@@ -60,6 +53,9 @@
 #define PSKEY_BDADDR                          0x0001
 #define PSKEY_H_HC_FC_MAX_SCO_PKT_LEN         0x0012
 #define PSKEY_H_HC_FC_MAX_SCO_PKTS            0x0014
+#define PSKEY_LC_MAX_TX_POWER                 0x0017
+#define PSKEY_LC_DEFAULT_TX_POWER             0x0021
+#define PSKEY_LC_MAX_TX_POWER_NO_RSSI         0x002d
 #define PSKEY_ANA_FREQ                        0x01fe
 #define PSKEY_VM_DISABLE                      0x025d
 #define PSKEY_DEEP_SLEEP_STATE                0x0229
@@ -501,7 +497,12 @@ bt_bool btx_csr_get_var(
 		btx_csr_get_var_callback_fp callback,
 		void* callback_param);
 
-bt_bool btx_csr_set_var( bt_uint var_id, const bt_uint* value, bt_uint value_word_count, btx_csr_set_var_callback_fp callback, void* callback_param);
+bt_bool btx_csr_set_var(
+		bt_uint var_id,
+		const bt_uint* value,
+		bt_uint value_word_count,
+		btx_csr_set_var_callback_fp callback,
+		void* callback_param);
 
 /**
 * \brief Get chip's cached temperature
@@ -578,22 +579,50 @@ void btx_csr_exec_hq_script(
 bt_bool btx_csr_register_bccmd_listener(btx_csr_bccmd_listener_t* listener);
 void btx_csr_unregister_bccmd_listener(btx_csr_bccmd_listener_t* listener);
 
-// Return script for patching BlueCore 6
+/**
+* \brief Return script for patching BlueCore 6
+* \ingroup btx_csr
+*
+*/
 const btx_csr_script_t* btx_csr_get_script__PB_27_R20_BC6ROM_A04(void);
 
-// CSR8810
+/**
+* \brief Return script for patching CSR8810 (BlueCore 7)
+* \ingroup btx_csr
+*
+*/
 const btx_csr_script_t* btx_csr_get_script__PB_90_REV6(void);
 
-// Return script for patching CSR8x11 A06 (BlueCore 7)
+/**
+* \brief Return script for patching CSR8x11 A06 (BlueCore 7)
+* \ingroup btx_csr
+*
+*/
 const btx_csr_script_t* btx_csr_get_script__PB_101_CSR8811_CSP28_UART(void);
 
-// Return script for patching CSR8x11 A08 (BlueCore 7)
+/**
+* \brief Return script for patching CSR8x11 A08 (BlueCore 7)
+* \ingroup btx_csr
+*
+*/
 const btx_csr_script_t* btx_csr_get_script__PB_109_CSR8811_REV16(void);
 
-// Return script for patching DSP in CSR8x11 A08 (BlueCore 7)
+/**
+* \brief Return script for patching DSP in CSR8x11 A08 (BlueCore 7)
+* \ingroup btx_csr
+*
+*/
 const btx_csr_script_t* btx_csr_get_script__dsp_script__PB_109_DSP_rev8(void);
 
-// Return script for patching CSR8x11 A12 (BlueCore 7)
+/**
+* \brief Return script for patching CSR8x11 A12 (BlueCore 7)
+* \ingroup btx_csr
+*
+*/
 const btx_csr_script_t* btx_csr_get_script__PB_173_CSR8X11_REV1(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // __BTX_CSR_H_INCLUDED__

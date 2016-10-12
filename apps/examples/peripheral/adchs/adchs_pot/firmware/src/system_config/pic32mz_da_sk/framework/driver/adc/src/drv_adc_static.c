@@ -110,7 +110,8 @@ void DRV_ADC_Initialize(void)
 			ADCHS_CLASS12_AN3,
 			ADCHS_TRIGGER_SOURCE_GLOBAL_SOFTWARE_EDGE
 	);
-    PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ADCHS_CHANNEL_3, DEVADC3);
+    if (DEVADC3 != 0xFFFFFFFF)
+        PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ADCHS_CHANNEL_3, DEVADC3);
 
 
 

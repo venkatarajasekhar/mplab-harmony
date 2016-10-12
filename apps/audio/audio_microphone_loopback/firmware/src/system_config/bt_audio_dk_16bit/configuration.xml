@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -176,6 +176,10 @@
       <File>
         <Name>gfx_gol_window.h</Name>
         <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>drv_gfx_otm2201a.h</Name>
+        <Path>Header Files/framework/driver/gfx/controller/otm2201a</Path>
       </File>
       <File>
         <Name>driver.h</Name>
@@ -390,6 +394,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -491,7 +499,7 @@
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_16bit</Path>
-        <Checksum>ABD212255B95991DE9885FB68FDDDF67</Checksum>
+        <Checksum>0F8085FBA30365D5A29B4972FA4143A0</Checksum>
       </Template>
       <Template>
         <Name>drv_pmp_static.h</Name>
@@ -506,7 +514,7 @@
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_16bit</Path>
-        <Checksum>3B7B4B47ADB0AC6EB2F76D1B438A78CD</Checksum>
+        <Checksum>D3F16CADC1415AC4E54C019FA714462A</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -515,8 +523,8 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_16bit</Path>
-        <Checksum>5BFF54D9861D1047BFD57520D010441C</Checksum>
-        <ProjectFileChecksum>CDDB221177CF36EEE6E4E47B686F5348</ProjectFileChecksum>
+        <Checksum>69CEEC13CBC1F4476EF59898D6223CEC</Checksum>
+        <ProjectFileChecksum>3A0BA8451EF7F84FA486064E20CBFCAB</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -541,7 +549,7 @@
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_16bit</Path>
-        <Checksum>635670F5262B4F7605A561D597D01062</Checksum>
+        <Checksum>6A8B5B05F44F58C4B950DF24E543D8E0</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -551,7 +559,7 @@
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_16bit</Path>
-        <Checksum>1BBCB22C1311617380C4C1E0D14BF480</Checksum>
+        <Checksum>658AA4E4EF505A25A756446A5403780B</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -570,7 +578,7 @@
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_16bit</Path>
-        <Checksum>1A09F40B6FB8E0EE020CC9E5FC6CC0E8</Checksum>
+        <Checksum>1A886825F0E82A688D88E33D2EEB74A9</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -580,11 +588,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/microchip/harmony/btaudio_btaudiodev(2.0)/apps/audio/audio_microphone_loopback/firmware/src"/>
-        <Include value="C:/microchip/harmony/btaudio_btaudiodev(2.0)/apps/audio/audio_microphone_loopback/firmware/src/system_config/bt_audio_dk_16bit"/>
-        <Include value="C:/microchip/harmony/btaudio_btaudiodev(2.0)/apps/audio/audio_microphone_loopback/firmware/src/bt_audio_dk_16bit"/>
-        <Include value="C:/microchip/harmony/btaudio_btaudiodev(2.0)/framework"/>
-        <Include value="C:/microchip/harmony/btaudio_btaudiodev(2.0)/apps/audio/audio_microphone_loopback/firmware/src/system_config/bt_audio_dk_16bit/framework"/>
+        <Include value="C:\microchip\harmony\btaudio_btaudiodev(2.0)090716a\apps\audio\audio_microphone_loopback\firmware\src"/>
+        <Include value="C:\microchip\harmony\btaudio_btaudiodev(2.0)090716a\apps\audio\audio_microphone_loopback\firmware\src\system_config\bt_audio_dk_16bit"/>
+        <Include value="C:\microchip\harmony\btaudio_btaudiodev(2.0)090716a\framework"/>
+        <Include value="C:\microchip\harmony\btaudio_btaudiodev(2.0)090716a\apps\audio\audio_microphone_loopback\firmware\src\system_config\bt_audio_dk_16bit\framework"/>
         <Include value="../src/system_config/bt_audio_dk_16bit/bsp"/>
       </C32>
     </CompilerItems>

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.0">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name=""/>
     <Board name=""/>
     <ForceOptimization flag="true"/>
-    <MergeStrategy flag="USER_ALL"/>
+    <MergeStrategy flag="OVERWRITE"/>
   </General>
   <Manifest>
     <Files>
@@ -48,10 +52,6 @@
       <File>
         <Name>driver.h</Name>
         <Path>Header Files/framework/driver</Path>
-      </File>
-      <File>
-        <Name>peripheral_common.h</Name>
-        <Path>Header Files/framework/peripheral</Path>
       </File>
       <File>
         <Name>sys_int_pic32.c</Name>
@@ -134,10 +134,6 @@
         <Path>Header Files/framework/osal/src</Path>
       </File>
       <File>
-        <Name>peripheral_common_32bit.h</Name>
-        <Path>Header Files/framework/peripheral</Path>
-      </File>
-      <File>
         <Name>drv_tmr_variant_mapping.h</Name>
         <Path>Header Files/framework/driver/tmr/src</Path>
       </File>
@@ -166,11 +162,19 @@
         <Path>Header Files/framework/system/tmr</Path>
       </File>
       <File>
+        <Name>usb_host.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
         <Name>osal.h</Name>
         <Path>Header Files/framework/osal</Path>
       </File>
       <File>
         <Name>usb_device_cdc.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>usb_host_hub_interface.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
@@ -180,6 +184,10 @@
       <File>
         <Name>sys_ports.h</Name>
         <Path>Header Files/framework/system/ports</Path>
+      </File>
+      <File>
+        <Name>usb_hub.h</Name>
+        <Path>Header Files/framework/usb</Path>
       </File>
       <File>
         <Name>sys_common.h</Name>
@@ -192,6 +200,14 @@
       <File>
         <Name>usb_device_mapping.h</Name>
         <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
+        <Name>usb_host_hub.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
@@ -208,14 +224,6 @@
       <File>
         <Name>sys_int_mapping.h</Name>
         <Path>Header Files/framework/system/int</Path>
-      </File>
-      <File>
-        <Name>gfx_palette.h</Name>
-        <Path>Header Files/framework/gfx</Path>
-      </File>
-      <File>
-        <Name>ctr_p32mx795f512l.h</Name>
-        <Path>Header Files/framework/peripheral/ctr/processor</Path>
       </File>
       <File>
         <Name>sys_devcon.h</Name>
@@ -250,10 +258,6 @@
         <Path>Header Files/framework/driver/usb/usbfs/src</Path>
       </File>
       <File>
-        <Name>peripheral.h</Name>
-        <Path>Header Files/framework/peripheral</Path>
-      </File>
-      <File>
         <Name>sys_queue.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -269,6 +273,10 @@
         <Name>drv_usbfs_mapping.h</Name>
         <Path>Header Files/framework/driver/usb/usbfs</Path>
       </File>
+      <File>
+        <Name>usb_host_client_driver.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
     </Files>
     <Templates>
       <Template>
@@ -281,14 +289,9 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -315,22 +318,22 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2</Path>
-        <Checksum>C51AD523B9EF8F35FC76944B86163A0D</Checksum>
+        <Checksum>530D880DEE09EB5360273B0F9E905F89</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2</Path>
-        <Checksum>CC366C44008217775D26D24713E909B0</Checksum>
+        <Checksum>32833609A48E3CC8EA6BAE362B469B96</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2/bsp</Path>
-        <Checksum>2CF44FF227799E189BA5A386DB2549DE</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>app_appio_usb_sk2.h</Name>
@@ -344,7 +347,7 @@
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2/framework/system/ports/src</Path>
-        <Checksum>BD5D9BDDD9262C8D616C515AD5C5D1E6</Checksum>
+        <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
@@ -359,7 +362,6 @@
     </CompilerItems>
     <Libraries>
       <Library value="../../../../../../bin/framework/peripheral/PIC32MX795F512L_peripherals.a"/>
-      <Library value="../../../../../../framework/tcpip/src/crypto/aes_pic32mx.a"/>
     </Libraries>
   </Manifest>
 </configuration>

@@ -6,7 +6,6 @@ extern "C" {
 #endif
 #include "system/fs/sys_fs.h"
 //DOM-IGNORE-END
-#define WMA_MAX_INPUT_BUFFER_SIZE 1024*20					//in Bytes
     
 typedef void(*SetReadBytesReadFlagInAppData)(int32_t val, bool b);
 typedef int32_t(*GetReadBytesInAppData)();

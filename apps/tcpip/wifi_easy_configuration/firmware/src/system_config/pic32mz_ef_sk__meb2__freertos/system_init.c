@@ -172,6 +172,7 @@ const DRV_NVM_INIT drvNvmInit =
     .allowIdleRun = DRV_SPI_ALLOW_IDLE_RUN_IDX0,
     .spiProtocolType = DRV_SPI_SPI_PROTOCOL_TYPE_IDX0,
     .commWidth = DRV_SPI_COMM_WIDTH_IDX0,
+    .baudClockSource = DRV_SPI_CLOCK_SOURCE_IDX0,
     .spiClk = DRV_SPI_SPI_CLOCK_IDX0,
     .baudRate = DRV_SPI_BAUD_RATE_IDX0,
     .bufferType = DRV_SPI_BUFFER_TYPE_IDX0,
@@ -379,14 +380,12 @@ const TCPIP_TCP_MODULE_CONFIG tcpipTCPInitData =
 const TCPIP_HTTP_MODULE_CONFIG tcpipHTTPInitData =
 {
     .nConnections   = TCPIP_HTTP_MAX_CONNECTIONS,
-    .nTlsConnections    = TCPIP_HTTP_MAX_TLS_CONNECTIONS,
     .dataLen		= TCPIP_HTTP_MAX_DATA_LEN,
     .sktTxBuffSize	= TCPIP_HTTP_SKT_TX_BUFF_SIZE,
     .sktRxBuffSize	= TCPIP_HTTP_SKT_RX_BUFF_SIZE,
-    .tlsSktTxBuffSize	= TCPIP_HTTP_TLS_SKT_TX_BUFF_SIZE,
-    .tlsSktRxBuffSize	= TCPIP_HTTP_TLS_SKT_RX_BUFF_SIZE,
     .configFlags	= TCPIP_HTTP_CONFIG_FLAGS,
 };
+
 
 
 
@@ -411,6 +410,7 @@ const TCPIP_ICMP_MODULE_CONFIG tcpipICMPInitData =
 const TCPIP_NBNS_MODULE_CONFIG tcpipNBNSInitData =
 { 
 };
+
 
 
 /*** Wi-Fi Interface MRF24W Initialization Data ***/
@@ -597,7 +597,7 @@ const USB_DEVICE_DESCRIPTOR deviceDescriptor =
     0x12,                           // Size of this descriptor in bytes
     USB_DESCRIPTOR_DEVICE,          // DEVICE descriptor type
     0x0200,                         // USB Spec Release Number in BCD format
-    USB_CDC_CLASS_CODE,         // Class Code
+	USB_CDC_CLASS_CODE,         // Class Code
     USB_CDC_SUBCLASS_CODE,      // Subclass code
     0x00,                       // Protocol code
     USB_DEVICE_EP0_BUFFER_SIZE,     // Max packet size for EP0, see system_config.h
@@ -619,7 +619,7 @@ const USB_DEVICE_QUALIFIER deviceQualifierDescriptor1 =
     0x0A,                               // Size of this descriptor in bytes
     USB_DESCRIPTOR_DEVICE_QUALIFIER,    // Device Qualifier Type
     0x0200,                             // USB Specification Release number
-    USB_CDC_CLASS_CODE,         // Class Code
+	USB_CDC_CLASS_CODE,         // Class Code
     USB_CDC_SUBCLASS_CODE,      // Subclass code
     0x00,                       // Protocol code
     USB_DEVICE_EP0_BUFFER_SIZE,         // Maximum packet size for endpoint 0

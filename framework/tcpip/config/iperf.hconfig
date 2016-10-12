@@ -12,7 +12,7 @@ config TCPIP_IPERF_TX_BUFFER_SIZE
     depends on TCPIP_USE_IPERF
     default 4096
     ---help---
-    Socket TX Buffer Size
+    IDH_HTML_TCPIP_IPERF_TX_BUFFER_SIZE
     ---endhelp---
     
 config TCPIP_IPERF_RX_BUFFER_SIZE
@@ -20,7 +20,7 @@ config TCPIP_IPERF_RX_BUFFER_SIZE
     depends on TCPIP_USE_IPERF
     default 4096
     ---help---
-    Socket RX Buffer Size
+    IDH_HTML_TCPIP_IPERF_RX_BUFFER_SIZE
     ---endhelp---
 
 config TCPIP_IPERF_TX_WAIT_TMO
@@ -28,7 +28,7 @@ config TCPIP_IPERF_TX_WAIT_TMO
     depends on TCPIP_USE_IPERF
     default 100
     ---help---
-    Time-out for TX channel to become ready in ms
+   IDH_HTML_TCPIP_IPERF_TX_WAIT_TMO 
     ---endhelp---
     
 config TCPIP_IPERF_TX_QUEUE_LIMIT
@@ -36,9 +36,25 @@ config TCPIP_IPERF_TX_QUEUE_LIMIT
     depends on TCPIP_USE_IPERF
     default 2
     ---help---
-    Maximum number of UDP TX packet queue
+   IDH_HTML_TCPIP_IPERF_TX_QUEUE_LIMIT 
     ---endhelp---
-
+    
+config TCPIP_IPERF_TIMING_ERROR_MARGIN
+    int "Iperf timing error - ms"
+    depends on TCPIP_USE_IPERF
+    default 0
+    ---help---
+    IDH_HTML_TCPIP_IPERF_TIMING_ERROR_MARGIN
+    ---endhelp---
+    
+config TCPIP_IPERF_MAX_INSTANCES
+    int "Number of Iperf Instances"
+    depends on TCPIP_USE_IPERF
+    default 1
+    ---help---
+    IDH_HTML_TCPIP_IPERF_MAX_INSTANCES
+    ---endhelp---
+    
 ifblock USE_TCPIP_STACK   
 file TCPIP_IPERF_H "$HARMONY_VERSION_PATH/framework/tcpip/iperf.h" to "$PROJECT_HEADER_FILES/framework/tcpip/iperf.h"
 file TCPIP_IPERF_MANAGER_H "$HARMONY_VERSION_PATH/framework/tcpip/src/iperf_manager.h" to "$PROJECT_HEADER_FILES/framework/tcpip/src/iperf_manager.h"

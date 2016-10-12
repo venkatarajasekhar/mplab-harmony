@@ -9,7 +9,7 @@
 *                                                                    *
 **********************************************************************
 
-** emWin V5.34 - Graphical user interface for embedded applications **
+** emWin V5.36 - Graphical user interface for embedded applications **
 All  Intellectual Property rights  in the Software belongs to  SEGGER.
 emWin is protected by  international copyright laws.  Knowledge of the
 source code may not be used to write a similar product.  This file may
@@ -26,16 +26,6 @@ libraries. Full source code is available at: www.segger.com
 
 We appreciate your understanding and fairness.
 ----------------------------------------------------------------------
-Licensing information
-
-Licensor:                 SEGGER Microcontroller Systems LLC
-Licensed to:              Microchip Technology Inc., 2355 W Chandler Blvd., Chandler, AZ 85224, US
-Licensed SEGGER software: emWin
-License number:           GUI-00614
-License model:            CPU Object Code License, dated Sept. 8, 2015
-Licensed product:         Any
-Licensed platform:        PIC24, PIC32, dsPIC, PIC16, PIC18 / MPLAB X Integrated Development Evironment, XC16 C Compiler, XC32 C/C++ Compiler
-Licensed number of seats: -
 ----------------------------------------------------------------------
 File        : GUI.h
 Purpose     : GUI API include file
@@ -813,18 +803,28 @@ U16          GUI_LANG_SetSep           (U16 Sep);
 *
 *       Unicode support
 */
-int   GUI_UC_ConvertUC2UTF8   (const U16 * s, int Len, char * pBuffer, int BufferSize);
-int   GUI_UC_ConvertUTF82UC   (const char * s, int Len, U16 * pBuffer, int BufferSize);
-int   GUI_UC_Encode           (char * s, U16 Char);
-int   GUI_UC_GetCharSize      (const char * s);
-U16   GUI_UC_GetCharCode      (const char * s);
-void  GUI_UC_SetEncodeNone    (void);
-void  GUI_UC_SetEncodeUTF8    (void);
-int   GUI_UC_EnableBIDI       (int OnOff);
+int   GUI_UC_ConvertUC2UTF8(const U16 * s, int Len, char * pBuffer, int BufferSize);
+int   GUI_UC_ConvertUTF82UC(const char * s, int Len, U16 * pBuffer, int BufferSize);
+int   GUI_UC_EnableBIDI    (int OnOff);
+int   GUI_UC_Encode        (char * s, U16 Char);
+int   GUI_UC_GetCharSize   (const char * s);
+U16   GUI_UC_GetCharCode   (const char * s);
+void  GUI_UC_SetEncodeNone (void);
+void  GUI_UC_SetEncodeUTF8 (void);
+void  GUI_UC_SetBaseDir    (int Dir);  // Only available with new version of BIDI algorithm
+int   GUI_UC_GetBaseDir    (void);     // Only available with new version of BIDI algorithm
 
 void GUI_UC_DispString(const U16 * s);
 void GUI_UC2DB (U16 Code, U8 * pOut);
 U16  GUI_DB2UC (U8 Byte0, U8 Byte1);
+
+/*********************************************************************
+*
+*       Bidi support
+*/
+#define GUI_BIDI_BASEDIR_LTR  0
+#define GUI_BIDI_BASEDIR_RTL  1
+#define GUI_BIDI_BASEDIR_AUTO 2
 
 /*********************************************************************
 *
@@ -1319,11 +1319,13 @@ void GUI_AA_FillEllipse      (int x0, int y0, int rx, int ry);
 void GUI_AA_FillPolygon      (const GUI_POINT * pPoints, int NumPoints, int x0, int y0);
 void GUI_AA_FillRoundedRect  (int x0, int y0, int x1, int y1, int r);
 void GUI_AA_FillRoundedRectEx(GUI_RECT * pRect, int r);
-//int  GUI_AA_PreserveTrans    (int OnOff);
 int  GUI_AA_SetDrawMode      (int Mode);
 void GUI_AA_SetpfDrawCharAA4 (int (* pfDrawChar)(int LayerIndex, int x, int y, U8 const * p, int xSize, int ySize, int BytesPerLine));
+void GUI_AA_SetGammaAA4      (U8 * pGamma);
+void GUI_AA_GetGammaAA4      (U8 * pGamma);
+void GUI_AA_EnableGammaAA4   (int OnOff);
 
-#define GUI_AA_PreserveTrans(OnOff) GUI_PreserveTrans(OnOff)
+#define GUI_AA_PreserveTrans(OnOff) GUI_PreserveTrans(OnOff)  // For compatibility only
 
 /*********************************************************************
 *

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2064DAB288"/>
@@ -20,10 +24,6 @@
       <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
-      </File>
-      <File>
-        <Name>driver_common.h</Name>
-        <Path>Header Files/framework/driver</Path>
       </File>
       <File>
         <Name>sys_clk_mapping.h</Name>
@@ -50,10 +50,6 @@
         <Path>Header Files/framework/system/devcon</Path>
       </File>
       <File>
-        <Name>sys_power.h</Name>
-        <Path>Header Files/framework/system/power</Path>
-      </File>
-      <File>
         <Name>system.h</Name>
         <Path>Header Files/framework/system</Path>
       </File>
@@ -78,8 +74,8 @@
         <Path>Header Files/framework/system/devcon/src</Path>
       </File>
       <File>
-        <Name>driver.h</Name>
-        <Path>Header Files/framework/driver</Path>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
         <Name>sys_common.h</Name>
@@ -93,6 +89,10 @@
         <Name>sys_queue.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
     </Files>
     <Templates>
       <Template>
@@ -102,18 +102,17 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk</Path>
-        <Checksum>1223F97871108D9031794AAC5AA32FBF</Checksum>
+        <Checksum>7F0CE98AEC2C5CEF76CC921E70B614A9</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk</Path>
-        <Checksum>06DB79241BD8D80125B706DB17412E67</Checksum>
-        <ProjectFileChecksum>252C4E00A6CE03C1B4EB2F86C0F707C3</ProjectFileChecksum>
+        <Checksum>0E84CC5059A6F402FDAB7EEB2CD4B20C</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk/framework/system/clk/src</Path>
-        <Checksum>333E148920AF43F5CCDCFC79B3420848</Checksum>
+        <Checksum>BAD6881E37A9D3CA47A1945607BBC8E2</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -122,7 +121,7 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk/bsp</Path>
-        <Checksum>428C70E44986005E998DF73E16632B16</Checksum>
+        <Checksum>018D32CE8E3A3DAB4E198AC0EF77984D</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -142,12 +141,12 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk</Path>
-        <Checksum>B66D9995AB4059AA7BF7C3282553744A</Checksum>
+        <Checksum>C0CC05CA9327D696FDE5B12CEC09B47E</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk/bsp</Path>
-        <Checksum>07178F2CB15E4CA28B4BD6C501C2FFBA</Checksum>
+        <Checksum>6D0961160B9CA04B50D20493874A5D26</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -158,22 +157,11 @@
         <Name>app.h</Name>
         <Path>Header Files/app</Path>
       </Template>
-      <Template>
-        <Name>sys_power_static.c</Name>
-        <Path>Source Files/app/system_config/pic32mz_da_sk/framework/system/power/src</Path>
-        <Checksum>47D266A02AF01C6D24396099A504544E</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_da_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
     </Templates>
     <CompilerItems>
       <C32>
         <Include value="D:\trunk_sbx\apps\examples\peripheral\sqi\flash_read_dma_mode\firmware\src"/>
         <Include value="D:\trunk_sbx\apps\examples\peripheral\sqi\flash_read_dma_mode\firmware\src\system_config\pic32mz_da_sk"/>
-        <Include value="D:\trunk_sbx\apps\examples\peripheral\sqi\flash_read_dma_mode\firmware\src\pic32mz_da_sk"/>
         <Include value="D:\trunk_sbx\framework"/>
         <Include value="D:\trunk_sbx\apps\examples\peripheral\sqi\flash_read_dma_mode\firmware\src\system_config\pic32mz_da_sk\framework"/>
         <Include value="../src/system_config/pic32mz_da_sk/bsp"/>

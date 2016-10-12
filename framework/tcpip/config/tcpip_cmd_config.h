@@ -57,6 +57,14 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // default number of milliseconds to give up, if no echo reply
 #define     TCPIP_STACK_COMMANDS_ICMP_ECHO_TIMEOUT          5000
 
+// default size of the buffer for sending an echo request
+#define     TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_BUFF_SIZE    1000
+
+
+// default size of the data in an echo request
+// could be <= TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_BUFF_SIZE
+#define     TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DATA_SIZE    100
+
 
 
 #endif  // _TCPIPCMD_CONFIG_H_

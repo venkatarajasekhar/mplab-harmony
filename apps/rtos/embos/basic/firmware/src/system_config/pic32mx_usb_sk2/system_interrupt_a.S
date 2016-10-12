@@ -76,8 +76,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
     ori       $k0, $k0, \prio
     mtc0      $k0,_C0_SR
 
-    # Save all scratch registers         
+    # Save all scratch registers    
+    # turn off assembler warnings for $at                  
+    .set noat                   
     sw        $at,0($sp)        
+    # turn on assembler warnings for $at                  
+    .set at                     
     sw        $v0,4($sp)        
     sw        $v1,8($sp)        
     sw        $a0,12($sp)        
@@ -119,7 +123,11 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
     di
 
     # Restore all scratch register
-    lw        $at,0($sp)        
+    # turn off assembler warnings for $at                  
+    .set noat        
+    lw        $at,0($sp)      
+    # turn on assembler warnings for $at                  
+    .set at    
     lw        $a0,12($sp)        
     lw        $a1,16($sp)        
     lw        $a2,20($sp)        

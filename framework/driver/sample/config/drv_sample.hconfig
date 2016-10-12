@@ -58,6 +58,8 @@ enum DRV_SAMPLE_INDEX
     || "DRV_SAMPLE_INDEX_1"
 
 ifblock USE_DRV_SAMPLE
+add "<#include \"/framework/driver/sample/templates/system_config.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
+
 file DRV_SAMPLE_H       "$HARMONY_VERSION_PATH/framework/driver/sample/drv_sample.h"            to "$PROJECT_HEADER_FILES/framework/driver/sample/drv_sample.h"
 file DRV_SAMPLE_MAP_H   "$HARMONY_VERSION_PATH/framework/driver/sample/drv_sample_mapping.h"     to "$PROJECT_HEADER_FILES/framework/driver/sample/drv_sample_mapping.h"
 file DRV_SAMPLE_LOCAL_H "$HARMONY_VERSION_PATH/framework/driver/sample/src/drv_sample_local.h"  to "$PROJECT_HEADER_FILES/framework/driver/sample/src/drv_sample_local.h"

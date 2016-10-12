@@ -31,7 +31,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 const DRV_IPF_INIT drvIpf0InitData =
 {
 <#if CONFIG_DRV_IPF_POWER_STATE?has_content>
-    .moduleInit = DRV_IPF_POWER_STATE,
+    .moduleInit = {DRV_IPF_POWER_STATE},
 </#if>
 <#if CONFIG_DRV_IPF_SPI_DRIVER_INSTANCE?has_content>
     .spiDriverModuleIndex = DRV_IPF_SPI_DRIVER_INSTANCE, 

@@ -555,6 +555,22 @@ bool DISK_FillBuffer(uint8_t *ptr)
             return false;
         }
     }
+    /* Tobe added
+    else if(appDataPtr->currentStreamType == APP_STREAM_FLAC ) {
+        appDataPtr->nBytesRead = FLAC_GetBlockSize();
+        if ((appDataPtr->nBytesRead == -1))
+        {
+            bytes_read = 0;
+            SYS_FS_FileClose(appDataPtr->fileHandle);
+            return false;
+        } 
+        else
+        {
+            bytes_read += appDataPtr->nBytesRead; 
+            playerDiskDataSize += appDataPtr->nBytesRead;
+            appDataPtr->nBytesRead = 0;
+        }
+    }*/
     else 
     {
         if((bytes_read <appDataPtr->current_filesize))

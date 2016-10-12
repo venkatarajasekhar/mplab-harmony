@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -98,6 +102,10 @@
         <Path>Source Files/framework/system/int/src</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>sys_clk.h</Name>
         <Path>Header Files/framework/system/clk</Path>
       </File>
@@ -124,6 +132,10 @@
       <File>
         <Name>sys_devcon.h</Name>
         <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
         <Name>system.h</Name>
@@ -165,14 +177,9 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -202,22 +209,22 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2</Path>
-        <Checksum>CFB158818D7B64384CF002A1DD766A0F</Checksum>
+        <Checksum>AF372868ED2CB72C5C0460171D2A68B1</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2</Path>
-        <Checksum>B9AB7F7648E1F2543A20DBEA5BCFB1F2</Checksum>
+        <Checksum>D36E09AC56F72CDA269D9A4353C9595B</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>drv_tmr_static.c</Name>
@@ -256,11 +263,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/examples/peripheral/ic/ic_basic/firmware/src"/>
-        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/examples/peripheral/ic/ic_basic/firmware/src/system_config/pic32mx_usb_sk2"/>
-        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/examples/peripheral/ic/ic_basic/firmware/src/pic32mx_usb_sk2"/>
-        <Include value="D:/git_view/isp_trunk/mcu32apps/framework"/>
-        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/examples/peripheral/ic/ic_basic/firmware/src/system_config/pic32mx_usb_sk2/framework"/>
+        <Include value="D:\git_view\isp_trunk\mcu32apps\apps\examples\peripheral\ic\ic_basic\firmware\src"/>
+        <Include value="D:\git_view\isp_trunk\mcu32apps\apps\examples\peripheral\ic\ic_basic\firmware\src\system_config\pic32mx_usb_sk2"/>
+        <Include value="D:\git_view\isp_trunk\mcu32apps\framework"/>
+        <Include value="D:\git_view\isp_trunk\mcu32apps\apps\examples\peripheral\ic\ic_basic\firmware\src\system_config\pic32mx_usb_sk2\framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2/bsp"/>
       </C32>
     </CompilerItems>

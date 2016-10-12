@@ -12,10 +12,7 @@
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
               <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/wifi_g_db/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-                <logicalFolder name="f2" displayName="fs" projectFiles="true">
+                <logicalFolder name="f1" displayName="fs" projectFiles="true">
                   <itemPath>../src/system_config/wifi_g_db/framework/system/fs/nvm_disk_images.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
@@ -183,6 +180,7 @@
         <logicalFolder name="f3" displayName="system" projectFiles="true">
           <logicalFolder name="f4" displayName="clk" projectFiles="true">
             <itemPath>../../../../../framework/system/clk/sys_clk.h</itemPath>
+            <itemPath>../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
             <itemPath>../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f5" displayName="common" projectFiles="true">
@@ -274,6 +272,8 @@
               <itemPath>../../../../../framework/tcpip/src/crypto/aes_ecb_pic32.h</itemPath>
               <itemPath>../../../../../framework/tcpip/src/crypto/aes_ofb.h</itemPath>
             </logicalFolder>
+            <itemPath>../../../../../framework/tcpip/src/ipv4_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/ipv4_private.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/ndp_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/ndp_private.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/ipv6_manager.h</itemPath>
@@ -305,6 +305,8 @@
             <itemPath>../../../../../framework/tcpip/src/nbns_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/tcpip_reboot_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/smtp_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/smtpc_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/smtpc_private.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/snmp_private.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/snmp_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/snmpv3_private.h</itemPath>
@@ -318,6 +320,8 @@
             <itemPath>../../../../../framework/tcpip/src/tcpip_commands_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/tftpc_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/tftpc_private.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/igmp_private.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/igmp_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/hash_fnv.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/link_list.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/oahash.h</itemPath>
@@ -334,9 +338,8 @@
             <itemPath>../../../../../framework/tcpip/src/lldp_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/lldp_private.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/lldp_tlv.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/ipv4_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/ipv4_private.h</itemPath>
           </logicalFolder>
+          <itemPath>../../../../../framework/tcpip/ipv4.h</itemPath>
           <itemPath>../../../../../framework/tcpip/ndp.h</itemPath>
           <itemPath>../../../../../framework/tcpip/ipv6.h</itemPath>
           <itemPath>../../../../../framework/tcpip/icmpv6.h</itemPath>
@@ -357,6 +360,7 @@
           <itemPath>../../../../../framework/tcpip/icmp.h</itemPath>
           <itemPath>../../../../../framework/tcpip/nbns.h</itemPath>
           <itemPath>../../../../../framework/tcpip/smtp.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/smtpc.h</itemPath>
           <itemPath>../../../../../framework/tcpip/snmp.h</itemPath>
           <itemPath>../../../../../framework/tcpip/snmpv3.h</itemPath>
           <itemPath>../../../../../framework/tcpip/sntp.h</itemPath>
@@ -366,6 +370,7 @@
           <itemPath>../../../../../framework/tcpip/iperf.h</itemPath>
           <itemPath>../../../../../framework/tcpip/tcpip_commands.h</itemPath>
           <itemPath>../../../../../framework/tcpip/tftpc.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/igmp.h</itemPath>
           <itemPath>../../../../../framework/tcpip/tcpip_helpers.h</itemPath>
           <itemPath>../../../../../framework/tcpip/tcpip_manager.h</itemPath>
           <itemPath>../../../../../framework/tcpip/tcpip.h</itemPath>
@@ -374,7 +379,6 @@
           <itemPath>../../../../../framework/tcpip/tcpip_announce.h</itemPath>
           <itemPath>../../../../../framework/tcpip/tcpip_reboot.h</itemPath>
           <itemPath>../../../../../framework/tcpip/tcpip_common_ports.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/ipv4.h</itemPath>
           <itemPath>../../../../../framework/tcpip/tcpip_mac.h</itemPath>
           <itemPath>../../../../../framework/tcpip/tcpip_mac_object.h</itemPath>
           <itemPath>../../../../../framework/tcpip/tcpip_ethernet.h</itemPath>
@@ -571,6 +575,7 @@
               <itemPath>../../../../../framework/tcpip/src/common/sys_fs_wrapper.c</itemPath>
               <itemPath>../../../../../framework/tcpip/src/common/helpers.c</itemPath>
             </logicalFolder>
+            <itemPath>../../../../../framework/tcpip/src/ipv4.c</itemPath>
             <itemPath>../../../../../framework/tcpip/src/tcp.c</itemPath>
             <itemPath>../../../../../framework/tcpip/src/udp.c</itemPath>
             <itemPath>../../../../../framework/tcpip/src/tcpip_heap_alloc.c</itemPath>
@@ -593,7 +598,6 @@
             <itemPath>../../../../../framework/tcpip/src/tcpip_manager.c</itemPath>
             <itemPath>../../../../../framework/tcpip/src/tcpip_notify.c</itemPath>
             <itemPath>../../../../../framework/tcpip/src/tcpip_packet.c</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/ipv4.c</itemPath>
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>

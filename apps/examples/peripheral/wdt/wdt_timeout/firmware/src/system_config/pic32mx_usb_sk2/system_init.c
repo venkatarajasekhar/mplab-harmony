@@ -179,14 +179,10 @@ void SYS_Initialize ( void* data )
 /* Enable Global Interrupts */
     SYS_INT_Enable();
 
-/* Enable CN15 which is on Switch 1 */
-    PLIB_PORTS_PinChangeNoticeEnable(PORTS_ID_0, CN15);
     /* Initialize the Application */
     APP_Initialize();
-
-    PLIB_WDT_Enable(WDT_ID_0);
-
 }
+
 
 /*******************************************************************************
  End of File

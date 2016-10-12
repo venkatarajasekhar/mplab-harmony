@@ -57,7 +57,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include <stdbool.h>
 #include "peripheral/ports/plib_ports.h"
 
-
 // *****************************************************************************
 /* BSP Switch.
 
@@ -94,10 +93,10 @@ typedef enum
 typedef enum
 {
     /* Switch pressed */
-    BSP_SWITCH_STATE_PRESSED =/*DOM-IGNORE-BEGIN*/ 0/*DOM-IGNORE-END*/,
+    BSP_SWITCH_STATE_PRESSED =/*DOM-IGNORE-BEGIN*/ 1/*DOM-IGNORE-END*/,
 
    /* Switch not pressed */
-    BSP_SWITCH_STATE_RELEASED =/*DOM-IGNORE-BEGIN*/ 1/*DOM-IGNORE-END*/
+    BSP_SWITCH_STATE_RELEASED =/*DOM-IGNORE-BEGIN*/ 0/*DOM-IGNORE-END*/
 
 } BSP_SWITCH_STATE;
 
@@ -186,7 +185,28 @@ typedef enum
 
 } BSP_LED_STATE;
 
+// *****************************************************************************
+/* LED Active Level
 
+  Summary:
+    Enumerates the supported LED active level.
+
+  Description:
+    This enumeration defines the supported LED sactive levels.
+
+  Remarks:
+    None.
+*/
+
+typedef enum
+{
+    /* LED active level is low */
+    BSP_LED_ACTIVE_LOW = /*DOM-IGNORE-BEGIN*/0/*DOM-IGNORE-END*/,
+
+    /* LED active level is high */
+    BSP_LED_ACTIVE_HIGH = /*DOM-IGNORE-BEGIN*/1/*DOM-IGNORE-END*/
+
+} BSP_LED_ACTIVE_LEVEL;
 // *****************************************************************************
 /* Function: 
     void BSP_LEDStateSet(BSP_LED led, BSP_LED_STATE state);

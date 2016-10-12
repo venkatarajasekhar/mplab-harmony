@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -86,7 +82,12 @@ extern "C" {
 #define SYS_CLK_UPLL_BEFORE_DIV2_FREQ       7999992ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         8000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       0ul
-   
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
@@ -122,6 +123,12 @@ extern "C" {
 #define SYS_PORT_G_LAT          0x0000
 #define SYS_PORT_G_ODC          0x0000
 
+// *****************************************************************************
+/* Random System Service Configuration Options
+*/
+
+#define SYS_RANDOM_CRYPTO_SEED_SIZE  32
+
 /*** Timer System Service Configuration ***/
 #define SYS_TMR_POWER_STATE             SYS_MODULE_POWER_RUN_FULL
 #define SYS_TMR_DRIVER_INDEX            DRV_TMR_INDEX_0
@@ -131,13 +138,6 @@ extern "C" {
 #define SYS_TMR_UNIT_RESOLUTION         10000
 #define SYS_TMR_CLIENT_TOLERANCE        10
 #define SYS_TMR_INTERRUPT_NOTIFICATION  false
-
-// *****************************************************************************
-/* Random System Service Configuration Options
-*/
-
-#define SYS_RANDOM_CRYPTO_SEED_SIZE  32
-
 
 // *****************************************************************************
 // *****************************************************************************
@@ -194,6 +194,7 @@ extern "C" {
 #define USE_QUAD_WORD_WRITE 0
 
 
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: TCPIP Stack Configuration
@@ -242,6 +243,7 @@ extern "C" {
 #define TCPIP_ARP_CACHE_ENTRY_RETRIES		    		3
 #define TCPIP_ARP_GRATUITOUS_PROBE_COUNT			1
 #define TCPIP_ARP_TASK_PROCESS_RATE		        	2
+
 
 
 
@@ -321,7 +323,6 @@ extern "C" {
 
 #define TCPIP_UDP_USE_RX_CHECKSUM             			true
 
-
 /*** Network Configuration Index 0 ***/
 #define TCPIP_NETWORK_DEFAULT_INTERFACE_NAME 			"PIC32INT"
 #define TCPIP_IF_PIC32INT
@@ -343,6 +344,7 @@ extern "C" {
 #define TCPIP_NETWORK_DEFAULT_IPV6_GATEWAY 		    0
 
 
+/*** IPv4 Configuration ***/
 
 // *****************************************************************************
 /* BSP Configuration Options

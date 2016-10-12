@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name=""/>
@@ -46,6 +50,10 @@
         <Path>Header Files/framework/driver</Path>
       </File>
       <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
         <Name>sys_common.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -56,6 +64,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -88,6 +100,10 @@
       <File>
         <Name>sys_devcon.h</Name>
         <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
         <Name>system.h</Name>
@@ -126,17 +142,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_16b/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_16b/bsp</Path>
         <Checksum>F740DA09253C01A3D03B3FD6565F5267</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_16b/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -194,20 +205,19 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_16b</Path>
-        <Checksum>C6633453DF052F834E0E9F2126B72AA3</Checksum>
+        <Checksum>46BAA6CADE9A7C2659DD0BDE6693FE60</Checksum>
         <ProjectFileChecksum>21368732615BF091842F344B77B0B9C5</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_16b</Path>
-        <Checksum>8DC02B3AC60D415682554CC6B81D1636</Checksum>
+        <Checksum>4834ECAE7FE868BA02C538746C73CA8B</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
         <Include value="E:/harmony/core/apps/examples/peripheral/tmr/timer3_interrupt/firmware/src"/>
         <Include value="E:/harmony/core/apps/examples/peripheral/tmr/timer3_interrupt/firmware/src/system_config/pic32mz_ef_sk_16b"/>
-        <Include value="E:/harmony/core/apps/examples/peripheral/tmr/timer3_interrupt/firmware/src/pic32mz_ef_sk_16b"/>
         <Include value="E:/harmony/core/framework"/>
         <Include value="E:/harmony/core/apps/examples/peripheral/tmr/timer3_interrupt/firmware/src/system_config/pic32mz_ef_sk_16b/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_16b/bsp"/>

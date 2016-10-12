@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -76,6 +80,10 @@
       <File>
         <Name>sys_fs.h</Name>
         <Path>Header Files/framework/system/fs</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>drv_spi.h</Name>
@@ -278,6 +286,10 @@
         <Path>Header Files/framework/driver/sdcard</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -370,7 +382,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos</Path>
-        <Checksum>725E0D563E586FCED0984929512800A5</Checksum>
+        <Checksum>3912A18E20AF073E11326F1E8792C943</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -389,17 +401,17 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos/framework/driver/spi/dynamic</Path>
-        <Checksum>0468A6AC4EF824897AA5C22F6EAFBB43</Checksum>
+        <Checksum>B8D534FC99E9DAC9CE3CE2AFE17C3907</Checksum>
       </Template>
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos</Path>
-        <Checksum>DF792E71CFB271F8B99F9031D48E3AF6</Checksum>
+        <Checksum>A549A890FA688A5AF37BA5C45F64B0CB</Checksum>
       </Template>
       <Template>
         <Name>nvm_disk_images.h</Name>
@@ -409,16 +421,11 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos/bsp</Path>
-        <Checksum>D0BABDD8CC269B7DE3BA98239B5ECC8D</Checksum>
+        <Checksum>EE96DD12865E6C7F0453E07B26BCF042</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -428,7 +435,7 @@
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos/framework/driver/spi/dynamic</Path>
-        <Checksum>6803BAA6FC8105DD3200F5BF3A8E7577</Checksum>
+        <Checksum>14808E10D15B0CCA85788FD513377478</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_master_ebm_tasks.c</Name>
@@ -438,12 +445,12 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos/bsp</Path>
-        <Checksum>999832C5BD5B6EC600BB84C682241D0C</Checksum>
+        <Checksum>7567B3DF8AD82B4BA40BB70A80E7AC51</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos</Path>
-        <Checksum>FC491C302C563EAF479B08EBFF36C2B8</Checksum>
+        <Checksum>F8EDD6356914F676FC2ECF182C8047EB</Checksum>
         <ProjectFileChecksum>A162C507D4A390E3294EA023EA416AF7</ProjectFileChecksum>
       </Template>
       <Template>
@@ -478,11 +485,10 @@
         <Include value="../src/system_config/pic32mx795_pim_e16_int_dyn_freertos"/>
       </C32-AS>
       <C32>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_mpfs_multi_disk\firmware\src"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_mpfs_multi_disk\firmware\src\system_config\pic32mx795_pim_e16_int_dyn_freertos"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_mpfs_multi_disk\firmware\src\pic32mx795_pim_e16_int_dyn_freertos"/>
-        <Include value="D:\trunk_sbx\framework"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_mpfs_multi_disk\firmware\src\system_config\pic32mx795_pim_e16_int_dyn_freertos\framework"/>
+        <Include value="D:/trunk_sbx/apps/fs/nvm_sdcard_fat_mpfs_multi_disk/firmware/src"/>
+        <Include value="D:/trunk_sbx/apps/fs/nvm_sdcard_fat_mpfs_multi_disk/firmware/src/system_config/pic32mx795_pim_e16_int_dyn_freertos"/>
+        <Include value="D:/trunk_sbx/framework"/>
+        <Include value="D:/trunk_sbx/apps/fs/nvm_sdcard_fat_mpfs_multi_disk/firmware/src/system_config/pic32mx795_pim_e16_int_dyn_freertos/framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16_int_dyn_freertos/bsp"/>
         <Include value="../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX"/>
         <Include value="../../../../../third_party/rtos/FreeRTOS/Source/include"/>

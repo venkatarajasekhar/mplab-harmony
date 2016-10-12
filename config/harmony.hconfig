@@ -1,10 +1,10 @@
 config MPLAB_HARMONY_VERSION_STRING
     string 
-    default "2.00"
+    default "2.01"
 
 config MPLAB_HARMONY_VERSION_NUMBER
     int
-    default 20000
+    default 20100
 
 source "$HARMONY_VERSION_PATH/framework/config/framework.hconfig"
 source "$HARMONY_VERSION_PATH/bsp/config/bsp.hconfig"

@@ -15,29 +15,15 @@
         </logicalFolder>
         <logicalFolder name="f1" displayName="system_config" projectFiles="true">
           <logicalFolder name="f1" displayName="pic32mx_usb_skII" projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mx_usb_skII/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx_usb_skII/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mx_usb_skII/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_skII/system_definitions.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="pic32mz_ef_sk" projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_ef_sk/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mz_ef_sk/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk/system_definitions.h</itemPath>
@@ -93,6 +79,7 @@
           <logicalFolder name="f6" displayName="clk" projectFiles="true">
             <itemPath>../../../../../../framework/system/clk/sys_clk.h</itemPath>
             <itemPath>../../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
+            <itemPath>../../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="common" projectFiles="true">
             <itemPath>../../../../../../framework/system/common/sys_common.h</itemPath>
@@ -520,6 +507,8 @@
     <Elem>..\src\system_config\pic32mx_usb_skII</Elem>
     <Elem>..\src\pic32mz_ef_sk</Elem>
     <Elem>..\src\system_config\pic32mz_ef_sk</Elem>
+    <Elem>../src/pic32mx_usb_skII</Elem>
+    <Elem>../src/pic32mz_ef_sk</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -532,7 +521,7 @@
         <platformTool>SKDEPIC32PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>1.42</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>2</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
@@ -685,10 +674,6 @@
             ex="true"
             overriding="false">
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -734,7 +719,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../../../../../../framework;../src/system_config/pic32mx_usb_skII;../src/system_config/pic32mx_usb_skII/framework;../src/system_config/pic32mx_usb_skII/bsp;../../../../../../third_party/rtos/ThreadX;../src/rtos_config/pic32mx_usb_skII"/>
+                  value="../src;../src/system_config/pic32mx_usb_skII;../../../../../../framework;../src/system_config/pic32mx_usb_skII/framework;../src/system_config/pic32mx_usb_skII/bsp;../../../../../../third_party/rtos/ThreadX;../src/rtos_config/pic32mx_usb_skII"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -848,6 +833,31 @@
         <property key="save-temps" value="false"/>
         <property key="wpo-lto" value="false"/>
       </C32Global>
+      <PKOBSKDEPlatformTool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
+        <property key="ToolFirmwareFilePath"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.end" value="0x1d07ffff"/>
+        <property key="memories.programmemory.start" value="0x1d000000"/>
+        <property key="memories.userotp" value="true"/>
+        <property key="programoptions.donoteraseauxmem" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.preserveprogramrange.end" value="0x1d0001ff"/>
+        <property key="programoptions.preserveprogramrange.start" value="0x1d000000"/>
+        <property key="programoptions.usehighvoltageonmclr" value="false"/>
+        <property key="programoptions.uselvpprogramming" value="true"/>
+      </PKOBSKDEPlatformTool>
       <RealICEPlatformTool>
         <property key="ADC 1" value="true"/>
         <property key="AutoSelectMemRanges" value="auto"/>
@@ -958,7 +968,7 @@
         <platformTool>PKOBSKDEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>1.42</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>2</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
@@ -1719,22 +1729,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_skII/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_skII/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -1896,7 +1890,7 @@
           <property key="generate-micro-compressed-code" value="false"/>
           <property key="isolate-each-function" value="true"/>
           <property key="make-warnings-into-errors" value="false"/>
-          <property key="optimization-level" value=""/>
+          <property key="optimization-level" value="-O1"/>
           <property key="place-data-into-section" value="false"/>
           <property key="post-instruction-scheduling" value="default"/>
           <property key="pre-instruction-scheduling" value="default"/>
@@ -2020,7 +2014,7 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
         <property key="make-warnings-into-errors" value="true"/>
-        <property key="optimization-level" value=""/>
+        <property key="optimization-level" value="-O1"/>
         <property key="place-data-into-section" value="false"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
@@ -2135,6 +2129,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.dataflash" value="true"/>
         <property key="memories.eeprom" value="true"/>

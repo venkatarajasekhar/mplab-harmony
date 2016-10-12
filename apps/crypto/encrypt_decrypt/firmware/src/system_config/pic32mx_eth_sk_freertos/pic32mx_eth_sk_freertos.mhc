@@ -1777,7 +1777,7 @@ CONFIG_BSP_CUSTOM_PD6=""
 # from $HARMONY_VERSION_PATH\third_party\rtos\config\rtos.hconfig
 #
 CONFIG_USE_3RDPARTY_RTOS=y
-CONFIG_3RDPARTY_RTOS_USED="FreeRTOS_V8.x.x"
+CONFIG_3RDPARTY_RTOS_USED="FreeRTOS"
 #
 # from $HARMONY_VERSION_PATH\third_party\rtos\FreeRTOS\config\freertos_menu.hconfig
 #

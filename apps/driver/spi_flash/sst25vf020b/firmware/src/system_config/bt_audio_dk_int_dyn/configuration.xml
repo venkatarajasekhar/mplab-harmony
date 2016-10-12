@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX450F256L"/>
@@ -62,6 +66,10 @@
         <Path>Header Files/framework/driver/spi</Path>
       </File>
       <File>
+        <Name>drv_spi_sys_queue_local_fifo.h</Name>
+        <Path>Header Files/framework/driver/spi/src</Path>
+      </File>
+      <File>
         <Name>driver.h</Name>
         <Path>Header Files/framework/driver</Path>
       </File>
@@ -78,8 +86,16 @@
         <Path>Source Files/framework/system/int/src</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>sys_clk.h</Name>
         <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>drv_spi_sys_queue.h</Name>
+        <Path>Header Files/framework/driver/spi/src</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
@@ -96,6 +112,10 @@
       <File>
         <Name>osal_definitions.h</Name>
         <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>drv_spi_internal.h</Name>
+        <Path>Header Files/framework/driver/spi/src/dynamic</Path>
       </File>
       <File>
         <Name>sys_int_private.h</Name>
@@ -150,7 +170,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_int_dyn</Path>
-        <Checksum>A7206A4A807D45CE2CCBB33A54F6382B</Checksum>
+        <Checksum>D19E2220E811DEF95DDBF85E1CF76EFD</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -164,17 +184,17 @@
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_int_dyn/framework/driver/spi/dynamic</Path>
-        <Checksum>354955B5C8DDBAA5849E020D8B9F1EE1</Checksum>
+        <Checksum>8A5AF07CAB8C7806CB5F8702712C8FCA</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_int_dyn</Path>
-        <Checksum>8AD1D9775FBC5A1093A65EC9D5989BC0</Checksum>
+        <Checksum>137E47AEB9E342DB11384D036AF48C0D</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_int_dyn/framework/system/clk/src</Path>
-        <Checksum>A0AE6A7C71AF906122FDC5BCFF27499B</Checksum>
+        <Checksum>8C1B5936A765E47ED1273EF0D134FEA2</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -201,19 +221,14 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/bt_audio_dk_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_int_dyn/framework/driver/spi/dynamic</Path>
-        <Checksum>112C481490743844C144BA29F65BAF71</Checksum>
+        <Checksum>5887159D93DA876AA60E5A45B1653D1E</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_int_dyn</Path>
-        <Checksum>53CE9AD2F8E8D8BCB287AF813AB29642</Checksum>
+        <Checksum>8A1139C5862038A41F3BDACBBFCFEE1B</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -232,11 +247,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="D:\trunk_sbx\apps\driver\spi_flash\sst25vf020b\firmware\src"/>
-        <Include value="D:\trunk_sbx\apps\driver\spi_flash\sst25vf020b\firmware\src\system_config\bt_audio_dk_int_dyn"/>
-        <Include value="D:\trunk_sbx\apps\driver\spi_flash\sst25vf020b\firmware\src\bt_audio_dk_int_dyn"/>
-        <Include value="D:\trunk_sbx\framework"/>
-        <Include value="D:\trunk_sbx\apps\driver\spi_flash\sst25vf020b\firmware\src\system_config\bt_audio_dk_int_dyn\framework"/>
+        <Include value="D:/trunk_sbx/apps/driver/spi_flash/sst25vf020b/firmware/src"/>
+        <Include value="D:/trunk_sbx/apps/driver/spi_flash/sst25vf020b/firmware/src/system_config/bt_audio_dk_int_dyn"/>
+        <Include value="D:/trunk_sbx/framework"/>
+        <Include value="D:/trunk_sbx/apps/driver/spi_flash/sst25vf020b/firmware/src/system_config/bt_audio_dk_int_dyn/framework"/>
         <Include value="../src/system_config/bt_audio_dk_int_dyn/bsp"/>
       </C32>
     </CompilerItems>

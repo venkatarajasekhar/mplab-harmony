@@ -1,22 +1,5 @@
 ifblock DS60001290
 
-config BSP_DS60001290_COMMON
-    depends on USE_BSP
-    set JTAGEN optionally to "OFF"
-    set ICESEL optionally to "ICS_PGx2" if USE_BSP
-    set FNOSC optionally to "PRIPLL" if USE_BSP
-    set FNOSC optionally to "FRCPLL" if !USE_BSP
-    set POSCMOD optionally to "OFF" if !USE_BSP
-    set FPLLIDIV optionally to "DIV_2" if !USE_BSP
-    set FPLLODIV optionally to "DIV_2"
-    set UPLLIDIV optionally to "DIV_2" if !USE_BSP
-    set FSOSCEN optionally to "OFF"
-    set FPBDIV optionally to "DIV_1"
-    set FWDTEN optionally to "OFF"
-    set UPLLEN optionally to "ON" if USE_BSP
-    bool
-    default y if USE_BSP
-
 choice
     prompt "Select BSP To Use For $DEVICE Device"
     depends on USE_BSP
@@ -103,6 +86,22 @@ source "$HARMONY_VERSION_PATH/bsp/pic32mx_125_sk+lcc_pictail+qvga/config/bsp.hco
 source "$HARMONY_VERSION_PATH/bsp/pic32mx_125_sk+meb/config/bsp.hconfig"
 source "$HARMONY_VERSION_PATH/bsp/pic32mx270f512l_pim+bt_audio_dk/config/bsp.hconfig"
 source "$HARMONY_VERSION_PATH/bsp/pic32mx270f512l_pim+bt_audio_dk_ak4642/config/bsp.hconfig"
+
+config BSP_DS60001290_COMMON
+    set JTAGEN optionally to "OFF"
+    set ICESEL optionally to "ICS_PGx2" if USE_BSP
+    set FNOSC optionally to "PRIPLL" if USE_BSP
+    set FNOSC optionally to "FRCPLL" if !USE_BSP
+    set POSCMOD optionally to "OFF" if !USE_BSP
+    set FPLLIDIV optionally to "DIV_2" if !USE_BSP
+    set FPLLODIV optionally to "DIV_2"
+    set UPLLIDIV optionally to "DIV_2" if !USE_BSP
+    set FSOSCEN optionally to "OFF"
+    set FPBDIV optionally to "DIV_1"
+    set FWDTEN optionally to "OFF"
+    set UPLLEN optionally to "ON" if USE_BSP
+    bool
+    default y if USE_BSP
 
 endif
 

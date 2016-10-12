@@ -159,6 +159,51 @@ void emWin_GuiScreenChange( int32_t screenId )
     return;
 }
 
+/*******************************************************************************
+  Function:
+    WM_HWIN emWin_GuiScreenGet( int32_t screenId )
+
+  Remarks:
+    See prototype in emwin_gui_static.h.
+ */
+
+WM_HWIN emWin_GuiScreenGet( int32_t screenId )
+{
+    if( screenId >= EMWIN_GUI_NUM_SCREENS )
+    {
+        return 0;
+    }
+
+    return ( emWinGuiData.hScreen[screenId] );
+}
+
+/*******************************************************************************
+  Function:
+    void emWin_GuiScreenEnd ( int32_t screenId )
+
+  Remarks:
+    See prototype in emwin_gui_static.h.
+ */
+
+void emWin_GuiScreenEnd( int32_t screenId )
+{
+    if( screenId >= EMWIN_GUI_NUM_SCREENS )
+    {
+        return;
+    }
+
+    if( 0 != emWinGuiData.hScreen[screenId] )
+    {
+
+        GUI_EndDialog( emWinGuiData.hScreen[screenId], 0 );
+        emWinGuiData.hScreen[screenId] = 0;
+
+    }
+
+    return;
+}
+
+
 /*********************************************************************
 *
 *       emWinTasks

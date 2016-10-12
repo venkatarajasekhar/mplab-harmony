@@ -22,11 +22,6 @@
                   <itemPath>../src/system_config/pic32mx795_pim_e16/framework/driver/cmp/drv_cmp_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx795_pim_e16/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mx795_pim_e16/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mx795_pim_e16/system_definitions.h</itemPath>
@@ -41,11 +36,6 @@
               <logicalFolder name="f1" displayName="driver" projectFiles="true">
                 <logicalFolder name="f1" displayName="cmp" projectFiles="true">
                   <itemPath>../src/system_config/pic32mx795_pim_e16_freertos/framework/driver/cmp/drv_cmp_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx795_pim_e16_freertos/framework/system/clk/sys_clk_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
             </logicalFolder>
@@ -74,6 +64,7 @@
           <logicalFolder name="f4" displayName="clk" projectFiles="true">
             <itemPath>../../../../../../../framework/system/clk/sys_clk.h</itemPath>
             <itemPath>../../../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
+            <itemPath>../../../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="common" projectFiles="true">
             <itemPath>../../../../../../../framework/system/common/sys_common.h</itemPath>
@@ -125,6 +116,7 @@
         <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/deprecated_definitions.h</itemPath>
         <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/task.h</itemPath>
         <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/timers.h</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_prototypes.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -342,6 +334,10 @@
             ex="true"
             overriding="false">
       </item>
+      <item path="../../../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_prototypes.h"
+            ex="true"
+            overriding="false">
+      </item>
       <item path="../../../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_wrappers.h"
             ex="true"
             overriding="false">
@@ -430,10 +426,6 @@
             ex="true"
             overriding="false">
       </item>
-      <item path="../src/system_config/pic32mx795_pim_e16_freertos/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-      </item>
       <item path="../src/system_config/pic32mx795_pim_e16_freertos/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -478,7 +470,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src/system_config;../../../../../../../framework/system/devcon;../../../../../../../framework/system/int;../../../../../../../framework/driver;../../../../../../../framework/system;../../../../../../../framework/system/common;../src;../src/system_config/pic32mx795_pim_e16;../src/pic32mx795_pim_e16;../../../../../../../framework;../src/system_config/pic32mx795_pim_e16/framework;../src/system_config/pic32mx795_pim_e16/bsp"/>
+                  value="../src/system_config;../../../../../../../framework/system/devcon;../../../../../../../framework/system/int;../../../../../../../framework/driver;../../../../../../../framework/system;../../../../../../../framework/system/common;../src;../src/system_config/pic32mx795_pim_e16;../../../../../../../framework;../src/system_config/pic32mx795_pim_e16/framework;../src/system_config/pic32mx795_pim_e16/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -946,10 +938,6 @@
             ex="true"
             overriding="false">
       </item>
-      <item path="../src/system_config/pic32mx795_pim_e16/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-      </item>
       <item path="../src/system_config/pic32mx795_pim_e16/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -986,7 +974,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src/system_config;../../../../../../../framework/system/devcon;../../../../../../../framework/system/int;../../../../../../../framework/driver;../../../../../../../framework/system;../../../../../../../framework/system/common;../src/system_config/pic32mx795_pim_e16/framework;../src/pic32mx795_pim_e16;../src;../src/pic32mx795_pim_e16_freertos;../../../../../../../framework;../src/system_config/pic32mx795_pim_e16_freertos/framework;../src/system_config/pic32mx795_pim_e16_freertos;../src/system_config/pic32mx795_pim_e16_freertos/bsp;../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX;../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>
+                  value="../src/system_config;../../../../../../../framework/system/devcon;../../../../../../../framework/system/int;../../../../../../../framework/driver;../../../../../../../framework/system;../../../../../../../framework/system/common;../src/system_config/pic32mx795_pim_e16/framework;../src/pic32mx795_pim_e16;../src;../src/system_config/pic32mx795_pim_e16_freertos;../../../../../../../framework;../src/system_config/pic32mx795_pim_e16_freertos/framework;../src/system_config/pic32mx795_pim_e16_freertos/bsp;../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX;../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -1010,7 +998,7 @@
         <property key="enable-symbols" value="true"/>
         <property key="exclude-floating-point-library" value="false"/>
         <property key="expand-macros" value="false"/>
-        <property key="extra-include-directories-for-assembler" value=";"/>
+        <property key="extra-include-directories-for-assembler" value=""/>
         <property key="extra-include-directories-for-preprocessor"
                   value="../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX;../../../../../../../third_party/rtos/FreeRTOS/Source/include;../src/system_config/pic32mx795_pim_e16_freertos"/>
         <property key="false-conditionals" value="false"/>

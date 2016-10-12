@@ -16,11 +16,6 @@
                   <itemPath>../src/system_config/bt_audio_dk/framework/driver/pmp/drv_pmp_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/bt_audio_dk/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/bt_audio_dk/gfx_resources_int.h</itemPath>
             <itemPath>../src/system_config/bt_audio_dk/system_config.h</itemPath>
@@ -34,11 +29,17 @@
               <itemPath>../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/sys_clk_static.h</itemPath>
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
                 </logicalFolder>
-                <logicalFolder name="f2" displayName="dma" projectFiles="true">
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
+                <logicalFolder name="f1" displayName="dma" projectFiles="true">
                   <itemPath>../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/dma/sys_dma_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
@@ -55,11 +56,17 @@
               <itemPath>../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/sys_clk_static.h</itemPath>
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
                 </logicalFolder>
-                <logicalFolder name="f2" displayName="dma" projectFiles="true">
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
+                <logicalFolder name="f1" displayName="dma" projectFiles="true">
                   <itemPath>../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/dma/sys_dma_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
@@ -69,7 +76,7 @@
             <itemPath>../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_definitions.h</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f7" displayName="pic32mx_usb_sk2_meb" projectFiles="true">
+          <logicalFolder name="f6" displayName="pic32mx_usb_sk2_meb" projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mx_usb_sk2_meb/bsp/bsp.h</itemPath>
             </logicalFolder>
@@ -80,10 +87,7 @@
                 </logicalFolder>
               </logicalFolder>
               <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx_usb_sk2_meb/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-                <logicalFolder name="f2" displayName="dma" projectFiles="true">
+                <logicalFolder name="f1" displayName="dma" projectFiles="true">
                   <itemPath>../src/system_config/pic32mx_usb_sk2_meb/framework/system/dma/sys_dma_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
@@ -105,11 +109,6 @@
                   <itemPath>../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/driver/pmp/drv_pmp_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/gfx_resources_int.h</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/system_config.h</itemPath>
@@ -128,27 +127,28 @@
                   <itemPath>../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/driver/pmp/drv_pmp_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/gfx_resources_int.h</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/system_definitions.h</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/gfx_hgc_definitions.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f10" displayName="pic32mz_ef_sk_meb2" projectFiles="true">
+          <logicalFolder name="f7" displayName="pic32mz_ef_sk_meb2" projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_ef_sk_meb2/bsp/bsp.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/sys_clk_static.h</itemPath>
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
                 </logicalFolder>
-                <logicalFolder name="f2" displayName="dma" projectFiles="true">
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
+                <logicalFolder name="f1" displayName="dma" projectFiles="true">
                   <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/dma/sys_dma_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
@@ -172,7 +172,7 @@
             <itemPath>../src/system_config/pic32mz_ef_sk_meb2_wvga/system_definitions.h</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk_meb2_wvga/gfx_hgc_definitions.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f11"
+          <logicalFolder name="f8"
                          displayName="pic32mz_ef_sk_s1d_pictail_wqvga"
                          projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
@@ -182,11 +182,6 @@
               <logicalFolder name="f1" displayName="driver" projectFiles="true">
                 <logicalFolder name="f1" displayName="pmp" projectFiles="true">
                   <itemPath>../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/driver/pmp/drv_pmp_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
             </logicalFolder>
@@ -212,9 +207,6 @@
               </logicalFolder>
               <logicalFolder name="f6" displayName="glcd" projectFiles="true">
                 <itemPath>../../../../../framework/driver/gfx/controller/glcd/drv_gfx_glcd.h</itemPath>
-              </logicalFolder>
-              <logicalFolder name="f5" displayName="lcc" projectFiles="true">
-                <itemPath>../../../../../framework/driver/gfx/controller/lcc/drv_gfx_lcc.h</itemPath>
               </logicalFolder>
               <logicalFolder name="f4" displayName="otm2201a" projectFiles="true">
                 <itemPath>../../../../../framework/driver/gfx/controller/otm2201a/drv_gfx_otm2201a.h</itemPath>
@@ -289,6 +281,7 @@
           <logicalFolder name="f7" displayName="clk" projectFiles="true">
             <itemPath>../../../../../framework/system/clk/sys_clk.h</itemPath>
             <itemPath>../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
+            <itemPath>../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="common" projectFiles="true">
             <itemPath>../../../../../framework/system/common/sys_common.h</itemPath>
@@ -404,7 +397,16 @@
               <itemPath>../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
+                </logicalFolder>
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
                 <logicalFolder name="f1" displayName="clk" projectFiles="true">
                   <logicalFolder name="f1" displayName="src" projectFiles="true">
                     <itemPath>../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/src/sys_clk_static.c</itemPath>
@@ -432,7 +434,16 @@
               <itemPath>../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
+                </logicalFolder>
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
                 <logicalFolder name="f1" displayName="clk" projectFiles="true">
                   <logicalFolder name="f1" displayName="src" projectFiles="true">
                     <itemPath>../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/src/sys_clk_static.c</itemPath>
@@ -453,7 +464,7 @@
             <itemPath>../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_tasks.c</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f7" displayName="pic32mx_usb_sk2_meb" projectFiles="true">
+          <logicalFolder name="f6" displayName="pic32mx_usb_sk2_meb" projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mx_usb_sk2_meb/bsp/bsp.c</itemPath>
             </logicalFolder>
@@ -556,12 +567,21 @@
             <itemPath>../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/system_tasks.c</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/gfx_hgc_definitions.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f10" displayName="pic32mz_ef_sk_meb2" projectFiles="true">
+          <logicalFolder name="f7" displayName="pic32mz_ef_sk_meb2" projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_ef_sk_meb2/bsp/bsp.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
+                </logicalFolder>
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
                 <logicalFolder name="f1" displayName="clk" projectFiles="true">
                   <logicalFolder name="f1" displayName="src" projectFiles="true">
                     <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c</itemPath>
@@ -605,7 +625,7 @@
             <itemPath>../src/system_config/pic32mz_ef_sk_meb2_wvga/system_tasks.c</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk_meb2_wvga/gfx_hgc_definitions.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f11"
+          <logicalFolder name="f8"
                          displayName="pic32mz_ef_sk_s1d_pictail_wqvga"
                          projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
@@ -672,9 +692,7 @@
               <logicalFolder name="f1" displayName="lcc" projectFiles="true">
                 <logicalFolder name="f1" displayName="src" projectFiles="true">
                   <itemPath>../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext_wvga.c</itemPath>
-                  <itemPath>../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext.c</itemPath>
                   <itemPath>../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int.c</itemPath>
-                  <itemPath>../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c</itemPath>
                 </logicalFolder>
               </logicalFolder>
               <logicalFolder name="f4" displayName="otm2201a" projectFiles="true">
@@ -874,7 +892,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>SKDEPIC32PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>1.40</languageToolchainVersion>
+        <languageToolchainVersion>1.42</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -964,38 +982,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/drv_gfx_lcc.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext_wvga.c"
             ex="true"
             overriding="false">
@@ -1013,22 +999,6 @@
         </C32Global>
       </item>
       <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c"
             ex="true"
             overriding="false">
         <C32>
@@ -1924,22 +1894,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/bt_audio_dk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/bt_audio_dk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -2135,546 +2089,146 @@
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/dma/sys_dma_static.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_hgc_definitions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_hgc_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int.S"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int_reference.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_config.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_exceptions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_init.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_interrupt.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_tasks.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/dma/sys_dma_static.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int.S"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int_reference.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_config.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_exceptions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_init.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_interrupt.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_tasks.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_meb/bsp/bsp.c"
             ex="true"
@@ -2741,22 +2295,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_meb/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_meb/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -3060,22 +2598,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -3300,7 +2822,7 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c"
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
             ex="true"
             overriding="false">
         <C32>
@@ -3316,7 +2838,23 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/sys_clk_static.h"
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
         <C32>
@@ -3796,22 +3334,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -4006,14 +3528,13 @@
       </item>
       <C32>
         <property key="additional-warnings" value="true"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src/system_config/pic32mxusbsk2_ssd_qvga;../../../../../framework/system/common;../../../../../framework/system/devcon;../../../../../framework/system;../../../../../framework/driver/gfx/gfx_ssd1926;../../../../../framework/driver/pmp;../../../../../framework/driver;../../../../../framework/system/int;../../../../../framework/driver/gfx/gfx_lcc;../../../../../framework/gfx;../../../../../framework/driver/gfx/controller/ssd1926;../src/system_config/pic32mxusbsk2_ssd_qvga/framework;../src;../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga;../src/pic32mx_usb_sk2_ssd_pictail_qvga;../../../../../framework;../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework;../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/bsp"/>
+                  value="../src/system_config/pic32mxusbsk2_ssd_qvga;../../../../../framework/system/common;../../../../../framework/system/devcon;../../../../../framework/system;../../../../../framework/driver/gfx/gfx_ssd1926;../../../../../framework/driver/pmp;../../../../../framework/driver;../../../../../framework/system/int;../../../../../framework/driver/gfx/gfx_lcc;../../../../../framework/gfx;../../../../../framework/driver/gfx/controller/ssd1926;../src/system_config/pic32mxusbsk2_ssd_qvga/framework;../src/pic32mx_usb_sk2_ssd_pictail_qvga;../src;../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga;../../../../../framework;../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework;../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -4025,7 +3546,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -4055,9 +3575,6 @@
       </C32-AS>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
-        <property key="allocate-dinit" value="false"/>
-        <property key="code-dinit" value="false"/>
-        <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
         <property key="exclude-floating-point-library" value="false"/>
         <property key="exclude-standard-libraries" value="false"/>
@@ -4074,8 +3591,6 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="heap-size" value="4096"/>
         <property key="input-libraries" value=""/>
-        <property key="kseg-length" value=""/>
-        <property key="kseg-origin" value=""/>
         <property key="linker-symbols" value=""/>
         <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
         <property key="no-startup-files" value="false"/>
@@ -4084,8 +3599,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="remove-unused-sections" value="true"/>
         <property key="report-memory-usage" value="false"/>
-        <property key="serial-length" value=""/>
-        <property key="serial-origin" value=""/>
         <property key="stack-size" value="1024"/>
         <property key="symbol-stripping" value=""/>
         <property key="trace-symbols" value=""/>
@@ -4093,7 +3606,6 @@
       </C32-LD>
       <C32CPP>
         <property key="additional-warnings" value="false"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -4114,7 +3626,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="rtti" value="true"/>
         <property key="strict-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -4321,7 +3832,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>SKDEPIC32PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>1.40</languageToolchainVersion>
+        <languageToolchainVersion>1.42</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -4411,38 +3922,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/drv_gfx_lcc.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext_wvga.c"
             ex="true"
             overriding="false">
@@ -4460,22 +3939,6 @@
         </C32Global>
       </item>
       <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c"
             ex="true"
             overriding="false">
         <C32>
@@ -5467,22 +4930,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/bt_audio_dk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/bt_audio_dk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -5678,546 +5125,146 @@
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/dma/sys_dma_static.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_hgc_definitions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_hgc_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int.S"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int_reference.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_config.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_exceptions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_init.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_interrupt.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_tasks.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/dma/sys_dma_static.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int.S"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int_reference.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_config.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_exceptions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_init.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_interrupt.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_tasks.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_meb/bsp/bsp.c"
             ex="true"
@@ -6284,22 +5331,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_meb/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_meb/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -6603,22 +5634,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -6843,7 +5858,7 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c"
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
             ex="true"
             overriding="false">
         <C32>
@@ -6859,7 +5874,23 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/sys_clk_static.h"
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
         <C32>
@@ -7339,22 +6370,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -7549,7 +6564,6 @@
       </item>
       <C32>
         <property key="additional-warnings" value="true"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
@@ -7568,7 +6582,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -7598,9 +6611,6 @@
       </C32-AS>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
-        <property key="allocate-dinit" value="false"/>
-        <property key="code-dinit" value="false"/>
-        <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
         <property key="exclude-floating-point-library" value="false"/>
         <property key="exclude-standard-libraries" value="false"/>
@@ -7617,8 +6627,6 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="heap-size" value="4096"/>
         <property key="input-libraries" value=""/>
-        <property key="kseg-length" value=""/>
-        <property key="kseg-origin" value=""/>
         <property key="linker-symbols" value=""/>
         <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
         <property key="no-startup-files" value="false"/>
@@ -7627,8 +6635,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="remove-unused-sections" value="true"/>
         <property key="report-memory-usage" value="false"/>
-        <property key="serial-length" value=""/>
-        <property key="serial-origin" value=""/>
         <property key="stack-size" value="16"/>
         <property key="symbol-stripping" value=""/>
         <property key="trace-symbols" value=""/>
@@ -7636,7 +6642,6 @@
       </C32-LD>
       <C32CPP>
         <property key="additional-warnings" value="false"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -7657,7 +6662,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="rtti" value="true"/>
         <property key="strict-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -7903,38 +6907,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/drv_gfx_lcc.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext_wvga.c"
             ex="true"
             overriding="false">
@@ -7952,22 +6924,6 @@
         </C32Global>
       </item>
       <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c"
             ex="true"
             overriding="false">
         <C32>
@@ -9662,546 +8618,146 @@
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/dma/sys_dma_static.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_hgc_definitions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_hgc_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int.S"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int_reference.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_config.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_exceptions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_init.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_interrupt.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_tasks.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/dma/sys_dma_static.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int.S"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int_reference.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_config.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_exceptions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_init.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_interrupt.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_tasks.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_meb/bsp/bsp.c"
             ex="true"
@@ -10268,22 +8824,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_meb/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_meb/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -10587,22 +9127,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -10875,22 +9399,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -11115,7 +9623,7 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c"
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
             ex="true"
             overriding="false">
         <C32>
@@ -11131,7 +9639,23 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/sys_clk_static.h"
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
         <C32>
@@ -11611,22 +10135,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -11821,7 +10329,6 @@
       </item>
       <C32>
         <property key="additional-warnings" value="true"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
@@ -11840,7 +10347,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -11870,9 +10376,6 @@
       </C32-AS>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
-        <property key="allocate-dinit" value="false"/>
-        <property key="code-dinit" value="false"/>
-        <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
         <property key="exclude-floating-point-library" value="false"/>
         <property key="exclude-standard-libraries" value="false"/>
@@ -11889,8 +10392,6 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="heap-size" value="4096"/>
         <property key="input-libraries" value=""/>
-        <property key="kseg-length" value=""/>
-        <property key="kseg-origin" value=""/>
         <property key="linker-symbols" value=""/>
         <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
         <property key="no-startup-files" value="false"/>
@@ -11899,8 +10400,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="remove-unused-sections" value="true"/>
         <property key="report-memory-usage" value="false"/>
-        <property key="serial-length" value=""/>
-        <property key="serial-origin" value=""/>
         <property key="stack-size" value="16"/>
         <property key="symbol-stripping" value=""/>
         <property key="trace-symbols" value=""/>
@@ -11908,7 +10407,6 @@
       </C32-LD>
       <C32CPP>
         <property key="additional-warnings" value="false"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -11929,7 +10427,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="rtti" value="true"/>
         <property key="strict-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -12077,11 +10574,6 @@
         <property key="memories.eeprom" value="true"/>
         <property key="memories.flashdata" value="true"/>
         <property key="memories.id" value="true"/>
-        <property key="memories.instruction.ram" value="true"/>
-        <property key="memories.instruction.ram.end"
-                  value="${memories.instruction.ram.end.value}"/>
-        <property key="memories.instruction.ram.start"
-                  value="${memories.instruction.ram.start.value}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.end" value="0x1d03ffff"/>
         <property key="memories.programmemory.partition2" value="true"/>
@@ -12120,7 +10612,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>SKDEPIC32PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>1.40</languageToolchainVersion>
+        <languageToolchainVersion>1.42</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -12290,22 +10782,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../../../../../framework/driver/gfx/controller/otm2201a/drv_gfx_otm2201a.h"
             ex="true"
             overriding="false">
@@ -12451,7 +10927,7 @@
         </C32Global>
       </item>
       <item path="../../../../../framework/driver/pmp/config/drv_pmp_config.h"
-            ex="false"
+            ex="true"
             overriding="false">
         <C32>
         </C32>
@@ -12467,7 +10943,7 @@
         </C32Global>
       </item>
       <item path="../../../../../framework/driver/pmp/drv_pmp.h"
-            ex="false"
+            ex="true"
             overriding="false">
         <C32>
         </C32>
@@ -12483,7 +10959,7 @@
         </C32Global>
       </item>
       <item path="../../../../../framework/driver/pmp/src/drv_pmp_local.h"
-            ex="false"
+            ex="true"
             overriding="false">
         <C32>
         </C32>
@@ -14094,22 +12570,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/bt_audio_dk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/bt_audio_dk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -14305,274 +12765,74 @@
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/dma/sys_dma_static.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_hgc_definitions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_hgc_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int.S"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int_reference.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_config.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_exceptions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_init.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_interrupt.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_tasks.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_meb/bsp/bsp.c"
             ex="true"
@@ -14639,22 +12899,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_meb/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_meb/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -14958,22 +13202,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -15246,22 +13474,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -15486,7 +13698,7 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c"
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
             ex="true"
             overriding="false">
         <C32>
@@ -15502,7 +13714,23 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/sys_clk_static.h"
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
         <C32>
@@ -15982,22 +14210,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -16192,14 +14404,13 @@
       </item>
       <C32>
         <property key="additional-warnings" value="true"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src/system_config;../../../../../framework/system/common;../../../../../framework/system/devcon;../../../../../framework/system;../../../../../framework/driver/pmp;../../../../../framework/driver;../../../../../framework/system/int;../../../../../framework/driver/gfx/gfx_lcc;../../../../../framework/gfx;../../../../../framework/system/dma;../../../../../framework/driver/gfx/controller/lcc;../src;../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga;../src/pic32mx_usb_sk2_lcc_pictail_wqvga;../../../../../framework;../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework;../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp"/>
+                  value="../src/system_config;../../../../../framework/system/common;../../../../../framework/system/devcon;../../../../../framework/system;../../../../../framework/driver/pmp;../../../../../framework/driver;../../../../../framework/system/int;../../../../../framework/driver/gfx/gfx_lcc;../../../../../framework/gfx;../../../../../framework/system/dma;../../../../../framework/driver/gfx/controller/lcc;../src/pic32mx_usb_sk2_lcc_pictail_wqvga;../src;../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga;../../../../../framework;../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework;../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -16211,7 +14422,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -16241,9 +14451,6 @@
       </C32-AS>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
-        <property key="allocate-dinit" value="false"/>
-        <property key="code-dinit" value="false"/>
-        <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
         <property key="exclude-floating-point-library" value="false"/>
         <property key="exclude-standard-libraries" value="false"/>
@@ -16260,8 +14467,6 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="heap-size" value="4096"/>
         <property key="input-libraries" value=""/>
-        <property key="kseg-length" value=""/>
-        <property key="kseg-origin" value=""/>
         <property key="linker-symbols" value=""/>
         <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
         <property key="no-startup-files" value="false"/>
@@ -16270,8 +14475,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="remove-unused-sections" value="true"/>
         <property key="report-memory-usage" value="false"/>
-        <property key="serial-length" value=""/>
-        <property key="serial-origin" value=""/>
         <property key="stack-size" value="16"/>
         <property key="symbol-stripping" value=""/>
         <property key="trace-symbols" value=""/>
@@ -16279,7 +14482,6 @@
       </C32-LD>
       <C32CPP>
         <property key="additional-warnings" value="false"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -16300,7 +14502,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="rtti" value="true"/>
         <property key="strict-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -16349,7 +14550,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>SKDEPIC32PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>1.40</languageToolchainVersion>
+        <languageToolchainVersion>1.42</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -16407,38 +14608,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/drv_gfx_lcc.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext_wvga.c"
             ex="true"
             overriding="false">
@@ -16456,22 +14625,6 @@
         </C32Global>
       </item>
       <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c"
             ex="true"
             overriding="false">
         <C32>
@@ -17319,22 +15472,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/bt_audio_dk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/bt_audio_dk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -17530,546 +15667,146 @@
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/dma/sys_dma_static.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_hgc_definitions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_hgc_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int.S"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int_reference.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_config.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_exceptions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_init.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_interrupt.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_tasks.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/dma/sys_dma_static.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int.S"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int_reference.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_config.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_exceptions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_init.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_interrupt.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_tasks.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/bsp/bsp.c"
             ex="true"
@@ -18136,22 +15873,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -18439,22 +16160,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -18679,7 +16384,7 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c"
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
             ex="true"
             overriding="false">
         <C32>
@@ -18695,7 +16400,23 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/sys_clk_static.h"
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
         <C32>
@@ -19175,22 +16896,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -19385,14 +17090,13 @@
       </item>
       <C32>
         <property key="additional-warnings" value="true"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src/system_config;../../../../../framework/system/common;../../../../../framework/system/devcon;../../../../../framework/system;../../../../../framework/driver/gfx/gfx_ssd1926;../../../../../framework/driver/pmp;../../../../../framework/driver;../../../../../framework/system/int;../../../../../framework/gfx;../../../../../framework/system/dma;../../../../../framework/driver/gfx/controller/ssd1926;../../../../../framework/driver/cpld/xc2c64a;../src;../src/system_config/pic32mx_usb_sk2_meb;../src/pic32mx_usb_sk2_meb;../../../../../framework;../src/system_config/pic32mx_usb_sk2_meb/framework;../src/system_config/pic32mx_usb_sk2_meb/bsp"/>
+                  value="../src/system_config;../../../../../framework/system/common;../../../../../framework/system/devcon;../../../../../framework/system;../../../../../framework/driver/gfx/gfx_ssd1926;../../../../../framework/driver/pmp;../../../../../framework/driver;../../../../../framework/system/int;../../../../../framework/gfx;../../../../../framework/system/dma;../../../../../framework/driver/gfx/controller/ssd1926;../../../../../framework/driver/cpld/xc2c64a;../src/pic32mx_usb_sk2_meb;../src;../src/system_config/pic32mx_usb_sk2_meb;../../../../../framework;../src/system_config/pic32mx_usb_sk2_meb/framework;../src/system_config/pic32mx_usb_sk2_meb/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -19404,7 +17108,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -19434,9 +17137,6 @@
       </C32-AS>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
-        <property key="allocate-dinit" value="false"/>
-        <property key="code-dinit" value="false"/>
-        <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
         <property key="exclude-floating-point-library" value="false"/>
         <property key="exclude-standard-libraries" value="false"/>
@@ -19453,8 +17153,6 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="heap-size" value="4096"/>
         <property key="input-libraries" value=""/>
-        <property key="kseg-length" value=""/>
-        <property key="kseg-origin" value=""/>
         <property key="linker-symbols" value=""/>
         <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
         <property key="no-startup-files" value="false"/>
@@ -19463,8 +17161,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="remove-unused-sections" value="true"/>
         <property key="report-memory-usage" value="false"/>
-        <property key="serial-length" value=""/>
-        <property key="serial-origin" value=""/>
         <property key="stack-size" value="1024"/>
         <property key="symbol-stripping" value=""/>
         <property key="trace-symbols" value=""/>
@@ -19472,7 +17168,6 @@
       </C32-LD>
       <C32CPP>
         <property key="additional-warnings" value="false"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -19493,7 +17188,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="rtti" value="true"/>
         <property key="strict-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -19787,22 +17481,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../../../../../framework/driver/gfx/controller/otm2201a/drv_gfx_otm2201a.h"
             ex="true"
             overriding="false">
@@ -19948,7 +17626,7 @@
         </C32Global>
       </item>
       <item path="../../../../../framework/driver/pmp/config/drv_pmp_config.h"
-            ex="false"
+            ex="true"
             overriding="false">
         <C32>
         </C32>
@@ -19964,7 +17642,7 @@
         </C32Global>
       </item>
       <item path="../../../../../framework/driver/pmp/drv_pmp.h"
-            ex="false"
+            ex="true"
             overriding="false">
         <C32>
         </C32>
@@ -19980,7 +17658,7 @@
         </C32Global>
       </item>
       <item path="../../../../../framework/driver/pmp/src/drv_pmp_local.h"
-            ex="false"
+            ex="true"
             overriding="false">
         <C32>
         </C32>
@@ -21591,22 +19269,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/bt_audio_dk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/bt_audio_dk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -21802,274 +19464,74 @@
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/dma/sys_dma_static.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int.S"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int_reference.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_config.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_exceptions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_init.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_interrupt.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_tasks.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_meb/bsp/bsp.c"
             ex="true"
@@ -22136,22 +19598,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_meb/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_meb/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -22455,22 +19901,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -22743,22 +20173,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -22983,7 +20397,7 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c"
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
             ex="true"
             overriding="false">
         <C32>
@@ -22999,7 +20413,23 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/sys_clk_static.h"
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
         <C32>
@@ -23479,22 +20909,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -23689,14 +21103,13 @@
       </item>
       <C32>
         <property key="additional-warnings" value="true"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config/pic32mx_125_sk_lcc_pictail_qvga;../src/pic32mx_125_sk_lcc_pictail_qvga;../../../../../framework;../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework;../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp"/>
+                  value="../src/pic32mx_125_sk_lcc_pictail_qvga;../src;../src/system_config/pic32mx_125_sk_lcc_pictail_qvga;../../../../../framework;../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework;../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -23708,7 +21121,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -23738,9 +21150,6 @@
       </C32-AS>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
-        <property key="allocate-dinit" value="false"/>
-        <property key="code-dinit" value="false"/>
-        <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
         <property key="exclude-floating-point-library" value="false"/>
         <property key="exclude-standard-libraries" value="false"/>
@@ -23757,8 +21166,6 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="heap-size" value="4096"/>
         <property key="input-libraries" value=""/>
-        <property key="kseg-length" value=""/>
-        <property key="kseg-origin" value=""/>
         <property key="linker-symbols" value=""/>
         <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
         <property key="no-startup-files" value="false"/>
@@ -23767,8 +21174,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="remove-unused-sections" value="true"/>
         <property key="report-memory-usage" value="false"/>
-        <property key="serial-length" value=""/>
-        <property key="serial-origin" value=""/>
         <property key="stack-size" value=""/>
         <property key="symbol-stripping" value=""/>
         <property key="trace-symbols" value=""/>
@@ -23776,7 +21181,6 @@
       </C32-LD>
       <C32CPP>
         <property key="additional-warnings" value="false"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -23797,7 +21201,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="rtti" value="true"/>
         <property key="strict-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -23967,22 +21370,6 @@
         </C32Global>
       </item>
       <item path="../../../../../framework/driver/gfx/controller/glcd/src/dynamic/drv_gfx_glcd.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext.c"
             ex="true"
             overriding="false">
         <C32>
@@ -24175,7 +21562,7 @@
         </C32Global>
       </item>
       <item path="../../../../../framework/driver/pmp/config/drv_pmp_config.h"
-            ex="false"
+            ex="true"
             overriding="false">
         <C32>
         </C32>
@@ -24191,7 +21578,7 @@
         </C32Global>
       </item>
       <item path="../../../../../framework/driver/pmp/drv_pmp.h"
-            ex="false"
+            ex="true"
             overriding="false">
         <C32>
         </C32>
@@ -24207,7 +21594,7 @@
         </C32Global>
       </item>
       <item path="../../../../../framework/driver/pmp/src/drv_pmp_local.h"
-            ex="false"
+            ex="true"
             overriding="false">
         <C32>
         </C32>
@@ -25770,22 +23157,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/bt_audio_dk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/bt_audio_dk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -25981,546 +23352,146 @@
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/dma/sys_dma_static.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_hgc_definitions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_hgc_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int.S"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int_reference.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_config.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_exceptions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_init.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_interrupt.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_tasks.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/dma/sys_dma_static.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int.S"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int_reference.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_config.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_exceptions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_init.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_interrupt.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_tasks.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_meb/bsp/bsp.c"
             ex="true"
@@ -26587,22 +23558,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_meb/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_meb/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -26906,22 +23861,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -27179,22 +24118,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -27658,22 +24581,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_s1d_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -27868,14 +24775,13 @@
       </item>
       <C32>
         <property key="additional-warnings" value="true"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config/pic32mz_ef_sk_meb2;../src/pic32mz_ef_sk_meb2;../../../../../framework;../src/system_config/pic32mz_ef_sk_meb2/framework;../src/system_config/pic32mz_ef_sk_meb2/bsp"/>
+                  value="../src/pic32mz_ef_sk_meb2;../src;../src/system_config/pic32mz_ef_sk_meb2;../../../../../framework;../src/system_config/pic32mz_ef_sk_meb2/framework;../src/system_config/pic32mz_ef_sk_meb2/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -27887,7 +24793,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -27917,9 +24822,6 @@
       </C32-AS>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
-        <property key="allocate-dinit" value="false"/>
-        <property key="code-dinit" value="false"/>
-        <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
         <property key="exclude-floating-point-library" value="false"/>
         <property key="exclude-standard-libraries" value="false"/>
@@ -27936,8 +24838,6 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="heap-size" value="4096"/>
         <property key="input-libraries" value=""/>
-        <property key="kseg-length" value=""/>
-        <property key="kseg-origin" value=""/>
         <property key="linker-symbols" value=""/>
         <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
         <property key="no-startup-files" value="false"/>
@@ -27946,8 +24846,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="remove-unused-sections" value="true"/>
         <property key="report-memory-usage" value="false"/>
-        <property key="serial-length" value=""/>
-        <property key="serial-origin" value=""/>
         <property key="stack-size" value=""/>
         <property key="symbol-stripping" value=""/>
         <property key="trace-symbols" value=""/>
@@ -27955,7 +24853,6 @@
       </C32-LD>
       <C32CPP>
         <property key="additional-warnings" value="false"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -27976,7 +24873,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="rtti" value="true"/>
         <property key="strict-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -28186,11 +25082,6 @@
         <property key="memories.eeprom" value="true"/>
         <property key="memories.flashdata" value="true"/>
         <property key="memories.id" value="true"/>
-        <property key="memories.instruction.ram" value="true"/>
-        <property key="memories.instruction.ram.end"
-                  value="${memories.instruction.ram.end.value}"/>
-        <property key="memories.instruction.ram.start"
-                  value="${memories.instruction.ram.start.value}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.end" value="0x1d1fffff"/>
         <property key="memories.programmemory.partition2" value="true"/>
@@ -28229,7 +25120,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>1.40</languageToolchainVersion>
+        <languageToolchainVersion>1.42</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -28367,38 +25258,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/drv_gfx_lcc.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext_wvga.c"
             ex="true"
             overriding="false">
@@ -28416,22 +25275,6 @@
         </C32Global>
       </item>
       <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c"
             ex="true"
             overriding="false">
         <C32>
@@ -30187,22 +27030,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/bt_audio_dk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/bt_audio_dk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -30398,546 +27225,146 @@
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp/bsp.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/dma/sys_dma_static.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_hgc_definitions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_hgc_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int.S"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/gfx_resources_int_reference.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_config.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_exceptions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_init.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_interrupt.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/system_tasks.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp/bsp.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/dma/sys_dma_static.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_hgc_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int.S"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/gfx_resources_int_reference.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_config.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_definitions.h"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_exceptions.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_init.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_interrupt.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/system_tasks.c"
             ex="true"
             overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_meb/bsp/bsp.c"
             ex="true"
@@ -31004,22 +27431,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_meb/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_meb/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -31323,22 +27734,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wqvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -31611,22 +28006,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -31851,7 +28230,7 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c"
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
             ex="true"
             overriding="false">
         <C32>
@@ -31867,7 +28246,23 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/sys_clk_static.h"
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c"
             ex="true"
             overriding="false">
         <C32>
@@ -32269,7 +28664,6 @@
       </item>
       <C32>
         <property key="additional-warnings" value="true"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
@@ -32288,7 +28682,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -32318,9 +28711,6 @@
       </C32-AS>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
-        <property key="allocate-dinit" value="false"/>
-        <property key="code-dinit" value="false"/>
-        <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
         <property key="exclude-floating-point-library" value="false"/>
         <property key="exclude-standard-libraries" value="false"/>
@@ -32337,8 +28727,6 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="heap-size" value="4096"/>
         <property key="input-libraries" value=""/>
-        <property key="kseg-length" value=""/>
-        <property key="kseg-origin" value=""/>
         <property key="linker-symbols" value=""/>
         <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
         <property key="no-startup-files" value="false"/>
@@ -32347,8 +28735,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="remove-unused-sections" value="true"/>
         <property key="report-memory-usage" value="false"/>
-        <property key="serial-length" value=""/>
-        <property key="serial-origin" value=""/>
         <property key="stack-size" value=""/>
         <property key="symbol-stripping" value=""/>
         <property key="trace-symbols" value=""/>
@@ -32356,7 +28742,6 @@
       </C32-LD>
       <C32CPP>
         <property key="additional-warnings" value="false"/>
-        <property key="addresss-attribute-use" value="false"/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -32377,7 +28762,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="rtti" value="true"/>
         <property key="strict-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
@@ -32484,11 +28868,6 @@
         <property key="memories.eeprom" value="true"/>
         <property key="memories.flashdata" value="true"/>
         <property key="memories.id" value="true"/>
-        <property key="memories.instruction.ram" value="true"/>
-        <property key="memories.instruction.ram.end"
-                  value="${memories.instruction.ram.end.value}"/>
-        <property key="memories.instruction.ram.start"
-                  value="${memories.instruction.ram.start.value}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.end" value="0x1d1fffff"/>
         <property key="memories.programmemory.partition2" value="true"/>

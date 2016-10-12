@@ -370,7 +370,7 @@ void bt_oem_get_pin_code(bt_bdaddr_t* bdaddr_remote)
 
 #ifndef BT_PASSKEY_ENABLE
 // Bluetooth SSP handler customized to bypass passkey
-void bt_oem_ssp_callback(SPP_EVENT spp_event, void* event_param, void* init_param) {
+void bt_oem_ssp_callback(SSP_EVENT spp_event, void* event_param, void* init_param) {
     switch (spp_event) {
         case SSP_EVENT_SIMPLE_PAIRING_COMPLETE:
         {

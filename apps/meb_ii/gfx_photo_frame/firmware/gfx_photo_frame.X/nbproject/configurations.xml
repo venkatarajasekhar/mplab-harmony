@@ -11,9 +11,18 @@
               <itemPath>../src/system_config/pic32mz_ef_sk_meb2/bsp/bsp.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/sys_clk_static.h</itemPath>
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
+                </logicalFolder>
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
+                <logicalFolder name="f1" displayName="dma" projectFiles="true">
+                  <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/dma/sys_dma_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
             </logicalFolder>
@@ -30,9 +39,6 @@
         <logicalFolder name="f1" displayName="driver" projectFiles="true">
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="controller" projectFiles="true">
-              <logicalFolder name="f1" displayName="lcc" projectFiles="true">
-                <itemPath>../../../../../framework/driver/gfx/controller/lcc/drv_gfx_lcc.h</itemPath>
-              </logicalFolder>
               <itemPath>../../../../../framework/driver/gfx/controller/drv_gfx_controller.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/driver/gfx/gfx_common.h</itemPath>
@@ -69,6 +75,23 @@
           <itemPath>../../../../../framework/gfx/gfx_types_palette.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_types_resource.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_palette.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_check_box.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_button.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_custom_control.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_digital_meter.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_edit_box.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_group_box.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_list_box.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_meter.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_picture.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_progress_bar.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_radio_button.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_scroll_bar.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_static_text.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_surface.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_text_entry.h</itemPath>
+          <itemPath>../../../../../framework/gfx/gfx_gol_window.h</itemPath>
         </logicalFolder>
         <logicalFolder name="f3" displayName="net" projectFiles="true">
           <logicalFolder name="f1" displayName="pres" projectFiles="true">
@@ -104,6 +127,7 @@
         <logicalFolder name="f6" displayName="system" projectFiles="true">
           <logicalFolder name="f1" displayName="clk" projectFiles="true">
             <itemPath>../../../../../framework/system/clk/sys_clk.h</itemPath>
+            <itemPath>../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
             <itemPath>../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="command" projectFiles="true">
@@ -196,7 +220,16 @@
               <itemPath>../src/system_config/pic32mz_ef_sk_meb2/bsp/bsp.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
+                </logicalFolder>
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
                 <logicalFolder name="f1" displayName="clk" projectFiles="true">
                   <logicalFolder name="f1" displayName="src" projectFiles="true">
                     <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c</itemPath>
@@ -228,7 +261,6 @@
               <logicalFolder name="f1" displayName="lcc" projectFiles="true">
                 <logicalFolder name="f1" displayName="src" projectFiles="true">
                   <itemPath>../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int.c</itemPath>
-                  <itemPath>../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c</itemPath>
                 </logicalFolder>
               </logicalFolder>
             </logicalFolder>
@@ -387,7 +419,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config/pic32mz_ef_sk_meb2;../src/pic32mz_ef_sk_meb2;../../../../../framework;../src/system_config/pic32mz_ef_sk_meb2/framework;../src/system_config/pic32mz_ef_sk_meb2/bsp"/>
+                  value="../src/pic32mz_ef_sk_meb2;../src;../src/system_config/pic32mz_ef_sk_meb2;../../../../../framework;../src/system_config/pic32mz_ef_sk_meb2/framework;../src/system_config/pic32mz_ef_sk_meb2/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -414,6 +446,7 @@
         <property key="extra-include-directories-for-assembler" value=""/>
         <property key="extra-include-directories-for-preprocessor" value=""/>
         <property key="false-conditionals" value="false"/>
+        <property key="generate-micro-compressed-code" value="false"/>
         <property key="keep-locals" value="false"/>
         <property key="list-assembly" value="false"/>
         <property key="list-source" value="false"/>

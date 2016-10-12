@@ -180,7 +180,7 @@ bool    TCPIP_Helper_IPv6AddressToString (const IPV6_ADDR * addr, char* buff, si
 // *****************************************************************************
 /*
   Function:
-    bool    TCPIP_Helper_IsBcastAddress(IPV4_ADDR* IPAddress);
+    bool    TCPIP_Helper_IsBcastAddress(const IPV4_ADDR* IPAddress);
 
   Summary:
 	Checks if an IPv4 address is a broadcast address.
@@ -202,7 +202,7 @@ bool    TCPIP_Helper_IPv6AddressToString (const IPV6_ADDR * addr, char* buff, si
     None.
  */
 
-extern __inline__ bool __attribute__((always_inline)) TCPIP_Helper_IsBcastAddress(IPV4_ADDR* IPAddress)
+extern __inline__ bool __attribute__((always_inline)) TCPIP_Helper_IsBcastAddress(const IPV4_ADDR* IPAddress)
 {
     return (IPAddress->Val == 0xFFFFFFFF);
 }
@@ -210,7 +210,7 @@ extern __inline__ bool __attribute__((always_inline)) TCPIP_Helper_IsBcastAddres
 // *****************************************************************************
 /*
   Function:
-    bool    TCPIP_Helper_IsMcastAddress(IPV4_ADDR* IPAddress)
+    bool    TCPIP_Helper_IsMcastAddress(const IPV4_ADDR* IPAddress)
 
   Summary:
 	Checks if an IPv4 address is a multicast address.
@@ -232,7 +232,7 @@ extern __inline__ bool __attribute__((always_inline)) TCPIP_Helper_IsBcastAddres
     None.
  */
 
-extern __inline__ bool __attribute__((always_inline)) TCPIP_Helper_IsMcastAddress(IPV4_ADDR* IPAddress)
+extern __inline__ bool __attribute__((always_inline)) TCPIP_Helper_IsMcastAddress(const IPV4_ADDR* IPAddress)
 {
     return ((IPAddress->v[0] & 0xf0) == 0xE0);
 }
@@ -555,6 +555,76 @@ uint16_t            TCPIP_Helper_SecurePortGetByIndex(int index, bool streamSock
 bool             TCPIP_Helper_SecurePortSet(uint16_t port, bool streamSocket, bool isSecure);
 
 
+// *****************************************************************************
+/*****************************************************************************
+  Function:
+	uint16_t TCPIP_Helper_Base64Encode(const uint8_t* sourceData, uint16_t sourceLen,
+						uint8_t* destData, uint16_t destLen)
+  Summary:
+    Helper function to encode to Base-64.
+
+  Description:
+	This function encodes a binary array to Base-64.
+	
+  Precondition:
+	None
+
+  Parameters:
+	sourceData - Pointer to a string of binary data
+	sourceLen	- Length of the binary source data
+	destData	- Pointer to write the Base-64 encoded data
+	destLen	    - Maximum length that can be written to destData
+
+  Returns:
+  	Number of encoded bytes written to destData.  This will always be
+  	a multiple of 4.
+  
+  Remarks:
+	Encoding cannot be performed in-place.
+    If surceData overlaps with  destData, the behavior is undefined.
+	
+	The source data is padded wit 1 or 2 bytes, if needed, to make the source size a multiple
+    of 3 bytes.
+    Then for each 3 bytes tuple in the source 4 output bytes are generated.
+    The output size needed is pad(sourceLen) * 4 / 3 bytes.
+
+  ***************************************************************************/
+uint16_t TCPIP_Helper_Base64Encode(const uint8_t* sourceData, uint16_t sourceLen, uint8_t* destData, uint16_t destLen);
+
+// *****************************************************************************
+/*****************************************************************************
+  Function:
+	uint16_t TCPIP_Helper_Base64Decode(const uint8_t* sourceData, uint16_t sourceLen, 
+						uint8_t* destData, uint16_t destLen)
+
+  Summary:
+    Helper function to decode a Base-64 encoded array.
+
+  Description:
+	Decodes a Base-64 array to its literal representation.
+	
+  Precondition:
+	None
+
+  Parameters:
+	sourceData  - Pointer to a string of Base-64 encoded data
+	sourceLen	- Length of the Base-64 source data
+	destData	- Pointer to write the decoded data
+	sourceLen	- Maximum length that can be written to destData
+
+  Returns:
+  	Number of decoded bytes written to destData.
+  
+  Remarks:
+	This function will ignore invalid Base-64 characters (CR, LF, etc).
+    If sourceData is equal to destData, the data will be converted
+	in-place.
+    If sourceData is not equal to destData, but the regions 
+	overlap, the behavior is undefined.
+	
+	Decoded data size is 3 / 4 the size of the encoded source data.
+  ***************************************************************************/
+uint16_t TCPIP_Helper_Base64Decode(const uint8_t* sourceData, uint16_t sourceLen, uint8_t* destData, uint16_t destLen);
 
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus

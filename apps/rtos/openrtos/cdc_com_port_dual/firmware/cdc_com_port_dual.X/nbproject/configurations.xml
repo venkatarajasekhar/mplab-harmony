@@ -11,15 +11,8 @@
           <logicalFolder name="f1"
                          displayName="pic32mx_usb_sk2_int_dyn"
                          projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mx_usb_sk2_int_dyn/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mx_usb_sk2_int_dyn/FreeRTOSConfig.h</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2_int_dyn/system_config.h</itemPath>
@@ -28,15 +21,8 @@
           <logicalFolder name="f2"
                          displayName="pic32mz_ef_sk_int_dyn"
                          projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_ef_sk_int_dyn/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mz_ef_sk_int_dyn/FreeRTOSConfig.h</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk_int_dyn/system_config.h</itemPath>
@@ -91,6 +77,7 @@
           <logicalFolder name="f6" displayName="clk" projectFiles="true">
             <itemPath>../../../../../../framework/system/clk/sys_clk.h</itemPath>
             <itemPath>../../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
+            <itemPath>../../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="common" projectFiles="true">
             <itemPath>../../../../../../framework/system/common/sys_common.h</itemPath>
@@ -513,10 +500,6 @@
             ex="true"
             overriding="false">
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_int_dyn/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -776,7 +759,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>1.42</languageToolchainVersion>
+        <languageToolchainVersion></languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -870,10 +853,6 @@
             ex="true"
             overriding="false">
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2_int_dyn/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -935,7 +914,6 @@
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
-        <appendMe value="-msoft-float"/>
       </C32>
       <C32-AR>
         <property key="additional-options-chop-files" value="false"/>

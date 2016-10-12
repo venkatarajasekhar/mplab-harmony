@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -52,6 +56,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -163,7 +171,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16</Path>
-        <Checksum>825185543D19E0746AE7C33808C2D034</Checksum>
+        <Checksum>FE16039309C2F183B38F8E25C2A9E97B</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -177,17 +185,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16</Path>
-        <Checksum>9F39A56172F5320C2BD16DEA78F4A929</Checksum>
+        <Checksum>B4999C53A1B8DC9CF942ADDD10255F86</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -197,11 +200,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src/system_config/pic32mx795_pim_e16"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src/pic32mx795_pim_e16"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/framework"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src/system_config/pic32mx795_pim_e16/framework"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/apps/driver/i2c/i2c_rtcc/firmware/src"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/apps/driver/i2c/i2c_rtcc/firmware/src/system_config/pic32mx795_pim_e16"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/framework"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/apps/driver/i2c/i2c_rtcc/firmware/src/system_config/pic32mx795_pim_e16/framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16/bsp"/>
       </C32>
     </CompilerItems>

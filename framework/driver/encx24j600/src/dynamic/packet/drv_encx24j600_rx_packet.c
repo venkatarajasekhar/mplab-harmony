@@ -66,6 +66,7 @@ int32_t DRV_ENCX24J600_RxPacketTask(struct _DRV_ENCX24J600_DriverInfo * pDrvInst
                 pDrvInst->mainStateInfo.runningInfo.resetRxInfo.state = DRV_ENCX24J600_RRX_STARTING;
                 pkt->state = DRV_ENCX24J600_RX_EMPTY_PACKET;
                 pDrvInst->rxPtrVal = pDrvInst->encMemRxStart;
+                TCPIP_Helper_ProtectedSingleListTailAdd(&pDrvInst->rxFreePackets, (SGL_LIST_NODE*)(pkt->pkt));
                 break;
             }
             ret = (*pDrvInst->busVTable->fpPtrWr)(pDrvInst, DRV_ENCX24J600_PTR_RXRD, pDrvInst->rxPtrVal, DRV_ENCX24J600_RP_OP_SET_RXRDPTR);
@@ -135,6 +136,8 @@ int32_t DRV_ENCX24J600_RxPacketTask(struct _DRV_ENCX24J600_DriverInfo * pDrvInst
             {
                 break;
             }
+            pkt->pkt->pMacLayer = pkt->pkt->pDSeg->segLoad;
+            pkt->pkt->pNetLayer = pkt->pkt->pMacLayer + sizeof(TCPIP_MAC_ETHERNET_HEADER);
             // TODO put in error checking
             pkt->state = DRV_ENCX24J600_RX_SET_ERXTAIL;
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -130,6 +130,10 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
+        <Name>smtpc.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
         <Name>zero_conf_helper.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
@@ -178,12 +182,12 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
-        <Name>snmpv3_private.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>ipv4.h</Name>
         <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>snmpv3_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>inflate.c</Name>
@@ -234,12 +238,20 @@
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
+        <Name>smtpc_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>dns_manager.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>http_net_private.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>smtpc_config.h</Name>
+        <Path>Header Files/framework/tcpip/config</Path>
       </File>
       <File>
         <Name>zconf.h</Name>
@@ -310,15 +322,15 @@
         <Path>Header Files/framework/system/devcon</Path>
       </File>
       <File>
+        <Name>ipv4_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>nbns.h</Name>
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>tcpip_packet.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
-        <Name>ipv4_manager.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
@@ -678,6 +690,10 @@
         <Path>Header Files/framework/driver/ethmac/src/dynamic</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>tcpip_announce.c</Name>
         <Path>Source Files/framework/tcpip/src</Path>
       </File>
@@ -932,6 +948,10 @@
       <File>
         <Name>drv_encx24j600_spi_bus.c</Name>
         <Path>Source Files/framework/driver/encx24j600/bus/spi</Path>
+      </File>
+      <File>
+        <Name>smtpc_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>sys_devcon.c</Name>
@@ -1474,7 +1494,7 @@
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk2_encx24j600/framework/driver/spi/dynamic</Path>
-        <Checksum>78DF15E856DB8920B4C9CAB971647BD1</Checksum>
+        <Checksum>EFE4DF9B726E3F205AB25C6679ED349D</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -1493,7 +1513,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk2_encx24j600</Path>
-        <Checksum>E75603ED6256EDE4FE17FD80C959846E</Checksum>
+        <Checksum>EEBCF6496F66906E4AF02F04EA9AC4B5</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -1520,11 +1540,6 @@
         <Checksum>A998C65C043989D6F729FEC44027ABA0</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_eth_sk2_encx24j600/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk2_encx24j600/bsp</Path>
         <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
@@ -1537,7 +1552,7 @@
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk2_encx24j600/framework/driver/spi/dynamic</Path>
-        <Checksum>807B9679FB38F311FB41FF123A08A29C</Checksum>
+        <Checksum>C3FB9F5A018E50AC62E46A891FC0AF81</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -1551,7 +1566,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk2_encx24j600/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -1561,15 +1576,15 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk2_encx24j600</Path>
-        <Checksum>031578E96949C127F67EB6C1D9B29011</Checksum>
+        <Checksum>4662A5B5E51700119F63D49CA5474742</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="F:\git\net\apps\tcpip\tcpip_tcp_client\firmware\src"/>
-        <Include value="F:\git\net\apps\tcpip\tcpip_tcp_client\firmware\src\system_config\pic32mx_eth_sk2_encx24j600"/>
-        <Include value="F:\git\net\framework"/>
-        <Include value="F:\git\net\apps\tcpip\tcpip_tcp_client\firmware\src\system_config\pic32mx_eth_sk2_encx24j600\framework"/>
+        <Include value="/var/atlassian/application-data/bamboo/xml-data/build-dir/TEMP-RTP1-JOB1/root/apps/tcpip/tcpip_tcp_client/firmware/src"/>
+        <Include value="/var/atlassian/application-data/bamboo/xml-data/build-dir/TEMP-RTP1-JOB1/root/apps/tcpip/tcpip_tcp_client/firmware/src/system_config/pic32mx_eth_sk2_encx24j600"/>
+        <Include value="/var/atlassian/application-data/bamboo/xml-data/build-dir/TEMP-RTP1-JOB1/root/framework"/>
+        <Include value="/var/atlassian/application-data/bamboo/xml-data/build-dir/TEMP-RTP1-JOB1/root/apps/tcpip/tcpip_tcp_client/firmware/src/system_config/pic32mx_eth_sk2_encx24j600/framework"/>
         <Include value="../src/system_config/pic32mx_eth_sk2_encx24j600/bsp"/>
       </C32>
     </CompilerItems>

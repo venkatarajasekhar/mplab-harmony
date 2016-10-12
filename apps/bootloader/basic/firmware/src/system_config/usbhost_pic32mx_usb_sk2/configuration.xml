@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -76,6 +80,10 @@
       <File>
         <Name>sys_tmr.c</Name>
         <Path>Source Files/framework/system/tmr/src</Path>
+      </File>
+      <File>
+        <Name>ff.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
       </File>
       <File>
         <Name>sys_fs_media_manager.c</Name>
@@ -140,6 +148,10 @@
       <File>
         <Name>bootloader.c</Name>
         <Path>Source Files/framework/bootloader/src</Path>
+      </File>
+      <File>
+        <Name>ffconf.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
       </File>
       <File>
         <Name>mpfs_local.h</Name>
@@ -242,6 +254,10 @@
         <Path>Header Files/framework/system/ports</Path>
       </File>
       <File>
+        <Name>diskio.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/hardware_access</Path>
+      </File>
+      <File>
         <Name>usb_hub.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
@@ -260,6 +276,10 @@
       <File>
         <Name>usb_host_hub.h</Name>
         <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
@@ -364,12 +384,12 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/usbhost_pic32mx_usb_sk2/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/usbhost_pic32mx_usb_sk2</Path>
-        <Checksum>E13196BBD1AFF8A6CCE64A04C7110743</Checksum>
+        <Checksum>6CF7859144ED5B9DE48B276631909723</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -383,12 +403,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/usbhost_pic32mx_usb_sk2/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/usbhost_pic32mx_usb_sk2/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -403,7 +423,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/usbhost_pic32mx_usb_sk2</Path>
-        <Checksum>DC17DCBC5DBCC793FCDA56D44902D34B</Checksum>
+        <Checksum>FFF882AF965FF0EFB17991B707DB2942</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -415,11 +435,6 @@
         <Checksum>62C45F59652F5FB61A695F08162AE483</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/usbhost_pic32mx_usb_sk2/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/usbhost_pic32mx_usb_sk2</Path>
         <Checksum>4C763E262CFA893E68324F2080F86871</Checksum>
@@ -427,11 +442,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src"/>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src/system_config/usbhost_pic32mx_usb_sk2"/>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src/usbhost_pic32mx_usb_sk2"/>
-        <Include value="C:/microchip/harmony/core/framework"/>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src/system_config/usbhost_pic32mx_usb_sk2/framework"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/bootloader/basic/firmware/src"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/bootloader/basic/firmware/src/system_config/usbhost_pic32mx_usb_sk2"/>
+        <Include value="C:/microchip/harmony/core_v2xx/framework"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/bootloader/basic/firmware/src/system_config/usbhost_pic32mx_usb_sk2/framework"/>
         <Include value="../src/system_config/usbhost_pic32mx_usb_sk2/bsp"/>
       </C32>
     </CompilerItems>

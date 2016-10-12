@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX450F256L"/>
@@ -48,6 +52,10 @@
       <File>
         <Name>sys_fs.h</Name>
         <Path>Header Files/framework/system/fs</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>drv_spi.h</Name>
@@ -194,6 +202,10 @@
         <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -276,7 +288,7 @@
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_int_dyn_freertos/framework/driver/spi/dynamic</Path>
-        <Checksum>354955B5C8DDBAA5849E020D8B9F1EE1</Checksum>
+        <Checksum>8A5AF07CAB8C7806CB5F8702712C8FCA</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -290,7 +302,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_int_dyn_freertos</Path>
-        <Checksum>79504E6E2F15CA97994722773A192C64</Checksum>
+        <Checksum>CE4C2C8A2AAB413FB613E7B2970664EE</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_master_rm_tasks.c</Name>
@@ -300,12 +312,12 @@
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_int_dyn_freertos</Path>
-        <Checksum>0C3AFA5B8681E0454A1B832B504AF211</Checksum>
+        <Checksum>75864D91E744DFF34363E4A18BDDEC33</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_int_dyn_freertos/framework/driver/spi/dynamic</Path>
-        <Checksum>112C481490743844C144BA29F65BAF71</Checksum>
+        <Checksum>5887159D93DA876AA60E5A45B1653D1E</Checksum>
       </Template>
       <Template>
         <Name>rtos_hooks.c</Name>
@@ -319,12 +331,12 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_int_dyn_freertos</Path>
-        <Checksum>F3693B7C54A698268D675F81D35768F3</Checksum>
+        <Checksum>B2A0F777F2F0A74BCB35910956C585D8</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_int_dyn_freertos/framework/system/clk/src</Path>
-        <Checksum>A0AE6A7C71AF906122FDC5BCFF27499B</Checksum>
+        <Checksum>8C1B5936A765E47ED1273EF0D134FEA2</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt_a.S</Name>
@@ -346,14 +358,9 @@
         <Path>Header Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/bt_audio_dk_int_dyn_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_int_dyn_freertos</Path>
-        <Checksum>8239A7F89D621273E42CEB557060F7F3</Checksum>
+        <Checksum>B50774C29D5BC54F508B448CAE856967</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -370,7 +377,6 @@
       <C32>
         <Include value="D:\trunk_sbx\apps\driver\spi_flash\sst25vf020b\firmware\src"/>
         <Include value="D:\trunk_sbx\apps\driver\spi_flash\sst25vf020b\firmware\src\system_config\bt_audio_dk_int_dyn_freertos"/>
-        <Include value="D:\trunk_sbx\apps\driver\spi_flash\sst25vf020b\firmware\src\bt_audio_dk_int_dyn_freertos"/>
         <Include value="D:\trunk_sbx\framework"/>
         <Include value="D:\trunk_sbx\apps\driver\spi_flash\sst25vf020b\firmware\src\system_config\bt_audio_dk_int_dyn_freertos\framework"/>
         <Include value="../src/system_config/bt_audio_dk_int_dyn_freertos/bsp"/>

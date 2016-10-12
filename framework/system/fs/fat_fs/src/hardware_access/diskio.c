@@ -10,7 +10,8 @@
 #include "system/fs/fat_fs/src/hardware_access/diskio.h"		/* FatFs lower layer API */
 #include "system/fs/sys_fs_media_manager.h"
 
-SYS_FS_MEDIA_COMMAND_STATUS diskCommandStatus = SYS_FS_MEDIA_COMMAND_UNKNOWN;
+SYS_FS_MEDIA_COMMAND_STATUS gDiskCommandStatus = SYS_FS_MEDIA_COMMAND_UNKNOWN;
+SYS_FS_MEDIA_BLOCK_COMMAND_HANDLE gDiskCommandHandle = SYS_FS_MEDIA_BLOCK_COMMAND_HANDLE_INVALID;
 
 void diskEventHandler
 (
@@ -22,15 +23,16 @@ void diskEventHandler
     switch(event)
     {
         case SYS_FS_MEDIA_EVENT_BLOCK_COMMAND_COMPLETE:
-            diskCommandStatus = SYS_FS_MEDIA_COMMAND_COMPLETED;
+            gDiskCommandStatus = SYS_FS_MEDIA_COMMAND_COMPLETED;
             break;
         case SYS_FS_MEDIA_EVENT_BLOCK_COMMAND_ERROR:
-            diskCommandStatus= SYS_FS_MEDIA_COMMAND_UNKNOWN;
+            gDiskCommandStatus= SYS_FS_MEDIA_COMMAND_UNKNOWN;
             break;
         default:
             break;
     }
 }
+
 /*-----------------------------------------------------------------------*/
 /* Inidialize a Drive                                                    */
 /* This function is left unchanged from what was implemted in FAT FS. This
@@ -71,10 +73,7 @@ DSTATUS disk_status (
         uint8_t pdrv		/* Physical drive nmuber (0..) */
         )
 {
-
-
     return 0;
-
 }
 
 /*****************************************************************************
@@ -115,29 +114,29 @@ DRESULT disk_read
     uint8_t count   /* Number of sectors to read (1..128) */
 )
 {
-    SYS_FS_MEDIA_BLOCK_COMMAND_HANDLE commandHandle;
+    gDiskCommandHandle = SYS_FS_MEDIA_BLOCK_COMMAND_HANDLE_INVALID;
 
-    diskCommandStatus = SYS_FS_MEDIA_COMMAND_IN_PROGRESS;
+    gDiskCommandStatus = SYS_FS_MEDIA_COMMAND_IN_PROGRESS;
     /* submit the read request */
-    commandHandle = SYS_FS_MEDIA_MANAGER_SectorRead(pdrv /* DISK 0 */ ,
+    gDiskCommandHandle = SYS_FS_MEDIA_MANAGER_SectorRead(pdrv /* DISK 0 */ ,
             buff /* Destination Sector*/,
             sector,
             count /* Number of Sectors */);
     
     /* Buffer is invalid report error */
-    if (SYS_FS_MEDIA_BLOCK_COMMAND_HANDLE_INVALID == commandHandle)
+    if (SYS_FS_MEDIA_BLOCK_COMMAND_HANDLE_INVALID == gDiskCommandHandle)
     {
         return RES_PARERR;
     }
 
     /* process the read request by blocking on the task routine that process the 
      I/O request */
-    while (SYS_FS_MEDIA_COMMAND_IN_PROGRESS == diskCommandStatus)
+    while (SYS_FS_MEDIA_COMMAND_IN_PROGRESS == gDiskCommandStatus)
     {
         SYS_FS_MEDIA_MANAGER_TransferTask (pdrv);
     }
 
-    if (SYS_FS_MEDIA_COMMAND_COMPLETED == diskCommandStatus)
+    if (SYS_FS_MEDIA_COMMAND_COMPLETED == gDiskCommandStatus)
     {
         /* Buffer processed successfully */
         return RES_OK;
@@ -188,28 +187,27 @@ DRESULT disk_write
     uint8_t count       /* Number of sectors to write (1..128) */
 )
 {
-    SYS_FS_MEDIA_BLOCK_COMMAND_HANDLE commandHandle;
-
-    diskCommandStatus = SYS_FS_MEDIA_COMMAND_IN_PROGRESS;
+    gDiskCommandHandle = SYS_FS_MEDIA_BLOCK_COMMAND_HANDLE_INVALID;
+    gDiskCommandStatus = SYS_FS_MEDIA_COMMAND_IN_PROGRESS;
 
     /* Submit the write request to media */
-    commandHandle = SYS_FS_MEDIA_MANAGER_SectorWrite(pdrv /* DISK 0 */ ,
+    gDiskCommandHandle = SYS_FS_MEDIA_MANAGER_SectorWrite(pdrv /* DISK 0 */ ,
             sector /* Destination Sector*/,
             (uint8_t *)buff,
             count /* Number of Sectors */);
     /* Write request failed , return with error */
-    if(SYS_FS_MEDIA_BLOCK_COMMAND_HANDLE_INVALID == commandHandle)
+    if(SYS_FS_MEDIA_BLOCK_COMMAND_HANDLE_INVALID == gDiskCommandHandle)
     {
         return RES_PARERR;
     }
 
     /* Run the task routine of media to process the request  */
-    while(SYS_FS_MEDIA_COMMAND_IN_PROGRESS == diskCommandStatus)
+    while(SYS_FS_MEDIA_COMMAND_IN_PROGRESS == gDiskCommandStatus)
     {
         SYS_FS_MEDIA_MANAGER_TransferTask (pdrv);
     }
     
-    if(SYS_FS_MEDIA_COMMAND_COMPLETED == diskCommandStatus)
+    if(SYS_FS_MEDIA_COMMAND_COMPLETED == gDiskCommandStatus)
     {
         /* Buffer processed successfully */
         return RES_OK;

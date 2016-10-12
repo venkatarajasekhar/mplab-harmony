@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -60,6 +64,10 @@
       <File>
         <Name>sys_fs.h</Name>
         <Path>Header Files/framework/system/fs</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>portmacro.h</Name>
@@ -274,6 +282,10 @@
         <Path>Header Files/framework/driver/sdcard</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -378,12 +390,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos</Path>
-        <Checksum>292781D570ED1F9D1E6E16A6CAD8FF30</Checksum>
+        <Checksum>794E1ADC45981283586793E6387C4327</Checksum>
         <ProjectFileChecksum>29DD414AAC3F05B2F83BA59453D6789C</ProjectFileChecksum>
       </Template>
       <Template>
@@ -398,7 +410,7 @@
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos</Path>
-        <Checksum>C3B849811B2D0E0316F439B3F85FCA94</Checksum>
+        <Checksum>458C954029B5C6F5576692ED5365DD86</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_master_ebm_tasks.c</Name>
@@ -408,17 +420,17 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos</Path>
-        <Checksum>6D8EF37C9C53D910908065D8DDCDAF20</Checksum>
+        <Checksum>C08DE00B7B6AF691AF1016706A3F2A1D</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos/bsp</Path>
-        <Checksum>F45D3FB1DCD997D286E66B8F8708C841</Checksum>
+        <Checksum>E25CE2E8561A30622F0189580F28A92A</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos/bsp</Path>
-        <Checksum>FB16F3E8BBE4E3DF1D43A1459B0C7A8E</Checksum>
+        <Checksum>9AFAF3F6210EF658384438E21E6E4724</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -432,12 +444,7 @@
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos/framework/driver/spi/dynamic</Path>
-        <Checksum>0468A6AC4EF824897AA5C22F6EAFBB43</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>B8D534FC99E9DAC9CE3CE2AFE17C3907</Checksum>
       </Template>
       <Template>
         <Name>rtos_hooks.c</Name>
@@ -447,7 +454,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos</Path>
-        <Checksum>7BDB68FEF236A7438C54AFA8A2BD3893</Checksum>
+        <Checksum>41BA019857BBEE713078A5D9A55CF533</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -476,7 +483,7 @@
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos/framework/driver/spi/dynamic</Path>
-        <Checksum>B3A91E83D97E20F2E6AE74F22B6F32E1</Checksum>
+        <Checksum>615D0B3998780D1680273302CCF44179</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
@@ -488,7 +495,6 @@
       <C32>
         <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_multi_disk\firmware\src"/>
         <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_multi_disk\firmware\src\system_config\pic32mz_ef_sk_int_dyn_freertos"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_multi_disk\firmware\src\pic32mz_ef_sk_int_dyn_freertos"/>
         <Include value="D:\trunk_sbx\framework"/>
         <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_multi_disk\firmware\src\system_config\pic32mz_ef_sk_int_dyn_freertos\framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_int_dyn_freertos/bsp"/>

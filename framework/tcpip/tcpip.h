@@ -68,7 +68,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define TCPIP_STACK_VERSION_MAJOR         7
 #define TCPIP_STACK_VERSION_MINOR         25
 #define TCPIP_STACK_VERSION_PATCH         0
-#define TCPIP_STACK_VERSION_STR           "7.25"
+#define TCPIP_STACK_VERSION_STR           "7.26"
 
 
 // *****************************************************************************
@@ -309,14 +309,15 @@ typedef enum
     TCPIP_MODULE_IPV6,
     TCPIP_MODULE_LLDP,              /* LLDP module */
 
-    /*DOM-IGNORE-BEGIN*/    TCPIP_MODULE_LAYER2, // 2nd layer modules: 6 - 10 /*DOM-IGNORE-END*/
+    /*DOM-IGNORE-BEGIN*/    TCPIP_MODULE_LAYER2, // 2nd layer modules: 6 - 11 /*DOM-IGNORE-END*/
     TCPIP_MODULE_ICMP       /*DOM-IGNORE-BEGIN*/ = TCPIP_MODULE_LAYER2 /*DOM-IGNORE-END*/,
     TCPIP_MODULE_ICMPV6,
     TCPIP_MODULE_NDP,
     TCPIP_MODULE_UDP,
     TCPIP_MODULE_TCP,
+    TCPIP_MODULE_IGMP,      /* IGMP host module */
 
-    /*DOM-IGNORE-BEGIN*/    TCPIP_MODULE_LAYER3, // 3rd layer modules: 11 - 31 /*DOM-IGNORE-END*/
+    /*DOM-IGNORE-BEGIN*/    TCPIP_MODULE_LAYER3, // 3rd layer modules: 12 - 35 /*DOM-IGNORE-END*/
     TCPIP_MODULE_DHCP_CLIENT  /*DOM-IGNORE-BEGIN*/ = TCPIP_MODULE_LAYER3 /*DOM-IGNORE-END*/,
     TCPIP_MODULE_DHCP_SERVER,
     TCPIP_MODULE_ANNOUNCE,
@@ -340,6 +341,8 @@ typedef enum
     TCPIP_MODULE_IPERF,
     TCPIP_MODULE_TFTP_CLIENT,       /* TFTP client module */
     TCPIP_MODULE_DHCPV6_CLIENT,     /* DHCPV6 client */
+    TCPIP_MODULE_SMTPC,             /* SMTP (new) client */
+
     /* add other modules here */
     //
     /*  */
@@ -439,6 +442,8 @@ typedef enum
 	TCPIP_NETWORK_CONFIG_DNS_CLIENT_ON     	  /*DOM-IGNORE-BEGIN*/ = 0x0008 /*DOM-IGNORE-END*/,	  
     /* DNS Server Enabled on this Interface */
 	TCPIP_NETWORK_CONFIG_DNS_SERVER_ON		  /*DOM-IGNORE-BEGIN*/ = 0x0010 /*DOM-IGNORE-END*/,   
+    /* Multicast traffic enabled on this Interface */
+	TCPIP_NETWORK_CONFIG_MULTICAST_ON		  /*DOM-IGNORE-BEGIN*/ = 0x0020 /*DOM-IGNORE-END*/,   
 														  
                                                               
     /* the network configuration contains an IPv6 static address and subnet prefix length */
@@ -638,6 +643,8 @@ typedef struct
 #include "tcpip/snmpv3.h"
 #include "tcpip/tcpip_announce.h"
 #include "tcpip/lldp.h"
+#include "tcpip/smtpc.h"
+#include "tcpip/igmp.h"
 
 #include "tcpip/tls.h"
 #include "tcpip/tftpc.h"

@@ -1865,14 +1865,14 @@ bool TCPIP_DNS_Disable(TCPIP_NET_HANDLE hNet, bool clearCache)
 #else
 bool TCPIP_DNS_IsEnabled(TCPIP_NET_HANDLE hNet){return false;}
 bool TCPIP_DNS_Enable(TCPIP_NET_HANDLE hNet, TCPIP_DNS_ENABLE_FLAGS flags){return false;}
-bool TCPIP_DNS_Disable(TCPIP_NET_HANDLE hNet){return false;}
+bool TCPIP_DNS_Disable(TCPIP_NET_HANDLE hNet, bool clearCache){return false;}
 
 TCPIP_DNS_RESULT  TCPIP_DNS_Resolve(const char* HostName, TCPIP_DNS_RESOLVE_TYPE Type)
 {
     return TCPIP_DNS_RES_NO_SERVICE; 
 }
 
-TCPIP_DNS_RESULT  TCPIP_DNS_IsResolved(const char* HostName, IP_ADDRESS_TYPE type, void* HostIP)
+TCPIP_DNS_RESULT  TCPIP_DNS_IsResolved(const char* hostName, IP_MULTI_ADDRESS* hostIP, IP_ADDRESS_TYPE type)
 {
     return TCPIP_DNS_RES_NO_SERVICE; 
 }

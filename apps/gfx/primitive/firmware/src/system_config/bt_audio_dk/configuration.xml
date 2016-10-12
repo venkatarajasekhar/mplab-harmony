@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -538,6 +538,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -598,7 +602,7 @@
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk</Path>
-        <Checksum>373C10BB693A3CDA56CEA7BFC96CC65A</Checksum>
+        <Checksum>41DB121F8A7791876B42DC185A546971</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -612,7 +616,7 @@
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk</Path>
-        <Checksum>C9955904378D0AFA1170CE6782CBBA72</Checksum>
+        <Checksum>82F57847A9FC18B887837FAD8B2605BB</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -621,7 +625,7 @@
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk</Path>
-        <Checksum>63A273E1FF85EE560114B557035FDB75</Checksum>
+        <Checksum>A3C09BD2E3A2C054E30F1DB89878DA3C</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -634,14 +638,9 @@
         <Checksum>CCAA55DF9D1B8A94BDBC31E410D58EB3</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/bt_audio_dk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk</Path>
-        <Checksum>A751D808F7814A31D0EB3CD3398E86A9</Checksum>
+        <Checksum>5C2F7E6B54E10AF02073280BA6F694D2</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -656,7 +655,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk/framework/system/clk/src</Path>
-        <Checksum>A0AE6A7C71AF906122FDC5BCFF27499B</Checksum>
+        <Checksum>8C1B5936A765E47ED1273EF0D134FEA2</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -670,12 +669,12 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk</Path>
-        <Checksum>C7FB9793B55B4B51FA381E2139EC7C68</Checksum>
+        <Checksum>6529CDF32FF97E5467F79BC2C2B13A64</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/bt_audio_dk</Path>
-        <Checksum>2D216605BCF65DCC141095F43AAB01E1</Checksum>
+        <Checksum>E4A0E0A73B2F1077280945C0B1910BA6</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -685,7 +684,7 @@
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk</Path>
-        <Checksum>C7E9B69D869FF082BCCBD051E6995C48</Checksum>
+        <Checksum>F37AD36109E340F70594D11DE90A0CDD</Checksum>
       </Template>
       <Template>
         <Name>drv_pmp_static.c</Name>
@@ -700,11 +699,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/system_config/bt_audio_dk"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/bt_audio_dk"/>
-        <Include value="C:/Harmony/gfx2-1/framework"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/system_config/bt_audio_dk/framework"/>
+        <Include value="C:/Harmony/v2_02/apps/gfx/primitive/firmware/src"/>
+        <Include value="C:/Harmony/v2_02/apps/gfx/primitive/firmware/src/system_config/bt_audio_dk"/>
+        <Include value="C:/Harmony/v2_02/framework"/>
+        <Include value="C:/Harmony/v2_02/apps/gfx/primitive/firmware/src/system_config/bt_audio_dk/framework"/>
         <Include value="../src/system_config/bt_audio_dk/bsp"/>
       </C32>
     </CompilerItems>

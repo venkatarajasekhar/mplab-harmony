@@ -883,6 +883,27 @@ void DRV_I2C_Deinitialize ( SYS_MODULE_OBJ object )
 #endif
 
         PLIB_I2C_Disable(i2cId);
+    if(OSAL_MUTEX_Delete(&(dObj->mutexDriverInstance)) != OSAL_RESULT_TRUE)
+    {
+       return;
+    }
+    
+    /* Check if the global mutexes have been created. If so
+       then delete these. */
+    if(gDrvI2CCommonDataObj.membersAreInitialized)
+    {
+        /* This means that mutexes where created. Delete them. */
+        if(OSAL_MUTEX_Delete(&(gDrvI2CCommonDataObj.mutexClientObjects)) != OSAL_RESULT_TRUE)
+        {
+                 return;
+        }
+        if(OSAL_MUTEX_Delete(&(gDrvI2CCommonDataObj.mutexBufferQueueObjects)) != OSAL_RESULT_TRUE)
+        {
+                 return;
+        }
+        /* Set this flag so that global mutexes get allocated only once */
+        gDrvI2CCommonDataObj.membersAreInitialized = false;
+    }
 
 	for (iClient = 0; iClient < DRV_I2C_CLIENTS_NUMBER; iClient++)
 	{
@@ -895,7 +916,11 @@ void DRV_I2C_Deinitialize ( SYS_MODULE_OBJ object )
 	dObj->numClients = 0;
 	dObj->isExclusive = false;
 	/* Clear all the pending requests */
-        while (_DRV_I2C_QueuePop(dObj) != NULL);
+//        while (_DRV_I2C_QueuePop(dObj) != NULL);
+    while ((_DRV_I2C_IsQueueEmpty(dObj) == false))        
+    {
+        _DRV_I2C_Advance_Queue(dObj);
+    }
 	dObj->queueHead = NULL;
 	/* Set the Device Status */
 	dObj->status = SYS_STATUS_UNINITIALIZED;

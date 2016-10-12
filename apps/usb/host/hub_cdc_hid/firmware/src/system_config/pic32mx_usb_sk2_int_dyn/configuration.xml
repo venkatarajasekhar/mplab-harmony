@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -190,6 +190,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>usb_host_cdc_local.h</Name>
         <Path>Header Files/framework/usb/src</Path>
       </File>
@@ -278,12 +282,12 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn</Path>
-        <Checksum>81E3EF5C91494EDF6ABA1FCF920673DF</Checksum>
+        <Checksum>1130F56E2086D078AE2B18109ADCDFBA</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn/bsp</Path>
-        <Checksum>CDC15B6204DC381320531899AD84725F</Checksum>
+        <Checksum>C34FE09905EDF0BBB010145760FED0D5</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -301,18 +305,13 @@
         <Checksum>63FB3718B3895018DBD91EBAF461151B</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn</Path>
-        <Checksum>BA676648B15F9C24FA31A2B8B30382DB</Checksum>
+        <Checksum>52DA918EAC41B38260F543A9934FCB25</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -321,12 +320,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_dyn/bsp</Path>
-        <Checksum>A27476DECF3963E23B217F95796161FA</Checksum>
+        <Checksum>6979F2D12F66C271AEB68DDA2141EA53</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -341,11 +340,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="D:\git_usb\usb\apps\usb\host\hub_cdc_hid\firmware\src"/>
-        <Include value="D:\git_usb\usb\apps\usb\host\hub_cdc_hid\firmware\src\system_config\pic32mx_usb_sk2_int_dyn"/>
-        <Include value="D:\git_usb\usb\apps\usb\host\hub_cdc_hid\firmware\src\pic32mx_usb_sk2_int_dyn"/>
-        <Include value="D:\git_usb\usb\framework"/>
-        <Include value="D:\git_usb\usb\apps\usb\host\hub_cdc_hid\firmware\src\system_config\pic32mx_usb_sk2_int_dyn\framework"/>
+        <Include value="D:/git_usb/usb/apps/usb/host/hub_cdc_hid/firmware/src"/>
+        <Include value="D:/git_usb/usb/apps/usb/host/hub_cdc_hid/firmware/src/system_config/pic32mx_usb_sk2_int_dyn"/>
+        <Include value="D:/git_usb/usb/framework"/>
+        <Include value="D:/git_usb/usb/apps/usb/host/hub_cdc_hid/firmware/src/system_config/pic32mx_usb_sk2_int_dyn/framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_int_dyn/bsp"/>
       </C32>
     </CompilerItems>

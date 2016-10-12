@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -154,6 +158,10 @@
         <Path>Header Files/framework/system/fs</Path>
       </File>
       <File>
+        <Name>flac.h</Name>
+        <Path>Header Files/framework/decoder/default/stubs</Path>
+      </File>
+      <File>
         <Name>gfx_gol_window.h</Name>
         <Path>Header Files/framework/gfx</Path>
       </File>
@@ -246,12 +254,12 @@
         <Path>Header Files/framework/usb/src</Path>
       </File>
       <File>
-        <Name>osal_impl_basic.h</Name>
-        <Path>Header Files/framework/osal/src</Path>
-      </File>
-      <File>
         <Name>drv_pmp.h</Name>
         <Path>Header Files/framework/driver/pmp</Path>
+      </File>
+      <File>
+        <Name>osal_impl_basic.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
       </File>
       <File>
         <Name>usb_host_scsi.c</Name>
@@ -266,12 +274,12 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
-        <Name>sys_clk_pic32mx.c</Name>
-        <Path>Source Files/framework/system/clk/src</Path>
-      </File>
-      <File>
         <Name>drv_ak7755.c</Name>
         <Path>Source Files/framework/driver/codec/ak7755/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>sys_clk_pic32mx.c</Name>
+        <Path>Source Files/framework/system/clk/src</Path>
       </File>
       <File>
         <Name>drv_i2s.h</Name>
@@ -282,12 +290,12 @@
         <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
-        <Name>usb_host_msd.c</Name>
-        <Path>Source Files/framework/usb/src/dynamic</Path>
-      </File>
-      <File>
         <Name>sys_devcon.c</Name>
         <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>usb_host_msd.c</Name>
+        <Path>Source Files/framework/usb/src/dynamic</Path>
       </File>
       <File>
         <Name>sys_dma.h</Name>
@@ -338,6 +346,10 @@
         <Path>Header Files/framework/system/fs/fat_fs/src/hardware_access</Path>
       </File>
       <File>
+        <Name>flac.c</Name>
+        <Path>Source Files/framework/decoder/default/stubs</Path>
+      </File>
+      <File>
         <Name>drv_i2c_compatibility.h</Name>
         <Path>Header Files/framework/driver/i2c</Path>
       </File>
@@ -370,12 +382,12 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
-        <Name>sys_int_mapping.h</Name>
-        <Path>Header Files/framework/system/int</Path>
-      </File>
-      <File>
         <Name>osal_definitions.h</Name>
         <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>sys_int_mapping.h</Name>
+        <Path>Header Files/framework/system/int</Path>
       </File>
       <File>
         <Name>ff.c</Name>
@@ -426,12 +438,12 @@
         <Path>Header Files/framework/driver/usb/usbfs/src</Path>
       </File>
       <File>
-        <Name>sys_clk_pic32mx.h</Name>
-        <Path>Header Files/framework/system/clk/src</Path>
-      </File>
-      <File>
         <Name>driver_common.h</Name>
         <Path>Header Files/framework/driver</Path>
+      </File>
+      <File>
+        <Name>sys_clk_pic32mx.h</Name>
+        <Path>Header Files/framework/system/clk/src</Path>
       </File>
       <File>
         <Name>gfx_gol_text_entry.h</Name>
@@ -530,12 +542,12 @@
         <Path>Header Files/framework/decoder/default/stubs</Path>
       </File>
       <File>
-        <Name>sys_fs.c</Name>
-        <Path>Source Files/framework/system/fs/src/dynamic</Path>
-      </File>
-      <File>
         <Name>mpfs_local.h</Name>
         <Path>Header Files/framework/system/fs/mpfs/src</Path>
+      </File>
+      <File>
+        <Name>sys_fs.c</Name>
+        <Path>Source Files/framework/system/fs/src/dynamic</Path>
       </File>
       <File>
         <Name>drv_i2s_variant_mapping.h</Name>
@@ -606,6 +618,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -646,16 +662,16 @@
         <Path>Header Files/framework/system/clk/src</Path>
       </File>
       <File>
+        <Name>aac.c</Name>
+        <Path>Source Files/framework/decoder/default/stubs</Path>
+      </File>
+      <File>
         <Name>sys_module.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
         <Name>diskio.c</Name>
         <Path>Source Files/framework/system/fs</Path>
-      </File>
-      <File>
-        <Name>aac.c</Name>
-        <Path>Source Files/framework/decoder/default/stubs</Path>
       </File>
       <File>
         <Name>drv_i2c_mapping.h</Name>
@@ -722,7 +738,7 @@
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/ak7755_bt_audio_dk</Path>
-        <Checksum>60A61864DD1F38B91BECBCD62741F7AA</Checksum>
+        <Checksum>65C23D4C9D423AF70E89E5C656008791</Checksum>
         <ProjectFileChecksum>38E148E1F5B686BA38CE0B635040B43A</ProjectFileChecksum>
       </Template>
       <Template>
@@ -734,7 +750,7 @@
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/ak7755_bt_audio_dk</Path>
-        <Checksum>69854F6E918C4B7AA31C8352A4D53FBA</Checksum>
+        <Checksum>7057CA8FD44C14AD18C23E3C945F1B0F</Checksum>
         <ProjectFileChecksum>8236A0D190C1B03E10562A4FBDDA6929</ProjectFileChecksum>
       </Template>
       <Template>
@@ -799,7 +815,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/ak7755_bt_audio_dk</Path>
-        <Checksum>569CF4853F1955C500966E7B1CB90620</Checksum>
+        <Checksum>427A9A2DC3CD6C9C790C9CE4BD9D3D5A</Checksum>
         <ProjectFileChecksum>D213E0889215AFA7AE7663E1F3EF7B75</ProjectFileChecksum>
       </Template>
       <Template>

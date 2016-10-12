@@ -17,8 +17,8 @@
     definitions (or include any files that do).  It only provides macro
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
-    
-    Created with MPLAB Harmony Version 2.00
+
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,24 +59,20 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
 extern "C" {
 
 #endif
-// DOM-IGNORE-END 
+// DOM-IGNORE-END
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -86,6 +82,35 @@ extern "C" {
 #define SYS_CLK_UPLL_BEFORE_DIV2_FREQ       96000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         12000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       0ul
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
+/*** File System Service Configuration ***/
+
+#define SYS_FS_MEDIA_NUMBER         	1
+
+#define SYS_FS_VOLUME_NUMBER		1
+
+#define SYS_FS_AUTOMOUNT_ENABLE		false
+#define SYS_FS_MAX_FILES	    	1
+#define SYS_FS_MAX_FILE_SYSTEM_TYPE 	1
+#define SYS_FS_MEDIA_MAX_BLOCK_SIZE  	512
+#define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE 128
+
+
+#define SYS_FS_MEDIA_TYPE_IDX0 				
+#define SYS_FS_TYPE_IDX0 					
+
+
+
+
+
+
+
+
 
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
@@ -114,31 +139,6 @@ extern "C" {
 #define SYS_PORT_C_CNPU         0x0000
 #define SYS_PORT_C_CNPD         0x0000
 #define SYS_PORT_C_CNEN         0x0000
-
-
-
-/*** File System Service Configuration ***/
-
-#define SYS_FS_MEDIA_NUMBER         	1
-
-#define SYS_FS_VOLUME_NUMBER		1
-
-#define SYS_FS_AUTOMOUNT_ENABLE		false
-#define SYS_FS_MAX_FILES	    	1
-#define SYS_FS_MAX_FILE_SYSTEM_TYPE 	1
-#define SYS_FS_MEDIA_MAX_BLOCK_SIZE  	512
-#define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE 128
-
-
-#define SYS_FS_MEDIA_TYPE_IDX0 				
-#define SYS_FS_TYPE_IDX0 					
-
-
-
-
-
-
-
 
 
 // *****************************************************************************
@@ -171,10 +171,8 @@ extern "C" {
 // Section: Middleware & Other Library Configuration
 // *****************************************************************************
 // *****************************************************************************
-
 #define APP_SUCCESS_LED         BSP_LED_GREEN
 #define APP_FAILURE_LED         BSP_LED_RED
-
 // *****************************************************************************
 /* BSP Configuration Options
 */

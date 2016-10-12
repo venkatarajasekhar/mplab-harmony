@@ -78,6 +78,7 @@ ifblock USE_SYS_COMMAND
 
 add "<#include \"/framework/system/command/config/sys_command.c.ftl\">"  to list SYSTEM_INIT_C_MODULE_INITIALIZATION_DATA
 add "<#include \"/framework/system/command/config/sys_command_init.c.ftl\">"  to list SYSTEM_INIT_C_INITIALIZE_SYSTEM_SERVICES
+add "<#include \"/framework/system/command/config/sys_command.h.ftl\">"  to list SYSTEM_CONFIG_H_SYSTEM_SERVICE_CONFIGURATION
 add "<#assign SYS_COMMAND_TASKS = \"TASK_CALL_NO_RTOS\"><#include \"/framework/system/command/config/sys_command_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_SYSTEM_TASKS
 
 file SYS_COMMAND_H "$HARMONY_VERSION_PATH/framework/system/command/sys_command.h" to "$PROJECT_HEADER_FILES/framework/system/command/sys_command.h"

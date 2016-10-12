@@ -1,24 +1,5 @@
 ifblock DS60001168
 
-config BSP_DS60001168_COMMON
-    depends on USE_BSP
-    set JTAGEN optionally to "OFF"
-    set FNOSC optionally to "PRIPLL" if USE_BSP
-    set FNOSC optionally to "FRCPLL" if !USE_BSP
-    set POSCMOD optionally to "OFF" if !USE_BSP
-    set FPLLIDIV optionally to "DIV_3" if USE_BSP
-    set FPLLIDIV optionally to "DIV_2" if !USE_BSP
-    set FPLLODIV optionally to "DIV_2"
-    set UPLLIDIV optionally to "DIV_3"
-    set UPLLEN optionally to "ON" if USE_BSP
-    set FSOSCEN optionally to "OFF"
-    set IESO optionally to "OFF"
-    set FPBDIV optionally to "DIV_1"
-    set FWDTEN optionally to "OFF"
-    set FWDTWINSZ optionally to "WINSZ_50"
-    bool
-    default y if USE_BSP
-
 choice
     prompt "Select BSP To Use For $DEVICE Device"
     depends on USE_BSP
@@ -54,9 +35,26 @@ config BSP_PIC32MX_USB_DIGITAL_AB
 	
 endchoice	
 
-
 source "$HARMONY_VERSION_PATH/bsp/pic32mx_bt_sk/config/bsp.hconfig"
 source "$HARMONY_VERSION_PATH/bsp/pic32mx_usb_digital_audio_ab/config/bsp.hconfig"
+
+config BSP_DS60001168_COMMON
+    set JTAGEN optionally to "OFF"
+    set FNOSC optionally to "PRIPLL" if USE_BSP
+    set FNOSC optionally to "FRCPLL" if !USE_BSP
+    set POSCMOD optionally to "OFF" if !USE_BSP
+    set FPLLIDIV optionally to "DIV_3" if USE_BSP
+    set FPLLIDIV optionally to "DIV_2" if !USE_BSP
+    set FPLLODIV optionally to "DIV_2"
+    set UPLLIDIV optionally to "DIV_3"
+    set UPLLEN optionally to "ON" if USE_BSP
+    set FSOSCEN optionally to "OFF"
+    set IESO optionally to "OFF"
+    set FPBDIV optionally to "DIV_1"
+    set FWDTEN optionally to "OFF"
+    set FWDTWINSZ optionally to "WINSZ_50"
+    bool
+    default y if USE_BSP
 
 endif
 

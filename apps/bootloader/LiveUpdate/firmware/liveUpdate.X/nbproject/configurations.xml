@@ -19,11 +19,6 @@
                   <itemPath>../src/system_config/usart_pic32mz_ef_sk/framework/driver/usart/drv_usart_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/usart_pic32mz_ef_sk/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/usart_pic32mz_ef_sk/system_config.h</itemPath>
             <itemPath>../src/system_config/usart_pic32mz_ef_sk/system_definitions.h</itemPath>
@@ -68,6 +63,7 @@
         <logicalFolder name="f2" displayName="system" projectFiles="true">
           <logicalFolder name="f4" displayName="clk" projectFiles="true">
             <itemPath>../../../../../framework/system/clk/sys_clk.h</itemPath>
+            <itemPath>../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
             <itemPath>../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f5" displayName="common" projectFiles="true">
@@ -100,6 +96,13 @@
           </logicalFolder>
           <logicalFolder name="f8" displayName="ports" projectFiles="true">
             <itemPath>../../../../../framework/system/ports/sys_ports.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f9" displayName="reset" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../../../../../framework/system/reset/src/sys_reset_local.h</itemPath>
+              <itemPath>../../../../../framework/system/reset/src/sys_reset_mapping.h</itemPath>
+            </logicalFolder>
+            <itemPath>../../../../../framework/system/reset/sys_reset.h</itemPath>
           </logicalFolder>
           <itemPath>../../../../../framework/system/system.h</itemPath>
         </logicalFolder>
@@ -178,6 +181,11 @@
           <logicalFolder name="f2" displayName="int" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/int/src/sys_int_pic32.c</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="f3" displayName="reset" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../../../../../framework/system/reset/src/sys_reset.c</itemPath>
             </logicalFolder>
           </logicalFolder>
         </logicalFolder>
@@ -338,7 +346,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config/usart_pic32mz_ef_sk;../src/usart_pic32mz_ef_sk;../../../../../framework;../src/system_config/usart_pic32mz_ef_sk/framework;../src/system_config/usart_pic32mz_ef_sk/bsp"/>
+                  value="../src/usart_pic32mz_ef_sk;../src;../src/system_config/usart_pic32mz_ef_sk;../../../../../framework;../src/system_config/usart_pic32mz_ef_sk/framework;../src/system_config/usart_pic32mz_ef_sk/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>

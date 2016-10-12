@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<pic32mx795_pim_e16 version="2.0.0.8">
+<pic32mx795_pim_e16 version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -125,6 +129,10 @@
         <Name>sys_queue.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
     </Files>
     <Templates>
       <Template>
@@ -139,12 +147,12 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16/bsp</Path>
-        <Checksum>D0BABDD8CC269B7DE3BA98239B5ECC8D</Checksum>
+        <Checksum>EE96DD12865E6C7F0453E07B26BCF042</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16/bsp</Path>
-        <Checksum>999832C5BD5B6EC600BB84C682241D0C</Checksum>
+        <Checksum>7567B3DF8AD82B4BA40BB70A80E7AC51</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -168,8 +176,8 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16</Path>
-        <Checksum>C6CD4455F983B206EB79B02A58AD8855</Checksum>
-        <ProjectFileChecksum>07B638400164A61E8CEE0B7A98E5A35B</ProjectFileChecksum>
+        <Checksum>73A33A3BE05C13FE8BD6501EA4DF4371</Checksum>
+        <ProjectFileChecksum>8F2DBC32753C696238C84C89CD897C8C</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -183,23 +191,17 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>drv_flash_static.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16/framework/driver/flash</Path>
         <Checksum>4F0D9D850D035EFA4F7AF4159CE2DB2B</Checksum>
-        <ProjectFileChecksum>AA3FED7684BF30C8E99013F39EF7F728</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16</Path>
-        <Checksum>0FFE11D7C30D8F0989F4E6FD6D2FCFCD</Checksum>
+        <Checksum>176F8A9D36A26F7C71C9BF71B5F9F07E</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -209,11 +211,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/flash/flash_modify/firmware/src"/>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/flash/flash_modify/firmware/src/system_config/pic32mx795_pim_e16"/>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/flash/flash_modify/firmware/src/pic32mx795_pim_e16"/>
-        <Include value="E:/official/git/core_ldra/framework"/>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/flash/flash_modify/firmware/src/system_config/pic32mx795_pim_e16/framework"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/flash/flash_modify/firmware/src"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/flash/flash_modify/firmware/src/system_config/pic32mx795_pim_e16"/>
+        <Include value="E:/official/git/core/framework"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/flash/flash_modify/firmware/src/system_config/pic32mx795_pim_e16/framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16/bsp"/>
       </C32>
     </CompilerItems>

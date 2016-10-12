@@ -50,7 +50,11 @@ void ReloadTimer(void);
 Core timer is used as the RTOS tick source, user is free to change this to any
 timer source wanted.
 *******************************************************************************/
+#if ( __mips_micromips == 1 ) 
+void __attribute__((micromips)) __attribute__((interrupt(IPL2SOFT))) __attribute__((vector(_CORE_TIMER_VECTOR))) CoreTimerHandler(void)
+#else 
 void __ISR(_CORE_TIMER_VECTOR, IPL2SOFT) CoreTimerHandler(void)
+#endif
 {
 
    /* Call ThreadX context save.  */

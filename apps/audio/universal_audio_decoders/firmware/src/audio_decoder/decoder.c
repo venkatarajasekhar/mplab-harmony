@@ -52,11 +52,11 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 ////////////////////////////////////////////////////////////////////////////////
 //APP_AUDIOPLAYER appData ;
 static DECODER_TYPE decoderType;
-
-static uint8_t decoderHeap[AACDECODER_STATE_SIZE]; 
+uint8_t frameHeader[WAV_HEADER_SIZE]; // 44 bytes
+uint8_t decoderHeap[AACDECODER_STATE_SIZE]; 
 uint32_t decoderBitrate;
 uint32_t decoderSamplerate;
-static int sampling_frequency;
+int sampling_frequency;
 
 
 /*********************STATIC FUNCTIONS DECLARATION*****************************/
@@ -66,12 +66,13 @@ static void DECODE_ConfigureAudioTransmitMode(bool stereo);
 ////////////////////////////////////////////////////////////////////////////////
 void DECODER_Initialize ( uint8_t type )
 {
-    uint8_t frameHeader[WAV_HEADER_SIZE]; // 44 bytes
+    
    
     decoderType = DECODER_TYPE_UNKNOWN;
     APP_AUDIOPLAYER *appDataPtr = APP_GetAppDataInstance();
     switch ( type )
     {
+#ifdef MP3_DECODER_ENABLED
         case APP_DECODER_MP3:
             appDataPtr->currentStreamType = APP_STREAM_MP3;
             decoderType = DECODER_TYPE_MP3;
@@ -84,9 +85,10 @@ void DECODER_Initialize ( uint8_t type )
                DECODER_EventHandler ( DECODER_INITIALIZATION_ERROR, 0 );
             }
             DECODE_ConfigureAudioTransmitMode((MP3_GetChannels()==2));
-            
             break;
-
+#endif
+            
+#ifdef AAC_DECODER_ENABLED
         case APP_DECODER_AAC:
             appDataPtr->currentStreamType = APP_STREAM_AAC;
             decoderType = DECODER_TYPE_AAC;
@@ -110,10 +112,11 @@ void DECODER_Initialize ( uint8_t type )
                  Nop();
             }
             DECODE_ConfigureAudioTransmitMode((AAC_GetChannels()==2));
-            
             break;
+#endif
+            
 
-
+#ifdef WMA_DECODER_ENABLED
         case APP_DECODER_WMA:
             appDataPtr->currentStreamType = APP_STREAM_WMA;
             decoderType = DECODER_TYPE_WMA;
@@ -138,10 +141,11 @@ void DECODER_Initialize ( uint8_t type )
                /* Check for End of file */
                 Nop();
             }
-            
-            
             break;
+#endif
             
+            
+#ifdef WAV_STREAMING_ENABLED
         case APP_DECODER_WAV:
             appDataPtr->currentStreamType = APP_STREAM_WAV;
             appDataPtr->updatePlaytimeFunc = WAV_UpdatePlaytime;
@@ -153,7 +157,11 @@ void DECODER_Initialize ( uint8_t type )
             
             appDataPtr->readBytes = WAV_INPUT_BUFFER_SIZE;
             appDataPtr->readbyte_flag = true;
-            WAV_Initialize (frameHeader);
+            WAV_Initialize_N (frameHeader, appDataPtr->fileHandle);
+//            sampling_frequency = 
+            DECODER_EventHandler ( DECODER_EVENT_SAMPLERATE, WAV_GetSampleRate());
+            DECODER_EventHandler ( DECODER_EVENT_BITRATE, WAV_GetBitRate());
+            DECODER_EventHandler ( DECODER_EVENT_TRACK_TIME, WAV_GetDuration());
 
             DECODE_ConfigureAudioTransmitMode((WAV_GetChannels()==2));
             DECODER_EventHandler ( DECODER_EVENT_TAG_TITLE, (uint32_t)appDataPtr->fileStatus.lfname );
@@ -162,7 +170,9 @@ void DECODER_Initialize ( uint8_t type )
             DECODER_EventHandler ( DECODER_EVENT_STREAM_START, 0 );
             
             break;
+#endif
             
+#ifdef OGG_SPEEX_DECODER_ENABLED
         case APP_DECODER_SPEEX:
             appDataPtr->currentStreamType = APP_STREAM_SPEEX;
             APP_ERROR_MSG res = SPEEX_Initialize(appDataPtr->fileHandle);
@@ -177,10 +187,11 @@ void DECODER_Initialize ( uint8_t type )
                 DECODER_EventHandler ( DECODER_EVENT_TAG_TITLE, (uint32_t)appDataPtr->fileStatus.lfname);
                 
             }
-            
             decoderType = DECODER_TYPE_SPEEX;
             break;
+#endif
             
+#ifdef ADPCM_STREAMING_ENABLED
         case APP_DECODER_ADPCM:
             appDataPtr->currentStreamType = APP_STREAM_ADPCM;
             DISK_ReadCurrentFile(frameHeader, ADPCM_HEADER_SIZE);
@@ -190,20 +201,16 @@ void DECODER_Initialize ( uint8_t type )
             ADPCM_Initialize(frameHeader);
             
             sampling_frequency = ADPCM_HdrGetSamplesPerSec();
-//            decoderBitrate = WAV_HdrGetBytesPerSec()*8/1000;
-//            uint32_t datasize = WAV_HdrGetFileSize();
-//            uint32_t bytespersec = WAV_HdrGetBytesPerSec();
-//            uint32_t totaltime = datasize / bytespersec;
             
             DECODER_EventHandler ( DECODER_EVENT_SAMPLERATE, sampling_frequency );
-//            DECODER_EventHandler ( DECODER_EVENT_BITRATE, decoderBitrate );
-//            DECODER_EventHandler ( DECODER_EVENT_TRACK_TIME, totaltime);
             DECODER_EventHandler ( DECODER_EVENT_TAG_TITLE, (uint32_t)appDataPtr->fileStatus.lfname );
             
             DECODE_ConfigureAudioTransmitMode((ADPCM_GetChannels()==2));
             decoderType = DECODER_TYPE_ADPCM;
             break;
+#endif
             
+#ifdef OGG_OPUS_DECODER_ENABLED
         case APP_DECODER_OPUS:
             appDataPtr->currentStreamType = APP_STREAM_OPUS;
             APP_ERROR_MSG ret = OPUS_Initialize(appDataPtr->fileHandle);
@@ -216,8 +223,13 @@ void DECODER_Initialize ( uint8_t type )
             DECODE_ConfigureAudioTransmitMode((OPUS_GetChannels()==2));
             decoderType = DECODER_TYPE_OPUS;
             break;
+#endif
+            
         case APP_DECODER_UNKNOWN:
             break;
+        default:
+            break;
+       
     }
 }
 
@@ -307,7 +319,11 @@ bool DECODER_Decode ( uint8_t *input, uint16_t inSize, uint16_t *read, int16_t *
                 return false;
             }
             break;
-
+        // Tobe added	
+        /*
+        case DECODER_TYPE_FLAC:            
+            return FLAC_Decoder(input, inSize, read, (uint8_t *)output, written);
+        */          
         case DECODER_TYPE_UNKNOWN:
             break;
     }
@@ -332,7 +348,11 @@ uint32_t DECODER_GetCurrentValidAudioSize(){
             break;
         case DECODER_TYPE_WMA:
             break;
-        default:
+        /* Tobe added
+        case DECODER_TYPE_FLAC:
+            break;
+        */
+         default:
             ret = 0;
             break;
     }
@@ -352,7 +372,13 @@ void DECODER_Cleanup()
         case DECODER_TYPE_OPUS:
             OPUS_Cleanup();
             break;
-        default:
+// Tobe added
+/*
+        case DECODER_TYPE_FLAC:
+            FLAC_Cleanup();
+            break;
+*/ 
+       default:
             break;
     }
 }

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX470F512L"/>
@@ -18,12 +22,12 @@
         <Path>Header Files/framework/driver/usb/usbfs/src</Path>
       </File>
       <File>
-        <Name>sys_clk_pic32mx.h</Name>
-        <Path>Header Files/framework/system/clk/src</Path>
-      </File>
-      <File>
         <Name>driver_common.h</Name>
         <Path>Header Files/framework/driver</Path>
+      </File>
+      <File>
+        <Name>sys_clk_pic32mx.h</Name>
+        <Path>Header Files/framework/system/clk/src</Path>
       </File>
       <File>
         <Name>drv_usbhs.h</Name>
@@ -40,6 +44,10 @@
       <File>
         <Name>sys_fs.h</Name>
         <Path>Header Files/framework/system/fs</Path>
+      </File>
+      <File>
+        <Name>usb_device_msd_local.h</Name>
+        <Path>Header Files/framework/usb/src</Path>
       </File>
       <File>
         <Name>usb_chapter_9.h</Name>
@@ -70,12 +78,12 @@
         <Path>Header Files/framework/system/int/src</Path>
       </File>
       <File>
-        <Name>system.h</Name>
-        <Path>Header Files/framework/system</Path>
-      </File>
-      <File>
         <Name>sys_clk.c</Name>
         <Path>Source Files/framework/system/clk/src</Path>
+      </File>
+      <File>
+        <Name>system.h</Name>
+        <Path>Header Files/framework/system</Path>
       </File>
       <File>
         <Name>sys_fs_media_manager.h</Name>
@@ -110,12 +118,12 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
-        <Name>drv_usbfs.c</Name>
-        <Path>Source Files/framework/driver/usb/usbfs/src/dynamic</Path>
-      </File>
-      <File>
         <Name>sys_clk_pic32mx.c</Name>
         <Path>Source Files/framework/system/clk/src</Path>
+      </File>
+      <File>
+        <Name>drv_usbfs.c</Name>
+        <Path>Source Files/framework/driver/usb/usbfs/src/dynamic</Path>
       </File>
       <File>
         <Name>sys_devcon.c</Name>
@@ -146,20 +154,16 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
-        <Name>sys_ports.h</Name>
-        <Path>Header Files/framework/system/ports</Path>
-      </File>
-      <File>
         <Name>sys_clk_local.h</Name>
         <Path>Header Files/framework/system/clk/src</Path>
       </File>
       <File>
-        <Name>usb_hub.h</Name>
-        <Path>Header Files/framework/usb</Path>
+        <Name>sys_ports.h</Name>
+        <Path>Header Files/framework/system/ports</Path>
       </File>
       <File>
-        <Name>usb_device_mapping.h</Name>
-        <Path>Header Files/framework/usb/src</Path>
+        <Name>usb_hub.h</Name>
+        <Path>Header Files/framework/usb</Path>
       </File>
       <File>
         <Name>sys_common.h</Name>
@@ -170,8 +174,16 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
+        <Name>usb_device_mapping.h</Name>
+        <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
         <Name>usb_host_hub.h</Name>
         <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
@@ -206,12 +218,12 @@
         <Path>Source Files/framework/driver/usb/usbfs/src/dynamic</Path>
       </File>
       <File>
-        <Name>sys_debug.h</Name>
-        <Path>Header Files/framework/system/debug</Path>
-      </File>
-      <File>
         <Name>drv_nvm.h</Name>
         <Path>Header Files/framework/driver/nvm</Path>
+      </File>
+      <File>
+        <Name>sys_debug.h</Name>
+        <Path>Header Files/framework/system/debug</Path>
       </File>
       <File>
         <Name>sys_clk_variant_mapping.h</Name>
@@ -259,12 +271,12 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk3_int_dyn/bsp</Path>
-        <Checksum>E106E3241184D2C88D0F0DA0F0B33F5D</Checksum>
+        <Checksum>36AC9754152E0D31C62E56C290243ED6</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk3_int_dyn/bsp</Path>
-        <Checksum>E45BC96ED257C3DADF682FD789C2F01C</Checksum>
+        <Checksum>0F39A39DE00D6C419B5320D82B9808B7</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -278,8 +290,8 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk3_int_dyn</Path>
-        <Checksum>9C0AE9C5CD9E6A6A888E3F2AB6F85889</Checksum>
-        <ProjectFileChecksum>CC5C509059AA3E078E3D1F78308E9A6B</ProjectFileChecksum>
+        <Checksum>D7532D705B494CC4850E4AEBEF6122D3</Checksum>
+        <ProjectFileChecksum>86E4F18BC4761FADAEF148D1042DCF29</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -313,11 +325,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/usb/device/msd_basic/firmware/src"/>
-        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/usb/device/msd_basic/firmware/src/system_config/pic32mx_usb_sk3_int_dyn"/>
-        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/usb/device/msd_basic/firmware/src/pic32mx_usb_sk3_int_dyn"/>
-        <Include value="D:/git_view/isp_trunk/mcu32apps/framework"/>
-        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/usb/device/msd_basic/firmware/src/system_config/pic32mx_usb_sk3_int_dyn/framework"/>
+        <Include value="D:/git_repositories/usb/apps/usb/device/msd_basic/firmware/src"/>
+        <Include value="D:/git_repositories/usb/apps/usb/device/msd_basic/firmware/src/system_config/pic32mx_usb_sk3_int_dyn"/>
+        <Include value="D:/git_repositories/usb/framework"/>
+        <Include value="D:/git_repositories/usb/apps/usb/device/msd_basic/firmware/src/system_config/pic32mx_usb_sk3_int_dyn/framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk3_int_dyn/bsp"/>
       </C32>
     </CompilerItems>

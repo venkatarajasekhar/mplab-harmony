@@ -12,7 +12,7 @@
     Build-time generated definitions header based on output by the MPLAB Harmony
     Graphics Composer.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -1163,393 +1163,371 @@ typedef enum
 #define GFX_STATICTEXT_ALIGNMENT_0       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
 #define GFX_STATICTEXT_SCHEME_0          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_1            20
-#define GFX_STATICTEXT_TOP_1             190
-#define GFX_STATICTEXT_RIGHT_1           780
-#define GFX_STATICTEXT_BOTTOM_1          250
+#define GFX_STATICTEXT_LEFT_1            60
+#define GFX_STATICTEXT_TOP_1             401
+#define GFX_STATICTEXT_RIGHT_1           212
+#define GFX_STATICTEXT_BOTTOM_1          450
 #define GFX_STATICTEXT_STATE_1          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_1            "0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2f, 0x0, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_1       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_1          gfxScheme3
+#define GFX_STATICTEXT_TEXT_1            "0x53, 0x6c, 0x69, 0x64, 0x65, 0x73, 0x68, 0x6f, 0x77, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_1       GFX_ALIGN_HCENTER | GFX_ALIGN_TOP
+#define GFX_STATICTEXT_SCHEME_1          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_2            20
-#define GFX_STATICTEXT_TOP_2             190
-#define GFX_STATICTEXT_RIGHT_2           780
-#define GFX_STATICTEXT_BOTTOM_2          250
+#define GFX_STATICTEXT_LEFT_2            232
+#define GFX_STATICTEXT_TOP_2             401
+#define GFX_STATICTEXT_RIGHT_2           409
+#define GFX_STATICTEXT_BOTTOM_2          451
 #define GFX_STATICTEXT_STATE_2          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_2            "0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2f, 0x0, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_2       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_2          gfxScheme3
+#define GFX_STATICTEXT_TEXT_2            "0x54, 0x6f, 0x75, 0x63, 0x68, 0x20, 0x54, 0x65, 0x73, 0x74, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_2       GFX_ALIGN_HCENTER | GFX_ALIGN_TOP
+#define GFX_STATICTEXT_SCHEME_2          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_3            60
+#define GFX_STATICTEXT_LEFT_3            422
 #define GFX_STATICTEXT_TOP_3             401
-#define GFX_STATICTEXT_RIGHT_3           212
+#define GFX_STATICTEXT_RIGHT_3           564
 #define GFX_STATICTEXT_BOTTOM_3          450
 #define GFX_STATICTEXT_STATE_3          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_3            "0x53, 0x6c, 0x69, 0x64, 0x65, 0x73, 0x68, 0x6f, 0x77, 0x0"
+#define GFX_STATICTEXT_TEXT_3            "0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73, 0x0"
 #define GFX_STATICTEXT_ALIGNMENT_3       GFX_ALIGN_HCENTER | GFX_ALIGN_TOP
 #define GFX_STATICTEXT_SCHEME_3          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_4            232
-#define GFX_STATICTEXT_TOP_4             401
-#define GFX_STATICTEXT_RIGHT_4           409
-#define GFX_STATICTEXT_BOTTOM_4          451
+#define GFX_STATICTEXT_LEFT_4            583
+#define GFX_STATICTEXT_TOP_4             402
+#define GFX_STATICTEXT_RIGHT_4           757
+#define GFX_STATICTEXT_BOTTOM_4          450
 #define GFX_STATICTEXT_STATE_4          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_4            "0x54, 0x6f, 0x75, 0x63, 0x68, 0x20, 0x54, 0x65, 0x73, 0x74, 0x0"
+#define GFX_STATICTEXT_TEXT_4            "0x46, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x73, 0x0"
 #define GFX_STATICTEXT_ALIGNMENT_4       GFX_ALIGN_HCENTER | GFX_ALIGN_TOP
 #define GFX_STATICTEXT_SCHEME_4          gfxScheme4
 		
 #define GFX_STATICTEXT_LEFT_5            422
-#define GFX_STATICTEXT_TOP_5             401
-#define GFX_STATICTEXT_RIGHT_5           564
-#define GFX_STATICTEXT_BOTTOM_5          450
+#define GFX_STATICTEXT_TOP_5             402
+#define GFX_STATICTEXT_RIGHT_5           563
+#define GFX_STATICTEXT_BOTTOM_5          447
 #define GFX_STATICTEXT_STATE_5          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_5            "0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_5       GFX_ALIGN_HCENTER | GFX_ALIGN_TOP
-#define GFX_STATICTEXT_SCHEME_5          gfxScheme4
+#define GFX_STATICTEXT_TEXT_5            "0x3c, 0x34, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_5       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
+#define GFX_STATICTEXT_SCHEME_5          gfxScheme3
 		
-#define GFX_STATICTEXT_LEFT_6            583
+#define GFX_STATICTEXT_LEFT_6            422
 #define GFX_STATICTEXT_TOP_6             402
-#define GFX_STATICTEXT_RIGHT_6           757
-#define GFX_STATICTEXT_BOTTOM_6          450
+#define GFX_STATICTEXT_RIGHT_6           563
+#define GFX_STATICTEXT_BOTTOM_6          447
 #define GFX_STATICTEXT_STATE_6          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_6            "0x46, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x73, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_6       GFX_ALIGN_HCENTER | GFX_ALIGN_TOP
-#define GFX_STATICTEXT_SCHEME_6          gfxScheme4
+#define GFX_STATICTEXT_TEXT_6            "0x3a, 0x34, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_6       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
+#define GFX_STATICTEXT_SCHEME_6          gfxScheme3
 		
-#define GFX_STATICTEXT_LEFT_7            422
-#define GFX_STATICTEXT_TOP_7             402
-#define GFX_STATICTEXT_RIGHT_7           563
-#define GFX_STATICTEXT_BOTTOM_7          447
+#define GFX_STATICTEXT_LEFT_7            232
+#define GFX_STATICTEXT_TOP_7             401
+#define GFX_STATICTEXT_RIGHT_7           408
+#define GFX_STATICTEXT_BOTTOM_7          446
 #define GFX_STATICTEXT_STATE_7          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_7            "0x3c, 0x34, 0x0"
+#define GFX_STATICTEXT_TEXT_7            "0x37, 0x26, 0x3f, 0x22, 0x0"
 #define GFX_STATICTEXT_ALIGNMENT_7       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
 #define GFX_STATICTEXT_SCHEME_7          gfxScheme3
 		
-#define GFX_STATICTEXT_LEFT_8            422
-#define GFX_STATICTEXT_TOP_8             402
-#define GFX_STATICTEXT_RIGHT_8           563
-#define GFX_STATICTEXT_BOTTOM_8          447
+#define GFX_STATICTEXT_LEFT_8            232
+#define GFX_STATICTEXT_TOP_8             401
+#define GFX_STATICTEXT_RIGHT_8           407
+#define GFX_STATICTEXT_BOTTOM_8          446
 #define GFX_STATICTEXT_STATE_8          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_8            "0x3a, 0x34, 0x0"
+#define GFX_STATICTEXT_TEXT_8            "0x38, 0x26, 0x3e, 0x22, 0x0"
 #define GFX_STATICTEXT_ALIGNMENT_8       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
 #define GFX_STATICTEXT_SCHEME_8          gfxScheme3
 		
-#define GFX_STATICTEXT_LEFT_9            232
-#define GFX_STATICTEXT_TOP_9             401
-#define GFX_STATICTEXT_RIGHT_9           408
-#define GFX_STATICTEXT_BOTTOM_9          446
+#define GFX_STATICTEXT_LEFT_9            583
+#define GFX_STATICTEXT_TOP_9             402
+#define GFX_STATICTEXT_RIGHT_9           756
+#define GFX_STATICTEXT_BOTTOM_9          447
 #define GFX_STATICTEXT_STATE_9          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_9            "0x37, 0x26, 0x3f, 0x22, 0x0"
+#define GFX_STATICTEXT_TEXT_9            "0x2b, 0x2f, 0x23, 0x35, 0x0"
 #define GFX_STATICTEXT_ALIGNMENT_9       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
 #define GFX_STATICTEXT_SCHEME_9          gfxScheme3
 		
-#define GFX_STATICTEXT_LEFT_10            232
+#define GFX_STATICTEXT_LEFT_10            60
 #define GFX_STATICTEXT_TOP_10             401
-#define GFX_STATICTEXT_RIGHT_10           407
+#define GFX_STATICTEXT_RIGHT_10           211
 #define GFX_STATICTEXT_BOTTOM_10          446
 #define GFX_STATICTEXT_STATE_10          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_10            "0x38, 0x26, 0x3e, 0x22, 0x0"
+#define GFX_STATICTEXT_TEXT_10            "0x24, 0x2d, 0x2e, 0x0"
 #define GFX_STATICTEXT_ALIGNMENT_10       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
 #define GFX_STATICTEXT_SCHEME_10          gfxScheme3
 		
-#define GFX_STATICTEXT_LEFT_11            583
-#define GFX_STATICTEXT_TOP_11             402
-#define GFX_STATICTEXT_RIGHT_11           756
-#define GFX_STATICTEXT_BOTTOM_11          447
+#define GFX_STATICTEXT_LEFT_11            60
+#define GFX_STATICTEXT_TOP_11             401
+#define GFX_STATICTEXT_RIGHT_11           211
+#define GFX_STATICTEXT_BOTTOM_11          446
 #define GFX_STATICTEXT_STATE_11          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_11            "0x2b, 0x2f, 0x23, 0x35, 0x0"
+#define GFX_STATICTEXT_TEXT_11            "0x24, 0x2c, 0x2e, 0x0"
 #define GFX_STATICTEXT_ALIGNMENT_11       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
 #define GFX_STATICTEXT_SCHEME_11          gfxScheme3
 		
-#define GFX_STATICTEXT_LEFT_12            60
-#define GFX_STATICTEXT_TOP_12             401
-#define GFX_STATICTEXT_RIGHT_12           211
-#define GFX_STATICTEXT_BOTTOM_12          446
-#define GFX_STATICTEXT_STATE_12          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_12            "0x24, 0x2d, 0x2e, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_12       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_12          gfxScheme3
+#define GFX_STATICTEXT_LEFT_12            51
+#define GFX_STATICTEXT_TOP_12             22
+#define GFX_STATICTEXT_RIGHT_12           762
+#define GFX_STATICTEXT_BOTTOM_12          357
+#define GFX_STATICTEXT_STATE_12          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE
+#define GFX_STATICTEXT_TEXT_12            "0x53, 0x6c, 0x69, 0x64, 0x65, 0x73, 0x68, 0x6f, 0x77, 0x20, 0x54, 0x69, 0x70, 0x73, 0xA, 0xA, 0x31, 0x29, 0x20, 0x54, 0x61, 0x70, 0x20, 0x74, 0x6f, 0x20, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x65, 0x64, 0x20, 0x74, 0x6f, 0x20, 0x74, 0x68, 0x65, 0x20, 0x6e, 0x65, 0x78, 0x74, 0x20, 0x73, 0x6c, 0x69, 0x64, 0x65, 0xA, 0x32, 0x29, 0x20, 0x50, 0x72, 0x65, 0x73, 0x73, 0x20, 0x61, 0x6e, 0x64, 0x20, 0x68, 0x6f, 0x6c, 0x64, 0x20, 0x74, 0x6f, 0x20, 0x72, 0x65, 0x6d, 0x61, 0x69, 0x6e, 0x20, 0x6f, 0x6e, 0x20, 0x74, 0x68, 0x65, 0x20, 0x63, 0x75, 0x72, 0x72, 0x65, 0x6e, 0x74, 0x20, 0xA, 0x20, 0x20, 0x20, 0x69, 0x6d, 0x61, 0x67, 0x65, 0xA, 0x33, 0x29, 0x20, 0x50, 0x72, 0x65, 0x73, 0x73, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x69, 0x63, 0x6f, 0x6e, 0x20, 0x74, 0x6f, 0x20, 0x72, 0x65, 0x74, 0x75, 0x72, 0x6e, 0x20, 0x74, 0x6f, 0x20, 0x74, 0x68, 0x65, 0x20, 0x6d, 0x61, 0x69, 0x6e, 0x20, 0x6d, 0x65, 0x6e, 0x75, 0xA, 0xA, 0x34, 0x29, 0x20, 0x53, 0x6c, 0x69, 0x64, 0x65, 0x20, 0x70, 0x61, 0x75, 0x73, 0x65, 0x20, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x76, 0x61, 0x6c, 0x20, 0x74, 0x69, 0x6d, 0x65, 0x20, 0x63, 0x61, 0x6e, 0x20, 0x62, 0x65, 0x20, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x75, 0x72, 0x65, 0x64, 0x20, 0xA, 0x20, 0x20, 0x20, 0x76, 0x69, 0x61, 0x20, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73, 0xA, 0x35, 0x29, 0x20, 0x50, 0x72, 0x65, 0x73, 0x73, 0x20, 0x74, 0x68, 0x65, 0x20, 0x69, 0x63, 0x6f, 0x6e, 0x20, 0x62, 0x65, 0x6c, 0x6f, 0x77, 0x20, 0x74, 0x6f, 0x20, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x65, 0x64, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_12       GFX_ALIGN_LEFT | GFX_ALIGN_TOP
+#define GFX_STATICTEXT_SCHEME_12          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_13            60
-#define GFX_STATICTEXT_TOP_13             401
-#define GFX_STATICTEXT_RIGHT_13           211
-#define GFX_STATICTEXT_BOTTOM_13          446
-#define GFX_STATICTEXT_STATE_13          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_13            "0x24, 0x2c, 0x2e, 0x0"
+#define GFX_STATICTEXT_LEFT_13            650
+#define GFX_STATICTEXT_TOP_13             69
+#define GFX_STATICTEXT_RIGHT_13           689
+#define GFX_STATICTEXT_BOTTOM_13          109
+#define GFX_STATICTEXT_STATE_13          GFX_GOL_STATICTEXT_DRAW_STATE
+#define GFX_STATICTEXT_TEXT_13            "0x59, 0x3a, 0x0"
 #define GFX_STATICTEXT_ALIGNMENT_13       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_13          gfxScheme3
+#define GFX_STATICTEXT_SCHEME_13          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_14            51
-#define GFX_STATICTEXT_TOP_14             22
-#define GFX_STATICTEXT_RIGHT_14           762
-#define GFX_STATICTEXT_BOTTOM_14          357
-#define GFX_STATICTEXT_STATE_14          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE
-#define GFX_STATICTEXT_TEXT_14            "0x53, 0x6c, 0x69, 0x64, 0x65, 0x73, 0x68, 0x6f, 0x77, 0x20, 0x54, 0x69, 0x70, 0x73, 0xA, 0xA, 0x31, 0x29, 0x20, 0x54, 0x61, 0x70, 0x20, 0x74, 0x6f, 0x20, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x65, 0x64, 0x20, 0x74, 0x6f, 0x20, 0x74, 0x68, 0x65, 0x20, 0x6e, 0x65, 0x78, 0x74, 0x20, 0x73, 0x6c, 0x69, 0x64, 0x65, 0xA, 0x32, 0x29, 0x20, 0x50, 0x72, 0x65, 0x73, 0x73, 0x20, 0x61, 0x6e, 0x64, 0x20, 0x68, 0x6f, 0x6c, 0x64, 0x20, 0x74, 0x6f, 0x20, 0x72, 0x65, 0x6d, 0x61, 0x69, 0x6e, 0x20, 0x6f, 0x6e, 0x20, 0x74, 0x68, 0x65, 0x20, 0x63, 0x75, 0x72, 0x72, 0x65, 0x6e, 0x74, 0x20, 0xA, 0x20, 0x20, 0x20, 0x69, 0x6d, 0x61, 0x67, 0x65, 0xA, 0x33, 0x29, 0x20, 0x50, 0x72, 0x65, 0x73, 0x73, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x69, 0x63, 0x6f, 0x6e, 0x20, 0x74, 0x6f, 0x20, 0x72, 0x65, 0x74, 0x75, 0x72, 0x6e, 0x20, 0x74, 0x6f, 0x20, 0x74, 0x68, 0x65, 0x20, 0x6d, 0x61, 0x69, 0x6e, 0x20, 0x6d, 0x65, 0x6e, 0x75, 0xA, 0xA, 0x34, 0x29, 0x20, 0x53, 0x6c, 0x69, 0x64, 0x65, 0x20, 0x70, 0x61, 0x75, 0x73, 0x65, 0x20, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x76, 0x61, 0x6c, 0x20, 0x74, 0x69, 0x6d, 0x65, 0x20, 0x63, 0x61, 0x6e, 0x20, 0x62, 0x65, 0x20, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x75, 0x72, 0x65, 0x64, 0x20, 0xA, 0x20, 0x20, 0x20, 0x76, 0x69, 0x61, 0x20, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73, 0xA, 0x35, 0x29, 0x20, 0x50, 0x72, 0x65, 0x73, 0x73, 0x20, 0x74, 0x68, 0x65, 0x20, 0x69, 0x63, 0x6f, 0x6e, 0x20, 0x62, 0x65, 0x6c, 0x6f, 0x77, 0x20, 0x74, 0x6f, 0x20, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x65, 0x64, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_14       GFX_ALIGN_LEFT | GFX_ALIGN_TOP
+#define GFX_STATICTEXT_LEFT_14            650
+#define GFX_STATICTEXT_TOP_14             19
+#define GFX_STATICTEXT_RIGHT_14           689
+#define GFX_STATICTEXT_BOTTOM_14          59
+#define GFX_STATICTEXT_STATE_14          GFX_GOL_STATICTEXT_DRAW_STATE
+#define GFX_STATICTEXT_TEXT_14            "0x58, 0x3a, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_14       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
 #define GFX_STATICTEXT_SCHEME_14          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_15            650
-#define GFX_STATICTEXT_TOP_15             69
-#define GFX_STATICTEXT_RIGHT_15           689
-#define GFX_STATICTEXT_BOTTOM_15          109
-#define GFX_STATICTEXT_STATE_15          GFX_GOL_STATICTEXT_DRAW_STATE
-#define GFX_STATICTEXT_TEXT_15            "0x59, 0x3a, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_15       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
+#define GFX_STATICTEXT_LEFT_15            541
+#define GFX_STATICTEXT_TOP_15             60
+#define GFX_STATICTEXT_RIGHT_15           596
+#define GFX_STATICTEXT_BOTTOM_15          110
+#define GFX_STATICTEXT_STATE_15          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
+#define GFX_STATICTEXT_TEXT_15            "0x73, 0x65, 0x63, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_15       GFX_ALIGN_LEFT | GFX_ALIGN_VCENTER
 #define GFX_STATICTEXT_SCHEME_15          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_16            650
-#define GFX_STATICTEXT_TOP_16             19
-#define GFX_STATICTEXT_RIGHT_16           689
-#define GFX_STATICTEXT_BOTTOM_16          59
-#define GFX_STATICTEXT_STATE_16          GFX_GOL_STATICTEXT_DRAW_STATE
-#define GFX_STATICTEXT_TEXT_16            "0x58, 0x3a, 0x0"
+#define GFX_STATICTEXT_LEFT_16            545
+#define GFX_STATICTEXT_TOP_16             60
+#define GFX_STATICTEXT_RIGHT_16           590
+#define GFX_STATICTEXT_BOTTOM_16          105
+#define GFX_STATICTEXT_STATE_16          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
+#define GFX_STATICTEXT_TEXT_16            "0x30, 0x0"
 #define GFX_STATICTEXT_ALIGNMENT_16       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_16          gfxScheme4
+#define GFX_STATICTEXT_SCHEME_16          gfxScheme3
 		
-#define GFX_STATICTEXT_LEFT_17            541
+#define GFX_STATICTEXT_LEFT_17            591
 #define GFX_STATICTEXT_TOP_17             60
-#define GFX_STATICTEXT_RIGHT_17           596
+#define GFX_STATICTEXT_RIGHT_17           651
 #define GFX_STATICTEXT_BOTTOM_17          110
-#define GFX_STATICTEXT_STATE_17          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_17            "0x73, 0x65, 0x63, 0x0"
+#define GFX_STATICTEXT_STATE_17          GFX_GOL_STATICTEXT_DRAW_STATE
+#define GFX_STATICTEXT_TEXT_17            "0x29, 0x0"
 #define GFX_STATICTEXT_ALIGNMENT_17       GFX_ALIGN_LEFT | GFX_ALIGN_VCENTER
 #define GFX_STATICTEXT_SCHEME_17          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_18            545
+#define GFX_STATICTEXT_LEFT_18            147
 #define GFX_STATICTEXT_TOP_18             60
-#define GFX_STATICTEXT_RIGHT_18           590
-#define GFX_STATICTEXT_BOTTOM_18          105
+#define GFX_STATICTEXT_RIGHT_18           487
+#define GFX_STATICTEXT_BOTTOM_18          109
 #define GFX_STATICTEXT_STATE_18          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_18            "0x30, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_18       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_18          gfxScheme3
+#define GFX_STATICTEXT_TEXT_18            "0x53, 0x6c, 0x69, 0x64, 0x65, 0x20, 0x50, 0x61, 0x75, 0x73, 0x65, 0x20, 0x54, 0x69, 0x6d, 0x65, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_18       GFX_ALIGN_RIGHT | GFX_ALIGN_VCENTER
+#define GFX_STATICTEXT_SCHEME_18          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_19            591
+#define GFX_STATICTEXT_LEFT_19            205
 #define GFX_STATICTEXT_TOP_19             60
-#define GFX_STATICTEXT_RIGHT_19           651
-#define GFX_STATICTEXT_BOTTOM_19          110
-#define GFX_STATICTEXT_STATE_19          GFX_GOL_STATICTEXT_DRAW_STATE
-#define GFX_STATICTEXT_TEXT_19            "0x29, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_19       GFX_ALIGN_LEFT | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_19          gfxScheme4
+#define GFX_STATICTEXT_RIGHT_19           478
+#define GFX_STATICTEXT_BOTTOM_19          105
+#define GFX_STATICTEXT_STATE_19          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
+#define GFX_STATICTEXT_TEXT_19            "0x24, 0x2d, 0x2e, 0x42, 0x44, 0x2a, 0x42, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_19       GFX_ALIGN_RIGHT | GFX_ALIGN_VCENTER
+#define GFX_STATICTEXT_SCHEME_19          gfxScheme3
 		
-#define GFX_STATICTEXT_LEFT_20            147
+#define GFX_STATICTEXT_LEFT_20            205
 #define GFX_STATICTEXT_TOP_20             60
-#define GFX_STATICTEXT_RIGHT_20           487
-#define GFX_STATICTEXT_BOTTOM_20          109
+#define GFX_STATICTEXT_RIGHT_20           477
+#define GFX_STATICTEXT_BOTTOM_20          105
 #define GFX_STATICTEXT_STATE_20          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_20            "0x53, 0x6c, 0x69, 0x64, 0x65, 0x20, 0x50, 0x61, 0x75, 0x73, 0x65, 0x20, 0x54, 0x69, 0x6d, 0x65, 0x0"
+#define GFX_STATICTEXT_TEXT_20            "0x24, 0x2c, 0x2e, 0x43, 0x44, 0x29, 0x43, 0x0"
 #define GFX_STATICTEXT_ALIGNMENT_20       GFX_ALIGN_RIGHT | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_20          gfxScheme4
+#define GFX_STATICTEXT_SCHEME_20          gfxScheme3
 		
-#define GFX_STATICTEXT_LEFT_21            205
-#define GFX_STATICTEXT_TOP_21             60
-#define GFX_STATICTEXT_RIGHT_21           478
-#define GFX_STATICTEXT_BOTTOM_21          105
+#define GFX_STATICTEXT_LEFT_21            276
+#define GFX_STATICTEXT_TOP_21             255
+#define GFX_STATICTEXT_RIGHT_21           516
+#define GFX_STATICTEXT_BOTTOM_21          305
 #define GFX_STATICTEXT_STATE_21          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_21            "0x24, 0x2d, 0x2e, 0x42, 0x44, 0x2a, 0x42, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_21       GFX_ALIGN_RIGHT | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_21          gfxScheme3
+#define GFX_STATICTEXT_TEXT_21            "0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x20, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_21       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
+#define GFX_STATICTEXT_SCHEME_21          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_22            205
-#define GFX_STATICTEXT_TOP_22             60
-#define GFX_STATICTEXT_RIGHT_22           477
-#define GFX_STATICTEXT_BOTTOM_22          105
+#define GFX_STATICTEXT_LEFT_22            276
+#define GFX_STATICTEXT_TOP_22             260
+#define GFX_STATICTEXT_RIGHT_22           517
+#define GFX_STATICTEXT_BOTTOM_22          305
 #define GFX_STATICTEXT_STATE_22          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_22            "0x24, 0x2c, 0x2e, 0x43, 0x44, 0x29, 0x43, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_22       GFX_ALIGN_RIGHT | GFX_ALIGN_VCENTER
+#define GFX_STATICTEXT_TEXT_22            "0x3b, 0x39, 0x41, 0x27, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_22       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
 #define GFX_STATICTEXT_SCHEME_22          gfxScheme3
 		
 #define GFX_STATICTEXT_LEFT_23            276
-#define GFX_STATICTEXT_TOP_23             255
-#define GFX_STATICTEXT_RIGHT_23           516
+#define GFX_STATICTEXT_TOP_23             260
+#define GFX_STATICTEXT_RIGHT_23           515
 #define GFX_STATICTEXT_BOTTOM_23          305
 #define GFX_STATICTEXT_STATE_23          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_23            "0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x20, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x0"
+#define GFX_STATICTEXT_TEXT_23            "0x3d, 0x39, 0x40, 0x25, 0x0"
 #define GFX_STATICTEXT_ALIGNMENT_23       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_23          gfxScheme4
+#define GFX_STATICTEXT_SCHEME_23          gfxScheme3
 		
-#define GFX_STATICTEXT_LEFT_24            276
-#define GFX_STATICTEXT_TOP_24             260
-#define GFX_STATICTEXT_RIGHT_24           517
-#define GFX_STATICTEXT_BOTTOM_24          305
+#define GFX_STATICTEXT_LEFT_24            133
+#define GFX_STATICTEXT_TOP_24             403
+#define GFX_STATICTEXT_RIGHT_24           425
+#define GFX_STATICTEXT_BOTTOM_24          448
 #define GFX_STATICTEXT_STATE_24          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_24            "0x3b, 0x39, 0x41, 0x27, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_24       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_24          gfxScheme3
+#define GFX_STATICTEXT_TEXT_24            "0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x69, 0x66, 0x69, 0x65, 0x64, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_24       GFX_ALIGN_LEFT | GFX_ALIGN_VCENTER
+#define GFX_STATICTEXT_SCHEME_24          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_25            276
-#define GFX_STATICTEXT_TOP_25             260
-#define GFX_STATICTEXT_RIGHT_25           515
-#define GFX_STATICTEXT_BOTTOM_25          305
+#define GFX_STATICTEXT_LEFT_25            133
+#define GFX_STATICTEXT_TOP_25             328
+#define GFX_STATICTEXT_RIGHT_25           425
+#define GFX_STATICTEXT_BOTTOM_25          373
 #define GFX_STATICTEXT_STATE_25          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_25            "0x3d, 0x39, 0x40, 0x25, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_25       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_25          gfxScheme3
+#define GFX_STATICTEXT_TEXT_25            "0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x54, 0x72, 0x61, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_25       GFX_ALIGN_LEFT | GFX_ALIGN_VCENTER
+#define GFX_STATICTEXT_SCHEME_25          gfxScheme4
 		
 #define GFX_STATICTEXT_LEFT_26            133
 #define GFX_STATICTEXT_TOP_26             403
-#define GFX_STATICTEXT_RIGHT_26           425
+#define GFX_STATICTEXT_RIGHT_26           439
 #define GFX_STATICTEXT_BOTTOM_26          448
 #define GFX_STATICTEXT_STATE_26          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_26            "0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x69, 0x66, 0x69, 0x65, 0x64, 0x0"
+#define GFX_STATICTEXT_TEXT_26            "0x31, 0x21, 0x20, 0x28, 0x0"
 #define GFX_STATICTEXT_ALIGNMENT_26       GFX_ALIGN_LEFT | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_26          gfxScheme4
+#define GFX_STATICTEXT_SCHEME_26          gfxScheme3
 		
-#define GFX_STATICTEXT_LEFT_27            133
-#define GFX_STATICTEXT_TOP_27             328
-#define GFX_STATICTEXT_RIGHT_27           425
-#define GFX_STATICTEXT_BOTTOM_27          373
+#define GFX_STATICTEXT_LEFT_27            138
+#define GFX_STATICTEXT_TOP_27             326
+#define GFX_STATICTEXT_RIGHT_27           424
+#define GFX_STATICTEXT_BOTTOM_27          371
 #define GFX_STATICTEXT_STATE_27          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_27            "0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x54, 0x72, 0x61, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x0"
+#define GFX_STATICTEXT_TEXT_27            "0x33, 0x45, 0x20, 0x28, 0x0"
 #define GFX_STATICTEXT_ALIGNMENT_27       GFX_ALIGN_LEFT | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_27          gfxScheme4
+#define GFX_STATICTEXT_SCHEME_27          gfxScheme3
 		
-#define GFX_STATICTEXT_LEFT_28            133
-#define GFX_STATICTEXT_TOP_28             403
-#define GFX_STATICTEXT_RIGHT_28           439
-#define GFX_STATICTEXT_BOTTOM_28          448
+#define GFX_STATICTEXT_LEFT_28            545
+#define GFX_STATICTEXT_TOP_28             328
+#define GFX_STATICTEXT_RIGHT_28           660
+#define GFX_STATICTEXT_BOTTOM_28          377
 #define GFX_STATICTEXT_STATE_28          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_28            "0x31, 0x21, 0x20, 0x28, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_28       GFX_ALIGN_LEFT | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_28          gfxScheme3
+#define GFX_STATICTEXT_TEXT_28            "0x45, 0x6e, 0x67, 0x6c, 0x69, 0x73, 0x68, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_28       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
+#define GFX_STATICTEXT_SCHEME_28          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_29            138
-#define GFX_STATICTEXT_TOP_29             326
-#define GFX_STATICTEXT_RIGHT_29           424
-#define GFX_STATICTEXT_BOTTOM_29          371
-#define GFX_STATICTEXT_STATE_29          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_29            "0x33, 0x45, 0x20, 0x28, 0x0"
+#define GFX_STATICTEXT_LEFT_29            496
+#define GFX_STATICTEXT_TOP_29             60
+#define GFX_STATICTEXT_RIGHT_29           517
+#define GFX_STATICTEXT_BOTTOM_29          109
+#define GFX_STATICTEXT_STATE_29          GFX_GOL_STATICTEXT_DRAW_STATE
+#define GFX_STATICTEXT_TEXT_29            "0x28, 0x0"
 #define GFX_STATICTEXT_ALIGNMENT_29       GFX_ALIGN_LEFT | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_29          gfxScheme3
+#define GFX_STATICTEXT_SCHEME_29          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_30            545
-#define GFX_STATICTEXT_TOP_30             328
-#define GFX_STATICTEXT_RIGHT_30           660
-#define GFX_STATICTEXT_BOTTOM_30          377
-#define GFX_STATICTEXT_STATE_30          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_30            "0x45, 0x6e, 0x67, 0x6c, 0x69, 0x73, 0x68, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_30       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
+#define GFX_STATICTEXT_LEFT_30            516
+#define GFX_STATICTEXT_TOP_30             60
+#define GFX_STATICTEXT_RIGHT_30           542
+#define GFX_STATICTEXT_BOTTOM_30          109
+#define GFX_STATICTEXT_STATE_30          GFX_GOL_STATICTEXT_DRAW_STATE
+#define GFX_STATICTEXT_TEXT_30            "0x32, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_30       GFX_ALIGN_LEFT | GFX_ALIGN_VCENTER
 #define GFX_STATICTEXT_SCHEME_30          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_31            496
-#define GFX_STATICTEXT_TOP_31             60
-#define GFX_STATICTEXT_RIGHT_31           517
-#define GFX_STATICTEXT_BOTTOM_31          109
+#define GFX_STATICTEXT_LEFT_31            704
+#define GFX_STATICTEXT_TOP_31             140
+#define GFX_STATICTEXT_RIGHT_31           741
+#define GFX_STATICTEXT_BOTTOM_31          186
 #define GFX_STATICTEXT_STATE_31          GFX_GOL_STATICTEXT_DRAW_STATE
-#define GFX_STATICTEXT_TEXT_31            "0x28, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_31       GFX_ALIGN_LEFT | GFX_ALIGN_VCENTER
+#define GFX_STATICTEXT_TEXT_31            "0x35, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_31       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
 #define GFX_STATICTEXT_SCHEME_31          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_32            516
-#define GFX_STATICTEXT_TOP_32             60
-#define GFX_STATICTEXT_RIGHT_32           542
-#define GFX_STATICTEXT_BOTTOM_32          109
+#define GFX_STATICTEXT_LEFT_32            60
+#define GFX_STATICTEXT_TOP_32             151
+#define GFX_STATICTEXT_RIGHT_32           97
+#define GFX_STATICTEXT_BOTTOM_32          197
 #define GFX_STATICTEXT_STATE_32          GFX_GOL_STATICTEXT_DRAW_STATE
-#define GFX_STATICTEXT_TEXT_32            "0x32, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_32       GFX_ALIGN_LEFT | GFX_ALIGN_VCENTER
+#define GFX_STATICTEXT_TEXT_32            "0x30, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_32       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
 #define GFX_STATICTEXT_SCHEME_32          gfxScheme4
 		
-#define GFX_STATICTEXT_LEFT_33            704
-#define GFX_STATICTEXT_TOP_33             140
-#define GFX_STATICTEXT_RIGHT_33           741
-#define GFX_STATICTEXT_BOTTOM_33          186
-#define GFX_STATICTEXT_STATE_33          GFX_GOL_STATICTEXT_DRAW_STATE
-#define GFX_STATICTEXT_TEXT_33            "0x35, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_33       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
+#define GFX_STATICTEXT_LEFT_33            21
+#define GFX_STATICTEXT_TOP_33             22
+#define GFX_STATICTEXT_RIGHT_33           776
+#define GFX_STATICTEXT_BOTTOM_33          390
+#define GFX_STATICTEXT_STATE_33          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
+#define GFX_STATICTEXT_TEXT_33            "0x44, 0x65, 0x6d, 0x6f, 0x6e, 0x73, 0x74, 0x72, 0x61, 0x74, 0x65, 0x64, 0x20, 0x46, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x73, 0xA, 0xA, 0x57, 0x56, 0x47, 0x41, 0x20, 0x64, 0x69, 0x73, 0x70, 0x6c, 0x61, 0x79, 0xA, 0x49, 0x6e, 0x74, 0x65, 0x67, 0x72, 0x61, 0x74, 0x65, 0x64, 0x20, 0x4d, 0x54, 0x43, 0x48, 0x36, 0x33, 0x30, 0x33, 0x20, 0x50, 0x43, 0x41, 0x50, 0x20, 0x74, 0x6f, 0x75, 0x63, 0x68, 0x20, 0x69, 0x6e, 0x70, 0x75, 0x74, 0xA, 0x4c, 0x6f, 0x77, 0x2d, 0x43, 0x6f, 0x73, 0x74, 0x20, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x6c, 0x65, 0x72, 0x2d, 0x6c, 0x65, 0x73, 0x73, 0x20, 0x47, 0x72, 0x61, 0x70, 0x68, 0x69, 0x63, 0x73, 0x20, 0x64, 0x72, 0x69, 0x76, 0x65, 0x72, 0xA, 0x31, 0x36, 0x2d, 0x62, 0x69, 0x74, 0x20, 0x63, 0x6f, 0x6c, 0x6f, 0x72, 0x20, 0x64, 0x65, 0x70, 0x74, 0x68, 0x20, 0x73, 0x75, 0x70, 0x70, 0x6f, 0x72, 0x74, 0x20, 0x28, 0x36, 0x35, 0x35, 0x33, 0x35, 0x20, 0x75, 0x6e, 0x69, 0x71, 0x75, 0x65, 0x20, 0x63, 0x6f, 0x6c, 0x6f, 0x72, 0x73, 0x29, 0xA, 0x4a, 0x50, 0x45, 0x47, 0x20, 0x61, 0x6e, 0x64, 0x20, 0x42, 0x4d, 0x50, 0x20, 0x69, 0x6d, 0x61, 0x67, 0x65, 0x73, 0x20, 0x73, 0x74, 0x6f, 0x72, 0x65, 0x64, 0x20, 0x6f, 0x6e, 0x20, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x20, 0x66, 0x6c, 0x61, 0x73, 0x68, 0xA, 0x52, 0x65, 0x61, 0x6c, 0x2d, 0x74, 0x69, 0x6d, 0x65, 0x20, 0x4a, 0x50, 0x45, 0x47, 0x20, 0x64, 0x65, 0x63, 0x6f, 0x64, 0x65, 0x20, 0x61, 0x6e, 0x64, 0x20, 0x72, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x69, 0x6e, 0x67, 0xA, 0x31, 0x36, 0x2d, 0x62, 0x69, 0x74, 0x20, 0x55, 0x6e, 0x69, 0x63, 0x6f, 0x64, 0x65, 0x20, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x20, 0x66, 0x6f, 0x6e, 0x74, 0x20, 0x73, 0x75, 0x70, 0x70, 0x6f, 0x72, 0x74, 0xA, 0x4d, 0x75, 0x6c, 0x74, 0x69, 0x6c, 0x69, 0x6e, 0x67, 0x75, 0x61, 0x6c, 0x20, 0x6c, 0x6f, 0x63, 0x61, 0x6c, 0x69, 0x7a, 0x65, 0x64, 0x20, 0x6d, 0x65, 0x6e, 0x75, 0x20, 0x28, 0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x54, 0x72, 0x61, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x20, 0xA, 0x61, 0x6e, 0x64, 0x20, 0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x69, 0x66, 0x69, 0x65, 0x64, 0x29, 0xA, 0x0"
+#define GFX_STATICTEXT_ALIGNMENT_33       GFX_ALIGN_LEFT | GFX_ALIGN_TOP
 #define GFX_STATICTEXT_SCHEME_33          gfxScheme4
-		
-#define GFX_STATICTEXT_LEFT_34            60
-#define GFX_STATICTEXT_TOP_34             151
-#define GFX_STATICTEXT_RIGHT_34           97
-#define GFX_STATICTEXT_BOTTOM_34          197
-#define GFX_STATICTEXT_STATE_34          GFX_GOL_STATICTEXT_DRAW_STATE
-#define GFX_STATICTEXT_TEXT_34            "0x30, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_34       GFX_ALIGN_HCENTER | GFX_ALIGN_VCENTER
-#define GFX_STATICTEXT_SCHEME_34          gfxScheme4
-		
-#define GFX_STATICTEXT_LEFT_35            21
-#define GFX_STATICTEXT_TOP_35             22
-#define GFX_STATICTEXT_RIGHT_35           776
-#define GFX_STATICTEXT_BOTTOM_35          390
-#define GFX_STATICTEXT_STATE_35          GFX_GOL_STATICTEXT_DRAW_STATE | GFX_GOL_STATICTEXT_HIDE_STATE | GFX_GOL_STATICTEXT_NOBACKGROUND_STATE
-#define GFX_STATICTEXT_TEXT_35            "0x44, 0x65, 0x6d, 0x6f, 0x6e, 0x73, 0x74, 0x72, 0x61, 0x74, 0x65, 0x64, 0x20, 0x46, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x73, 0xA, 0xA, 0x57, 0x56, 0x47, 0x41, 0x20, 0x64, 0x69, 0x73, 0x70, 0x6c, 0x61, 0x79, 0xA, 0x49, 0x6e, 0x74, 0x65, 0x67, 0x72, 0x61, 0x74, 0x65, 0x64, 0x20, 0x4d, 0x54, 0x43, 0x48, 0x36, 0x33, 0x30, 0x33, 0x20, 0x50, 0x43, 0x41, 0x50, 0x20, 0x74, 0x6f, 0x75, 0x63, 0x68, 0x20, 0x69, 0x6e, 0x70, 0x75, 0x74, 0xA, 0x4c, 0x6f, 0x77, 0x2d, 0x43, 0x6f, 0x73, 0x74, 0x20, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x6c, 0x65, 0x72, 0x2d, 0x6c, 0x65, 0x73, 0x73, 0x20, 0x47, 0x72, 0x61, 0x70, 0x68, 0x69, 0x63, 0x73, 0x20, 0x64, 0x72, 0x69, 0x76, 0x65, 0x72, 0xA, 0x31, 0x36, 0x2d, 0x62, 0x69, 0x74, 0x20, 0x63, 0x6f, 0x6c, 0x6f, 0x72, 0x20, 0x64, 0x65, 0x70, 0x74, 0x68, 0x20, 0x73, 0x75, 0x70, 0x70, 0x6f, 0x72, 0x74, 0x20, 0x28, 0x36, 0x35, 0x35, 0x33, 0x35, 0x20, 0x75, 0x6e, 0x69, 0x71, 0x75, 0x65, 0x20, 0x63, 0x6f, 0x6c, 0x6f, 0x72, 0x73, 0x29, 0xA, 0x4a, 0x50, 0x45, 0x47, 0x20, 0x61, 0x6e, 0x64, 0x20, 0x42, 0x4d, 0x50, 0x20, 0x69, 0x6d, 0x61, 0x67, 0x65, 0x73, 0x20, 0x73, 0x74, 0x6f, 0x72, 0x65, 0x64, 0x20, 0x6f, 0x6e, 0x20, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x20, 0x66, 0x6c, 0x61, 0x73, 0x68, 0xA, 0x52, 0x65, 0x61, 0x6c, 0x2d, 0x74, 0x69, 0x6d, 0x65, 0x20, 0x4a, 0x50, 0x45, 0x47, 0x20, 0x64, 0x65, 0x63, 0x6f, 0x64, 0x65, 0x20, 0x61, 0x6e, 0x64, 0x20, 0x72, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x69, 0x6e, 0x67, 0xA, 0x31, 0x36, 0x2d, 0x62, 0x69, 0x74, 0x20, 0x55, 0x6e, 0x69, 0x63, 0x6f, 0x64, 0x65, 0x20, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x20, 0x66, 0x6f, 0x6e, 0x74, 0x20, 0x73, 0x75, 0x70, 0x70, 0x6f, 0x72, 0x74, 0xA, 0x4d, 0x75, 0x6c, 0x74, 0x69, 0x6c, 0x69, 0x6e, 0x67, 0x75, 0x61, 0x6c, 0x20, 0x6c, 0x6f, 0x63, 0x61, 0x6c, 0x69, 0x7a, 0x65, 0x64, 0x20, 0x6d, 0x65, 0x6e, 0x75, 0x20, 0x28, 0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x54, 0x72, 0x61, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x20, 0xA, 0x61, 0x6e, 0x64, 0x20, 0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x69, 0x66, 0x69, 0x65, 0x64, 0x29, 0xA, 0x0"
-#define GFX_STATICTEXT_ALIGNMENT_35       GFX_ALIGN_LEFT | GFX_ALIGN_TOP
-#define GFX_STATICTEXT_SCHEME_35          gfxScheme4
 		
 /*** static text IDs ***/
 #define e_st_DemoName                  9000 
 	
-#define ct_st_DemoName                  9001 
+#define e_st_Slideshow                  9001 
 	
-#define cs_st_DemoName                  9002 
+#define e_st_TouchTest                  9002 
 	
-#define e_st_Slideshow                  9003 
+#define e_st_Settings                  9003 
 	
-#define e_st_TouchTest                  9004 
+#define e_st_Features                  9004 
 	
-#define e_st_Settings                  9005 
+#define cs_st_Settings                  9005 
 	
-#define e_st_Features                  9006 
+#define ct_st_Settings                  9006 
 	
-#define cs_st_Settings                  9007 
+#define cs_st_TouchTest                  9007 
 	
-#define ct_st_Settings                  9008 
+#define ct_st_TouchTest                  9008 
 	
-#define cs_st_TouchTest                  9009 
+#define c_st_Features                  9009 
 	
-#define ct_st_TouchTest                  9010 
+#define ct_st_SlideShow                  9010 
 	
-#define c_st_Features                  9011 
+#define cs_st_SlideShow                  9011 
 	
-#define ct_st_SlideShow                  9012 
+#define e_st_SlideShowTips                  9012 
 	
-#define cs_st_SlideShow                  9013 
+#define StaticText11                  9013 
 	
-#define e_st_SlideShowTips                  9014 
+#define StaticText10                  9014 
 	
-#define StaticText11                  9015 
+#define e_st_Second                  9015 
 	
-#define StaticText10                  9016 
+#define c_st_Second                  9016 
 	
-#define e_st_Second                  9017 
+#define e_st_CloseBracket                  9017 
 	
-#define c_st_Second                  9018 
+#define e_st_SlidePauseTime                  9018 
 	
-#define e_st_CloseBracket                  9019 
+#define ct_st_SlidePauseTime                  9019 
 	
-#define e_st_SlidePauseTime                  9020 
+#define cs_st_SlidePauseTime                  9020 
 	
-#define ct_st_SlidePauseTime                  9021 
+#define e_st_SelectLanguage                  9021 
 	
-#define cs_st_SlidePauseTime                  9022 
+#define ct_st_SelectLanguage                  9022 
 	
-#define e_st_SelectLanguage                  9023 
+#define cs_st_SelectLanguage                  9023 
 	
-#define ct_st_SelectLanguage                  9024 
+#define e_st_ChineseSimplified                  9024 
 	
-#define cs_st_SelectLanguage                  9025 
+#define e_st_ChineseTraditional                  9025 
 	
-#define e_st_ChineseSimplified                  9026 
+#define cs_st_ChineseSimplified                  9026 
 	
-#define e_st_ChineseTraditional                  9027 
+#define ct_st_ChineseTraditional                  9027 
 	
-#define cs_st_ChineseSimplified                  9028 
+#define e_st_English                  9028 
 	
-#define ct_st_ChineseTraditional                  9029 
+#define e_st_OpenBracket                  9029 
 	
-#define e_st_English                  9030 
+#define SecondsString                  9030 
 	
-#define e_st_OpenBracket                  9031 
+#define e_st_5                  9031 
 	
-#define SecondsString                  9032 
+#define e_st_0                  9032 
 	
-#define e_st_5                  9033 
-	
-#define e_st_0                  9034 
-	
-#define e_st_DemonstratedFeatures                  9035 
+#define e_st_DemonstratedFeatures                  9033 
 	
 /*** GFX GOL windows Definitions ***/
 #define GFX_WINDOW_LEFT_0            30
@@ -1917,8 +1895,6 @@ typedef struct HGC_OBJECTS
     GFX_GOL_RADIOBUTTON* pRadioButtonChineseTradObj;
     GFX_GOL_SCROLLBAR* pSlider1Obj;
     GFX_GOL_STATICTEXT* pe_st_DemoNameObj;
-    GFX_GOL_STATICTEXT* pct_st_DemoNameObj;
-    GFX_GOL_STATICTEXT* pcs_st_DemoNameObj;
     GFX_GOL_STATICTEXT* pe_st_SlideshowObj;
     GFX_GOL_STATICTEXT* pe_st_TouchTestObj;
     GFX_GOL_STATICTEXT* pe_st_SettingsObj;

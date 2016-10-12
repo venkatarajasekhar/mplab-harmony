@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -2082,6 +2082,10 @@ GFX_GOL_ObjectStateSet(pSld, GFX_GOL_SCROLLBAR_DRAW_THUMB_STATE);</Text>
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -2172,18 +2176,13 @@ GFX_GOL_ObjectStateSet(pSld, GFX_GOL_SCROLLBAR_DRAW_THUMB_STATE);</Text>
     </Files>
     <Templates>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wvga/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>main.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wvga</Path>
-        <Checksum>4C10ECF8CF681E29292CFB5DC2D4CC56</Checksum>
+        <Checksum>30AB19E056C1DFDFCC863E16061C8F00</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -2193,7 +2192,7 @@ GFX_GOL_ObjectStateSet(pSld, GFX_GOL_SCROLLBAR_DRAW_THUMB_STATE);</Text>
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wvga</Path>
-        <Checksum>C17845F088650572291F696FD7EEADB7</Checksum>
+        <Checksum>DD354D182CEDB3E9DE40A73EA27D7E6C</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -2227,12 +2226,12 @@ GFX_GOL_ObjectStateSet(pSld, GFX_GOL_SCROLLBAR_DRAW_THUMB_STATE);</Text>
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wvga</Path>
-        <Checksum>F54C8A464E5AE4A25427534EB2FD6DF2</Checksum>
+        <Checksum>08FB769A8A096A5293A602BFE9E62AB1</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wvga</Path>
-        <Checksum>023BDDA3ED5C6DE60039CCFB19F4EFA7</Checksum>
+        <Checksum>803725462AB86A6D2075547510D4C34E</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -2242,12 +2241,12 @@ GFX_GOL_ObjectStateSet(pSld, GFX_GOL_SCROLLBAR_DRAW_THUMB_STATE);</Text>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wvga</Path>
-        <Checksum>1E6D3224141EE8FEC747AE921163945A</Checksum>
+        <Checksum>4CD8709479FCD69BA757B6331469600A</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wvga/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -2266,21 +2265,20 @@ GFX_GOL_ObjectStateSet(pSld, GFX_GOL_SCROLLBAR_DRAW_THUMB_STATE);</Text>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wvga</Path>
-        <Checksum>145040733C9623EFDB22865095B02B86</Checksum>
+        <Checksum>68336A56690575F68C4DC305C85FFF1B</Checksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_wvga</Path>
-        <Checksum>60A456B7E47D746E55B80B3BE147E9AA</Checksum>
+        <Checksum>A793357108FCD2A455A1A25BE41BF0AE</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/object/firmware/src"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/object/firmware/src/system_config/pic32mx_usb_sk2_s1d_pictail_wvga"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/object/firmware/src/pic32mx_usb_sk2_s1d_pictail_wvga"/>
-        <Include value="C:/Harmony/gfx2-1/framework"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/object/firmware/src/system_config/pic32mx_usb_sk2_s1d_pictail_wvga/framework"/>
+        <Include value="C:/Harmony/v2_02/apps/gfx/object/firmware/src"/>
+        <Include value="C:/Harmony/v2_02/apps/gfx/object/firmware/src/system_config/pic32mx_usb_sk2_s1d_pictail_wvga"/>
+        <Include value="C:/Harmony/v2_02/framework"/>
+        <Include value="C:/Harmony/v2_02/apps/gfx/object/firmware/src/system_config/pic32mx_usb_sk2_s1d_pictail_wvga/framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_s1d_pictail_wvga/bsp"/>
       </C32>
     </CompilerItems>

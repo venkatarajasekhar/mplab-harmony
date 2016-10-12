@@ -86,8 +86,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
     ori       $k0, $k0, \prio
     mtc0      $k0,_C0_SR
 
-    # Save all scratch registers         
+    # Save all scratch registers
+    # turn off assembler warnings for $at                  
+    .set noat                   
     sw        $at,0($sp)        
+    # turn on assembler warnings for $at                  
+    .set at                     
     sw        $v0,4($sp)        
     sw        $v1,8($sp)        
     sw        $a0,12($sp)        
@@ -128,8 +132,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
     # Disable interrupt
     di
 
-    # Restore all scratch register
-    lw        $at,0($sp)        
+    # Restore all scratch register 
+    # turn off assembler warnings for $at                  
+    .set noat        
+    lw        $at,0($sp)      
+    # turn on assembler warnings for $at                  
+    .set at    
     lw        $a0,12($sp)        
     lw        $a1,16($sp)        
     lw        $a2,20($sp)        
@@ -394,7 +402,7 @@ CoreTimerInterruptVector:
 
    .end CoreTimerInterruptVector
 </#if>
-<#if (CONFIG_3RDPARTY_RTOS_USED == "FreeRTOS_V8.x.x") || (CONFIG_3RDPARTY_RTOS_USED == "OpenRTOS_V8.x.x")>
+<#if (CONFIG_3RDPARTY_RTOS_USED == "FreeRTOS") || (CONFIG_3RDPARTY_RTOS_USED == "OpenRTOS_V8.x.x")>
 #include "ISR_Support.h"
 </#if>
 
@@ -424,6 +432,9 @@ CoreTimerInterruptVector:
 </#if>
 <#if CONFIG_DRV_SPI_USE_DRIVER == true>
 <#include "/framework/driver/spi/config/drv_spi_int.s.ftl"> 
+</#if>
+<#if CONFIG_USE_DRV_SQI == true>
+<#include "/framework/driver/sqi/config/drv_sqi_int.s.ftl">
 </#if>
 <#if CONFIG_USE_DRV_NVM == true>
 <#include "/framework/driver/nvm/config/drv_nvm_int.s.ftl">

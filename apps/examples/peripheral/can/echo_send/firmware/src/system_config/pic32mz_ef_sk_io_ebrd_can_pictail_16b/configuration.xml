@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name=""/>
@@ -152,7 +152,7 @@
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_io_ebrd_can_pictail_16b</Path>
         <Checksum>64BA150E88FA9131D4BD8D749A8EC478</Checksum>
-        <ProjectFileChecksum>DF3D2EEEE0FB4690C269BA7545EB9CAD</ProjectFileChecksum>
+        <ProjectFileChecksum>D35F8B0937F779C2122D452FAA1068C6</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
@@ -177,7 +177,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_io_ebrd_can_pictail_16b</Path>
-        <Checksum>E5EF8D38C4C5A29D889ECC2E15B519FF</Checksum>
+        <Checksum>8F63D0997F46605893B4A4728E4C667B</Checksum>
       </Template>
       <Template>
         <Name>drv_can_static.h</Name>
@@ -201,11 +201,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Git_2xx/2xxdev/apps/examples/peripheral/can/echo_send/firmware/src"/>
-        <Include value="C:/Git_2xx/2xxdev/apps/examples/peripheral/can/echo_send/firmware/src/system_config/pic32mz_ef_sk_io_ebrd_can_pictail_16b"/>
-        <Include value="C:/Git_2xx/2xxdev/apps/examples/peripheral/can/echo_send/firmware/src/pic32mz_ef_sk_io_ebrd_can_pictail_16b"/>
-        <Include value="C:/Git_2xx/2xxdev/framework"/>
-        <Include value="C:/Git_2xx/2xxdev/apps/examples/peripheral/can/echo_send/firmware/src/system_config/pic32mz_ef_sk_io_ebrd_can_pictail_16b/framework"/>
+        <Include value="C:\Users\c17015\Projects\GIT_Harmony\2xxdex_Harmony_core_Repo\apps\examples\peripheral\can\echo_send\firmware\src"/>
+        <Include value="C:\Users\c17015\Projects\GIT_Harmony\2xxdex_Harmony_core_Repo\apps\examples\peripheral\can\echo_send\firmware\src\system_config\pic32mz_ef_sk_io_ebrd_can_pictail_16b"/>
+        <Include value="C:\Users\c17015\Projects\GIT_Harmony\2xxdex_Harmony_core_Repo\framework"/>
+        <Include value="C:\Users\c17015\Projects\GIT_Harmony\2xxdex_Harmony_core_Repo\apps\examples\peripheral\can\echo_send\firmware\src\system_config\pic32mz_ef_sk_io_ebrd_can_pictail_16b\framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_io_ebrd_can_pictail_16b/bsp"/>
       </C32>
     </CompilerItems>

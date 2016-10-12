@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -91,7 +87,12 @@ extern "C" {
 #define SYS_CLK_BUS_PERIPHERAL_8            100000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         24000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       0ul
-   
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
@@ -177,34 +178,25 @@ extern "C" {
 #define SYS_PORT_K_CNEN         0x0000
 
 
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
-#define DRV_OC_DRIVER_MODE_STATIC 
-/*** Timer Driver Configuration ***/
-#define DRV_TMR_INTERRUPT_MODE             false
 
-/*** Timer Driver 0 Configuration ***/
-#define DRV_TMR_PERIPHERAL_ID_IDX0          TMR_ID_2
-#define DRV_TMR_INTERRUPT_SOURCE_IDX0       INT_SOURCE_TIMER_2
-#define DRV_TMR_CLOCK_SOURCE_IDX0           DRV_TMR_CLKSOURCE_INTERNAL
-#define DRV_TMR_PRESCALE_IDX0               TMR_PRESCALE_VALUE_1
-#define DRV_TMR_OPERATION_MODE_IDX0         DRV_TMR_OPERATION_MODE_16_BIT
-#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX0     false
-#define DRV_TMR_POWER_STATE_IDX0            
-
- #define DRV_I2C_INTERRUPT_MODE                    		false
+/*** OVM7690 Driver Configuration ***/
+#define GFX_CONFIG_CAMERA
+#define DRV_CAMERA_OVM7690_DMA_CHANNEL_INDEX          DMA_CHANNEL_0
+#define DRV_CAMERA_OVM7690_INSTANCES_NUMBER           1
+#define DRV_CAMERA_OVM7690_CLIENTS_NUMBER             1
 
 
 #define GFX_USE_DISPLAY_CONTROLLER_LCC
 #define DRV_GFX_LCC_INTERNAL_MEMORY
 #define DRV_GFX_LCC_DMA_CHANNEL_INDEX                 DMA_CHANNEL_1
-#define DRV_GFX_LCC_DMA_TRIGGER_SOURCE                DMA_TRIGGER_TIMER_3
+#define DRV_GFX_LCC_DMA_TRIGGER_SOURCE                DMA_TRIGGER_TIMER_4
 #define DRV_GFX_LCC_DMA_TRANSFER_LENGTH               2
-#define DRV_GFX_LCC_TMR_INDEX                         TMR_ID_3
+#define DRV_GFX_LCC_TMR_INDEX                         TMR_ID_4
 
 /*** Graphics Display Configuration ***/
 #define DISP_ORIENTATION                        0
@@ -225,14 +217,22 @@ extern "C" {
 #define TOUCHSCREEN_RESISTIVE_SWAP_XY
 
 // DOM-IGNORE-END
+#define DRV_I2C_INTERRUPT_MODE                    		false
 
-/*** OVM7690 Driver Configuration ***/
-#define GFX_CONFIG_CAMERA
-#define DRV_CAMERA_OVM7690_DMA_CHANNEL_INDEX          DMA_CHANNEL_0
-#define DRV_CAMERA_OVM7690_INSTANCES_NUMBER           1
-#define DRV_CAMERA_OVM7690_CLIENTS_NUMBER             1
+#define DRV_OC_DRIVER_MODE_STATIC 
+/*** Timer Driver Configuration ***/
+#define DRV_TMR_INTERRUPT_MODE             false
 
+/*** Timer Driver 0 Configuration ***/
+#define DRV_TMR_PERIPHERAL_ID_IDX0          TMR_ID_2
+#define DRV_TMR_INTERRUPT_SOURCE_IDX0       INT_SOURCE_TIMER_2
+#define DRV_TMR_CLOCK_SOURCE_IDX0           DRV_TMR_CLKSOURCE_INTERNAL
+#define DRV_TMR_PRESCALE_IDX0               TMR_PRESCALE_VALUE_1
+#define DRV_TMR_OPERATION_MODE_IDX0         DRV_TMR_OPERATION_MODE_16_BIT
+#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX0     false
+#define DRV_TMR_POWER_STATE_IDX0            
 
+ 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Middleware & Other Library Configuration

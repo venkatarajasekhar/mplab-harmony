@@ -14,6 +14,7 @@
     For following APIs :
         PLIB_SQI_DDRModeSet
         PLIB_SQI_DDRModeGet
+        PLIB_SQI_DDRModeClear
         PLIB_SQI_ExistsDDRMode
 
 *******************************************************************************/
@@ -96,6 +97,22 @@ PLIB_TEMPLATE bool SQI_DDRModeGet_Unsupported( SQI_MODULE_ID index )
     PLIB_ASSERT(false, "The device selected does not implement PLIB_SQI_DDRModeGet");
 
     return false;
+}
+
+
+//******************************************************************************
+/* Function :  SQI_DDRModeClear_Unsupported
+
+  Summary:
+    Implements Unsupported variant of PLIB_SQI_DDRModeClear 
+
+  Description:
+    This template implements the Unsupported variant of the PLIB_SQI_DDRModeClear function.
+*/
+
+PLIB_TEMPLATE void SQI_DDRModeClear_Unsupported( SQI_MODULE_ID index )
+{
+    PLIB_ASSERT(false, "The device selected does not implement PLIB_SQI_DDRModeClear");
 }
 
 

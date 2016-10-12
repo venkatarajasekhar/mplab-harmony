@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -46,72 +46,68 @@
   <Manifest>
     <Files>
       <File>
-        <Name>sys_fs_media_manager.h</Name>
-        <Path>Header Files/framework/system/fs</Path>
-      </File>
-      <File>
-        <Name>drv_tmr.h</Name>
-        <Path>Header Files/framework/driver/tmr</Path>
-      </File>
-      <File>
         <Name>drv_tmr_mapping.h</Name>
         <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
-        <Name>driver.h</Name>
+        <Name>drv_tmr_local.h</Name>
+        <Path>Header Files/framework/driver/tmr/src</Path>
+      </File>
+      <File>
+        <Name>driver_common.h</Name>
         <Path>Header Files/framework/driver</Path>
       </File>
       <File>
-        <Name>sys_fs.c</Name>
+        <Name>usb_host_local.h</Name>
+        <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
+        <Name>sys_fs_local.h</Name>
+        <Path>Header Files/framework/system/fs/src</Path>
+      </File>
+      <File>
+        <Name>sys_tmr.c</Name>
+        <Path>Source Files/framework/system/tmr/src</Path>
+      </File>
+      <File>
+        <Name>ff.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
+      </File>
+      <File>
+        <Name>drv_usbhs.c</Name>
+        <Path>Source Files/framework/driver/usb/usbhs/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>sys_fs_media_manager.c</Name>
         <Path>Source Files/framework/system/fs/src/dynamic</Path>
       </File>
       <File>
-        <Name>usb_cdc.h</Name>
-        <Path>Header Files/framework/usb</Path>
-      </File>
-      <File>
-        <Name>sys_int.h</Name>
-        <Path>Header Files/framework/system/int</Path>
-      </File>
-      <File>
-        <Name>usb_common.h</Name>
-        <Path>Header Files/framework/usb</Path>
-      </File>
-      <File>
-        <Name>sys_devcon_cache_pic32mz.S</Name>
-        <Path>Source Files/framework/system/devcon/src</Path>
-      </File>
-      <File>
-        <Name>sys_queue.h</Name>
-        <Path>Header Files/framework/system/common</Path>
+        <Name>drv_usbhs.h</Name>
+        <Path>Header Files/framework/driver/usb/usbhs</Path>
       </File>
       <File>
         <Name>sys_fs.h</Name>
         <Path>Header Files/framework/system/fs</Path>
       </File>
       <File>
-        <Name>drv_usbhs_host.c</Name>
-        <Path>Source Files/framework/driver/usb/usbhs/src/dynamic</Path>
-      </File>
-      <File>
-        <Name>usb_msd.h</Name>
+        <Name>usb_chapter_9.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
-        <Name>usb_host_scsi.h</Name>
-        <Path>Header Files/framework/usb</Path>
+        <Name>usb_host_cdc.c</Name>
+        <Path>Source Files/framework/usb/src/dynamic</Path>
       </File>
       <File>
-        <Name>osal_definitions.h</Name>
-        <Path>Header Files/framework/osal</Path>
+        <Name>driver.h</Name>
+        <Path>Header Files/framework/driver</Path>
       </File>
       <File>
-        <Name>usb_host_msd_local.h</Name>
-        <Path>Header Files/framework/usb/src</Path>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
-        <Name>usb_host_local.h</Name>
-        <Path>Header Files/framework/usb/src</Path>
+        <Name>sys_int_pic32.c</Name>
+        <Path>Source Files/framework/system/int/src</Path>
       </File>
       <File>
         <Name>usb_host.c</Name>
@@ -126,28 +122,128 @@
         <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
-        <Name>drv_tmr_variant_mapping.h</Name>
-        <Path>Header Files/framework/driver/tmr/src</Path>
+        <Name>drv_usbhs_host.c</Name>
+        <Path>Source Files/framework/driver/usb/usbhs/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>drv_tmr.c</Name>
+        <Path>Source Files/framework/driver/tmr/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>sys_int_private.h</Name>
+        <Path>Header Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
+      </File>
+      <File>
+        <Name>sys_tmr_local.h</Name>
+        <Path>Header Files/framework/system/tmr/src</Path>
+      </File>
+      <File>
+        <Name>system.h</Name>
+        <Path>Header Files/framework/system</Path>
+      </File>
+      <File>
+        <Name>ffconf.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
+      </File>
+      <File>
+        <Name>mpfs_local.h</Name>
+        <Path>Header Files/framework/system/fs/mpfs/src</Path>
+      </File>
+      <File>
+        <Name>sys_fs.c</Name>
+        <Path>Source Files/framework/system/fs/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>usb_cdc.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_fs_media_manager.h</Name>
+        <Path>Header Files/framework/system/fs</Path>
+      </File>
+      <File>
+        <Name>usb_host_cdc_acm.h</Name>
+        <Path>Header Files/framework/usb</Path>
       </File>
       <File>
         <Name>usb_host_scsi_local.h</Name>
         <Path>Header Files/framework/usb/src</Path>
       </File>
       <File>
+        <Name>sys_int.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>drv_usb.h</Name>
+        <Path>Header Files/framework/driver/usb</Path>
+      </File>
+      <File>
         <Name>osal_impl_basic.h</Name>
         <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>usb_host_scsi.c</Name>
+        <Path>Source Files/framework/usb/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_variant_mapping.h</Name>
+        <Path>Header Files/framework/driver/tmr/src</Path>
+      </File>
+      <File>
+        <Name>drv_tmr.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
+      </File>
+      <File>
+        <Name>sys_devcon.c</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>usb_host_msd.c</Name>
+        <Path>Source Files/framework/usb/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>drv_usbhs_variant_mapping.h</Name>
+        <Path>Header Files/framework/driver/usb/usbhs/src</Path>
+      </File>
+      <File>
+        <Name>sys_tmr.h</Name>
+        <Path>Header Files/framework/system/tmr</Path>
+      </File>
+      <File>
+        <Name>usb_host.h</Name>
+        <Path>Header Files/framework/usb</Path>
       </File>
       <File>
         <Name>osal.h</Name>
         <Path>Header Files/framework/osal</Path>
       </File>
       <File>
-        <Name>sys_int_mapping.h</Name>
-        <Path>Header Files/framework/system/int</Path>
+        <Name>usb_msd.h</Name>
+        <Path>Header Files/framework/usb</Path>
       </File>
       <File>
-        <Name>sys_devcon.h</Name>
-        <Path>Header Files/framework/system/devcon</Path>
+        <Name>usb_host_hub_interface.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>usb_common.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_ports.h</Name>
+        <Path>Header Files/framework/system/ports</Path>
+      </File>
+      <File>
+        <Name>diskio.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/hardware_access</Path>
+      </File>
+      <File>
+        <Name>usb_hub.h</Name>
+        <Path>Header Files/framework/usb</Path>
       </File>
       <File>
         <Name>sys_common.h</Name>
@@ -158,76 +254,76 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
-        <Name>sys_clk_mapping.h</Name>
+        <Name>usb_host_hub.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
         <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
-        <Name>drv_tmr_local.h</Name>
-        <Path>Header Files/framework/driver/tmr/src</Path>
-      </File>
-      <File>
-        <Name>usb_chapter_9.h</Name>
-        <Path>Header Files/framework/usb</Path>
-      </File>
-      <File>
-        <Name>usb_host.h</Name>
-        <Path>Header Files/framework/usb</Path>
-      </File>
-      <File>
-        <Name>drv_usbhs.c</Name>
-        <Path>Source Files/framework/driver/usb/usbhs/src/dynamic</Path>
-      </File>
-      <File>
-        <Name>drv_usbhs_variant_mapping.h</Name>
-        <Path>Header Files/framework/driver/usb/usbhs/src</Path>
-      </File>
-      <File>
-        <Name>drv_usbhs_local.h</Name>
-        <Path>Header Files/framework/driver/usb/usbhs/src</Path>
-      </File>
-      <File>
-        <Name>usb_host_cdc.h</Name>
-        <Path>Header Files/framework/usb</Path>
-      </File>
-      <File>
-        <Name>system.h</Name>
-        <Path>Header Files/framework/system</Path>
-      </File>
-      <File>
-        <Name>usb_host_cdc_acm.h</Name>
-        <Path>Header Files/framework/usb</Path>
-      </File>
-      <File>
-        <Name>ff.c</Name>
-        <Path>Source Files/framework/system/fs</Path>
-      </File>
-      <File>
-        <Name>usb_host_cdc_acm.c</Name>
-        <Path>Source Files/framework/usb/src/dynamic</Path>
-      </File>
-      <File>
-        <Name>sys_int_pic32.c</Name>
-        <Path>Source Files/framework/system/int/src</Path>
-      </File>
-      <File>
-        <Name>sys_tmr_local.h</Name>
-        <Path>Header Files/framework/system/tmr/src</Path>
-      </File>
-      <File>
-        <Name>usb_hub.h</Name>
-        <Path>Header Files/framework/usb</Path>
+        <Name>usb_host_cdc_local.h</Name>
+        <Path>Header Files/framework/usb/src</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
       <File>
+        <Name>usb_host_hub_mapping.h</Name>
+        <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
+        <Name>scsi.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_clk_mapping.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_cache_pic32mz.S</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>usb_host_scsi.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>osal_definitions.h</Name>
+        <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>sys_int_mapping.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>drv_usbhs_local.h</Name>
+        <Path>Header Files/framework/driver/usb/usbhs/src</Path>
+      </File>
+      <File>
+        <Name>ff.c</Name>
+        <Path>Source Files/framework/system/fs</Path>
+      </File>
+      <File>
+        <Name>sys_devcon.h</Name>
+        <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
         <Name>usb_host_msd.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_debug.h</Name>
+        <Path>Header Files/framework/system/debug</Path>
+      </File>
+      <File>
         <Name>sys_module.h</Name>
         <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>diskio.c</Name>
+        <Path>Source Files/framework/system/fs</Path>
       </File>
       <File>
         <Name>sys_devcon_pic32mz.c</Name>
@@ -238,103 +334,27 @@
         <Path>Header Files/framework/system/fs/src</Path>
       </File>
       <File>
-        <Name>sys_devcon.c</Name>
-        <Path>Source Files/framework/system/devcon/src</Path>
-      </File>
-      <File>
-        <Name>sys_tmr.h</Name>
-        <Path>Header Files/framework/system/tmr</Path>
-      </File>
-      <File>
-        <Name>scsi.h</Name>
-        <Path>Header Files/framework/usb</Path>
-      </File>
-      <File>
         <Name>sys_devcon_local.h</Name>
         <Path>Header Files/framework/system/devcon/src</Path>
       </File>
       <File>
-        <Name>sys_tmr.c</Name>
-        <Path>Source Files/framework/system/tmr/src</Path>
+        <Name>usb_host_cdc_acm.c</Name>
+        <Path>Source Files/framework/usb/src/dynamic</Path>
       </File>
       <File>
-        <Name>drv_tmr.c</Name>
-        <Path>Source Files/framework/driver/tmr/src/dynamic</Path>
-      </File>
-      <File>
-        <Name>mpfs_local.h</Name>
-        <Path>Header Files/framework/system/fs/mpfs/src</Path>
-      </File>
-      <File>
-        <Name>sys_ports.h</Name>
-        <Path>Header Files/framework/system/ports</Path>
-      </File>
-      <File>
-        <Name>usb_host_hub_mapping.h</Name>
+        <Name>usb_host_msd_local.h</Name>
         <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
+        <Name>sys_queue.h</Name>
+        <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
         <Name>usb_host_client_driver.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
-        <Name>usb_host_msd.c</Name>
-        <Path>Source Files/framework/usb/src/dynamic</Path>
-      </File>
-      <File>
-        <Name>sys_debug.h</Name>
-        <Path>Header Files/framework/system/debug</Path>
-      </File>
-      <File>
-        <Name>sys_fs_media_manager.c</Name>
-        <Path>Source Files/framework/system/fs/src/dynamic</Path>
-      </File>
-      <File>
-        <Name>drv_tmr_compatibility.h</Name>
-        <Path>Header Files/framework/driver/tmr</Path>
-      </File>
-      <File>
-        <Name>drv_usb.h</Name>
-        <Path>Header Files/framework/driver/usb</Path>
-      </File>
-      <File>
-        <Name>diskio.c</Name>
-        <Path>Source Files/framework/system/fs</Path>
-      </File>
-      <File>
-        <Name>sys_fs_local.h</Name>
-        <Path>Header Files/framework/system/fs/src</Path>
-      </File>
-      <File>
-        <Name>drv_usbhs.h</Name>
-        <Path>Header Files/framework/driver/usb/usbhs</Path>
-      </File>
-      <File>
-        <Name>usb_host_scsi.c</Name>
-        <Path>Source Files/framework/usb/src/dynamic</Path>
-      </File>
-      <File>
-        <Name>usb_host_hub.h</Name>
-        <Path>Header Files/framework/usb</Path>
-      </File>
-      <File>
-        <Name>usb_host_cdc_local.h</Name>
-        <Path>Header Files/framework/usb/src</Path>
-      </File>
-      <File>
-        <Name>driver_common.h</Name>
-        <Path>Header Files/framework/driver</Path>
-      </File>
-      <File>
-        <Name>usb_host_cdc.c</Name>
-        <Path>Source Files/framework/usb/src/dynamic</Path>
-      </File>
-      <File>
-        <Name>sys_int_private.h</Name>
-        <Path>Header Files/framework/system/int/src</Path>
-      </File>
-      <File>
-        <Name>usb_host_hub_interface.h</Name>
+        <Name>usb_host_cdc.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
     </Files>
@@ -359,34 +379,28 @@
         <Checksum>B00B90E021F15FFD6B0B1B7F2D0650A5</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn/bsp</Path>
-        <Checksum>BF5CEF6A99D463F4E66F970D3607E3C7</Checksum>
+        <Checksum>8C6E544A27BABCB77D57506DCBEFCFE8</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn</Path>
-        <Checksum>40D32D550A9DE4DDC26BB78BFEC973E3</Checksum>
-        <ProjectFileChecksum>B4F55C226DE1A9029B12ACFF265C57AB</ProjectFileChecksum>
+        <Checksum>01CEC5F0F5C98AA7274EC0D84FC294E1</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn</Path>
-        <Checksum>8B14AD5524ECA0614AC13B5525FBB18B</Checksum>
+        <Checksum>48B67857582E486617522E107C8EFE45</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn/bsp</Path>
-        <Checksum>58EAEDBE2CD910B44926FF7804862569</Checksum>
+        <Checksum>156E342D3F35E13F397868F08F6E4165</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -400,7 +414,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -417,7 +431,6 @@
       <C32>
         <Include value="D:\git_usb\usb\apps\usb\host\cdc_msd\firmware\src"/>
         <Include value="D:\git_usb\usb\apps\usb\host\cdc_msd\firmware\src\system_config\pic32mz_ef_sk_int_dyn"/>
-        <Include value="D:\git_usb\usb\apps\usb\host\cdc_msd\firmware\src\pic32mz_ef_sk_int_dyn"/>
         <Include value="D:\git_usb\usb\framework"/>
         <Include value="D:\git_usb\usb\apps\usb\host\cdc_msd\firmware\src\system_config\pic32mz_ef_sk_int_dyn\framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_int_dyn/bsp"/>

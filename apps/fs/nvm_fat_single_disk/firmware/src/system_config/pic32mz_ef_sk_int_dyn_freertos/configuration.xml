@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -40,6 +44,10 @@
       <File>
         <Name>sys_fs.h</Name>
         <Path>Header Files/framework/system/fs</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>portmacro.h</Name>
@@ -194,6 +202,10 @@
         <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -290,12 +302,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos</Path>
-        <Checksum>0E7A19B0947DB03AFDD5BB6DE5C0FE85</Checksum>
+        <Checksum>8ECB8976B030BE0B550B39FD8FBEC732</Checksum>
         <ProjectFileChecksum>E88B15B284BE940B351ACE365BBEE8D1</ProjectFileChecksum>
       </Template>
       <Template>
@@ -315,17 +327,17 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos</Path>
-        <Checksum>6D8EF37C9C53D910908065D8DDCDAF20</Checksum>
+        <Checksum>C08DE00B7B6AF691AF1016706A3F2A1D</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos/bsp</Path>
-        <Checksum>D48E3F4A4C9EC7A73FF9E95DB499B155</Checksum>
+        <Checksum>F740DA09253C01A3D03B3FD6565F5267</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos/bsp</Path>
-        <Checksum>F05FA6CD752CCFEC85C6B17BF6B61604</Checksum>
+        <Checksum>DD885EBE1893567826AD0E35E9F24594</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -337,11 +349,6 @@
         <Checksum>E4D1A88C0EF6AC6FDC089830051B201D</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>rtos_hooks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos</Path>
         <Checksum>FA52743264536E5207D2ADBE57B48D05</Checksum>
@@ -349,7 +356,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_freertos</Path>
-        <Checksum>B39D7F882D2ECC3E697945D1835C9EB3</Checksum>
+        <Checksum>16A94FAC94E730B33F2A600CC044AA53</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -385,7 +392,6 @@
       <C32>
         <Include value="D:\trunk_sbx\apps\fs\nvm_fat_single_disk\firmware\src"/>
         <Include value="D:\trunk_sbx\apps\fs\nvm_fat_single_disk\firmware\src\system_config\pic32mz_ef_sk_int_dyn_freertos"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_fat_single_disk\firmware\src\pic32mz_ef_sk_int_dyn_freertos"/>
         <Include value="D:\trunk_sbx\framework"/>
         <Include value="D:\trunk_sbx\apps\fs\nvm_fat_single_disk\firmware\src\system_config\pic32mz_ef_sk_int_dyn_freertos\framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_int_dyn_freertos/bsp"/>

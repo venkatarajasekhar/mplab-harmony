@@ -187,7 +187,7 @@ const SYS_DEVCON_INIT sysDevconInit =
     See prototype in system/common/sys_module.h.
  */
 
-void SYS_Initialize ( void *data )
+void SYS_Initialize ( void* data )
 {
     /* Core Processor Initialization */
     SYS_CLK_Initialize( NULL );
@@ -195,14 +195,14 @@ void SYS_Initialize ( void *data )
     SYS_DEVCON_PerformanceConfig(SYS_CLK_SystemFrequencyGet());
     SYS_PORTS_Initialize();
     /* Board Support Package Initialization */
-    BSP_Initialize();
+    BSP_Initialize();        
 
     /* Initialize Drivers */
-
     /* Disable SDHC module */
     PLIB_POWER_PeripheralModuleDisable(POWER_ID_0, POWER_MODULE_SDHC);
-    /* Initialize System Services */
 
+    /* Initialize System Services */
+  
     /* Initialize Middleware */
 
 

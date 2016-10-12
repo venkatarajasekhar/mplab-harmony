@@ -38,7 +38,9 @@ endmenu
 
 endmenu
 
+
 ifblock USE_CRYPTO_LIBRARY
+add "<#include \"/framework/crypto/config/crypto.h.ftl\">"  to list SYSTEM_CONFIG_H_MIDDLEWARE_CONFIGURATION 
 file CRYPTO_H "$HARMONY_VERSION_PATH/framework/crypto/crypto.h" to "$PROJECT_HEADER_FILES/framework/crypto/crypto.h"
 file CRYPTO_C "$HARMONY_VERSION_PATH/framework/crypto/src/crypto.c" to "$PROJECT_SOURCE_FILES/framework/crypto/src/crypto.c"
 

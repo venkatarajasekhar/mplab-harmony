@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.11">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -170,6 +174,10 @@
         <Path>Header Files/framework/driver/wifi/mrf24w/src</Path>
       </File>
       <File>
+        <Name>smtpc_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>hash.c</Name>
         <Path>Source Files/framework/crypto/src</Path>
       </File>
@@ -294,6 +302,10 @@
         <Path>Source Files/framework/system/fs/src/dynamic</Path>
       </File>
       <File>
+        <Name>igmp_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>usb_cdc.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
@@ -380,6 +392,10 @@
       <File>
         <Name>crc32.h</Name>
         <Path>Header Files/framework/crypto/src/zlib-1.2.7</Path>
+      </File>
+      <File>
+        <Name>igmp.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>md2.h</Name>
@@ -520,6 +536,10 @@
       <File>
         <Name>port.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>smtpc_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>drv_wifi_commands.h</Name>
@@ -874,6 +894,10 @@
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
         <Name>random.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
@@ -892,6 +916,10 @@
       <File>
         <Name>dh.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>smtpc.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>dnss_manager.h</Name>
@@ -926,12 +954,12 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
-        <Name>snmpv3_private.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>ipv4.h</Name>
         <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>snmpv3_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>drv_wifi_event_handler.c</Name>
@@ -1270,6 +1298,10 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>drv_wifi_raw.h</Name>
         <Path>Header Files/framework/driver/wifi/mrf24w/src</Path>
       </File>
@@ -1336,6 +1368,10 @@
       <File>
         <Name>drv_tmr_local.h</Name>
         <Path>Header Files/framework/driver/tmr/src</Path>
+      </File>
+      <File>
+        <Name>igmp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>aes.c</Name>
@@ -1738,7 +1774,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk__ioexp__freertos/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>sys_dma_static.h</Name>
@@ -1768,12 +1804,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk__ioexp__freertos</Path>
-        <Checksum>76BB72597A4737F6D98B5FFEDE2ACBED</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_eth_sk__ioexp__freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>30FE4876FC3BDBDA38387DF62151B964</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -1798,12 +1829,12 @@
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk__ioexp__freertos</Path>
-        <Checksum>76663A6BA4DA4BA9247ECB7A3376F3B5</Checksum>
+        <Checksum>0A80886DFF91AD204ABD8B163C7A72C2</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk__ioexp__freertos/framework/driver/spi/dynamic</Path>
-        <Checksum>807B9679FB38F311FB41FF123A08A29C</Checksum>
+        <Checksum>C3FB9F5A018E50AC62E46A891FC0AF81</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -1827,12 +1858,12 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk__ioexp__freertos</Path>
-        <Checksum>3D2B481350BF2EA9965CF80B8B77BF21</Checksum>
+        <Checksum>831727CF4A0E1CED8E4062E3CA435D8B</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk__ioexp__freertos</Path>
-        <Checksum>7EA02068D0C36D6F131D19CFFCC81528</Checksum>
+        <Checksum>4E2B77F129F3551A3E20AD5DC6CC92AC</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -1846,7 +1877,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk__ioexp__freertos</Path>
-        <Checksum>E3D1C5F414FCC50899930833D24422F5</Checksum>
+        <Checksum>4699D263DC32AB61FB6463570872F2F5</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -1860,12 +1891,17 @@
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk__ioexp__freertos/framework/driver/spi/dynamic</Path>
-        <Checksum>78DF15E856DB8920B4C9CAB971647BD1</Checksum>
+        <Checksum>EFE4DF9B726E3F205AB25C6679ED349D</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_master_dma_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk__ioexp__freertos/framework/driver/spi/dynamic</Path>
         <Checksum>4626EB40B153D853AF96C626BA1FDEB0</Checksum>
+      </Template>
+      <Template>
+        <Name>net_pres_enc_glue.h</Name>
+        <Path>Header Files/app/system_config/pic32mx_eth_sk__ioexp__freertos/framework/net/pres</Path>
+        <Checksum>3FDF1EF72050D3301433F2D1893EC89D</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
@@ -1875,10 +1911,10 @@
         <Include value="../src/system_config/pic32mx_eth_sk__ioexp__freertos"/>
       </C32-AS>
       <C32>
-        <Include value="C:\SmallTests\V6Temp\HarmonyWPDGit_0514\apps\tcpip\web_server_nvm_mpfs\firmware\src"/>
-        <Include value="C:\SmallTests\V6Temp\HarmonyWPDGit_0514\apps\tcpip\web_server_nvm_mpfs\firmware\src\system_config\pic32mx_eth_sk__ioexp__freertos"/>
-        <Include value="C:\SmallTests\V6Temp\HarmonyWPDGit_0514\framework"/>
-        <Include value="C:\SmallTests\V6Temp\HarmonyWPDGit_0514\apps\tcpip\web_server_nvm_mpfs\firmware\src\system_config\pic32mx_eth_sk__ioexp__freertos\framework"/>
+        <Include value="C:/SmallTests/V6Temp/HarmonyWPDGit_0628/apps/tcpip/web_server_nvm_mpfs/firmware/src"/>
+        <Include value="C:/SmallTests/V6Temp/HarmonyWPDGit_0628/apps/tcpip/web_server_nvm_mpfs/firmware/src/system_config/pic32mx_eth_sk__ioexp__freertos"/>
+        <Include value="C:/SmallTests/V6Temp/HarmonyWPDGit_0628/framework"/>
+        <Include value="C:/SmallTests/V6Temp/HarmonyWPDGit_0628/apps/tcpip/web_server_nvm_mpfs/firmware/src/system_config/pic32mx_eth_sk__ioexp__freertos/framework"/>
         <Include value="../src/system_config/pic32mx_eth_sk__ioexp__freertos/bsp"/>
         <Include value="../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX"/>
         <Include value="../../../../../third_party/rtos/FreeRTOS/Source/include"/>

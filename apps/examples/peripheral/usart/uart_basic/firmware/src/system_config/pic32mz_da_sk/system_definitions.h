@@ -54,7 +54,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "system/common/sys_module.h"
 #include "system/clk/sys_clk.h"
 #include "peripheral/devcon/plib_devcon.h"
-#include "system/clk/sys_clk_static.h"
 #include "system/devcon/sys_devcon.h"
 #include "driver/usart/drv_usart_static.h"
 #include "system/ports/sys_ports.h"

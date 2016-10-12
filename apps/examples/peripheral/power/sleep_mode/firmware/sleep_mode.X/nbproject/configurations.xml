@@ -9,57 +9,29 @@
                        displayName="system_config"
                        projectFiles="true">
           <logicalFolder name="f2" displayName="pic32mx_eth_sk" projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mx_eth_sk/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx_eth_sk/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mx_eth_sk/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mx_eth_sk/system_definitions.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f3" displayName="pic32mz_da_sk" projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_da_sk/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_da_sk/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mz_da_sk/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mz_da_sk/system_definitions.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="pic32mz_ef_sk" projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_ef_sk/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mz_ef_sk/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk/system_definitions.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f4" displayName="pic32mz_ef_sk_16b" projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_ef_sk_16b/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mz_ef_sk_16b/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk_16b/system_definitions.h</itemPath>
@@ -80,6 +52,7 @@
           <logicalFolder name="f1" displayName="clk" projectFiles="true">
             <itemPath>../../../../../../../framework/system/clk/sys_clk.h</itemPath>
             <itemPath>../../../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
+            <itemPath>../../../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
           </logicalFolder>
           <logicalFolder name="common" displayName="common" projectFiles="true">
             <itemPath>../../../../../../../framework/system/common/sys_common.h</itemPath>
@@ -254,7 +227,7 @@
         <targetDevice>PIC32MX795F512L</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>SKDEPIC32PlatformTool</platformTool>
+        <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>1.40</languageToolchainVersion>
         <platform>3</platform>
@@ -285,6 +258,18 @@
       <item path="../../../../../../../framework/system/devcon/src/sys_devcon_cache.h"
             ex="true"
             overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
       </item>
       <item path="../../../../../../../framework/system/devcon/src/sys_devcon_cache_pic32mz.S"
             ex="true"
@@ -330,10 +315,6 @@
             ex="true"
             overriding="false">
       </item>
-      <item path="../src/system_config/pic32mz_da_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-      </item>
       <item path="../src/system_config/pic32mz_da_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -374,10 +355,6 @@
             ex="true"
             overriding="false">
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -415,10 +392,6 @@
             overriding="false">
       </item>
       <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
       </item>
@@ -485,6 +458,7 @@
         <property key="extra-include-directories-for-assembler" value=""/>
         <property key="extra-include-directories-for-preprocessor" value=""/>
         <property key="false-conditionals" value="false"/>
+        <property key="generate-micro-compressed-code" value="false"/>
         <property key="keep-locals" value="false"/>
         <property key="list-assembly" value="false"/>
         <property key="list-source" value="false"/>
@@ -597,7 +571,7 @@
         <targetDevice>PIC32MZ2048EFM144</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PKOBSKDEPlatformTool</platformTool>
+        <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>1.42</languageToolchainVersion>
         <platform>3</platform>
@@ -626,8 +600,20 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <item path="../../../../../../../framework/system/devcon/src/sys_devcon_cache.h"
-            ex="true"
+            ex="false"
             overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
       </item>
       <item path="../../../../../../../framework/system/devcon/src/sys_devcon_pic32mx.c"
             ex="true"
@@ -642,10 +628,6 @@
             overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_eth_sk/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-      </item>
-      <item path="../src/system_config/pic32mx_eth_sk/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
       </item>
@@ -689,10 +671,6 @@
             ex="true"
             overriding="false">
       </item>
-      <item path="../src/system_config/pic32mz_da_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-      </item>
       <item path="../src/system_config/pic32mz_da_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -730,10 +708,6 @@
             overriding="false">
       </item>
       <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
       </item>
@@ -800,6 +774,7 @@
         <property key="extra-include-directories-for-assembler" value=""/>
         <property key="extra-include-directories-for-preprocessor" value=""/>
         <property key="false-conditionals" value="false"/>
+        <property key="generate-micro-compressed-code" value="false"/>
         <property key="keep-locals" value="false"/>
         <property key="list-assembly" value="false"/>
         <property key="list-source" value="false"/>
@@ -983,6 +958,7 @@
         <property key="UART5" value="true"/>
         <property key="UART6" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="hwtoolclock.instructionspeed" value="4"/>
         <property key="hwtoolclock.units" value="mips"/>
@@ -1059,8 +1035,20 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <item path="../../../../../../../framework/system/devcon/src/sys_devcon_cache.h"
-            ex="true"
+            ex="false"
             overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
       </item>
       <item path="../../../../../../../framework/system/devcon/src/sys_devcon_pic32mx.c"
             ex="true"
@@ -1075,10 +1063,6 @@
             overriding="false">
       </item>
       <item path="../src/system_config/pic32mx_eth_sk/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-      </item>
-      <item path="../src/system_config/pic32mx_eth_sk/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
       </item>
@@ -1122,10 +1106,6 @@
             ex="true"
             overriding="false">
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -1163,10 +1143,6 @@
             overriding="false">
       </item>
       <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
       </item>
@@ -1233,6 +1209,7 @@
         <property key="extra-include-directories-for-assembler" value=""/>
         <property key="extra-include-directories-for-preprocessor" value=""/>
         <property key="false-conditionals" value="false"/>
+        <property key="generate-micro-compressed-code" value="false"/>
         <property key="keep-locals" value="false"/>
         <property key="list-assembly" value="false"/>
         <property key="list-source" value="false"/>
@@ -1445,7 +1422,7 @@
         <targetDevice>PIC32MZ2048EFM144</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PKOBSKDEPlatformTool</platformTool>
+        <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion></languageToolchainVersion>
         <platform>3</platform>
@@ -1489,10 +1466,6 @@
             ex="true"
             overriding="false">
       </item>
-      <item path="../src/system_config/pic32mx_eth_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-      </item>
       <item path="../src/system_config/pic32mx_eth_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -1533,10 +1506,6 @@
             ex="true"
             overriding="false">
       </item>
-      <item path="../src/system_config/pic32mz_da_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-      </item>
       <item path="../src/system_config/pic32mz_da_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -1574,10 +1543,6 @@
             overriding="false">
       </item>
       <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
       </item>
@@ -1644,6 +1609,7 @@
         <property key="extra-include-directories-for-assembler" value=""/>
         <property key="extra-include-directories-for-preprocessor" value=""/>
         <property key="false-conditionals" value="false"/>
+        <property key="generate-micro-compressed-code" value="true"/>
         <property key="keep-locals" value="false"/>
         <property key="list-assembly" value="false"/>
         <property key="list-source" value="false"/>
@@ -1806,6 +1772,7 @@
         <property key="UART5" value="true"/>
         <property key="UART6" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="hwtoolclock.instructionspeed" value="4"/>
         <property key="hwtoolclock.units" value="mips"/>

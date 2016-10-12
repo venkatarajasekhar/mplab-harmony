@@ -145,6 +145,10 @@ typedef enum
     TCPIP_MODULE_MAC_MRF24WN         = 0x1060,
     TCPIP_MODULE_MAC_MRF24WN_0       = 0x1060,   // alternate numbered name
 
+    // Microchip PIC32WK Wi-Fi MAC:  room for 16 Microchip devices
+    TCPIP_MODULE_MAC_PIC32WK         = 0x1070,
+    TCPIP_MODULE_MAC_PIC32WK_0       = 0x1070,   // alternate numbered name
+
     // External, non MCHP, MAC modules
     TCPIP_MODULE_MAC_EXTERNAL       = 0x4000,
 
@@ -235,6 +239,11 @@ typedef struct
 typedef struct
 {
 }TCPIP_MODULE_MAC_MRF24WN_CONFIG;
+
+typedef struct
+{
+}TCPIP_MODULE_MAC_PIC32WK_CONFIG;
+
 // *****************************************************************************
 /*  MAC Handle
 
@@ -564,6 +573,9 @@ typedef enum
     /* TX:packet associated interface is down or non existent*/ 
     TCPIP_MAC_PKT_ACK_ARP_NET_ERR       = -5,   
 
+    /* TX:packet rejected by MAC */ 
+    TCPIP_MAC_PKT_ACK_MAC_REJECT_ERR    = -6,   
+
     /* RX: packet was dropped because the checksum was incorrect */
     TCPIP_MAC_PKT_ACK_CHKSUM_ERR        = -10, 
 
@@ -719,6 +731,10 @@ struct _tag_TCPIP_MAC_PACKET
        This field is used for chaining/queuing packets. */
     struct _tag_TCPIP_MAC_PACKET*   next;
 
+    /* Multi-packet/queuing support.
+       This field is used for chaining packet fragments, etc. */
+    struct _tag_TCPIP_MAC_PACKET*   pkt_next;
+
     /* Packet acknowledgment function.
        On TX: A stack module owns the packet.
         Once the MAC is done transmitting the packet (success or failure)
@@ -757,17 +773,17 @@ struct _tag_TCPIP_MAC_PACKET
     uint8_t*                        pMacLayer;
 
     /* Pointer to the network layer data.
-       The MAC driver shouldn't need this field.
        On TX: the sending higher layer protocol updates this field.
+            The MAC driver shouldn't need this field.
        On RX: the MAC driver updates this field before handing over the packet.
-       (MCHP TCP/IP stack note: The packet allocation function update this field automatically). */
+       (MCHP TCP/IP stack note: The packet allocation function updates this field automatically. But not for IPv6!). */
     uint8_t*                        pNetLayer;
 
     /* Pointer to the transport layer.
-       The MAC driver shouldn't need this field.
        On TX: the sending higher layer protocol updates this field.
+            The MAC driver shouldn't need this field.
        On RX: the MAC driver updates this field before handing over the packet.
-       (MCHP TCP/IP stack note: The packet allocation function update this field automatically). */
+       (MCHP TCP/IP stack note: The packet allocation function updates this field automatically. But not for IPv6!). */
     uint8_t*                        pTransportLayer;
 
     /* Total length of the transport layer.
@@ -1386,6 +1402,38 @@ typedef enum
 }TCPIP_MAC_TYPE;
 
 // *****************************************************************************
+/*  Link MTU per MAC Type
+
+  Summary:
+    MTU size correspondig to the MAC types.
+
+  Description:
+    Lists the Maximum Transmission Unit corresponding to a MAC type.
+  
+  Remarks:        
+    The MTU is usually set by the standards.
+    For special links the values can be updated. 
+
+    The default value is normally used.
+    However the individual MAC drivers can use
+    the specific symols
+*/
+typedef enum
+{
+    /*  default MTU link */
+    TCPIP_MAC_LINK_MTU_DEFAULT  = 1500, 
+
+    /*  wired Ethernet MAC type */
+    TCPIP_MAC_LINK_MTU_ETH      = 1500,
+
+    /*  wireless, Wi-Fi type MAC*/
+    TCPIP_MAC_LINK_MTU_WLAN     = 1500,
+
+
+}TCPIP_MAC_LINK_MTU;
+
+
+// *****************************************************************************
 /*  MAC Process Flags
 
   Summary:
@@ -1548,6 +1596,9 @@ typedef struct
 
     /* MAC type: ETH, Wi-Fi, etc. */
     TCPIP_MAC_TYPE          macType;
+
+    /* MAC link MTU size */
+    TCPIP_MAC_LINK_MTU      linkMtu;
     
 }TCPIP_MAC_PARAMETERS;
 

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.11">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name=""/>
@@ -118,6 +122,10 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
+        <Name>smtpc.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
         <Name>zero_conf_helper.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
@@ -162,12 +170,12 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
-        <Name>snmpv3_private.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>ipv4.h</Name>
         <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>snmpv3_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>inflate.c</Name>
@@ -282,6 +290,10 @@
         <Path>Header Files/framework/system/devcon</Path>
       </File>
       <File>
+        <Name>ipv4_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>nbns.h</Name>
         <Path>Header Files/framework/tcpip</Path>
       </File>
@@ -291,10 +303,6 @@
       </File>
       <File>
         <Name>tcpip_packet.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
-        <Name>ipv4_manager.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
@@ -638,6 +646,10 @@
         <Path>Header Files/framework/driver/ethmac/src/dynamic</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>tcpip_announce.c</Name>
         <Path>Source Files/framework/tcpip/src</Path>
       </File>
@@ -888,6 +900,10 @@
       <File>
         <Name>net_pres_transportapi.h</Name>
         <Path>Header Files/framework/net/pres</Path>
+      </File>
+      <File>
+        <Name>smtpc_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>sys_devcon.c</Name>
@@ -1418,13 +1434,12 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk</Path>
-        <Checksum>AB9B55DC66913B6238A1B1B52F519D4B</Checksum>
+        <Checksum>1EF394C66B5949F074BF7C9EA49EAEB0</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk/bsp</Path>
         <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
-        <ProjectFileChecksum>0AA1E19EF3B53B6253B1857D488F5348</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -1439,7 +1454,6 @@
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk/bsp</Path>
         <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
-        <ProjectFileChecksum>BA7DB0D766BA8B66F4940E48ADF67937</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>mib.h</Name>
@@ -1473,18 +1487,17 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk</Path>
-        <Checksum>A200AB67995368B2EBD84619B6045650</Checksum>
+        <Checksum>F4029A62980E2C766B122DF964AD73B7</Checksum>
       </Template>
       <Template>
         <Name>net_pres_enc_glue.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk/framework/net/pres</Path>
         <Checksum>3FDF1EF72050D3301433F2D1893EC89D</Checksum>
-        <ProjectFileChecksum>281C7643319CA3B5A306F18B4E6AC208</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -1499,6 +1512,7 @@
         <Name>mpfs_img2.c</Name>
         <Path>Source Files/app</Path>
         <Checksum>B59BC7C61AF50678920AD62AA0E94D25</Checksum>
+        <ProjectFileChecksum>C12C0D25EE8B52083A09299BF4B8F31F</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>nvm_disk_images.h</Name>
@@ -1511,14 +1525,9 @@
         <Checksum>4DDEE61F0B54A7C58907AAF949A0AA46</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_eth_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk</Path>
-        <Checksum>7ABEB139A427406CC9CCDF30FF854A0A</Checksum>
+        <Checksum>ACE40B5C64C0643766463DF60DDEB859</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -1528,10 +1537,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="F:/Harmony/HarmonyRelease/release/apps/tcpip/snmpv3_nvm_mpfs/firmware/src"/>
-        <Include value="F:/Harmony/HarmonyRelease/release/apps/tcpip/snmpv3_nvm_mpfs/firmware/src/system_config/pic32mx_eth_sk"/>
-        <Include value="F:/Harmony/HarmonyRelease/release/framework"/>
-        <Include value="F:/Harmony/HarmonyRelease/release/apps/tcpip/snmpv3_nvm_mpfs/firmware/src/system_config/pic32mx_eth_sk/framework"/>
+        <Include value="C:/cm/Harmony/apps/tcpip/snmpv3_nvm_mpfs/firmware/src"/>
+        <Include value="C:/cm/Harmony/apps/tcpip/snmpv3_nvm_mpfs/firmware/src/system_config/pic32mx_eth_sk"/>
+        <Include value="C:/cm/Harmony/framework"/>
+        <Include value="C:/cm/Harmony/apps/tcpip/snmpv3_nvm_mpfs/firmware/src/system_config/pic32mx_eth_sk/framework"/>
         <Include value="../src/system_config/pic32mx_eth_sk/bsp"/>
       </C32>
     </CompilerItems>

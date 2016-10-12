@@ -77,11 +77,13 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
  *******************************************************************************/
 // DOM-IGNORE-END
 
-#include "AudioGenerateFx.h"
-#include "FxMath.h"
 #include <math.h>
-#include "app_config.h"
 #include <string.h>
+
+#include "AudioGenerateFx.h"
+//#include "FxMath.h"
+#include "libq_C.h"
+#include "app_config.h"
 
 //******************************************************************************
 //Global Objects
@@ -366,11 +368,13 @@ BOOL AudioGenerateFx(AUDIO_GENERATE * ag, AUDIO_PLAY_BUFFER * audioBuffer)
                     //       time frequency modulation.  CAL 
                     //       
                     //**********************************************************************
-                    Fract16 angleQ10d6;
+                    q15 angleQ10d6;
                     int32_t sinValueQ1d15;
                     //int32_t sinValueQ10d22;
                     angleQ10d6 = Fl2FxPnt(360.0*((float)i/ag->samplesPerCycle), 6);
-                    sinValueQ1d15 = (int32_t) FrssSin_AngT5(angleQ10d6);
+
+                    //sinValueQ1d15 = (int32_t) FrssSin_AngT5(angleQ10d6);
+                    sinValueQ1d15  = libq_q1d15_Sin_q10d6(angleQ10d6);
 
                     buffer[2*i]     = (APP_DATA_TYPE) sinValueQ1d15;  //lCh 
                     buffer[2*i + 1] = (APP_DATA_TYPE) sinValueQ1d15;  //rCh
@@ -400,12 +404,14 @@ BOOL AudioGenerateFx(AUDIO_GENERATE * ag, AUDIO_PLAY_BUFFER * audioBuffer)
                 if ((ag->audioSampleCnt < ag->durationSamples) ||
                     infDuration)
                 {
-                    Fract16 angleQ10d6;
+                    q15 angleQ10d6;
                     int32_t sinValueQ1d15;
                     //int32_t sinValueQ10d22;
                     angleQ10d6 = Fl2FxPnt(360.0*((float)i/ag->samplesPerCycle), 6);
 
-                    sinValueQ1d15 = (int32_t) FrssSin_AngT5(angleQ10d6);
+                    //sinValueQ1d15 = (int32_t) FrssSin_AngT5(angleQ10d6);
+                    sinValueQ1d15 = 
+                            (int32_t) libq_q1d15_Sin_q10d6(angleQ10d6);
 
                     //sinValueQ10d22 = sinValueQ1d15 << 7;
                     //sinValueQ10d22 = sinValueQ10d22 *5/8; //Scaling factor

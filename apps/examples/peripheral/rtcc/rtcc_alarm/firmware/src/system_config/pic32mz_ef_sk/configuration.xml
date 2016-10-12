@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.11">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2048EFH144"/>
@@ -96,6 +100,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -186,6 +194,7 @@
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
         <Checksum>A057453A46D14DF680E4C0050B140CB9</Checksum>
+        <ProjectFileChecksum>BC7154A94A3CC85AA85437B7F353AA5A</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_rtcc_static.c</Name>
@@ -195,7 +204,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>C9CB2E05300A460B5A535073FE8B0488</Checksum>
+        <Checksum>5A42130817C142EF2CFB13625E6012AD</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>

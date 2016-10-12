@@ -262,6 +262,39 @@ typedef enum
 
 
 // *****************************************************************************
+/* USART Driver Buffer Result
+
+   Summary
+    Identifies the possible result of the buffer processing.
+
+   Description
+    This enumeration identifies the possible result of the buffer processing.
+    
+   Remarks:
+    DRV_USART_BUFFER_RESULT_HANDLE_EXPIRED is the state of the buffer which 
+    is in the free buffer pool.
+
+*/
+
+typedef enum
+{
+    /* Buffer handle is not valid*/
+    DRV_USART_BUFFER_RESULT_HANDLE_INVALID,
+
+    /* Buffer handle has expired. */
+    DRV_USART_BUFFER_RESULT_HANDLE_EXPIRED,
+
+    /* Buffer is removed from the queue succesfully*/
+    DRV_USART_BUFFER_RESULT_REMOVED_SUCCESFULLY,
+
+    /* Buffer removal failed because of unable to acquire the mutex
+     * This is applicable in RTOS mode only */
+    DRV_USART_BUFFER_RESULT_REMOVAL_FAILED
+
+} DRV_USART_BUFFER_RESULT;
+
+
+// *****************************************************************************
 /* USART Driver Buffer Event Handler Function Pointer
 
    Summary
@@ -318,7 +351,7 @@ typedef enum
 
     If the event is DRV_USART_BUFFER_EVENT_ERROR, it means that the data was not
     transferred successfully. The DRV_USART_ErrorGet function can be called to
-    know the error. The DRV_USART_BufferProcessedSizeGet function can be
+    know the error. The DRV_USART_BufferCompletedBytesGet function can be
     called to find out how many bytes were processed.
 
     The bufferHandle parameter contains the buffer handle of the buffer that
@@ -1839,25 +1872,18 @@ void DRV_USART_BufferEventHandlerSet
 
 // *****************************************************************************
 /* Function:
-    size_t DRV_USART_BufferProcessedSizeGet
-    (
-        DRV_USART_BUFFER_HANDLE bufferHandle
-    );
+    DRV_USART_BUFFER_RESULT DRV_USART_BufferRemove( DRV_USART_BUFFER_HANDLE bufferHandle )
 
   Summary:
-    This function returns number of bytes that have been processed for the
-    specified buffer.
+    Removes a requested buffer from the queue.
     <p><b>Implementation:</b> Static/Dynamic</p>
 
   Description:
-    This function returns number of bytes that have been processed for the
-    specified buffer. The client can use this function, in a case where the
-    buffer has terminated due to an error, to obtain the number of bytes that
-    have been processed. This function can be used for non-DMA buffer transfers
-    only. It cannot be used when the USART driver is configured to use DMA.
-
-    If this function is called on a invalid buffer handle, or if the buffer
-    handle has expired, then the function returns 0.
+    This function removes a specified buffer from the queue.
+    The client can use this function to delete
+        1. An unwated stalled buffer. 
+        2. Queued buffers on timeout.
+    or in any other use case.
 
   Precondition:
     The DRV_USART_Initialize routine must have been called for the specified
@@ -1869,13 +1895,127 @@ void DRV_USART_BufferEventHandlerSet
     must have been called and a valid buffer handle returned.
 
   Parameters:
-    bufferhandle    - Handle of the buffer of which the processed number of bytes
+    bufferhandle    - Handle of the buffer to delete.
+
+  Returns:
+    DRV_USART_BUFFER_RESULT_HANDLE_INVALID  - Buffer handle is invalid.
+
+    DRV_USART_BUFFER_RESULT_HANDLE_EXPIRED  - Buffer handle is expired.
+    
+    DRV_USART_BUFFER_RESULT_REMOVED_SUCCESFULLY - Buffer is removed from the 
+                queue successfully.
+                                                  
+    DRV_USART_BUFFER_RESULT_REMOVAL_FAILED - Failed to remove buffer from 
+                the queue because of mutex timeout in RTOS environment.
+
+  Example:
+    <code>
+    // myAppObj is an application specific object.
+    MY_APP_OBJ myAppObj;
+
+    uint8_t mybuffer[MY_BUFFER_SIZE];
+    DRV_BUFFER_HANDLE bufferHandle;
+
+    // myUSARTHandle is the handle returned
+    // by the DRV_USART_Open function.
+
+    // Client registers an event handler with driver. This is done once
+
+    DRV_USART_BufferEventHandlerSet( myUSARTHandle, APP_USARTBufferEventHandle,
+                                     (uintptr_t)&myAppObj );
+
+    bufferHandle = DRV_USART_BufferAddRead( myUSARThandle,
+                                            myBuffer, MY_BUFFER_SIZE );
+
+    if(DRV_USART_BUFFER_HANDLE_INVALID == bufferHandle)
+    {
+        // Error handling here
+    }
+
+    // Event Processing Technique. Event is received when
+    // the buffer is processed.
+
+    void APP_USARTBufferEventHandler( DRV_USART_BUFFER_EVENT event,
+            DRV_USART_BUFFER_HANDLE bufferHandle, uintptr_t contextHandle )
+    {
+        switch(event)
+        {
+            case DRV_USART_BUFFER_EVENT_SUCCESS:
+
+                // This means the data was transferred.
+                break;
+
+            case DRV_USART_BUFFER_EVENT_FAILURE:
+
+                // Error handling here.
+
+                break;
+
+            default:
+                break;
+        }
+    }
+    
+    // Timeout function, where remove queued buffer if it still exists.
+    void APP_TimeOut(void)
+    {
+        DRV_USART_BUFFER_RESULT bufferResult;
+        bufferResult = DRV_USART_BufferRemove(bufferHandle);
+        
+        if(DRV_USART_BUFFER_RESULT_REMOVED_SUCCESFULLY == bufferResult)
+        {
+            //Buffer removed succesfully from the queue
+        }
+        else
+        {
+            //Either buffer is invalid or expired.
+            //Or not able to acquire mutex in RTOS mode.
+        }
+    }
+    </code>
+
+  Remarks:
+    This function is thread safe when used in a RTOS application.
+*/
+
+DRV_USART_BUFFER_RESULT DRV_USART_BufferRemove( DRV_USART_BUFFER_HANDLE bufferHandle );
+
+// *****************************************************************************
+/* Function:
+    size_t DRV_USART_BufferCompletedBytesGet
+    (
+        DRV_USART_BUFFER_HANDLE bufferHandle
+    );
+
+  Summary:
+    Returns the number of bytes that have been processed for the
+    specified buffer.
+    <p><b>Implementation:</b> Static/Dynamic</p>
+
+  Description:
+    This function returns number of bytes that have been processed for the
+    specified buffer. The client can use this function, in a case where the
+    buffer has terminated due to an error, to obtain the number of bytes that
+    have been processed. Or in any other use case.
+
+  Precondition:
+    The DRV_USART_Initialize routine must have been called for the specified
+    USART driver instance.
+
+    DRV_USART_Open must have been called to obtain a valid opened device handle.
+
+    Either the DRV_USART_BufferAddRead or DRV_USART_BufferAddWrite function
+    must have been called and a valid buffer handle returned.
+
+  Parameters:
+    bufferhandle    - Handle for the buffer of which the processed number of bytes
                       to be obtained.
 
   Returns:
-    Returns the number of the bytes that have been processed for this buffer.
+    Returns the number of bytes that have been processed for this buffer.
 
-    Returns 0 for an invalid or an expired buffer handle.
+    Returns DRV_USART_BUFFER_HANDLE_INVALID for an invalid or an expired 
+    buffer handle.
 
   Example:
     <code>
@@ -1925,7 +2065,7 @@ void DRV_USART_BufferEventHandlerSet
                 // We can find out how many bytes were processed in this
                 // buffer before the error occurred.
 
-                processedBytes = DRV_USART_BufferProcessedSizeGet(bufferHandle);
+                processedBytes = DRV_USART_BufferCompletedBytesGet(bufferHandle);
 
                 break;
 
@@ -1937,6 +2077,39 @@ void DRV_USART_BufferEventHandlerSet
 
   Remarks:
     This function is thread safe when used in a RTOS application.
+*/
+
+size_t DRV_USART_BufferCompletedBytesGet( DRV_USART_BUFFER_HANDLE bufferHandle );
+
+// *****************************************************************************
+/* Function:
+    size_t DRV_USART_BufferProcessedSizeGet
+    (
+        DRV_USART_BUFFER_HANDLE bufferHandle
+    );
+
+  Summary:
+    This API will be deprecated and not recommended to use.
+    Use DRV_USART_BufferCompletedBytesGet to get the number of bytes 
+    processed for the specified buffer.
+
+  Description:
+    None.
+
+  Precondition:
+    None.
+
+  Parameters:
+    None.
+
+  Returns:
+    None.
+
+  Example:
+    None.
+
+  Remarks:
+    None.
 */
 
 size_t DRV_USART_BufferProcessedSizeGet( DRV_USART_BUFFER_HANDLE bufferHandle );
@@ -2785,7 +2958,7 @@ void DRV_USART_ByteErrorCallbackSet
                 // buffer before the error occurred. We can also find
                 // the error cause.
 
-                processedBytes = DRV_USART_BufferProcessedSizeGet(bufferHandle);
+                processedBytes = DRV_USART_BufferCompletedBytesGet(bufferHandle);
                 if(DRV_USART_ERROR_RECEIVE_OVERRUN == DRV_USART_ErrorGet(myUSARTHandle))
                 {
                     // There was an receive over flow error.

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -28,6 +32,10 @@
       <File>
         <Name>croutine.c</Name>
         <Path>Source Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>portmacro.h</Name>
@@ -186,6 +194,10 @@
         <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -274,16 +286,11 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_freertos</Path>
-        <Checksum>5D6B392AE3C1CBAC807597582150CF7C</Checksum>
+        <Checksum>701FCA5C660A03E1D2F016EA364F2C7C</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
         <Path>Source Files/app</Path>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>rtos_hooks.c</Name>
@@ -317,7 +324,7 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_freertos</Path>
-        <Checksum>F45830AF1F429892CD0B1BCEC38D5487</Checksum>
+        <Checksum>C9B946DE55127062CCE3DE1506605C2D</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -336,7 +343,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_freertos/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -351,7 +358,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_freertos</Path>
-        <Checksum>6BD1A91B21C4E330927B4161C6BBD621</Checksum>
+        <Checksum>6F1C5770A2E65EA020A5AA27D0A2C5CF</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
@@ -361,11 +368,10 @@
         <Include value="../src/system_config/pic32mz_ef_sk_freertos"/>
       </C32-AS>
       <C32>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/debug_uart/firmware/src"/>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/debug_uart/firmware/src/system_config/pic32mz_ef_sk_freertos"/>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/debug_uart/firmware/src/pic32mz_ef_sk_freertos"/>
-        <Include value="/home/vikasnan/GIT_Core/core/framework"/>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/debug_uart/firmware/src/system_config/pic32mz_ef_sk_freertos/framework"/>
+        <Include value="D:/git_repositories/usb/apps/examples/system/debug_uart/firmware/src"/>
+        <Include value="D:/git_repositories/usb/apps/examples/system/debug_uart/firmware/src/system_config/pic32mz_ef_sk_freertos"/>
+        <Include value="D:/git_repositories/usb/framework"/>
+        <Include value="D:/git_repositories/usb/apps/examples/system/debug_uart/firmware/src/system_config/pic32mz_ef_sk_freertos/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_freertos/bsp"/>
         <Include value="../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ"/>
         <Include value="../../../../../../third_party/rtos/FreeRTOS/Source/include"/>

@@ -199,6 +199,7 @@ ifblock USE_DRV_CODEC_AK4642=y && SELECT_DRV_AK4642=y
 add "<#include \"/framework/driver/codec/ak4642/templates/drv_ak4642.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
 add "<#include \"/framework/driver/codec/ak4642/templates/drv_ak4642_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS
 add "<#include \"/framework/driver/codec/ak4642/templates/drv_ak4642_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_DRIVER_TASKS
+add "<#include \"/framework/driver/codec/ak4642/templates/drv_ak4642.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 
 file DRV_CODEC_AK4642 "$HARMONY_VERSION_PATH/framework/driver/codec/ak4642/drv_ak4642.h" to "$PROJECT_HEADER_FILES/framework/driver/codec/ak4642/drv_ak4642.h"
 file DRV_CODEC_AK4642_LOCAL_H "$HARMONY_VERSION_PATH/framework/driver/codec/ak4642/src/drv_ak4642_local.h" to "$PROJECT_HEADER_FILES/framework/driver/codec/ak4642/drv_ak4642_local.h"

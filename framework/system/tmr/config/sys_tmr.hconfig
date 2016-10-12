@@ -120,6 +120,7 @@ ifblock USE_SYS_TMR
 
 add "<#include \"/framework/system/tmr/config/sys_tmr.c.ftl\">"  to list SYSTEM_INIT_C_MODULE_INITIALIZATION_DATA
 add "<#include \"/framework/system/tmr/config/sys_tmr_init.c.ftl\">"  to list SYSTEM_INIT_C_INITIALIZE_SYSTEM_SERVICES
+add "<#include \"/framework/system/tmr/config/sys_tmr.h.ftl\">"  to list SYSTEM_CONFIG_H_SYSTEM_SERVICE_CONFIGURATION 
 add "<#assign SYS_TMR_TASKS = \"TASK_CALL_NO_RTOS\"><#include \"/framework/system/tmr/config/sys_tmr_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_SYSTEM_TASKS
 
 file SYS_TMR_H "$HARMONY_VERSION_PATH/framework/system/tmr/sys_tmr.h" to "$PROJECT_HEADER_FILES/framework/system/tmr/sys_tmr.h"

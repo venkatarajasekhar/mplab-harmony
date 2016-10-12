@@ -782,10 +782,76 @@ void DRV_USART_BufferEventHandlerSet (const DRV_HANDLE handle,const DRV_USART_BU
     }
 }
 
+extern DRV_USART_BUFFER_OBJ gDrvUSARTBufferObj[DRV_USART_QUEUE_DEPTH_COMBINED];
+
+DRV_USART_BUFFER_RESULT DRV_USART_BufferRemove( DRV_USART_BUFFER_HANDLE bufferHandle )
+{
+    uintptr_t instance;
+    DRV_USART_BUFFER_OBJ * bufferObj;
+    
+    /* Get the driver instance to which this buffer handle belongs to */
+    bufferObj = &gDrvUSARTBufferObj[bufferHandle & 0xFFFF];
+    instance = bufferObj->drvInstance;
+
+    switch(instance)
+    {
+        case DRV_USART_INDEX_0:
+        {
+            return DRV_USART0_BufferRemove (bufferHandle);
+            break;
+        }
+<#if CONFIG_DRV_USART_INST_IDX1 == true>
+        case DRV_USART_INDEX_1:
+        {
+            return DRV_USART1_BufferRemove (bufferHandle);
+            break;
+        }
+</#if>
+<#if CONFIG_DRV_USART_INST_IDX2 == true>
+        case DRV_USART_INDEX_2:
+        {
+            return DRV_USART2_BufferRemove (bufferHandle);
+            break;
+        }
+</#if>
+<#if CONFIG_DRV_USART_INST_IDX3 == true>
+        case DRV_USART_INDEX_3:
+        {
+            return DRV_USART3_BufferRemove (bufferHandle);
+            break;
+        }
+</#if>
+<#if CONFIG_DRV_USART_INST_IDX4 == true>
+        case DRV_USART_INDEX_4:
+        {
+            return DRV_USART4_BufferRemove (bufferHandle);
+            break;
+        }
+</#if>
+<#if CONFIG_DRV_USART_INST_IDX5 == true>
+        case DRV_USART_INDEX_5:
+        {
+            return DRV_USART5_BufferRemove (bufferHandle);
+            break;
+        }
+</#if>
+        default:
+        {
+            return DRV_USART_BUFFER_RESULT_HANDLE_INVALID;
+        }
+    }
+}
+
+size_t DRV_USART_BufferCompletedBytesGet( DRV_USART_BUFFER_HANDLE bufferHandle )
+{
+    /* This function is independent of instance or client */
+    return DRV_USART0_BufferCompletedBytesGet (bufferHandle);
+}
+
 size_t DRV_USART_BufferProcessedSizeGet( DRV_USART_BUFFER_HANDLE bufferHandle )
 {
-    //This function is independent of instance or client.
-    return DRV_USART0_BufferProcessedSizeGet (bufferHandle);
+    /* This function will be deprecated */
+    return DRV_USART0_BufferProcessedSizeGet(bufferHandle);
 }
 </#if>
 

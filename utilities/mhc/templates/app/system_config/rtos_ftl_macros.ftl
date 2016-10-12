@@ -1,6 +1,6 @@
 
 <#macro RTOS_TASK_CREATE RTOS_NAME TASK_FUNC_NAME TASK_NAME TASK_PRI TASK_STK_SZ>
-<#if (RTOS_NAME == "FreeRTOS_V8.x.x") || (RTOS_NAME == "OpenRTOS_V8.x.x")>
+<#if (RTOS_NAME == "FreeRTOS") || (RTOS_NAME == "OpenRTOS_V8.x.x")>
     /* Create OS Thread for ${TASK_NAME}. */
     xTaskCreate((TaskFunction_t) ${TASK_FUNC_NAME},
                 "${TASK_NAME}",
@@ -51,7 +51,7 @@
 
 <#macro RTOS_TASK_DELAY RTOS_NAME TASK_DELAY>
 <#if CONFIG_FW_SYS_TASK_USE_DELAY>
-<#if (RTOS_NAME == "FreeRTOS_V8.x.x") || (CONFIG_3RDPARTY_RTOS_USED == "OpenRTOS_V8.x.x")>
+<#if (RTOS_NAME == "FreeRTOS") || (CONFIG_3RDPARTY_RTOS_USED == "OpenRTOS_V8.x.x")>
 <#if CONFIG_FREERTOS_ENABLE_BACKWARD_COMPATIBILITY == true>
         vTaskDelay(${TASK_DELAY} / portTICK_RATE_MS);
 <#else>
@@ -74,7 +74,7 @@
 </#macro>
 
 <#macro RTOS_ISR VECTOR NAME PRIORITY>
-<#if (CONFIG_3RDPARTY_RTOS_USED == "FreeRTOS_V8.x.x") || (CONFIG_3RDPARTY_RTOS_USED == "OpenRTOS_V8.x.x")>
+<#if (CONFIG_3RDPARTY_RTOS_USED == "FreeRTOS") || (CONFIG_3RDPARTY_RTOS_USED == "OpenRTOS_V8.x.x")>
 <#if CONFIG_PIC32MZ == true || CONFIG_PIC32WK == true>
    .extern  IntHandler${NAME}
 

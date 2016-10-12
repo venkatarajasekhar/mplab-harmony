@@ -1061,16 +1061,18 @@ void SYS_FS_EventHandlerSet
 
     Precondition:
       Prior to opening a file, the name of the volume on which the file resides
-      should be known and the volume should be mounted. While opening the file,
-      the name of the volume should be passed along with the file name.
+      should be known and the volume should be mounted. 
 
     Parameters:
-      path          - Path to the file along with the volume name. The string
-                      of volume and file name has to be preceded by "/mnt/".
-                      Also, the volume name and file name has to be separated
-                      by a slash "/".
+      fname - The name of the file to be opened along with the path. The fname
+      format is as follows: "/mnt/volumeName/dirName/fileName". volumeName is
+      the name of the volume/drive. dirName is the name of the directory under
+      which the file is located. fileName is the name of the file to be opened.
+      The "/mnt/volumeName" portion from the fName can be omitted if the
+      SYS_FS_CurrentDriveSet () has been invoked to set the current
+      drive/volume.
 
-      attributes    - Access mode of the file, of type SYS_FS_FILE_OPEN_ATTRIBUTES
+      attributes - Access mode of the file, of type SYS_FS_FILE_OPEN_ATTRIBUTES
 
     Returns:
       On success - A valid file handle will be returned
@@ -1084,6 +1086,22 @@ void SYS_FS_EventHandlerSet
         fileHandle = SYS_FS_FileOpen("/mnt/myDrive/FILE.JPG",
                 (SYS_FS_FILE_OPEN_READ));
 
+        if(fileHandle != SYS_FS_HANDLE_INVALID)
+        {
+            // File open succeeded.
+        }
+        else
+        {
+            // File open failed.
+        }
+
+        // Using SYS_FS_CurrentDriveSet () function.
+
+        SYS_FS_HANDLE fileHandle;
+
+        SYS_FS_CurrentDriveSet("/mnt/myDrive");
+
+        fileHandle = SYS_FS_FileOpen("FILE.JPG", (SYS_FS_FILE_OPEN_READ));
         if(fileHandle != SYS_FS_HANDLE_INVALID)
         {
             // File open succeeded.

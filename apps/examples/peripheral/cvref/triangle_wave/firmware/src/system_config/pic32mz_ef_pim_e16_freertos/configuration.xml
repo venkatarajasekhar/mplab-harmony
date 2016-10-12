@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2048EFH100"/>
@@ -20,6 +24,10 @@
       <File>
         <Name>croutine.c</Name>
         <Path>Source Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>portmacro.h</Name>
@@ -138,6 +146,10 @@
         <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -214,17 +226,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_pim_e16_freertos/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_pim_e16_freertos</Path>
         <Checksum>C934CFD980878E57EE336D976F540A07</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_pim_e16_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>rtos_hooks.c</Name>
@@ -239,7 +246,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_pim_e16_freertos</Path>
-        <Checksum>A967F480958B7A9CD56E26E58AC7E6D9</Checksum>
+        <Checksum>763079732AFCAFA32C5924341818940D</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -268,7 +275,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_pim_e16_freertos</Path>
-        <Checksum>5F80883E3A32E78ED2EF88CE78622A97</Checksum>
+        <Checksum>7C7E34F2972E63AD0D15702BA1D0E84F</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -277,7 +284,7 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_pim_e16_freertos</Path>
-        <Checksum>B6DEE7DA05C95620907CBDA81AE60E30</Checksum>
+        <Checksum>2446D022524EBD50067548EA6050C57C</Checksum>
       </Template>
       <Template>
         <Name>drv_cmp_static.h</Name>
@@ -297,7 +304,7 @@
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_pim_e16_freertos</Path>
-        <Checksum>F8F614C8FAC95125CE27A42B5F072F80</Checksum>
+        <Checksum>51982D446B95BA2350DC11462ECADD81</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
@@ -307,11 +314,10 @@
         <Include value="../src/system_config/pic32mz_ef_pim_e16_freertos"/>
       </C32-AS>
       <C32>
-        <Include value="C:\Users\c17015\Projects\GIT_Harmony\core\apps\examples\peripheral\cvref\triangle_wave\firmware\src"/>
-        <Include value="C:\Users\c17015\Projects\GIT_Harmony\core\apps\examples\peripheral\cvref\triangle_wave\firmware\src\system_config\pic32mz_ef_pim_e16_freertos"/>
-        <Include value="C:\Users\c17015\Projects\GIT_Harmony\core\apps\examples\peripheral\cvref\triangle_wave\firmware\src\pic32mz_ef_pim_e16_freertos"/>
-        <Include value="C:\Users\c17015\Projects\GIT_Harmony\core\framework"/>
-        <Include value="C:\Users\c17015\Projects\GIT_Harmony\core\apps\examples\peripheral\cvref\triangle_wave\firmware\src\system_config\pic32mz_ef_pim_e16_freertos\framework"/>
+        <Include value="E:\Git\core\apps\examples\peripheral\cvref\triangle_wave\firmware\src"/>
+        <Include value="E:\Git\core\apps\examples\peripheral\cvref\triangle_wave\firmware\src\system_config\pic32mz_ef_pim_e16_freertos"/>
+        <Include value="E:\Git\core\framework"/>
+        <Include value="E:\Git\core\apps\examples\peripheral\cvref\triangle_wave\firmware\src\system_config\pic32mz_ef_pim_e16_freertos\framework"/>
         <Include value="../src/system_config/pic32mz_ef_pim_e16_freertos/bsp"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>

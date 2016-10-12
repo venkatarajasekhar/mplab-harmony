@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX570F512L"/>
@@ -142,6 +146,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -212,14 +220,9 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_125_sk_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_125_sk_int_dyn</Path>
-        <Checksum>EA92F8F5E258FD9E5FE13AE64364312D</Checksum>
+        <Checksum>F17CCF4289B3368A0D338AC4BF516663</Checksum>
         <ProjectFileChecksum>0CF4BFFF524EA897D11910953E1B1047</ProjectFileChecksum>
       </Template>
       <Template>
@@ -259,7 +262,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_125_sk_int_dyn</Path>
-        <Checksum>CD7A6473CB25377C9ED9A2E8111D7E2C</Checksum>
+        <Checksum>1FC7D92DDB9E3B50C1EF72A293B0DDF2</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -268,7 +271,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_125_sk_int_dyn/framework/system/clk/src</Path>
-        <Checksum>6AF033A7E8ECB69981D88ED27526EF17</Checksum>
+        <Checksum>9E1735DC00A06796E5D2C1A7FF8668AC</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>

@@ -32,10 +32,10 @@ OPTIONAL("libmchp_peripheral.a")
         <#assign bootloader_length = "0x13C00">
         <#assign bootloader_elength = "0x0000">
     <#elseif CONFIG_BOOTLOADER_TYPE == "USB_DEVICE">
-        <#assign bootloader_length = "0x5C00">
+        <#assign bootloader_length = "0x7400">
         <#assign bootloader_elength = "0x0000">
     <#elseif CONFIG_BOOTLOADER_TYPE == "USART" || CONFIG_BOOTLOADER_TYPE == "I2C">
-        <#assign bootloader_length = "0x1C00">
+        <#assign bootloader_length = "0x2000">
         <#assign bootloader_elength = "0x0000">
     <#else>
         <#assign bootloader_length = "0xDC00">
@@ -70,16 +70,16 @@ PROVIDE(_vector_spacing = 0x00000001);
         <#assign eaddress = "0x9D014000">
         <#assign elength = "0x0000">
     <#elseif CONFIG_BOOTLOADER_TYPE == "USB_DEVICE">
-        <#lt>_ebase_address = 0x9D006000;
-        <#assign eaddress = "0x9D006000">
+        <#lt>_ebase_address = 0x9D008000;
+        <#assign eaddress = "0x9D008000">
         <#assign elength = "0x0000">
     <#elseif CONFIG_BOOTLOADER_TYPE != "USART" && CONFIG_BOOTLOADER_TYPE != "I2C">
         <#lt>_ebase_address = 0x9D00E000;
         <#assign eaddress = "0x9D00E000">
         <#assign elength = "0x0000">
     <#else>
-        <#lt>_ebase_address = 0x9D002000;
-        <#assign eaddress = "0x9D002000">
+        <#lt>_ebase_address = 0x9D003000;
+        <#assign eaddress = "0x9D003000">
         <#assign elength = "0x0000">
     </#if>
 <#else>
@@ -132,9 +132,9 @@ PROVIDE(_vector_spacing = 0x00000001);
         <#if CONFIG_BOOTLOADER_TYPE == "USB_HOST">
             <#assign resetaddress = "(0x9D013C00)">
         <#elseif CONFIG_BOOTLOADER_TYPE == "USB_DEVICE">
-            <#assign resetaddress = "(0x9D005C00)">
+            <#assign resetaddress = "(0x9D007400)">
         <#else>
-            <#assign resetaddress = "(0x9D001C00)">
+            <#assign resetaddress = "(0x9D002000)">
         </#if>
     <#elseif CONFIG_BOOTLOADER_TYPE == "USB_HOST">
         <#assign resetaddress = "(0x9D014000)">

@@ -1,40 +1,24 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Utilities
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    xml_parser.h
-
-  Summary:
-    Bluetooth API Library interface Utilities.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
-#ifndef __UTILS_XML_PARSER_H  // Guards against multiple inclusion
+#ifndef __UTILS_XML_PARSER_H
 #define __UTILS_XML_PARSER_H
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
-
 
 #define XML_PARSER_STATE_WAIT_TAG_NAME		0
 #define XML_PARSER_STATE_READ_TAG_NAME		1
@@ -54,8 +38,6 @@ extern "C" {
 #define XML_EVT_ATTR_NAME			2
 #define XML_EVT_ATTR_VALUE			3
 
-
-#define XML_BUFFER_LEN	30
 
 struct _bt_xml_parser_t;
 
@@ -83,7 +65,8 @@ typedef struct _bt_xml_evt_attribute_value_t
 typedef struct _bt_xml_parser_t
 {
 	bt_byte state;
-	bt_byte buffer[XML_BUFFER_LEN];
+	bt_byte* buffer;
+	bt_uint buffer_size;
 	bt_byte write_pos;
 	bt_byte prev_c;
 	bt_byte quote_c;

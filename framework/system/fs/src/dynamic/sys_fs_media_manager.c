@@ -720,6 +720,7 @@ SYS_FS_MEDIA_BLOCK_COMMAND_HANDLE SYS_FS_MEDIA_MANAGER_Read
     startAddress = mediaObj->driverFunctions->addressGet(mediaObj->driverHandle);
     address = (uint32_t)source - (uint32_t)startAddress;
 
+    mediaObj->commandStatus = SYS_FS_MEDIA_COMMAND_IN_PROGRESS;
     mediaObj->driverFunctions->Read(mediaObj->driverHandle, &(mediaObj->commandHandle), destination, address, nBytes);
 
     return (mediaObj->commandHandle);

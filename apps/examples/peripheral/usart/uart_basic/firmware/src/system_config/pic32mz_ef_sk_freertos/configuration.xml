@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -24,6 +28,10 @@
       <File>
         <Name>croutine.c</Name>
         <Path>Source Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>portmacro.h</Name>
@@ -150,6 +158,10 @@
         <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -226,7 +238,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_freertos</Path>
-        <Checksum>E51DA56D69409ED622DB901E0AC4AD01</Checksum>
+        <Checksum>57EE3D4CDC9C63EBD319D38956C49812</Checksum>
       </Template>
       <Template>
         <Name>drv_usart_static.h</Name>
@@ -238,11 +250,6 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>rtos_hooks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_freertos</Path>
         <Checksum>FA52743264536E5207D2ADBE57B48D05</Checksum>
@@ -250,12 +257,12 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_freertos/bsp</Path>
-        <Checksum>F68C0372DEED2BB3ED0908D6ED83CB54</Checksum>
+        <Checksum>F17134C042B81B3876554237536D7229</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_freertos/bsp</Path>
-        <Checksum>3DB509F6CDE7AB7F7CA13F4917B64C7D</Checksum>
+        <Checksum>8405F93FE0218536B85400099346BEF4</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -279,7 +286,7 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_freertos</Path>
-        <Checksum>B6DEE7DA05C95620907CBDA81AE60E30</Checksum>
+        <Checksum>2446D022524EBD50067548EA6050C57C</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -303,7 +310,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_freertos/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -328,7 +335,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_freertos</Path>
-        <Checksum>7066D3C4A6D05ACDE31FFCF41EF05219</Checksum>
+        <Checksum>637DBDE221586E0C7406B5907C649257</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
@@ -338,11 +345,10 @@
         <Include value="../src/system_config/pic32mz_ef_sk_freertos"/>
       </C32-AS>
       <C32>
-        <Include value="E:/Git/core/apps/examples/peripheral/usart/uart_basic/firmware/src"/>
-        <Include value="E:/Git/core/apps/examples/peripheral/usart/uart_basic/firmware/src/system_config/pic32mz_ef_sk_freertos"/>
-        <Include value="E:/Git/core/apps/examples/peripheral/usart/uart_basic/firmware/src/pic32mz_ef_sk_freertos"/>
-        <Include value="E:/Git/core/framework"/>
-        <Include value="E:/Git/core/apps/examples/peripheral/usart/uart_basic/firmware/src/system_config/pic32mz_ef_sk_freertos/framework"/>
+        <Include value="E:\Git\core\apps\examples\peripheral\usart\uart_basic\firmware\src"/>
+        <Include value="E:\Git\core\apps\examples\peripheral\usart\uart_basic\firmware\src\system_config\pic32mz_ef_sk_freertos"/>
+        <Include value="E:\Git\core\framework"/>
+        <Include value="E:\Git\core\apps\examples\peripheral\usart\uart_basic\firmware\src\system_config\pic32mz_ef_sk_freertos\framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_freertos/bsp"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>

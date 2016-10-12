@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
     
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -75,12 +76,6 @@ extern "C" {
 extern uint32_t __attribute__((coherent)) adc_buf[3][256];
 
 // *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
-
-// *****************************************************************************
 /* Clock System Service Configuration Options
 */
 #define SYS_CLK_FREQ                        200000000ul
@@ -93,7 +88,21 @@ extern uint32_t __attribute__((coherent)) adc_buf[3][256];
 #define SYS_CLK_BUS_PERIPHERAL_7            200000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         24000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       0ul
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        1
+#define SYS_CONSOLE_INSTANCES_NUMBER            1
    
+
+/*** Debug System Service Configuration ***/
+#define SYS_DEBUG_ENABLE
+#define DEBUG_PRINT_BUFFER_SIZE       512
+#define SYS_DEBUG_BUFFER_DMA_READY
+#define SYS_DEBUG_USE_CONSOLE
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
@@ -178,15 +187,6 @@ extern uint32_t __attribute__((coherent)) adc_buf[3][256];
 #define SYS_PORT_K_CNPD         0x0000
 #define SYS_PORT_K_CNEN         0x0000
 
-#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        1
-#define SYS_CONSOLE_INSTANCES_NUMBER            1
-
-
-/*** Debug System Service Configuration ***/
-#define SYS_DEBUG_ENABLE
-#define DEBUG_PRINT_BUFFER_SIZE       512
-#define SYS_DEBUG_BUFFER_DMA_READY
-#define SYS_DEBUG_USE_CONSOLE
 
 // *****************************************************************************
 // *****************************************************************************

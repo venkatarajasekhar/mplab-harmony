@@ -51,6 +51,7 @@ extern "C" {
 #endif
 
 #define MICROCHIP_MPLAB_HARMONY
+#define MICROCHIP_PIC32
 #define MICROCHIP_TCPIP
 #define WOLFSSL_HAVE_MIN
 #define WOLFSSL_HAVE_MAX
@@ -191,6 +192,14 @@ extern "C" {
 
 <#if !CONFIG_WOLFSSL_OLD_TLS_SUPPORT>
 #define NO_OLD_TLS
+</#if>
+
+<#if CONFIG_USE_3RDPARTY_WOLFMQTT>
+#define WOLFMQTT_NONBLOCK
+
+<#if CONFIG_WOLFMQTT_USE_TLS>
+#define ENABLE_MQTT_TLS
+</#if>
 </#if>
 
 #ifdef	__cplusplus

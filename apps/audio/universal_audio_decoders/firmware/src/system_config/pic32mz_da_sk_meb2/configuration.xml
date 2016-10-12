@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MZ2064DAB288"/>
@@ -68,6 +72,10 @@
       <File>
         <Name>sys_fs.h</Name>
         <Path>Header Files/framework/system/fs</Path>
+      </File>
+      <File>
+        <Name>flac.h</Name>
+        <Path>Header Files/framework/decoder/default/stubs</Path>
       </File>
       <File>
         <Name>usb_chapter_9.h</Name>
@@ -180,6 +188,10 @@
       <File>
         <Name>diskio.h</Name>
         <Path>Header Files/framework/system/fs/fat_fs/src/hardware_access</Path>
+      </File>
+      <File>
+        <Name>flac.c</Name>
+        <Path>Source Files/framework/decoder/default/stubs</Path>
       </File>
       <File>
         <Name>drv_i2c_compatibility.h</Name>
@@ -398,6 +410,10 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>drv_ak4953.c</Name>
         <Path>Source Files/framework/driver/codec/ak4953/src/dynamic</Path>
       </File>
@@ -512,7 +528,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_meb2</Path>
-        <Checksum>67F61BEA229A04F6AD9A87EAC83F7A2F</Checksum>
+        <Checksum>F4070F5F607A562EDEAAA7C9ACBA545D</Checksum>
         <ProjectFileChecksum>013A2727D0D978C2C2F874BB850A2694</ProjectFileChecksum>
       </Template>
       <Template>
@@ -556,10 +572,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\Git Repo\personal repo\btaudio\apps\audio\universal_audio_decoders\firmware\src"/>
-        <Include value="C:\Git Repo\personal repo\btaudio\apps\audio\universal_audio_decoders\firmware\src\system_config\pic32mz_da_sk_meb2"/>
-        <Include value="C:\Git Repo\personal repo\btaudio\framework"/>
-        <Include value="C:\Git Repo\personal repo\btaudio\apps\audio\universal_audio_decoders\firmware\src\system_config\pic32mz_da_sk_meb2\framework"/>
+        <Include value="C:/Git Repo/personal repo/btaudio/apps/audio/universal_audio_decoders/firmware/src"/>
+        <Include value="C:/Git Repo/personal repo/btaudio/apps/audio/universal_audio_decoders/firmware/src/system_config/pic32mz_da_sk_meb2"/>
+        <Include value="C:/Git Repo/personal repo/btaudio/framework"/>
+        <Include value="C:/Git Repo/personal repo/btaudio/apps/audio/universal_audio_decoders/firmware/src/system_config/pic32mz_da_sk_meb2/framework"/>
         <Include value="../src/system_config/pic32mz_da_sk_meb2/bsp"/>
       </C32>
     </CompilerItems>

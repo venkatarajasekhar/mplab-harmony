@@ -168,6 +168,21 @@ int32_t DRV_ENCX24J600_ConfigStateTask(struct _DRV_ENCX24J600_DriverInfo * pDrvI
             ret = (*pDrvInst->busVTable->fpSfrWr)(pDrvInst, DRV_ENCX24J600_SFR_EUDAND, reg, DRV_ENCX24J600_CS_OP_SET_EUDAND);
             if (ret != 0)
             {
+                curSt->state = DRV_ENCX24J600_CS_SET_ERXFCON;
+            }
+            else
+            {
+                break;
+            }
+        }
+        case DRV_ENCX24J600_CS_SET_ERXFCON:
+        {
+            reg.value = 0;
+            reg.erxfcon.MCEN = 1;
+            reg.erxfcon.BCEN = 1;
+            ret = (pDrvInst->busVTable->fpSfrBitSet)(pDrvInst, DRV_ENCX24J600_SFR_ERXFCON, reg, DRV_ENCX24J600_CS_OP_SET_ERXFCON);
+            if (ret != 0)
+            {
                 curSt->state = DRV_ENCX24J600_CS_READ_MACON2;
             }
             else
@@ -175,6 +190,7 @@ int32_t DRV_ENCX24J600_ConfigStateTask(struct _DRV_ENCX24J600_DriverInfo * pDrvI
                 break;
             }
         }
+            
         case DRV_ENCX24J600_CS_READ_MACON2:
         {
             ret = (*pDrvInst->busVTable->fpSfrRdStart)(pDrvInst, DRV_ENCX24J600_SFR_MACON2, DRV_ENCX24J600_CS_OP_READ_MACON2);
@@ -300,7 +316,7 @@ int32_t DRV_ENCX24J600_ConfigStateTask(struct _DRV_ENCX24J600_DriverInfo * pDrvI
                 pDrvInst->stackParameters.ifPhyAddress.v[1] = (reg.maadr1.MAADR1 >> 8) & 0xff;
                 pDrvInst->stackParameters.processFlags = 0;
                 pDrvInst->stackParameters.macType = TCPIP_MAC_TYPE_ETH;
-
+                pDrvInst->stackParameters.linkMtu = TCPIP_MAC_LINK_MTU_ETH;
                 return 1;
             }
             else

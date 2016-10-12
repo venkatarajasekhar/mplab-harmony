@@ -1,6 +1,6 @@
 menu "RTOS Configuration"
     ---help---
-<p><strong>FreeRTOS & OpenRTOS</strong></p>
+<p><strong>FreeRTOS v9.x.x</strong></p>
 <div>
 	&nbsp;</div>
 <p>Refer to http://www.freertos.org/RTOS.html</p>
@@ -352,6 +352,43 @@ config FREERTOS_ISR_STACK_SIZE
 	MHC sets the FreeRTOS preprocessor variable configISR_STACK_SIZE.</div>
     ---endhelp---
 
+config FREERTOS_DYNAMIC_ALLOC
+    bool "Enable Dynamic memory allocation"
+    depends on 3RDPARTY_RTOS_USED = "FreeRTOS"
+    default y
+    persistent
+    ---help---
+<p><strong>FreeRTOS - Dynamic memory allocation</strong></p>
+<div>
+	&nbsp;</div>
+<div>
+ RTOS objects are created with dynamically allocated memory.</div>
+<div>
+	&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div>
+<div>
+ MHC sets the FreeRTOS preprocessor variable &quot;configSUPPORT_DYNAMIC_ALLOCATION&quot; to 1</div>
+    ---endhelp---
+    
+config FREERTOS_STATIC_ALLOC
+    bool "Enable Static memory allocation"
+    depends on 3RDPARTY_RTOS_USED = "FreeRTOS"
+    default n
+---help---
+<p><strong>FreeRTOS - Static memory allocation</strong></p>
+<div>
+	&nbsp;</div>
+<div>
+ FreeRTOS versions prior to V9.0.0 allocate the memory from the special FreeRTOS heap for use by the RTOS objects (tasks, software timers, queues, etc.,). FreeRTOS V9.0.0 and onwards allows the user to instead provide the memory themselves and thereby to optionally create RTOS objects without any memory being allocated dynamically.&nbsp;</div>
+<div>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div>
+<div>
+ With Static memory allocation, RTOS objects are created using memory statically allocated and provided by the user.</div>
+<div>
+	&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div>
+<div>
+	MHC sets the FreeRTOS preprocessor variable &quot;configSUPPORT_STATIC_ALLOCATION&quot; to 1</div>
+    ---endhelp---
+        
 choice FREERTOS_MEMORY_MANAGEMENT_CHOICE
     prompt "Memory management type"
     default FREERTOS_HEAP_1
@@ -1268,6 +1305,28 @@ config FREERTOS_TIMER_TASK_STACK_DEPTH
 	MHC sets the FreeRTOS preprocessor variable configTIMER_TASK_STACK_DEPTH.</div>
     ---endhelp---
         
+config FREERTOS_DAEMON_TASK_STARTUP_HOOK
+    bool "Use Application Daemon Task Startup Hook"
+    depends on (3RDPARTY_RTOS_USED = "FreeRTOS") && FREERTOS_USE_TIMERS
+    default n
+    ---help---
+<div>
+	<strong>FreeRTOS - Application Daemon Tast Startup Hook</strong></div>
+<div>
+	&nbsp; &nbsp;&nbsp;</div>
+<div>
+	When FreeRTOS timers are used, a user defined hook function will be called exactly once when timer service/daemon task executes for the first time. Any application initialisation code that needs the RTOS to be running can be placed in the hook function.</div>
+<div>
+	&nbsp;</div>
+<div>
+	MHC sets the FreeRTOS preprocessor variable configUSE_DAEMON_TASK_STARTUP_HOOK TO 1 (enabled) or 0 (disabled).
+ <div>
+	&nbsp;&nbsp;</div>
+ <div>
+ If configUSE_TIMERS and configUSE_DAEMON_TASK_STARTUP_HOOK are both set to 1 then the user must define the hook function vApplicationDaemonTaskStartupHook().
+ </div>
+        ---endhelp---
+    
 config FREERTOS_USE_APPLICATION_TASK_TAG
     bool "Use application task tags"
     default n
@@ -1497,22 +1556,6 @@ menu "Include components"
 	MHC sets the FreeRTOS preprocessor variable INCLUDE_vTaskDelete.</div>
         ---endhelp---
         
-    config FREERTOS_INCLUDE_VTASKCLEANUPRESOURCES
-        bool "Include vTaskCleanUpResources"
-        default n
-        ---help---
-<div>
-	<strong>FreeRTOS - Include vTaskCleanUpResources</strong></div>
-<div>
-	&nbsp; &nbsp;&nbsp;</div>
-<div>
-	Include or omit the component vTaskCleanUpResources.</div>
-<div>
-	&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div>
-<div>
-	MHC sets the FreeRTOS preprocessor variable INCLUDE_vTaskCleanUpResources.</div>
-        ---endhelp---
-        
     config FREERTOS_INCLUDE_VTASKSUSPEND
         bool "Include vTaskSuspend"
         default y
@@ -1621,70 +1664,6 @@ menu "Include components"
 	MHC sets the FreeRTOS preprocessor variable INCLUDE_xTaskGetIdleTaskHandle.</div>
         ---endhelp---
         
-    config FREERTOS_INCLUDE_XTASKGETTIMERDAEMONTASKHANDLE
-        bool "Include xTimerGetTimerDaemonTaskHandle"
-        default n
-        ---help---
-<div>
-	<strong>FreeRTOS - Include xTimerGetTimerDaemonTaskHandle</strong></div>
-<div>
-	&nbsp; &nbsp;&nbsp;</div>
-<div>
-	Include or omit the component xTimerGetTimerDaemonTaskHandle.</div>
-<div>
-	&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div>
-<div>
-	MHC sets the FreeRTOS preprocessor variable INCLUDE_xTimerGetTimerDaemonTaskHandle.</div>
-        ---endhelp---
-
-    config FREERTOS_INCLUDE_XQUEUEGETMUTEXHOLDER
-        bool "Include xQueueGetMutexHolder"
-        default n
-        ---help---
-<div>
-	<strong>FreeRTOS - Include xQueueGetMutexHolder</strong></div>
-<div>
-	&nbsp; &nbsp;&nbsp;</div>
-<div>
-	Include or omit the component xQueueGetMutexHolder.</div>
-<div>
-	&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div>
-<div>
-	MHC sets the FreeRTOS preprocessor variable INCLUDE_xQueueGetMutexHolder.</div>
-        ---endhelp---
-
-    config FREERTOS_INCLUDE_XSEMAPHOREGETMUTEXHOLDER
-        bool "Include xSemaphoreGetMutexHolder"
-        default n
-        ---help---
-<div>
-	<strong>FreeRTOS - Include xSemaphoreGetMutexHolder</strong></div>
-<div>
-	&nbsp; &nbsp;&nbsp;</div>
-<div>
-	Include or omit the component xSemaphoreGetMutexHolder.</div>
-<div>
-	&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div>
-<div>
-	MHC sets the FreeRTOS preprocessor variable INCLUDE_xSemaphoreGetMutexHolder.</div>
-        ---endhelp---
-        
-    config FREERTOS_INCLUDE_PCTASKGETTASKNAME
-        bool "Include pcTaskGetTaskName"
-        default n
-        ---help---
-<div>
-	<strong>FreeRTOS - Include pcTaskGetTaskName</strong></div>
-<div>
-	&nbsp; &nbsp;&nbsp;</div>
-<div>
-	Include or omit the component pcTaskGetTaskName.</div>
-<div>
-	&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div>
-<div>
-	MHC sets the FreeRTOS preprocessor variable INCLUDE_pcTaskGetTaskName.</div>
-        ---endhelp---
-        
     config FREERTOS_INCLUDE_ETASKGETSTATE
         bool "Include eTaskGetState"
         default n
@@ -1700,7 +1679,7 @@ menu "Include components"
 <div>
 	MHC sets the FreeRTOS preprocessor variable INCLUDE_eTaskGetState.</div>
         ---endhelp---
-        
+
     config FREERTOS_INCLUDE_XEVENTGROUPSETBITFROMISR
         bool "Include xEventGroupSetBitFromISR"
         default n
@@ -1716,7 +1695,7 @@ menu "Include components"
 <div>
 	MHC sets the FreeRTOS preprocessor variable INCLUDE_xEventGroupSetBitFromISR.</div>
         ---endhelp---
-        
+
     config FREERTOS_INCLUDE_XTIMERPENDFUNCTIONCALL
         bool "Include xTimerPendFunctionCall"
         default n
@@ -1733,11 +1712,49 @@ menu "Include components"
 	MHC sets the FreeRTOS preprocessor variable INCLUDE_xTimerPendFunctionCall.</div>
         ---endhelp---
         
+    config FREERTOS_INCLUDE_XTASKABORTDELAY
+        bool "Include xTaskAbortDelay"
+        depends on 3RDPARTY_RTOS_USED = "FreeRTOS"
+        default n
+        ---help---
+<div>
+	<strong>FreeRTOS - Include xTaskAbortDelay</strong></div>
+<div>
+	&nbsp; &nbsp;&nbsp;</div>
+<div>
+	Include or omit the component xTaskAbortDelay. When enabled, user is allowed to force exit a task out of blocked state.</div>
+<div>
+	&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div>
+<div>
+	MHC sets the FreeRTOS preprocessor variable INCLUDE_xTaskAbortDelay.</div>
+        ---endhelp---
+        
+    config FREERTOS_INCLUDE_XTASKGETHANDLE
+        bool "Include xTaskGetHandle"
+        depends on 3RDPARTY_RTOS_USED = "FreeRTOS"
+        default n
+        ---help---
+<div>
+	<strong>FreeRTOS - Include xTaskGetHandle</strong></div>
+<div>
+	&nbsp; &nbsp;&nbsp;</div>
+<div>
+	Include or omit the component xTaskGetHandle. When enabled, user is allowed to get a task's handle using the task name.</div>
+<div>
+	&nbsp; &nbsp;&nbsp;</div>
+<div>
+ NOTE:  This function takes a relatively long time to complete and should be used sparingly.
+<div>
+	&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div>
+<div>
+	MHC sets the FreeRTOS preprocessor variable INCLUDE_xTaskGetHandle.</div>
+        ---endhelp---
+        
 endmenu
 
 template FREERTOS_CONFIG_H "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/templates/FreeRTOSConfig.h.ftl" to "$PROJECT_HEADER_FILES/app/system_config/$CONFIGURATION/FreeRTOSConfig.h"
     
-ifblock (3RDPARTY_RTOS_USED = "FreeRTOS_V8.x.x")
+ifblock (3RDPARTY_RTOS_USED = "FreeRTOS")
 source  "$HARMONY_VERSION_PATH/third_party/rtos/FreeRTOS/config/freertos.hconfig"
 endif
 

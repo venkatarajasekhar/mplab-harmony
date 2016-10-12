@@ -214,6 +214,7 @@ void DRV_USART_AddressedBufferAddWrite
         bufferObj->nCurrentBytes = 0;
         bufferObj->next = NULL;
         bufferObj->previous = NULL;
+        bufferObj->currentState = DRV_USART_BUFFER_IS_IN_WRITE_QUEUE;
         bufferObj->flags = (0 | DRV_USART_BUFFER_OBJ_FLAG_BUFFER_ADD);
     }
     else
@@ -459,6 +460,7 @@ void DRV_USART_BufferAddWrite
         bufferObj->nCurrentBytes = 0;
         bufferObj->next = NULL;
         bufferObj->previous = NULL;
+        bufferObj->currentState = DRV_USART_BUFFER_IS_IN_WRITE_QUEUE;
         bufferObj->flags = (0 | DRV_USART_BUFFER_OBJ_FLAG_BUFFER_ADD);
     }
     else
@@ -696,6 +698,7 @@ void DRV_USART_BufferAddRead
         bufferObj->next     = NULL;
         bufferObj->previous = NULL;
         bufferObj->nCurrentBytes = 0;
+        bufferObj->currentState = DRV_USART_BUFFER_IS_IN_READ_QUEUE;
         bufferObj->flags = (0 | DRV_USART_BUFFER_OBJ_FLAG_BUFFER_ADD);
     }
     else
@@ -885,15 +888,13 @@ void DRV_USART_BufferEventHandlerSet
     size_t DRV_USART_BufferProcessedSizeGet(DRV_USART_BUFFER_HANDLE bufferHandle)
 
   Summary:
-    Dynamic implementation of DRV_USART_BufferProcessedSizeGet client interface
-    function.
+    This API will be deprecated.
 
   Description:
-    This is the dynamic implementation of DRV_USART_BufferProcessedSizeGet
-    client interface function.
+    None.
 
   Remarks:
-    See drv_usart.h for usage information.
+    None.
 */
 
 size_t DRV_USART_BufferProcessedSizeGet(DRV_USART_BUFFER_HANDLE bufferHandle)
@@ -933,6 +934,335 @@ size_t DRV_USART_BufferProcessedSizeGet(DRV_USART_BUFFER_HANDLE bufferHandle)
 
     /* Return the number of processed bytes */
     return processedBytes;
+}
+
+
+// *****************************************************************************
+/* Function:
+    size_t DRV_USART_BufferCompletedBytesGet(DRV_USART_BUFFER_HANDLE bufferHandle)
+
+  Summary:
+    Dynamic implementation of DRV_USART_BufferCompletedBytesGet client interface
+    function.
+
+  Description:
+    This is the dynamic implementation of DRV_USART_BufferCompletedBytesGet
+    client interface function.
+
+  Remarks:
+    See drv_usart.h for usage information.
+*/
+
+size_t DRV_USART_BufferCompletedBytesGet(DRV_USART_BUFFER_HANDLE bufferHandle)
+{
+    DRV_USART_BUFFER_OBJ * bufferObj;
+    DRV_USART_CLIENT_OBJ *clientObj;
+
+    DRV_USART_OBJ *drvObj;
+    size_t processedBytes = DRV_USART_BUFFER_HANDLE_INVALID;
+
+    /* Validate the handle */
+    if(DRV_USART_BUFFER_HANDLE_INVALID != bufferHandle)
+    {
+        /* The buffer index is the contained in the lower 16 bits 
+         * of the buffer handle */
+        bufferObj = (DRV_USART_BUFFER_OBJ *)&gDrvUSARTBufferObj[bufferHandle & 0xFFFF];
+
+        /* Check if the buffer object is being used by any client */
+        if(bufferObj->inUse)
+        {
+            /* Get the number of bytes processed. */
+            clientObj = bufferObj->hClient;
+            drvObj = clientObj->hDriver;
+            
+            /* Checking if the Buffer is queued up for DMA 
+             * and if it's in write queue or read queue */
+            if( (SYS_DMA_CHANNEL_HANDLE_INVALID != drvObj->dmaChannelHandleWrite) && (DRV_USART_BUFFER_IS_IN_WRITE_QUEUE == bufferObj->currentState) && drvObj->queueWrite == bufferObj)
+            {
+                processedBytes = SYS_DMA_ChannelSourceTransferredSizeGet(drvObj->dmaChannelHandleWrite);
+            }
+            else if( (SYS_DMA_CHANNEL_HANDLE_INVALID != drvObj->dmaChannelHandleRead) && (DRV_USART_BUFFER_IS_IN_READ_QUEUE == bufferObj->currentState) && drvObj->queueRead == bufferObj )
+            {
+                processedBytes = SYS_DMA_ChannelDestinationTransferredSizeGet(drvObj->dmaChannelHandleRead);
+            }
+            else
+            {
+                /* Non-DMA case */
+                processedBytes = bufferObj->nCurrentBytes;
+            }
+        }
+    }
+
+    /* Return the processed number of bytes..
+     * If the buffer handle is invalid or bufferObj has expired
+     * then return DRV_USART_BUFFER_HANDLE_INVALID */
+    return processedBytes;
+}
+
+// *****************************************************************************
+/* Function:
+    DRV_USART_BUFFER_RESULT DRV_USART_BufferRemove(DRV_USART_BUFFER_HANDLE bufferHandle)
+
+  Summary:
+    Dynamic implementation of DRV_USART_BufferRemove client interface
+    function.
+
+  Description:
+    This is the dynamic implementation of DRV_USART_BufferRemove
+    client interface function.
+
+  Remarks:
+    See drv_usart.h for usage information.
+*/
+
+DRV_USART_BUFFER_RESULT DRV_USART_BufferRemove(DRV_USART_BUFFER_HANDLE bufferHandle)
+{
+    DRV_USART_OBJ *hDriver;
+    DRV_USART_BUFFER_OBJ * bufferObj;
+    DRV_USART_CLIENT_OBJ * client;
+    bool interruptWasEnabled = false;
+    bool mutexGrabbed = true;
+    size_t destSize =1, srcSize = 1, cellSize = 1;
+    DRV_USART_BUFFER_RESULT bufferResult = DRV_USART_BUFFER_RESULT_REMOVAL_FAILED;
+
+    /* Validate the handle */
+    if(DRV_USART_BUFFER_HANDLE_INVALID == bufferHandle)
+    {
+        bufferResult = DRV_USART_BUFFER_RESULT_HANDLE_INVALID;
+    }
+    else
+    {
+        /* The buffer index is the contained in the lower 16 bits of the buffer
+         * handle */
+        bufferObj = &gDrvUSARTBufferObj[bufferHandle & 0xFFFF];
+
+        /* Get the driver object */
+        client = (DRV_USART_CLIENT_OBJ *)bufferObj->hClient;
+        hDriver = (DRV_USART_OBJ *)client->hDriver;
+
+        /* We will allow modifications to buffer queue in the interrupt
+         * context of this USART driver. But we must make
+         * sure that if we are in interrupt, then we should
+         * not modify mutexes. */
+
+        if(hDriver->interruptNestingCount == 0)
+        {
+            /* Grab a mutex. This is okay because we are not in an
+             * interrupt context */
+
+            if(OSAL_MUTEX_Lock(&(hDriver->mutexDriverInstance), OSAL_WAIT_FOREVER) == OSAL_RESULT_TRUE)
+            {
+                /* We will disable interrupts so that the queue
+                 * status does not get updated asynchronously.
+                 * This code will always execute. */
+                if( DRV_USART_BUFFER_IS_IN_WRITE_QUEUE == bufferObj->currentState)
+                {
+                    if(SYS_DMA_CHANNEL_HANDLE_INVALID != hDriver->dmaChannelHandleWrite)
+                    {
+                        interruptWasEnabled = _DRV_USART_InterruptSourceDisable(hDriver->dmaInterruptTransmit);
+                    }
+                    else
+                    {
+                        interruptWasEnabled = _DRV_USART_InterruptSourceDisable(hDriver->txInterruptSource);
+                    }
+                }
+                else if( DRV_USART_BUFFER_IS_IN_READ_QUEUE == bufferObj->currentState)
+                {
+                    if(SYS_DMA_CHANNEL_HANDLE_INVALID != hDriver->dmaChannelHandleRead)
+                    {
+                        interruptWasEnabled = _DRV_USART_InterruptSourceDisable(hDriver->dmaInterruptReceive);
+                    }
+                    else
+                    {
+                        interruptWasEnabled = _DRV_USART_InterruptSourceDisable(hDriver->rxInterruptSource);
+                    }
+                }
+            }
+            else
+            {
+                /* The mutex acquisition timed out. Return with a
+                 * failure result. This code will not execute
+                 * if there is no RTOS. */
+                mutexGrabbed = false;
+            }
+        }
+
+        /* mutexGrabbed will always be true for non-RTOS case.
+         * Will be false when mutex aquisition timed out in RTOS mode */
+        if(true == mutexGrabbed)
+        {
+            /* Check if the buffer object is being used by any client */
+            if(!bufferObj->inUse)
+            {
+                /* Buffer is not present in the queue */
+                bufferResult = DRV_USART_BUFFER_RESULT_HANDLE_EXPIRED;
+            }
+            else
+            {
+                if( DRV_USART_BUFFER_IS_IN_WRITE_QUEUE == bufferObj->currentState)
+                {
+
+                    if(hDriver->queueWrite == bufferObj)
+                    {
+                        /* This is the first buffer in the
+                           queue */
+
+                        /* If transfer uses DMA then abort the current DMA operation */
+                        if( SYS_DMA_CHANNEL_HANDLE_INVALID != hDriver->dmaChannelHandleWrite )
+                        {
+                            /* Abort the current DMA operation */
+                            SYS_DMA_ChannelForceAbort(hDriver->dmaChannelHandleWrite);
+                        }
+
+                        /* Get the next buffer in the write queue */
+                         hDriver->queueWrite = bufferObj->next;
+
+                        if (hDriver->queueWrite != NULL)
+                        {
+                            /* Reset the new head's previous pointer */
+                            hDriver->queueWrite->previous = NULL;
+
+                            /* If transfer uses DMA then add next buffer to the DMA channel */
+                            if( SYS_DMA_CHANNEL_HANDLE_INVALID != hDriver->dmaChannelHandleWrite )
+                            {
+                                /* Add next buffer for the DMA channel */
+                                SYS_DMA_ChannelTransferAdd(hDriver->dmaChannelHandleWrite,
+                                            hDriver->queueWrite->buffer, (hDriver->queueWrite->size*2),
+                                            PLIB_USART_TransmitterAddressGet(hDriver->moduleId),
+                                            destSize,cellSize);
+                            }
+                        }
+                        else
+                        {
+                            /* The queue is empty. We can disable the interrupt */
+                            if( SYS_DMA_CHANNEL_HANDLE_INVALID != hDriver->dmaChannelHandleWrite )
+                            {
+                                _DRV_USART_InterruptSourceDisable(hDriver->dmaInterruptTransmit);
+                            }
+                            else
+                            {
+                                _DRV_USART_InterruptSourceDisable(hDriver->txInterruptSource);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        /* Buffer queue link updates */
+
+                        /* Update previous buffer objects next pointer
+                         * to the next buffer object of current buffer */
+                        bufferObj->previous->next = bufferObj->next;
+
+                        /* This may be the last buffer in the queue, if not
+                         * then update the previous pointer of the next one */
+                        if(NULL != bufferObj->next)
+                        {
+                            bufferObj->next->previous = bufferObj->previous;
+                        }
+                    }
+
+                    /* Update the write queue size */
+                    hDriver->queueSizeCurrentWrite --;
+                }
+
+                else if( DRV_USART_BUFFER_IS_IN_READ_QUEUE == bufferObj->currentState)
+                {
+                    if(hDriver->queueRead == bufferObj)
+                    {
+                        /* This is the first buffer in the
+                           queue */
+
+                        /* If transfer uses DMA then abort the current DMA operation */
+                        if( SYS_DMA_CHANNEL_HANDLE_INVALID != hDriver->dmaChannelHandleRead )
+                        {
+                            /* Abort the current DMA operation */
+                            SYS_DMA_ChannelForceAbort(hDriver->dmaChannelHandleRead);
+                        }
+                        /* Get the next buffer in the read queue */
+                         hDriver->queueRead = bufferObj->next;
+
+                        if (hDriver->queueRead != NULL)
+                        {
+                            /* Reset the new head's previous pointer */
+                            hDriver->queueRead->previous = NULL;
+
+                            /* Add next buffer to the DMA channel*/
+                            if( SYS_DMA_CHANNEL_HANDLE_INVALID != hDriver->dmaChannelHandleRead )
+                            {
+                                SYS_DMA_ChannelTransferAdd(hDriver->dmaChannelHandleRead,
+                                        PLIB_USART_ReceiverAddressGet(hDriver->moduleId),
+                                        srcSize,hDriver->queueRead->buffer, hDriver->queueRead->size,
+                                        cellSize);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        /* Buffer queue link updates */
+
+                        /* Update previous buffer objects next pointer
+                         * to the next buffer object of current buffer */
+                        bufferObj->previous->next = bufferObj->next;
+
+                        /* This may be the last buffer in the queue, if not
+                         * then update the previous pointer of the next one */
+                        if(NULL != bufferObj->next)
+                        {
+                            bufferObj->next->previous = bufferObj->previous;
+                        }
+                    }
+
+                    /* Update the read queue size */
+                    hDriver->queueSizeCurrentRead --;
+                }
+
+                /* Reset the current buffers flags and pointers */
+                bufferObj->inUse = false;
+                bufferObj->next = NULL;
+                bufferObj->previous = NULL;
+                bufferObj->currentState = DRV_USART_BUFFER_IS_FREE;
+
+                if(interruptWasEnabled)
+                {
+                    if( DRV_USART_BUFFER_IS_IN_WRITE_QUEUE == bufferObj->currentState)
+                    {
+                        if(SYS_DMA_CHANNEL_HANDLE_INVALID != hDriver->dmaChannelHandleWrite)
+                        {
+                            _DRV_USART_InterruptSourceEnable(hDriver->dmaInterruptTransmit);
+                        }
+                        else
+                        {
+                            _DRV_USART_InterruptSourceEnable(hDriver->txInterruptSource);
+                        }
+                    }
+                    else if( DRV_USART_BUFFER_IS_IN_READ_QUEUE == bufferObj->currentState)
+                    {
+                        if(SYS_DMA_CHANNEL_HANDLE_INVALID != hDriver->dmaChannelHandleRead)
+                        {
+                            _DRV_USART_InterruptSourceEnable(hDriver->dmaInterruptReceive);
+                        }
+                        else
+                        {
+                            _DRV_USART_InterruptSourceEnable(hDriver->rxInterruptSource);
+                        }
+                    }
+                }
+
+                /* Update the buffer processing result */
+                bufferResult = DRV_USART_BUFFER_RESULT_REMOVED_SUCCESFULLY;
+
+                if(hDriver->interruptNestingCount == 0)
+                {
+                    /* Release mutex */
+                    OSAL_MUTEX_Unlock(&(hDriver->mutexDriverInstance));
+                }
+
+            }
+        }
+    }
+
+    /* Return the buffer result */
+    return bufferResult;
 }
 
 

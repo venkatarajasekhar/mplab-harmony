@@ -91,12 +91,9 @@ const TCPIP_TCP_MODULE_CONFIG tcpipTCPInitData =
 const TCPIP_HTTP_MODULE_CONFIG tcpipHTTPInitData =
 {
     .nConnections   = TCPIP_HTTP_MAX_CONNECTIONS,
-    .nTlsConnections    = TCPIP_HTTP_MAX_TLS_CONNECTIONS,
     .dataLen		= TCPIP_HTTP_MAX_DATA_LEN,
     .sktTxBuffSize	= TCPIP_HTTP_SKT_TX_BUFF_SIZE,
     .sktRxBuffSize	= TCPIP_HTTP_SKT_RX_BUFF_SIZE,
-    .tlsSktTxBuffSize	= TCPIP_HTTP_TLS_SKT_TX_BUFF_SIZE,
-    .tlsSktRxBuffSize	= TCPIP_HTTP_TLS_SKT_RX_BUFF_SIZE,
     .configFlags	= TCPIP_HTTP_CONFIG_FLAGS,
 };
 </#if>
@@ -151,6 +148,22 @@ const TCPIP_SMTP_CLIENT_MODULE_CONFIG tcpipSMTPInitData =
 };
 </#if>
 
+<#if CONFIG_TCPIP_USE_SMTPC_CLIENT == true>
+/*** SMTPC client Initialization Data ***/
+const TCPIP_SMTPC_MODULE_CONFIG tcpipSMTPCInitData =
+{
+    .nMailConnections       = TCPIP_SMTPC_MAIL_CONNECTIONS,
+    .serverReplyTmo         = TCPIP_SMTPC_SERVER_REPLY_TIMEOUT,
+    .serverDataTmo          = TCPIP_SMTPC_SERVER_DATA_TIMEOUT,
+    .tlsHandshakeTmo        = TCPIP_SMTPC_TLS_HANDSHAKE_TIMEOUT,
+    .nMailRetries           = TCPIP_SMTPC_MAIL_RETRIES,
+    .serverRetryTmo         = TCPIP_SMTPC_SERVER_TRANSIENT_RETRY_TIMEOUT,
+    .smtpcRetryTmo          = TCPIP_SMTPC_INTERNAL_RETRY_TIMEOUT,
+    .sktTxBuffSize          = TCPIP_SMTPC_SKT_TX_BUFF_SIZE,
+    .sktRxBuffSize          = TCPIP_SMTPC_SKT_RX_BUFF_SIZE,
+};
+</#if>
+
 <#if CONFIG_TCPIP_STACK_USE_DHCP_CLIENT == true>
 /*** DHCP client Initialization Data ***/
 const TCPIP_DHCP_MODULE_CONFIG tcpipDHCPInitData =
@@ -182,6 +195,17 @@ const TCPIP_ICMP_MODULE_CONFIG tcpipICMPInitData =
 /*** NBNS Server Initialization Data ***/
 const TCPIP_NBNS_MODULE_CONFIG tcpipNBNSInitData =
 { 
+};
+</#if>
+
+<#if CONFIG_TCPIP_USE_IGMP == true>
+/*** IGMP module Initialization Data ***/
+const TCPIP_IGMP_MODULE_CONFIG tcpipIGMPInitData =
+{     
+    .lowSsmAddress     = 0,   
+    .highSsmAddress    = 0,
+    .reportInterval    = TCPIP_IGMP_UNSOLICITED_REPORT_INTERVAL,
+    .nInterfaces       = TCPIP_IGMP_INTERFACES,
 };
 </#if>
 
@@ -608,6 +632,9 @@ const TCPIP_STACK_MODULE_CONFIG TCPIP_STACK_MODULE_CONFIG_TBL [] =
 <#if CONFIG_TCPIP_USE_SNMP == true>
     {TCPIP_MODULE_SNMP_SERVER,   &tcpipSNMPInitData},                           // TCPIP_MODULE_SNMP_SERVER,
 </#if>
+<#if CONFIG_TCPIP_USE_SMTPC_CLIENT == true>
+    {TCPIP_MODULE_SMTPC, &tcpipSMTPCInitData},                                  // TCPIP_MODULE_SMTPC,
+</#if>
 <#if CONFIG_TCPIP_USE_DDNS == true>
     {TCPIP_MODULE_DYNDNS_CLIENT, &tcpipDDNSInitData},                           // TCPIP_MODULE_DYNDNS_CLIENT,
 </#if>
@@ -622,6 +649,9 @@ const TCPIP_STACK_MODULE_CONFIG TCPIP_STACK_MODULE_CONFIG_TBL [] =
 </#if>
 <#if CONFIG_TCPIP_USE_TFTPC_MODULE == true>
     {TCPIP_MODULE_TFTP_CLIENT,&tcpipTFTPCInitData},            // TCPIP_MODULE_TFTP_CLIENT
+</#if>
+<#if CONFIG_TCPIP_USE_IGMP == true>
+    {TCPIP_MODULE_IGMP, &tcpipIGMPInitData},            // TCPIP_MODULE_IGMP
 </#if>
 <#if CONFIG_TCPIP_USE_HEAP == true>
     { TCPIP_MODULE_MANAGER,    & tcpipHeapConfig },          // TCPIP_MODULE_MANAGER

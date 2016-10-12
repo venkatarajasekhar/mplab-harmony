@@ -316,6 +316,7 @@ const TCPIP_TCP_MODULE_CONFIG tcpipTCPInitData =
 
 
 
+
 /*** DHCP client Initialization Data ***/
 const TCPIP_DHCP_MODULE_CONFIG tcpipDHCPInitData =
 {     
@@ -327,11 +328,16 @@ const TCPIP_DHCP_MODULE_CONFIG tcpipDHCPInitData =
 };
 
 
+/*** ICMP Server Initialization Data ***/
+const TCPIP_ICMP_MODULE_CONFIG tcpipICMPInitData = 
+{
+};
 
 /*** NBNS Server Initialization Data ***/
 const TCPIP_NBNS_MODULE_CONFIG tcpipNBNSInitData =
 { 
 };
+
 
 /*** ETH MAC Initialization Data ***/
 const TCPIP_MODULE_MAC_PIC32INT_CONFIG tcpipMACPIC32INTInitData =
@@ -422,6 +428,7 @@ const TCPIP_NETWORK_CONFIG __attribute__((unused))  TCPIP_HOSTS_CONFIGURATION[] 
 const TCPIP_STACK_MODULE_CONFIG TCPIP_STACK_MODULE_CONFIG_TBL [] =
 {
     {TCPIP_MODULE_IPV4,          0},
+    {TCPIP_MODULE_ICMP,          0},                           // TCPIP_MODULE_ICMP
     {TCPIP_MODULE_ARP,           &tcpipARPInitData},              // TCPIP_MODULE_ARP
     {TCPIP_MODULE_UDP,           &tcpipUDPInitData},              // TCPIP_MODULE_UDP,
     {TCPIP_MODULE_TCP,           &tcpipTCPInitData},              // TCPIP_MODULE_TCP,
@@ -514,7 +521,7 @@ const USB_DEVICE_DESCRIPTOR deviceDescriptor =
     0x12,                           // Size of this descriptor in bytes
     USB_DESCRIPTOR_DEVICE,          // DEVICE descriptor type
     0x0200,                         // USB Spec Release Number in BCD format
-    USB_CDC_CLASS_CODE,         // Class Code
+	USB_CDC_CLASS_CODE,         // Class Code
     USB_CDC_SUBCLASS_CODE,      // Subclass code
     0x00,                       // Protocol code
     USB_DEVICE_EP0_BUFFER_SIZE,     // Max packet size for EP0, see system_config.h

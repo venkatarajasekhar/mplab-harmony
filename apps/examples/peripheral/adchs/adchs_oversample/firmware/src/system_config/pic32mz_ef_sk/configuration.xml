@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -114,6 +114,10 @@
         <Path>Header Files/framework/system/debug/src</Path>
       </File>
       <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
         <Name>sys_common.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -124,6 +128,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -160,6 +168,10 @@
       <File>
         <Name>sys_devcon.h</Name>
         <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
         <Name>system.h</Name>
@@ -231,20 +243,15 @@
         <Checksum>D608252C26F1B4764B5089D13B1376A6</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/clk/src</Path>
-        <Checksum>5382624B6F94F7F6DE3177E0830D223D</Checksum>
+        <Checksum>9DCB2BB28856A4537AB9488D70276FEF</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
         <Checksum>0CCD4AF9E8CEB812241C2ADF18DAD715</Checksum>
-        <ProjectFileChecksum>7370336F69716A8E1D507BCAFBA14435</ProjectFileChecksum>
+        <ProjectFileChecksum>45A5E8AA14C06C5DF5940CE93E224DC7</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_tmr_static.h</Name>
@@ -254,7 +261,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>2F016D06E3529F566340570E3A187C8F</Checksum>
+        <Checksum>ECCFD7F5199A83D67A0A6E07B6D30939</Checksum>
       </Template>
       <Template>
         <Name>drv_tmr_static.c</Name>
@@ -283,7 +290,7 @@
       <Template>
         <Name>drv_adc_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/driver/adc/src</Path>
-        <Checksum>22883F93FCCC9BACDCE348BDC7263AE5</Checksum>
+        <Checksum>C77DE91FEA30330786267B359E989E5F</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -292,7 +299,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>FEB2BA257C3119DB5065D2BCE407D098</Checksum>
+        <Checksum>B3786F27800D5B067D84531E3DBAE8F4</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -307,15 +314,15 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_oversample\firmware\src"/>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_oversample\firmware\src\system_config\pic32mz_ef_sk"/>
-        <Include value="C:\Git_repository\core\framework"/>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_oversample\firmware\src\system_config\pic32mz_ef_sk\framework"/>
+        <Include value="C:\Git_repository\core1\apps\examples\peripheral\adchs\adchs_oversample\firmware\src"/>
+        <Include value="C:\Git_repository\core1\apps\examples\peripheral\adchs\adchs_oversample\firmware\src\system_config\pic32mz_ef_sk"/>
+        <Include value="C:\Git_repository\core1\framework"/>
+        <Include value="C:\Git_repository\core1\apps\examples\peripheral\adchs\adchs_oversample\firmware\src\system_config\pic32mz_ef_sk\framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk/bsp"/>
       </C32>
     </CompilerItems>
     <Libraries>
-      <Library value="../../../../../../../bin/framework/peripheral/PIC32MZ2048EFM144_peripherals.a"/>
+      <Library value="../../../../../../../bin/framework/peripheral/PIC32MZ2048EFH144_peripherals.a"/>
     </Libraries>
   </Manifest>
 </configuration>

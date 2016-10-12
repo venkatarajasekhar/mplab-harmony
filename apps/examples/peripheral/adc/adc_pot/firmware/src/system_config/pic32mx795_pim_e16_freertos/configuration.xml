@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -96,6 +96,10 @@
       <File>
         <Name>event_groups.h</Name>
         <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -209,14 +213,9 @@
         <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_freertos</Path>
-        <Checksum>32A5D8716CB0BC10C1EF011DF18E09E2</Checksum>
+        <Checksum>9B36A0086F5E13099C4E8C695C3A558E</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -232,12 +231,12 @@
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_freertos</Path>
         <Checksum>0A8E877F617DA94ECFA620FE237D9D9D</Checksum>
-        <ProjectFileChecksum>8140D49D8D56BF9C3CCCAFBF94862581</ProjectFileChecksum>
+        <ProjectFileChecksum>786B7BA5B2F12220BA7ADFF8813980F9</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_freertos</Path>
-        <Checksum>715934D1946492EC0A7F2BE2C52D0E15</Checksum>
+        <Checksum>1D345216AB1372BAFFC35387D564ED41</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt_a.S</Name>
@@ -247,7 +246,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_freertos/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -300,10 +299,10 @@
         <Include value="../src/system_config/pic32mx795_pim_e16_freertos"/>
       </C32-AS>
       <C32>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adc\adc_pot\firmware\src"/>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adc\adc_pot\firmware\src\system_config\pic32mx795_pim_e16_freertos"/>
-        <Include value="C:\Git_repository\core\framework"/>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adc\adc_pot\firmware\src\system_config\pic32mx795_pim_e16_freertos\framework"/>
+        <Include value="C:/Git_repository/core1/apps/examples/peripheral/adc/adc_pot/firmware/src"/>
+        <Include value="C:/Git_repository/core1/apps/examples/peripheral/adc/adc_pot/firmware/src/system_config/pic32mx795_pim_e16_freertos"/>
+        <Include value="C:/Git_repository/core1/framework"/>
+        <Include value="C:/Git_repository/core1/apps/examples/peripheral/adc/adc_pot/firmware/src/system_config/pic32mx795_pim_e16_freertos/framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16_freertos/bsp"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>

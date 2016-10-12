@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name=""/>
@@ -62,6 +66,10 @@
         <Path>Source Files/framework/system/int/src</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>sys_clk.h</Name>
         <Path>Header Files/framework/system/clk</Path>
       </File>
@@ -88,6 +96,10 @@
       <File>
         <Name>sys_devcon.h</Name>
         <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
         <Name>system.h</Name>
@@ -118,7 +130,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mk_evk/bsp</Path>
-        <Checksum>2FBEC66E209B1705C5196BB4E18CCC3F</Checksum>
+        <Checksum>3A7B007188B5EC6B931CCF647EAF08F4</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -127,7 +139,7 @@
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mk_evk/framework/system/ports/src</Path>
-        <Checksum>AE59F3A78174BF839348792F0103E521</Checksum>
+        <Checksum>D9054704DD87FED0FBA7F6E763DB9568</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -154,11 +166,6 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mk_evk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>drv_tmr_static.c</Name>
         <Path>Source Files/app/system_config/pic32mk_evk/framework/driver/tmr/src</Path>
         <Checksum>510ABB6E371BD38F26FFC9BBCE64D9D6</Checksum>
@@ -166,17 +173,17 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mk_evk</Path>
-        <Checksum>D387D76A3E76CE1B964613FEF4D12273</Checksum>
+        <Checksum>3828F171C9D402F4D08F965E2C52D118</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mk_evk/bsp</Path>
-        <Checksum>03CFBB4A9A1BEF1DB40647F494577927</Checksum>
+        <Checksum>9ACFE63A96282B5665832BC1C213B9EC</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mk_evk/framework/system/clk/src</Path>
-        <Checksum>6CEFC61F5E2DC9AB25D698845676B5C7</Checksum>
+        <Checksum>C77EF0B81C72752077DF8D438B86AF9C</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -195,16 +202,15 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mk_evk</Path>
-        <Checksum>8DC02B3AC60D415682554CC6B81D1636</Checksum>
+        <Checksum>4834ECAE7FE868BA02C538746C73CA8B</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\harmony_core\apps\examples\peripheral\tmr\timer3_interrupt\firmware\src"/>
-        <Include value="C:\harmony_core\apps\examples\peripheral\tmr\timer3_interrupt\firmware\src\system_config\pic32mk_evk"/>
-        <Include value="C:\harmony_core\apps\examples\peripheral\tmr\timer3_interrupt\firmware\src\pic32mk_evk"/>
-        <Include value="C:\harmony_core\framework"/>
-        <Include value="C:\harmony_core\apps\examples\peripheral\tmr\timer3_interrupt\firmware\src\system_config\pic32mk_evk\framework"/>
+        <Include value="E:/harmony/core/apps/examples/peripheral/tmr/timer3_interrupt/firmware/src"/>
+        <Include value="E:/harmony/core/apps/examples/peripheral/tmr/timer3_interrupt/firmware/src/system_config/pic32mk_evk"/>
+        <Include value="E:/harmony/core/framework"/>
+        <Include value="E:/harmony/core/apps/examples/peripheral/tmr/timer3_interrupt/firmware/src/system_config/pic32mk_evk/framework"/>
         <Include value="../src/system_config/pic32mk_evk/bsp"/>
       </C32>
     </CompilerItems>

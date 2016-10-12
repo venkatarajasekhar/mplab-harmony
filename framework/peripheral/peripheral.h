@@ -79,6 +79,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "peripheral/adchs/plib_adchs.h"     // Only on PIC32MZ EF series devices
 #include "peripheral/bmx/plib_bmx.h"        // Only on PIC32MX devices
 #include "peripheral/can/plib_can.h"
+#include "peripheral/cdac/plib_cdac.h"
 #include "peripheral/cmp/plib_cmp.h"
 #include "peripheral/ctr/plib_ctr.h"
 #include "peripheral/devcon/plib_devcon.h"

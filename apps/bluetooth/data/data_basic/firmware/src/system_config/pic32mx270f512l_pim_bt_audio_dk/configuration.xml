@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -399,12 +399,16 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX270F512L"/>
     <Board name=""/>
     <ForceOptimization flag="true"/>
-    <MergeStrategy flag="USER_ALL"/>
+    <MergeStrategy flag="ALL"/>
   </General>
   <Manifest>
     <Files>
@@ -589,6 +593,10 @@
         <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
+        <Name>rfcomm_packet.h</Name>
+        <Path>Header Files/framework/bluetooth/cdbt/rfcomm</Path>
+      </File>
+      <File>
         <Name>sys_dma.h</Name>
         <Path>Header Files/framework/system/dma</Path>
       </File>
@@ -603,6 +611,10 @@
       <File>
         <Name>osal.h</Name>
         <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>hcitr_bcsp_config.h</Name>
+        <Path>Header Files/framework/bluetooth/cdbt/hci</Path>
       </File>
       <File>
         <Name>sys_dma_local.h</Name>
@@ -629,6 +641,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>bt_version.h</Name>
+        <Path>Header Files/framework/bluetooth/cdbt/bt</Path>
+      </File>
+      <File>
         <Name>ssp.h</Name>
         <Path>Header Files/framework/bluetooth/cdbt/ssp</Path>
       </File>
@@ -645,8 +661,16 @@
         <Path>Header Files/framework/bluetooth/cdbt/plat</Path>
       </File>
       <File>
+        <Name>fifo.h</Name>
+        <Path>Header Files/framework/bluetooth/cdbt/utils</Path>
+      </File>
+      <File>
         <Name>sdp_private.h</Name>
         <Path>Header Files/framework/bluetooth/cdbt/sdp</Path>
+      </File>
+      <File>
+        <Name>dsp_script__PB_109_DSP_rev8.h</Name>
+        <Path>Header Files/framework/bluetooth/cdbt/extra/csr/Driver</Path>
       </File>
       <File>
         <Name>rfcomm_private.h</Name>
@@ -665,6 +689,10 @@
         <Path>Header Files/framework/bluetooth/cdbt/l2cap</Path>
       </File>
       <File>
+        <Name>dsp_script__PB_109_DSP_rev8_friendly_DCR_included.h</Name>
+        <Path>Header Files/framework/bluetooth/cdbt/extra/csr/Driver</Path>
+      </File>
+      <File>
         <Name>sys_int_mapping.h</Name>
         <Path>Header Files/framework/system/int</Path>
       </File>
@@ -675,6 +703,10 @@
       <File>
         <Name>hci_conn_state.h</Name>
         <Path>Header Files/framework/bluetooth/cdbt/hci</Path>
+      </File>
+      <File>
+        <Name>issc.h</Name>
+        <Path>Header Files/framework/bluetooth/cdbt/extra/issc</Path>
       </File>
       <File>
         <Name>bt_private_wo_asserts.h</Name>
@@ -733,6 +765,10 @@
         <Path>Header Files/framework/bluetooth/cdbt/ssp</Path>
       </File>
       <File>
+        <Name>rda.h</Name>
+        <Path>Header Files/framework/bluetooth/cdbt/extra/rda</Path>
+      </File>
+      <File>
         <Name>gap.h</Name>
         <Path>Header Files/framework/bluetooth/cdbt/gap</Path>
       </File>
@@ -743,6 +779,10 @@
       <File>
         <Name>bt_hcitr.h</Name>
         <Path>Header Files/framework/bluetooth/cdbt/bt</Path>
+      </File>
+      <File>
+        <Name>script__PB_101_CSR8811_CSP28_UART.h</Name>
+        <Path>Header Files/framework/bluetooth/cdbt/extra/csr/Driver</Path>
       </File>
       <File>
         <Name>vcard_parser.h</Name>
@@ -801,6 +841,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>uuid.h</Name>
+        <Path>Header Files/framework/bluetooth/cdbt/utils</Path>
+      </File>
+      <File>
         <Name>rfcomm.h</Name>
         <Path>Header Files/framework/bluetooth/cdbt/rfcomm</Path>
       </File>
@@ -845,6 +889,10 @@
         <Path>Header Files/framework/bluetooth/cdbt/hci</Path>
       </File>
       <File>
+        <Name>script__PB_173_CSR8X11_REV1.h</Name>
+        <Path>Header Files/framework/bluetooth/cdbt/extra/csr/Driver</Path>
+      </File>
+      <File>
         <Name>hci.h</Name>
         <Path>Header Files/framework/bluetooth/cdbt/hci</Path>
       </File>
@@ -867,6 +915,10 @@
       <File>
         <Name>hcitr_packet.h</Name>
         <Path>Header Files/framework/bluetooth/cdbt/hci</Path>
+      </File>
+      <File>
+        <Name>script__PB_90_REV6.h</Name>
+        <Path>Header Files/framework/bluetooth/cdbt/extra/csr/Driver</Path>
       </File>
       <File>
         <Name>gfx_gol_static_text.c</Name>
@@ -989,6 +1041,10 @@
         <Path>Header Files/framework/bluetooth/cdbt/l2cap</Path>
       </File>
       <File>
+        <Name>md5.h</Name>
+        <Path>Header Files/framework/bluetooth/cdbt/utils</Path>
+      </File>
+      <File>
         <Name>sys_common.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -1007,6 +1063,10 @@
       <File>
         <Name>gfx_gol_meter.h</Name>
         <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>hci_cmd_buffer.h</Name>
@@ -1049,8 +1109,16 @@
         <Path>Header Files/framework/bluetooth/cdbt/rfcomm</Path>
       </File>
       <File>
+        <Name>script__PB_109_CSR8811_REV16.h</Name>
+        <Path>Header Files/framework/bluetooth/cdbt/extra/csr/Driver</Path>
+      </File>
+      <File>
         <Name>hcitr_bcsp.h</Name>
         <Path>Header Files/framework/bluetooth/cdbt/hci</Path>
+      </File>
+      <File>
+        <Name>script__PB_27_R20_BC6ROM_A04.h</Name>
+        <Path>Header Files/framework/bluetooth/cdbt/extra/csr/Driver</Path>
       </File>
       <File>
         <Name>gfx_gol_radio_button.h</Name>
@@ -1101,12 +1169,14 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk/framework/system/clk/src</Path>
-        <Checksum>6AF033A7E8ECB69981D88ED27526EF17</Checksum>
+        <Checksum>9E1735DC00A06796E5D2C1A7FF8668AC</Checksum>
+        <ProjectFileChecksum>8A31753E9DE083023CD3BA45D2EB6BDD</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk/framework/system/ports/src</Path>
         <Checksum>58413D617D2BC1DC44552F8C96742369</Checksum>
+        <ProjectFileChecksum>80CFD348692E10E89DDFDB4B3F28398F</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -1116,61 +1186,64 @@
         <Name>drv_pmp_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk/framework/driver/pmp/src</Path>
         <Checksum>7F6216B6339F1312FD9F8DC102157FB9</Checksum>
+        <ProjectFileChecksum>0C365CF4085205EA750C798ED95A162F</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk</Path>
         <Checksum>6A317002F5650CBBDF0E2DE084369F59</Checksum>
+        <ProjectFileChecksum>497D38A5CC3B7919716E60701F2589B4</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk/bsp</Path>
         <Checksum>A935B833132361EE7EF3F6B5511A961A</Checksum>
+        <ProjectFileChecksum>F8FAFFFD07B3FD94DC80904503E97D56</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk</Path>
         <Checksum>1B6F9BB80DAFC352F0CA94EC0F270803</Checksum>
+        <ProjectFileChecksum>26716C97BE932011E06B0FEC7237BD19</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk</Path>
         <Checksum>44EA161767990811FFB5CDE8CFB8BC2C</Checksum>
-        <ProjectFileChecksum>5166C3AF01830684BC89D911C67B998F</ProjectFileChecksum>
+        <ProjectFileChecksum>6310A4C314AE132616F4427809197CAF</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk/bsp</Path>
         <Checksum>76311293E39AFB03F0CC14ACAD0CBB86</Checksum>
+        <ProjectFileChecksum>2DF07D88E3A54017E08D17A7FB4AB5E3</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_dma_static.h</Name>
         <Path>Header Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk/framework/system/dma</Path>
         <Checksum>03852E55C37A93C50A04522C41BC8495</Checksum>
+        <ProjectFileChecksum>3C9878B11662C500DDBB6276CF938C99</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_pmp_static.h</Name>
         <Path>Header Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk/framework/driver/pmp</Path>
         <Checksum>799BFBF404CEF514B5929A7011B8FCD7</Checksum>
+        <ProjectFileChecksum>0B545ACCF11A33CED4F7A8BB89FE9E8B</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk</Path>
-        <Checksum>F03D035A47EB10F5834EEE32B534813E</Checksum>
+        <Checksum>301A90903B40A212BB3FC1C48034E49F</Checksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk</Path>
-        <Checksum>C0E9C40B64A875FBE5EB6EBCC4ED1062</Checksum>
+        <Checksum>64746A7BF8849809F6EB776DC2C53329</Checksum>
+        <ProjectFileChecksum>40C5BC34946BED0C69F71D7418EA452C</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -1179,42 +1252,44 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk</Path>
-        <Checksum>85A56C86DE9C5FADEF8F775625F1451D</Checksum>
+        <Checksum>1F5251CEF7B02264BA7F2CA775A8A5D9</Checksum>
+        <ProjectFileChecksum>9D705F643295C907255B75B7A68749BC</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk</Path>
-        <Checksum>321EE3406DB794BF7677B8B23E287742</Checksum>
+        <Checksum>8180CD78C95453C355ECC87E32EC1B20</Checksum>
+        <ProjectFileChecksum>ECCABB937955DDAD5C2E5CF67226B485</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk</Path>
-        <Checksum>3D008541A1CC39CA30C684C93FA367D6</Checksum>
+        <Checksum>73F3DE45A232F953770E2CBB6B6B76CE</Checksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk</Path>
-        <Checksum>9607CE04472ED4C6B7C3764B239CDE9A</Checksum>
+        <Checksum>EC3F3E94E6CEA0AF3833F6044A467EC3</Checksum>
+        <ProjectFileChecksum>F99CDD43E4FF7143DA9C91F2D7D4EC3A</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/pic32mx270f512l_pim_bt_audio_dk</Path>
-        <Checksum>DCA12B3EBF6B461C03408D0066D82C39</Checksum>
+        <Checksum>BA85BAB24837ED58B8463FF04A0A8F35</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Git_2xx/2xxdev/apps/bluetooth/data/data_basic/firmware/src"/>
-        <Include value="C:/Git_2xx/2xxdev/apps/bluetooth/data/data_basic/firmware/src/system_config/pic32mx270f512l_pim_bt_audio_dk"/>
-        <Include value="C:/Git_2xx/2xxdev/apps/bluetooth/data/data_basic/firmware/src/pic32mx270f512l_pim_bt_audio_dk"/>
-        <Include value="C:/Git_2xx/2xxdev/framework"/>
-        <Include value="C:/Git_2xx/2xxdev/apps/bluetooth/data/data_basic/firmware/src/system_config/pic32mx270f512l_pim_bt_audio_dk/framework"/>
+        <Include value="C:/Microchip/harmony/2xxDev/apps/bluetooth/data/data_basic/firmware/src"/>
+        <Include value="C:/Microchip/harmony/2xxDev/apps/bluetooth/data/data_basic/firmware/src/system_config/pic32mx270f512l_pim_bt_audio_dk"/>
+        <Include value="C:/Microchip/harmony/2xxDev/framework"/>
+        <Include value="C:/Microchip/harmony/2xxDev/apps/bluetooth/data/data_basic/firmware/src/system_config/pic32mx270f512l_pim_bt_audio_dk/framework"/>
         <Include value="../src/system_config/pic32mx270f512l_pim_bt_audio_dk/bsp"/>
       </C32>
     </CompilerItems>
     <Libraries>
-      <Library value="../../../../../../bin/framework/bluetooth/lib_bluetooth_spp_only_v2.3.1.a"/>
       <Library value="../../../../../../bin/framework/peripheral/PIC32MX270F512L_peripherals.a"/>
+      <Library value="../../../../../../bin/framework/bluetooth/lib_bluetooth_SPPonly_O3_v2_4_1.a"/>
     </Libraries>
   </Manifest>
 </configuration>

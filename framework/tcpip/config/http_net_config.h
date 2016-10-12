@@ -111,15 +111,18 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define     TCPIP_HTTP_NET_TASK_RATE   33
 
 
-// size of the peek buffer to perform searches into 
-// if the underlying transport layer supports offset peak operation with a offset, value 
+// Size of the peek buffer to perform searches into. 
+// If the underlying transport layer supports offset peak operation with a offset, value 
 // could be smaller (80 characters, for example); otherwise, a one time peek is 
-// required and the buffer should be larger - 512 bytes recommended
+// required and the buffer should be larger - 512 bytes recommended.
+// Note - if upload is enabled (TCPIP_HTTP_NET_FILE_UPLOAD_ENABLE) then it is recommended
+// for the peek buffer size to match the size of the socket RX buffer: TCPIP_HTTP_NET_SKT_RX_BUFF_SIZE  
 // Note that this is an automatic buffer (created on the stack) and enough stack space
 // should be provided for the application. 
+//
 #define TCPIP_HTTP_NET_FIND_PEEK_BUFF_SIZE         512 
 
-// size of the buffer used for processing HTML, dynamic variable and binary files
+// Size of the buffer used for processing HTML, dynamic variable and binary files.
 // For dynamic variable files it should be able to accommodate the longest HTML line size,
 // including CRLF!
 #define TCPIP_HTTP_NET_FILE_PROCESS_BUFFER_SIZE        512
@@ -136,20 +139,20 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // 
 #define TCPIP_HTTP_NET_FILE_PROCESS_BUFFERS_NUMBER     4
 
-// retry limit for allocating a file buffer from the pool
-// If more retries are not successful the operation will be aborted
+// Retry limit for allocating a file buffer from the pool.
+// If more retries are not successful the operation will be aborted.
 #define TCPIP_HTTP_NET_FILE_PROCESS_BUFFER_RETRIES    10
 
-// size of the buffer used for sending the response messages to the client
-// should be able to accommodate the longest server response:
+// Size of the buffer used for sending the response messages to the client.
+// Should be able to accommodate the longest server response:
 // Default setting should be 300 bytes
 #define TCPIP_HTTP_NET_RESPONSE_BUFFER_SIZE        300
 
 
 
-// size of the buffer used for sending the cookies to the client
-// should be able to accommodate the longest cookie response.
-// otherwise the cookies will be truncated
+// Size of the buffer used for sending the cookies to the client.
+// Should be able to accommodate the longest cookie response.
+// Otherwise the cookies will be truncated.
 #define TCPIP_HTTP_NET_COOKIE_BUFFER_SIZE           200
 
 

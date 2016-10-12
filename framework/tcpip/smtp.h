@@ -212,10 +212,16 @@ uint16_t TCPIP_SMTP_UsageEnd(void);
     TCPIP_SMTP_UsageBegin returned true on a previous call.
 
   Parameters:
-    smtpClientMessage   - message to send
+	smtpClientMessage   - pointer to a TCPIP_SMTP_CLIENT_MESSAGE structure that configures
+                          the message to send
 
   Returns:
     None.
+
+  Remarks:
+    The fields pointed by the smtpClientMessage have to be non-volatile
+    until the SMTP send mail process is completed!
+
  */
 void TCPIP_SMTP_MailSend(TCPIP_SMTP_CLIENT_MESSAGE* smtpClientMessage);
 

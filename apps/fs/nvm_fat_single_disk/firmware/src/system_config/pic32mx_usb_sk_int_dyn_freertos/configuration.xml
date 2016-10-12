@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -38,6 +42,10 @@
         <Path>Source Files/FreeRTOS</Path>
       </File>
       <File>
+        <Name>ff.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
+      </File>
+      <File>
         <Name>sys_fs_media_manager.c</Name>
         <Path>Source Files/framework/system/fs/src/dynamic</Path>
       </File>
@@ -48,6 +56,10 @@
       <File>
         <Name>sys_fs.h</Name>
         <Path>Header Files/framework/system/fs</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>list.h</Name>
@@ -84,6 +96,10 @@
       <File>
         <Name>system.h</Name>
         <Path>Header Files/framework/system</Path>
+      </File>
+      <File>
+        <Name>ffconf.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
       </File>
       <File>
         <Name>mpfs_local.h</Name>
@@ -158,6 +174,10 @@
         <Path>Header Files/framework/system/ports</Path>
       </File>
       <File>
+        <Name>diskio.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/hardware_access</Path>
+      </File>
+      <File>
         <Name>projdefs.h</Name>
         <Path>Header Files/FreeRTOS</Path>
       </File>
@@ -180,6 +200,10 @@
       <File>
         <Name>event_groups.h</Name>
         <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
@@ -275,21 +299,16 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk_int_dyn_freertos/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk_int_dyn_freertos</Path>
-        <Checksum>B39D7F882D2ECC3E697945D1835C9EB3</Checksum>
+        <Checksum>16A94FAC94E730B33F2A600CC044AA53</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
         <Path>Source Files/app</Path>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk_int_dyn_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>rtos_hooks.c</Name>
@@ -308,7 +327,7 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk_int_dyn_freertos</Path>
-        <Checksum>DF792E71CFB271F8B99F9031D48E3AF6</Checksum>
+        <Checksum>A549A890FA688A5AF37BA5C45F64B0CB</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -342,17 +361,17 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk_int_dyn_freertos/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk_int_dyn_freertos/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk_int_dyn_freertos</Path>
-        <Checksum>C2FC1ABAE182BEDA4E5FD7E511AC9F1F</Checksum>
+        <Checksum>3AAA084B4A7A8517D3BBBF1B2BF9B550</Checksum>
         <ProjectFileChecksum>B64CC651DD412D6D20480F0C3FBD7B00</ProjectFileChecksum>
       </Template>
     </Templates>
@@ -365,7 +384,6 @@
       <C32>
         <Include value="D:\trunk_sbx\apps\fs\nvm_fat_single_disk\firmware\src"/>
         <Include value="D:\trunk_sbx\apps\fs\nvm_fat_single_disk\firmware\src\system_config\pic32mx_usb_sk_int_dyn_freertos"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_fat_single_disk\firmware\src\pic32mx_usb_sk_int_dyn_freertos"/>
         <Include value="D:\trunk_sbx\framework"/>
         <Include value="D:\trunk_sbx\apps\fs\nvm_fat_single_disk\firmware\src\system_config\pic32mx_usb_sk_int_dyn_freertos\framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk_int_dyn_freertos/bsp"/>

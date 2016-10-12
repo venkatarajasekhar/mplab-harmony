@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -298,6 +298,10 @@
         <Path>Source Files/micrium/ucos_III</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -379,17 +383,11 @@
         <Name>system_exceptions.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2</Path>
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
-        <ProjectFileChecksum>4818FD5BCE5E9FC6F59D63987F191EAD</ProjectFileChecksum>
+        <ProjectFileChecksum>F6C7D1FCF4DD456CC2C1497CC8813A0B</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>main.c</Name>
         <Path>Source Files/app</Path>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-        <ProjectFileChecksum>169425DE94043FA8F0180730BABC13F9</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app1.c</Name>
@@ -399,30 +397,31 @@
         <Name>os_cfg_app.h</Name>
         <Path>Header Files/app/rtos_config/pic32mx_usb_sk2</Path>
         <Checksum>207A10FC2AC185D8E084F206AF91F8E6</Checksum>
-        <ProjectFileChecksum>D08DA6AB23332EED81356070376B458B</ProjectFileChecksum>
+        <ProjectFileChecksum>26C6ADAEDFEBECA9CE34D4FE160ACBEC</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
+        <ProjectFileChecksum>74DB6F025EF4CD5420B22D61B7C81697</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>os_cfg.h</Name>
         <Path>Header Files/app/rtos_config/pic32mx_usb_sk2</Path>
         <Checksum>9884F135D35C344365ADC9228F79A296</Checksum>
-        <ProjectFileChecksum>4DC4358EE6A89586F99C3761205C2FE7</ProjectFileChecksum>
+        <ProjectFileChecksum>00EFEF4DAC5D2A4A0A72240ADF5AA762</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2</Path>
         <Checksum>56EEEDB621C8A8790952002BDFE35D4D</Checksum>
-        <ProjectFileChecksum>D01D66648D807A77C8D2246EC6B7B2C8</ProjectFileChecksum>
+        <ProjectFileChecksum>259C88D3C151EA10ED487E0ACB244D95</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>cpu_cfg.h</Name>
         <Path>Header Files/app/rtos_config/pic32mx_usb_sk2</Path>
         <Checksum>56C5FBE62FAA3B23B2F81030474182BA</Checksum>
-        <ProjectFileChecksum>CAB7FB5A67A83760AE0D7E319D758B48</ProjectFileChecksum>
+        <ProjectFileChecksum>DA7A52C6D54E6F06969D1DD9BE65A0CE</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -432,7 +431,7 @@
         <Name>rtos_hooks.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2</Path>
         <Checksum>EABABE6F6504F002BE5D5D186F6DB9FA</Checksum>
-        <ProjectFileChecksum>60DAAD13DF4B67B3C881EA2F316BAED4</ProjectFileChecksum>
+        <ProjectFileChecksum>F5D1B0C34B746D7CC3FDB119ACA15EB8</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app1.h</Name>
@@ -442,54 +441,55 @@
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2</Path>
         <Checksum>3F527FD6A6A49FABDED2D14815DC4B36</Checksum>
-        <ProjectFileChecksum>94E651AAD49ACC5FEF4D284357571C98</ProjectFileChecksum>
+        <ProjectFileChecksum>A67F9F45DC3048E438E689DFDFC18B34</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
-        <ProjectFileChecksum>32C84FB1683E7CA1B635E88A04278600</ProjectFileChecksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
+        <ProjectFileChecksum>18F2598C2638F61030C9341480FE2AD1</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt_a.S</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2</Path>
-        <Checksum>5B503B25EFA291CC8444920B11CC6F76</Checksum>
-        <ProjectFileChecksum>99DCBC7CF83F781F9B06730F8A178665</ProjectFileChecksum>
+        <Checksum>4D74AACAC7BD05F3E66A8F678321B8FD</Checksum>
+        <ProjectFileChecksum>6A5BD571CB19E97E68A2CDE510E0AA7C</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2</Path>
-        <Checksum>3816BC82769CDF8788ED5B2BDE2A6700</Checksum>
-        <ProjectFileChecksum>8E3E7A7B196EC0D23D3C6946323852B9</ProjectFileChecksum>
+        <Checksum>C25CB7DD7CD0DA2156117664E6B6A45B</Checksum>
+        <ProjectFileChecksum>FFB0FD6B5ACBCC422F5F8F20D50E365F</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2</Path>
-        <Checksum>EB798869103BDC597FD04A4048575891</Checksum>
-        <ProjectFileChecksum>2803F752473A80C4AED79BE7EAA4CCE5</ProjectFileChecksum>
+        <Checksum>4BFC3DABC0D6B3B8B911B90CFFC32581</Checksum>
+        <ProjectFileChecksum>082EB72CDE1BD88B15E148C928F37D07</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
+        <ProjectFileChecksum>49221DF1EA1C625E1B4E34555FB31608</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app_cfg.h</Name>
         <Path>Header Files/app/rtos_config/pic32mx_usb_sk2</Path>
         <Checksum>B41B0C7280CCA6A4A9D795DD61B67A31</Checksum>
-        <ProjectFileChecksum>F003E657B330EB037AD4BA37670FD237</ProjectFileChecksum>
+        <ProjectFileChecksum>8D2E8E26E381B45E4FA3C8F33416D4C0</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2</Path>
         <Checksum>D6DD8352CA3321F239509E5DED2AC872</Checksum>
-        <ProjectFileChecksum>3DFA8275CC05A2930190E2E6917772B7</ProjectFileChecksum>
+        <ProjectFileChecksum>5514604C4D76A1154CB591448847750E</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2/framework/system/ports/src</Path>
         <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
-        <ProjectFileChecksum>9F32E793EA99999424371323D50BE478</ProjectFileChecksum>
+        <ProjectFileChecksum>351B002B8E246A14B284D7767AB27A23</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -503,11 +503,10 @@
         <Include value="../../../../../../third_party/rtos/MicriumOSIII/Software/uCOS_III/Ports/MIPS32-4K/Vectored-Interrupt/MPLAB-PIC32-GCC"/>
       </C32-AS>
       <C32>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\uC_OS_III\usb\firmware\src"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\uC_OS_III\usb\firmware\src\system_config\pic32mx_usb_sk2"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\uC_OS_III\usb\firmware\src\pic32mx_usb_sk2"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\framework"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\uC_OS_III\usb\firmware\src\system_config\pic32mx_usb_sk2\framework"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/uC_OS_III/usb/firmware/src"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/uC_OS_III/usb/firmware/src/system_config/pic32mx_usb_sk2"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/framework"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/uC_OS_III/usb/firmware/src/system_config/pic32mx_usb_sk2/framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2/bsp"/>
         <Include value="../../../../../../third_party/rtos/MicriumOSIII/Software/uC_CPU/MIPS32-4K/MPLAB-PIC32-GCC"/>
         <Include value="../../../../../../third_party/rtos/MicriumOSIII/Software/uCOS_III/Ports/MIPS32-4K/Vectored-Interrupt/MPLAB-PIC32-GCC"/>

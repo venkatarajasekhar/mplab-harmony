@@ -42,6 +42,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "system/common/sys_module.h"
 #include "../datastream.h"
 #include "bootloader/src/bootloader.h"
+#include "system/reset/sys_reset.h"
 
 SYS_MODULE_OBJ  datastreamModule;
 extern BOOTLOADER_DATA bootloaderData __attribute__((coherent, aligned(16)));
@@ -201,6 +202,9 @@ void Bootloader_ProcessBuffer( BOOTLOADER_DATA *handle )
 
         case JMP_TO_APP:
             handle->currentState = BOOTLOADER_CLOSE_DATASTREAM;
+#if(BOOTLOADER_STATE_SAVE != 1)
+            SYS_RESET_SoftwareReset();
+#endif
             break;
 
         default:

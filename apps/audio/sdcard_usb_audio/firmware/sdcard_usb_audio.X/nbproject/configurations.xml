@@ -11,7 +11,16 @@
               <itemPath>../src/system_config/pic32mz_ef_sk_meb2/bsp/bsp.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
+                </logicalFolder>
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
                 <logicalFolder name="f1" displayName="dma" projectFiles="true">
                   <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/dma/sys_dma_static.h</itemPath>
                 </logicalFolder>
@@ -41,6 +50,7 @@
               <itemPath>../../../universal_audio_decoders/firmware/src/audio_decoder/wma/wma.h</itemPath>
               <itemPath>../../../universal_audio_decoders/firmware/src/audio_decoder/speex/speex.h</itemPath>
               <itemPath>../../../universal_audio_decoders/firmware/src/audio_decoder/opus/opus_support.h</itemPath>
+              <itemPath>../../../universal_audio_decoders/firmware/src/audio_decoder/flac/flac.h</itemPath>
               <itemPath>../../../universal_audio_decoders/firmware/src/audio_decoder/adpcm_stub/adpcm.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="wav" projectFiles="true">
@@ -58,16 +68,13 @@
               <itemPath>../../../../../framework/driver/codec/ak4953/drv_codec_i2c_mapping.h</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="gfx" projectFiles="true">
+          <logicalFolder name="f2" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="controller" projectFiles="true">
-              <logicalFolder name="f1" displayName="lcc" projectFiles="true">
-                <itemPath>../../../../../framework/driver/gfx/controller/lcc/drv_gfx_lcc.h</itemPath>
-              </logicalFolder>
               <itemPath>../../../../../framework/driver/gfx/controller/drv_gfx_controller.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/driver/gfx/gfx_common.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f4" displayName="i2c" projectFiles="true">
+          <logicalFolder name="f3" displayName="i2c" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/driver/i2c/src/drv_i2c_local.h</itemPath>
               <itemPath>../../../../../framework/driver/i2c/src/drv_i2c_variant_mapping.h</itemPath>
@@ -76,23 +83,14 @@
             <itemPath>../../../../../framework/driver/i2c/drv_i2c_compatibility.h</itemPath>
             <itemPath>../../../../../framework/driver/i2c/drv_i2c_mapping.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f5" displayName="i2s" projectFiles="true">
+          <logicalFolder name="f4" displayName="i2s" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/driver/i2s/src/drv_i2s_variant_mapping.h</itemPath>
               <itemPath>../../../../../framework/driver/i2s/src/drv_i2s_dma_local.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/driver/i2s/drv_i2s.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="pmp" projectFiles="true">
-            <logicalFolder name="f1" displayName="config" projectFiles="true">
-              <itemPath>../../../../../framework/driver/pmp/config/drv_pmp_config.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f2" displayName="src" projectFiles="true">
-              <itemPath>../../../../../framework/driver/pmp/src/drv_pmp_local.h</itemPath>
-            </logicalFolder>
-            <itemPath>../../../../../framework/driver/pmp/drv_pmp.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="f6" displayName="sdcard" projectFiles="true">
+          <logicalFolder name="f5" displayName="sdcard" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/driver/sdcard/src/drv_sdcard_variant_mapping.h</itemPath>
               <itemPath>../../../../../framework/driver/sdcard/src/drv_sdcard_local.h</itemPath>
@@ -100,7 +98,7 @@
             <itemPath>../../../../../framework/driver/sdcard/drv_sdcard.h</itemPath>
             <itemPath>../../../../../framework/driver/sdcard/drv_sdcard_mapping.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f7" displayName="spi" projectFiles="true">
+          <logicalFolder name="f6" displayName="spi" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
                 <itemPath>../../../../../framework/driver/spi/src/dynamic/drv_spi_internal.h</itemPath>
@@ -111,7 +109,7 @@
             </logicalFolder>
             <itemPath>../../../../../framework/driver/spi/drv_spi.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f8" displayName="tmr" projectFiles="true">
+          <logicalFolder name="f7" displayName="tmr" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/driver/tmr/src/drv_tmr_variant_mapping.h</itemPath>
               <itemPath>../../../../../framework/driver/tmr/src/drv_tmr_local.h</itemPath>
@@ -120,13 +118,13 @@
             <itemPath>../../../../../framework/driver/tmr/drv_tmr_mapping.h</itemPath>
             <itemPath>../../../../../framework/driver/tmr/drv_tmr_compatibility.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f9" displayName="touch" projectFiles="true">
+          <logicalFolder name="f8" displayName="touch" projectFiles="true">
             <logicalFolder name="f1" displayName="mtch6301" projectFiles="true">
               <itemPath>../../../../../framework/driver/touch/mtch6301/drv_mtch6301.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/driver/touch/drv_touch.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f10" displayName="usb" projectFiles="true">
+          <logicalFolder name="f9" displayName="usb" projectFiles="true">
             <logicalFolder name="f1" displayName="usbhs" projectFiles="true">
               <logicalFolder name="f1" displayName="src" projectFiles="true">
                 <itemPath>../../../../../framework/driver/usb/usbhs/src/drv_usbhs_local.h</itemPath>
@@ -185,6 +183,7 @@
               <itemPath>../../../../../framework/system/clk/src/sys_clk_pic32mz.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/system/clk/sys_clk.h</itemPath>
+            <itemPath>../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f4" displayName="common" projectFiles="true">
             <itemPath>../../../../../framework/system/common/sys_common.h</itemPath>
@@ -300,7 +299,14 @@
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
               <logicalFolder name="f1" displayName="driver" projectFiles="true">
-                <logicalFolder name="f1" displayName="spi" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
+                </logicalFolder>
+                <logicalFolder name="f2" displayName="spi" projectFiles="true">
                   <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
                     <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/driver/spi/dynamic/drv_spi_tasks.c</itemPath>
                     <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/driver/spi/dynamic/drv_spi_api.c</itemPath>
@@ -341,6 +347,7 @@
               <itemPath>../../../universal_audio_decoders/firmware/src/audio_decoder/wma/wma.c</itemPath>
               <itemPath>../../../universal_audio_decoders/firmware/src/audio_decoder/speex/speex.c</itemPath>
               <itemPath>../../../universal_audio_decoders/firmware/src/audio_decoder/opus/opus_support.c</itemPath>
+              <itemPath>../../../universal_audio_decoders/firmware/src/audio_decoder/flac/flac.c</itemPath>
               <itemPath>../../../universal_audio_decoders/firmware/src/audio_decoder/adpcm_stub/adpcm.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="wav" projectFiles="true">
@@ -360,16 +367,7 @@
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f1" displayName="controller" projectFiles="true">
-              <logicalFolder name="f1" displayName="lcc" projectFiles="true">
-                <logicalFolder name="f1" displayName="src" projectFiles="true">
-                  <itemPath>../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c</itemPath>
-                </logicalFolder>
-              </logicalFolder>
-            </logicalFolder>
-          </logicalFolder>
-          <logicalFolder name="f3" displayName="i2c" projectFiles="true">
+          <logicalFolder name="f2" displayName="i2c" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
                 <itemPath>../../../../../framework/driver/i2c/src/dynamic/drv_i2c.c</itemPath>
@@ -377,21 +375,21 @@
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f4" displayName="i2s" projectFiles="true">
+          <logicalFolder name="f3" displayName="i2s" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
                 <itemPath>../../../../../framework/driver/i2s/src/dynamic/drv_i2s_dma.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f5" displayName="sdcard" projectFiles="true">
+          <logicalFolder name="f4" displayName="sdcard" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
                 <itemPath>../../../../../framework/driver/sdcard/src/dynamic/drv_sdcard.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f6" displayName="spi" projectFiles="true">
+          <logicalFolder name="f5" displayName="spi" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
                 <itemPath>../../../../../framework/driver/spi/src/dynamic/drv_spi.c</itemPath>
@@ -399,21 +397,21 @@
               <itemPath>../../../../../framework/driver/spi/src/drv_spi_sys_queue_fifo.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f7" displayName="tmr" projectFiles="true">
+          <logicalFolder name="f6" displayName="tmr" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
                 <itemPath>../../../../../framework/driver/tmr/src/dynamic/drv_tmr.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f8" displayName="touch" projectFiles="true">
+          <logicalFolder name="f7" displayName="touch" projectFiles="true">
             <logicalFolder name="f1" displayName="mtch6301" projectFiles="true">
               <logicalFolder name="f1" displayName="src" projectFiles="true">
                 <itemPath>../../../../../framework/driver/touch/mtch6301/src/drv_mtch6301.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f9" displayName="usb" projectFiles="true">
+          <logicalFolder name="f8" displayName="usb" projectFiles="true">
             <logicalFolder name="f1" displayName="usbhs" projectFiles="true">
               <logicalFolder name="f1" displayName="src" projectFiles="true">
                 <logicalFolder name="f1" displayName="dynamic" projectFiles="true">

@@ -39,6 +39,17 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #ifndef _TCP_PRIVATE_H_
 #define _TCP_PRIVATE_H_
 
+/****************************************************************************
+  Section:
+	Debug Definitions
+  ***************************************************************************/
+#define TCPIP_TCP_DEBUG_MASK_BASIC          (0x0001)
+#define TCPIP_TCP_DEBUG_MASK_TRACE_STATE    (0x0002)
+
+// enable TCP debugging levels
+#define TCPIP_TCP_DEBUG_LEVEL  (TCPIP_TCP_DEBUG_MASK_BASIC)
+
+
 
 /****************************************************************************
   Section:
@@ -64,25 +75,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 	State Machine Variables
   ***************************************************************************/
 
-// TCP States as defined by RFC 793
-typedef enum
-{
-    TCP_LISTEN,				    // Socket is listening for connections
-    TCP_SYN_SENT,			    // A SYN has been sent, awaiting an SYN+ACK
-    TCP_SYN_RECEIVED,		    // A SYN has been received, awaiting an ACK
-    TCP_ESTABLISHED,		    // Socket is connected and connection is established
-    TCP_FIN_WAIT_1,			    // FIN WAIT state 1
-    TCP_FIN_WAIT_2,			    // FIN WAIT state 2
-    TCP_CLOSING,			    // Socket is closing
-//	TCP_TIME_WAIT, state is not implemented
-	TCP_CLOSE_WAIT,			    // Waiting to close the socket
-    TCP_LAST_ACK,			    // The final ACK has been sent
-
-    TCP_CLOSED_BUT_RESERVED,    // Special state for TCP client mode sockets.
-                                // Socket is idle, but still allocated
-                                // pending application closure of the handle.
-    TCP_CLIENT_WAIT_CONNECT,    // client socket waiting for connection
-} TCP_STATE;
 
 typedef struct
 {
@@ -118,7 +110,7 @@ typedef struct
     uint32_t            eventTime;			        // Packet retransmissions, state changes
 	uint32_t            eventTime2;		            // Window updates, automatic transmission
     uint32_t            delayedACKTime;             // Delayed Acknowledgment timer
-    uint32_t            closeWaitTime;		        // TCP_CLOSE_WAIT timeout timer
+    uint32_t            closeWaitTime;		        // TCP_CLOSE_WAIT, TCP_FIN_WAIT_2, TCP_TIME_WAIT timeout
 
     TCP_SOCKET   sktIx;                             // socket number
     struct
@@ -183,14 +175,23 @@ typedef struct
         uint16_t openBindAdd    : 1;                // socket is bound to address when opened 
         uint16_t halfThresFlush : 1;                // when set, socket will flush at half TX buffer threshold
     } flags;
-    uint8_t             smState;			        // TCP_STATE: State of this socket
+    uint8_t             smState;			        // TCPIP_TCP_STATE: State of this socket
     uint8_t             addType;                    // IPV4/6 socket type; IP_ADDRESS_TYPE enum type
 	uint8_t		        retryCount;				    // Counter for transmission retries
     uint8_t             keepAliveCount;             // current counter
     TCPIP_TCP_SIGNAL_FUNCTION sigHandler;              // socket signal handler
     uint16_t            sigMask;                     // TCPIP_TCP_SIGNAL_TYPE: mask of active events
     uint8_t             keepAliveLim;               // current limit
-    uint8_t             padding[1];                 // padding; not used
+    union
+    {
+        uint8_t         val;
+        struct
+        {
+            uint8_t tracePrevState  : 4;            // socket previous traced state
+            uint8_t traceStateFlag  : 1;            // socket state is traced
+            uint8_t reserved        : 3;            // padding; not used
+        };
+    }dbgFlags;
 } TCB_STUB;
 
 #endif  // _TCP_PRIVATE_H_

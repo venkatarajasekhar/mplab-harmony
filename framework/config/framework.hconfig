@@ -176,6 +176,9 @@ config DS60001361
     
 config DS60001402
     bool
+    
+config DS60001404
+    bool
 
 config DSTBD_IMOLA
     bool
@@ -209,6 +212,7 @@ endmenu
 
 source "$HARMONY_VERSION_PATH/framework/bluetooth/config/bluetooth.hconfig"
 source "$HARMONY_VERSION_PATH/framework/bootloader/config/bootloader.hconfig"
+source "$HARMONY_VERSION_PATH/framework/classb/config/classb.hconfig"
 source "$HARMONY_VERSION_PATH/framework/crypto/config/crypto.hconfig"
 source "$HARMONY_VERSION_PATH/framework/decoder/config/decoder.hconfig"
 source "$HARMONY_VERSION_PATH/framework/driver/config/driver.hconfig"

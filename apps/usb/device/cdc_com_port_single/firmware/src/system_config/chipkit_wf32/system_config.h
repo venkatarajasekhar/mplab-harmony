@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -86,6 +82,11 @@ extern "C" {
 #define SYS_CLK_UPLL_BEFORE_DIV2_FREQ       48000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         8000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       0ul
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
    
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
@@ -123,7 +124,6 @@ extern "C" {
 #define SYS_PORT_G_ODC          0x0000
 
 
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
@@ -135,6 +135,7 @@ extern "C" {
 // Section: Middleware & Other Library Configuration
 // *****************************************************************************
 // *****************************************************************************
+
 /*** USB Driver Configuration ***/
 
 
@@ -208,7 +209,6 @@ extern "C" {
 
 
 
-
 // *****************************************************************************
 /* BSP Configuration Options
 */
@@ -262,8 +262,6 @@ extern "C" {
 
 
 /*** Application Instance 0 Configuration ***/
-/*** Application Instance 0 Configuration ***/
-/* Tick time in 1msec units */
 
 #define APP_USB_SWITCH_DEBOUNCE_COUNT_FS (260)
 #define APP_USB_SWITCH_DEBOUNCE_COUNT_HS (260)

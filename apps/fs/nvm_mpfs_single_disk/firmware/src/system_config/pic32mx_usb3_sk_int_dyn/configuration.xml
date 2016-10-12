@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX470F512L"/>
@@ -72,6 +76,10 @@
       <File>
         <Name>mpfs.h</Name>
         <Path>Header Files/framework/system/fs/mpfs</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -170,13 +178,13 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb3_sk_int_dyn</Path>
-        <Checksum>0F81AF5F1B2DEE201E5150B83A4B9B1E</Checksum>
+        <Checksum>7F4825D026A361CCB102E3C46FE58CDC</Checksum>
         <ProjectFileChecksum>6A29012ECC58D587E6978AA5F2FE9526</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb3_sk_int_dyn/framework/system/clk/src</Path>
-        <Checksum>6AF033A7E8ECB69981D88ED27526EF17</Checksum>
+        <Checksum>9E1735DC00A06796E5D2C1A7FF8668AC</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -198,14 +206,9 @@
         <Checksum>7F4FD2E6C39C94D8CECB7EE3480793E3</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb3_sk_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb3_sk_int_dyn</Path>
-        <Checksum>1D02444A4EFAD021A62C4C13FADC24B5</Checksum>
+        <Checksum>2D9238A5F39ED37B6DFF9696DCFEC935</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -224,7 +227,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb3_sk_int_dyn/bsp</Path>
-        <Checksum>E45BC96ED257C3DADF682FD789C2F01C</Checksum>
+        <Checksum>0F39A39DE00D6C419B5320D82B9808B7</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -234,7 +237,7 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb3_sk_int_dyn/bsp</Path>
-        <Checksum>E106E3241184D2C88D0F0DA0F0B33F5D</Checksum>
+        <Checksum>36AC9754152E0D31C62E56C290243ED6</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -245,7 +248,6 @@
       <C32>
         <Include value="D:\trunk_sbx\apps\fs\nvm_mpfs_single_disk\firmware\src"/>
         <Include value="D:\trunk_sbx\apps\fs\nvm_mpfs_single_disk\firmware\src\system_config\pic32mx_usb3_sk_int_dyn"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_mpfs_single_disk\firmware\src\pic32mx_usb3_sk_int_dyn"/>
         <Include value="D:\trunk_sbx\framework"/>
         <Include value="D:\trunk_sbx\apps\fs\nvm_mpfs_single_disk\firmware\src\system_config\pic32mx_usb3_sk_int_dyn\framework"/>
         <Include value="../src/system_config/pic32mx_usb3_sk_int_dyn/bsp"/>

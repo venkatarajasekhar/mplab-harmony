@@ -463,12 +463,9 @@ const TCPIP_TCP_MODULE_CONFIG tcpipTCPInitData =
 const TCPIP_HTTP_MODULE_CONFIG tcpipHTTPInitData =
 {
     .nConnections   = TCPIP_HTTP_MAX_CONNECTIONS,
-    .nTlsConnections    = TCPIP_HTTP_MAX_TLS_CONNECTIONS,
     .dataLen		= TCPIP_HTTP_MAX_DATA_LEN,
     .sktTxBuffSize	= TCPIP_HTTP_SKT_TX_BUFF_SIZE,
     .sktRxBuffSize	= TCPIP_HTTP_SKT_RX_BUFF_SIZE,
-    .tlsSktTxBuffSize	= TCPIP_HTTP_TLS_SKT_TX_BUFF_SIZE,
-    .tlsSktRxBuffSize	= TCPIP_HTTP_TLS_SKT_RX_BUFF_SIZE,
     .configFlags	= TCPIP_HTTP_CONFIG_FLAGS,
 };
 
@@ -478,6 +475,7 @@ const TCPIP_HTTP_MODULE_CONFIG tcpipHTTPInitData =
 const TCPIP_SMTP_CLIENT_MODULE_CONFIG tcpipSMTPInitData =
 { 
 };
+
 
 /*** DHCP client Initialization Data ***/
 const TCPIP_DHCP_MODULE_CONFIG tcpipDHCPInitData =
@@ -499,6 +497,7 @@ const TCPIP_ICMP_MODULE_CONFIG tcpipICMPInitData =
 const TCPIP_NBNS_MODULE_CONFIG tcpipNBNSInitData =
 { 
 };
+
 
 
 /*** Wi-Fi Interface MRF24WN Initialization Data ***/

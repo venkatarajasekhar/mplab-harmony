@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -36,6 +40,10 @@
       <File>
         <Name>port_asm.S</Name>
         <Path>Source Files/FreeRTOS/portable/MPLAB/PIC32MX</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>drv_usart_buffer_queue.c</Name>
@@ -166,6 +174,10 @@
         <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -234,7 +246,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos</Path>
-        <Checksum>C22F26D452F855EEB15A0144251F6C53</Checksum>
+        <Checksum>99D5EE45398A8AC121DE5129B8D98310</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -253,26 +265,21 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos</Path>
-        <Checksum>F6D84EB9F29559F2058D449EAE87C21F</Checksum>
+        <Checksum>FB47E3392A67303C92D563DADC6EDB27</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos/bsp</Path>
-        <Checksum>D0BABDD8CC269B7DE3BA98239B5ECC8D</Checksum>
+        <Checksum>EE96DD12865E6C7F0453E07B26BCF042</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -282,12 +289,12 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos/bsp</Path>
-        <Checksum>999832C5BD5B6EC600BB84C682241D0C</Checksum>
+        <Checksum>7567B3DF8AD82B4BA40BB70A80E7AC51</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos</Path>
-        <Checksum>B0D0DB21E4338F50222AFEEE4EAB22A9</Checksum>
+        <Checksum>D09F7438F79B49B8DACFFF3E7EAC2CF6</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -301,7 +308,7 @@
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn_freertos/framework/system/ports/src</Path>
-        <Checksum>71FE10BFB6CD07CD196C6F0CE010E003</Checksum>
+        <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt_a.S</Name>
@@ -321,11 +328,10 @@
         <Include value="../src/system_config/pic32mx795_pim_e16_int_dyn_freertos"/>
       </C32-AS>
       <C32>
-        <Include value="E:/Git/core/apps/driver/usart/usart_echo/firmware/src"/>
-        <Include value="E:/Git/core/apps/driver/usart/usart_echo/firmware/src/system_config/pic32mx795_pim_e16_int_dyn_freertos"/>
-        <Include value="E:/Git/core/apps/driver/usart/usart_echo/firmware/src/pic32mx795_pim_e16_int_dyn_freertos"/>
-        <Include value="E:/Git/core/framework"/>
-        <Include value="E:/Git/core/apps/driver/usart/usart_echo/firmware/src/system_config/pic32mx795_pim_e16_int_dyn_freertos/framework"/>
+        <Include value="E:\Git\core\apps\driver\usart\usart_echo\firmware\src"/>
+        <Include value="E:\Git\core\apps\driver\usart\usart_echo\firmware\src\system_config\pic32mx795_pim_e16_int_dyn_freertos"/>
+        <Include value="E:\Git\core\framework"/>
+        <Include value="E:\Git\core\apps\driver\usart\usart_echo\firmware\src\system_config\pic32mx795_pim_e16_int_dyn_freertos\framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16_int_dyn_freertos/bsp"/>
         <Include value="../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX"/>
         <Include value="../../../../../../third_party/rtos/FreeRTOS/Source/include"/>

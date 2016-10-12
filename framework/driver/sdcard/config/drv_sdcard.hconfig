@@ -198,6 +198,7 @@ ifblock USE_DRV_SDCARD
 add "<#include \"/framework/driver/sdcard/config/drv_sdcard.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
 add "<#include \"/framework/driver/sdcard/config/drv_sdcard_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS
 add "<#include \"/framework/driver/sdcard/config/drv_sdcard_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_DRIVER_TASKS
+add "<#include \"/framework/driver/sdcard/config/drv_sdcard.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 
 file DRV_SDCARD_H "$HARMONY_VERSION_PATH/framework/driver/sdcard/drv_sdcard.h" to "$PROJECT_HEADER_FILES/framework/driver/sdcard/drv_sdcard.h"
 file DRV_SDCARD_MAPPING_H "$HARMONY_VERSION_PATH/framework/driver/sdcard/drv_sdcard_mapping.h" to "$PROJECT_HEADER_FILES/framework/driver/sdcard/drv_sdcard_mapping.h"

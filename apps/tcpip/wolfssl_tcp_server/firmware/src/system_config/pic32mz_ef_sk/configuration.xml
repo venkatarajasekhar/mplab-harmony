@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -196,6 +196,14 @@
       <File>
         <Name>sha.h</Name>
         <Path>Header Files/third_party/tcpip/wolfssl/wolfssl/wolfcrypt</Path>
+      </File>
+      <File>
+        <Name>smtpc_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>smtpc_config.h</Name>
+        <Path>Header Files/framework/tcpip/config</Path>
       </File>
       <File>
         <Name>des3.h</Name>
@@ -652,6 +660,10 @@
       <File>
         <Name>camellia.c</Name>
         <Path>Source Files/third_party/wolfssl/wolfcrypt</Path>
+      </File>
+      <File>
+        <Name>smtpc_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>blake2-int.h</Name>
@@ -1134,6 +1146,10 @@
         <Path>Header Files/third_party/tcpip/wolfssl/wolfssl</Path>
       </File>
       <File>
+        <Name>smtpc.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
         <Name>dnss_manager.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
@@ -1166,12 +1182,12 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
-        <Name>snmpv3_private.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>ipv4.h</Name>
         <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>snmpv3_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>opensslconf.h</Name>
@@ -1596,6 +1612,10 @@
       <File>
         <Name>compress.h</Name>
         <Path>Header Files/third_party/tcpip/wolfssl/cyassl/ctaocrypt</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>tcpip_announce.c</Name>
@@ -2198,19 +2218,19 @@
         <Checksum>CF8704588837E70FCB1F57904EE90A44</Checksum>
       </Template>
       <Template>
+        <Name>net_pres_enc_glue.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/net/pres</Path>
+        <Checksum>7387C09F835F8B4155A79D377F6217D9</Checksum>
+      </Template>
+      <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
         <Checksum>DC400B5CFF4F0526331B2C46687FBB55</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -2225,7 +2245,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>8B6F0BA37022AEB65F5C1EBDEFB8D5F1</Checksum>
+        <Checksum>D1B3FBF7956B8A8540907B868D6B9896</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -2248,12 +2268,12 @@
       <Template>
         <Name>config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>50F3A4C174D0EC5EEFCE874966D8CFB7</Checksum>
+        <Checksum>77757B96D3424EC294F62C20673365CF</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>1F5D680988F9B72F21CFDBA777D9ECB5</Checksum>
+        <Checksum>02F0D1743A421978DEB6B3B08A0ED61C</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -2268,10 +2288,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="F:\git\net\apps\tcpip\wolfssl_tcp_server\firmware\src"/>
-        <Include value="F:\git\net\apps\tcpip\wolfssl_tcp_server\firmware\src\system_config\pic32mz_ef_sk"/>
-        <Include value="F:\git\net\framework"/>
-        <Include value="F:\git\net\apps\tcpip\wolfssl_tcp_server\firmware\src\system_config\pic32mz_ef_sk\framework"/>
+        <Include value="/var/atlassian/application-data/bamboo/xml-data/build-dir/TEMP-RTP1-JOB1/root/apps/tcpip/wolfssl_tcp_server/firmware/src"/>
+        <Include value="/var/atlassian/application-data/bamboo/xml-data/build-dir/TEMP-RTP1-JOB1/root/apps/tcpip/wolfssl_tcp_server/firmware/src/system_config/pic32mz_ef_sk"/>
+        <Include value="/var/atlassian/application-data/bamboo/xml-data/build-dir/TEMP-RTP1-JOB1/root/framework"/>
+        <Include value="/var/atlassian/application-data/bamboo/xml-data/build-dir/TEMP-RTP1-JOB1/root/apps/tcpip/wolfssl_tcp_server/firmware/src/system_config/pic32mz_ef_sk/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk/bsp"/>
         <Define value="HAVE_CONFIG_H"/>
         <Include value="../../../../../third_party/tcpip/wolfssl"/>

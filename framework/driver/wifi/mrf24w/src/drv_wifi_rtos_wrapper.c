@@ -129,12 +129,12 @@ bool DRV_WIFI_TaskSyncInit(void)
 }
 
 /*
- * OSAL_USE_RTOS == 1 means FreeRTOS_V8.x.x is used. Please refer to
- * osal_definitions.h. FreeRTOS_V8.x.x is also the only RTOS supported so far
- * in MRF24WG driver. Following functions are implemented specifically in this
- * RTOS.
+ * OSAL_USE_RTOS == 1 means FreeRTOS version 8.x.x is used.
+ * OSAL_USE_RTOS == 9 means FreeRTOS version 9.x.x is used.
+ * These the only options supported by current MRF24WG driver.
+ * Following functions are implemented specifically for these two versions.
  */
-# if(OSAL_USE_RTOS == 1)
+# if (OSAL_USE_RTOS == 1 || OSAL_USE_RTOS == 9)
 
 bool DRV_WIFI_TaskCreate(void (*taskFunction)(void *),
         const char *const taskName,
@@ -209,7 +209,7 @@ void DRV_WIFI_TaskDelay(const uint32_t ticksToDelay)
     vTaskDelay(ticksToDelay);
 }
 
-# endif
+# endif /* (OSAL_USE_RTOS == 1 || OSAL_USE_RTOS == 9) */
 
 #endif /* defined(DRV_WIFI_USE_FREERTOS) */
 

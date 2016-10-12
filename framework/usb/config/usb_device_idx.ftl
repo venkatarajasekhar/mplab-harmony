@@ -318,6 +318,7 @@ config USB_DEVICE_ENDPOINT_QUEUE_SIZE_WRITE_IDX${INSTANCE}
         default "0x0000" if USB_DEVICE_PRODUCT_ID_SELECT_IDX${INSTANCE} =  "hid_mouse_demo"
         default "0x0054" if USB_DEVICE_PRODUCT_ID_SELECT_IDX${INSTANCE} =  "hid_msd_demo"
         default "0x0009" if USB_DEVICE_PRODUCT_ID_SELECT_IDX${INSTANCE} =  "msd_basic_demo"
+        default "0x0009" if USB_DEVICE_PRODUCT_ID_SELECT_IDX${INSTANCE} =  "msd_spiflash_demo"
         default "0x0009" if USB_DEVICE_PRODUCT_ID_SELECT_IDX${INSTANCE} =  "msd_basic_sdcard_demo"
         default "0x0053" if USB_DEVICE_PRODUCT_ID_SELECT_IDX${INSTANCE} =  "vendor_demo"
         ---help---
@@ -352,6 +353,7 @@ config USB_DEVICE_ENDPOINT_QUEUE_SIZE_WRITE_IDX${INSTANCE}
         default "HID Mouse Demo" if USB_DEVICE_PRODUCT_ID_SELECT_IDX${INSTANCE} =  "hid_mouse_demo"
         default "HID + MSD Demo" if USB_DEVICE_PRODUCT_ID_SELECT_IDX${INSTANCE} =  "hid_msd_demo"
         default "Simple MSD Device Demo" if USB_DEVICE_PRODUCT_ID_SELECT_IDX${INSTANCE} =  "msd_basic_demo"
+        default "MSD SPI Flash Device Demo" if USB_DEVICE_PRODUCT_ID_SELECT_IDX${INSTANCE} =  "msd_spiflash_demo"
         default "Simple MSD Device Demo" if USB_DEVICE_PRODUCT_ID_SELECT_IDX${INSTANCE} =  "msd_basic_sdcard_demo"
         default "Simple WinUSB Device Demo" if USB_DEVICE_PRODUCT_ID_SELECT_IDX${INSTANCE} =  "vendor_demo"
         ---help---

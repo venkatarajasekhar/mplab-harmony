@@ -68,6 +68,7 @@ int32_t DRV_ENC28J60_RxPacketTask(struct _DRV_ENC28J60_DriverInfo * pDrvInst, DR
                 pDrvInst->mainStateInfo.runningInfo.resetRxInfo.state = DRV_ENC28J60_RRX_STARTING;
                 pkt->state = DRV_ENC28J60_RX_EMPTY_PACKET;
                 pDrvInst->rxPtrVal = pDrvInst->encMemRxStart;
+                TCPIP_Helper_ProtectedSingleListTailAdd(&pDrvInst->rxFreePackets, (SGL_LIST_NODE*)(pkt->macPkt));
                 break;
 
             }
@@ -165,6 +166,8 @@ int32_t DRV_ENC28J60_RxPacketTask(struct _DRV_ENC28J60_DriverInfo * pDrvInst, DR
             // It looks like ERDPT is always initialized to rxPtrVal which is initialized to ->encMemRxStart  which is fixed!!!
             pDrvInst->rxPtrVal = pkt->rsv.pNextPacket;
             pkt->macPkt->pDSeg->segLen = pkt->rsv.rxByteCount;
+            pkt->macPkt->pMacLayer = pkt->macPkt->pDSeg->segLoad;
+            pkt->macPkt->pNetLayer = pkt->macPkt->pMacLayer + sizeof(TCPIP_MAC_ETHERNET_HEADER);            
             pkt->state = DRV_ENC28J60_RX_PKTDEC;
             // no break;
 

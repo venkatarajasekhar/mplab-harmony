@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -80,6 +84,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -182,14 +190,9 @@
         <Checksum>EFA544FD46C445436B322D1E62205AAB</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -199,7 +202,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>8BDEC56E87315144DFD74377919B3811</Checksum>
+        <Checksum>DB95379D9633F2FE9C4F5368800CA0E3</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -222,7 +225,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>2DEE489858CBC77B3E6D916C48030B33</Checksum>
+        <Checksum>73BC6C99CB617F76D852197BF7AEC2CF</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -237,11 +240,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/debug_uart/firmware/src"/>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/debug_uart/firmware/src/system_config/pic32mz_ef_sk"/>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/debug_uart/firmware/src/pic32mz_ef_sk"/>
-        <Include value="/home/vikasnan/GIT_Core/core/framework"/>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/debug_uart/firmware/src/system_config/pic32mz_ef_sk/framework"/>
+        <Include value="D:/git_repositories/usb/apps/examples/system/debug_uart/firmware/src"/>
+        <Include value="D:/git_repositories/usb/apps/examples/system/debug_uart/firmware/src/system_config/pic32mz_ef_sk"/>
+        <Include value="D:/git_repositories/usb/framework"/>
+        <Include value="D:/git_repositories/usb/apps/examples/system/debug_uart/firmware/src/system_config/pic32mz_ef_sk/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk/bsp"/>
       </C32>
     </CompilerItems>

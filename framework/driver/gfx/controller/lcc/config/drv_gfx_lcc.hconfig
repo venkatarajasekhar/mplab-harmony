@@ -8,25 +8,57 @@ enum LCC_DMA_BUFFER_SIZE_MODE
     "Large Buffer"
     || "Small Buffer"
 
+enum LCC_EXTERNAL_MEMORY_TYPE
+	"SRAM"
+
+enum LCC_EXTERNAL_MEMORY_CHIP_SELECT_REG_INDEX
+	"CHIP_SELECT_REG_0"
+	|| "CHIP_SELECT_REG_1"
+	|| "CHIP_SELECT_REG_2"
+
+enum LCC_EXTERNAL_MEMORY_TOTAL_SIZE
+	"1 MByte"
+	|| "2 MBytes"
+
+enum LCC_EXTERNAL_MEMORY_WIDTH
+	"MEMORY_WIDTH_16BIT"
+	|| "MEMORY_WIDTH_8BIT"
+
 enum LCC_DMA_TRIGGER_SOURCE
-    "DMA_TRIGGER_SOURCE_NONE"
-    || "DMA_TRIGGER_TIMER_1"
-    || "DMA_TRIGGER_TIMER_2"
-    || "DMA_TRIGGER_TIMER_3"
+	"DMA_TRIGGER_TIMER_2"
     || "DMA_TRIGGER_TIMER_4"
-    || "DMA_TRIGGER_TIMER_5"
     || "DMA_TRIGGER_TIMER_6"
-    || "DMA_TRIGGER_TIMER_7"
     || "DMA_TRIGGER_TIMER_8"
-    || "DMA_TRIGGER_TIMER_9"
+
+enum LCC_PCLOCK_DIVIDER_VALUE
+	"8"
+	|| "16"
+	|| "128"
 
 enum DMA_TRANSFER
     "2"
     || "16"
 
+enum DMA_WRITE_STRATEGY_TYPE
+	"Draw Count Limited"
+	|| "In-between Frame & Line Draw"
+
+enum LCC_REFRESH_STRATEGY_TYPE
+	"Conventional"
+	|| "Aggressive"
+
+enum LCC_PIXEL_RESOLUTION
+	"WQVGA or lower"
+	|| "HVGA"
+	|| "VGA"
+	|| "WVGA"
+	|| "Not Supported"
+
 config USE_DRV_GFX_LCC_NEEDED
     bool
 
+config DRV_GFX_LCC_INSUFFICIENT_MEMORY_FOR_DOUBLE_BUFFER
+	bool
 config USE_DRV_GFX_LCC
     bool "Use LCC Driver?"
     select DRIVER
@@ -41,13 +73,13 @@ config USE_DRV_GFX_LCC
 
 config DRV_GFX_LCC_MODE
     string "Memory Interface Mode"
-    depends on USE_DRV_GFX_LCC
+	depends on USE_DRV_GFX_LCC
     range LCC_MODE
     default "Internal Memory"
 
 config DRV_GFX_LCC_DMA_BUFFER_SIZE_MODE
     string "DMA Transfer Length"
-    depends on USE_DRV_GFX_LCC
+	depends on USE_DRV_GFX_LCC
     range LCC_DMA_BUFFER_SIZE_MODE
     default "Large Buffer"
 
@@ -84,10 +116,18 @@ config DRV_GFX_LCC_INT_PRIO_NUM
     default "6" if DRV_GFX_LCC_INTERRUPT_PRIORITY = "INT_PRIORITY_LEVEL6"
     default "7" if DRV_GFX_LCC_INTERRUPT_PRIORITY = "INT_PRIORITY_LEVEL7"
 
+config DRV_GFX_PALETTE_SUPPORT_AVAILABLE
+    bool "Palette Support Available"
+	depends on USE_DRV_GFX_LCC
+	persistent
+	default y if USE_GFX_STACK && GFX_CFG_COLOR_DEPTH_SIZE = "GFX_COLOR_DEPTH_4"
+	default y if USE_GFX_STACK && GFX_CFG_COLOR_DEPTH_SIZE = "GFX_COLOR_DEPTH_8"
+	default n
+
 config DRV_GFX_USE_LCC_PALETTE
     bool "Palette Support"
-    depends on USE_DRV_GFX_LCC
-    default n
+    depends on DRV_GFX_PALETTE_SUPPORT_AVAILABLE
+	default n
 
 config DRV_GFX_USE_LCC_PIP
     bool "Picture in Picture Support"
@@ -129,42 +169,199 @@ config DRV_GFX_LCC_TMR_INDEX
         default "TMR_ID_7" if DRV_GFX_LCC_DMA_TRIGGER_SOURCE = "DMA_TRIGGER_TIMER_7"
         default "TMR_ID_8" if DRV_GFX_LCC_DMA_TRIGGER_SOURCE = "DMA_TRIGGER_TIMER_8"
         default "TMR_ID_9" if DRV_GFX_LCC_DMA_TRIGGER_SOURCE = "DMA_TRIGGER_TIMER_9"
+
+config USE_DRV_GFX_LCC_GENERATED
+	bool "Use LCC Generated Driver?"
+    depends on USE_DRV_GFX_LCC
+	default y
+	persistent
+
+config DRV_GFX_LCC_TOTAL_PIXELS
+	int "Total Pixels (pixels)"
+	persistent
+	depends on USE_DRV_GFX_LCC_GENERATED
+	default DRV_GFX_DISP_TOTAL_PIXELS
+
+config DRV_GFX_LCC_PIXEL_SUPPORT_LEVEL
+	string "Comparable Pixel Resolution"
+	depends on USE_DRV_GFX_LCC_GENERATED
+	range LCC_PIXEL_RESOLUTION
+	default "WQVGA or lower"
+	persistent
+
+comment "The LCC Driver is likely not able to support a display of this pixel resolution."
+	depends on USE_DRV_GFX_LCC_GENERATED&& DRV_GFX_LCC_PIXEL_SUPPORT_LEVEL = "Not Supported"
+
+comment "There is likely insufficent memory to support double buffering.  Please try changing to use external memory or increase external memory size."
+	depends on USE_DRV_GFX_LCC_GENERATED && DRV_GFX_LCC_INSUFFICIENT_MEMORY_FOR_DOUBLE_BUFFER
+
+config DRV_GFX_LCC_INPUT_CLK
+	string "Master Clock (MHz)"
+	persistent
+	depends on USE_DRV_GFX_LCC_GENERATED
+	default "100.0"
+
+config DRV_GFX_LCC_PIXEL_CLK_DIVIDER
+	string "Pixel Clock Prescaler"
+	depends on USE_DRV_GFX_LCC_GENERATED
+	range LCC_PCLOCK_DIVIDER_VALUE
+	default "16" if USE_GFX_NEWHAVEN_43_480X272_PCAP
+	default "8"
+
+config DRV_GFX_LCC_PIXEL_CLK
+	string "Pixel Clock Frequency (MHz)"
+	persistent
+	depends on USE_DRV_GFX_LCC_GENERATED
+	default "12.5"
+
+config DRV_GFX_LCC_TMR_PRESCALE_VALUE
+	string
+	depends on USE_DRV_GFX_LCC_GENERATED
+	default "TMR_PRESCALE_VALUE_1" if DRV_GFX_LCC_PIXEL_CLK_DIVIDER = "8"
+	default "TMR_PRESCALE_VALUE_8" if DRV_GFX_LCC_PIXEL_CLK_DIVIDER = "16"
+	default "TMR_PRESCALE_VALUE_64" if DRV_GFX_LCC_PIXEL_CLK_DIVIDER = "128"
+	default "TMR_PRESCALE_VALUE_1"
+
+config DRV_GFX_LCC_DMA_WRITE_STRATEGY
+	string "Pixel Draw Memory Write Strategy"
+    depends on USE_DRV_GFX_LCC_GENERATED
+	range DMA_WRITE_STRATEGY_TYPE
+	default "In-between Frame & Line Draw" if USE_GFX_NEWHAVEN_50_800X480_PCAP
+	default "Draw Count Limited" if USE_GFX_NEWHAVEN_43_480X272_PCAP
+	default "Draw Count Limited"
+
+config USE_DRV_GFX_LCC_DMA_WRITE_STRATEGY_DRAW_COUNT_LIMITED
+	bool "Use Draw Count Limited Strategy"
+	persistent
+    depends on USE_DRV_GFX_LCC_GENERATED
+	default y if DRV_GFX_LCC_DMA_WRITE_STRATEGY = "Draw Count Limited"
+	default n
+
+config USE_DRV_GFX_LCC_DRAW_COUNT_PER_TX
+	int "Max Draw Count Per DMA Transmit"
+    depends on USE_DRV_GFX_LCC_DMA_WRITE_STRATEGY_DRAW_COUNT_LIMITED
+	range 1 100
+	default 20
+
+config USE_DRV_GFX_LCC_DMA_WRITE_STRATEGY_IN_BETWEEN_FRAME_AND_LINE
+	bool
+	depends on USE_DRV_GFX_LCC_GENERATED
+	default y if DRV_GFX_LCC_DMA_WRITE_STRATEGY = "In-between Frame & Line Draw"
+    default n
+
+config DRV_GFX_LCC_REFRESH_STRATEGY
+	string "V-Sync Refresh Strategy"
+	depends on USE_DRV_GFX_LCC_GENERATED
+	range LCC_REFRESH_STRATEGY_TYPE
+	default "Aggressive" if USE_GFX_TRULY_32_240X320
+	default "Aggressive" if USE_GFX_POWERTIP_43_480X272
+	default "Aggressive" if USE_GFX_NEWHAVEN_43_480X272_PCAP
+	default "Conventional"
+
+config USE_DRV_GFX_LCC_INTERNAL_MEMORY
+	bool "Use Internal Memory"
+	persistent
+    depends on USE_DRV_GFX_LCC_GENERATED
+	default y if DRV_GFX_LCC_MODE = "Internal Memory"
+	default n
+
+config USE_DRV_GFX_LCC_EXTERNAL_MEMORY
+	bool "Use External Memory"
+	persistent
+    depends on USE_DRV_GFX_LCC_GENERATED
+	default y if DRV_GFX_LCC_MODE = "External Memory"
+	default n
+
+config DRV_GFX_LCC_EXTERNAL_MEMORY_TYPE
+	string "External Memory Type"
+    depends on USE_DRV_GFX_LCC_EXTERNAL_MEMORY
+	range LCC_EXTERNAL_MEMORY_TYPE
+	default "SRAM"
+
+config USE_DRV_GFX_LCC_EXTERNAL_MEMORY_SRAM_ADDRESS_LINE
+	bool "SRAM Address Lines"
+	depends on USE_DRV_GFX_LCC_EXTERNAL_MEMORY
+	persistent
+	default y if DRV_GFX_LCC_EXTERNAL_MEMORY_TYPE = "SRAM"
+	default n
+
+config USE_DRV_GFX_LCC_EXTERNAL_MEMORY_ADDRESS_15
+	bool "Use Address Line 15"
+    depends on USE_DRV_GFX_LCC_EXTERNAL_MEMORY_SRAM_ADDRESS_LINE && PIC32MX
+	persistent
+	default n
+
+config USE_DRV_GFX_LCC_EXTERNAL_MEMORY_ADDRESS_16
+	bool "Use Address Line 16"
+    depends on USE_DRV_GFX_LCC_EXTERNAL_MEMORY_SRAM_ADDRESS_LINE && !PIC32MX
+	persistent
+	default n
+
+config USE_DRV_GFX_LCC_EXTERNAL_MEMORY_ADDRESS_17
+	bool "Use Address Line 17"
+    depends on USE_DRV_GFX_LCC_EXTERNAL_MEMORY_SRAM_ADDRESS_LINE && !PIC32MX
+	persistent
+	default n
+
+config USE_DRV_GFX_LCC_EXTERNAL_MEMORY_ADDRESS_18
+	bool "Use Address Line 18"
+    depends on USE_DRV_GFX_LCC_EXTERNAL_MEMORY_SRAM_ADDRESS_LINE && !PIC32MX
+	persistent
+	default n
+
+config USE_DRV_GFX_LCC_EXTERNAL_MEMORY_ADDRESS_19
+	bool "Use Address Line 19"
+    depends on USE_DRV_GFX_LCC_EXTERNAL_MEMORY_SRAM_ADDRESS_LINE && !PIC32MX
+	persistent
+	default n
+
+config DRV_GFX_LCC_EXTERNAL_MEMORY_SIZE_SELECT
+	string "External Memory Size"
+    depends on USE_DRV_GFX_LCC_EXTERNAL_MEMORY
+	range LCC_EXTERNAL_MEMORY_TOTAL_SIZE
+	default "2 MBytes"
+
+config DRV_GFX_LCC_EXTERNAL_MEMORY_WIDTH
+	string "External Memory Width"
+    depends on USE_DRV_GFX_LCC_EXTERNAL_MEMORY
+	range LCC_EXTERNAL_MEMORY_WIDTH
+	default "MEMORY_WIDTH_16BIT"
+
+config DRV_GFX_LCC_EXTERNAL_MEMORY_CHIP_SELECT_REGISTER
+	string "Memory Chip Select Register"
+    depends on USE_DRV_GFX_LCC_EXTERNAL_MEMORY
+	range LCC_EXTERNAL_MEMORY_CHIP_SELECT_REG_INDEX
+	default "CHIP_SELECT_REG_0"
+
+config DRV_GFX_LCC_EXTERNAL_MEMORY_CHIP_SELECT
+	string
+	depends on USE_DRV_GFX_LCC_EXTERNAL_MEMORY
+	default "0" if DRV_GFX_LCC_EXTERNAL_MEMORY_CHIP_SELECT_REGISTER = "CHIP_SELECT_REG_0"
+	default "1" if DRV_GFX_LCC_EXTERNAL_MEMORY_CHIP_SELECT_REGISTER = "CHIP_SELECT_REG_1"
+	default "2" if DRV_GFX_LCC_EXTERNAL_MEMORY_CHIP_SELECT_REGISTER = "CHIP_SELECT_REG_2"
+
+config DRV_GFX_LCC_EXTERNAL_MEMORY_SIZE
+	string
+	depends on USE_DRV_GFX_LCC_EXTERNAL_MEMORY
+	default "MEMORY_SIZE_64KB" if DRV_GFX_LCC_EXTERNAL_MEMORY_SIZE_SELECT = "64 KBytes"
+	default "MEMORY_SIZE_128KB" if DRV_GFX_LCC_EXTERNAL_MEMORY_SIZE_SELECT = "128 KBytes"
+	default "MEMORY_SIZE_256KB" if DRV_GFX_LCC_EXTERNAL_MEMORY_SIZE_SELECT = "256 KBytes"
+	default "MEMORY_SIZE_512KB" if DRV_GFX_LCC_EXTERNAL_MEMORY_SIZE_SELECT = "512 KBytes"
+	default "MEMORY_SIZE_1MB" if DRV_GFX_LCC_EXTERNAL_MEMORY_SIZE_SELECT = "1 MBytes"
+	default "MEMORY_SIZE_2MB" if DRV_GFX_LCC_EXTERNAL_MEMORY_SIZE_SELECT = "2 MBytes"
+	default "MEMORY_SIZE_4MB" if DRV_GFX_LCC_EXTERNAL_MEMORY_SIZE_SELECT = "4 MBytes"
+	default "MEMORY_SIZE_8MB" if DRV_GFX_LCC_EXTERNAL_MEMORY_SIZE_SELECT = "8 MBytes"
+	default "MEMORY_SIZE_16MB" if DRV_GFX_LCC_EXTERNAL_MEMORY_SIZE_SELECT = "16 MBytes"
+	default "MEMORY_SIZE_2MB"
+
 endmenu
 
 ifblock USE_DRV_GFX_LCC
 add "<#include \"/framework/driver/gfx/controller/config/drv_gfx_init_data.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
-add "<#include \"/framework/driver/gfx/controller/lcc/config/drv_gfx_lcc_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS
-
-file DRV_PMP_LCC_H "$HARMONY_VERSION_PATH/framework/driver/pmp/drv_pmp.h" to "$PROJECT_HEADER_FILES/framework/driver/pmp/drv_pmp.h" 
-file DRV_PMP_CFG_LCC_H "$HARMONY_VERSION_PATH/framework/driver/pmp/config/drv_pmp_config.h" to "$PROJECT_HEADER_FILES/framework/driver/pmp/config/drv_pmp_config.h" 
-file DRV_PMP_LOCAL_LCC_H "$HARMONY_VERSION_PATH/framework/driver/pmp/src/drv_pmp_local.h" to "$PROJECT_HEADER_FILES/framework/driver/pmp/src/drv_pmp_local.h" 
-
-endif
-
-ifblock USE_DRV_GFX_LCC && DRV_GFX_LCC_MODE = "Internal Memory" && DRV_GFX_LCC_DMA_BUFFER_SIZE_MODE = "Small Buffer"
-file DRV_GFX_LCC_INT_H "$HARMONY_VERSION_PATH/framework/driver/gfx/controller/lcc/drv_gfx_lcc.h" to "$PROJECT_HEADER_FILES/framework/driver/gfx/controller/lcc/drv_gfx_lcc.h"
+add "<#include \"/framework/driver/gfx/controller/lcc/config/drv_gfx_lcc_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS 
+add "<#include \"/framework/driver/gfx/controller/lcc/config/drv_gfx_lcc_config.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 file DRV_GFX_CTRL_INT_SM_H "$HARMONY_VERSION_PATH/framework/driver/gfx/controller/drv_gfx_controller.h" to "$PROJECT_HEADER_FILES/framework/driver/gfx/controller/drv_gfx_controller.h"
 file DRV_GFX_COMMON_INT_SM_H "$HARMONY_VERSION_PATH/framework/driver/gfx/gfx_common.h" to "$PROJECT_HEADER_FILES/framework/driver/gfx/gfx_common.h"
-file DRV_GFX_LCC_INT_C "$HARMONY_VERSION_PATH/framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int.c" to "$PROJECT_SOURCE_FILES/framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int.c"
-endif
-
-ifblock USE_DRV_GFX_LCC && DRV_GFX_LCC_MODE = "Internal Memory" && DRV_GFX_LCC_DMA_BUFFER_SIZE_MODE = "Large Buffer"
-file DRV_GFX_LCC_INT_PE_H "$HARMONY_VERSION_PATH/framework/driver/gfx/controller/lcc/drv_gfx_lcc.h" to "$PROJECT_HEADER_FILES/framework/driver/gfx/controller/lcc/drv_gfx_lcc.h"
-file DRV_GFX_CTRL_INT_LG_H "$HARMONY_VERSION_PATH/framework/driver/gfx/controller/drv_gfx_controller.h" to "$PROJECT_HEADER_FILES/framework/driver/gfx/controller/drv_gfx_controller.h"
-file DRV_GFX_COMMON_INT_LG_H "$HARMONY_VERSION_PATH/framework/driver/gfx/gfx_common.h" to "$PROJECT_HEADER_FILES/framework/driver/gfx/gfx_common.h"
-file DRV_GFX_LCC_INT_PE_C "$HARMONY_VERSION_PATH/framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c" to "$PROJECT_SOURCE_FILES/framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c"
-endif
-
-ifblock USE_DRV_GFX_LCC && DRV_GFX_LCC_MODE = "External Memory" && !USE_GFX_NEWHAVEN_50_800X480_PCAP
-file DRV_GFX_LCC_EXT_H "$HARMONY_VERSION_PATH/framework/driver/gfx/controller/lcc/drv_gfx_lcc.h" to "$PROJECT_HEADER_FILES/framework/driver/gfx/controller/lcc/drv_gfx_lcc.h"
-file DRV_GFX_CTRL_EXT_NO_PCAP_H "$HARMONY_VERSION_PATH/framework/driver/gfx/controller/drv_gfx_controller.h" to "$PROJECT_HEADER_FILES/framework/driver/gfx/controller/drv_gfx_controller.h"
-file DRV_GFX_COMMON_EXT_NO_PCAP_H "$HARMONY_VERSION_PATH/framework/driver/gfx/gfx_common.h" to "$PROJECT_HEADER_FILES/framework/driver/gfx/gfx_common.h"
-file DRV_GFX_LCC_EXT_C "$HARMONY_VERSION_PATH/framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext.c" to "$PROJECT_SOURCE_FILES/framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext.c"
-endif
-
-ifblock USE_DRV_GFX_LCC && DRV_GFX_LCC_MODE = "External Memory" && USE_GFX_NEWHAVEN_50_800X480_PCAP
-file DRV_GFX_LCC_EXT_WVGA_H "$HARMONY_VERSION_PATH/framework/driver/gfx/controller/lcc/drv_gfx_lcc.h" to "$PROJECT_HEADER_FILES/framework/driver/gfx/controller/lcc/drv_gfx_lcc.h"
-file DRV_GFX_CTRL_EXT_PCAP_H "$HARMONY_VERSION_PATH/framework/driver/gfx/controller/drv_gfx_controller.h" to "$PROJECT_HEADER_FILES/framework/driver/gfx/controller/drv_gfx_controller.h"
-file DRV_GFX_COMMON_EXT_PCAP_H "$HARMONY_VERSION_PATH/framework/driver/gfx/gfx_common.h" to "$PROJECT_HEADER_FILES/framework/driver/gfx/gfx_common.h"
-file DRV_GFX_LCC_EXT_WVGA_C "$HARMONY_VERSION_PATH/framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext_wvga.c" to "$PROJECT_SOURCE_FILES/framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_ext_wvga.c"
+template DRV_GFX_LCC_GENERIC_H "$HARMONY_VERSION_PATH/framework/driver/gfx/controller/lcc/templates/drv_gfx_lcc_generic.h.ftl" to "$PROJECT_HEADER_FILES/app/system_config/$CONFIGURATION/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h"
+template DRV_GFX_LCC_GENERIC_C "$HARMONY_VERSION_PATH/framework/driver/gfx/controller/lcc/templates/drv_gfx_lcc_generic.c.ftl" to "$PROJECT_SOURCE_FILES/app/system_config/$CONFIGURATION/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c"
 endif

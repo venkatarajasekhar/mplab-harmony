@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -130,12 +134,12 @@
         <Path>Header Files/framework/osal</Path>
       </File>
       <File>
-        <Name>usb_msd.h</Name>
-        <Path>Header Files/framework/usb</Path>
-      </File>
-      <File>
         <Name>usb_device_hid_local.h</Name>
         <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
+        <Name>usb_msd.h</Name>
+        <Path>Header Files/framework/usb</Path>
       </File>
       <File>
         <Name>usb_device_msd.c</Name>
@@ -150,20 +154,16 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
-        <Name>usb_device_hid.c</Name>
-        <Path>Source Files/framework/usb/src/dynamic</Path>
-      </File>
-      <File>
         <Name>sys_ports.h</Name>
         <Path>Header Files/framework/system/ports</Path>
       </File>
       <File>
-        <Name>usb_hub.h</Name>
-        <Path>Header Files/framework/usb</Path>
+        <Name>usb_device_hid.c</Name>
+        <Path>Source Files/framework/usb/src/dynamic</Path>
       </File>
       <File>
-        <Name>usb_device_mapping.h</Name>
-        <Path>Header Files/framework/usb/src</Path>
+        <Name>usb_hub.h</Name>
+        <Path>Header Files/framework/usb</Path>
       </File>
       <File>
         <Name>sys_common.h</Name>
@@ -174,8 +174,16 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
+        <Name>usb_device_mapping.h</Name>
+        <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
         <Name>usb_host_hub.h</Name>
         <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
@@ -214,12 +222,12 @@
         <Path>Source Files/framework/driver/usb/usbfs/src/dynamic</Path>
       </File>
       <File>
-        <Name>sys_debug.h</Name>
-        <Path>Header Files/framework/system/debug</Path>
-      </File>
-      <File>
         <Name>drv_nvm.h</Name>
         <Path>Header Files/framework/driver/nvm</Path>
+      </File>
+      <File>
+        <Name>sys_debug.h</Name>
+        <Path>Header Files/framework/system/debug</Path>
       </File>
       <File>
         <Name>sys_module.h</Name>
@@ -258,13 +266,13 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn</Path>
-        <Checksum>54F873340B471D359E89772D2D27E4F6</Checksum>
-        <ProjectFileChecksum>F939B44EB566A1271A04DA1F45CBA740</ProjectFileChecksum>
+        <Checksum>06E4B5D1FF4B97B1FD055A86C433ED33</Checksum>
+        <ProjectFileChecksum>F394CD54FBE0C64FA23D2570B667EF69</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -282,11 +290,6 @@
         <Checksum>7EE14DC28076CC7E3E89BD41E953D54B</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
       </Template>
@@ -298,7 +301,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn</Path>
-        <Checksum>F8185CB2058E7BD1EA8AE95E34FAF1EF</Checksum>
+        <Checksum>7890B5CD19C2329572E6DFE00884F903</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -307,12 +310,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_dyn/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -327,11 +330,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/usb/device/hid_msd_basic/firmware/src"/>
-        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/usb/device/hid_msd_basic/firmware/src/system_config/pic32mx_usb_sk2_int_dyn"/>
-        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/usb/device/hid_msd_basic/firmware/src/pic32mx_usb_sk2_int_dyn"/>
-        <Include value="D:/git_view/isp_trunk/mcu32apps/framework"/>
-        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/usb/device/hid_msd_basic/firmware/src/system_config/pic32mx_usb_sk2_int_dyn/framework"/>
+        <Include value="D:\git_repositories\usb\apps\usb\device\hid_msd_basic\firmware\src"/>
+        <Include value="D:\git_repositories\usb\apps\usb\device\hid_msd_basic\firmware\src\system_config\pic32mx_usb_sk2_int_dyn"/>
+        <Include value="D:\git_repositories\usb\framework"/>
+        <Include value="D:\git_repositories\usb\apps\usb\device\hid_msd_basic\firmware\src\system_config\pic32mx_usb_sk2_int_dyn\framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_int_dyn/bsp"/>
       </C32>
     </CompilerItems>

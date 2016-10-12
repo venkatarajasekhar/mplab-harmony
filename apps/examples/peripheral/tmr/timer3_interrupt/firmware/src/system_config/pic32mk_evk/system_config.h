@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -91,12 +87,57 @@ extern "C" {
 #define SYS_CLK_BUS_PERIPHERAL_7            120000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         24000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       32768ul
-   
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
 /*** Ports System Service Configuration ***/
-#define SYS_PORT_F_ANSEL        0xCFFF
+#define SYS_PORT_A_ANSEL        0xFB7F
+#define SYS_PORT_A_TRIS         0xFFFF
+#define SYS_PORT_A_LAT          0x0000
+#define SYS_PORT_A_ODC          0x0000
+#define SYS_PORT_A_CNPU         0x0000
+#define SYS_PORT_A_CNPD         0x0000
+#define SYS_PORT_A_CNEN         0x0000
+
+#define SYS_PORT_B_ANSEL        0x038F
+#define SYS_PORT_B_TRIS         0xFFFF
+#define SYS_PORT_B_LAT          0x0000
+#define SYS_PORT_B_ODC          0x0000
+#define SYS_PORT_B_CNPU         0x0000
+#define SYS_PORT_B_CNPD         0x0000
+#define SYS_PORT_B_CNEN         0x0000
+
+#define SYS_PORT_C_ANSEL        0xFC3F
+#define SYS_PORT_C_TRIS         0xFFFF
+#define SYS_PORT_C_LAT          0x0000
+#define SYS_PORT_C_ODC          0x0000
+#define SYS_PORT_C_CNPU         0x0000
+#define SYS_PORT_C_CNPD         0x0000
+#define SYS_PORT_C_CNEN         0x0000
+
+#define SYS_PORT_D_ANSEL        0xCF81
+#define SYS_PORT_D_TRIS         0xFFFF
+#define SYS_PORT_D_LAT          0x0000
+#define SYS_PORT_D_ODC          0x0000
+#define SYS_PORT_D_CNPU         0x0000
+#define SYS_PORT_D_CNPD         0x0000
+#define SYS_PORT_D_CNEN         0x0000
+
+#define SYS_PORT_E_ANSEL        0xFFFF
+#define SYS_PORT_E_TRIS         0xFFFF
+#define SYS_PORT_E_LAT          0x0000
+#define SYS_PORT_E_ODC          0x0000
+#define SYS_PORT_E_CNPU         0x0000
+#define SYS_PORT_E_CNPD         0x0000
+#define SYS_PORT_E_CNEN         0x0000
+
+#define SYS_PORT_F_ANSEL        0xCF3C
 #define SYS_PORT_F_TRIS         0xFFFF
 #define SYS_PORT_F_LAT          0x0000
 #define SYS_PORT_F_ODC          0x0000
@@ -104,7 +145,7 @@ extern "C" {
 #define SYS_PORT_F_CNPD         0x0000
 #define SYS_PORT_F_CNEN         0x0000
 
-#define SYS_PORT_G_ANSEL        0x87FF
+#define SYS_PORT_G_ANSEL        0x87FC
 #define SYS_PORT_G_TRIS         0x8FFF
 #define SYS_PORT_G_LAT          0x0000
 #define SYS_PORT_G_ODC          0x0000
@@ -113,12 +154,29 @@ extern "C" {
 #define SYS_PORT_G_CNEN         0x0000
 
 
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
+
+/*** Graphics Display Configuration ***/
+#define DISP_ORIENTATION                        0
+#define DISP_HOR_RESOLUTION                     480
+#define DISP_VER_RESOLUTION                     272
+#define DISP_DATA_WIDTH			                24
+#define DISP_HOR_PULSE_WIDTH                    42
+#define DISP_HOR_BACK_PORCH                     2
+#define DISP_HOR_FRONT_PORCH                    2
+#define DISP_VER_PULSE_WIDTH                    10
+#define DISP_VER_BACK_PORCH                     2
+#define DISP_VER_FRONT_PORCH                    2
+#define DISP_INV_LSHIFT                         0
+#define GFX_LCD_TYPE                            GFX_LCD_TFT
+#define BACKLIGHT_ENABLE_LEVEL                  1
+#define BACKLIGHT_DISABLE_LEVEL                 0
+#define TCON_MODULE                             NULL
+// DOM-IGNORE-END
 /*** Timer Driver Configuration ***/
 #define DRV_TMR_INTERRUPT_MODE             true
 

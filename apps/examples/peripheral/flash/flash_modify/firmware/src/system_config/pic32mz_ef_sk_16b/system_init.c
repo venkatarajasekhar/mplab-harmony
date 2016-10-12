@@ -63,7 +63,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #pragma config JTAGEN =     OFF
 #pragma config ICESEL =     ICS_PGx2
 #pragma config TRCEN =      ON
-#pragma config BOOTISA =    MIPS32
+#pragma config BOOTISA =    MICROMIPS
 #pragma config FECCCON =    OFF_UNLOCKED
 #pragma config FSLEEP =     OFF
 #pragma config DBGPER =     PG_ALL

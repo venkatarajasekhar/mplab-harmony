@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.0">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
     <Board name=""/>
     <ForceOptimization flag="true"/>
-    <MergeStrategy flag="USER_ALL"/>
+    <MergeStrategy flag="OVERWRITE"/>
   </General>
   <Manifest>
     <Files>
@@ -52,10 +56,6 @@
       <File>
         <Name>driver.h</Name>
         <Path>Header Files/framework/driver</Path>
-      </File>
-      <File>
-        <Name>peripheral_common.h</Name>
-        <Path>Header Files/framework/peripheral</Path>
       </File>
       <File>
         <Name>sys_devcon_cache.h</Name>
@@ -134,10 +134,6 @@
         <Path>Header Files/framework/osal/src</Path>
       </File>
       <File>
-        <Name>peripheral_common_32bit.h</Name>
-        <Path>Header Files/framework/peripheral</Path>
-      </File>
-      <File>
         <Name>drv_tmr_variant_mapping.h</Name>
         <Path>Header Files/framework/driver/tmr/src</Path>
       </File>
@@ -170,6 +166,10 @@
         <Path>Header Files/framework/system/tmr</Path>
       </File>
       <File>
+        <Name>usb_host.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
         <Name>osal.h</Name>
         <Path>Header Files/framework/osal</Path>
       </File>
@@ -180,6 +180,10 @@
       <File>
         <Name>drv_usart_local.h</Name>
         <Path>Header Files/framework/driver/usart/src</Path>
+      </File>
+      <File>
+        <Name>usb_host_hub_interface.h</Name>
+        <Path>Header Files/framework/usb</Path>
       </File>
       <File>
         <Name>usb_common.h</Name>
@@ -198,6 +202,10 @@
         <Path>Source Files/framework/driver/usart/src/dynamic</Path>
       </File>
       <File>
+        <Name>usb_hub.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
         <Name>sys_common.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -208,6 +216,14 @@
       <File>
         <Name>usb_device_mapping.h</Name>
         <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
+        <Name>usb_host_hub.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
@@ -226,12 +242,12 @@
         <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
-        <Name>osal_definitions.h</Name>
-        <Path>Header Files/framework/osal</Path>
-      </File>
-      <File>
         <Name>sys_int_mapping.h</Name>
         <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>osal_definitions.h</Name>
+        <Path>Header Files/framework/osal</Path>
       </File>
       <File>
         <Name>drv_usbhs_local.h</Name>
@@ -240,14 +256,6 @@
       <File>
         <Name>drv_usbhs_device.c</Name>
         <Path>Source Files/framework/driver/usb/usbhs/src/dynamic</Path>
-      </File>
-      <File>
-        <Name>gfx_palette.h</Name>
-        <Path>Header Files/framework/gfx</Path>
-      </File>
-      <File>
-        <Name>ctr_p32mz2048efm144.h</Name>
-        <Path>Header Files/framework/peripheral/ctr/processor</Path>
       </File>
       <File>
         <Name>sys_devcon.h</Name>
@@ -278,10 +286,6 @@
         <Path>Header Files/framework/system/devcon/src</Path>
       </File>
       <File>
-        <Name>peripheral.h</Name>
-        <Path>Header Files/framework/peripheral</Path>
-      </File>
-      <File>
         <Name>sys_queue.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -293,13 +297,12 @@
         <Name>usb_device_cdc.c</Name>
         <Path>Source Files/framework/usb/src/dynamic</Path>
       </File>
+      <File>
+        <Name>usb_host_client_driver.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
     </Files>
     <Templates>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
       <Template>
         <Name>main.c</Name>
         <Path>Source Files/app</Path>
@@ -307,7 +310,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>C3264323788A0893EB5B368795FC9686</Checksum>
+        <Checksum>BC18B9B1011BBA0A5087DCED49A9A338</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -326,7 +329,7 @@
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/ports/src</Path>
-        <Checksum>EECEADD49A9CB5440158A7FECD7AA028</Checksum>
+        <Checksum>A1731E4019AE3037833CE2E94F06A134</Checksum>
       </Template>
       <Template>
         <Name>app_usart_mz_ef_sk.c</Name>
@@ -335,7 +338,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>DD5D0A1CA825EDC407608C410AC2DE8A</Checksum>
+        <Checksum>692BDB327129531B78CA95869C7677CF</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -349,7 +352,7 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/bsp</Path>
-        <Checksum>D3D6F12D57FFC98F4229B3EC1FB37340</Checksum>
+        <Checksum>8405F93FE0218536B85400099346BEF4</Checksum>
       </Template>
       <Template>
         <Name>app_usb_mz_ef_sk.h</Name>
@@ -363,12 +366,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/bsp</Path>
-        <Checksum>F68C0372DEED2BB3ED0908D6ED83CB54</Checksum>
+        <Checksum>F17134C042B81B3876554237536D7229</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
@@ -383,7 +386,6 @@
     </CompilerItems>
     <Libraries>
       <Library value="../../../../../../bin/framework/peripheral/PIC32MZ2048EFM144_peripherals.a"/>
-      <Library value="../../../../../../framework/tcpip/src/crypto/aes_pic32mx.a"/>
     </Libraries>
   </Manifest>
 </configuration>

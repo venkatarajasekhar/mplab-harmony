@@ -89,7 +89,7 @@ DRV_HANDLE DRV_I2C_Open ( const SYS_MODULE_INDEX index, const DRV_IO_INTENT ioIn
         }
     }
     
-    return (DRV_HANDLE)NULL;
+    return DRV_HANDLE_INVALID;
 }
 
 void DRV_I2C_Close ( DRV_HANDLE drvhandle )

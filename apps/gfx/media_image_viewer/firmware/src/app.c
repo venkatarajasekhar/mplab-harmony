@@ -778,7 +778,7 @@ void APP_Initialize ( void )
     appData.imageReadyToDraw = false;
 
     appData.metaDataEnable = true;
-    appData.doubleBufferingEnable = false;
+    appData.doubleBufferingEnable = true;
     
     lastMetaDataEnable = appData.metaDataEnable;
     lastDoubleBufferEnable = appData.doubleBufferingEnable;

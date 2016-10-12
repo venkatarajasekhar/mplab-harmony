@@ -141,7 +141,7 @@ typedef struct
     uint8_t  *frame;            /**< The tx frame buffer */
     uint64_t sendsize;          /**< The size of our tx frame */
     uint8_t  state;             /**< The tx state for this interface */
-    bool     localChange;       /**< IEEE 802.1AB var (from where?) */
+    bool     localChange;       /**< IEEE 802.1AB var (from where?) */ 
     uint16_t txTTL;             /**< IEEE 802.1AB var (from where?) */
     lldp_tx_timers_t timers;    /**< The lldp tx state machine timers for this interface */
     lldp_tx_stats_t txStats;    /**< The lldp tx statistics for this interface */

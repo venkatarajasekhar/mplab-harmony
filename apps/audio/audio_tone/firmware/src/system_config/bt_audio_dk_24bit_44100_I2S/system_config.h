@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -90,6 +86,11 @@ extern "C" {
 #define SYS_CLK_CONFIG_FREQ_ERROR_LIMIT     10
 #define SYS_CLK_WAIT_FOR_SWITCH             true
 #define SYS_CLK_ON_WAIT                     OSC_ON_WAIT_IDLE
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
    
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
@@ -152,107 +153,11 @@ extern "C" {
 #define SYS_PORT_G_CNEN         0x0000
 
 
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
-/*** Timer Driver Configuration ***/
-#define DRV_TMR_INTERRUPT_MODE             true
-#define DRV_TMR_INSTANCES_NUMBER           3
-#define DRV_TMR_CLIENTS_NUMBER             1
-
-/*** Timer Driver 0 Configuration ***/
-#define DRV_TMR_PERIPHERAL_ID_IDX0          TMR_ID_4
-#define DRV_TMR_INTERRUPT_SOURCE_IDX0       INT_SOURCE_TIMER_4
-#define DRV_TMR_INTERRUPT_VECTOR_IDX0       INT_VECTOR_T4
-#define DRV_TMR_ISR_VECTOR_IDX0             _TIMER_4_VECTOR
-#define DRV_TMR_INTERRUPT_PRIORITY_IDX0     INT_PRIORITY_LEVEL1
-#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX0 INT_SUBPRIORITY_LEVEL0
-#define DRV_TMR_CLOCK_SOURCE_IDX0           DRV_TMR_CLKSOURCE_INTERNAL
-#define DRV_TMR_PRESCALE_IDX0               TMR_PRESCALE_VALUE_256
-#define DRV_TMR_OPERATION_MODE_IDX0         DRV_TMR_OPERATION_MODE_16_BIT
-#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX0     false
-#define DRV_TMR_POWER_STATE_IDX0            SYS_MODULE_POWER_RUN_FULL
-
-/*** Timer Driver 1 Configuration ***/
-#define DRV_TMR_PERIPHERAL_ID_IDX1          TMR_ID_1
-#define DRV_TMR_INTERRUPT_SOURCE_IDX1       INT_SOURCE_TIMER_1
-#define DRV_TMR_INTERRUPT_VECTOR_IDX1       INT_VECTOR_T1
-#define DRV_TMR_ISR_VECTOR_IDX1             _TIMER_1_VECTOR
-#define DRV_TMR_INTERRUPT_PRIORITY_IDX1     INT_PRIORITY_LEVEL1
-#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX1 INT_SUBPRIORITY_LEVEL0
-#define DRV_TMR_CLOCK_SOURCE_IDX1           DRV_TMR_CLKSOURCE_INTERNAL
-#define DRV_TMR_PRESCALE_IDX1               TMR_PRESCALE_VALUE_1
-#define DRV_TMR_OPERATION_MODE_IDX1         DRV_TMR_OPERATION_MODE_16_BIT
-#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX1     false
-#define DRV_TMR_POWER_STATE_IDX1            SYS_MODULE_POWER_RUN_FULL
-
-/*** Timer Driver 2 Configuration ***/
-#define DRV_TMR_PERIPHERAL_ID_IDX2          TMR_ID_2
-#define DRV_TMR_INTERRUPT_SOURCE_IDX2       INT_SOURCE_TIMER_3
-#define DRV_TMR_INTERRUPT_VECTOR_IDX2       INT_VECTOR_T3
-#define DRV_TMR_ISR_VECTOR_IDX2             _TIMER_3_VECTOR
-#define DRV_TMR_INTERRUPT_PRIORITY_IDX2     INT_PRIORITY_LEVEL1
-#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX2 INT_SUBPRIORITY_LEVEL0
-#define DRV_TMR_CLOCK_SOURCE_IDX2           DRV_TMR_CLKSOURCE_INTERNAL
-#define DRV_TMR_PRESCALE_IDX2               TMR_PRESCALE_VALUE_1
-#define DRV_TMR_OPERATION_MODE_IDX2         DRV_TMR_OPERATION_MODE_32_BIT
-#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX2     false
-#define DRV_TMR_POWER_STATE_IDX2            SYS_MODULE_POWER_RUN_FULL
-
-  #define  GFX_USE_DISPLAY_CONTROLLER_OTM2201A         
-
-/*** Graphics Display Configuration ***/
-#define DISP_ORIENTATION                        90
-#define DISP_HOR_RESOLUTION                     176
-#define DISP_VER_RESOLUTION                     220
-#define DISP_DATA_WIDTH			                8
-#define DISP_HOR_PULSE_WIDTH                    25
-#define DISP_HOR_BACK_PORCH                     5
-#define DISP_HOR_FRONT_PORCH                    10
-#define DISP_VER_PULSE_WIDTH                    4
-#define DISP_VER_BACK_PORCH                     0
-#define DISP_VER_FRONT_PORCH                    2
-#define DISP_INV_LSHIFT                         1
-#define GFX_LCD_TYPE                            GFX_LCD_TFT
-#define BACKLIGHT_ENABLE_LEVEL                  0
-#define BACKLIGHT_DISABLE_LEVEL                 1
-#define TCON_MODULE                             NULL
-#define USE_TCON_MODULE                         0
-#define GFX_USE_TCON_CUSTOM
-// DOM-IGNORE-END
-
-#define USE_8BIT_PMP
-
-
-/*** I2S Driver Configuration ***/
-
-
-#define DRV_I2S_INTERRUPT_MODE					true
-#define DRV_I2S_CLIENTS_NUMBER					1
-#define DRV_I2S_INSTANCES_NUMBER				1
-#define DRV_I2S_STOP_IN_IDLE					false
-#define DRV_I2S_PERIPHERAL_ID_IDX0				SPI_ID_1
-#define DRV_I2S_USAGE_MODE_IDX0					DRV_I2S_MODE_MASTER
-#define DRV_I2S_STOP_IN_IDLE_IDX0				false
-#define SPI_BAUD_RATE_CLK_IDX0					SPI_BAUD_RATE_MCLK_CLOCK
-#define DRV_I2S_BAUD_RATE                       44100
-#define DRV_I2S_CLK_MODE_IDX0					DRV_I2S_CLOCK_MODE_IDLE_HIGH_EDGE_FALL
-#define SPI_AUDIO_COMM_WIDTH_IDX0				SPI_AUDIO_COMMUNICATION_24DATA_32FIFO_32CHANNEL
-#define SPI_AUDIO_TRANSMIT_MODE_IDX0			SPI_AUDIO_TRANSMIT_STEREO
-#define SPI_INPUT_SAMPLING_PHASE_IDX0			SPI_INPUT_SAMPLING_PHASE_IN_MIDDLE
-#define DRV_I2S_AUDIO_PROTOCOL_MODE_IDX0		DRV_I2S_AUDIO_I2S
-#define DRV_I2S_TX_INT_SRC_IDX0					INT_SOURCE_SPI_1_TRANSMIT
-#define DRV_I2S_RX_INT_SRC_IDX0					INT_SOURCE_SPI_1_RECEIVE
-#define QUEUE_SIZE_TX_IDX0                      3
-#define QUEUE_SIZE_RX_IDX0                      2
-#define DRV_I2S_TX_DMA_CHANNEL_IDX0				DMA_CHANNEL_2
-#define DRV_I2S_TX_DMA_SOURCE_IDX0				INT_SOURCE_DMA_2
-#define DRV_I2S_POWER_STATE_IDX0				SYS_MODULE_POWER_RUN_FULL
-#define DRV_I2S_QUEUE_DEPTH_COMBINED     		5
-
 
 /*** Codec Driver Configuration ***/
 
@@ -311,7 +216,102 @@ extern "C" {
 #define DRV_CODEC_MuteOff                                   DRV_AK4384_MuteOff
 #define DRV_CODEC_CommandEventHandlerSet                    DRV_AK4384_CommandEventHandlerSet
 
+ #define  GFX_USE_DISPLAY_CONTROLLER_OTM2201A         
 
+/*** Graphics Display Configuration ***/
+#define DISP_ORIENTATION                        90
+#define DISP_HOR_RESOLUTION                     176
+#define DISP_VER_RESOLUTION                     220
+#define DISP_DATA_WIDTH			                8
+#define DISP_HOR_PULSE_WIDTH                    25
+#define DISP_HOR_BACK_PORCH                     5
+#define DISP_HOR_FRONT_PORCH                    10
+#define DISP_VER_PULSE_WIDTH                    4
+#define DISP_VER_BACK_PORCH                     0
+#define DISP_VER_FRONT_PORCH                    2
+#define DISP_INV_LSHIFT                         1
+#define GFX_LCD_TYPE                            GFX_LCD_TFT
+#define BACKLIGHT_ENABLE_LEVEL                  0
+#define BACKLIGHT_DISABLE_LEVEL                 1
+#define TCON_MODULE                             NULL
+#define USE_TCON_MODULE                         0
+#define GFX_USE_TCON_CUSTOM
+// DOM-IGNORE-END
+
+/*** I2S Driver Configuration ***/
+
+
+#define DRV_I2S_INTERRUPT_MODE					true
+#define DRV_I2S_CLIENTS_NUMBER					1
+#define DRV_I2S_INSTANCES_NUMBER				1
+#define DRV_I2S_STOP_IN_IDLE					false
+#define DRV_I2S_PERIPHERAL_ID_IDX0				SPI_ID_1
+#define DRV_I2S_USAGE_MODE_IDX0					DRV_I2S_MODE_MASTER
+#define DRV_I2S_STOP_IN_IDLE_IDX0				false
+#define SPI_BAUD_RATE_CLK_IDX0					SPI_BAUD_RATE_MCLK_CLOCK
+#define DRV_I2S_BAUD_RATE                       44100
+#define DRV_I2S_CLK_MODE_IDX0					DRV_I2S_CLOCK_MODE_IDLE_HIGH_EDGE_FALL
+#define SPI_AUDIO_COMM_WIDTH_IDX0				SPI_AUDIO_COMMUNICATION_24DATA_32FIFO_32CHANNEL
+#define SPI_AUDIO_TRANSMIT_MODE_IDX0			SPI_AUDIO_TRANSMIT_STEREO
+#define SPI_INPUT_SAMPLING_PHASE_IDX0			SPI_INPUT_SAMPLING_PHASE_IN_MIDDLE
+#define DRV_I2S_AUDIO_PROTOCOL_MODE_IDX0		DRV_I2S_AUDIO_I2S
+#define DRV_I2S_TX_INT_SRC_IDX0					INT_SOURCE_SPI_1_TRANSMIT
+#define DRV_I2S_RX_INT_SRC_IDX0					INT_SOURCE_SPI_1_RECEIVE
+#define QUEUE_SIZE_TX_IDX0                      3
+#define QUEUE_SIZE_RX_IDX0                      2
+#define DRV_I2S_TX_DMA_CHANNEL_IDX0				DMA_CHANNEL_2
+#define DRV_I2S_TX_DMA_SOURCE_IDX0				INT_SOURCE_DMA_2
+#define DRV_I2S_POWER_STATE_IDX0				SYS_MODULE_POWER_RUN_FULL
+#define DRV_I2S_QUEUE_DEPTH_COMBINED     		5
+
+
+#define USE_8BIT_PMP
+
+/*** Timer Driver Configuration ***/
+#define DRV_TMR_INTERRUPT_MODE             true
+#define DRV_TMR_INSTANCES_NUMBER           3
+#define DRV_TMR_CLIENTS_NUMBER             1
+
+/*** Timer Driver 0 Configuration ***/
+#define DRV_TMR_PERIPHERAL_ID_IDX0          TMR_ID_4
+#define DRV_TMR_INTERRUPT_SOURCE_IDX0       INT_SOURCE_TIMER_4
+#define DRV_TMR_INTERRUPT_VECTOR_IDX0       INT_VECTOR_T4
+#define DRV_TMR_ISR_VECTOR_IDX0             _TIMER_4_VECTOR
+#define DRV_TMR_INTERRUPT_PRIORITY_IDX0     INT_PRIORITY_LEVEL1
+#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX0 INT_SUBPRIORITY_LEVEL0
+#define DRV_TMR_CLOCK_SOURCE_IDX0           DRV_TMR_CLKSOURCE_INTERNAL
+#define DRV_TMR_PRESCALE_IDX0               TMR_PRESCALE_VALUE_256
+#define DRV_TMR_OPERATION_MODE_IDX0         DRV_TMR_OPERATION_MODE_16_BIT
+#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX0     false
+#define DRV_TMR_POWER_STATE_IDX0            SYS_MODULE_POWER_RUN_FULL
+
+/*** Timer Driver 1 Configuration ***/
+#define DRV_TMR_PERIPHERAL_ID_IDX1          TMR_ID_1
+#define DRV_TMR_INTERRUPT_SOURCE_IDX1       INT_SOURCE_TIMER_1
+#define DRV_TMR_INTERRUPT_VECTOR_IDX1       INT_VECTOR_T1
+#define DRV_TMR_ISR_VECTOR_IDX1             _TIMER_1_VECTOR
+#define DRV_TMR_INTERRUPT_PRIORITY_IDX1     INT_PRIORITY_LEVEL1
+#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX1 INT_SUBPRIORITY_LEVEL0
+#define DRV_TMR_CLOCK_SOURCE_IDX1           DRV_TMR_CLKSOURCE_INTERNAL
+#define DRV_TMR_PRESCALE_IDX1               TMR_PRESCALE_VALUE_1
+#define DRV_TMR_OPERATION_MODE_IDX1         DRV_TMR_OPERATION_MODE_16_BIT
+#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX1     false
+#define DRV_TMR_POWER_STATE_IDX1            SYS_MODULE_POWER_RUN_FULL
+
+/*** Timer Driver 2 Configuration ***/
+#define DRV_TMR_PERIPHERAL_ID_IDX2          TMR_ID_2
+#define DRV_TMR_INTERRUPT_SOURCE_IDX2       INT_SOURCE_TIMER_3
+#define DRV_TMR_INTERRUPT_VECTOR_IDX2       INT_VECTOR_T3
+#define DRV_TMR_ISR_VECTOR_IDX2             _TIMER_3_VECTOR
+#define DRV_TMR_INTERRUPT_PRIORITY_IDX2     INT_PRIORITY_LEVEL1
+#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX2 INT_SUBPRIORITY_LEVEL0
+#define DRV_TMR_CLOCK_SOURCE_IDX2           DRV_TMR_CLKSOURCE_INTERNAL
+#define DRV_TMR_PRESCALE_IDX2               TMR_PRESCALE_VALUE_1
+#define DRV_TMR_OPERATION_MODE_IDX2         DRV_TMR_OPERATION_MODE_32_BIT
+#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX2     false
+#define DRV_TMR_POWER_STATE_IDX2            SYS_MODULE_POWER_RUN_FULL
+
+ 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Middleware & Other Library Configuration

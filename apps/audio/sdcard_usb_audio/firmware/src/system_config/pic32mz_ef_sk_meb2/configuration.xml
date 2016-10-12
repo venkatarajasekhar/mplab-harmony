@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -418,12 +418,16 @@ APP_DISPLAY_VolumeMuteSourceSet(0);</Text>
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name=""/>
     <Board name=""/>
     <ForceOptimization flag="true"/>
-    <MergeStrategy flag="ALL"/>
+    <MergeStrategy flag="USER_ALL"/>
   </General>
   <Manifest>
     <Files>
@@ -452,10 +456,6 @@ APP_DISPLAY_VolumeMuteSourceSet(0);</Text>
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
-        <Name>drv_pmp_config.h</Name>
-        <Path>Header Files/framework/driver/pmp/config</Path>
-      </File>
-      <File>
         <Name>sys_fs_local.h</Name>
         <Path>Header Files/framework/system/fs/src</Path>
       </File>
@@ -480,6 +480,10 @@ APP_DISPLAY_VolumeMuteSourceSet(0);</Text>
         <Path>Header Files/framework/system/fs</Path>
       </File>
       <File>
+        <Name>flac.h</Name>
+        <Path>Header Files/framework/decoder/default/stubs</Path>
+      </File>
+      <File>
         <Name>gfx_gol_window.h</Name>
         <Path>Header Files/framework/gfx</Path>
       </File>
@@ -502,10 +506,6 @@ APP_DISPLAY_VolumeMuteSourceSet(0);</Text>
       <File>
         <Name>sys_devcon_cache.h</Name>
         <Path>Source Files/framework/system/devcon/src</Path>
-      </File>
-      <File>
-        <Name>drv_pmp_local.h</Name>
-        <Path>Header Files/framework/driver/pmp/src</Path>
       </File>
       <File>
         <Name>gfx_gol_digital_meter.h</Name>
@@ -590,10 +590,6 @@ APP_DISPLAY_VolumeMuteSourceSet(0);</Text>
       <File>
         <Name>sys_dma.c</Name>
         <Path>Source Files/framework/system/dma</Path>
-      </File>
-      <File>
-        <Name>drv_pmp.h</Name>
-        <Path>Header Files/framework/driver/pmp</Path>
       </File>
       <File>
         <Name>osal_impl_basic.h</Name>
@@ -682,6 +678,10 @@ APP_DISPLAY_VolumeMuteSourceSet(0);</Text>
       <File>
         <Name>sys_touch.h</Name>
         <Path>Header Files/framework/system/touch</Path>
+      </File>
+      <File>
+        <Name>flac.c</Name>
+        <Path>Source Files/framework/decoder/default/stubs</Path>
       </File>
       <File>
         <Name>drv_spi_sys_queue_local_fifo.h</Name>
@@ -826,10 +826,6 @@ APP_DISPLAY_VolumeMuteSourceSet(0);</Text>
       <File>
         <Name>usb_device_audio_v1_0.c</Name>
         <Path>Source Files/framework/usb/src/dynamic</Path>
-      </File>
-      <File>
-        <Name>drv_gfx_lcc_int_pe.c</Name>
-        <Path>Source Files/framework/driver/gfx/controller/lcc/src</Path>
       </File>
       <File>
         <Name>driver.h</Name>
@@ -1012,6 +1008,10 @@ APP_DISPLAY_VolumeMuteSourceSet(0);</Text>
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>drv_ak4953.c</Name>
         <Path>Source Files/framework/driver/codec/ak4953/src/dynamic</Path>
       </File>
@@ -1104,10 +1104,6 @@ APP_DISPLAY_VolumeMuteSourceSet(0);</Text>
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
-        <Name>drv_gfx_lcc.h</Name>
-        <Path>Header Files/framework/driver/gfx/controller/lcc</Path>
-      </File>
-      <File>
         <Name>usb_host_client_driver.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
@@ -1130,8 +1126,7 @@ APP_DISPLAY_VolumeMuteSourceSet(0);</Text>
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/driver/spi/dynamic</Path>
-        <Checksum>B3A91E83D97E20F2E6AE74F22B6F32E1</Checksum>
-        <ProjectFileChecksum>5727973ED98D1EFC7FA9070542DF2B68</ProjectFileChecksum>
+        <Checksum>615D0B3998780D1680273302CCF44179</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -1145,56 +1140,54 @@ APP_DISPLAY_VolumeMuteSourceSet(0);</Text>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>DC3DD5F687B78DEDA81AFA95FFD03EDC</Checksum>
+        <Checksum>5AC7D7324A7BEB9ED6FFF066F86D8BF7</Checksum>
         <ProjectFileChecksum>C8D6B12941D5854A5BE2B732C9317DFF</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
-        <ProjectFileChecksum>9AAF4EC5F29B455BF54C09CABA41F5F7</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>4CD6DC9ED4BF30C30CFD2B4F5C4E6851</Checksum>
-        <ProjectFileChecksum>44B9ED4E44F97A0040270D1D470AD903</ProjectFileChecksum>
+        <Checksum>A33D1A29F51C3768D566526B7108B3CB</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>57EDA1CFABA2A118DCFCBE115411A26D</Checksum>
-        <ProjectFileChecksum>5DCEFF123D8D3D482F34BDF95ED3753E</ProjectFileChecksum>
+        <Checksum>3BFBFEB4F1A360D835F66B9C25B42462</Checksum>
       </Template>
       <Template>
         <Name>nvm_disk_images.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/fs</Path>
         <Checksum>B00B90E021F15FFD6B0B1B7F2D0650A5</Checksum>
-        <ProjectFileChecksum>3CCCD324F9B23D674FEC00AB92E1D5E9</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/ports/src</Path>
         <Checksum>E2A2C01A99DC9B72F09E50427C89103E</Checksum>
-        <ProjectFileChecksum>CDEE02589A64487E70F4DB85F4001D88</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>7B9DA63C57EAE564C86804C91124CD82</Checksum>
+        <Checksum>E0A5E2B1626FAC727726E6DF2410700F</Checksum>
         <ProjectFileChecksum>B4C03C54902D50436B8AE36AAB11E9DD</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>drv_gfx_lcc_generic.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>43202FF875E91AE678E480419B7F819E</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum>449767E833CB555DDE7952B337494E13</Checksum>
-        <ProjectFileChecksum>48ED163CEE4483D982CFB58F338B84D8</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum>898BCEECF935F85E8AB6B45B42726658</Checksum>
-        <ProjectFileChecksum>55D06C2E511D5CA2BAFE9BC069F148AA</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -1204,13 +1197,16 @@ APP_DISPLAY_VolumeMuteSourceSet(0);</Text>
         <Name>sys_dma_static.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/dma</Path>
         <Checksum>0CE14BBEB78DCA8EA4AE6AABF57ACD8D</Checksum>
-        <ProjectFileChecksum>F2E1EAE56CD1ACF0B47FCE84EB7B0358</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/bsp</Path>
         <Checksum>5376DF3455399E72B1ED1D3FBB4AEDA8</Checksum>
-        <ProjectFileChecksum>9B8B58C3AD97786595E1A50CBA05EA76</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>drv_gfx_lcc_generic.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>01FDB7AA1F703F4B8126F30E907BE813</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -1220,25 +1216,21 @@ APP_DISPLAY_VolumeMuteSourceSet(0);</Text>
         <Name>drv_spi_master_ebm_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/driver/spi/dynamic</Path>
         <Checksum>4C2C868738FD74E2D6A3C8A8FD6B1381</Checksum>
-        <ProjectFileChecksum>0F405EB9393EEE61B4F77F1839005F63</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/driver/spi/dynamic</Path>
-        <Checksum>0468A6AC4EF824897AA5C22F6EAFBB43</Checksum>
-        <ProjectFileChecksum>D25444846DD1CBE89244EB48C41F393F</ProjectFileChecksum>
+        <Checksum>B8D534FC99E9DAC9CE3CE2AFE17C3907</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum>3CCE9C3A6F38DD2C0DC0213508A8D7D4</Checksum>
-        <ProjectFileChecksum>007B788E978B61B05429BAEAD10FB177</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/bsp</Path>
         <Checksum>B981C89EBDF6C4B47D58B857C85B59C0</Checksum>
-        <ProjectFileChecksum>F7164F030CCEE5568056EE303D317ADE</ProjectFileChecksum>
       </Template>
     </Templates>
     <CompilerItems>

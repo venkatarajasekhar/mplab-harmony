@@ -40,14 +40,6 @@ config TCPIP_HTTP_MAX_CONNECTIONS
     IDH_HTML_TCPIP_HTTP_MAX_CONNECTIONS
     ---endhelp---
 
-config TCPIP_HTTP_MAX_TLS_CONNECTIONS
-    int
-    depends on TCPIP_STACK_USE_HTTP_SERVER
-    default 0
-    ---help---
-    IDH_HTML_TCPIP_HTTP_MAX_CONNECTIONS
-    ---endhelp---
-
 config TCPIP_HTTP_DEFAULT_FILE
     string "Default HTTP File"
     depends on TCPIP_STACK_USE_HTTP_SERVER
@@ -155,22 +147,6 @@ config TCPIP_HTTP_SKT_TX_BUFF_SIZE
 
 config TCPIP_HTTP_SKT_RX_BUFF_SIZE
     int "HTTP Socket RX Buffer Size"
-    depends on TCPIP_STACK_USE_HTTP_SERVER
-    default 0
-    ---help---
-    IDH_HTML_TCPIP_HTTP_SKT_RX_BUFF_SIZE
-    ---endhelp---
-
-config TCPIP_HTTP_TLS_SKT_TX_BUFF_SIZE
-    int
-    depends on TCPIP_STACK_USE_HTTP_SERVER
-    default 0
-    ---help---
-    IDH_HTML_TCPIP_HTTP_SKT_TX_BUFF_SIZE
-    ---endhelp---
-
-config TCPIP_HTTP_TLS_SKT_RX_BUFF_SIZE
-    int
     depends on TCPIP_STACK_USE_HTTP_SERVER
     default 0
     ---help---

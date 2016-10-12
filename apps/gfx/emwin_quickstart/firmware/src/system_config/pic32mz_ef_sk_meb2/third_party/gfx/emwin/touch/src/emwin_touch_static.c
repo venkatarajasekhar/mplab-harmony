@@ -142,20 +142,22 @@ static void _emWin_TouchMessageCallback( SYS_MSG_OBJECT *pMsg )
     
     pidState = &emWinTouchData.pidState;
     
-    if( EVENT_INVALID == pMsg->param0 ||
-        EVENT_MOVE    == pMsg->param0 )
+    switch( pMsg->param0 )
     {
-        return;
-    }
-    
-    if( EVENT_PRESS      == pMsg->param0 ||
-        EVENT_STILLPRESS == pMsg->param0 )
-    {
-        pidState->Pressed = 1;
-    }
-    else
-    {
-        pidState->Pressed = 0;
+        case EVENT_PRESS:
+        {
+            pidState->Pressed = 1;
+            break;
+        }
+        
+        case EVENT_RELEASE:
+        {
+            pidState->Pressed = 0;
+            break;
+        }
+        
+        default:
+            return;
     }
     
     pidState->Layer = 0;

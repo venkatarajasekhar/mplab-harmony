@@ -152,6 +152,7 @@
               <itemPath>../../../../../framework/system/clk/src/sys_clk_pic32mz.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/system/clk/sys_clk.h</itemPath>
+            <itemPath>../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="common" projectFiles="true">
             <itemPath>../../../../../framework/system/common/sys_common.h</itemPath>

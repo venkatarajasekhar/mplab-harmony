@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2064DAB288"/>
@@ -34,10 +38,6 @@
         <Path>Source Files/framework/system/tmr/src</Path>
       </File>
       <File>
-        <Name>ff.h</Name>
-        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
-      </File>
-      <File>
         <Name>drv_usbhs.c</Name>
         <Path>Source Files/framework/driver/usb/usbhs/src/dynamic</Path>
       </File>
@@ -60,10 +60,6 @@
       <File>
         <Name>driver.h</Name>
         <Path>Header Files/framework/driver</Path>
-      </File>
-      <File>
-        <Name>sys_devcon_cache.h</Name>
-        <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
         <Name>sys_int_pic32.c</Name>
@@ -104,10 +100,6 @@
       <File>
         <Name>system.h</Name>
         <Path>Header Files/framework/system</Path>
-      </File>
-      <File>
-        <Name>ffconf.h</Name>
-        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
       </File>
       <File>
         <Name>mpfs_local.h</Name>
@@ -190,10 +182,6 @@
         <Path>Header Files/framework/system/ports</Path>
       </File>
       <File>
-        <Name>diskio.h</Name>
-        <Path>Header Files/framework/system/fs/fat_fs/src/hardware_access</Path>
-      </File>
-      <File>
         <Name>usb_hub.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
@@ -208,6 +196,10 @@
       <File>
         <Name>usb_host_hub.h</Name>
         <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
@@ -303,21 +295,16 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_int_dyn</Path>
-        <Checksum>9BE5348A4B76ED0B9E356361A7BB5F91</Checksum>
+        <Checksum>EB50E1C26A8B3228541D9D79E58DAD0B</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_int_dyn/bsp</Path>
-        <Checksum>AF941FB3A0A491358827882DE0EF295C</Checksum>
+        <Checksum>F81F15F412AAE4ECC6CD75C64A66C547</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
         <Path>Source Files/app</Path>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_da_sk_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -342,12 +329,12 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk_int_dyn/bsp</Path>
-        <Checksum>238AA355C64BA2AC3ED5A2FFB0EC3963</Checksum>
+        <Checksum>72D9C62834B9EFD77BF8E1146EA22EF7</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_int_dyn</Path>
-        <Checksum>0616CC7E2EC100F7D8FE696685273AF8</Checksum>
+        <Checksum>05F187818B186F6BAA013F105FA0A558</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -356,7 +343,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk_int_dyn/framework/system/clk/src</Path>
-        <Checksum>4ACBE80AD6E6B9C5B8788224DF3C6EE8</Checksum>
+        <Checksum>5DEC6FBF578D0F2E0CFD7A4E273CFADC</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -372,7 +359,6 @@
       <C32>
         <Include value="D:\git_usb\usb\apps\usb\host\msd_basic\firmware\src"/>
         <Include value="D:\git_usb\usb\apps\usb\host\msd_basic\firmware\src\system_config\pic32mz_da_sk_int_dyn"/>
-        <Include value="D:\git_usb\usb\apps\usb\host\msd_basic\firmware\src\pic32mz_da_sk_int_dyn"/>
         <Include value="D:\git_usb\usb\framework"/>
         <Include value="D:\git_usb\usb\apps\usb\host\msd_basic\firmware\src\system_config\pic32mz_da_sk_int_dyn\framework"/>
         <Include value="../src/system_config/pic32mz_da_sk_int_dyn/bsp"/>

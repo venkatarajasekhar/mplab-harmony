@@ -52,6 +52,19 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 <#assign usbDeviceHidNumberOfInterfaces = 1>
 <#assign usbDeviceMsdNumberOfInterfaces = 1>
 
+<#assign usbDeviceUseIad = 0>
+<#if (CONFIG_USB_DEVICE_NUMBER_REGISTRED_FUNCTION_DRIVER_IDX0?number == 2 
+      || CONFIG_USB_DEVICE_NUMBER_REGISTRED_FUNCTION_DRIVER_IDX0?number == 3 
+      || CONFIG_USB_DEVICE_NUMBER_REGISTRED_FUNCTION_DRIVER_IDX0?number == 4 
+      || CONFIG_USB_DEVICE_NUMBER_REGISTRED_FUNCTION_DRIVER_IDX0?number == 5 
+      || CONFIG_USB_DEVICE_NUMBER_REGISTRED_FUNCTION_DRIVER_IDX0?number == 6
+      || CONFIG_USB_DEVICE_NUMBER_REGISTRED_FUNCTION_DRIVER_IDX0?number == 7 
+      || CONFIG_USB_DEVICE_NUMBER_REGISTRED_FUNCTION_DRIVER_IDX0?number == 8
+      || CONFIG_USB_DEVICE_NUMBER_REGISTRED_FUNCTION_DRIVER_IDX0?number == 9 
+      || CONFIG_USB_DEVICE_NUMBER_REGISTRED_FUNCTION_DRIVER_IDX0?number == 10) &&  (CONFIG_USB_DEVICE_USE_CDC == true) >
+	  <#assign usbDeviceUseIad = 1>
+</#if>	  
+
 <#include "/framework/usb/templates/usb_device_descriptor_hid_report.c.ftl">
 <#if CONFIG_USB_DEVICE_FUNCTION_1_DEVICE_CLASS_MSD_IDX0 == true >
 <#if CONFIG_PIC32MZ == true>
@@ -140,6 +153,45 @@ USB_DEVICE_MSD_MEDIA_INIT_DATA msdMediaInit${usbDeviceMSDIndex}[1] =
             DRV_NVM_EraseWrite,
             DRV_NVM_IsWriteProtected,
             DRV_NVM_EventHandlerSet,
+            NULL
+        }
+    }
+    <#elseif CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "msd_spiflash_demo">
+    {
+        DRV_SST25_INDEX_0,
+        512,
+        sectorBuffer,
+        NULL,
+        NULL,
+        {
+            0x00,	// peripheral device is connected, direct access block device
+            0x80,   // removable
+            0x04,	// version = 00=> does not conform to any standard, 4=> SPC-2
+            0x02,	// response is in format specified by SPC-2
+            0x1F,	// additional length
+            0x00,	// sccs etc.
+            0x00,	// bque=1 and cmdque=0,indicates simple queueing 00 is obsolete,
+                    // but as in case of other device, we are just using 00
+            0x00,	// 00 obsolete, 0x80 for basic task queueing
+            {
+                'M','i','c','r','o','c','h','p'
+            },
+            {
+                'M','a','s','s',' ','S','t','o','r','a','g','e',' ',' ',' ',' '
+            },
+            {
+                '0','0','0','1'
+            }
+        },
+        {
+            DRV_SST25_MediaIsAttached,
+            DRV_SST25_Open,
+            DRV_SST25_Close,
+            DRV_SST25_GeometryGet,
+            DRV_SST25_BlockRead,
+            DRV_SST25_BlockEraseWrite,
+            DRV_SST25_MediaIsWriteProtected,
+            DRV_SST25_BlockEventHandlerSet,
             NULL
         }
     }
@@ -274,6 +326,45 @@ USB_DEVICE_MSD_MEDIA_INIT_DATA msdMediaInit${usbDeviceMSDIndex}[1] =
             NULL
         }
     }
+    <#elseif CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "msd_spiflash_demo">
+    {
+        DRV_SST25_INDEX_0,
+        512,
+        sectorBuffer,
+        NULL,
+        NULL,
+        {
+            0x00,	// peripheral device is connected, direct access block device
+            0x80,   // removable
+            0x04,	// version = 00=> does not conform to any standard, 4=> SPC-2
+            0x02,	// response is in format specified by SPC-2
+            0x1F,	// additional length
+            0x00,	// sccs etc.
+            0x00,	// bque=1 and cmdque=0,indicates simple queueing 00 is obsolete,
+                    // but as in case of other device, we are just using 00
+            0x00,	// 00 obsolete, 0x80 for basic task queueing
+            {
+                'M','i','c','r','o','c','h','p'
+            },
+            {
+                'M','a','s','s',' ','S','t','o','r','a','g','e',' ',' ',' ',' '
+            },
+            {
+                '0','0','0','1'
+            }
+        },
+        {
+            DRV_SST25_MediaIsAttached,
+            DRV_SST25_Open,
+            DRV_SST25_Close,
+            DRV_SST25_GeometryGet,
+            DRV_SST25_BlockRead,
+            DRV_SST25_BlockEraseWrite,
+            DRV_SST25_MediaIsWriteProtected,
+            DRV_SST25_BlockEventHandlerSet,
+            NULL
+        }
+    }
     <#elseif CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "msd_basic_sdcard_demo">
         {
         DRV_SDCARD_INDEX_0,
@@ -402,6 +493,45 @@ USB_DEVICE_MSD_MEDIA_INIT_DATA msdMediaInit${usbDeviceMSDIndex}[1] =
             DRV_NVM_EraseWrite,
             DRV_NVM_IsWriteProtected,
             DRV_NVM_EventHandlerSet,
+            NULL
+        }
+    }
+    <#elseif CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "msd_spiflash_demo">
+    {
+        DRV_SST25_INDEX_0,
+        512,
+        sectorBuffer,
+        NULL,
+        NULL,
+        {
+            0x00,	// peripheral device is connected, direct access block device
+            0x80,   // removable
+            0x04,	// version = 00=> does not conform to any standard, 4=> SPC-2
+            0x02,	// response is in format specified by SPC-2
+            0x1F,	// additional length
+            0x00,	// sccs etc.
+            0x00,	// bque=1 and cmdque=0,indicates simple queueing 00 is obsolete,
+                    // but as in case of other device, we are just using 00
+            0x00,	// 00 obsolete, 0x80 for basic task queueing
+            {
+                'M','i','c','r','o','c','h','p'
+            },
+            {
+                'M','a','s','s',' ','S','t','o','r','a','g','e',' ',' ',' ',' '
+            },
+            {
+                '0','0','0','1'
+            }
+        },
+        {
+            DRV_SST25_MediaIsAttached,
+            DRV_SST25_Open,
+            DRV_SST25_Close,
+            DRV_SST25_GeometryGet,
+            DRV_SST25_BlockRead,
+            DRV_SST25_BlockEraseWrite,
+            DRV_SST25_MediaIsWriteProtected,
+            DRV_SST25_BlockEventHandlerSet,
             NULL
         }
     }
@@ -536,6 +666,45 @@ USB_DEVICE_MSD_MEDIA_INIT_DATA msdMediaInit${usbDeviceMSDIndex}[1] =
             NULL
         }
     }
+    <#elseif CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "msd_spiflash_demo">
+    {
+        DRV_SST25_INDEX_0,
+        512,
+        sectorBuffer,
+        NULL,
+        NULL,
+        {
+            0x00,	// peripheral device is connected, direct access block device
+            0x80,   // removable
+            0x04,	// version = 00=> does not conform to any standard, 4=> SPC-2
+            0x02,	// response is in format specified by SPC-2
+            0x1F,	// additional length
+            0x00,	// sccs etc.
+            0x00,	// bque=1 and cmdque=0,indicates simple queueing 00 is obsolete,
+                    // but as in case of other device, we are just using 00
+            0x00,	// 00 obsolete, 0x80 for basic task queueing
+            {
+                'M','i','c','r','o','c','h','p'
+            },
+            {
+                'M','a','s','s',' ','S','t','o','r','a','g','e',' ',' ',' ',' '
+            },
+            {
+                '0','0','0','1'
+            }
+        },
+        {
+            DRV_SST25_MediaIsAttached,
+            DRV_SST25_Open,
+            DRV_SST25_Close,
+            DRV_SST25_GeometryGet,
+            DRV_SST25_BlockRead,
+            DRV_SST25_BlockEraseWrite,
+            DRV_SST25_MediaIsWriteProtected,
+            DRV_SST25_BlockEventHandlerSet,
+            NULL
+        }
+    }
     <#elseif CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "msd_basic_sdcard_demo">
         {
         DRV_SDCARD_INDEX_0,
@@ -664,6 +833,45 @@ USB_DEVICE_MSD_MEDIA_INIT_DATA msdMediaInit${usbDeviceMSDIndex}[1] =
             DRV_NVM_EraseWrite,
             DRV_NVM_IsWriteProtected,
             DRV_NVM_EventHandlerSet,
+            NULL
+        }
+    }
+    <#elseif CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "msd_spiflash_demo">
+    {
+        DRV_SST25_INDEX_0,
+        512,
+        sectorBuffer,
+        NULL,
+        NULL,
+        {
+            0x00,	// peripheral device is connected, direct access block device
+            0x80,   // removable
+            0x04,	// version = 00=> does not conform to any standard, 4=> SPC-2
+            0x02,	// response is in format specified by SPC-2
+            0x1F,	// additional length
+            0x00,	// sccs etc.
+            0x00,	// bque=1 and cmdque=0,indicates simple queueing 00 is obsolete,
+                    // but as in case of other device, we are just using 00
+            0x00,	// 00 obsolete, 0x80 for basic task queueing
+            {
+                'M','i','c','r','o','c','h','p'
+            },
+            {
+                'M','a','s','s',' ','S','t','o','r','a','g','e',' ',' ',' ',' '
+            },
+            {
+                '0','0','0','1'
+            }
+        },
+        {
+            DRV_SST25_MediaIsAttached,
+            DRV_SST25_Open,
+            DRV_SST25_Close,
+            DRV_SST25_GeometryGet,
+            DRV_SST25_BlockRead,
+            DRV_SST25_BlockEraseWrite,
+            DRV_SST25_MediaIsWriteProtected,
+            DRV_SST25_BlockEventHandlerSet,
             NULL
         }
     }
@@ -800,6 +1008,45 @@ USB_DEVICE_MSD_MEDIA_INIT_DATA msdMediaInit${usbDeviceMSDIndex}[1] =
             NULL
         }
     }
+    <#elseif CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "msd_spiflash_demo">
+    {
+        DRV_SST25_INDEX_0,
+        512,
+        sectorBuffer,
+        NULL,
+        NULL,
+        {
+            0x00,	// peripheral device is connected, direct access block device
+            0x80,   // removable
+            0x04,	// version = 00=> does not conform to any standard, 4=> SPC-2
+            0x02,	// response is in format specified by SPC-2
+            0x1F,	// additional length
+            0x00,	// sccs etc.
+            0x00,	// bque=1 and cmdque=0,indicates simple queueing 00 is obsolete,
+                    // but as in case of other device, we are just using 00
+            0x00,	// 00 obsolete, 0x80 for basic task queueing
+            {
+                'M','i','c','r','o','c','h','p'
+            },
+            {
+                'M','a','s','s',' ','S','t','o','r','a','g','e',' ',' ',' ',' '
+            },
+            {
+                '0','0','0','1'
+            }
+        },
+        {
+            DRV_SST25_MediaIsAttached,
+            DRV_SST25_Open,
+            DRV_SST25_Close,
+            DRV_SST25_GeometryGet,
+            DRV_SST25_BlockRead,
+            DRV_SST25_BlockEraseWrite,
+            DRV_SST25_MediaIsWriteProtected,
+            DRV_SST25_BlockEventHandlerSet,
+            NULL
+        }
+    }
     <#elseif CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "msd_basic_sdcard_demo">
         {
         DRV_SDCARD_INDEX_0,
@@ -930,6 +1177,45 @@ USB_DEVICE_MSD_MEDIA_INIT_DATA msdMediaInit${usbDeviceMSDIndex}[1] =
             DRV_NVM_EraseWrite,
             DRV_NVM_IsWriteProtected,
             DRV_NVM_EventHandlerSet,
+            NULL
+        }
+    }
+    <#elseif CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "msd_spiflash_demo">
+    {
+        DRV_SST25_INDEX_0,
+        512,
+        sectorBuffer,
+        NULL,
+        NULL,
+        {
+            0x00,	// peripheral device is connected, direct access block device
+            0x80,   // removable
+            0x04,	// version = 00=> does not conform to any standard, 4=> SPC-2
+            0x02,	// response is in format specified by SPC-2
+            0x1F,	// additional length
+            0x00,	// sccs etc.
+            0x00,	// bque=1 and cmdque=0,indicates simple queueing 00 is obsolete,
+                    // but as in case of other device, we are just using 00
+            0x00,	// 00 obsolete, 0x80 for basic task queueing
+            {
+                'M','i','c','r','o','c','h','p'
+            },
+            {
+                'M','a','s','s',' ','S','t','o','r','a','g','e',' ',' ',' ',' '
+            },
+            {
+                '0','0','0','1'
+            }
+        },
+        {
+            DRV_SST25_MediaIsAttached,
+            DRV_SST25_Open,
+            DRV_SST25_Close,
+            DRV_SST25_GeometryGet,
+            DRV_SST25_BlockRead,
+            DRV_SST25_BlockEraseWrite,
+            DRV_SST25_MediaIsWriteProtected,
+            DRV_SST25_BlockEventHandlerSet,
             NULL
         }
     }
@@ -1066,6 +1352,45 @@ USB_DEVICE_MSD_MEDIA_INIT_DATA msdMediaInit${usbDeviceMSDIndex}[1] =
             NULL
         }
     }
+    <#elseif CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "msd_spiflash_demo">
+    {
+        DRV_SST25_INDEX_0,
+        512,
+        sectorBuffer,
+        NULL,
+        NULL,
+        {
+            0x00,	// peripheral device is connected, direct access block device
+            0x80,   // removable
+            0x04,	// version = 00=> does not conform to any standard, 4=> SPC-2
+            0x02,	// response is in format specified by SPC-2
+            0x1F,	// additional length
+            0x00,	// sccs etc.
+            0x00,	// bque=1 and cmdque=0,indicates simple queueing 00 is obsolete,
+                    // but as in case of other device, we are just using 00
+            0x00,	// 00 obsolete, 0x80 for basic task queueing
+            {
+                'M','i','c','r','o','c','h','p'
+            },
+            {
+                'M','a','s','s',' ','S','t','o','r','a','g','e',' ',' ',' ',' '
+            },
+            {
+                '0','0','0','1'
+            }
+        },
+        {
+            DRV_SST25_MediaIsAttached,
+            DRV_SST25_Open,
+            DRV_SST25_Close,
+            DRV_SST25_GeometryGet,
+            DRV_SST25_BlockRead,
+            DRV_SST25_BlockEraseWrite,
+            DRV_SST25_MediaIsWriteProtected,
+            DRV_SST25_BlockEventHandlerSet,
+            NULL
+        }
+    }
     <#elseif CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "msd_basic_sdcard_demo">
         {
         DRV_SDCARD_INDEX_0,
@@ -1196,6 +1521,45 @@ USB_DEVICE_MSD_MEDIA_INIT_DATA msdMediaInit${usbDeviceMSDIndex}[1] =
             DRV_NVM_EraseWrite,
             DRV_NVM_IsWriteProtected,
             DRV_NVM_EventHandlerSet,
+            NULL
+        }
+    }
+    <#elseif CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "msd_spiflash_demo">
+    {
+        DRV_SST25_INDEX_0,
+        512,
+        sectorBuffer,
+        NULL,
+        NULL,
+        {
+            0x00,	// peripheral device is connected, direct access block device
+            0x80,   // removable
+            0x04,	// version = 00=> does not conform to any standard, 4=> SPC-2
+            0x02,	// response is in format specified by SPC-2
+            0x1F,	// additional length
+            0x00,	// sccs etc.
+            0x00,	// bque=1 and cmdque=0,indicates simple queueing 00 is obsolete,
+                    // but as in case of other device, we are just using 00
+            0x00,	// 00 obsolete, 0x80 for basic task queueing
+            {
+                'M','i','c','r','o','c','h','p'
+            },
+            {
+                'M','a','s','s',' ','S','t','o','r','a','g','e',' ',' ',' ',' '
+            },
+            {
+                '0','0','0','1'
+            }
+        },
+        {
+            DRV_SST25_MediaIsAttached,
+            DRV_SST25_Open,
+            DRV_SST25_Close,
+            DRV_SST25_GeometryGet,
+            DRV_SST25_BlockRead,
+            DRV_SST25_BlockEraseWrite,
+            DRV_SST25_MediaIsWriteProtected,
+            DRV_SST25_BlockEventHandlerSet,
             NULL
         }
     }
@@ -1330,6 +1694,45 @@ USB_DEVICE_MSD_MEDIA_INIT_DATA msdMediaInit${usbDeviceMSDIndex}[1] =
             DRV_NVM_EraseWrite,
             DRV_NVM_IsWriteProtected,
             DRV_NVM_EventHandlerSet,
+            NULL
+        }
+    }
+    <#elseif CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "msd_spiflash_demo">
+    {
+        DRV_SST25_INDEX_0,
+        512,
+        sectorBuffer,
+        NULL,
+        NULL,
+        {
+            0x00,	// peripheral device is connected, direct access block device
+            0x80,   // removable
+            0x04,	// version = 00=> does not conform to any standard, 4=> SPC-2
+            0x02,	// response is in format specified by SPC-2
+            0x1F,	// additional length
+            0x00,	// sccs etc.
+            0x00,	// bque=1 and cmdque=0,indicates simple queueing 00 is obsolete,
+                    // but as in case of other device, we are just using 00
+            0x00,	// 00 obsolete, 0x80 for basic task queueing
+            {
+                'M','i','c','r','o','c','h','p'
+            },
+            {
+                'M','a','s','s',' ','S','t','o','r','a','g','e',' ',' ',' ',' '
+            },
+            {
+                '0','0','0','1'
+            }
+        },
+        {
+            DRV_SST25_MediaIsAttached,
+            DRV_SST25_Open,
+            DRV_SST25_Close,
+            DRV_SST25_GeometryGet,
+            DRV_SST25_BlockRead,
+            DRV_SST25_BlockEraseWrite,
+            DRV_SST25_MediaIsWriteProtected,
+            DRV_SST25_BlockEventHandlerSet,
             NULL
         }
     }
@@ -2676,11 +3079,11 @@ const USB_DEVICE_DESCRIPTOR deviceDescriptor =
     0x12,                           // Size of this descriptor in bytes
     USB_DESCRIPTOR_DEVICE,          // DEVICE descriptor type
     0x0200,                         // USB Spec Release Number in BCD format
- <#if CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "cdc_com_port_single_demo">
-    USB_CDC_CLASS_CODE,         // Class Code
+<#if ((CONFIG_USB_DEVICE_USE_CDC == true)	&& (usbDeviceUseIad == 0)) >
+	USB_CDC_CLASS_CODE,         // Class Code
     USB_CDC_SUBCLASS_CODE,      // Subclass code
     0x00,                       // Protocol code
- <#elseif CONFIG_USB_DEVICE_USE_CDC == true>
+<#elseif  usbDeviceUseIad == 1> 
     0xEF,                           // Class Code
     0x02,                           // Subclass code
     0x01,                           // Protocol code
@@ -2697,7 +3100,7 @@ const USB_DEVICE_DESCRIPTOR deviceDescriptor =
     ${CONFIG_USB_DEVICE_VENDOR_ID_IDX0},                         // Vendor ID
     ${CONFIG_USB_DEVICE_PRODUCT_ID_IDX0},                         // Product ID
 <#if CONFIG_USB_DEVICE_USE_AUDIO_2_0 == true>	
-	0x0200,
+	0x0200,							// Device release number in BCD format				
 <#else>	
     0x0100,                         // Device release number in BCD format
 </#if>	
@@ -2723,11 +3126,11 @@ const USB_DEVICE_QUALIFIER deviceQualifierDescriptor1 =
     0x0A,                               // Size of this descriptor in bytes
     USB_DESCRIPTOR_DEVICE_QUALIFIER,    // Device Qualifier Type
     0x0200,                             // USB Specification Release number
- <#if CONFIG_USB_DEVICE_PRODUCT_ID_SELECT_IDX0 == "cdc_com_port_single_demo">
-    USB_CDC_CLASS_CODE,         // Class Code
+ <#if ((CONFIG_USB_DEVICE_USE_CDC == true)	&& (usbDeviceUseIad == 0)) >
+	USB_CDC_CLASS_CODE,         // Class Code
     USB_CDC_SUBCLASS_CODE,      // Subclass code
     0x00,                       // Protocol code
- <#elseif CONFIG_USB_DEVICE_USE_CDC == true>
+<#elseif  usbDeviceUseIad == 1> 
     0xEF,                           // Class Code
     0x02,                           // Subclass code
     0x01,                           // Protocol code

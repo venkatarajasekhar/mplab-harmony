@@ -332,7 +332,7 @@ void APP_Tasks (void )
 
 static void clearRepeatTimer(void)
 {
-    DRV_TMR_Alarm32BitDeregister(appData.repeatTmrHandle); // Stops timer, too
+    DRV_TMR_AlarmDeregister(appData.repeatTmrHandle); // Stops timer, too
     SYS_LOG("clearRepeatTimer");
   // OR:
   //SYS_LOG_EntryWrite(__SYS_LOG_TAG__,"clearRepeatTimer");

@@ -51,6 +51,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "system/fs/sys_fs_media_manager.h"
 #include "osal/osal.h"
 
+#define SYS_FS_PATH_LEN_WITH_DISK_NUM (FAT_FS_MAX_LFN + 3)
+
 // *****************************************************************************
 /* Mount point
 
@@ -193,7 +195,7 @@ SYS_FS_RESULT _SYS_FS_DiskGet(const char *path, SYS_FS_MOUNT_POINT **disk);
 
 //******************************************************************************
 /*Function:
-    void _SYS_FS_DiskNumberAppend(const char *path, uint8_t diskNumber, uint8_t *buffer)
+    bool _SYS_FS_DiskNumberAppend(const char *path, uint8_t diskNumber, uint8_t *buffer)
 
     Summary:
         Appends the disk number to the begining of the file name.
@@ -201,28 +203,27 @@ SYS_FS_RESULT _SYS_FS_DiskGet(const char *path, SYS_FS_MOUNT_POINT **disk);
     Description:
         Appends the disk number to the begining of the file name. This is required for
         the native FAT FS working.
-        The function assumes that the max buffer be of size "FAT_FS_MAX_LFN".
+        The function assumes that the max buffer be of size "SYS_FS_PATH_LEN_WITH_DISK_NUM".
 
     Precondition:
         Atlesat, one disk has to be mounted before this funcion could be set.
 
 
     Parameters:
-        path            - Path for the file/ directory.
+        path        - Path for the file/ directory.
 
         disk     	- pointer of type SYS_FS_MOUNT_POINT.
 
 
     Returns:
-        If Success	-	SYS_FS_RES_SUCCESS
-
-        If Failure	-	SYS_FS_RES_FAILURE
+        True - If the append operation was successful.
+        False - If the append oepration was unsuccessful.
 
 		The reason for failure could be retrieved with SYS_FS_Error
   Remarks:
-	None
+    None
 ***************************************************************************/
-void _SYS_FS_DiskNumberAppend(const char *path, uint8_t diskNumber, uint8_t *buffer);
+bool _SYS_FS_DiskNumberAppend(const char *path, uint8_t diskNumber, uint8_t *buffer);
 
 //******************************************************************************
 /*Function:

@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -90,7 +86,12 @@ extern "C" {
 #define SYS_CLK_CONFIG_FREQ_ERROR_LIMIT     10
 #define SYS_CLK_WAIT_FOR_SWITCH             true
 #define SYS_CLK_ON_WAIT                     OSC_ON_WAIT_IDLE
-   
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
@@ -119,7 +120,7 @@ extern "C" {
 #define SYS_PORT_C_CNPD         0x0000
 #define SYS_PORT_C_CNEN         0x0000
 
-#define SYS_PORT_D_ANSEL        0x30CE
+#define SYS_PORT_D_ANSEL        0x000E
 #define SYS_PORT_D_TRIS         0xE7F1
 #define SYS_PORT_D_LAT          0x0000
 #define SYS_PORT_D_ODC          0x0000
@@ -152,92 +153,11 @@ extern "C" {
 #define SYS_PORT_G_CNEN         0x0000
 
 
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* I2C Driver Configuration Options
-*/
-#define DRV_I2C_INTERRUPT_MODE                    		true
-#define DRV_I2C_CLIENTS_NUMBER                    		1
-#define DRV_I2C_INSTANCES_NUMBER                  		1
-
-#define DRV_I2C_PERIPHERAL_ID_IDX0                		I2C_ID_1
-#define DRV_I2C_OPERATION_MODE_IDX0               		DRV_I2C_MODE_MASTER
-#define DRV_SCL_PORT_IDX0                               PORT_CHANNEL_A
-#define DRV_SCL_PIN_POSITION_IDX0                       PORTS_BIT_POS_14
-#define DRV_SDA_PORT_IDX0                               PORT_CHANNEL_A
-#define DRV_SDA_PIN_POSITION_IDX0                       PORTS_BIT_POS_15
-#define DRV_I2C_BIT_BANG_IDX0                           false
-#define DRV_I2C_STOP_IN_IDLE_IDX0                       false
-#define DRV_I2C_SMBus_SPECIFICATION_IDX0			    false
-#define DRV_I2C_BAUD_RATE_IDX0                    		50000
-#define DRV_I2C_BRG_CLOCK_IDX0	                  		48000000
-#define DRV_I2C_SLEW_RATE_CONTROL_IDX0      			false
-#define DRV_I2C_MASTER_INT_SRC_IDX0               		INT_SOURCE_I2C_1_MASTER
-#define DRV_I2C_SLAVE_INT_SRC_IDX0                		
-#define DRV_I2C_ERR_MX_INT_SRC_IDX0               		INT_SOURCE_I2C_1_ERROR
-#define DRV_I2C_INT_VECTOR_IDX0                         INT_VECTOR_I2C1
-#define DRV_I2C_ISR_VECTOR_IDX0                         _I2C_1_VECTOR
-#define DRV_I2C_INT_PRIORITY_IDX0                 		INT_PRIORITY_LEVEL1
-#define DRV_I2C_INT_SUB_PRIORITY_IDX0             		INT_SUBPRIORITY_LEVEL0
-#define DRV_I2C_POWER_STATE_IDX0                  		SYS_MODULE_POWER_RUN_FULL
-#define DRV_I2C_INTERRUPT_MODE                    		true
-
- #define  GFX_USE_DISPLAY_CONTROLLER_OTM2201A         
-
-/*** Graphics Display Configuration ***/
-#define DISP_ORIENTATION                        90
-#define DISP_HOR_RESOLUTION                     176
-#define DISP_VER_RESOLUTION                     220
-#define DISP_DATA_WIDTH			                8
-#define DISP_HOR_PULSE_WIDTH                    25
-#define DISP_HOR_BACK_PORCH                     5
-#define DISP_HOR_FRONT_PORCH                    10
-#define DISP_VER_PULSE_WIDTH                    4
-#define DISP_VER_BACK_PORCH                     0
-#define DISP_VER_FRONT_PORCH                    2
-#define DISP_INV_LSHIFT                         1
-#define GFX_LCD_TYPE                            GFX_LCD_TFT
-#define BACKLIGHT_ENABLE_LEVEL                  0
-#define BACKLIGHT_DISABLE_LEVEL                 1
-#define TCON_MODULE                             NULL
-#define USE_TCON_MODULE                         0
-#define GFX_USE_TCON_CUSTOM
-// DOM-IGNORE-END
-
-#define USE_8BIT_PMP
-
-
-/*** I2S Driver Configuration ***/
-
-
-#define DRV_I2S_INTERRUPT_MODE					true
-#define DRV_I2S_CLIENTS_NUMBER					1
-#define DRV_I2S_INSTANCES_NUMBER				1
-#define DRV_I2S_STOP_IN_IDLE					false
-#define DRV_I2S_PERIPHERAL_ID_IDX0				SPI_ID_1
-#define DRV_I2S_USAGE_MODE_IDX0					DRV_I2S_MODE_MASTER
-#define DRV_I2S_STOP_IN_IDLE_IDX0				false
-#define SPI_BAUD_RATE_CLK_IDX0					SPI_BAUD_RATE_MCLK_CLOCK
-#define DRV_I2S_BAUD_RATE                       48000
-#define DRV_I2S_CLK_MODE_IDX0					DRV_I2S_CLOCK_MODE_IDLE_HIGH_EDGE_FALL
-#define SPI_AUDIO_COMM_WIDTH_IDX0				SPI_AUDIO_COMMUNICATION_16DATA_16FIFO_32CHANNEL
-#define SPI_AUDIO_TRANSMIT_MODE_IDX0			SPI_AUDIO_TRANSMIT_STEREO
-#define SPI_INPUT_SAMPLING_PHASE_IDX0			SPI_INPUT_SAMPLING_PHASE_IN_MIDDLE
-#define DRV_I2S_AUDIO_PROTOCOL_MODE_IDX0		DRV_I2S_AUDIO_RIGHT_JUSTIFIED
-#define DRV_I2S_TX_INT_SRC_IDX0					INT_SOURCE_SPI_1_TRANSMIT
-#define DRV_I2S_RX_INT_SRC_IDX0					INT_SOURCE_SPI_1_RECEIVE
-#define QUEUE_SIZE_TX_IDX0                      2
-#define QUEUE_SIZE_RX_IDX0                      1
-#define DRV_I2S_TX_DMA_CHANNEL_IDX0				DMA_CHANNEL_0
-#define DRV_I2S_TX_DMA_SOURCE_IDX0				INT_SOURCE_DMA_0
-#define DRV_I2S_POWER_STATE_IDX0				SYS_MODULE_POWER_RUN_FULL
-#define DRV_I2S_QUEUE_DEPTH_COMBINED     		3
-
 
 /*** Codec Driver Configuration ***/
 
@@ -302,6 +222,86 @@ extern "C" {
 #define DRV_CODEC_CommandEventHandlerSet                    DRV_AK4642_CommandEventHandlerSet
 
 
+ #define  GFX_USE_DISPLAY_CONTROLLER_OTM2201A         
+
+/*** Graphics Display Configuration ***/
+#define DISP_ORIENTATION                        90
+#define DISP_HOR_RESOLUTION                     176
+#define DISP_VER_RESOLUTION                     220
+#define DISP_DATA_WIDTH			                8
+#define DISP_HOR_PULSE_WIDTH                    25
+#define DISP_HOR_BACK_PORCH                     5
+#define DISP_HOR_FRONT_PORCH                    10
+#define DISP_VER_PULSE_WIDTH                    4
+#define DISP_VER_BACK_PORCH                     0
+#define DISP_VER_FRONT_PORCH                    2
+#define DISP_INV_LSHIFT                         1
+#define GFX_LCD_TYPE                            GFX_LCD_TFT
+#define BACKLIGHT_ENABLE_LEVEL                  0
+#define BACKLIGHT_DISABLE_LEVEL                 1
+#define TCON_MODULE                             NULL
+#define USE_TCON_MODULE                         0
+#define GFX_USE_TCON_CUSTOM
+// DOM-IGNORE-END
+// *****************************************************************************
+/* I2C Driver Configuration Options
+*/
+#define DRV_I2C_INTERRUPT_MODE                    		true
+#define DRV_I2C_CLIENTS_NUMBER                    		1
+#define DRV_I2C_INSTANCES_NUMBER                  		1
+
+#define DRV_I2C_PERIPHERAL_ID_IDX0                		I2C_ID_1
+#define DRV_I2C_OPERATION_MODE_IDX0               		DRV_I2C_MODE_MASTER
+#define DRV_SCL_PORT_IDX0                               PORT_CHANNEL_A
+#define DRV_SCL_PIN_POSITION_IDX0                       PORTS_BIT_POS_14
+#define DRV_SDA_PORT_IDX0                               PORT_CHANNEL_A
+#define DRV_SDA_PIN_POSITION_IDX0                       PORTS_BIT_POS_15
+#define DRV_I2C_BIT_BANG_IDX0                           false
+#define DRV_I2C_STOP_IN_IDLE_IDX0                       false
+#define DRV_I2C_SMBus_SPECIFICATION_IDX0			    false
+#define DRV_I2C_BAUD_RATE_IDX0                    		50000
+#define DRV_I2C_BRG_CLOCK_IDX0	                  		48000000
+#define DRV_I2C_SLEW_RATE_CONTROL_IDX0      			false
+#define DRV_I2C_MASTER_INT_SRC_IDX0               		INT_SOURCE_I2C_1_MASTER
+#define DRV_I2C_SLAVE_INT_SRC_IDX0                		
+#define DRV_I2C_ERR_MX_INT_SRC_IDX0               		INT_SOURCE_I2C_1_ERROR
+#define DRV_I2C_INT_VECTOR_IDX0                         INT_VECTOR_I2C1
+#define DRV_I2C_ISR_VECTOR_IDX0                         _I2C_1_VECTOR
+#define DRV_I2C_INT_PRIORITY_IDX0                 		INT_PRIORITY_LEVEL1
+#define DRV_I2C_INT_SUB_PRIORITY_IDX0             		INT_SUBPRIORITY_LEVEL0
+#define DRV_I2C_POWER_STATE_IDX0                  		SYS_MODULE_POWER_RUN_FULL
+#define DRV_I2C_INTERRUPT_MODE                    		true
+
+
+/*** I2S Driver Configuration ***/
+
+
+#define DRV_I2S_INTERRUPT_MODE					true
+#define DRV_I2S_CLIENTS_NUMBER					1
+#define DRV_I2S_INSTANCES_NUMBER				1
+#define DRV_I2S_STOP_IN_IDLE					false
+#define DRV_I2S_PERIPHERAL_ID_IDX0				SPI_ID_1
+#define DRV_I2S_USAGE_MODE_IDX0					DRV_I2S_MODE_MASTER
+#define DRV_I2S_STOP_IN_IDLE_IDX0				false
+#define SPI_BAUD_RATE_CLK_IDX0					SPI_BAUD_RATE_MCLK_CLOCK
+#define DRV_I2S_BAUD_RATE                       48000
+#define DRV_I2S_CLK_MODE_IDX0					DRV_I2S_CLOCK_MODE_IDLE_HIGH_EDGE_FALL
+#define SPI_AUDIO_COMM_WIDTH_IDX0				SPI_AUDIO_COMMUNICATION_16DATA_16FIFO_32CHANNEL
+#define SPI_AUDIO_TRANSMIT_MODE_IDX0			SPI_AUDIO_TRANSMIT_STEREO
+#define SPI_INPUT_SAMPLING_PHASE_IDX0			SPI_INPUT_SAMPLING_PHASE_IN_MIDDLE
+#define DRV_I2S_AUDIO_PROTOCOL_MODE_IDX0		DRV_I2S_AUDIO_RIGHT_JUSTIFIED
+#define DRV_I2S_TX_INT_SRC_IDX0					INT_SOURCE_SPI_1_TRANSMIT
+#define DRV_I2S_RX_INT_SRC_IDX0					INT_SOURCE_SPI_1_RECEIVE
+#define QUEUE_SIZE_TX_IDX0                      2
+#define QUEUE_SIZE_RX_IDX0                      1
+#define DRV_I2S_TX_DMA_CHANNEL_IDX0				DMA_CHANNEL_0
+#define DRV_I2S_TX_DMA_SOURCE_IDX0				INT_SOURCE_DMA_0
+#define DRV_I2S_POWER_STATE_IDX0				SYS_MODULE_POWER_RUN_FULL
+#define DRV_I2S_QUEUE_DEPTH_COMBINED     		3
+
+
+#define USE_8BIT_PMP
+
 
 // *****************************************************************************
 // *****************************************************************************
@@ -332,6 +332,7 @@ extern "C" {
 #define GFX_CONFIG_USE_KEYBOARD_DISABLE
 #define GFX_CONFIG_USE_TOUCHSCREEN_DISABLE
 #define GFX_CONFIG_GOL_DISABLE
+
 
 /*** USB Driver Configuration ***/
 
@@ -402,7 +403,6 @@ extern "C" {
 
 /* No of alternate settings */
 #define USB_DEVICE_AUDIO_MAX_ALTERNATE_SETTING      2
-
 
 
 

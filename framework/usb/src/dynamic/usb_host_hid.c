@@ -3422,7 +3422,7 @@ USB_HOST_HID_RESULT _USB_HOST_HID_GlobalItemParse
             return USB_HOST_HID_RESULT_SUCCESS;
 
         case USB_HID_GLOBAL_ITEM_TAG_POP:
-            if(!(0 == gUSBHostHIDInstance[hidInstanceIndex].globalStackIndex))
+            if(0 == gUSBHostHIDInstance[hidInstanceIndex].globalStackIndex)
             {
                 SYS_DEBUG_MESSAGE (SYS_ERROR_INFO,
                         "\r\nUSBHID Client Driver: Global item stack underflow");

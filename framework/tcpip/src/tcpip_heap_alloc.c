@@ -42,6 +42,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 
 // cache helpers
+
 #if defined(__PIC32MZ__)
 // flushes a data cache line/address
 static __inline__ void __attribute__((always_inline)) _TCPIP_HEAP_DataLineFlush(void* address)

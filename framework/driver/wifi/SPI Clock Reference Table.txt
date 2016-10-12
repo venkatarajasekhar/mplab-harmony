@@ -1,4 +1,4 @@
-We use oscilloscope to measure real SPI clock, this is a reference SPI baud rate table:
+* Reference SPI baud rate table:
 
 1. PIC32MX at 80 MHz:
                                 configured              real

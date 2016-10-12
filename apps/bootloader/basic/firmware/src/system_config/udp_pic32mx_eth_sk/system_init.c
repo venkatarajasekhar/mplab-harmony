@@ -201,6 +201,8 @@ const TCPIP_UDP_MODULE_CONFIG tcpipUDPInitData =
 
 
 
+
+
 /*** ETH MAC Initialization Data ***/
 const TCPIP_MODULE_MAC_PIC32INT_CONFIG tcpipMACPIC32INTInitData =
 { 

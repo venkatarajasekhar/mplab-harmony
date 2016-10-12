@@ -81,6 +81,8 @@ config TCPIP_STACK_USE_IPV4
     IDH_HTML_TCPIP_IPv4_Introduction
     ---endhelp---
 
+source "$HARMONY_VERSION_PATH/framework/tcpip/config/ip.hconfig"
+
 config TCPIP_STACK_USE_IPV6
 	bool "IPv6"
 	depends on USE_TCPIP_STACK
@@ -191,6 +193,7 @@ source "$HARMONY_VERSION_PATH/framework/tcpip/config/icmp.hconfig"
 source "$HARMONY_VERSION_PATH/framework/tcpip/config/nbns.hconfig"
 source "$HARMONY_VERSION_PATH/framework/tcpip/config/tcpip_reboot.hconfig"
 source "$HARMONY_VERSION_PATH/framework/tcpip/config/smtp.hconfig"
+source "$HARMONY_VERSION_PATH/framework/tcpip/config/smtpc.hconfig"
 source "$HARMONY_VERSION_PATH/framework/tcpip/config/snmp.hconfig"
 source "$HARMONY_VERSION_PATH/framework/tcpip/config/snmpv3.hconfig"
 source "$HARMONY_VERSION_PATH/framework/tcpip/config/sntp.hconfig"
@@ -200,6 +203,7 @@ source "$HARMONY_VERSION_PATH/framework/tcpip/config/tcpip_announce.hconfig"
 source "$HARMONY_VERSION_PATH/framework/tcpip/config/iperf.hconfig"
 source "$HARMONY_VERSION_PATH/framework/tcpip/config/tcpip_cmd.hconfig"
 source "$HARMONY_VERSION_PATH/framework/tcpip/config/tftpc.hconfig"
+source "$HARMONY_VERSION_PATH/framework/tcpip/config/igmp.hconfig"
 ifblock TCPIP_SYS_FS_WRAPPER_NEEDED
 source "$HARMONY_VERSION_PATH/framework/tcpip/config/sys_fs_wrapper.hconfig"
 endif
@@ -207,6 +211,7 @@ endif
 endmenu
 
 ifblock USE_TCPIP_STACK
+add "<#include \"/framework/tcpip/config/tcpip_stack.h.ftl\">"  to list SYSTEM_CONFIG_H_MIDDLEWARE_CONFIGURATION 
 
 file TCPIP_COMMON_HELPERS_H "$HARMONY_VERSION_PATH/framework/tcpip/src/common/helpers.h" to "$PROJECT_HEADER_FILES/framework/tcpip/src/common/helpers.h"
 file TCPIP_HASH_FNV_H "$HARMONY_VERSION_PATH/framework/tcpip/src/hash_fnv.h" to "$PROJECT_HEADER_FILES/framework/tcpip/src/hash_fnv.h"
@@ -236,9 +241,6 @@ file LLDP_TLV_H "$HARMONY_VERSION_PATH/framework/tcpip/src/lldp_tlv.h" to "$PROJ
 file TCPIP_ANNOUNCE_H "$HARMONY_VERSION_PATH/framework/tcpip/tcpip_announce.h" to "$PROJECT_HEADER_FILES/framework/tcpip/tcpip_announce.h"
 file TCPIP_REBOOT_H "$HARMONY_VERSION_PATH/framework/tcpip/tcpip_reboot.h" to "$PROJECT_HEADER_FILES/framework/tcpip/tcpip_reboot.h"
 file TCPIP_COMMON_PORTS_H "$HARMONY_VERSION_PATH/framework/tcpip/tcpip_common_ports.h" to "$PROJECT_HEADER_FILES/framework/tcpip/tcpip_common_ports.h"
-file TCPIP_IPV4_H "$HARMONY_VERSION_PATH/framework/tcpip/ipv4.h" to "$PROJECT_HEADER_FILES/framework/tcpip/ipv4.h"
-file TCPIP_IPV4_MANAGER_H "$HARMONY_VERSION_PATH/framework/tcpip/src/ipv4_manager.h" to "$PROJECT_HEADER_FILES/framework/tcpip/src/ipv4_manager.h"
-file TCPIP_IPV4_PRIVATE_H "$HARMONY_VERSION_PATH/framework/tcpip/src/ipv4_private.h" to "$PROJECT_HEADER_FILES/framework/tcpip/src/ipv4_private.h"
 file TCPIP_MAC_H "$HARMONY_VERSION_PATH/framework/tcpip/tcpip_mac.h" to                                     "$PROJECT_HEADER_FILES/framework/tcpip/tcpip_mac.h"
 file TCPIP_MAC_OBJECT_H "$HARMONY_VERSION_PATH/framework/tcpip/tcpip_mac_object.h" to                       "$PROJECT_HEADER_FILES/framework/tcpip/tcpip_mac_object.h"
 file TCPIP_ETHERNET_H "$HARMONY_VERSION_PATH/framework/tcpip/tcpip_ethernet.h" to                           "$PROJECT_HEADER_FILES/framework/tcpip/tcpip_ethernet.h"
@@ -258,7 +260,4 @@ file TCPIP_NOTIFY_C "$HARMONY_VERSION_PATH/framework/tcpip/src/tcpip_notify.c" t
 file TCPIP_PACKET_C "$HARMONY_VERSION_PATH/framework/tcpip/src/tcpip_packet.c" to "$PROJECT_SOURCE_FILES/framework/tcpip/src/tcpip_packet.c"
 endif
 
-ifblock TCPIP_STACK_USE_IPV4
-file TCPIP_IPV4_C "$HARMONY_VERSION_PATH/framework/tcpip/src/ipv4.c" to "$PROJECT_SOURCE_FILES/framework/tcpip/src/ipv4.c"
-endif
 

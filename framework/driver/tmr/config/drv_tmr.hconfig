@@ -132,16 +132,17 @@ ifblock USE_DRV_TMR
 file DRV_TMR_H "$HARMONY_VERSION_PATH/framework/driver/tmr/drv_tmr.h" to "$PROJECT_HEADER_FILES/framework/driver/tmr/drv_tmr.h"
 file DRV_TMR_MAPPING_H "$HARMONY_VERSION_PATH/framework/driver/tmr/drv_tmr_mapping.h" to "$PROJECT_HEADER_FILES/framework/driver/tmr/drv_tmr_mapping.h"
 file DRV_TMR_VAR_MAPPING_H "$HARMONY_VERSION_PATH/framework/driver/tmr/src/drv_tmr_variant_mapping.h" to "$PROJECT_HEADER_FILES/framework/driver/tmr/src/drv_tmr_variant_mapping.h"
+file DRV_TMR_COMPAT_H "$HARMONY_VERSION_PATH/framework/driver/tmr/drv_tmr_compatibility.h" to "$PROJECT_HEADER_FILES/framework/driver/tmr/drv_tmr_compatibility.h"
 
 add "<#include \"/framework/driver/tmr/templates/drv_tmr.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
 add "<#include \"/framework/driver/tmr/templates/drv_tmr_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_DRIVER_TASKS
+add "<#include \"/framework/driver/tmr/templates/drv_tmr.h.ftl\">" to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 
 ifblock DRV_TMR_DRIVER_MODE = "DYNAMIC"
 
 add "<#include \"/framework/driver/tmr/templates/drv_tmr_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS
 
 file DRV_TMR_C "$HARMONY_VERSION_PATH/framework/driver/tmr/src/dynamic/drv_tmr.c" to "$PROJECT_SOURCE_FILES/framework/driver/tmr/src/dynamic/drv_tmr.c"
-file DRV_TMR_COMPAT_H "$HARMONY_VERSION_PATH/framework/driver/tmr/drv_tmr_compatibility.h" to "$PROJECT_HEADER_FILES/framework/driver/tmr/drv_tmr_compatibility.h"
 file DRV_TMR_LOCAL_H "$HARMONY_VERSION_PATH/framework/driver/tmr/src/drv_tmr_local.h" to "$PROJECT_HEADER_FILES/framework/driver/tmr/src/drv_tmr_local.h"
 endif
 

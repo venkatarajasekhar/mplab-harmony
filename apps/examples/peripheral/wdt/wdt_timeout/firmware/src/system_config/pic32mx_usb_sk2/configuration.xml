@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -129,6 +133,10 @@
         <Name>sys_int.h</Name>
         <Path>Header Files/framework/system/int</Path>
       </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
     </Files>
     <Templates>
       <Template>
@@ -141,14 +149,9 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -169,22 +172,23 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2</Path>
-        <Checksum>EE5F4B1E5F8114B6F289AF6DD73E2703</Checksum>
+        <Checksum>6D3BA56BF14E26FB261888652B282C7E</Checksum>
+        <ProjectFileChecksum>6442601E3E1B4DA1B38199953156799F</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2</Path>
-        <Checksum>B5DB9836EF31F4296B031C95883B6E90</Checksum>
+        <Checksum>FE9F3ED5C10CEA161DC6150A65C2E7CE</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -205,7 +209,6 @@
       <C32>
         <Include value="E:/Git/core/apps/examples/peripheral/wdt/wdt_timeout/firmware/src"/>
         <Include value="E:/Git/core/apps/examples/peripheral/wdt/wdt_timeout/firmware/src/system_config/pic32mx_usb_sk2"/>
-        <Include value="E:/Git/core/apps/examples/peripheral/wdt/wdt_timeout/firmware/src/pic32mx_usb_sk2"/>
         <Include value="E:/Git/core/framework"/>
         <Include value="E:/Git/core/apps/examples/peripheral/wdt/wdt_timeout/firmware/src/system_config/pic32mx_usb_sk2/framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2/bsp"/>

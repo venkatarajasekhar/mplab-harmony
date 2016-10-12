@@ -98,6 +98,39 @@ typedef int16_t TCP_SOCKET;
 */
 #define INVALID_SOCKET      (-1)
 
+
+// *****************************************************************************
+/*
+  Enumeration:
+    TCPIP_TCP_STATE
+
+  Summary:
+    TCP socket state.
+
+  Description:
+    Enumeration describing the possible states of a TCP socket.
+*/
+
+typedef enum
+{
+    TCPIP_TCP_STATE_LISTEN,				    // Socket is listening for connections
+    TCPIP_TCP_STATE_SYN_SENT,			    // A SYN has been sent, awaiting an SYN+ACK
+    TCPIP_TCP_STATE_SYN_RECEIVED,		    // A SYN has been received, awaiting an ACK
+    TCPIP_TCP_STATE_ESTABLISHED,		    // Socket is connected and connection is established
+    TCPIP_TCP_STATE_FIN_WAIT_1,			    // FIN WAIT state 1
+    TCPIP_TCP_STATE_FIN_WAIT_2,			    // FIN WAIT state 2
+    TCPIP_TCP_STATE_CLOSING,			    // Socket is closing
+	TCPIP_TCP_STATE_TIME_WAIT,              // 2MSL state
+	TCPIP_TCP_STATE_CLOSE_WAIT,			    // Waiting to close the socket
+    TCPIP_TCP_STATE_LAST_ACK,			    // The final ACK has been sent
+    TCPIP_TCP_STATE_CLIENT_WAIT_DISCONNECT, // client socket lost connection, waiting for app close/disconnect
+    TCPIP_TCP_STATE_CLIENT_WAIT_CONNECT,    // client socket waiting for connection
+    TCPIP_TCP_STATE_KILLED,                 // socket is killed; debug reporting state
+} TCPIP_TCP_STATE;
+
+
+
+
 // *****************************************************************************
 /*
   Structure:
@@ -117,6 +150,11 @@ typedef struct
     TCP_PORT            remotePort;         // Port number associated with remote node
     TCP_PORT            localPort;          // Local port number
     TCPIP_NET_HANDLE    hNet;               // Associated interface
+    TCPIP_TCP_STATE     state;              // Current socket state
+    uint16_t            rxSize;             // size of the RX buffer
+    uint16_t            txSize;             // size of the TX buffer
+    uint16_t            rxPending;          // bytes pending in RX buffer
+    uint16_t            txPending;          // bytes pending in TX buffer
 } TCP_SOCKET_INFO;
 
 // *****************************************************************************
@@ -492,11 +530,7 @@ TCP_SOCKET  TCPIP_TCP_ClientOpen(IP_ADDRESS_TYPE addType, TCP_PORT remotePort,
 
 
   Remarks:
-    The call should fail if the socket is already connected (both server and client sockets).
-    However this is not currently implemented.
-    It is the user's responsibility to call this function only for sockets that are not connected.
-    Changing the socket parameters while the socket is connected will result
-    in connection loss/unpredictable behavior.
+    The call will fail if the socket is already connected (both server and client sockets).
 
  */
 bool  TCPIP_TCP_Bind(TCP_SOCKET hTCP, IP_ADDRESS_TYPE addType, TCP_PORT localPort, 
@@ -541,11 +575,7 @@ bool  TCPIP_TCP_Bind(TCP_SOCKET hTCP, IP_ADDRESS_TYPE addType, TCP_PORT localPor
 
     The socket remote host address is changed only if a non-zero remoteAddress value is passed.
 
-    The call should fail if the socket is already connected (both server and client sockets).
-    However this is not currently implemented.
-    It is the user's responsibility to call this function only for sockets that are not connected.
-    Changing the socket parameters while the socket is connected will result
-    in connection loss/unpredictable behavior.
+    The call will fail if the socket is already connected (both server and client sockets).
 
   */
 bool  TCPIP_TCP_RemoteBind(TCP_SOCKET hTCP, IP_ADDRESS_TYPE addType, TCP_PORT remotePort, 
@@ -654,7 +684,7 @@ bool  TCPIP_TCP_OptionsGet(TCP_SOCKET hTCP, TCP_SOCKET_OPTION option, void* optP
     - false - The socket is not currently connected.
 
   Remarks:
-    A socket is said to be connected only if it is in the TCP_ESTABLISHED
+    A socket is said to be connected only if it is in the TCPIP_TCP_STATE_ESTABLISHED
     state.  Sockets in the process of opening or closing will return false.
   */
 bool  TCPIP_TCP_IsConnected(TCP_SOCKET hTCP);
@@ -793,7 +823,7 @@ bool  TCPIP_TCP_Connect(TCP_SOCKET hTCP);
 //******************************************************************************
 /*
   Function:
-    void  TCPIP_TCP_Close(TCP_SOCKET hTCP)
+    bool  TCPIP_TCP_Close(TCP_SOCKET hTCP)
 
   Summary:
 	Disconnects an open socket and destroys the socket handle, releasing the associated 
@@ -819,9 +849,11 @@ bool  TCPIP_TCP_Connect(TCP_SOCKET hTCP);
     hTCP - Handle to the socket to disconnect and close.
 
   Returns:
-    None.
+    - true  - If the call succeeded
+    - false - If the call failed (no such socket)
+
   */
-void  TCPIP_TCP_Close(TCP_SOCKET hTCP);
+bool  TCPIP_TCP_Close(TCP_SOCKET hTCP);
 
 //*****************************************************************************
 /*
@@ -1593,6 +1625,89 @@ TCPIP_TCP_SIGNAL_HANDLE      TCPIP_TCP_SignalHandlerRegister(TCP_SOCKET s, TCPIP
 
 bool             TCPIP_TCP_SignalHandlerDeregister(TCP_SOCKET s, TCPIP_TCP_SIGNAL_HANDLE hSig);
 
+// *****************************************************************************
+/* Function:
+    int TCPIP_TCP_SocketsNumberGet(void)
+
+  Summary:
+    Returns the number of existent TCP sockets.
+    
+  Description:
+    This function returns the number of created TCP sockets.
+    This is the maximum number of sockets that can be opened at any moment
+    as it's been passed as parameter when TCP module was created.
+
+  Precondition:
+    TCP module properly initialized
+
+  Parameters:
+	None
+
+  Returns:
+    The number of TCP sockets
+ */
+
+int     TCPIP_TCP_SocketsNumberGet(void);
+
+// *****************************************************************************
+/* Function:
+    bool    TCPIP_TCP_IsReady(void);
+
+  Summary:
+    Returns the current status of the TCP module
+    
+  Description:
+    This function returns the current status of the TCP module.
+    If the TCP quiet time has elapsed (or it was not enabled when TCP was built)
+    then the TCP module is ready for operation and TCP sockets can send and receive data.
+    If the TCP quiet time is still in effect, then the TCP module is quiet and it
+    won't transmit any kind of data.
+
+  Precondition:
+    TCP module properly initialized
+
+  Parameters:
+	None
+
+  Returns:
+    true    - the quiet time has elapsed and the TCP module is ready to transmit data
+    false   - the quiet time is still in effect and TCP module is silent
+
+  Remarks:
+    The TCP quiet time occurs at the stack start up and can be enabled/disabled
+    using the TCP module configuration parameters.
+
+ */
+
+bool    TCPIP_TCP_IsReady(void);
+
+// *****************************************************************************
+/* Function:
+    bool TCPIP_TCP_SocketTraceSet(TCP_SOCKET sktNo, bool enable)
+
+  Summary:
+    Sets the current socket trace status.
+    
+  Description:
+    This function enables or disables the trace status of the specified socket.
+    The trace functionality needs to be enabled in the TCP module for 
+    this function to succeed.
+    Currently when socket trace is enabled, the current socket state
+    transitions are displayed at the system console. 
+
+  Precondition:
+    TCP module properly initialized
+
+  Parameters:
+	sktNo       - socket to enable/disable trace
+    enable      - boolean to enable/disable socket trace
+
+  Returns:
+    - true if the call succeeded
+    - false if there was an error (no such socket, tracing not enabled, etc.)
+ */
+
+bool    TCPIP_TCP_SocketTraceSet(TCP_SOCKET sktNo, bool enable);
 
 // *****************************************************************************
 /*

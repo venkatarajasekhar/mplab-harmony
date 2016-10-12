@@ -112,6 +112,7 @@ SYS_MODULE_OBJ DRV_USART0_Initialize(void)
 
     /* Get the USART clock source value*/
     clockSource = SYS_CLK_PeripheralFrequencyGet ( CLK_BUS_PERIPHERAL_1 );
+
     /* Set the baud rate and enable the USART */
     PLIB_USART_BaudSetAndEnable(USART_ID_2,
             clockSource,

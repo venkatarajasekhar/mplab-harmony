@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -64,6 +68,10 @@
       <File>
         <Name>driver_common.h</Name>
         <Path>Header Files/framework/driver</Path>
+      </File>
+      <File>
+        <Name>sys_reset_local.h</Name>
+        <Path>Header Files/framework/system/reset/src</Path>
       </File>
       <File>
         <Name>drv_spi.c</Name>
@@ -96,6 +104,10 @@
       <File>
         <Name>sys_fs.h</Name>
         <Path>Header Files/framework/system/fs</Path>
+      </File>
+      <File>
+        <Name>sys_reset_mapping.h</Name>
+        <Path>Header Files/framework/system/reset/src</Path>
       </File>
       <File>
         <Name>usb_chapter_9.h</Name>
@@ -198,6 +210,10 @@
         <Path>Header Files/framework/driver/tmr/src</Path>
       </File>
       <File>
+        <Name>sys_reset.h</Name>
+        <Path>Header Files/framework/system/reset</Path>
+      </File>
+      <File>
         <Name>usb_billboard.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
@@ -216,6 +232,10 @@
       <File>
         <Name>sys_dma.h</Name>
         <Path>Header Files/framework/system/dma</Path>
+      </File>
+      <File>
+        <Name>sys_reset.c</Name>
+        <Path>Source Files/framework/system/reset/src</Path>
       </File>
       <File>
         <Name>sys_tmr.h</Name>
@@ -276,6 +296,10 @@
       <File>
         <Name>usb_host_hub.h</Name>
         <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
@@ -354,12 +378,12 @@
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/usbdevice_pic32mx_usb_sk2/framework/driver/spi/dynamic</Path>
-        <Checksum>112C481490743844C144BA29F65BAF71</Checksum>
+        <Checksum>5887159D93DA876AA60E5A45B1653D1E</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/usbdevice_pic32mx_usb_sk2/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -369,12 +393,7 @@
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/usbdevice_pic32mx_usb_sk2/framework/driver/spi/dynamic</Path>
-        <Checksum>D19BFE2F8B63530529A61BBD27205DC6</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/usbdevice_pic32mx_usb_sk2/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>033AC659470FF8CBEACAF2D78D3C750A</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -417,8 +436,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/usbdevice_pic32mx_usb_sk2</Path>
-        <Checksum>A52616249BCA8DBBD5C79B1B9ABDD233</Checksum>
-        <ProjectFileChecksum>B294DB7AA14F2BD71BA00C17FD0814AD</ProjectFileChecksum>
+        <Checksum>95E6B5723C4C0C859AC88D4B2527D18A</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -428,15 +446,15 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/usbdevice_pic32mx_usb_sk2</Path>
-        <Checksum>089640327F265B5B82FE42B720598EDB</Checksum>
+        <Checksum>0CE3E1D28C324A29EE43B09379974171</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\microchip\harmony\core\apps\programmer\external_flash\firmware\src"/>
-        <Include value="C:\microchip\harmony\core\apps\programmer\external_flash\firmware\src\system_config\usbdevice_pic32mx_usb_sk2"/>
-        <Include value="C:\microchip\harmony\core\framework"/>
-        <Include value="C:\microchip\harmony\core\apps\programmer\external_flash\firmware\src\system_config\usbdevice_pic32mx_usb_sk2\framework"/>
+        <Include value="C:\microchip\harmony\core_v2xx\apps\programmer\external_flash\firmware\src"/>
+        <Include value="C:\microchip\harmony\core_v2xx\apps\programmer\external_flash\firmware\src\system_config\usbdevice_pic32mx_usb_sk2"/>
+        <Include value="C:\microchip\harmony\core_v2xx\framework"/>
+        <Include value="C:\microchip\harmony\core_v2xx\apps\programmer\external_flash\firmware\src\system_config\usbdevice_pic32mx_usb_sk2\framework"/>
         <Include value="../src/system_config/usbdevice_pic32mx_usb_sk2/bsp"/>
       </C32>
     </CompilerItems>

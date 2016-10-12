@@ -2327,7 +2327,7 @@ bool TCPIP_DHCPV6_IaInfoGet(TCPIP_NET_HANDLE hNet, int iaIx, TCPIP_DHCPV6_IA_INF
 static bool _DHCPV6Duid_Generate(TCPIP_DHCPV6_DUID_TYPE duidType, TCPIP_DHCPV6_DUID_DCPT* pDuid, TCPIP_NET_IF* pDuidIf)
 {
     if(duidType != TCPIP_DHCPV6_DUID_TYPE_LL)
-    {
+    {   
         return false;
     }
 
@@ -3203,7 +3203,6 @@ static TCPIP_DHCPV6_IA_SUBSTATE_RESULT _DHCPV6Ia_AdvertiseCopy(TCPIP_DHCPV6_MSG_
         return TCPIP_DHCPV6_IA_SUBSTATE_RES_ERROR_FATAL;
     }
 
-
     return TCPIP_DHCPV6_IA_SUBSTATE_RES_OK;
 }
 
@@ -3255,7 +3254,7 @@ static TCPIP_DHCPV6_IA_SUBSTATE_RESULT _DHCPV6Ia_ReplyMsgSrvMatchProcess(TCPIP_D
             }
             else if(serverStatCode == TCPIP_DHCPV6_SERVER_STAT_USE_MULTICAST)
             {
-                pIa->flags.iaUnicast = 0;  
+                pIa->flags.iaUnicast = 0;    
                 subRes = TCPIP_DHCPV6_IA_SUBSTATE_RES_RETRANSMIT;
                 _DHCPV6DbgSetFailReason(failReason, "Unicast Fail");
             }
@@ -4715,5 +4714,7 @@ static void _DHCPV6MsgGet_InfoMaxRt(TCPIP_DHCPV6_CLIENT_DCPT* pClient, TCPIP_DHC
 
 
 #endif	//#if defined(TCPIP_STACK_USE_DHCPV6_CLIENT)
+
+
 
 

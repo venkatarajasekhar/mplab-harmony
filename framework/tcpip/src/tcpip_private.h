@@ -130,6 +130,10 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "tcpip/src/iperf_manager.h"
 
+#include "tcpip/src/smtpc_manager.h"
+
+#include "tcpip/src/igmp_manager.h"
+
 #include "tcpip/src/tcpip_packet.h"
 #include "tcpip/src/tcpip_helpers_private.h"
 #include "tcpip/src/oahash.h"

@@ -14,6 +14,7 @@
     For following APIs :
         PLIB_SQI_InterruptSignalEnable
         PLIB_SQI_InterruptSignalDisable
+        PLIB_SQI_InterruptSignalDisableAll
         PLIB_SQI_InterruptSignalIsEnabled
         PLIB_SQI_ExistsInterruptSignalControl
 
@@ -95,6 +96,22 @@ PLIB_TEMPLATE void SQI_InterruptSignalEnable_Unsupported( SQI_MODULE_ID index , 
 PLIB_TEMPLATE void SQI_InterruptSignalDisable_Unsupported( SQI_MODULE_ID index , SQI_INTERRUPTS interruptFlag )
 {
     PLIB_ASSERT(false, "The device selected does not implement PLIB_SQI_InterruptSignalDisable");
+}
+
+
+//******************************************************************************
+/* Function :  SQI_InterruptSignalDisableAll_Unsupported
+
+  Summary:
+    Implements Unsupported variant of PLIB_SQI_InterruptSignalDisableAll 
+
+  Description:
+    This template implements the Unsupported variant of the PLIB_SQI_InterruptSignalDisableAll function.
+*/
+
+PLIB_TEMPLATE void SQI_InterruptSignalDisableAll_Unsupported( SQI_MODULE_ID index )
+{
+    PLIB_ASSERT(false, "The device selected does not implement PLIB_SQI_InterruptSignalDisableAll");
 }
 
 

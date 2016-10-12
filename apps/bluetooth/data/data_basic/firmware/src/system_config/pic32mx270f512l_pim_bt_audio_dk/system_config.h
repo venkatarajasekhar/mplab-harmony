@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -86,7 +82,12 @@ extern "C" {
 #define SYS_CLK_UPLL_BEFORE_DIV2_FREQ       96000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         12000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       0ul
-   
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
@@ -157,12 +158,35 @@ extern "C" {
 #define SYS_TMR_CLIENT_TOLERANCE        1
 #define SYS_TMR_INTERRUPT_NOTIFICATION  true
 
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
+ #define  GFX_USE_DISPLAY_CONTROLLER_OTM2201A         
+
+/*** Graphics Display Configuration ***/
+#define DISP_ORIENTATION                        90
+#define DISP_HOR_RESOLUTION                     176
+#define DISP_VER_RESOLUTION                     220
+#define DISP_DATA_WIDTH			                8
+#define DISP_HOR_PULSE_WIDTH                    25
+#define DISP_HOR_BACK_PORCH                     5
+#define DISP_HOR_FRONT_PORCH                    10
+#define DISP_VER_PULSE_WIDTH                    4
+#define DISP_VER_BACK_PORCH                     0
+#define DISP_VER_FRONT_PORCH                    2
+#define DISP_INV_LSHIFT                         1
+#define GFX_LCD_TYPE                            GFX_LCD_TFT
+#define BACKLIGHT_ENABLE_LEVEL                  0
+#define BACKLIGHT_DISABLE_LEVEL                 1
+#define TCON_MODULE                             NULL
+#define USE_TCON_MODULE                         0
+#define GFX_USE_TCON_CUSTOM
+// DOM-IGNORE-END
+
+#define USE_8BIT_PMP
+
 /*** Timer Driver Configuration ***/
 #define DRV_TMR_INTERRUPT_MODE             true
 #define DRV_TMR_INSTANCES_NUMBER           2
@@ -234,30 +258,6 @@ extern "C" {
 #define DRV_USART_POWER_STATE_IDX0                  SYS_MODULE_POWER_RUN_FULL
 
 #define DRV_USART_QUEUE_DEPTH_COMBINED              2
- #define  GFX_USE_DISPLAY_CONTROLLER_OTM2201A         
-
-/*** Graphics Display Configuration ***/
-#define DISP_ORIENTATION                        90
-#define DISP_HOR_RESOLUTION                     176
-#define DISP_VER_RESOLUTION                     220
-#define DISP_DATA_WIDTH			                8
-#define DISP_HOR_PULSE_WIDTH                    25
-#define DISP_HOR_BACK_PORCH                     5
-#define DISP_HOR_FRONT_PORCH                    10
-#define DISP_VER_PULSE_WIDTH                    4
-#define DISP_VER_BACK_PORCH                     0
-#define DISP_VER_FRONT_PORCH                    2
-#define DISP_INV_LSHIFT                         1
-#define GFX_LCD_TYPE                            GFX_LCD_TFT
-#define BACKLIGHT_ENABLE_LEVEL                  0
-#define BACKLIGHT_DISABLE_LEVEL                 1
-#define TCON_MODULE                             NULL
-#define USE_TCON_MODULE                         0
-#define GFX_USE_TCON_CUSTOM
-// DOM-IGNORE-END
-
-#define USE_8BIT_PMP
-
 
 // *****************************************************************************
 // *****************************************************************************

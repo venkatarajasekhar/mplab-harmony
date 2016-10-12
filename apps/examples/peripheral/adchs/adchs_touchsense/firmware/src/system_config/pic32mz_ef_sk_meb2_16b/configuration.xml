@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name=""/>
@@ -78,6 +78,10 @@
         <Path>Header Files/framework/system/debug/src</Path>
       </File>
       <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
         <Name>sys_common.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -88,6 +92,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -124,6 +132,10 @@
       <File>
         <Name>sys_devcon.h</Name>
         <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
         <Name>system.h</Name>
@@ -183,7 +195,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_16b</Path>
-        <Checksum>FEB2BA257C3119DB5065D2BCE407D098</Checksum>
+        <Checksum>B3786F27800D5B067D84531E3DBAE8F4</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -212,7 +224,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_16b/framework/system/clk/src</Path>
-        <Checksum>5382624B6F94F7F6DE3177E0830D223D</Checksum>
+        <Checksum>9DCB2BB28856A4537AB9488D70276FEF</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -223,11 +235,6 @@
         <Name>drv_adc_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_16b/framework/driver/adc/src</Path>
         <Checksum>0ABCF50E3515D5B9004D165CBA2FDAC1</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_16b/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -251,7 +258,7 @@
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_16b</Path>
         <Checksum>74A4223BF097FAE9E1178C9346E8CAD7</Checksum>
-        <ProjectFileChecksum>04B1E1036256B5C32D715FA202A29A72</ProjectFileChecksum>
+        <ProjectFileChecksum>70C176CADA6BD232C054A100A254004A</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_tmr_mapping.c</Name>
@@ -266,15 +273,15 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_16b</Path>
-        <Checksum>426BD9F666A8C8E2FDE897D43F608258</Checksum>
+        <Checksum>B4BD7DFEA6D4B322C7B780174C8569FD</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_touchsense\firmware\src"/>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_touchsense\firmware\src\system_config\pic32mz_ef_sk_meb2_16b"/>
-        <Include value="C:\Git_repository\core\framework"/>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_touchsense\firmware\src\system_config\pic32mz_ef_sk_meb2_16b\framework"/>
+        <Include value="C:\Git_repository\core1\apps\examples\peripheral\adchs\adchs_touchsense\firmware\src"/>
+        <Include value="C:\Git_repository\core1\apps\examples\peripheral\adchs\adchs_touchsense\firmware\src\system_config\pic32mz_ef_sk_meb2_16b"/>
+        <Include value="C:\Git_repository\core1\framework"/>
+        <Include value="C:\Git_repository\core1\apps\examples\peripheral\adchs\adchs_touchsense\firmware\src\system_config\pic32mz_ef_sk_meb2_16b\framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_meb2_16b/bsp"/>
       </C32>
     </CompilerItems>

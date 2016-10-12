@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -96,6 +100,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -194,7 +202,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -218,25 +226,20 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn</Path>
-        <Checksum>75212D5C42665D70F0E1CF2811AD3D97</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>BC2B8D434D32AB20CCA421799B834935</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn</Path>
-        <Checksum>36D7A48BC8B1367DCA50653E6377422B</Checksum>
+        <Checksum>7424F466FCEE83810461E7686AB98CAD</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/cm/Harmony/apps/driver/usart/usart_echo/firmware/src"/>
-        <Include value="C:/cm/Harmony/apps/driver/usart/usart_echo/firmware/src/system_config/pic32mx795_pim_e16_int_dyn"/>
-        <Include value="C:/cm/Harmony/framework"/>
-        <Include value="C:/cm/Harmony/apps/driver/usart/usart_echo/firmware/src/system_config/pic32mx795_pim_e16_int_dyn/framework"/>
+        <Include value="E:/Git/core/apps/driver/usart/usart_echo/firmware/src"/>
+        <Include value="E:/Git/core/apps/driver/usart/usart_echo/firmware/src/system_config/pic32mx795_pim_e16_int_dyn"/>
+        <Include value="E:/Git/core/framework"/>
+        <Include value="E:/Git/core/apps/driver/usart/usart_echo/firmware/src/system_config/pic32mx795_pim_e16_int_dyn/framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16_int_dyn/bsp"/>
       </C32>
     </CompilerItems>

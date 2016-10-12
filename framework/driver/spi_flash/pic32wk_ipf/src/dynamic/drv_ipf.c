@@ -77,11 +77,11 @@ const SYS_FS_MEDIA_FUNCTIONS ipfMediaFunctions =
 {
     .mediaStatusGet     = DRV_IPF_MediaIsAttached,
     .mediaGeometryGet   = DRV_IPF_GeometryGet,
-    .sectorRead         = DRV_IPF_FS_BlockRead,
+    .sectorRead         = (void *) DRV_IPF_FS_BlockRead,
     .sectorWrite        = NULL,
-    .eventHandlerset    = DRV_IPF_BlockEventHandlerSet,
-    .commandStatusGet   = DRV_IPF_CommandStatus,
-    .Read               = DRV_IPF_FS_BlockRead,
+    .eventHandlerset    = (void *) DRV_IPF_BlockEventHandlerSet,
+    .commandStatusGet   = (void *) DRV_IPF_CommandStatus,
+    .Read               = (void *) DRV_IPF_FS_BlockRead,
     .erase              = NULL,
     .addressGet         = DRV_IPF_AddressGet,
     .open               = DRV_IPF_Open,
@@ -225,25 +225,25 @@ SYS_MODULE_OBJ DRV_IPF_Initialize
     /* Set internal operations state */
     dObj->bufferProcessState = DRV_IPF_BUFFER_PROCESS_INIT;
 
-    /* Create the hardware instance mutex. */
-     OSAL_ASSERT((OSAL_MUTEX_Create(&(dObj->mutexDriverInstance)) == OSAL_RESULT_TRUE),
-                 "Unable to create hardware instance mutex");
-
-
-    /* Check if the global mutexes have been created. If not
-       then create these. */
-
-     if(!gDrvIPFCommonDataObj.membersAreInitialized)
-     {
-         /* This means that mutexes where not created. Create them. */
-         OSAL_ASSERT((OSAL_MUTEX_Create(&(gDrvIPFCommonDataObj.mutexClientObjects)) == OSAL_RESULT_TRUE),
-                     "Unable to create client instance mutex");
-         OSAL_ASSERT((OSAL_MUTEX_Create(&(gDrvIPFCommonDataObj.mutexBufferQueueObjects)) == OSAL_RESULT_TRUE),
-                     "Unable to create buffer queue objects mutex");
-
-         /* Set this flag so that global mutexes get allocated only once */
-         gDrvIPFCommonDataObj.membersAreInitialized = true;
-     }
+//    /* Create the hardware instance mutex. */
+//     OSAL_ASSERT((OSAL_MUTEX_Create(&(dObj->mutexDriverInstance)) == OSAL_RESULT_TRUE),
+//                 "Unable to create hardware instance mutex");
+//
+//
+//    /* Check if the global mutexes have been created. If not
+//       then create these. */
+//
+//     if(!gDrvIPFCommonDataObj.membersAreInitialized)
+//     {
+//         /* This means that mutexes where not created. Create them. */
+//         OSAL_ASSERT((OSAL_MUTEX_Create(&(gDrvIPFCommonDataObj.mutexClientObjects)) == OSAL_RESULT_TRUE),
+//                     "Unable to create client instance mutex");
+//         OSAL_ASSERT((OSAL_MUTEX_Create(&(gDrvIPFCommonDataObj.mutexBufferQueueObjects)) == OSAL_RESULT_TRUE),
+//                     "Unable to create buffer queue objects mutex");
+//
+//         /* Set this flag so that global mutexes get allocated only once */
+//         gDrvIPFCommonDataObj.membersAreInitialized = true;
+//     }
 
 #if defined(DRV_IPF_REGISTER_MEDIA)
      SYS_FS_MEDIA_MANAGER_Register (drvIndex, drvIndex, &ipfMediaFunctions, SYS_FS_MEDIA_TYPE_SPIFLASH);
@@ -430,7 +430,7 @@ DRV_HANDLE DRV_IPF_Open
 
     /* Grab client object mutex here */
 
-    if(OSAL_MUTEX_Lock(&(gDrvIPFCommonDataObj.mutexClientObjects), OSAL_WAIT_FOREVER) == OSAL_RESULT_TRUE)
+//    if(OSAL_MUTEX_Lock(&(gDrvIPFCommonDataObj.mutexClientObjects), OSAL_WAIT_FOREVER) == OSAL_RESULT_TRUE)
     {
         /* Enter here only if the lock was obtained (appplicable in 
            RTOS only). If the mutex lock fails due to time out then
@@ -446,8 +446,8 @@ DRV_HANDLE DRV_IPF_Open
                 
                 /* We have found a client object. Release the mutex */
 
-                OSAL_ASSERT(OSAL_MUTEX_Unlock(&(gDrvIPFCommonDataObj.mutexClientObjects)),
-                        "Unable to unlock clients objects routine mutex");
+//                OSAL_ASSERT(OSAL_MUTEX_Unlock(&(gDrvIPFCommonDataObj.mutexClientObjects)),
+//                        "Unable to unlock clients objects routine mutex");
                 
                 clientObj->hDriver      = dObj;                
                 clientObj->ioIntent     = ioIntent;
@@ -476,8 +476,8 @@ DRV_HANDLE DRV_IPF_Open
 
         /* Could not find a client object. Release the mutex and 
            return with an invalid handle. */
-        OSAL_ASSERT((OSAL_MUTEX_Unlock(&(gDrvIPFCommonDataObj.mutexClientObjects))),
-                    "Unable to unlock clients objects routine mutex");
+//        OSAL_ASSERT((OSAL_MUTEX_Unlock(&(gDrvIPFCommonDataObj.mutexClientObjects))),
+//                    "Unable to unlock clients objects routine mutex");
     }
 
     /* If we have reached here, it means either we could not find a spare
@@ -525,7 +525,7 @@ void DRV_IPF_Close( const DRV_HANDLE handle)
 
     
     /* Remove all buffers that this client owns from the driver queue. */
-    if(OSAL_MUTEX_Lock(&(dObj->mutexDriverInstance), OSAL_WAIT_FOREVER) == OSAL_RESULT_TRUE)
+//    if(OSAL_MUTEX_Lock(&(dObj->mutexDriverInstance), OSAL_WAIT_FOREVER) == OSAL_RESULT_TRUE)
     {
         iterator = dObj->queueTail;
         while(iterator != NULL)
@@ -578,16 +578,16 @@ void DRV_IPF_Close( const DRV_HANDLE handle)
         }
         
         /* Unlock the mutex */
-        OSAL_ASSERT((OSAL_MUTEX_Unlock(&(dObj->mutexDriverInstance))),
-                "Unable to unlock Driver instance mutex");
+//        OSAL_ASSERT((OSAL_MUTEX_Unlock(&(dObj->mutexDriverInstance))),
+//                "Unable to unlock Driver instance mutex");
     }
-    else
-    {
-        /* The function could fail if the mutex time out occurred */
-        SYS_DEBUG(0, "DRV_IPF: Could not remove client buffer objects \n");
-        clientObj->clientStatus = DRV_IPF_CLIENT_STATUS_ERROR;
-        return;
-    }
+//    else
+//    {
+//        /* The function could fail if the mutex time out occurred */
+//        SYS_DEBUG(0, "DRV_IPF: Could not remove client buffer objects \n");
+//        clientObj->clientStatus = DRV_IPF_CLIENT_STATUS_ERROR;
+//        return;
+//    }
     
     // /* Deallocate all semaphores */
     // OSAL_ASSERT((OSAL_SEM_Delete(&(clientObj->semWriteDone)) == OSAL_RESULT_TRUE),
@@ -1226,7 +1226,6 @@ void DRV_IPF_Tasks ( SYS_MODULE_OBJ object )
     DRV_IPF_CLIENT_OBJ * client;
     
     DRV_IPF_OBJ * hDriver;
-	uint8_t Idx;
 	
     /* Check if the specified module object is in valid range */
     if(object >= DRV_IPF_INSTANCES_NUMBER)
@@ -2454,95 +2453,6 @@ void DRV_IPF_HoldDeAssert()
 {
 	_DRV_IPF_HoldDeAssert();
 }
-
-
-/* APIs for FS support */
-#if defined(DRV_IPF_REGISTER_MEDIA)
-void DRV_IPF_FS_BlockRead
-(
-    const DRV_HANDLE hClient,
-    DRV_IPF_BLOCK_COMMAND_HANDLE * commandHandle,
-    uint8_t *targetBuffer,
-    uint32_t blockStart,
-    uint32_t nBlock
-)
-{
-    uint32_t address = blockStart + DRV_IPF_FS_BASE_ADDRESS;
-    
-    DRV_IPF_BlockRead(hClient,commandHandle, targetBuffer, address, nBlock);
-}
-
-
-uintptr_t DRV_IPF_AddressGet
-(
-    const DRV_HANDLE clientHandle
-)
-{
-    
-	DRV_IPF_CLIENT_OBJ * clientObj = NULL;
-
-	/* Validate the driver handle */
-	clientObj = _DRV_IPF_DriverHandleValidate(clientHandle);
-	if(clientObj == NULL)
-	{
-		/* We got an invalid client handle */
-		SYS_DEBUG(0, "DRV_IPF: Invalid Driver Handle \n");
-		return;
-	}    
-
-    return DRV_IPF_FS_BASE_ADDRESS;
-}
-
-// *****************************************************************************
-/* Function:
-    DRV_IPF_COMMAND_STATUS DRV_IPF_CommandStatus
-    (
-        const DRV_HANDLE handle, 
-        const DRV_IPF_BLOCK_COMMAND_HANDLE commandHandle
-    );
-
-  Summary:
-    Gets the current status of the command.
-
-  Description:
-    This routine gets the current status of the buffer. The application must use
-    this routine where the status of a scheduled buffer needs to polled on. The
-    function may return DRV_NVM_COMMAND_HANDLE_INVALID in a case where the buffer
-    handle has expired. A buffer handle expires when the internal buffer object
-    is re-assigned to another erase or write request. It is recommended that this
-    function be called regularly in order to track the buffer status correctly.
-
-    The application can alternatively register an event handler to receive write
-    or erase operation completion events.
-
-  Remarks:
-    Refer to drv_nvm.h for usage information.
-*/
-
-DRV_IPF_COMMAND_STATUS DRV_IPF_CommandStatus
-(
-    const DRV_HANDLE handle,
-    const DRV_IPF_BLOCK_COMMAND_HANDLE commandHandle
-)
-{
-    DRV_IPF_CLIENT_OBJ * client;
-    DRV_IPF_BUFFER_OBJ * bufferObj;
-    /* Validate the driver handle */
-    client = _DRV_IPF_DriverHandleValidate(handle);
-
-    bufferObj = (DRV_IPF_BUFFER_OBJ *)commandHandle;
-    
-    if(bufferObj->inUse == false || bufferObj->hClient != client)
-        return DRV_IPF_COMMAND_COMPLETED;
-    else if (bufferObj->nCurrentBlocks == 0)
-        return DRV_IPF_COMMAND_QUEUED;
-    else if(bufferObj->nCurrentBlocks < bufferObj->size)
-        return DRV_IPF_COMMAND_IN_PROGRESS;
-    else if (bufferObj->nCurrentBlocks == bufferObj->size)
-        return DRV_IPF_COMMAND_COMPLETED;
-}
-
-#endif
 
 /*******************************************************************************
  End of File

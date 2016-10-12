@@ -170,15 +170,14 @@ SYS_MODULE_OBJ DRV_USART${DRV_INSTANCE}_Initialize(void)
 <#else>
     clockSource = SYS_CLK_PeripheralFrequencyGet ( CLK_BUS_PERIPHERAL_3 );
 </#if>
-<#else>	
-<#if CONFIG_PIC32WK == true && PLIB_INSTANCE == "USART_ID_1">
+<#elseif CONFIG_PIC32WK == true && PLIB_INSTANCE == "USART_ID_1">
     clockSource = SYS_CLK_PeripheralFrequencyGet ( CLK_BUS_PERIPHERAL_2 );
 <#elseif CONFIG_PIC32WK == true && PLIB_INSTANCE == "USART_ID_2">
     clockSource = SYS_CLK_PeripheralFrequencyGet ( CLK_BUS_PERIPHERAL_3 );
 <#else>
     clockSource = SYS_CLK_PeripheralFrequencyGet ( CLK_BUS_PERIPHERAL_2 );
 </#if>
-</#if>
+
     /* Set the baud rate and enable the USART */
     PLIB_USART_BaudSetAndEnable(${PLIB_INSTANCE},
             clockSource,
@@ -751,6 +750,12 @@ DRV_USART_BAUD_SET_RESULT DRV_USART${DRV_INSTANCE}_BaudSet(uint32_t baud)
 <#if PLIB_INSTANCE == "USART_ID_1" || PLIB_INSTANCE == "USART_ID_2">
     clockSource = SYS_CLK_PeripheralFrequencyGet ( CLK_BUS_PERIPHERAL_2 );
 <#else>
+    clockSource = SYS_CLK_PeripheralFrequencyGet ( CLK_BUS_PERIPHERAL_3 );
+</#if>
+<#elseif CONFIG_PIC32WK == true>
+<#if PLIB_INSTANCE == "USART_ID_1">
+    clockSource = SYS_CLK_PeripheralFrequencyGet ( CLK_BUS_PERIPHERAL_2 );
+<#elseif PLIB_INSTANCE == "USART_ID_2">
     clockSource = SYS_CLK_PeripheralFrequencyGet ( CLK_BUS_PERIPHERAL_3 );
 </#if>
 </#if>

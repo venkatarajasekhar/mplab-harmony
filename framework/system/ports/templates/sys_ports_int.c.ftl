@@ -201,7 +201,7 @@ void __ISR(_CHANGE_NOTICE_VECTOR, ipl${CONFIG_SYS_PORTS_CN_INTERRUPT_PRIORITY_NU
     PLIB_INT_SourceFlagClear(INT_ID_0,INT_SOURCE_CHANGE_NOTICE);
     <#if CONFIG_DRV_WIFI_INTERRUPT_SYSTEM_SERVICE == "Change Notification">
       <#if CONFIG_DRV_WIFI_DEVICE == "MRF24WG">
-        <#if CONFIG_3RDPARTY_RTOS_USED == "FreeRTOS_V8.x.x">
+        <#if CONFIG_3RDPARTY_RTOS_USED == "FreeRTOS">
     SYS_INT_SourceDisable(MRF_INT_SOURCE); // disable further interrupts
     DRV_WIFI_DeferredISR_SemGive();
         <#else>

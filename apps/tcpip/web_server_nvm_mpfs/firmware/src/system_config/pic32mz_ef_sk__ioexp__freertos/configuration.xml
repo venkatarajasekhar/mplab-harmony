@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -170,6 +174,10 @@
         <Path>Header Files/framework/driver/wifi/mrf24w/src</Path>
       </File>
       <File>
+        <Name>smtpc_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>hash.c</Name>
         <Path>Source Files/framework/crypto/src</Path>
       </File>
@@ -282,6 +290,10 @@
         <Path>Source Files/framework/system/fs/src/dynamic</Path>
       </File>
       <File>
+        <Name>igmp_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>usb_cdc.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
@@ -372,6 +384,10 @@
       <File>
         <Name>crc32.h</Name>
         <Path>Header Files/framework/crypto/src/zlib-1.2.7</Path>
+      </File>
+      <File>
+        <Name>igmp.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>md2.h</Name>
@@ -512,6 +528,10 @@
       <File>
         <Name>port.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>smtpc_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>drv_wifi_commands.h</Name>
@@ -866,6 +886,10 @@
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
         <Name>portmacro.h</Name>
         <Path>Header Files/FreeRTOS/portable/MPLAB/PIC32MZ</Path>
       </File>
@@ -888,6 +912,10 @@
       <File>
         <Name>dh.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>smtpc.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>dnss_manager.h</Name>
@@ -922,12 +950,12 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
-        <Name>snmpv3_private.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>ipv4.h</Name>
         <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>snmpv3_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>drv_wifi_event_handler.c</Name>
@@ -1266,6 +1294,10 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>drv_wifi_raw.h</Name>
         <Path>Header Files/framework/driver/wifi/mrf24w/src</Path>
       </File>
@@ -1328,6 +1360,10 @@
       <File>
         <Name>drv_tmr_local.h</Name>
         <Path>Header Files/framework/driver/tmr/src</Path>
+      </File>
+      <File>
+        <Name>igmp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>aes.c</Name>
@@ -1757,7 +1793,7 @@
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk__ioexp__freertos/framework/driver/spi/dynamic</Path>
-        <Checksum>7D79BD8EB7868A4BB3E6D88BE9E9760D</Checksum>
+        <Checksum>536C82CD403378AECB8200A86CE640DC</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_master_dma_tasks.c</Name>
@@ -1767,7 +1803,7 @@
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk__ioexp__freertos</Path>
-        <Checksum>D9B0DB5EAA53DBC4493156653B12BBB8</Checksum>
+        <Checksum>B9366E5F678AFB2D7E9113003E6D4659</Checksum>
       </Template>
       <Template>
         <Name>custom_http_app.c</Name>
@@ -1785,14 +1821,9 @@
         <Checksum>F299EB5298C761844925061277D5E36E</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk__ioexp__freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk__ioexp__freertos/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>mpfs_img2.c</Name>
@@ -1824,23 +1855,28 @@
         <Checksum>3B88736BD9B365EB2A938F62F5AE2D8D</Checksum>
       </Template>
       <Template>
+        <Name>net_pres_enc_glue.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk__ioexp__freertos/framework/net/pres</Path>
+        <Checksum>3FDF1EF72050D3301433F2D1893EC89D</Checksum>
+      </Template>
+      <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk__ioexp__freertos/framework/driver/spi/dynamic</Path>
-        <Checksum>4FF988138085F1E9771E88FD07FB9B64</Checksum>
+        <Checksum>9C1A6AFABB16F21E998E1B49EB8947E5</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk__ioexp__freertos</Path>
-        <Checksum>623AE486DF58F006B0551863CA68DEC0</Checksum>
+        <Checksum>5D827ADDE8DB86A60438EA35FFDDFB91</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk__ioexp__freertos</Path>
-        <Checksum>ED8339DD0A71EFD2D2BD550B8B213A97</Checksum>
+        <Checksum>6F00B00878B84C21F77F678735D6BCA8</Checksum>
       </Template>
       <Template>
         <Name>sys_dma_static.h</Name>
@@ -1854,7 +1890,7 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk__ioexp__freertos</Path>
-        <Checksum>26040262EB767DA0E8D807D49066FEF9</Checksum>
+        <Checksum>9F27C7FCEEE45F9AF89F8BE205DCD02D</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -1864,7 +1900,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk__ioexp__freertos</Path>
-        <Checksum>A2FF42A6C4F239D5D1408D048BE6D033</Checksum>
+        <Checksum>A96C94C68F0E5341B90041215F890DD7</Checksum>
       </Template>
       <Template>
         <Name>rtos_hooks.c</Name>

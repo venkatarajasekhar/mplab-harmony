@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name=""/>
@@ -12,6 +16,10 @@
       <File>
         <Name>sys_random.c</Name>
         <Path>Source Files/framework/system/random/src</Path>
+      </File>
+      <File>
+        <Name>dhcp_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>camellia.h</Name>
@@ -28,6 +36,10 @@
       <File>
         <Name>asn_public.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>helpers.h</Name>
+        <Path>Header Files/framework/tcpip/src/common</Path>
       </File>
       <File>
         <Name>snmpv3.h</Name>
@@ -74,6 +86,10 @@
         <Path>Source Files/framework/tcpip/src</Path>
       </File>
       <File>
+        <Name>tcpip_helpers_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>tcpip_packet.c</Name>
         <Path>Source Files/framework/tcpip/src</Path>
       </File>
@@ -98,8 +114,20 @@
         <Path>Source Files/framework/crypto/src</Path>
       </File>
       <File>
+        <Name>tcp_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>tls.h</Name>
         <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>smtpc.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>zero_conf_helper.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>drv_extphy_smsc8700.h</Name>
@@ -138,12 +166,12 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
-        <Name>snmpv3_private.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>ipv4.h</Name>
         <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>snmpv3_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>inflate.c</Name>
@@ -154,8 +182,16 @@
         <Path>Header Files/framework/osal/src</Path>
       </File>
       <File>
+        <Name>udp_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>sys_reset.h</Name>
         <Path>Header Files/framework/system/reset</Path>
+      </File>
+      <File>
+        <Name>dns_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>trees.h</Name>
@@ -176,6 +212,14 @@
       <File>
         <Name>internal.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>smtpc_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>dns_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>http_net_private.h</Name>
@@ -234,12 +278,24 @@
         <Path>Header Files/framework/system/devcon</Path>
       </File>
       <File>
+        <Name>ipv4_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>nbns.h</Name>
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
+        <Name>tcpip_packet.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>sys_debug.h</Name>
         <Path>Header Files/framework/system/debug</Path>
+      </File>
+      <File>
+        <Name>drv_extphy_regs.h</Name>
+        <Path>Header Files/framework/driver/ethphy/src/dynamic</Path>
       </File>
       <File>
         <Name>icmpv6_manager.h</Name>
@@ -298,6 +354,10 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
+        <Name>drv_ethphy_local.h</Name>
+        <Path>Header Files/framework/driver/ethphy/src</Path>
+      </File>
+      <File>
         <Name>visibility.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
@@ -308,6 +368,10 @@
       <File>
         <Name>arp.h</Name>
         <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>tcpip_commands_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>driver.h</Name>
@@ -370,6 +434,10 @@
         <Path>Header Files/framework/system/tmr/src</Path>
       </File>
       <File>
+        <Name>tcpip_notify.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>tcpip_mac_object.h</Name>
         <Path>Header Files/framework/tcpip</Path>
       </File>
@@ -379,6 +447,10 @@
       </File>
       <File>
         <Name>lldp_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>igmp_private.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
@@ -446,8 +518,20 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
+        <Name>link_list.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>lldp_tlv.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>tcpip_module_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>drv_extphy_dp83848.h</Name>
+        <Path>Header Files/framework/driver/ethphy/src/dynamic</Path>
       </File>
       <File>
         <Name>tcpip_manager.c</Name>
@@ -466,12 +550,20 @@
         <Path>Source Files/framework/crypto/src</Path>
       </File>
       <File>
+        <Name>tcpip_heap_alloc.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>des3.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
         <Name>rabbit.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>arp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>hash.h</Name>
@@ -498,6 +590,14 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
+        <Name>drv_ethmac_lib.h</Name>
+        <Path>Header Files/framework/driver/ethmac/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>tcpip_announce.c</Name>
         <Path>Source Files/framework/tcpip/src</Path>
       </File>
@@ -512,6 +612,10 @@
       <File>
         <Name>tcpip_helpers.h</Name>
         <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>arp_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>dhcpv6.h</Name>
@@ -536,6 +640,10 @@
       <File>
         <Name>crc32.h</Name>
         <Path>Header Files/framework/crypto/src/zlib-1.2.7</Path>
+      </File>
+      <File>
+        <Name>igmp.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>md2.h</Name>
@@ -574,6 +682,10 @@
         <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
+        <Name>nbns_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>dsa.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
@@ -602,12 +714,20 @@
         <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
       <File>
+        <Name>icmp.c</Name>
+        <Path>Source Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>sha.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
         <Name>drv_tmr_local.h</Name>
         <Path>Header Files/framework/driver/tmr/src</Path>
+      </File>
+      <File>
+        <Name>igmp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>infback.c</Name>
@@ -624,6 +744,10 @@
       <File>
         <Name>drv_usbhs.h</Name>
         <Path>Header Files/framework/driver/usb/usbhs</Path>
+      </File>
+      <File>
+        <Name>ipv4_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>inftrees.c</Name>
@@ -662,6 +786,10 @@
         <Path>Header Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
       <File>
+        <Name>tcpip_types.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>berkeley_manager.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
@@ -694,12 +822,20 @@
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
+        <Name>udp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>port.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
         <Name>drv_ethphy.c</Name>
         <Path>Source Files/framework/driver/ethphy</Path>
+      </File>
+      <File>
+        <Name>smtpc_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>sys_devcon.c</Name>
@@ -770,6 +906,10 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
+        <Name>tcpip_manager_control.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>uncompr.c</Name>
         <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
@@ -790,6 +930,10 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
+        <Name>tcpip_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>aes_cfb.h</Name>
         <Path>Header Files/framework/tcpip/src/crypto</Path>
       </File>
@@ -808,6 +952,10 @@
       <File>
         <Name>sys_devcon_local.h</Name>
         <Path>Header Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>hash_fnv.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>adler32.c</Name>
@@ -840,6 +988,10 @@
       <File>
         <Name>sys_tmr.c</Name>
         <Path>Source Files/framework/system/tmr/src</Path>
+      </File>
+      <File>
+        <Name>tcp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>tcpip_commands.c</Name>
@@ -886,6 +1038,10 @@
         <Path>Source Files/framework/crypto/src</Path>
       </File>
       <File>
+        <Name>dhcp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>deflate.h</Name>
         <Path>Header Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
@@ -900,6 +1056,10 @@
       <File>
         <Name>zero_conf_link_local.c</Name>
         <Path>Source Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>tcpip_announce_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -974,8 +1134,16 @@
         <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
       <File>
+        <Name>zero_conf_link_local_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>compress.c</Name>
         <Path>Source Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>_eth_dcpt_lists.h</Name>
+        <Path>Header Files/framework/driver/ethmac/src/dynamic</Path>
       </File>
       <File>
         <Name>drv_tmr_variant_mapping.h</Name>
@@ -1078,6 +1246,10 @@
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
+        <Name>drv_ethmac_local.h</Name>
+        <Path>Header Files/framework/driver/ethmac/src</Path>
+      </File>
+      <File>
         <Name>drv_usbhs_local.h</Name>
         <Path>Header Files/framework/driver/usb/usbhs/src</Path>
       </File>
@@ -1104,6 +1276,10 @@
       <File>
         <Name>sys_debug.c</Name>
         <Path>Source Files/framework/system/debug/src</Path>
+      </File>
+      <File>
+        <Name>oahash.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>zutil.h</Name>
@@ -1138,7 +1314,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_curiosity/bsp</Path>
-        <Checksum>760CB24AB11F1C8D3404B0B06A83D383</Checksum>
+        <Checksum>B0BF1C6D9D29CFE91EBB156AF7DF0714</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -1148,18 +1324,18 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_curiosity</Path>
-        <Checksum>659AA2CC6958D4B6AF39164BD8A86803</Checksum>
-        <ProjectFileChecksum>DE0D9A0F565FD29884ED8E3B015419A0</ProjectFileChecksum>
+        <Checksum>C988A4CF5E54656F47065C4872E6DA63</Checksum>
+        <ProjectFileChecksum>66D79F6D503984306F313A04B670AFDA</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_curiosity</Path>
-        <Checksum>1B0023A6A2A9B46D6D4935FF1B74328C</Checksum>
+        <Checksum>AD89024AA4A3297988EF23AF7AA15DE9</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_curiosity/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -1173,7 +1349,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_curiosity</Path>
-        <Checksum>4BD9324916E9E322B79823742E5DC1FC</Checksum>
+        <Checksum>DFFBDB2B073557A0DFC899323D5E4B48</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -1190,11 +1366,6 @@
         <Checksum>D9054704DD87FED0FBA7F6E763DB9568</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_curiosity/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_curiosity</Path>
         <Checksum>046A48E3FD9120141A1EAC743E38DE16</Checksum>
@@ -1202,10 +1373,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="F:\git\net\apps\tcpip\tcpip_tcp_client_server\firmware\src"/>
-        <Include value="F:\git\net\apps\tcpip\tcpip_tcp_client_server\firmware\src\system_config\pic32mz_ef_curiosity"/>
-        <Include value="F:\git\net\framework"/>
-        <Include value="F:\git\net\apps\tcpip\tcpip_tcp_client_server\firmware\src\system_config\pic32mz_ef_curiosity\framework"/>
+        <Include value="E:\Harmony_withGit\net_repo\net\apps\tcpip\tcpip_tcp_client_server\firmware\src"/>
+        <Include value="E:\Harmony_withGit\net_repo\net\apps\tcpip\tcpip_tcp_client_server\firmware\src\system_config\pic32mz_ef_curiosity"/>
+        <Include value="E:\Harmony_withGit\net_repo\net\framework"/>
+        <Include value="E:\Harmony_withGit\net_repo\net\apps\tcpip\tcpip_tcp_client_server\firmware\src\system_config\pic32mz_ef_curiosity\framework"/>
         <Include value="../src/system_config/pic32mz_ef_curiosity/bsp"/>
       </C32>
     </CompilerItems>

@@ -154,6 +154,27 @@ static const PORTS_BIT_POS led_port_bit_pos_map[] =
     PORTS_BIT_POS_4
 };
 
+// *****************************************************************************
+/* Data Structure: 
+    led_active_level_map[]
+
+  Summary:
+    Maps each led to its active level
+  
+  Description:
+    The led_active_level_map array, indexed by BSP_LED, maps each led to its active 
+    level.
+
+  Remarks:
+    Refer to bsp.h for usage information.
+*/
+static const BSP_LED_ACTIVE_LEVEL led_active_level_map[] =
+{
+   BSP_LED_ACTIVE_HIGH,
+   BSP_LED_ACTIVE_HIGH,
+   BSP_LED_ACTIVE_HIGH,
+   BSP_LED_ACTIVE_HIGH
+};
 
 // *****************************************************************************
 /* Function: 
@@ -172,7 +193,14 @@ static const PORTS_BIT_POS led_port_bit_pos_map[] =
 void BSP_LEDStateSet(BSP_LED led, BSP_LED_STATE state)
 {
     /* Set the state of the LED */
-    PLIB_PORTS_PinWrite (PORTS_ID_0 , led_port_channel_map[led], led_port_bit_pos_map[led], state );
+    if(led_active_level_map[led] == BSP_LED_ACTIVE_HIGH)
+    {
+        PLIB_PORTS_PinWrite (PORTS_ID_0 , led_port_channel_map[led], led_port_bit_pos_map[led], state );
+    }
+    else
+    {
+        PLIB_PORTS_PinWrite (PORTS_ID_0 , led_port_channel_map[led], led_port_bit_pos_map[led], ~state );
+    }
 }
 
 // *****************************************************************************
@@ -211,8 +239,17 @@ void BSP_LEDToggle(BSP_LED led)
 
 BSP_LED_STATE BSP_LEDStateGet (BSP_LED led)
 {
+    BSP_LED_STATE value;
+
     /* Get LED Status */
-    return PLIB_PORTS_PinGetLatched (PORTS_ID_0, led_port_channel_map[led], led_port_bit_pos_map[led]);
+    value = PLIB_PORTS_PinGetLatched (PORTS_ID_0, led_port_channel_map[led], led_port_bit_pos_map[led]);
+
+    if(led_active_level_map[led] == BSP_LED_ACTIVE_LOW)
+    {
+        value = ~value;
+    }
+
+    return value;
 }
 
 // *****************************************************************************
@@ -231,7 +268,14 @@ BSP_LED_STATE BSP_LEDStateGet (BSP_LED led)
 
 void BSP_LEDOn(BSP_LED led)
 {
-    PLIB_PORTS_PinSet( PORTS_ID_0, led_port_channel_map[led], led_port_bit_pos_map[led] );
+    if(led_active_level_map[led] == BSP_LED_ACTIVE_HIGH)
+    {
+        PLIB_PORTS_PinSet( PORTS_ID_0, led_port_channel_map[led], led_port_bit_pos_map[led] );
+    }
+    else
+    {
+        PLIB_PORTS_PinClear( PORTS_ID_0, led_port_channel_map[led], led_port_bit_pos_map[led] );
+    }
 }
 
 // *****************************************************************************
@@ -250,7 +294,14 @@ void BSP_LEDOn(BSP_LED led)
 
 void BSP_LEDOff(BSP_LED led)
 {
-    PLIB_PORTS_PinClear( PORTS_ID_0, led_port_channel_map[led], led_port_bit_pos_map[led] );
+    if(led_active_level_map[led] == BSP_LED_ACTIVE_HIGH)
+    {
+        PLIB_PORTS_PinClear( PORTS_ID_0, led_port_channel_map[led], led_port_bit_pos_map[led] );
+    }
+    else
+    {
+        PLIB_PORTS_PinSet( PORTS_ID_0, led_port_channel_map[led], led_port_bit_pos_map[led] );
+    }
 }
 // *****************************************************************************
 /* Function: 

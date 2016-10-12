@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2064DAB288"/>
@@ -70,6 +74,10 @@
         <Path>Header Files/framework/system/devcon/src</Path>
       </File>
       <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
         <Name>sys_common.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -81,6 +89,10 @@
         <Name>sys_queue.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
     </Files>
     <Templates>
       <Template>
@@ -90,18 +102,17 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk</Path>
-        <Checksum>095FEE14B91E517508550614A3BB9188</Checksum>
+        <Checksum>71588174DDFAFA950EE5EA7365DB455A</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk</Path>
         <Checksum>0E0E10ACFF65A60B3775582B847D17BE</Checksum>
-        <ProjectFileChecksum>6F880FA8F3944BD49D24BBAA5D56517E</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk/framework/system/clk/src</Path>
-        <Checksum>4ACBE80AD6E6B9C5B8788224DF3C6EE8</Checksum>
+        <Checksum>5DEC6FBF578D0F2E0CFD7A4E273CFADC</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -130,7 +141,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk</Path>
-        <Checksum>2F85C476DC45B885A4A197E459691E22</Checksum>
+        <Checksum>C0CC05CA9327D696FDE5B12CEC09B47E</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -146,19 +157,13 @@
         <Name>app.h</Name>
         <Path>Header Files/app</Path>
       </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_da_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/devcon/devcon_sys_config_perf/firmware/src"/>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/devcon/devcon_sys_config_perf/firmware/src/system_config/pic32mz_da_sk"/>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/devcon/devcon_sys_config_perf/firmware/src/pic32mz_da_sk"/>
-        <Include value="/home/vikasnan/GIT_Core/core/framework"/>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/devcon/devcon_sys_config_perf/firmware/src/system_config/pic32mz_da_sk/framework"/>
+        <Include value="/home/vikasnan/GIT_Coredev/core/apps/examples/system/devcon/devcon_sys_config_perf/firmware/src"/>
+        <Include value="/home/vikasnan/GIT_Coredev/core/apps/examples/system/devcon/devcon_sys_config_perf/firmware/src/system_config/pic32mz_da_sk"/>
+        <Include value="/home/vikasnan/GIT_Coredev/core/framework"/>
+        <Include value="/home/vikasnan/GIT_Coredev/core/apps/examples/system/devcon/devcon_sys_config_perf/firmware/src/system_config/pic32mz_da_sk/framework"/>
         <Include value="../src/system_config/pic32mz_da_sk/bsp"/>
       </C32>
     </CompilerItems>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -376,6 +376,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX570F512L"/>
@@ -406,10 +410,6 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
-        <Name>drv_pmp_config.h</Name>
-        <Path>Header Files/framework/driver/pmp/config</Path>
-      </File>
-      <File>
         <Name>gfx_colors.h</Name>
         <Path>Header Files/framework/gfx</Path>
       </File>
@@ -436,10 +436,6 @@
       <File>
         <Name>driver.h</Name>
         <Path>Header Files/framework/driver</Path>
-      </File>
-      <File>
-        <Name>drv_pmp_local.h</Name>
-        <Path>Header Files/framework/driver/pmp/src</Path>
       </File>
       <File>
         <Name>gfx_gol_digital_meter.h</Name>
@@ -486,10 +482,6 @@
         <Path>Header Files/framework/system</Path>
       </File>
       <File>
-        <Name>drv_gfx_lcc_ext.c</Name>
-        <Path>Source Files/framework/driver/gfx/controller/lcc/src</Path>
-      </File>
-      <File>
         <Name>gfx_gol_edit_box.h</Name>
         <Path>Header Files/framework/gfx</Path>
       </File>
@@ -512,10 +504,6 @@
       <File>
         <Name>sys_int.h</Name>
         <Path>Header Files/framework/system/int</Path>
-      </File>
-      <File>
-        <Name>drv_pmp.h</Name>
-        <Path>Header Files/framework/driver/pmp</Path>
       </File>
       <File>
         <Name>osal_impl_basic.h</Name>
@@ -572,6 +560,10 @@
       <File>
         <Name>gfx_gol_meter.h</Name>
         <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
@@ -633,10 +625,6 @@
         <Name>sys_queue.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
-      <File>
-        <Name>drv_gfx_lcc.h</Name>
-        <Path>Header Files/framework/driver/gfx/controller/lcc</Path>
-      </File>
     </Files>
     <Templates>
       <Template>
@@ -645,23 +633,33 @@
         <Checksum>EA6019427472F564AD02C6657BE86BB2</Checksum>
       </Template>
       <Template>
+        <Name>drv_gfx_lcc_generic.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>B247EFBFD9B6BBD4CFA8D000348DD26D</Checksum>
+      </Template>
+      <Template>
         <Name>main.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_125_sk_lcc_pictail_qvga</Path>
-        <Checksum>D6AE55985DC5D9A9CFDFCD912BA48A92</Checksum>
+        <Checksum>61218CA981B1BC816D02C0666384BDD6</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/pic32mx_125_sk_lcc_pictail_qvga</Path>
-        <Checksum>6BE2417CF7293B860E8096310ED83B23</Checksum>
+        <Checksum>A437563EAAEC07D6391F7F973F6D464B</Checksum>
+      </Template>
+      <Template>
+        <Name>drv_gfx_lcc_generic.h</Name>
+        <Path>Header Files/app/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>43202FF875E91AE678E480419B7F819E</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_125_sk_lcc_pictail_qvga</Path>
-        <Checksum>E15504FD3C50CCD733D79016756C8213</Checksum>
+        <Checksum>B22B0FAD2236DB87B8E286396E16342E</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -685,12 +683,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk/src</Path>
-        <Checksum>6AF033A7E8ECB69981D88ED27526EF17</Checksum>
+        <Checksum>9E1735DC00A06796E5D2C1A7FF8668AC</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/pic32mx_125_sk_lcc_pictail_qvga</Path>
-        <Checksum>FC747208352C8A6CDB770074B0F805F4</Checksum>
+        <Checksum>7DEDEFFB3E780FEB9278930DD4FFC874</Checksum>
       </Template>
       <Template>
         <Name>sys_dma_static.h</Name>
@@ -705,7 +703,7 @@
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_125_sk_lcc_pictail_qvga</Path>
-        <Checksum>D3C6E9D253EDCC2AD5F531A16C216021</Checksum>
+        <Checksum>054AE5273EC49FF207629D8F775D7160</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -714,7 +712,7 @@
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/pic32mx_125_sk_lcc_pictail_qvga</Path>
-        <Checksum>F89C54C7BDE73C4D110A7D557971BD3E</Checksum>
+        <Checksum>23EEB59070930E9876962C8AE1B8057A</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -729,21 +727,15 @@
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/pic32mx_125_sk_lcc_pictail_qvga</Path>
-        <Checksum>7AC08972D5C4A6F7AF91D104BE52AECB</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>3D557E7CD18720EED9A1D27AB25ED893</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\Harmony\gfx2.0\apps\gfx\primitive\firmware\src"/>
-        <Include value="C:\Harmony\gfx2.0\apps\gfx\primitive\firmware\src\system_config\pic32mx_125_sk_lcc_pictail_qvga"/>
-        <Include value="C:\Harmony\gfx2.0\apps\gfx\primitive\firmware\src\pic32mx_125_sk_lcc_pictail_qvga"/>
-        <Include value="C:\Harmony\gfx2.0\framework"/>
-        <Include value="C:\Harmony\gfx2.0\apps\gfx\primitive\firmware\src\system_config\pic32mx_125_sk_lcc_pictail_qvga\framework"/>
+        <Include value="C:/Harmony/v2.02/apps/gfx/primitive/firmware/src"/>
+        <Include value="C:/Harmony/v2.02/apps/gfx/primitive/firmware/src/system_config/pic32mx_125_sk_lcc_pictail_qvga"/>
+        <Include value="C:/Harmony/v2.02/framework"/>
+        <Include value="C:/Harmony/v2.02/apps/gfx/primitive/firmware/src/system_config/pic32mx_125_sk_lcc_pictail_qvga/framework"/>
         <Include value="../src/system_config/pic32mx_125_sk_lcc_pictail_qvga/bsp"/>
       </C32>
     </CompilerItems>

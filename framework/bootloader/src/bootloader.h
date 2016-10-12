@@ -184,7 +184,8 @@ typedef enum
     TYPE_USART,
     TYPE_USB_HOST,
     TYPE_USB_DEVICE,
-    TYPE_ETHERNET_UDP_PULL
+    TYPE_ETHERNET_UDP_PULL,
+    TYPE_SD_CARD
 } BOOTLOADER_TYPE;
 
 // *****************************************************************************
@@ -327,6 +328,9 @@ typedef struct
     
     /* Callback for Force Bootloader function */
     BOOTLOADER_CALLBACK ForceBootloadFunc;
+    
+    /* Determine if we are in the bootloader as a result of a software reset. */
+    bool softReset;
     
 } BOOTLOADER_DATA;
 // DOM-IGNORE-END

@@ -94,7 +94,6 @@ void SYS_CLK_Initialize( const SYS_CLK_INIT const * clkInit )
     PLIB_OSC_FRCDivisorSelect( OSC_ID_0, OSC_FRC_DIV_2);
 
 
-
     /* Enable Peripheral Bus 1 */
     PLIB_OSC_PBClockDivisorSet (OSC_ID_0, 0, 1 );
 
@@ -103,10 +102,14 @@ void SYS_CLK_Initialize( const SYS_CLK_INIT const * clkInit )
 
 
 
+
+  
+ 
     /* Disable REFCLKO1*/
     PLIB_OSC_ReferenceOscDisable ( OSC_ID_0, OSC_REFERENCE_1 );
     /* Disable REFCLK1_OE*/
     PLIB_OSC_ReferenceOutputDisable ( OSC_ID_0, OSC_REFERENCE_1 );
+
 
     SYS_DEVCON_SystemLock ( );
 }
@@ -187,7 +190,7 @@ inline uint32_t SYS_CLK_PeripheralFrequencyGet ( CLK_BUSES_PERIPHERAL peripheral
 
 //******************************************************************************
 /* Function:
-    inline uint32_t SYS_CLK_ReferenceClockFrequencyGet ( CLK_BUSES_REFERENCE referenceBus )
+    inline uint32_t SYS_CLK_ReferenceFrequencyGet ( CLK_BUSES_REFERENCE referenceBus )
 
   Summary:
     Gets the selected Reference clock bus frequency in Hertz.
@@ -211,13 +214,14 @@ inline uint32_t SYS_CLK_PeripheralFrequencyGet ( CLK_BUSES_PERIPHERAL peripheral
     <code>
     unsigned long sysClockOutputHz;
 
-    sysClockOutputHz = SYS_CLK_ReferenceClockFrequencyGet ( CLK_BUS_REFERENCE_3 );
+    sysClockOutputHz = SYS_CLK_ReferenceFrequencyGet ( CLK_BUS_REFERENCE_3 );
     </code>
 
   Remarks:
+    None.
  */
 
-inline uint32_t SYS_CLK_ReferenceClockFrequencyGet ( CLK_BUSES_REFERENCE referenceBus )
+inline uint32_t SYS_CLK_ReferenceFrequencyGet ( CLK_BUSES_REFERENCE referenceBus )
 {
 	return 0;
 }

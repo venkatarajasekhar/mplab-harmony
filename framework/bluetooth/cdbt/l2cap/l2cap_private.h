@@ -1,39 +1,24 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Logical Link Control and Adaptation Protocol
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    l2cap_private.h
-
-  Summary:
-    Bluetooth API Library interface to the L2CAP Functions.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 #ifndef __L2CAP_PRIVATE_H
 #define __L2CAP_PRIVATE_H
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
 
 #define CHANNEL_SIGNAL_CMD_DISCONNECT_FIXED    0
 
@@ -44,13 +29,12 @@ extern "C" {
 // -------------------------------------------------------------------
 //
 
-// DOM-IGNORE-BEGIN
 // In l2cap_mgr.c
 extern bt_l2cap_mgr_t _mgrs[];
 #ifdef _DEBUG
 extern const bt_int _ram_size_l2cap_mgr;
 #endif
-// DOM-IGNORE-END
+
 
 typedef void (*bt_l2cap_request_handler_fp)(bt_l2cap_mgr_p pmgr, bt_hci_conn_state_p pconn, bt_l2cap_cmd_header_p pcmd);
 typedef void (*bt_l2cap_response_handler_fp)(bt_l2cap_mgr_p pmgr, bt_l2cap_cmd_header_p pcmd);
@@ -63,7 +47,6 @@ typedef bt_bool (*bt_l2cap_cmd_assembler_fp)(bt_l2cap_cmd_header_t* pcmd, bt_byt
 // -------------------------------------------------------------------
 //
 
-// DOM-IGNORE-BEGIN
 extern bt_buffer_header_t _l2cap_cmd_buffer_headers[];
 extern bt_l2cap_command_t _l2cap_cmd_buffers[];
 extern const bt_byte      _l2cap_max_cmd_buffers;
@@ -87,6 +70,9 @@ extern bt_long            _l2cap_idle_hci_connection_timeout;
 extern bt_l2cap_fixed_channel_t* _l2cap_fixed_channels;
 extern bt_byte                   _l2cap_max_fixed_channels;
 
+extern bt_buffer_header_t _l2cap_connect_params_headers[];
+extern bt_l2cap_connect_params_t  _l2cap_connect_params[];
+
 extern const bt_l2cap_request_handler_fp  _l2cap_request_handlers[];
 extern const bt_l2cap_response_handler_fp _l2cap_response_handlers[];
 extern const bt_l2cap_cmd_parser_fp       _l2cap_cmd_parsers[];
@@ -101,7 +87,7 @@ extern void (*_l2cap_eretr_pack_config_request_fp)(bt_l2cap_channel_t* channel, 
 #ifdef _DEBUG
 extern const bt_uint _ram_size_l2cap_buffers;
 #endif
-// DOM-IGNORE-END
+
 //
 // Private global functions
 // -------------------------------------------------------------------
@@ -171,6 +157,8 @@ bt_int _pack_conn_param_update_request(bt_l2cap_cmd_header_t* pcmd, bt_byte_p bu
 bt_int _pack_conn_param_update_response(bt_l2cap_cmd_header_t* pcmd, bt_byte_p buffer, bt_int buffer_len, bt_int_p poffset);
 
 void _bt_l2cap_eretr_pack_config_request(bt_l2cap_channel_t* channel, bt_byte* buffer, bt_int buffer_len, bt_int* offset);
+
+void _bt_l2cap_process_connect_signal(bt_l2cap_mgr_t* mgr);
 
 #ifdef __cplusplus
 }

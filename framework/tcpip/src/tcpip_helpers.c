@@ -524,8 +524,11 @@ const char* TCPIP_Helper_PowerModeToString(TCPIP_MAC_POWER_MODE mode)
 
 /*****************************************************************************
   Function:
-	uint16_t TCPIP_Helper_Base64Decode(uint8_t* cSourceData, uint16_t wSourceLen, 
-						uint8_t* cDestData, uint16_t wDestLen)
+	uint16_t TCPIP_Helper_Base64Decode(const uint8_t* sourceData, uint16_t sourceLen, 
+						uint8_t* destData, uint16_t destLen)
+
+  Summary:
+    Helper function to decode a Base-64 encoded array.
 
   Description:
 	Decodes a Base-64 array to its literal representation.
@@ -534,24 +537,24 @@ const char* TCPIP_Helper_PowerModeToString(TCPIP_MAC_POWER_MODE mode)
 	None
 
   Parameters:
-	cSourceData - Pointer to a string of Base-64 encoded data
-	wSourceLen	- Length of the Base-64 source data
-	cDestData	- Pointer to write the decoded data
-	wSourceLen	- Maximum length that can be written to cDestData
+	sourceData  - Pointer to a string of Base-64 encoded data
+	sourceLen	- Length of the Base-64 source data
+	destData	- Pointer to write the decoded data
+	sourceLen	- Maximum length that can be written to destData
 
   Returns:
-  	Number of decoded bytes written to cDestData.
+  	Number of decoded bytes written to destData.
   
   Remarks:
-	This function is binary safe and will ignore invalid characters (CR, LF, 
-	etc).  If cSourceData is equal to cDestData, the data will be converted
-	in-place.  If cSourceData is not equal to cDestData, but the regions 
+	This function will ignore invalid Base-64 characters (CR, LF, etc).
+    If sourceData is equal to destData, the data will be converted
+	in-place.
+    If sourceData is not equal to destData, but the regions 
 	overlap, the behavior is undefined.
 	
-	Decoded data is always at least 1/4 smaller than the source data.
+	Decoded data size is 3 / 4 the size of the encoded source data.
   ***************************************************************************/
-#if defined(TCPIP_HTTP_USE_BASE64_DECODE) || defined(TCPIP_HTTP_NET_USE_BASE64_DECODE)
-uint16_t TCPIP_Helper_Base64Decode(uint8_t* cSourceData, uint16_t wSourceLen, uint8_t* cDestData, uint16_t wDestLen)
+uint16_t TCPIP_Helper_Base64Decode(const uint8_t* cSourceData, uint16_t wSourceLen, uint8_t* cDestData, uint16_t wDestLen)
 {
 	uint8_t i;
 	uint8_t vByteNumber;
@@ -623,39 +626,41 @@ uint16_t TCPIP_Helper_Base64Decode(uint8_t* cSourceData, uint16_t wSourceLen, ui
 
 	return wBytesOutput;
 }
-#endif  // defined(TCPIP_HTTP_USE_BASE64_DECODE) || defined(TCPIP_HTTP_NET_USE_BASE64_DECODE)
-
 
 /*****************************************************************************
   Function:
-	uint16_t TCPIP_Helper_Base64Encode(uint8_t* cSourceData, uint16_t wSourceLen,
-						uint8_t* cDestData, uint16_t wDestLen)
+	uint16_t TCPIP_Helper_Base64Encode(const uint8_t* sourceData, uint16_t sourceLen,
+						uint8_t* destData, uint16_t destLen)
+  Summary:
+    Helper function to encode to Base-64.
 
   Description:
-	Encodes a binary array to Base-64.
+	This function encodes a binary array to Base-64.
 	
   Precondition:
 	None
 
   Parameters:
-	cSourceData - Pointer to a string of binary data
-	wSourceLen	- Length of the binary source data
-	cDestData	- Pointer to write the Base-64 encoded data
-	wSourceLen	- Maximum length that can be written to cDestData
+	sourceData - Pointer to a string of binary data
+	sourceLen	- Length of the binary source data
+	destData	- Pointer to write the Base-64 encoded data
+	destLen	    - Maximum length that can be written to destData
 
   Returns:
-  	Number of encoded bytes written to cDestData.  This will always be
+  	Number of encoded bytes written to destData.  This will always be
   	a multiple of 4.
   
   Remarks:
-	Encoding cannot be performed in-place.  If cSourceData overlaps with 
-	cDestData, the behavior is undefined.
+	Encoding cannot be performed in-place.
+    If surceData overlaps with  destData, the behavior is undefined.
 	
-	Encoded data is always at least 1/3 larger than the source data.  It may
-	be 1 or 2 bytes larger than that.
+	The source data is padded wit 1 or 2 bytes, if needed, to make the source size a multiple
+    of 3 bytes.
+    Then for each 3 bytes tuple in the source 4 output bytes are generated.
+    The output size needed is pad(sourceLen) * 4 / 3 bytes.
+
   ***************************************************************************/
-#if defined(TCPIP_STACK_USE_BASE64_ENCODE) || defined(TCPIP_STACK_USE_SMTP_CLIENT) || defined(TCPIP_STACK_USE_DYNAMICDNS_CLIENT)
-uint16_t TCPIP_Helper_Base64Encode(uint8_t* cSourceData, uint16_t wSourceLen, uint8_t* cDestData, uint16_t wDestLen)
+uint16_t TCPIP_Helper_Base64Encode(const uint8_t* cSourceData, uint16_t wSourceLen, uint8_t* cDestData, uint16_t wDestLen)
 {
 	uint8_t i, j;
 	uint8_t vOutput[4];
@@ -720,16 +725,6 @@ uint16_t TCPIP_Helper_Base64Encode(uint8_t* cSourceData, uint16_t wSourceLen, ui
 
 	return wOutputLen;
 }
-#endif // #if defined(TCPIP_STACK_USE_BASE64_ENCODE) || defined(TCPIP_STACK_USE_SMTP) || defined(TCPIP_STACK_USE_DYNAMICDNS_CLIENT)
-
-
-
-
-
-
-
-
-
 
 
 /*****************************************************************************
@@ -854,11 +849,17 @@ uint16_t TCPIP_Helper_PacketChecksum(TCPIP_MAC_PACKET* pPkt, uint8_t* startAdd, 
             nBytes += chkBytes;
             calcChkSum += segChkSum;
         }
-        pSeg = pSeg->next;
-        if(pSeg)
+        if((pSeg = pSeg->next) != 0)
         {
             pChkBuff = pSeg->segLoad;
         }
+#if (TCPIP_IPV4_FRAGMENTATION != 0)
+        else if((pPkt = pPkt->pkt_next) != 0)
+        {
+            pSeg = pPkt->pDSeg;
+            pChkBuff = pPkt->pNetLayer;
+        }
+#endif  // (TCPIP_IPV4_FRAGMENTATION != 0)
     }
 
     return ~TCPIP_Helper_ChecksumFold(calcChkSum);
@@ -953,10 +954,10 @@ void TCPIP_Helper_FormatNetBIOSName(uint8_t Name[])
 	uint8_t i;
 
 	Name[15] = '\0';
-	strupr((char*)Name);
 	i = 0;
 	while(i < 15u)
 	{
+        Name[i] = toupper(Name[i]);
 		if(Name[i] == '\0')
 		{
 			while(i < 15u)
@@ -968,428 +969,6 @@ void TCPIP_Helper_FormatNetBIOSName(uint8_t Name[])
 		i++;
 	}
 }
-
-
-
-
-
-/*****************************************************************************
-  Function:
-	uint8_t TCPIP_Helper_ExtractURLFields(uint8_t *vURL, 
-						  PROTOCOLS *protocol, 
-						  uint8_t *vUsername, uint16_t *wUsernameLen, 
-						  uint8_t *vPassword, uint16_t *wPasswordLen, 
-						  uint8_t *vHostname, uint16_t *wHostnameLen, 
-						  uint16_t *wPort, 
-						  uint8_t *vFilePath, uint16_t *wFilePathLen)
-
-  Summary:
-	Extracts all parameters from an URL string (ex: 
-	"http://admin:passwd@www.microchip.com:8080/myfile.gif" is split into 
-	{PROTOCOL_HTTP, "admin", "passwd", "www.microchip.com", 8080, "/myfile.gif"}.
-
-  Description:
-	Extracts all parameters from an URL string (ex: 
-	"http://admin:passwd@www.microchip.com:8080/myfile.gif" is split into 
-	{PROTOCOL_HTTP, "admin", "passwd", "www.microchip.com", 8080, "/myfile.gif"}.
-	
-	The URL string can be null terminated, or alternatively could be terminated 
-	by a carriage return or line feed.
-	
-	If the protocol is unrecognized or the protocol is recognized but the URL 
-	is malformed, than an error is safely returned.  For more information on 
-	URL/URI interpretation see RFC 2396.
-
-  Precondition:
-	This function is commented out by default to save code space because 
-	it is not used by any current stack features.  However, if you want to use 
-	it, go ahead and uncomment it.  It has been tested, so it (should) work 
-	correctly.
-
-  Parameters:
-	vURL -	Pointer to null terminated URL to decode and extract from.  This 
-		parameter is required and needs to have the minimum RFC 1738 components 
-		in it (protocol and hostname).
-		
-	protocol - Optional pointer to a PROTOCOLS enum to retrieve the decoded 
-		protocol type.  If this parameter is unneeded, specify a NULL pointer.  
-		The protocol is a required part of the URL, so it must always be 
-		present.  The protocol also determines what scheme all other parameters 
-		are decoded using, so the function will fail if an unrecognized 
-		protocol is provided.  The PROTOCOLS enum members show all of the 
-		currently supported protocols for this function.
-		
-		<p>For the example URL provided in the function description, 
-		PROTOCOL_HTTP would be returned for this field.
-		
-	vUsername - Optional pointer to a buffer to write the decoded username 
-		portion of the URL.  If the URL does not contain a username or a NULL 
-		pointer is supplied, then this field is ignored.
-
-		<p>For the example URL provided in the function description, "admin" 
-		would be returned for this field.
-		
-	wUsernameLen -
-		On call\: Optional pointer to a uint16_t specifying the maximum length of 
-		the vUsername buffer, including the null terminator character.
-		
-		<p>Upon return\: If wUsernameLen and vUsername are non-NULL, the 
-		*wUsernameLen uint16_t is updated with the actual number of characters 
-		written to the vUsername buffer, including the null terminator 
-		character.  If vUsername is NULL but wUsernameLen is non-NULL, then no 
-		characters are copied, but *wUsernameLen will return the number of 
-		characters required to fit the full username string.  If wUsernameLen 
-		is NULL, then the username field in the URL, if present, is ignored and 
-		the vUsername pointer is not used.
-		
-		<p>If zero characters were written, this indicates that the URL did not 
-		contain a username field.  If one character was written, this indicates 
-		that a username field was present, but was a zero character string 
-		(ex\: "").
-		 
-		<p>For the example URL provided in the function description, 6 (0x0006) 
-		would be returned for this field.
-		
-	vPassword - Optional pointer to a buffer to write the decoded password 
-		portion of the URL.  If the URL does not contain a password or a NULL 
-		pointer is supplied, then this field is ignored.
-
-		<p>For the example URL provided in the function description, "passwd" 
-		would be returned for this field.
-		
-	wPasswordLen -
-		On call\: Optional pointer to a uint16_t specifying the maximum length of 
-		the vPassword buffer, including the null terminator character.
-		
-		<p>Upon return\: If wPasswordLen and vPassword are non-NULL, the 
-		*wPasswordLen uint16_t is updated with the actual number of characters 
-		written to the vPassword buffer, including the null terminator 
-		character.  If vPassword is NULL but wPasswordLen is non-NULL, then no 
-		characters are copied, but *wPasswordLen will return the number of 
-		characters required to fit the full password string.  If wPasswordLen 
-		is NULL, then the password field in the URL, if present, is ignored and 
-		the vPassword pointer is not used.
-		
-		<p>If zero characters were written, this indicates that the URL did not 
-		contain a password field.  If one character was written, this indicates 
-		that a password field was present, but was a zero character string 
-		(ex\: "").
-		 
-		<p>For the example URL provided in the function description, 7 (0x0007) 
-		would be returned for this field.
-		
-	vHostname - Optional pointer to a buffer to write the decoded hostname 
-		portion of the URL.  All Internet URLs must contain a hostname or IP 
-		address, however, if a NULL pointer is supplied, then this field is 
-		ignored.
-
-		<p>For the example URL provided in the function description, 
-		"www.microchip.com" would be returned for this field.  If the URL was 
-		"http://192.168.0.1", then this field would be returned as 
-		"192.168.0.1".	The IP address would not be decoded to a uint32_t (use the 
-        TCPIP_Helper_StringToIPAddress() helper function to do this).
-		
-	wHostnameLen -
-		On call\: Optional pointer to a uint16_t specifying the maximum length of 
-		the vHostname buffer, including the null terminator character.
-		
-		<p>Upon return\: If wHostnameLen and vHostname are non-NULL, the 
-		*wHostnameLen uint16_t is updated with the actual number of characters 
-		written to the vHostname buffer, including the null terminator 
-		character.  If vHostname is NULL but wHostnameLen is non-NULL, then no 
-		characters are copied, but *wHostnameLen will return the number of 
-		characters required to fit the full hostname string.  If wHostnameLen 
-		is NULL, then the hostname field in the URL, is ignored and the 
-		vHostname pointer is not used.
-		
-		<p>For the example URL provided in the function description, 
-		18 (0x0012) would be returned for this field.  If the URL was 
-		"http://192.168.0.1", then this field would be returned as 12 (0x000C).
-		
-	wPort - Optional pointer to a uint16_t specifying the TCP or UDP port that the 
-		server is listening on.  If the port field is absent from the URL, then 
-		this parameter will specify the default port for the protocol.  For 
-		example, "http://www.microchip.com" would result in 80 being return as 
-		the specified port.
-		 
-		<p>If the wPort pointer is NULL, then the port field in the URL 
-		is ignored, if present.
-		
-	vFilePath - Optional pointer to a buffer to write the decoded file path 
-		portion of the URL.  If a NULL pointer is supplied, then this field is 
-		ignored.  If a file path is not present in the URL, then "/" will be 
-		returned in this field.  
-
-		<p>For the example URL provided in the function description, 
-		"/myfile.gif" would be returned for this field.
-		
-	wFilePathLen -
-		On call\: Optional pointer to a uint16_t specifying the maximum length of 
-		the vFilePath buffer, including the null terminator character.
-		
-		<p>Upon return\: If wFilePathLen and vFilePath are non-NULL, the 
-		*wFilePathLen uint16_t is updated with the actual number of characters 
-		written to the vFilePath buffer, including the null terminator 
-		character.  If vFilePath is NULL but wFilePathLen is non-NULL, then no 
-		characters are copied, but *wFilePathLen will return the number of 
-		characters required to fit the full file path string.  If wFilePathLen 
-		is NULL, then the file path field in the URL, if present, is ignored and 
-		the vFilePath pointer is not used.
-		
-		<p>This function always returns "/" if no file path is present, so
-		*wFilePathLen will also be at least 2 characters ('/' and null 
-		terminator) if the pointer is non-NULL.
-	
-		<p>For the example URL provided in the function description, 12 (0x000C) 
-		would be returned for this field.
-		
-  Returns:
-	Zero on success.  Nonzero indicates an error code.  If a nonzero error code 
-	is returned, none of the returned buffers or pointer values should be 
-	treated as valid, but some of them may have been written to.  The following 
-	are all possible return values.
-	<table>
-		0   No error
-		1   Protocol unknown (additional code needs to be added to 
-			 TCPIP_Helper_ExtractURLFields() and the PROTOCOLS enum needs to be updated if 
-			 you want to decode URLs of this protocol type.
-		2   URL malformed. Illegal or unknown URL format encountered.
-		3   Buffer too small.  One of the input buffer sizes is too small to 
-			 contain the URL parameter.
-	</table>
-  ***************************************************************************/
-#if 0	
-uint8_t TCPIP_Helper_ExtractURLFields(uint8_t *vURL, PROTOCOLS *protocol, uint8_t *vUsername, uint16_t *wUsernameLen, uint8_t *vPassword, uint16_t *wPasswordLen, uint8_t *vHostname, uint16_t *wHostnameLen, uint16_t *wPort, uint8_t *vFilePath, uint16_t *wFilePathLen)
-{
-	// These two arrays must exactly match up each other and the PROTOCOLS enum 
-	// elements.  The protocol name strings must also be specified in all 
-	// lowercase.
-	static const char * const	vProtocolNames[] = {"http", "https", "mms", "rtsp"};
-	static const uint16_t 		wProtocolPorts[] = { 80,     443,     1755,  554};
-	uint16_t w, w2;
-	uint8_t i, j;
-	PROTOCOLS prot;
-	uint8_t *temp, *temp2;
-	uint16_t wURLLen;
-	uint16_t wLocalPort;
-	
-	
-	// Calculate how long this URL is
-	wURLLen = strlen((char*)vURL);
-	temp = (uint8_t*)strnchr((char*)vURL, wURLLen, '\r');
-	if(temp)
-		wURLLen = temp - vURL;
-	temp = (uint8_t*)strnchr((char*)vURL, wURLLen, '\n');
-	if(temp)
-		wURLLen = temp - vURL;
-	
-
-	// Parse starting protocol field
-	// Find out how long the protocol name field is
-	temp = (uint8_t*)strnchr((char*)vURL, wURLLen, ':');
-	if(temp == NULL)
-		return 2;
-	
-	// Search protocol list to see if this is a recognized protocol
-	for(prot = 0; (uint8_t)prot < sizeof(wProtocolPorts)/sizeof(wProtocolPorts[0]); prot++)
-	{
-		w = strlen(vProtocolNames[prot]);
-		if((uint16_t)(temp - vURL) == w)
-		{
-			w2 = 0;
-			temp2 = vURL;
-			while(w)
-			{
-				i = *temp2++;
-				if((i >= 'A') && (i <= 'Z'))
-					i += 'a' - 'A';
-				if(i != (uint8_t)vProtocolNames[prot][w2++])
-					break;
-				w--;
-			}
-			if(w == 0u)
-			{
-				if(protocol)
-					*protocol = prot;
-				break;
-			}
-		}
-	}
-
-	// If we've search the whole list and didn't find a match, then 
-	// this protocol is unknown and this URL cannot be parsed.
-	if((uint8_t)prot >= sizeof(wProtocolPorts)/sizeof(wProtocolPorts[0]))
-		return 1;
-	
-	w = temp - vURL + 1;
-	vURL += w;
-	wURLLen -= w;
-
-	// Protocols using the authority field all must have a double 
-	// slash "//" prefix
-	if(wURLLen < 2u)
-		return 2;
-	for(j = 0; j < 2u; j++)
-	{
-		i = *vURL++;
-		if(i != '/')
-			return 2;
-	}
-	wURLLen -= 2;
-	
-
-	// Parse username and password fields
-	// See if there is a @ sign, indicating that there is at 
-	// least a username and possibly a password in this URL
-	temp = (uint8_t*)strnchr((char*)vURL, wURLLen, '@');
-	if(temp == NULL)
-	{
-		if(wUsernameLen)
-			*wUsernameLen = 0;
-		if(wPasswordLen)
-			*wPasswordLen = 0;
-	}
-	else
-	{
-		// If we get down here, there is a user name present, let's 
-		// see if a password is also present by searching for a 
-		// colon between the current string position and the @ 
-		// symbol.
-		temp2 = (uint8_t*)strnchr((char*)vURL, temp - vURL, ':');
-		
-		// Calculate username length and password length, including 
-		// null terminator (if the field exists)
-		if(temp2 == NULL)
-		{
-			w = temp - vURL + 1;	// Username
-			w2 = 0;					// Password
-		}
-		else
-		{
-			w = temp2 - vURL + 1;	// Username
-			w2 = temp - temp2;		// Password
-		}
-		
-		if(wUsernameLen)
-		{
-			if(vUsername)
-			{
-				if(*wUsernameLen < w)
-					return 3;
-				memcpy((void*)vUsername, (void*)vURL, w - 1);
-				vUsername[w-1] = 0;
-			}
-			*wUsernameLen = w;
-		}
-	
-		if(wPasswordLen)
-		{
-			if(vPassword)
-			{
-				if(*wPasswordLen < w2)
-					return 3;
-				if(w2)
-				{
-					memcpy((void*)vPassword, (void*)temp2+1, w2 - 1);
-					vPassword[w2-1] = 0;
-				}
-			}
-			*wPasswordLen = w2;
-		}
-	
-		vURL += w;
-		wURLLen -= w;
-		if(w2)
-		{
-			vURL += w2;
-			wURLLen -= w2;
-		}
-	}
-
-
-	// Parse hostname field
-	// Find the length of the hostname, including NULL 
-	// terminator
-	temp = (uint8_t*)strnchr((char*)vURL, wURLLen, ':');
-	temp2 = (uint8_t*)strnchr((char*)vURL, wURLLen, '/');
-	if(temp && temp2)
-	{
-		if(temp > temp2)
-			temp = NULL;
-	}
-	if(temp == NULL)
-	{
-		temp = temp2;
-		if(temp2 == NULL)
-			temp = vURL + wURLLen;
-	}
-	w = temp - vURL + 1;
-	if(wHostnameLen)
-	{
-		if(vHostname)
-		{
-			if(*wHostnameLen < w)
-				return 3;
-			memcpy((void*)vHostname, (void*)vURL, w - 1);
-			vHostname[w-1] = 0;
-		}
-		*wHostnameLen = w;
-	}
-	vURL += w - 1;
-	wURLLen -= w - 1;
-
-
-	// Parse port field
-	if(*vURL == ':')
-	{
-		vURL++;
-		wURLLen--;
-		wLocalPort = 0;
-		w = wURLLen;
-		temp = (uint8_t*)strnchr((char*)vURL, wURLLen, '/');
-		if(temp != NULL)
-			w = temp - vURL;
-		w2 = w;
-		if(wPort)
-		{
-			while(w--)
-			{
-				wLocalPort *= 10;
-				wLocalPort += *vURL++ - '0';
-			}
-			*wPort = wLocalPort;
-		}
-		else
-			vURL += w2;
-		wURLLen -= w2;
-	}
-	else if(wPort)
-		*wPort = wProtocolPorts[prot];
-
-
-	// Parse file path field
-	if(wFilePathLen)
-	{
-		w = ++wURLLen;
-		if(wURLLen == 1u)
-			w = 2;
-		if(vFilePath)
-		{
-			if(*wFilePathLen < w)
-				return 3;
-			if(wURLLen == 1u)
-				vFilePath[0] = '/';
-			else
-				memcpy((void*)vFilePath, (void*)vURL, wURLLen - 1);
-			vFilePath[w - 1] = 0;
-			*wFilePathLen = w;
-			return 0;
-		}
-		*wFilePathLen = w;
-	}
-	return 0;
-}
-#endif
 
 unsigned char TCPIP_Helper_FindCommonPrefix (unsigned char * addr1, unsigned char * addr2, unsigned char bytes)
 {

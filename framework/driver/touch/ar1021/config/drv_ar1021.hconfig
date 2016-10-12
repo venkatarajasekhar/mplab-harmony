@@ -127,6 +127,7 @@ ifblock USE_DRV_TOUCH_AR1021
 add "<#include \"/framework/driver/touch/ar1021/config/drv_ar1021.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
 add "<#include \"/framework/driver/touch/ar1021/config/drv_ar1021_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS
 add "<#include \"/framework/driver/touch/ar1021/config/drv_ar1021_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_DRIVER_TASKS
+add "<#include \"/framework/driver/touch/ar1021/config/drv_ar1021.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 
 file DRV_AR1021_H "$HARMONY_VERSION_PATH/framework/driver/touch/ar1021/drv_ar1021.h" to "$PROJECT_HEADER_FILES/framework/driver/touch/ar1021/drv_ar1021.h"
 file DRV_AR1021_TOUCH_H "$HARMONY_VERSION_PATH/framework/driver/touch/drv_touch.h" to "$PROJECT_HEADER_FILES/framework/driver/touch/drv_touch.h"

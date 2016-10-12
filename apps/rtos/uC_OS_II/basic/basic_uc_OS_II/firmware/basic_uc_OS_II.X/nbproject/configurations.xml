@@ -18,6 +18,12 @@
             <itemPath>../src/rtos_config/pic32mz_ef_sk/os_cfg.h</itemPath>
             <itemPath>../src/rtos_config/pic32mz_ef_sk/app_cfg.h</itemPath>
           </logicalFolder>
+          <logicalFolder name="f5"
+                         displayName="pic32mz_ef_sk_microMIPS"
+                         projectFiles="true">
+            <itemPath>../src/rtos_config/pic32mz_ef_sk_microMIPS/os_cfg.h</itemPath>
+            <itemPath>../src/rtos_config/pic32mz_ef_sk_microMIPS/app_cfg.h</itemPath>
+          </logicalFolder>
           <logicalFolder name="f2" displayName="pic32mz_sk" projectFiles="true">
             <itemPath>../src/rtos_config/pic32mz_sk/os_cfg.h</itemPath>
             <itemPath>../src/rtos_config/pic32mz_sk/app_cfg.h</itemPath>
@@ -25,57 +31,38 @@
         </logicalFolder>
         <logicalFolder name="f1" displayName="system_config" projectFiles="true">
           <logicalFolder name="f1" displayName="pic32mx_sk" projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mx_sk/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx_sk/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mx_sk/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mx_sk/system_definitions.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f4" displayName="pic32mz_da_sk" projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_da_sk/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_da_sk/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mz_da_sk/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mz_da_sk/system_definitions.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f3" displayName="pic32mz_ef_sk" projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_ef_sk/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mz_ef_sk/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk/system_definitions.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="pic32mz_sk" projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
-              <itemPath>../src/system_config/pic32mz_sk/bsp/bsp.h</itemPath>
+          <logicalFolder name="f5"
+                         displayName="pic32mz_ef_sk_microMIPS"
+                         projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
+              <itemPath>../src/system_config/pic32mz_ef_sk_microMIPS/bsp/bsp.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_sk/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
+            <itemPath>../src/system_config/pic32mz_ef_sk_microMIPS/system_config.h</itemPath>
+            <itemPath>../src/system_config/pic32mz_ef_sk_microMIPS/system_definitions.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f2" displayName="pic32mz_sk" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
+              <itemPath>../src/system_config/pic32mz_sk/bsp/bsp.h</itemPath>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mz_sk/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mz_sk/system_definitions.h</itemPath>
@@ -97,6 +84,7 @@
           <logicalFolder name="f5" displayName="clk" projectFiles="true">
             <itemPath>../../../../../../../framework/system/clk/sys_clk.h</itemPath>
             <itemPath>../../../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
+            <itemPath>../../../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="common" projectFiles="true">
             <itemPath>../../../../../../../framework/system/common/sys_common.h</itemPath>
@@ -262,6 +250,33 @@
             <itemPath>../src/system_config/pic32mz_ef_sk/system_interrupt_a.S</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk/rtos_hooks.c</itemPath>
           </logicalFolder>
+          <logicalFolder name="f5"
+                         displayName="pic32mz_ef_sk_microMIPS"
+                         projectFiles="true">
+            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+              <itemPath>../src/system_config/pic32mz_ef_sk_microMIPS/bsp/bsp.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f1" displayName="framework" projectFiles="true">
+              <logicalFolder name="f1" displayName="system" projectFiles="true">
+                <logicalFolder name="f1" displayName="clk" projectFiles="true">
+                  <logicalFolder name="f1" displayName="src" projectFiles="true">
+                    <itemPath>../src/system_config/pic32mz_ef_sk_microMIPS/framework/system/clk/src/sys_clk_static.c</itemPath>
+                  </logicalFolder>
+                </logicalFolder>
+                <logicalFolder name="f2" displayName="ports" projectFiles="true">
+                  <logicalFolder name="f1" displayName="src" projectFiles="true">
+                    <itemPath>../src/system_config/pic32mz_ef_sk_microMIPS/framework/system/ports/src/sys_ports_static.c</itemPath>
+                  </logicalFolder>
+                </logicalFolder>
+              </logicalFolder>
+            </logicalFolder>
+            <itemPath>../src/system_config/pic32mz_ef_sk_microMIPS/system_init.c</itemPath>
+            <itemPath>../src/system_config/pic32mz_ef_sk_microMIPS/system_interrupt.c</itemPath>
+            <itemPath>../src/system_config/pic32mz_ef_sk_microMIPS/system_exceptions.c</itemPath>
+            <itemPath>../src/system_config/pic32mz_ef_sk_microMIPS/system_tasks.c</itemPath>
+            <itemPath>../src/system_config/pic32mz_ef_sk_microMIPS/system_interrupt_a.S</itemPath>
+            <itemPath>../src/system_config/pic32mz_ef_sk_microMIPS/rtos_hooks.c</itemPath>
+          </logicalFolder>
           <logicalFolder name="f2" displayName="pic32mz_sk" projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_sk/bsp/bsp.c</itemPath>
@@ -303,8 +318,8 @@
               <itemPath>../../../../../../../framework/system/devcon/src/sys_devcon.c</itemPath>
               <itemPath>../../../../../../../framework/system/devcon/src/sys_devcon_pic32mz.c</itemPath>
               <itemPath>../../../../../../../framework/system/devcon/src/sys_devcon_cache_pic32mz.S</itemPath>
-              <itemPath>../../../../../../../framework/system/devcon/src/sys_devcon_pic32mx.c</itemPath>
               <itemPath>../../../../../../../framework/system/devcon/src/sys_devcon_cache.h</itemPath>
+              <itemPath>../../../../../../../framework/system/devcon/src/sys_devcon_pic32mx.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f2" displayName="int" projectFiles="true">
@@ -370,6 +385,12 @@
     <Elem>..\src\system_config\pic32mz_sk</Elem>
     <Elem>..\src\pic32mz_ef_sk</Elem>
     <Elem>..\src\system_config\pic32mz_ef_sk</Elem>
+    <Elem>../src/pic32mz_ef_sk_microMIPS</Elem>
+    <Elem>../src/system_config/pic32mz_ef_sk_microMIPS</Elem>
+    <Elem>../src/pic32mz_da_sk</Elem>
+    <Elem>../src/pic32mz_ef_sk</Elem>
+    <Elem>../src/pic32mz_sk</Elem>
+    <Elem>../src/pic32mx_sk</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -382,7 +403,7 @@
         <platformTool>SKDEPIC32PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>1.42</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>2</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
@@ -615,6 +636,14 @@
         <C32Global>
         </C32Global>
       </item>
+      <item path="../src/rtos_config/pic32mz_ef_sk_microMIPS/app_cfg.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/rtos_config/pic32mz_ef_sk_microMIPS/os_cfg.h"
+            ex="true"
+            overriding="false">
+      </item>
       <item path="../src/rtos_config/pic32mz_sk/app_cfg.h"
             ex="true"
             overriding="false">
@@ -680,22 +709,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mz_da_sk/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_da_sk/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -903,22 +916,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -1063,6 +1060,54 @@
         <C32Global>
         </C32Global>
       </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/bsp/bsp.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/bsp/bsp.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/framework/system/clk/src/sys_clk_static.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/framework/system/ports/src/sys_ports_static.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/rtos_hooks.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_config.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_definitions.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_exceptions.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_init.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_interrupt.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_interrupt_a.S"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_tasks.c"
+            ex="true"
+            overriding="false">
+      </item>
       <item path="../src/system_config/pic32mz_sk/bsp/bsp.c"
             ex="true"
             overriding="false">
@@ -1096,22 +1141,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mz_sk/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_sk/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -1469,7 +1498,7 @@
         <platformTool>PKOBSKDEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>1.42</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>2</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
@@ -1495,7 +1524,7 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <item path="../../../../../../../framework/system/devcon/src/sys_devcon_cache.h"
-            ex="true"
+            ex="false"
             overriding="false">
         <C32>
         </C32>
@@ -1718,6 +1747,14 @@
         <C32Global>
         </C32Global>
       </item>
+      <item path="../src/rtos_config/pic32mz_ef_sk_microMIPS/app_cfg.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/rtos_config/pic32mz_ef_sk_microMIPS/os_cfg.h"
+            ex="true"
+            overriding="false">
+      </item>
       <item path="../src/system_config/pic32mx_sk/bsp/bsp.c"
             ex="true"
             overriding="false">
@@ -1751,22 +1788,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_sk/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_sk/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -1974,22 +1995,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_da_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_da_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -2182,22 +2187,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -2341,6 +2330,54 @@
         </C32CPP>
         <C32Global>
         </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/bsp/bsp.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/bsp/bsp.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/framework/system/clk/src/sys_clk_static.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/framework/system/ports/src/sys_ports_static.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/rtos_hooks.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_config.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_definitions.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_exceptions.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_init.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_interrupt.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_interrupt_a.S"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_tasks.c"
+            ex="true"
+            overriding="false">
       </item>
       <C32>
         <property key="additional-warnings" value="true"/>
@@ -2608,7 +2645,7 @@
         <platformTool>PKOBSKDEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>1.42</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>2</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
@@ -2809,6 +2846,14 @@
         <C32Global>
         </C32Global>
       </item>
+      <item path="../src/rtos_config/pic32mz_ef_sk_microMIPS/app_cfg.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/rtos_config/pic32mz_ef_sk_microMIPS/os_cfg.h"
+            ex="true"
+            overriding="false">
+      </item>
       <item path="../src/rtos_config/pic32mz_sk/app_cfg.h"
             ex="true"
             overriding="false">
@@ -2874,22 +2919,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_sk/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_sk/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -3097,22 +3126,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_da_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_da_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -3257,6 +3270,54 @@
         <C32Global>
         </C32Global>
       </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/bsp/bsp.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/bsp/bsp.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/framework/system/clk/src/sys_clk_static.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/framework/system/ports/src/sys_ports_static.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/rtos_hooks.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_config.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_definitions.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_exceptions.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_init.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_interrupt.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_interrupt_a.S"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_tasks.c"
+            ex="true"
+            overriding="false">
+      </item>
       <item path="../src/system_config/pic32mz_sk/bsp/bsp.c"
             ex="true"
             overriding="false">
@@ -3290,22 +3351,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mz_sk/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_sk/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -3624,7 +3669,7 @@
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>1.42</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>2</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
@@ -3650,7 +3695,7 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <item path="../../../../../../../framework/system/devcon/src/sys_devcon_cache.h"
-            ex="true"
+            ex="false"
             overriding="false">
         <C32>
         </C32>
@@ -3841,6 +3886,14 @@
         <C32Global>
         </C32Global>
       </item>
+      <item path="../src/rtos_config/pic32mz_ef_sk_microMIPS/app_cfg.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/rtos_config/pic32mz_ef_sk_microMIPS/os_cfg.h"
+            ex="true"
+            overriding="false">
+      </item>
       <item path="../src/rtos_config/pic32mz_sk/app_cfg.h"
             ex="true"
             overriding="false">
@@ -3906,22 +3959,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_sk/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_sk/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -4129,22 +4166,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -4289,6 +4310,54 @@
         <C32Global>
         </C32Global>
       </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/bsp/bsp.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/bsp/bsp.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/framework/system/clk/src/sys_clk_static.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/framework/system/ports/src/sys_ports_static.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/rtos_hooks.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_config.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_definitions.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_exceptions.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_init.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_interrupt.c"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_interrupt_a.S"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk_microMIPS/system_tasks.c"
+            ex="true"
+            overriding="false">
+      </item>
       <item path="../src/system_config/pic32mz_sk/bsp/bsp.c"
             ex="true"
             overriding="false">
@@ -4322,22 +4391,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mz_sk/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_sk/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -4744,6 +4797,1199 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.end" value="0x1d1fffff"/>
+        <property key="memories.programmemory.start" value="0x1d000000"/>
+        <property key="memories.userotp" value="true"/>
+        <property key="programoptions.donoteraseauxmem" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.preserveprogramrange.end" value="0x1d0007ff"/>
+        <property key="programoptions.preserveprogramrange.start" value="0x1d000000"/>
+        <property key="programoptions.usehighvoltageonmclr" value="false"/>
+        <property key="programoptions.uselvpprogramming" value="true"/>
+      </PKOBSKDEPlatformTool>
+    </conf>
+    <conf name="pic32mz_ef_sk_microMIPS" type="2">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <targetDevice>PIC32MZ2048EFH144</targetDevice>
+        <targetHeader></targetHeader>
+        <targetPluginBoard></targetPluginBoard>
+        <platformTool>PKOBSKDEPlatformTool</platformTool>
+        <languageToolchain>XC32</languageToolchain>
+        <languageToolchainVersion>1.42</languageToolchainVersion>
+        <platform>2</platform>
+      </toolsSet>
+      <compileType>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibFileItem>../../../../../../../bin/framework/peripheral/16bit/PIC32MZ2048EFH144_peripherals.a</linkerLibFileItem>
+          </linkerLibItems>
+        </linkerTool>
+        <archiverTool>
+        </archiverTool>
+        <loading>
+          <useAlternateLoadableFile>false</useAlternateLoadableFile>
+          <parseOnProdLoad>false</parseOnProdLoad>
+          <alternateLoadableFile></alternateLoadableFile>
+        </loading>
+      </compileType>
+      <makeCustomizationType>
+        <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
+        <makeCustomizationPreStep></makeCustomizationPreStep>
+        <makeCustomizationPostStepEnabled>false</makeCustomizationPostStepEnabled>
+        <makeCustomizationPostStep></makeCustomizationPostStep>
+        <makeCustomizationPutChecksumInUserID>false</makeCustomizationPutChecksumInUserID>
+        <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
+        <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
+      </makeCustomizationType>
+      <item path="../../../../../../../framework/system/devcon/src/sys_devcon_pic32mx.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../../../../../../../third_party/rtos/MicriumOSII/Software/uC-CPU/MIPS32-4K/MPLAB-PIC32-GCC/cpu.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../../../../../../../third_party/rtos/MicriumOSII/Software/uC-CPU/MIPS32-4K/MPLAB-PIC32-GCC/cpu_a.s"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../../../../../../../third_party/rtos/MicriumOSII/Software/uCOS-II/Ports/MIPS32-4K/Vectored-Interrupt/MPLAB-PIC32-GCC/os_cpu.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../../../../../../../third_party/rtos/MicriumOSII/Software/uCOS-II/Ports/MIPS32-4K/Vectored-Interrupt/MPLAB-PIC32-GCC/os_cpu_a.S"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../../../../../../../third_party/rtos/MicriumOSII/Software/uCOS-II/Ports/MIPS32-4K/Vectored-Interrupt/MPLAB-PIC32-GCC/os_cpu_c.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../../../../../../../third_party/rtos/MicriumOSII/Software/uCOS-II/Ports/MIPS32-4K/Vectored-Interrupt/MPLAB-PIC32-GCC/os_dbg.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/rtos_config/pic32mx_sk/app_cfg.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/rtos_config/pic32mx_sk/os_cfg.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/rtos_config/pic32mz_da_sk/app_cfg.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/rtos_config/pic32mz_da_sk/os_cfg.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/rtos_config/pic32mz_ef_sk/app_cfg.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/rtos_config/pic32mz_ef_sk/os_cfg.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/rtos_config/pic32mz_sk/app_cfg.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/rtos_config/pic32mz_sk/os_cfg.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_sk/bsp/bsp.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_sk/bsp/bsp.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_sk/framework/system/clk/src/sys_clk_static.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_sk/framework/system/ports/src/sys_ports_static.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_sk/rtos_hooks.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_sk/system_config.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_sk/system_definitions.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_sk/system_exceptions.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_sk/system_init.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_sk/system_interrupt.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_sk/system_interrupt_a.S"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mx_sk/system_tasks.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_da_sk/bsp/bsp.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_da_sk/bsp/bsp.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_da_sk/framework/system/clk/src/sys_clk_static.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_da_sk/framework/system/ports/src/sys_ports_static.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_da_sk/rtos_hooks.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_da_sk/system_config.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_da_sk/system_definitions.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_da_sk/system_exceptions.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_da_sk/system_init.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_da_sk/system_interrupt.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_da_sk/system_interrupt_a.S"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_da_sk/system_tasks.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk/bsp/bsp.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk/bsp/bsp.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/src/sys_clk_static.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk/framework/system/ports/src/sys_ports_static.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk/rtos_hooks.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk/system_config.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk/system_definitions.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk/system_exceptions.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk/system_init.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk/system_interrupt.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk/system_interrupt_a.S"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_ef_sk/system_tasks.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_sk/bsp/bsp.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_sk/bsp/bsp.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_sk/framework/system/clk/src/sys_clk_static.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_sk/framework/system/ports/src/sys_ports_static.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_sk/rtos_hooks.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_sk/system_config.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_sk/system_definitions.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_sk/system_exceptions.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_sk/system_init.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_sk/system_interrupt.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_sk/system_interrupt_a.S"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../src/system_config/pic32mz_sk/system_tasks.c"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <C32>
+        <property key="additional-warnings" value="true"/>
+        <property key="addresss-attribute-use" value="false"/>
+        <property key="enable-app-io" value="false"/>
+        <property key="enable-omit-frame-pointer" value="false"/>
+        <property key="enable-symbols" value="true"/>
+        <property key="enable-unroll-loops" value="false"/>
+        <property key="exclude-floating-point" value="false"/>
+        <property key="extra-include-directories"
+                  value="../src/system_config/pic32mz_ef_sk;../src/system_config/pic32mz_ef_sk/framework;../src/pic32mz_ef_sk;../src/system_config/pic32mz_ef_sk/bsp;../src/rtos_config/pic32mz_ef_sk;../src;../src/system_config/pic32mz_ef_sk_microMIPS;../../../../../../../framework;../src/system_config/pic32mz_ef_sk_microMIPS/framework;../src/system_config/pic32mz_ef_sk_microMIPS/bsp;../../../../../../../third_party/rtos/MicriumOSII/Software/uC-CPU/MIPS32-M14KEc/MPLAB-PIC32-GCC;../../../../../../../third_party/rtos/MicriumOSII/Software/uCOS-II/Ports/MIPS32-M14KEc/ExternalInterruptController/MPLAB-PIC32-GCC;../../../../../../../third_party/rtos/MicriumOSII/Software/uCOS-II/Source;../../../../../../../third_party/rtos/MicriumOSII/Software/uC-CPU;../../../../../../../third_party/rtos/MicriumOSII/Software/uC-LIB;../src/rtos_config/pic32mz_ef_sk_microMIPS;../../../../../../../third_party/rtos/MicriumOSII/Software/CPU/Microchip/PIC32"/>
+        <property key="generate-16-bit-code" value="false"/>
+        <property key="generate-micro-compressed-code" value="true"/>
+        <property key="isolate-each-function" value="true"/>
+        <property key="make-warnings-into-errors" value="true"/>
+        <property key="optimization-level" value="-O1"/>
+        <property key="place-data-into-section" value="false"/>
+        <property key="post-instruction-scheduling" value="default"/>
+        <property key="pre-instruction-scheduling" value="default"/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="strict-ansi" value="false"/>
+        <property key="support-ansi" value="false"/>
+        <property key="toplevel-reordering" value=""/>
+        <property key="use-cci" value="false"/>
+        <property key="use-iar" value="false"/>
+        <property key="use-indirect-calls" value="false"/>
+      </C32>
+      <C32-AR>
+        <property key="additional-options-chop-files" value="false"/>
+      </C32-AR>
+      <C32-AS>
+        <property key="assembler-symbols" value=""/>
+        <property key="enable-symbols" value="true"/>
+        <property key="exclude-floating-point-library" value="false"/>
+        <property key="expand-macros" value="false"/>
+        <property key="extra-include-directories-for-assembler" value=";"/>
+        <property key="extra-include-directories-for-preprocessor"
+                  value="../../../../../../../third_party/rtos/MicriumOSII/Software/uCOS_II/Ports/MIPS32-M14KEc/ExternalInterruptController/MPLAB-PIC32-GCC"/>
+        <property key="false-conditionals" value="false"/>
+        <property key="generate-16-bit-code" value="false"/>
+        <property key="generate-micro-compressed-code" value="true"/>
+        <property key="keep-locals" value="false"/>
+        <property key="list-assembly" value="false"/>
+        <property key="list-source" value="false"/>
+        <property key="list-symbols" value="false"/>
+        <property key="oXC32asm-list-to-file" value="false"/>
+        <property key="omit-debug-dirs" value="false"/>
+        <property key="omit-forms" value="false"/>
+        <property key="preprocessor-macros"
+                  value="PIC32MZ;PIC32_SRS_SET_COUNT=8;INIT_MMU_MZ_FIXED;INIT_L1_CACHE;INIT_SSX;INIT_DSPR2"/>
+        <property key="warning-level" value=""/>
+      </C32-AS>
+      <C32-LD>
+        <property key="additional-options-use-response-files" value="false"/>
+        <property key="allocate-dinit" value="false"/>
+        <property key="code-dinit" value="false"/>
+        <property key="ebase-addr" value=""/>
+        <property key="enable-check-sections" value="false"/>
+        <property key="exclude-floating-point-library" value="false"/>
+        <property key="exclude-standard-libraries" value="false"/>
+        <property key="extra-lib-directories" value=""/>
+        <property key="fill-flash-options-addr" value=""/>
+        <property key="fill-flash-options-const" value=""/>
+        <property key="fill-flash-options-how" value="0"/>
+        <property key="fill-flash-options-inc-const" value="1"/>
+        <property key="fill-flash-options-increment" value=""/>
+        <property key="fill-flash-options-seq" value=""/>
+        <property key="fill-flash-options-what" value="0"/>
+        <property key="generate-16-bit-code" value="false"/>
+        <property key="generate-cross-reference-file" value="false"/>
+        <property key="generate-micro-compressed-code" value="true"/>
+        <property key="heap-size" value="0"/>
+        <property key="input-libraries" value=""/>
+        <property key="kseg-length" value=""/>
+        <property key="kseg-origin" value=""/>
+        <property key="linker-symbols" value=""/>
+        <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
+        <property key="no-startup-files" value="false"/>
+        <property key="oXC32ld-extra-opts" value=""/>
+        <property key="optimization-level" value=""/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="remove-unused-sections" value="true"/>
+        <property key="report-memory-usage" value="false"/>
+        <property key="serial-length" value=""/>
+        <property key="serial-origin" value=""/>
+        <property key="stack-size" value=""/>
+        <property key="symbol-stripping" value=""/>
+        <property key="trace-symbols" value=""/>
+        <property key="warn-section-align" value="false"/>
+      </C32-LD>
+      <C32CPP>
+        <property key="additional-warnings" value="false"/>
+        <property key="addresss-attribute-use" value="false"/>
+        <property key="check-new" value="false"/>
+        <property key="eh-specs" value="true"/>
+        <property key="enable-app-io" value="false"/>
+        <property key="enable-omit-frame-pointer" value="false"/>
+        <property key="enable-symbols" value="true"/>
+        <property key="enable-unroll-loops" value="false"/>
+        <property key="exceptions" value="true"/>
+        <property key="exclude-floating-point" value="false"/>
+        <property key="extra-include-directories" value=""/>
+        <property key="generate-16-bit-code" value="false"/>
+        <property key="generate-micro-compressed-code" value="false"/>
+        <property key="isolate-each-function" value="true"/>
+        <property key="make-warnings-into-errors" value="false"/>
+        <property key="optimization-level" value="-O1"/>
+        <property key="place-data-into-section" value="false"/>
+        <property key="post-instruction-scheduling" value="default"/>
+        <property key="pre-instruction-scheduling" value="default"/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="rtti" value="true"/>
+        <property key="strict-ansi" value="false"/>
+        <property key="toplevel-reordering" value=""/>
+        <property key="use-cci" value="false"/>
+        <property key="use-iar" value="false"/>
+        <property key="use-indirect-calls" value="false"/>
+      </C32CPP>
+      <C32Global>
+        <property key="common-include-directories" value=""/>
+        <property key="gp-relative-option" value=""/>
+        <property key="legacy-libc" value="false"/>
+        <property key="relaxed-math" value="false"/>
+        <property key="save-temps" value="false"/>
+        <property key="wpo-lto" value="false"/>
+      </C32Global>
+      <PKOBSKDEPlatformTool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
+        <property key="ToolFirmwareFilePath"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.dataflash" value="true"/>
         <property key="memories.eeprom" value="true"/>

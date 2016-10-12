@@ -73,6 +73,8 @@ typedef struct
 	UDP_PORT            remotePort;         // Port number associated with remote node
     UDP_PORT            localPort;          // local port number
     TCPIP_NET_HANDLE    hNet;               // associated interface
+    uint16_t            rxQueueSize;        // packets waiting in the rx queue
+    uint16_t            txSize;             // tx buffer size
 } UDP_SOCKET_INFO;
 
 
@@ -125,8 +127,12 @@ typedef enum
                                     // Even when the option is cleared a call to TCPIP_UDP_Discard
                                     // is still not needed if all bytes are retrieved with
                                     // TCPIP_UDP_ArrayGet and then TCPIP_UDP_GetIsReady is called. 
-
-
+    UDP_OPTION_TX_TTL,              // Specifies the Time To Live for packets sent by the socket.
+                                    // If 0, the socket will use the default global IPv4 TTL setting.
+                                    // This option allows the user to specify a different TTL value.
+                                    // Could be used to adjust the TTL value for multicast traffic
+                                    // (the default TTL for multicast traffic is 1).
+    UDP_OPTION_MULTICAST,           // Sets the multicast oprions for a socket by using UDP_OPTION_MULTICAST_DATA value
 }UDP_SOCKET_OPTION;
 
 
@@ -137,6 +143,83 @@ typedef enum
     UDP_BCAST_NETWORK_DIRECTED,        // network directed broadcast
 
 }UDP_SOCKET_BCAST_TYPE;
+
+// *****************************************************************************
+/*
+  Enumeration:
+    UDP_SOCKET_MULTICAST_FLAGS
+
+  Summary:
+    UDP multicast options/flags.
+
+  Description:
+    List of options to be set for a multicast socket
+
+  Remarks:
+    These options are meant for sockets carying multicast traffic.
+
+    Multiple flags can be set.
+
+
+    16 bits only supported.
+*/
+typedef enum
+{
+    UDP_MCAST_FLAG_LOOSE_NET_SOURCE_PORT    = 0x0001,   // Union of the !UDP_OPTION_STRICT_NET, !UDP_OPTION_STRICT_ADDRESS and !UDP_OPTION_STRICT_PORT  
+                                                        // This is the default behavior for a multicast socket.
+                                                        // The same bahvior can be obtained by setting individual options.
+                                                        // It is the default behavior of a server socket but not for a client socket.
+    UDP_MCAST_FLAG_IGNORE_SOURCE_ADD        = 0x0002,   // Ignore the source address of a packet and reply to the currently set (multicast)
+                                                        // destination address.
+                                                        // Normally a socket would reply to the sender of the packet.
+                                                        // But probably this is not what you want for multicast.
+                                                        // This option allows the socket to reply to the multicast group instead, no matter
+                                                        // from what source it received the multicast traffic.
+                                                        // Default for a socket is disabled, i.e. the source address is not ignored
+    UDP_MCAST_FLAG_IGNORE_SOURCE_PORT       = 0x0004,   // Ignore the source port of a packet and reply to the currently set destination port.
+                                                        // Normally a socket would reply to the sender of the packet using the source port of the sender.
+                                                        // This option allows the socket to reply using the current destination/remote port
+                                                        // no matter the source port of the received multicast traffic.
+                                                        // Default for a socket is disabled, i.e. the source port is not ignored
+    UDP_MCAST_FLAG_IGNORE_UNICAST           = 0x0008,   // Ignore a packet if its destination is not multicast
+    UDP_MCAST_FLAG_LOOP                     = 0x0010,   // When set, the multicast packets sent by the UDP socket will be routed on the internal multicast interface as well.
+                                                        // Default is cleared.
+                                                        // Applies only to sockets sending multicast traffic
+    UDP_MCAST_FLAG_DISABLE_SOURCE_CHECK     = 0x0020,   // Disables/enables the checking of the source of multicast traffic that reaches a socket.
+                                                        // The IGMPv3 mandates that the multicast traffic should be passed to a socket only if that socked subscribed
+                                                        // for multicast from that source. 
+                                                        // However, for high rate data streams that may place an overhead and consume additional CPU power for doing
+                                                        // this check for each and every incoming packet.
+                                                        // This option allows the user to bypass this run time check.
+                                                        // By default the source check is enabled - recommended setting! 
+                                                        // Applies only to sockets receiving multicast traffic
+
+
+
+
+    //
+    UDP_MCAST_FLAG_DEFAULT                  = (UDP_MCAST_FLAG_LOOSE_NET_SOURCE_PORT | UDP_MCAST_FLAG_IGNORE_SOURCE_ADD | UDP_MCAST_FLAG_IGNORE_SOURCE_PORT | UDP_MCAST_FLAG_IGNORE_UNICAST)
+                                                        // default flags for the multicast sockets
+
+}UDP_MULTICAST_FLAGS;
+
+// *****************************************************************************
+/*
+  Structure:
+    UDP_OPTION_MULTICAST_DATA
+
+  Summary:
+    Data structure used to set a socket multicast options.
+
+  Description:
+    Allows the multicast options configuration of a socket.
+*/
+//
+typedef struct
+{
+    UDP_MULTICAST_FLAGS     flagsMask;      // mask of flags to be changed by the operation
+    UDP_MULTICAST_FLAGS     flagsValue;     // value of flags to be changed
+}UDP_OPTION_MULTICAST_DATA;
 
 // *****************************************************************************
 /*
@@ -263,6 +346,8 @@ typedef struct
   Parameters:
     IP_ADDRESS_TYPE addType			-	The type of address being used. 
 	                                    Example: IP_ADDRESS_TYPE_IPV4 or IP_ADDRESS_TYPE_IPV6.
+                                        It can be IP_ADDRESS_TYPE_ANY and the server socket will accept any incoming
+                                        type of connection.
     
     UDP_PORT localPort				-	UDP port on which to listen for connections
     
@@ -296,10 +381,15 @@ UDP_SOCKET          TCPIP_UDP_ServerOpen(IP_ADDRESS_TYPE addType, UDP_PORT local
 
   Parameters:
     IP_ADDRESS_TYPE addType - The type of address being used. Example: IP_ADDRESS_TYPE_IPV4 or IP_ADDRESS_TYPE_IPV6.
+                              It can also be IP_ADDRESS_TYPE_ANY if the type of the socket will be specified later
+                              (using TCPIP_UDP_Bind, TCPIP_UDP_RemoteBind).
     UDP_PORT remotePort		- The remote UDP port to which a connection should be made.
                               The local port for client sockets will be automatically picked
                               by the UDP module.                        
     IP_MULTI_ADDRESS* remoteAddress	-	The remote address to connect to.
+                              Not used if addType == IP_ADDRESS_TYPE_ANY.
+                              Can be NULL if later set by a call to TCPIP_UDP_RemoteBind.
+                              
 	
   Returns:
  	- INVALID_SOCKET -  No sockets of the specified type were available to be opened.
@@ -307,7 +397,8 @@ UDP_SOCKET          TCPIP_UDP_ServerOpen(IP_ADDRESS_TYPE addType, UDP_PORT local
     - A UDP_SOCKET handle - Save this handle and use it when calling all other UDP APIs. 
 
  Remarks:
-    IP_ADDRESS_TYPE_ANY is not supported!
+     None.
+
  */
 UDP_SOCKET          TCPIP_UDP_ClientOpen(IP_ADDRESS_TYPE addType, UDP_PORT remotePort, 
                    IP_MULTI_ADDRESS* remoteAddress);
@@ -320,14 +411,17 @@ UDP_SOCKET          TCPIP_UDP_ClientOpen(IP_ADDRESS_TYPE addType, UDP_PORT remot
 	                    IP_MULTI_ADDRESS* localAddress);
 
   Summary:
-    Bind a socket to a local address and port.
-    This function is meant for client sockets.
-    It assigns a specific source address and port for a socket.
+    Bind a socket to an address type, local port and address.
+    This function is meant primarily for client sockets.
 
   Description:
     Sockets don't need specific binding, it is done automatically by the stack
-    However, specific binding can be requested using these functions.
+    However, specific binding can be requested using this function.
     Works for both client and server sockets.
+    For a server socket it will restrict accepting connections of a specific type
+    on a specific interface only.
+    For a client socket it will force a specific address type and a local
+    port and interface.
 
   Precondition:
 	UDP socket should have been opened with TCPIP_UDP_ServerOpen()/TCPIP_UDP_ClientOpen()().
@@ -335,7 +429,8 @@ UDP_SOCKET          TCPIP_UDP_ClientOpen(IP_ADDRESS_TYPE addType, UDP_PORT remot
 
   Parameters:
 	hUDP			-	The socket to bind.
-	addType			-	The type of address being used. Example: IP_ADDRESS_TYPE_IPV4.
+	addType			-	The type of address being used.
+                        Valid values are IP_ADDRESS_TYPE_ANY/IP_ADDRESS_TYPE_IPV4/IP_ADDRESS_TYPE_IPV6.
 	localPort		-	The local port to bind to.
 	localAddress	-   Local address to use.
 	
@@ -344,12 +439,30 @@ UDP_SOCKET          TCPIP_UDP_ClientOpen(IP_ADDRESS_TYPE addType, UDP_PORT remot
 	- false - Indicates failure
 
   Remarks:
-    If localAddress == 0, the local address of the socket won't be changed.
+    If address type IP_ADDRESS_TYPE_ANY is used, the localAddress parameter won't be used
+    and the socket won't change the local address.
+    However, for the call to succeed, socket must have been created with
+    IP_ADDRESS_TYPE_ANY type and must not be currently bound to a IP_ADDRESS_TYPE_IPV4/IP_ADDRESS_TYPE_IPV6 type.
 
-    If localPort is 0, the stack will assign a unique local port
+    If address type IP_ADDRESS_TYPE_IPV4/IP_ADDRESS_TYPE_IPV6 is used,
+    then the socket type will be changed accordingly, and the localAddress will be used,
+    if provided.
+    The socket will be bound to this type of address.
+    For the call to succeed the socket must currently have the type IP_ADDRESS_TYPE_ANY or to
+    match the addType parameter.
 
     If localAddress is the valid address of a network interface,
+    and addType != IP_ADDRESS_TYPE_ANY,
     then the call will enforce UDP_OPTION_STRICT_NET on the socket.
+
+    If localPort is 0, the stack will assign a unique local port
+    (if the socket doesn't already have a unique local port)
+
+
+    In order to change dynamically the type of address,
+    the socket must have been created with a IP_ADDRESS_TYPE_ANY type
+    and not currently bound to a different address type.
+    TCPIP_UDP_Disconnect could be issued to remove a previous IP type binding.
   */
 bool   TCPIP_UDP_Bind(UDP_SOCKET hUDP, IP_ADDRESS_TYPE addType, UDP_PORT localPort,  
                       IP_MULTI_ADDRESS* localAddress);
@@ -362,13 +475,13 @@ bool   TCPIP_UDP_Bind(UDP_SOCKET hUDP, IP_ADDRESS_TYPE addType, UDP_PORT localPo
 	                    UDP_PORT remotePort,  IP_MULTI_ADDRESS* remoteAddress);
 
   Summary:
-    Bind a socket to a remote address
-    This function is meant for server sockets.
+    Bind a socket to an address type, remote port and address.
+    This function is meant primarily for server sockets.
 
   Description:
     Sockets don't need specific remote binding, they should accept connections on 
 	any incoming interface. Therefore, the binding is done automatically by the stack.
-    However, specific binding can be requested using these functions.
+    However, specific remote binding can be requested using this function.
     For a server socket it can be used to restrict accepting connections from  a 
 	specific remote host.
     For a client socket it will just change the default binding done when the socket was opened.
@@ -379,7 +492,8 @@ bool   TCPIP_UDP_Bind(UDP_SOCKET hUDP, IP_ADDRESS_TYPE addType, UDP_PORT localPo
 
   Parameters:
 	hUDP			-	The socket to bind.
-	addType			-	The type of address being used. Example: IP_ADDRESS_TYPE_IPV4.
+	addType			-	The type of address being used.
+                        Valid values are IP_ADDRESS_TYPE_ANY/IP_ADDRESS_TYPE_IPV4/IP_ADDRESS_TYPE_IPV6.
 	remotePort		-	The remote port to bind to.
 	remoteAddress	-   Remote address to use.
 	
@@ -388,18 +502,29 @@ bool   TCPIP_UDP_Bind(UDP_SOCKET hUDP, IP_ADDRESS_TYPE addType, UDP_PORT localPo
 	- false - Indicates failure
 
   Remarks:
-    If remoteAddress == 0, the remote address of the socket won't be changed.
-    The remote port is always changed, even if remotePort == 0.
+    If address type IP_ADDRESS_TYPE_ANY is used, the remoteAddress parameter won't be used
+    and the socket won't change the remote destination address.
+    However, for the call to succeed, socket must have been created with
+    IP_ADDRESS_TYPE_ANY type and must not be currently bound to a IP_ADDRESS_TYPE_IPV4/IP_ADDRESS_TYPE_IPV6 type.
 
-    It will enforce UDP_OPTION_STRICT_PORT on the socket.
+    If address type IP_ADDRESS_TYPE_IPV4/IP_ADDRESS_TYPE_IPV6 is used,
+    then the socket type will be changed accordingly, and the remoteAddress will be used,
+    if provided.
+    The socket will be bound to this type of address.
+    For the call to succeed the socket must currently have the type IP_ADDRESS_TYPE_ANY or to
+    match the addType parameter.
 
-    If the remoteAddress != 0, the call will enforce UDP_OPTION_STRICT_ADDRESS on the socket.
-
-    The call should fail if the socket is already bound to an interface
-    (a server socket is connected or a client socket already sent the data on an interface).
-    Implementation pending.
-
+    If the remoteAddress != 0 and addType != IP_ADDRESS_TYPE_ANY,
+    the call will enforce UDP_OPTION_STRICT_ADDRESS on the socket.
     
+    The remote port is always changed, even if remotePort == 0.
+    It will enforce UDP_OPTION_STRICT_PORT on the socket.
+    
+    In order to change dynamically the type of address,
+    the socket must have been created with a IP_ADDRESS_TYPE_ANY type
+    and not currently bound to a different address type.
+    TCPIP_UDP_Disconnect could be issued to remove a previous IP type binding.
+
   */
 bool   TCPIP_UDP_RemoteBind(UDP_SOCKET hUDP, IP_ADDRESS_TYPE addType, UDP_PORT remotePort,  
                             IP_MULTI_ADDRESS* remoteAddress);
@@ -438,6 +563,9 @@ bool   TCPIP_UDP_RemoteBind(UDP_SOCKET hUDP, IP_ADDRESS_TYPE addType, UDP_PORT r
                       - UDP_OPTION_TX_QUEUE_LIMIT   - 8-bit value of the TX queue limit
                       - UDP_OPTION_RX_QUEUE_LIMIT   - 8-bit value of the RX queue limit
                       - UDP_OPTION_RX_AUTO_ADVANCE  - boolean enable/disable
+                      - UDP_OPTION_TX_TTL           - 8-bit value of TTL
+                      - UDP_OPTION_MULTICAST        - pointer to a UDP_OPTION_MULTICAST_DATA structure
+
 
   Returns:
  	- true  - Indicates success
@@ -477,6 +605,8 @@ bool                TCPIP_UDP_OptionsSet(UDP_SOCKET hUDP, UDP_SOCKET_OPTION opti
                       - UDP_OPTION_TX_QUEUE_LIMIT   - pointer to an 8 bit value to receive the TX queue limit
                       - UDP_OPTION_RX_QUEUE_LIMIT   - pointer to an 8 bit value to receive the RX queue limit
                       - UDP_OPTION_RX_AUTO_ADVANCE  - pointer to boolean
+                      - UDP_OPTION_TX_TTL           - pointer to an 8 bit value to receive the TTL value
+                      - UDP_OPTION_MULTICAST        - pointer to a UDP_MULTICAST_FLAGS value to receive the current socket settings
 
   Returns:
  	- true  - Indicates success
@@ -510,9 +640,14 @@ bool                TCPIP_UDP_OptionsGet(UDP_SOCKET hUDP, UDP_SOCKET_OPTION opti
 	- false - The socket is not currently opened.
 
  Remarks:
-	Since an UDP server or client socket can always send data,
-    regardless if there's another remote socket connected,
-    this function will return true if the socket is opened.
+	An UDP server or client socket can always send data,
+    as long as it has a valid destination address,
+    even if there's no remote socket connected to it.
+    This function will return true if the socket is opened
+    and currently has a valid destination.
+    Note that this is true if a client socket was opened with a
+    remote host address, a socket received data from a remote host,
+    or a explicit remote bind was done.
  */
 bool                TCPIP_UDP_IsConnected(UDP_SOCKET hUDP);
 
@@ -549,7 +684,7 @@ bool                TCPIP_UDP_IsConnected(UDP_SOCKET hUDP);
 
 /*
   Function:
-	void TCPIP_UDP_Close(UDP_SOCKET hUDP)
+	bool TCPIP_UDP_Close(UDP_SOCKET hUDP)
 
   Summary:
 	Closes a UDP socket and frees the handle.
@@ -566,14 +701,15 @@ bool                TCPIP_UDP_IsConnected(UDP_SOCKET hUDP);
 	hUDP - The socket handle to be released.
 
   Returns:
-  	None.
+    - true  - If the call succeeded
+    - false - If the call failed (no such socket)
   	
   Remarks:
     Always close the socket when no longer in use.
     This will free the allocated resources, including the TX buffers.
 
   */
-void                TCPIP_UDP_Close(UDP_SOCKET hUDP);
+bool                TCPIP_UDP_Close(UDP_SOCKET hUDP);
 
 // *****************************************************************************
 
@@ -616,6 +752,10 @@ void                TCPIP_UDP_Close(UDP_SOCKET hUDP);
 
     All the pending RX packets will be cleared when flushRxQueue is set.
     Otherwise the packets will be kept and will be available for next read operations.
+
+    Note that if the RX pending packets exist and are not flushed,
+    the socket will be bound immediately to the connection corresponding
+    to the pending packet in the queue.
     
   */
 bool                TCPIP_UDP_Disconnect(UDP_SOCKET hUDP, bool flushRxQueue);
@@ -1406,6 +1546,31 @@ TCPIP_UDP_SIGNAL_HANDLE  TCPIP_UDP_SignalHandlerRegister(UDP_SOCKET s, TCPIP_UDP
  */
 
 bool   TCPIP_UDP_SignalHandlerDeregister(UDP_SOCKET s, TCPIP_UDP_SIGNAL_HANDLE hSig);
+
+// *****************************************************************************
+/* Function:
+    int TCPIP_UDP_SocketsNumberGet(void)
+
+  Summary:
+    Returns the number of existent UDP sockets.
+    
+  Description:
+    This function returns the number of created UDP sockets.
+    This is the maximum number of sockets that can be opened at any moment
+    as it's been passed as parameter when UDP module was created.
+
+  Precondition:
+    UDP module properly initialized
+
+  Parameters:
+	None
+
+  Returns:
+    The number of UDP sockets
+ */
+
+int     TCPIP_UDP_SocketsNumberGet(void);
+
 
 // *****************************************************************************
 /*

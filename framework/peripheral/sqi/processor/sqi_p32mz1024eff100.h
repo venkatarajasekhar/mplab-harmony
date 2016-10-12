@@ -620,6 +620,11 @@ PLIB_INLINE_API bool PLIB_SQI_DDRModeGet(SQI_MODULE_ID index)
      return SQI_DDRModeGet_Default(index);
 }
 
+PLIB_INLINE_API void PLIB_SQI_DDRModeClear(SQI_MODULE_ID index)
+{
+     SQI_DDRModeClear_Default(index);
+}
+
 PLIB_INLINE_API bool PLIB_SQI_ExistsDDRMode(SQI_MODULE_ID index)
 {
      return SQI_ExistsDDRMode_Default(index);
@@ -820,6 +825,11 @@ PLIB_INLINE_API void PLIB_SQI_InterruptDisable(SQI_MODULE_ID index, SQI_INTERRUP
      SQI_InterruptDisable_Default(index, interruptFlag);
 }
 
+PLIB_INLINE_API void PLIB_SQI_InterruptDisableAll(SQI_MODULE_ID index)
+{
+     SQI_InterruptDisableAll_Default(index);
+}
+
 PLIB_INLINE_API bool PLIB_SQI_InterruptIsEnabled(SQI_MODULE_ID index, SQI_INTERRUPTS interruptFlag)
 {
      return SQI_InterruptIsEnabled_Default(index, interruptFlag);
@@ -833,6 +843,16 @@ PLIB_INLINE_API bool PLIB_SQI_ExistsInterruptControl(SQI_MODULE_ID index)
 PLIB_INLINE_API bool PLIB_SQI_InterruptFlagGet(SQI_MODULE_ID index, SQI_INTERRUPTS interruptFlag)
 {
      return SQI_InterruptFlagGet_Default(index, interruptFlag);
+}
+
+PLIB_INLINE_API uint32_t PLIB_SQI_InterruptWordGet(SQI_MODULE_ID index)
+{
+     return SQI_InterruptWordGet_Default(index);
+}
+
+PLIB_INLINE_API void PLIB_SQI_InterruptWordClear(SQI_MODULE_ID index, uint32_t flags)
+{
+     SQI_InterruptWordClear_Default(index, flags);
 }
 
 PLIB_INLINE_API bool PLIB_SQI_ExistsInterruptStatus(SQI_MODULE_ID index)
@@ -1143,6 +1163,11 @@ PLIB_INLINE_API void PLIB_SQI_InterruptSignalEnable(SQI_MODULE_ID index, SQI_INT
 PLIB_INLINE_API void PLIB_SQI_InterruptSignalDisable(SQI_MODULE_ID index, SQI_INTERRUPTS interruptFlag)
 {
      SQI_InterruptSignalDisable_Default(index, interruptFlag);
+}
+
+PLIB_INLINE_API void PLIB_SQI_InterruptSignalDisableAll(SQI_MODULE_ID index)
+{
+     SQI_InterruptSignalDisableAll_Default(index);
 }
 
 PLIB_INLINE_API bool PLIB_SQI_InterruptSignalIsEnabled(SQI_MODULE_ID index, SQI_INTERRUPTS interruptFlag)

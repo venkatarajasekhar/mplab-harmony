@@ -8,18 +8,11 @@
         <logicalFolder name="system_config"
                        displayName="system_config"
                        projectFiles="true">
-          <logicalFolder name="f4"
+          <logicalFolder name="f2"
                          displayName="pic32mx460_pim_e16_int_dyn"
                          projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mx460_pim_e16_int_dyn/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx460_pim_e16_int_dyn/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mx460_pim_e16_int_dyn/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mx460_pim_e16_int_dyn/system_definitions.h</itemPath>
@@ -27,15 +20,8 @@
           <logicalFolder name="f1"
                          displayName="pic32mx_usb_sk2_int_dyn"
                          projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mx_usb_sk2_int_dyn/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mx_usb_sk2_int_dyn/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2_int_dyn/system_definitions.h</itemPath>
@@ -43,31 +29,17 @@
           <logicalFolder name="f3"
                          displayName="pic32mx_usb_sk3_int_dyn"
                          projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mx_usb_sk3_int_dyn/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx_usb_sk3_int_dyn/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mx_usb_sk3_int_dyn/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk3_int_dyn/system_definitions.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f5"
+          <logicalFolder name="f4"
                          displayName="pic32mz_ef_sk_int_dyn"
                          projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_ef_sk_int_dyn/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mz_ef_sk_int_dyn/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk_int_dyn/system_definitions.h</itemPath>
@@ -120,6 +92,7 @@
           <logicalFolder name="f5" displayName="clk" projectFiles="true">
             <itemPath>../../../../../../framework/system/clk/sys_clk.h</itemPath>
             <itemPath>../../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
+            <itemPath>../../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="common" projectFiles="true">
             <itemPath>../../../../../../framework/system/common/sys_common.h</itemPath>
@@ -185,7 +158,7 @@
         <logicalFolder name="system_config"
                        displayName="system_config"
                        projectFiles="true">
-          <logicalFolder name="f4"
+          <logicalFolder name="f2"
                          displayName="pic32mx460_pim_e16_int_dyn"
                          projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
@@ -260,7 +233,7 @@
             <itemPath>../src/system_config/pic32mx_usb_sk3_int_dyn/system_exceptions.c</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk3_int_dyn/system_tasks.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f5"
+          <logicalFolder name="f4"
                          displayName="pic32mz_ef_sk_int_dyn"
                          projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
@@ -397,7 +370,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion></languageToolchainVersion>
+        <languageToolchainVersion>1.42</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -983,22 +956,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx460_pim_e16_int_dyn/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx460_pim_e16_int_dyn/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -1144,22 +1101,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk3_int_dyn/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk3_int_dyn/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -1335,22 +1276,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_int_dyn/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -1472,7 +1397,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config/pic32mx_usb_sk2_int_dyn;../../../../../../framework;../src/system_config/pic32mx_usb_sk2_int_dyn/framework;../src/pic32mx_usb_sk2_int_dyn;../src/system_config/pic32mx_usb_sk2_int_dyn/bsp"/>
+                  value="../src;../src/system_config/pic32mx_usb_sk2_int_dyn;../../../../../../framework;../src/system_config/pic32mx_usb_sk2_int_dyn/framework;../src/system_config/pic32mx_usb_sk2_int_dyn/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -1685,7 +1610,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>1.40</languageToolchainVersion>
+        <languageToolchainVersion>1.42</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -2063,22 +1988,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2_int_dyn/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -2224,22 +2133,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk3_int_dyn/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk3_int_dyn/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -2415,22 +2308,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_int_dyn/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -2552,7 +2429,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../../../../../../framework;../src/system_config/pic32mx460_pim_e16_int_dyn;../src/system_config/pic32mx460_pim_e16_int_dyn/framework;../src/pic32mx460_pim_e16_int_dyn;../src/system_config/pic32mx460_pim_e16_int_dyn/bsp"/>
+                  value="../src;../src/system_config/pic32mx460_pim_e16_int_dyn;../../../../../../framework;../src/system_config/pic32mx460_pim_e16_int_dyn/framework;../src/system_config/pic32mx460_pim_e16_int_dyn/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -2765,7 +2642,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PKOBSKDEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>1.40</languageToolchainVersion>
+        <languageToolchainVersion>1.42</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -3351,22 +3228,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx460_pim_e16_int_dyn/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx460_pim_e16_int_dyn/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -3512,22 +3373,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -3703,22 +3548,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_int_dyn/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -3840,7 +3669,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../../../../../../framework;../src/system_config/pic32mx_usb_sk3_int_dyn;../src/system_config/pic32mx_usb_sk3_int_dyn/framework;../src/pic32mx_usb_sk3_int_dyn;../src/system_config/pic32mx_usb_sk3_int_dyn/bsp"/>
+                  value="../src;../src/system_config/pic32mx_usb_sk3_int_dyn;../../../../../../framework;../src/system_config/pic32mx_usb_sk3_int_dyn/framework;../src/system_config/pic32mx_usb_sk3_int_dyn/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -3987,7 +3816,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>1.40</languageToolchainVersion>
+        <languageToolchainVersion>1.42</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -4189,22 +4018,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx460_pim_e16_int_dyn/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx460_pim_e16_int_dyn/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -4350,22 +4163,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -4541,22 +4338,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk3_int_dyn/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk3_int_dyn/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -4678,7 +4459,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../../../../../../framework;../src/system_config/pic32mz_ef_sk_int_dyn;../src/system_config/pic32mz_ef_sk_int_dyn/framework;../src/pic32mz_ef_sk_int_dyn;../src/system_config/pic32mz_ef_sk_int_dyn/bsp"/>
+                  value="../src;../src/system_config/pic32mz_ef_sk_int_dyn;../../../../../../framework;../src/system_config/pic32mz_ef_sk_int_dyn/framework;../src/system_config/pic32mz_ef_sk_int_dyn/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>

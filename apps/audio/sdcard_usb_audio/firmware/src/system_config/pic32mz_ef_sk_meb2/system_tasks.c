@@ -82,9 +82,7 @@ void SYS_Tasks ( void )
 
     /* Maintain Device Drivers */
     DRV_AK4953_Tasks(sysObj.drvak4953Codec0);
-            
     DRV_SDCARD_Tasks(sysObj.drvSDCard);
-    
     DRV_TOUCH_MTCH6301_Tasks(sysObj.drvMtch6301);
 
 

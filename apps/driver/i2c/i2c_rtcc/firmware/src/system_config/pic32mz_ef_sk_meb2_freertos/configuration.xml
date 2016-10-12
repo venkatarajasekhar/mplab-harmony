@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -36,6 +40,10 @@
       <File>
         <Name>croutine.c</Name>
         <Path>Source Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>portmacro.h</Name>
@@ -206,6 +214,10 @@
         <Path>Source Files/framework/driver/i2c/src/dynamic</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -298,7 +310,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_freertos/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -322,7 +334,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_freertos</Path>
-        <Checksum>62B9F8840CD9E034F1CF49D32AE789A7</Checksum>
+        <Checksum>0E374977BDC8407443BE9BDE74F9F833</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -346,12 +358,7 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_freertos</Path>
-        <Checksum>F45830AF1F429892CD0B1BCEC38D5487</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>C9B946DE55127062CCE3DE1506605C2D</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt_a.S</Name>
@@ -371,7 +378,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_freertos</Path>
-        <Checksum>76F575CE95C6E42031F51270C0329D8C</Checksum>
+        <Checksum>B694422B002E6C07329A363771633C00</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -385,11 +392,10 @@
         <Include value="../src/system_config/pic32mz_ef_sk_meb2_freertos"/>
       </C32-AS>
       <C32>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src/system_config/pic32mz_ef_sk_meb2_freertos"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src/pic32mz_ef_sk_meb2_freertos"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/framework"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src/system_config/pic32mz_ef_sk_meb2_freertos/framework"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/apps/driver/i2c/i2c_rtcc/firmware/src"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/apps/driver/i2c/i2c_rtcc/firmware/src/system_config/pic32mz_ef_sk_meb2_freertos"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/framework"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/apps/driver/i2c/i2c_rtcc/firmware/src/system_config/pic32mz_ef_sk_meb2_freertos/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_meb2_freertos/bsp"/>
         <Include value="../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ"/>
         <Include value="../../../../../../third_party/rtos/FreeRTOS/Source/include"/>

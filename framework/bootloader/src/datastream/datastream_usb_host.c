@@ -47,6 +47,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "usb/usb_host_msd.h"
 #include "usb/usb_host_scsi.h"
 #include "system/int/sys_int.h"
+#include "system/tmr/sys_tmr.h"
 
 typedef enum {
     REC_FLASHED = 0,
@@ -204,6 +205,16 @@ void DATASTREAM_Close(void)
 {
     //Disable Interrupt sources so bootloader application runs without issues
     SYS_INT_SourceDisable(DRV_TMR_INTERRUPT_SOURCE_IDX0);
+    SYS_INT_VectorPrioritySet(DRV_TMR_INTERRUPT_VECTOR_IDX0, INT_DISABLE_INTERRUPT);
+    SYS_INT_VectorSubprioritySet(DRV_TMR_INTERRUPT_VECTOR_IDX0, INT_SUBPRIORITY_LEVEL0);
     SYS_INT_SourceDisable(INT_SOURCE_USB_1);
-    
+    SYS_INT_VectorPrioritySet(INT_VECTOR_USB1, INT_DISABLE_INTERRUPT);
+    SYS_INT_VectorSubprioritySet(INT_VECTOR_USB1, INT_SUBPRIORITY_LEVEL0);
+#if defined(_USB_DMA_VECTOR)
+    SYS_INT_SourceDisable(INT_SOURCE_USB_1_DMA);
+    SYS_INT_VectorPrioritySet(INT_VECTOR_USB1_DMA, INT_DISABLE_INTERRUPT);
+    SYS_INT_VectorSubprioritySet(INT_VECTOR_USB1_DMA, INT_SUBPRIORITY_LEVEL0);
+#endif
+        
+    PLIB_TMR_Stop(DRV_TMR_PERIPHERAL_ID_IDX0);
 }

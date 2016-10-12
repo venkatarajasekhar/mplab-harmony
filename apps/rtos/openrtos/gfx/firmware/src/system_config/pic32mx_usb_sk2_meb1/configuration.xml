@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <HarmonyPath path="../../../.."/>
   <ForceOptimization flag="true"/>
   <Files>
@@ -333,6 +333,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -595,6 +599,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -696,13 +704,13 @@
         <Name>drv_pmp_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1/framework/driver/pmp/src</Path>
         <Checksum>7E0E8C7B51328EA63F3F919C820E179F</Checksum>
-        <ProjectFileChecksum>09C0DFC12CB626489A440D5B2D5A0DE7</ProjectFileChecksum>
+        <ProjectFileChecksum>66E56DF76385E3B4AE898751E701019A</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
-        <Checksum>C87F3373D0E91429B74DC047582B7C9C</Checksum>
-        <ProjectFileChecksum>6E83723BA7B5623F55EDB159A5583400</ProjectFileChecksum>
+        <Checksum>FE9B2FE6DF36B08319D97290EB57D1E9</Checksum>
+        <ProjectFileChecksum>8126D6ACA7190C00B81036184A6CD7A8</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -716,25 +724,25 @@
         <Name>system_interrupt_a.S</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
         <Checksum>F8E29721D7D91213A568F3DC060408EC</Checksum>
-        <ProjectFileChecksum>1BF6FD2F89D5FAC23B89D478BB555554</ProjectFileChecksum>
+        <ProjectFileChecksum>85988BBE9F7CEE49FD2568CB0AE5E4F6</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_pmp_static.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_meb1/framework/driver/pmp</Path>
         <Checksum>799BFBF404CEF514B5929A7011B8FCD7</Checksum>
-        <ProjectFileChecksum>7B5C189FE16A0920DD2EF5151A7C2D28</ProjectFileChecksum>
+        <ProjectFileChecksum>E9D8BA5459A0B048D511018752F51D49</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_meb1/bsp</Path>
-        <Checksum>671198CD82809E40A3A9FB92DE58773B</Checksum>
-        <ProjectFileChecksum>D27564552AB58D16176464A1463E02D7</ProjectFileChecksum>
+        <Checksum>64FA289D89D7817BE8ACE3899BF4CA98</Checksum>
+        <ProjectFileChecksum>767234C2E7036B6263C6A5E3C573D95E</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
-        <Checksum>1BBD7E0AB502E4B795783623EA3E7F1B</Checksum>
-        <ProjectFileChecksum>73FCC590D142A46EA1746B835F11644A</ProjectFileChecksum>
+        <Checksum>EF9EC13C6762FDBFA517DDE8FFEB3B12</Checksum>
+        <ProjectFileChecksum>7C370F215A5AA8E76057C85936CAEEE9</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -745,28 +753,22 @@
         <Path>Header Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_meb1/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-        <ProjectFileChecksum>D1D0FA04EFBF215BD7AD5AE27ECAA50F</ProjectFileChecksum>
-      </Template>
-      <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1/bsp</Path>
-        <Checksum>335CBB0B042C48063E942997FA7C7698</Checksum>
-        <ProjectFileChecksum>913B72B144BFA518306FF53ACAFAF45B</ProjectFileChecksum>
+        <Checksum>822861F3A30A6A4849445760FFE88F83</Checksum>
+        <ProjectFileChecksum>4083B04A216C76ABC7B46127704C00B1</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
         <Checksum>32AD98F2EF04442A42AEBCB34E273824</Checksum>
-        <ProjectFileChecksum>1C9744137957B7DBD2A80AEEA2DD2D22</ProjectFileChecksum>
+        <ProjectFileChecksum>BAA383BB0EC2A6F01C17B353A8E66B83</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
-        <Checksum>F1C75A45BB17934152F2E548F5F1900B</Checksum>
-        <ProjectFileChecksum>FDC9E68D8B9048C9C056DB106CF3AE86</ProjectFileChecksum>
+        <Checksum>6376EC96CE0D62F3201328A0CAA28003</Checksum>
+        <ProjectFileChecksum>107D4C5383FCD2EAB85C1A51E2056791</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -776,37 +778,37 @@
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1/framework/system/ports/src</Path>
         <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
-        <ProjectFileChecksum>EB899C345D998162885409CF18D34146</ProjectFileChecksum>
+        <ProjectFileChecksum>E9AF65C0FE141D4EB072DB6EA476E783</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
-        <ProjectFileChecksum>1F3A775BB72C0CD12E4C2DF45EBE2B6A</ProjectFileChecksum>
+        <ProjectFileChecksum>C9FA0741179A7D60A995302AECF5E3B5</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1/framework/system/clk/src</Path>
-        <Checksum>45DCC5FDCEA03577B1B40B781BCC20C5</Checksum>
-        <ProjectFileChecksum>64D508FF5243B220FAB6DB63D517FE67</ProjectFileChecksum>
+        <Checksum>FFBC0ECD02319812A90B6AACC6A7F7F0</Checksum>
+        <ProjectFileChecksum>BC3019F34D4BCD31D72EF9883CCAD7B7</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
         <Checksum>EB9A7230551A50942B2367B1DC0E0336</Checksum>
-        <ProjectFileChecksum>B4A7DC328E631C678A90349E3A43CEEC</ProjectFileChecksum>
+        <ProjectFileChecksum>7BFCF4CA7401C1A0D03366E798F33D93</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
         <Checksum>08C33F40E447B35CE13A7CF90088224F</Checksum>
-        <ProjectFileChecksum>A1931A6BD7CE4E81F119DF89302BC0DB</ProjectFileChecksum>
+        <ProjectFileChecksum>F175CD13419BF9A0735920C3A900CED1</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>rtos_hooks.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb1</Path>
         <Checksum>FA52743264536E5207D2ADBE57B48D05</Checksum>
-        <ProjectFileChecksum>0E7CE99A65E1E91329FA67839B87D389</ProjectFileChecksum>
+        <ProjectFileChecksum>09E4D02851A8D826AFA5A4A3150927B7</ProjectFileChecksum>
       </Template>
     </Templates>
     <CompilerItems>
@@ -816,11 +818,10 @@
         <Include value="../src/system_config/pic32mx_usb_sk2_meb1"/>
       </C32-AS>
       <C32>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\openrtos\gfx\firmware\src"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\openrtos\gfx\firmware\src\system_config\pic32mx_usb_sk2_meb1"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\openrtos\gfx\firmware\src\pic32mx_usb_sk2_meb1"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\framework"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\openrtos\gfx\firmware\src\system_config\pic32mx_usb_sk2_meb1\framework"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/openrtos/gfx/firmware/src"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/openrtos/gfx/firmware/src/system_config/pic32mx_usb_sk2_meb1"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/framework"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/openrtos/gfx/firmware/src/system_config/pic32mx_usb_sk2_meb1/framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_meb1/bsp"/>
         <Include value="../../../../../../third_party/rtos/OpenRTOS/Source/portable/MPLAB/PIC32MX"/>
         <Include value="../../../../../../third_party/rtos/OpenRTOS/Source/include"/>

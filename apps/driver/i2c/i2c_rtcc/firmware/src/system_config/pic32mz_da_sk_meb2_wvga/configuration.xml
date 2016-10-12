@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2064DAB288"/>
@@ -56,6 +60,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -142,7 +150,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk_meb2_wvga/framework/system/clk/src</Path>
-        <Checksum>4ACBE80AD6E6B9C5B8788224DF3C6EE8</Checksum>
+        <Checksum>5DEC6FBF578D0F2E0CFD7A4E273CFADC</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -157,17 +165,12 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_meb2_wvga</Path>
-        <Checksum>C5718482102A870857AC605272D8EB60</Checksum>
+        <Checksum>2A16E500105CF1373193AF9F63B5C1CF</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk_meb2_wvga</Path>
         <Checksum>31F99EF6E412B6A2120F9B7FB423AD86</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_da_sk_meb2_wvga/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -181,7 +184,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_meb2_wvga</Path>
-        <Checksum>91D012C7C780E6E20D5D0E2551255335</Checksum>
+        <Checksum>10C2AC17C44817870FAE3281F4198553</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -205,11 +208,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src/system_config/pic32mz_da_sk_meb2_wvga"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src/pic32mz_da_sk_meb2_wvga"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/framework"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src/system_config/pic32mz_da_sk_meb2_wvga/framework"/>
+        <Include value="C:\Users\c17015\Projects\GIT_Harmony\HarmonyReposAll\apps\driver\i2c\i2c_rtcc\firmware\src"/>
+        <Include value="C:\Users\c17015\Projects\GIT_Harmony\HarmonyReposAll\apps\driver\i2c\i2c_rtcc\firmware\src\system_config\pic32mz_da_sk_meb2_wvga"/>
+        <Include value="C:\Users\c17015\Projects\GIT_Harmony\HarmonyReposAll\framework"/>
+        <Include value="C:\Users\c17015\Projects\GIT_Harmony\HarmonyReposAll\apps\driver\i2c\i2c_rtcc\firmware\src\system_config\pic32mz_da_sk_meb2_wvga\framework"/>
         <Include value="../src/system_config/pic32mz_da_sk_meb2_wvga/bsp"/>
       </C32>
     </CompilerItems>

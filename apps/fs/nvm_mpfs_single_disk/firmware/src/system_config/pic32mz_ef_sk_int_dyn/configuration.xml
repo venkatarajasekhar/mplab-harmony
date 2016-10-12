@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -112,6 +116,10 @@
       <File>
         <Name>mpfs.h</Name>
         <Path>Header Files/framework/system/fs/mpfs</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -231,33 +239,29 @@
         <Checksum>B00B90E021F15FFD6B0B1B7F2D0650A5</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn/bsp</Path>
-        <Checksum>9F2B937535B4491AB44727703A76AF23</Checksum>
+        <Checksum>2C6ACE4052002774920911628F83DFC1</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn</Path>
-        <Checksum>7BB6BD665B76DC61EBAF3D4F0B7565C3</Checksum>
+        <Checksum>0177FA4CCF8EF01A2C7A0E2ADF9D5682</Checksum>
+        <ProjectFileChecksum>13A9767195B944F9C483BE6CA3717C3F</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn</Path>
-        <Checksum>1D02444A4EFAD021A62C4C13FADC24B5</Checksum>
+        <Checksum>2D9238A5F39ED37B6DFF9696DCFEC935</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn/bsp</Path>
-        <Checksum>4E9BD56560925D1AD628FF67B5FEB114</Checksum>
+        <Checksum>F959406DD7FB6F712A5546C6EE6F55EA</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -271,7 +275,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -288,7 +292,6 @@
       <C32>
         <Include value="D:\trunk_sbx\apps\fs\nvm_mpfs_single_disk\firmware\src"/>
         <Include value="D:\trunk_sbx\apps\fs\nvm_mpfs_single_disk\firmware\src\system_config\pic32mz_ef_sk_int_dyn"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_mpfs_single_disk\firmware\src\pic32mz_ef_sk_int_dyn"/>
         <Include value="D:\trunk_sbx\framework"/>
         <Include value="D:\trunk_sbx\apps\fs\nvm_mpfs_single_disk\firmware\src\system_config\pic32mz_ef_sk_int_dyn\framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_int_dyn/bsp"/>

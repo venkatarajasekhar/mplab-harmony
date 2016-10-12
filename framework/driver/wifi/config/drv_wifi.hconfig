@@ -1,6 +1,87 @@
 menu "Wi-Fi"
 #TODO: "depends on HAVE_WIFI", can this be decided by configuration?
 
+ifblock PIC32WK
+
+
+enum DRV_WIFI_WKMODE
+    "STA_MODE"
+	|| "STA-AP_MODE"	
+#   || "AP_MODE"
+
+#enum DRV_WIFI_BOOTMODE
+#		"STA"
+#	||	"AP"
+		
+config USE_DRV_WIFI_WK_NEEDED
+#TODO: "depends on HAVE_WIFI", can this be decided by configuration?
+    bool
+    default n
+	
+config USE_DRV_WIFI_WK
+#TODO: "depends on HAVE_WIFI", can this be decided by configuration?
+    bool "Use Wi-Fi Driver?"
+    default n if !USE_DRV_WIFI_WK_NEEDED
+    default y if USE_DRV_WIFI_WK_NEEDED
+    select USE_SYS_INT_NEEDED
+    #select DRV_SPI_USE_DRIVER_NEEDED	
+
+comment "**** Wi-Fi driver  has the dependency on IPF,TCPIP,Timer and UART.Make sure these modules are enable along with Wi-Fi driver****"
+		depends on USE_DRV_WIFI_WK
+		
+config DRV_WIFI_WK_MODE
+    string "WIFI MODE"
+	depends on USE_DRV_WIFI_WK
+    range DRV_WIFI_WKMODE
+    default "STA-AP_MODE"
+
+#config DRV_WIFI_WK_BOOT_MODE
+#	string "BOOT Device as"
+#	depends on USE_DRV_WIFI_WK && DRV_WIFI_WK_MODE = "STA-AP_MODE"
+#	range DRV_WIFI_BOOTMODE
+#	default "AP"
+	
+config DRV_WIFI_OTA_ENABLE
+    bool "Enable Over The Air(OTA)"
+    depends on USE_DRV_WIFI_WK && TCPIP_HTTP_FILE_UPLOAD_ENABLE && TCPIP_STACK_USE_HTTP_SERVER
+    default y if (USE_SYS_FS = y) && (SYS_FS_MPFS = y)
+	
+#config DRV_WIFI_WK_SSID_NAME
+#    string "Wi-Fi SSID"
+#    depends on USE_DRV_WLAN 
+#    default "MicrochipDemoApp" 
+ifblock  USE_DRV_WIFI_WK  	
+ifblock DRV_WIFI_WK_MODE = "STA_MODE"
+library LIB_WIFI_WK_STAMODE "$HARMONY_VERSION_PATH/framework/driver/wifi/pic32wk/PIC32WK_WLAN_STAMAC.a"
+endif
+
+ifblock DRV_WIFI_WK_MODE = "STA-AP_MODE"
+library LIB_WIFI_WK_STAAPMODE "$HARMONY_VERSION_PATH/framework/driver/wifi/pic32wk/PIC32WK_WLAN_STAAPMAC.a"
+endif
+add "<#include \"/framework/driver/wifi/templates/drv_wifi.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
+add "<#include \"/framework/driver/wifi/templates/drv_wifi_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS
+add "<#include \"/framework/driver/wifi/templates/drv_wifi.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
+
+file WIFI_CMD_C "$HARMONY_VERSION_PATH/framework/driver/wifi/pic32wk/src/WiFi_commands.c" to "$PROJECT_SOURCE_FILES/WiFiMW/WiFi_commands.c"
+file WIFI_CMD_H "$HARMONY_VERSION_PATH/framework/driver/wifi/pic32wk/src/WiFi_commands.h" to "$PROJECT_HEADER_FILES/WiFiMW/WiFi_commands.h"
+file WIFI_MW_C "$HARMONY_VERSION_PATH/framework/driver/wifi/pic32wk/src/WiFi_MW.c" to "$PROJECT_SOURCE_FILES/WiFiMW/WiFi_MW.c"
+file WIFI_MW_H "$HARMONY_VERSION_PATH/framework/driver/wifi/pic32wk/src/WiFi_MW.h" to "$PROJECT_HEADER_FILES/WiFiMW/WiFi_MW.h"
+file WIFI_FLASH_C "$HARMONY_VERSION_PATH/framework/driver/wifi/pic32wk/src/wifi_flash_use.c" to "$PROJECT_SOURCE_FILES/WiFiMW/wifi_flash_use.c"
+file WIFI_FLASH_H "$HARMONY_VERSION_PATH/framework/driver/wifi/pic32wk/src/wifi_flash_use.h" to "$PROJECT_HEADER_FILES/WiFiMW/wifi_flash_use.h"
+file DRV_WIFI_WK_H "$HARMONY_VERSION_PATH/framework/driver/wifi/pic32wk/src/drv_mchpwlan.h" to "$PROJECT_HEADER_FILES/framework/driver/wifi/pic32WK/drv_mchpwlan.h"
+ifblock TCPIP_STACK_USE_HTTP_SERVER
+file WIFI_CONFIG_H "$HARMONY_VERSION_PATH/framework/driver/wifi/pic32wk/src/wifi_web_config.h" to "$PROJECT_HEADER_FILES/framework/driver/wifi/pic32WK/wifi_web_config.h"
+endif
+
+ifblock DRV_WIFI_OTA_ENABLE
+file HTTP_HEX_PARSER_C "$HARMONY_VERSION_PATH/framework/utilities/hex_parser/hex_parser.c" to "$PROJECT_SOURCE_FILES/framework/utilities/hex_parser/hex_parser.h"
+file HTTP_HEX_PARSER_H "$HARMONY_VERSION_PATH/framework/utilities/hex_parser/hex_parser.h" to "$PROJECT_HEADER_FILES/framework/utilities/hex_parser/hex_parser.c"
+endif
+endif
+endif
+
+ifblock !PIC32WK
+
 enum DRV_WIFI_RTOS_CONFIRMATION
     "Confirm"
 
@@ -82,7 +163,7 @@ config DRV_WIFI_DEVICE
     IDH_HTML_MRF24W_Wi_Fi_Driver_Library
     ---endhelp---
 
-comment "MRF24WN needs to work in a RTOS and only works in FreeRTOS V8.x.x so far."
+comment "MRF24WN needs to work in a RTOS and only works in FreeRTOS V8.x.x or above so far."
     depends on DRV_WIFI_DEVICE = "MRF24WN"
 
 menu "RTOS Configuration"
@@ -90,11 +171,11 @@ menu "RTOS Configuration"
     depends on USE_3RDPARTY_RTOS
 
 ifblock DRV_WIFI_DEVICE = "MRF24WG"
-comment "Wi-Fi driver only works in FreeRTOS V8.x.x so far, and all RTOS Tasks must be Standalone."
+comment "Wi-Fi driver only works in FreeRTOS V8.x.x or above so far, and all RTOS Tasks must be Standalone."
 
 config DRV_WIFI_RTOS_INIT_TASK
     string "Run Wi-Fi Driver RTOS Initialization Task As"
-    depends on 3RDPARTY_RTOS_USED = "FreeRTOS_V8.x.x"
+    depends on 3RDPARTY_RTOS_USED = "FreeRTOS"
     range 3RDPARTY_RTOS_SYS_TASKS_OPTIONS
     default "Standalone"
 
@@ -110,7 +191,7 @@ config DRV_WIFI_RTOS_INIT_TASK_PRIORITY
 
 config DRV_WIFI_RTOS_DEFERRED_ISR
     string "Run Wi-Fi Driver RTOS Deferred ISR As"
-    depends on 3RDPARTY_RTOS_USED = "FreeRTOS_V8.x.x"
+    depends on 3RDPARTY_RTOS_USED = "FreeRTOS"
     range 3RDPARTY_RTOS_SYS_TASKS_OPTIONS
     default "Standalone"
 
@@ -126,7 +207,7 @@ config DRV_WIFI_RTOS_DEFERRED_ISR_PRIORITY
 
 config DRV_WIFI_RTOS_MAC_TASK
     string "Run Wi-Fi Driver RTOS MAC Task As"
-    depends on 3RDPARTY_RTOS_USED = "FreeRTOS_V8.x.x"
+    depends on 3RDPARTY_RTOS_USED = "FreeRTOS"
     range 3RDPARTY_RTOS_SYS_TASKS_OPTIONS
     default "Standalone"
 
@@ -146,7 +227,7 @@ comment "For MRF24WN, all RTOS Tasks must be Standalone."
 
 config DRV_WIFIN_RTOS_INIT_TASK
     string "Run Wi-Fi Driver RTOS Initialization Task As"
-    depends on 3RDPARTY_RTOS_USED = "FreeRTOS_V8.x.x"
+    depends on 3RDPARTY_RTOS_USED = "FreeRTOS"
     range 3RDPARTY_RTOS_SYS_TASKS_OPTIONS
     default "Standalone"
 
@@ -162,7 +243,7 @@ config DRV_WIFIN_RTOS_INIT_TASK_PRIORITY
 
 config DRV_WIFIN_RTOS_MAIN_TASK
     string "Run Wi-Fi Driver RTOS Main Task As"
-    depends on 3RDPARTY_RTOS_USED = "FreeRTOS_V8.x.x"
+    depends on 3RDPARTY_RTOS_USED = "FreeRTOS"
     range 3RDPARTY_RTOS_SYS_TASKS_OPTIONS
     default "Standalone"
 
@@ -549,10 +630,11 @@ An example PIN.
 The last digit is the checksum of first 7 digits.
     ---endhelp---
 endif
-
+endif
 endmenu
 
 ifblock USE_DRV_WIFI
+add "<#include \"/framework/driver/wifi/templates/drv_wifi.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 
 ifblock DRV_WIFI_DEVICE = "MRF24WG"
 file DRV_WIFI_H "$HARMONY_VERSION_PATH/framework/driver/wifi/mrf24w/drv_wifi.h" to "$PROJECT_HEADER_FILES/framework/driver/wifi/mrf24w/drv_wifi.h"
@@ -609,7 +691,7 @@ file DRV_WIFI_SCAN_HELPER_C "$HARMONY_VERSION_PATH/framework/driver/wifi/mrf24w/
 file DRV_WIFI_SOFTAP_CLIENT_CACHE_C "$HARMONY_VERSION_PATH/framework/driver/wifi/mrf24w/src/drv_wifi_softap_client_cache.c" to "$PROJECT_SOURCE_FILES/framework/driver/wifi/mrf24w/src/drv_wifi_softap_client_cache.c"
 file DRV_WIFI_SPI_C "$HARMONY_VERSION_PATH/framework/driver/wifi/mrf24w/src/drv_wifi_spi.c" to "$PROJECT_SOURCE_FILES/framework/driver/wifi/mrf24w/src/drv_wifi_spi.c"
 file DRV_WIFI_TX_POWER_C "$HARMONY_VERSION_PATH/framework/driver/wifi/mrf24w/src/drv_wifi_tx_power.c" to "$PROJECT_SOURCE_FILES/framework/driver/wifi/mrf24w/src/drv_wifi_tx_power.c"
- ifblock 3RDPARTY_RTOS_USED = "FreeRTOS_V8.x.x"
+ ifblock 3RDPARTY_RTOS_USED = "FreeRTOS"
  file DRV_WIFI_OSAL_C "$HARMONY_VERSION_PATH/framework/driver/wifi/mrf24w/src/drv_wifi_rtos_wrapper.c" to "$PROJECT_SOURCE_FILES/framework/driver/wifi/mrf24w/src/drv_wifi_rtos_wrapper.c"
  endif
 endif

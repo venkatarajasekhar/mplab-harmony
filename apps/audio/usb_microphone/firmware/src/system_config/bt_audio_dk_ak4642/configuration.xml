@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -490,6 +494,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -550,13 +558,13 @@
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_ak4642</Path>
-        <Checksum>72B8089CF458FBFBAB73F5B4A5E23C80</Checksum>
+        <Checksum>E904BE87943F736798535EA63413A220</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_ak4642</Path>
-        <Checksum>003E225CD5AFB7A9BC03EC7FF16685D5</Checksum>
-        <ProjectFileChecksum>05279188BF7FECB76A025667DAC320B6</ProjectFileChecksum>
+        <Checksum>95FA578FFD94389AA25FC6EC0553B18A</Checksum>
+        <ProjectFileChecksum>70E30F926E0FEA52A9580EA92BC0EF04</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -566,42 +574,42 @@
         <Name>system_exceptions.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_ak4642</Path>
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
-        <ProjectFileChecksum>51352F5630AC1CBBAC7FA4A6C1B8E533</ProjectFileChecksum>
+        <ProjectFileChecksum>B5ADFD3B1A58B563A6B7F60DE6A6F553</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_ak4642</Path>
-        <Checksum>A70238B70366EF0CE006ED62D50A549F</Checksum>
-        <ProjectFileChecksum>E45085C89B62E77AF985C7E6711914B2</ProjectFileChecksum>
+        <Checksum>01F824AD9AFB5E697BE77A094398D0F5</Checksum>
+        <ProjectFileChecksum>66E0075E66760A6781726064925F116A</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_ak4642</Path>
-        <Checksum>C58C1FF9390CD750CEDC87AF915E44F5</Checksum>
+        <Checksum>BA5833ED0B8248BA1F9266861E243A09</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_ak4642/bsp</Path>
         <Checksum>07046F1358687EDF550918509AE69AB0</Checksum>
-        <ProjectFileChecksum>A8852C4340C1AD255FA86BAF9E297540</ProjectFileChecksum>
+        <ProjectFileChecksum>6CFA8CB306AAA74E88587B1FD010BE1D</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_ak4642</Path>
-        <Checksum>3DC612A0BE5CD5074A970C0CBB73F6DC</Checksum>
-        <ProjectFileChecksum>202CB6E1F1E02E912F83BE956FA7AD91</ProjectFileChecksum>
+        <Checksum>A84433E292AFFBD7CE44C86EAE822DA5</Checksum>
+        <ProjectFileChecksum>36550D3917F27AA5CE90B6E6D8686640</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_ak4642</Path>
         <Checksum>72FB7DBDF2153C86C163EFD698F9BA00</Checksum>
-        <ProjectFileChecksum>F3DBA5652231F49D7ED637F246344307</ProjectFileChecksum>
+        <ProjectFileChecksum>7DF55D2CB60D5428A9E49A8C9B43BF07</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_ak4642/bsp</Path>
         <Checksum>50665A37873737D7242C7D516906366F</Checksum>
-        <ProjectFileChecksum>A710E0B182CCE58EB04EA7E1BC9BEF15</ProjectFileChecksum>
+        <ProjectFileChecksum>5F9509502A0D51C2DF2E538E9497C970</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -610,25 +618,25 @@
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_ak4642</Path>
-        <Checksum>45EB8FE7CF3ED5F6D6D245E5E3813DB4</Checksum>
+        <Checksum>5ADB69EB317EC08302F096449314EA8B</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_ak4642</Path>
         <Checksum>A9188EBB28685C79A30DEAD49AF266DD</Checksum>
-        <ProjectFileChecksum>97B14A47BC96BEEF087AF5FAF3C868E1</ProjectFileChecksum>
+        <ProjectFileChecksum>8F58A9FA6ED65A0E68AF23EE95B60C35</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_pmp_static.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_ak4642/framework/driver/pmp</Path>
         <Checksum>799BFBF404CEF514B5929A7011B8FCD7</Checksum>
-        <ProjectFileChecksum>655CFF3D500BD6B3B82FCD6037FEF6DC</ProjectFileChecksum>
+        <ProjectFileChecksum>472F17259274890E7B86F90E723CE82F</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_ak4642/framework/system/ports/src</Path>
         <Checksum>1E68AC407D90FBA4941B31EEB476ED28</Checksum>
-        <ProjectFileChecksum>8CE13E7E55407EC7F5C4C2E2101EEE39</ProjectFileChecksum>
+        <ProjectFileChecksum>98955292828CD28BD638F2ECA3807236</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -638,34 +646,33 @@
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_ak4642</Path>
         <Checksum>F5A0CDBB519AC199FD2A3659F0F54A89</Checksum>
-        <ProjectFileChecksum>DA1B51B3685D2FB473C28495BBDE59F2</ProjectFileChecksum>
+        <ProjectFileChecksum>01A0EFE77981CECBFAB53B9EED34E4A3</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_ak4642</Path>
         <Checksum>63BF7EDE55D2AD9CC64CDA05F211E78A</Checksum>
-        <ProjectFileChecksum>F4751A70EE99AEA91E699CDDBE7E02D8</ProjectFileChecksum>
+        <ProjectFileChecksum>6157AE8BE4214B2A6EDC605A0479611C</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_pmp_static.c</Name>
         <Path>Source Files/app/system_config/bt_audio_dk_ak4642/framework/driver/pmp/src</Path>
         <Checksum>7F6216B6339F1312FD9F8DC102157FB9</Checksum>
-        <ProjectFileChecksum>3F0957670C9C6015CC4FCB30FFB69BAD</ProjectFileChecksum>
+        <ProjectFileChecksum>52C9FC4225C14BBA9360C35B97BE4F1C</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_dma_static.h</Name>
         <Path>Header Files/app/system_config/bt_audio_dk_ak4642/framework/system/dma</Path>
         <Checksum>03852E55C37A93C50A04522C41BC8495</Checksum>
-        <ProjectFileChecksum>7781FAB85C96A6FD8843022431ED6C75</ProjectFileChecksum>
+        <ProjectFileChecksum>40009BDFEE2FBFF7D9C66F7B3A35C3E8</ProjectFileChecksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\Microchip\harmony\btaudio_2XX\apps\audio\usb_microphone\firmware\src"/>
-        <Include value="C:\Microchip\harmony\btaudio_2XX\apps\audio\usb_microphone\firmware\src\system_config\bt_audio_dk_ak4642"/>
-        <Include value="C:\Microchip\harmony\btaudio_2XX\apps\audio\usb_microphone\firmware\src\bt_audio_dk_ak4642"/>
-        <Include value="C:\Microchip\harmony\btaudio_2XX\framework"/>
-        <Include value="C:\Microchip\harmony\btaudio_2XX\apps\audio\usb_microphone\firmware\src\system_config\bt_audio_dk_ak4642\framework"/>
+        <Include value="C:\Microchip\harmony\2xxDev\apps\audio\usb_microphone\firmware\src"/>
+        <Include value="C:\Microchip\harmony\2xxDev\apps\audio\usb_microphone\firmware\src\system_config\bt_audio_dk_ak4642"/>
+        <Include value="C:\Microchip\harmony\2xxDev\framework"/>
+        <Include value="C:\Microchip\harmony\2xxDev\apps\audio\usb_microphone\firmware\src\system_config\bt_audio_dk_ak4642\framework"/>
         <Include value="../src/system_config/bt_audio_dk_ak4642/bsp"/>
       </C32>
     </CompilerItems>

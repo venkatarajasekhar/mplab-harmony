@@ -13,7 +13,7 @@
    #include "osal/src/osal_impl_none.h"
 #elif (OSAL_USE_RTOS == 0xFFFF)
    #include "osal/src/osal_user.h"
-#elif (OSAL_USE_RTOS == 1)
+#elif (OSAL_USE_RTOS == 1 || OSAL_USE_RTOS == 9)
    #include "osal/src/osal_freertos.h"
 #elif (OSAL_USE_RTOS == 2)
    #include "osal/src/osal_freertos_v7xx.h"

@@ -222,6 +222,7 @@ ifblock USE_DRV_I2S
 add "<#include \"/framework/driver/i2s/templates/drv_i2s.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
 add "<#include \"/framework/driver/i2s/templates/drv_i2s_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DEPENDENT_DRIVERS
 add "<#include \"/framework/driver/i2s/templates/drv_i2s_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_DRIVER_TASKS
+add "<#include \"/framework/driver/i2s/templates/drv_i2s.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 
 file DRV_I2S_H "$HARMONY_VERSION_PATH/framework/driver/i2s/drv_i2s.h" to "$PROJECT_HEADER_FILES/framework/driver/i2s/drv_i2s.h"
 file DRV_I2S_VAR_H "$HARMONY_VERSION_PATH/framework/driver/i2s/src/drv_i2s_variant_mapping.h" to "$PROJECT_HEADER_FILES/framework/driver/i2s/src/drv_i2s_variant_mapping.h"

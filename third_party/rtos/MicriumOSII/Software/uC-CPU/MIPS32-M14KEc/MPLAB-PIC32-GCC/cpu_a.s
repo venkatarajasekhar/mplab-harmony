@@ -40,8 +40,11 @@
     .set noreorder
     .set noat
     .set nomips16
+#if ( __mips_micromips == 1 )  
+    .set micromips
+#else
     .set nomicromips
-
+#endif
 /*
 **********************************************************************************************************
 *                                      CRITICAL SECTION FUNCTIONS

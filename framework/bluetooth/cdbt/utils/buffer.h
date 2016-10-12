@@ -1,39 +1,24 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Utilities
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    buffer.h
-
-  Summary:
-    Bluetooth API Library interface Utilities.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
-#ifndef __UTILS_BUFFER_H  // Guards against multiple inclusion
+#ifndef __UTILS_BUFFER_H
 #define __UTILS_BUFFER_H
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
 
 #include <stddef.h>      // for offsetof
 
@@ -42,12 +27,13 @@ extern "C" {
 
 #define BUFFER_HDR_LEN	offsetof(bt_buffer, data)
 
-typedef struct _bt_buffer_header_t {
+typedef struct _bt_buffer_header_t 
+{
 	bt_int state;
-	bt_int r;
 } bt_buffer_header_t, *bt_bt_buffer_header_p;
 
-typedef struct _bt_buffer_mgr_t {
+typedef struct _bt_buffer_mgr_t 
+{
 	bt_int max_buffers;
 	bt_int buffer_size;
 	bt_buffer_header_t* headers;

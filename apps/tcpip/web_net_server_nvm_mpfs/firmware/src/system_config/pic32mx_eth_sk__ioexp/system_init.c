@@ -443,6 +443,7 @@ const TCPIP_SMTP_CLIENT_MODULE_CONFIG tcpipSMTPInitData =
 { 
 };
 
+
 /*** DHCP client Initialization Data ***/
 const TCPIP_DHCP_MODULE_CONFIG tcpipDHCPInitData =
 {     
@@ -463,6 +464,7 @@ const TCPIP_ICMP_MODULE_CONFIG tcpipICMPInitData =
 const TCPIP_NBNS_MODULE_CONFIG tcpipNBNSInitData =
 { 
 };
+
 
 
 /*** Wi-Fi Interface MRF24W Initialization Data ***/
@@ -618,7 +620,7 @@ const USB_DEVICE_DESCRIPTOR deviceDescriptor =
     0x12,                           // Size of this descriptor in bytes
     USB_DESCRIPTOR_DEVICE,          // DEVICE descriptor type
     0x0200,                         // USB Spec Release Number in BCD format
-    USB_CDC_CLASS_CODE,         // Class Code
+	USB_CDC_CLASS_CODE,         // Class Code
     USB_CDC_SUBCLASS_CODE,      // Subclass code
     0x00,                       // Protocol code
     USB_DEVICE_EP0_BUFFER_SIZE,     // Max packet size for EP0, see system_config.h

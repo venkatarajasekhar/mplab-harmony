@@ -1,53 +1,39 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Host Controller Interface
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    hci_private.h
-
-  Summary:
-    Bluetooth API Library interface to the HCI Functions.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 #ifndef __HCI_PRIVATE_H
 #define __HCI_PRIVATE_H
 
-#include "bluetooth/cdbt/hci/hci_evt_handlers.h"
+#include "cdbt/hci/hci_evt_handlers.h"
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
+
 #define HCI_INIT_FLAG_SEND_HCI_RESET                       1 // HCI reset will be sent when bt_hci_init is called
 #define HCI_INIT_FLAG_IGNORE_TOTAL_NUM_ACL_DATA_PACKETS    2 // The total number of ACL data packets read from the controller will be ignored.
                                                              // The stack will assume that he controller can accept only 1 ACL packet and sends
                                                              // HCI_EVT_NUM_OF_COMPLETED_PACKETS for each packet it has processed. This seems to be
                                                              // for controller working over SDIO (at least for Marvell's 88W8777).
 
+
 //
 // Global variables defined in HCI modules
 // -------------------------------------------------------------------
 //
 
-// DOM-IGNORE-BEGIN
 // In hci_cmd_buffer.c
 extern bt_buffer_mgr_t   _hci_cmd_mgr;
 
@@ -123,7 +109,7 @@ extern const bt_hci_event_handler_fp _hci_event_handlers[];
 extern const bt_uint _ram_size_hci_buffers;
 extern const bt_int _ram_size_linkkey_storage;
 #endif
-// DOM-IGNORE-END
+
 //
 // Private global functions
 // -------------------------------------------------------------------

@@ -582,6 +582,7 @@ config GFX_USE_TOUCHSCREEN
     depends on USE_GFX_STACK
     depends on USE_GFX_INPUT_DEVICE
     select BSP_TOUCH_INPUT_NEEDED
+	select USE_SYS_TOUCH_NEEDED
     default n if !GFX_USE_TOUCHSCREEN_NEEDED
     default y if GFX_USE_TOUCHSCREEN_NEEDED
     ---help---
@@ -599,6 +600,7 @@ ifblock USE_GFX_STACK
 add "<#include \"/framework/gfx/templates/gfx_init_data.c.ftl\">"  to list SYSTEM_INIT_C_LIBRARY_INITIALIZATION_DATA
 add "<#include \"/framework/gfx/templates/gfx_init.c.ftl\">"  to list SYSTEM_INIT_C_INITIALIZE_MIDDLEWARE
 add "<#include \"/framework/gfx/templates/gfx_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_LIB_TASKS
+add "<#include \"/framework/gfx/config/gfx.h.ftl\">"  to list SYSTEM_CONFIG_H_MIDDLEWARE_CONFIGURATION 
 
 file GFX_H "$HARMONY_VERSION_PATH/framework/gfx/gfx.h" to "$PROJECT_HEADER_FILES/framework/gfx/gfx.h"
 file GFX_C "$HARMONY_VERSION_PATH/framework/gfx/src/gfx.c" to "$PROJECT_SOURCE_FILES/framework/gfx/src/gfx.c"

@@ -24,7 +24,7 @@
 			<function name="SDO2" direction="out" value="4"/>
 			<function name="OC1" direction="out" value="5"/>
 			<function name="C1TX" direction="out" value="6"/>
-			<function name="REFO1" direction="out" value="18"/>
+			<function name="REFCLKO1" direction="out" value="18"/>
 			<function name="PTG28" direction="out" value="19"/>
 		</group>
 		<group id="2">
@@ -47,7 +47,7 @@
 			<function name="SDO1" direction="out" value="3"/>
 			<function name="SDO2" direction="out" value="4"/>
 			<function name="OC2" direction="out" value="5"/>
-			<function name="REFO2" direction="out" value="18"/>
+			<function name="REFCLKO2" direction="out" value="18"/>
 			<function name="PTG29" direction="out" value="19"/>
 		</group>
 		<group id="3">
@@ -72,7 +72,7 @@
 			<function name="PTG30 (in)" direction="in"/>
 			<function name="SS1 (out)" direction="out" value="3"/>
 			<function name="OC3" direction="out" value="5"/>
-			<function name="REFO3" direction="out" value="18"/>
+			<function name="REFCLKO3" direction="out" value="18"/>
 			<function name="PTG30 (out)" direction="out" value="19"/>
 		</group>
 		<group id="4">
@@ -94,7 +94,7 @@
 			<function name="U2TX" direction="out" value="2"/>
 			<function name="SS2 (out)" direction="out" value="4"/>
 			<function name="OC4" direction="out" value="5"/>
-			<function name="REFO4" direction="out" value="18"/>
+			<function name="REFCLKO4" direction="out" value="18"/>
 			<function name="PTG31 (out)" direction="out" value="19"/>
 		</group>
 	</groups>
@@ -246,24 +246,29 @@
                     <pair key="SYS_CLK_REFCLK_ROSEL0" value="8"/>
                 </constraint>
             </function>
-			<function name="REFO1">
+			<function name="REFCLKO1">
                 <constraint type="enable">
                     <pair key="SYS_CLK_REFCLK0_OE" value="y"/>
                 </constraint>
             </function>
-			<function name="REFO2">
+			<function name="REFCLKO2">
                 <constraint type="enable">
                     <pair key="SYS_CLK_REFCLK1_OE" value="y"/>
                 </constraint>
             </function>			
-			<function name="REFO3">
+			<function name="REFCLKO3">
                 <constraint type="enable">
                     <pair key="SYS_CLK_REFCLK2_OE" value="y"/>
                 </constraint>
             </function>
-			<function name="REFO4">
+			<function name="REFCLKO4">
                 <constraint type="enable">
                     <pair key="SYS_CLK_REFCLK3_OE" value="y"/>
+                </constraint>
+            </function>
+			<function name="BT_CLK_OUT">
+                <constraint type="enable">
+                    <pair key="SYS_CLK_BTCLKOUTEN" value="y"/>
                 </constraint>
             </function>
 		</module>

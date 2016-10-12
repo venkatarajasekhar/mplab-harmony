@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name=""/>
@@ -72,6 +76,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -159,18 +167,17 @@
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_dma/framework/driver/spi/dynamic</Path>
-        <Checksum>285F1B07A93F005F8E611C3BC558EE5E</Checksum>
+        <Checksum>98A004A8F5ACD08EF071E542DA683424</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_dma</Path>
-        <Checksum>DF4BB98C39C7FA7AD4420D307CCABECF</Checksum>
+        <Checksum>059D928538C568BB3E131B8DDEF30F01</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_slave_dma_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_dma/framework/driver/spi/dynamic</Path>
         <Checksum>1FB20F915040FD7A3801383D49D56C21</Checksum>
-        <ProjectFileChecksum>C26C0B116D872AAEAAB8E2103527FEC6</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -187,11 +194,6 @@
         <Checksum>BE644D0142ACA48D9CA2E6255A02CDBA</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_dma/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>drv_spi_master_rm_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_dma/framework/driver/spi/dynamic</Path>
         <Checksum>F65FEAB721E68F2679A60E816B77D31E</Checksum>
@@ -204,7 +206,7 @@
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_dma</Path>
-        <Checksum>FDB1FF8E64285529FFC712D63021592C</Checksum>
+        <Checksum>26359DA81AB66895108A3B8665DFD179</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -219,13 +221,11 @@
         <Name>drv_spi_master_dma_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_dma/framework/driver/spi/dynamic</Path>
         <Checksum>4626EB40B153D853AF96C626BA1FDEB0</Checksum>
-        <ProjectFileChecksum>77F163C37F0DACF5ECA6657593D5F89A</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_dma_static.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_dma/framework/system/dma</Path>
         <Checksum>03852E55C37A93C50A04522C41BC8495</Checksum>
-        <ProjectFileChecksum>577F2A223D2D01F50DA9FE9C12253EB0</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -234,17 +234,17 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_dma/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_dma/framework/driver/spi/dynamic</Path>
-        <Checksum>E3E2BAB5475DE25D9549C9489CE5A4A2</Checksum>
+        <Checksum>763ED4AB5A2908D9B51849B813A84054</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_dma</Path>
-        <Checksum>56E04AD60B23DB751052BB7BEBDD533F</Checksum>
+        <Checksum>2443814EAEF843C17100E7C260834EA1</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -259,10 +259,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="E:\official\git\core_ldra\apps\driver\spi\spi_loopback\firmware\src"/>
-        <Include value="E:\official\git\core_ldra\apps\driver\spi\spi_loopback\firmware\src\system_config\pic32mz_ef_sk_int_dyn_dma"/>
-        <Include value="E:\official\git\core_ldra\framework"/>
-        <Include value="E:\official\git\core_ldra\apps\driver\spi\spi_loopback\firmware\src\system_config\pic32mz_ef_sk_int_dyn_dma\framework"/>
+        <Include value="E:/official/git/core/apps/driver/spi/spi_loopback/firmware/src"/>
+        <Include value="E:/official/git/core/apps/driver/spi/spi_loopback/firmware/src/system_config/pic32mz_ef_sk_int_dyn_dma"/>
+        <Include value="E:/official/git/core/framework"/>
+        <Include value="E:/official/git/core/apps/driver/spi/spi_loopback/firmware/src/system_config/pic32mz_ef_sk_int_dyn_dma/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_int_dyn_dma/bsp"/>
       </C32>
     </CompilerItems>

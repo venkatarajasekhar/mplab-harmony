@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name=""/>
@@ -70,6 +74,10 @@
         <Path>Header Files/framework/system/devcon/src</Path>
       </File>
       <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
         <Name>sys_common.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -81,6 +89,10 @@
         <Name>sys_queue.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
     </Files>
     <Templates>
       <Template>
@@ -90,17 +102,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_16b/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_16b/bsp</Path>
         <Checksum>F740DA09253C01A3D03B3FD6565F5267</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_16b/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -143,21 +150,20 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_16b</Path>
-        <Checksum>7D522BC821FB5ADE1D29DB36F1E29636</Checksum>
+        <Checksum>A0EDCA35F57A5DFF4BCA32F1EC2C93BD</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_16b</Path>
-        <Checksum>08B5EB4F7D9B07DBF06AD124A3AC99C1</Checksum>
+        <Checksum>E988A97EABA1FD430A42ED40A4616EB3</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/devcon/devcon_cache_invalidate/firmware/src"/>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/devcon/devcon_cache_invalidate/firmware/src/system_config/pic32mz_ef_sk_16b"/>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/devcon/devcon_cache_invalidate/firmware/src/pic32mz_ef_sk_16b"/>
-        <Include value="/home/vikasnan/GIT_Core/core/framework"/>
-        <Include value="/home/vikasnan/GIT_Core/core/apps/examples/system/devcon/devcon_cache_invalidate/firmware/src/system_config/pic32mz_ef_sk_16b/framework"/>
+        <Include value="/home/vikasnan/GIT_Coredev/core/apps/examples/system/devcon/devcon_cache_invalidate/firmware/src"/>
+        <Include value="/home/vikasnan/GIT_Coredev/core/apps/examples/system/devcon/devcon_cache_invalidate/firmware/src/system_config/pic32mz_ef_sk_16b"/>
+        <Include value="/home/vikasnan/GIT_Coredev/core/framework"/>
+        <Include value="/home/vikasnan/GIT_Coredev/core/apps/examples/system/devcon/devcon_cache_invalidate/firmware/src/system_config/pic32mz_ef_sk_16b/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_16b/bsp"/>
       </C32>
     </CompilerItems>

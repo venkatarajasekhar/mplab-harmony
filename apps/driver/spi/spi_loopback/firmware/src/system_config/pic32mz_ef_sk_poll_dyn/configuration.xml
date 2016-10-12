@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2048EFH144"/>
@@ -82,8 +86,16 @@
         <Path>Header Files/framework/driver/spi</Path>
       </File>
       <File>
+        <Name>drv_spi_sys_queue_local_fifo.h</Name>
+        <Path>Header Files/framework/driver/spi/src</Path>
+      </File>
+      <File>
         <Name>driver.h</Name>
         <Path>Header Files/framework/driver</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
         <Name>sys_common.h</Name>
@@ -98,8 +110,16 @@
         <Path>Source Files/framework/system/int/src</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>sys_clk.h</Name>
         <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>drv_spi_sys_queue.h</Name>
+        <Path>Header Files/framework/driver/spi/src</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
@@ -120,6 +140,10 @@
       <File>
         <Name>osal_definitions.h</Name>
         <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>drv_spi_internal.h</Name>
+        <Path>Header Files/framework/driver/spi/src/dynamic</Path>
       </File>
       <File>
         <Name>sys_int_private.h</Name>
@@ -178,29 +202,24 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_poll_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_poll_dyn</Path>
-        <Checksum>02DD3F0069665CDB8684A87E28FF0C77</Checksum>
+        <Checksum>C7E530D77AE913BF702B5C37D7E5CBF8</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_poll_dyn/bsp</Path>
-        <Checksum>324BC762C67B5672C7A6E87C02F1A096</Checksum>
+        <Checksum>223E55720A583051D0DA064E3F0C8629</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_poll_dyn/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_poll_dyn/framework/driver/spi/dynamic</Path>
-        <Checksum>AA3C69A31B05D3D6BBF83D088FBAF3BF</Checksum>
+        <Checksum>8D9B6FD5EDAD3B05D63E546CA7D5022B</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_master_rm_tasks.c</Name>
@@ -228,22 +247,22 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_poll_dyn/bsp</Path>
-        <Checksum>07D00253795834ACBB0521846A630661</Checksum>
+        <Checksum>D0AE8A4DE645D60F880B4D3323C41531</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_poll_dyn/framework/driver/spi/dynamic</Path>
-        <Checksum>310044157F603BB8C7E0420D0ACEBE1B</Checksum>
+        <Checksum>B5DF35CB746B264BBF589AF677932BB3</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_poll_dyn</Path>
-        <Checksum>4DAD468EA09CFC214DD6352FB74564A2</Checksum>
+        <Checksum>830CC950A6EFB21E97DA3A212ABC1C02</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_poll_dyn</Path>
-        <Checksum>BBB7D7BD7C75F180F6D3A0E32BDCF871</Checksum>
+        <Checksum>794AF083CBC7DC50024E01B97DDCD736</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -253,11 +272,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="E:/official/git/core_ldra/apps/driver/spi/spi_loopback/firmware/src"/>
-        <Include value="E:/official/git/core_ldra/apps/driver/spi/spi_loopback/firmware/src/system_config/pic32mz_ef_sk_poll_dyn"/>
-        <Include value="E:/official/git/core_ldra/apps/driver/spi/spi_loopback/firmware/src/pic32mz_ef_sk_poll_dyn"/>
-        <Include value="E:/official/git/core_ldra/framework"/>
-        <Include value="E:/official/git/core_ldra/apps/driver/spi/spi_loopback/firmware/src/system_config/pic32mz_ef_sk_poll_dyn/framework"/>
+        <Include value="E:/official/git/core/apps/driver/spi/spi_loopback/firmware/src"/>
+        <Include value="E:/official/git/core/apps/driver/spi/spi_loopback/firmware/src/system_config/pic32mz_ef_sk_poll_dyn"/>
+        <Include value="E:/official/git/core/framework"/>
+        <Include value="E:/official/git/core/apps/driver/spi/spi_loopback/firmware/src/system_config/pic32mz_ef_sk_poll_dyn/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_poll_dyn/bsp"/>
       </C32>
     </CompilerItems>

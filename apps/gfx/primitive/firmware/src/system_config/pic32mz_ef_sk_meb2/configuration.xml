@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -474,10 +478,6 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
-        <Name>drv_pmp_config.h</Name>
-        <Path>Header Files/framework/driver/pmp/config</Path>
-      </File>
-      <File>
         <Name>gfx_colors.h</Name>
         <Path>Header Files/framework/gfx</Path>
       </File>
@@ -502,20 +502,12 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
-        <Name>drv_gfx_lcc_int_pe.c</Name>
-        <Path>Source Files/framework/driver/gfx/controller/lcc/src</Path>
-      </File>
-      <File>
         <Name>driver.h</Name>
         <Path>Header Files/framework/driver</Path>
       </File>
       <File>
         <Name>sys_devcon_cache.h</Name>
         <Path>Source Files/framework/system/devcon/src</Path>
-      </File>
-      <File>
-        <Name>drv_pmp_local.h</Name>
-        <Path>Header Files/framework/driver/pmp/src</Path>
       </File>
       <File>
         <Name>gfx_gol_digital_meter.h</Name>
@@ -582,10 +574,6 @@
         <Path>Header Files/framework/system/int</Path>
       </File>
       <File>
-        <Name>drv_pmp.h</Name>
-        <Path>Header Files/framework/driver/pmp</Path>
-      </File>
-      <File>
         <Name>osal_impl_basic.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -640,6 +628,10 @@
       <File>
         <Name>gfx_gol_meter.h</Name>
         <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
@@ -701,26 +693,17 @@
         <Name>sys_queue.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
-      <File>
-        <Name>drv_gfx_lcc.h</Name>
-        <Path>Header Files/framework/driver/gfx/controller/lcc</Path>
-      </File>
     </Files>
     <Templates>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>872EA97043B2F2EA6BAF966DBEA2FE48</Checksum>
+        <Checksum>0D34A1CF26056DF4EC86AB0B86AAD675</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>0E1BC5DE0F861340DBD6DBD3356F20CC</Checksum>
+        <Checksum>59892996F960EAEB55FE04BB065276E8</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -729,12 +712,12 @@
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>89AA1879A3A3B7306C1029D09DAC487B</Checksum>
+        <Checksum>ACD50D489875DFB51F3405F2207E3CF0</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>B70497953F76711EE583D231D8E7461D</Checksum>
+        <Checksum>65D93BE8C4F51183253EB72A52AFC296</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -744,7 +727,7 @@
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>162D403A02370EFD3BD9D7235378FD19</Checksum>
+        <Checksum>1041DE8ADE9483E2739919B17BED7FC3</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -759,12 +742,17 @@
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>ED4E8A9541CEE1A0901B57010BD0185D</Checksum>
+        <Checksum>CDE722770E53744C698AA79662474D41</Checksum>
+      </Template>
+      <Template>
+        <Name>drv_gfx_lcc_generic.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>43202FF875E91AE678E480419B7F819E</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>7AFBE39BF1C7AACAF0FC730C4184DB0D</Checksum>
+        <Checksum>1B27AA5AB9E6F5F8EFDA25306B706D17</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -786,6 +774,11 @@
         <Checksum>E25CE2E8561A30622F0189580F28A92A</Checksum>
       </Template>
       <Template>
+        <Name>drv_gfx_lcc_generic.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>01FDB7AA1F703F4B8126F30E907BE813</Checksum>
+      </Template>
+      <Template>
         <Name>app.h</Name>
         <Path>Header Files/app</Path>
       </Template>
@@ -797,7 +790,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -807,11 +800,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/system_config/pic32mz_ef_sk_meb2"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/pic32mz_ef_sk_meb2"/>
-        <Include value="C:/Harmony/gfx2-1/framework"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/system_config/pic32mz_ef_sk_meb2/framework"/>
+        <Include value="C:/Harmony/v2.02/apps/gfx/primitive/firmware/src"/>
+        <Include value="C:/Harmony/v2.02/apps/gfx/primitive/firmware/src/system_config/pic32mz_ef_sk_meb2"/>
+        <Include value="C:/Harmony/v2.02/framework"/>
+        <Include value="C:/Harmony/v2.02/apps/gfx/primitive/firmware/src/system_config/pic32mz_ef_sk_meb2/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_meb2/bsp"/>
       </C32>
     </CompilerItems>

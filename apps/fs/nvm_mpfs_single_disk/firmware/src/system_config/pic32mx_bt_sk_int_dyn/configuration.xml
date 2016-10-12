@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX270F256D"/>
@@ -72,6 +76,10 @@
       <File>
         <Name>mpfs.h</Name>
         <Path>Header Files/framework/system/fs/mpfs</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -179,12 +187,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_bt_sk_int_dyn/framework/system/clk/src</Path>
-        <Checksum>6AF033A7E8ECB69981D88ED27526EF17</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_bt_sk_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>9E1735DC00A06796E5D2C1A7FF8668AC</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -208,7 +211,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_bt_sk_int_dyn</Path>
-        <Checksum>1D02444A4EFAD021A62C4C13FADC24B5</Checksum>
+        <Checksum>2D9238A5F39ED37B6DFF9696DCFEC935</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -232,7 +235,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_bt_sk_int_dyn</Path>
-        <Checksum>FA70AD0CF87DFFF5E4CF1D87358D2B70</Checksum>
+        <Checksum>C00029B4B18A92602922F3A1F792FD42</Checksum>
         <ProjectFileChecksum>FB4E8D88F235C0A1E6FB1D3EAFEB372C</ProjectFileChecksum>
       </Template>
       <Template>

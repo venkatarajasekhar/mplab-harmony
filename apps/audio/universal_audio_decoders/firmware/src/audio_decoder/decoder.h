@@ -55,6 +55,7 @@ extern "C" {
 #include "../audio_decoder/wma/wma.h"
 #include "../audio_decoder/speex/speex.h"
 #include "../audio_decoder/opus/opus_support.h"
+#include "../audio_decoder/flac/flac.h"
 
 
 #define MEDIA_SECTOR_SIZE                512
@@ -76,13 +77,14 @@ DECODE_STATUS;
 
 typedef enum
 {
+    // Align TAG_ARTIST, TAG_ALBUM and TAG_TITLE with ID3 EVENT_TAGS
+    DECODER_EVENT_TAG_ARTIST, 
+    DECODER_EVENT_TAG_ALBUM,
+    DECODER_EVENT_TAG_TITLE,
     DECODER_EVENT_STREAM_START,
     DECODER_EVENT_SAMPLERATE,
     DECODER_EVENT_BITRATE,
     DECODER_EVENT_TRACK_TIME,
-    DECODER_EVENT_TAG_ARTIST,
-    DECODER_EVENT_TAG_ALBUM,
-    DECODER_EVENT_TAG_TITLE,
     DECODER_INITIALIZATION_ERROR
 }
 DECODER_EVENT;
@@ -96,6 +98,7 @@ typedef enum
     DECODER_TYPE_WAV,
     DECODER_TYPE_SPEEX,
     DECODER_TYPE_OPUS,
+//    DECODER_TYPE_FLAC,
     DECODER_TYPE_UNKNOWN,
 }
 DECODER_TYPE;

@@ -382,6 +382,7 @@ void SYS_TOUCH_TouchMsgGet(SYS_MODULE_INDEX moduleIndex)
         {
             // No message
             sMsg.param0 = EVENT_INVALID;
+            return;
         }
     }
 

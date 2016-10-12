@@ -250,6 +250,10 @@ enum DEVCFG_FDSEN
 	 "OFF"
 	 || "ON"
 
+enum DEVCFG_BORSEL
+	 "HIGH"
+	 || "LOW"
+
 enum DEVCFG_UPLLEN
 	 "OFF"
 	 || "ON"
@@ -581,6 +585,14 @@ config FDSEN
 	string "Deep Sleep Enable (FDSEN)"
 	range DEVCFG_FDSEN
 	default "ON"
+	---help---
+	IDH_HTML_Configuration_Bit_Settings_for_PIC32MK1024GPE100
+	---endhelp---
+
+config BORSEL
+	string "Brown-out trip voltage (BORSEL)"
+	range DEVCFG_BORSEL
+	default "HIGH"
 	---help---
 	IDH_HTML_Configuration_Bit_Settings_for_PIC32MK1024GPE100
 	---endhelp---
@@ -1143,7 +1155,7 @@ config INT_VECT_INPUT_CAPTURE_9
 config INT_VECT_OUTPUT_COMPARE_9
 	string
 	default "91"
-config INT_VECT_ADC_GLOBAL
+config INT_VECT_ADC
 	string
 	default "92"
 config INT_VECT_ADC_DC1

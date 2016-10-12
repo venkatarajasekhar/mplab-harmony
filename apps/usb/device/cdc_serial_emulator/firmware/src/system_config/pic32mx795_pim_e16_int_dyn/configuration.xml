@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -162,6 +166,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -238,7 +246,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn/bsp</Path>
-        <Checksum>D0BABDD8CC269B7DE3BA98239B5ECC8D</Checksum>
+        <Checksum>EE96DD12865E6C7F0453E07B26BCF042</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -262,7 +270,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -276,36 +284,29 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn/bsp</Path>
-        <Checksum>999832C5BD5B6EC600BB84C682241D0C</Checksum>
+        <Checksum>7567B3DF8AD82B4BA40BB70A80E7AC51</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn</Path>
-        <Checksum>DA6D69B2A7FFABF9F394A7ABC5DB461C</Checksum>
-        <ProjectFileChecksum>41B254EE71475AD8964F42484D8DFFD7</ProjectFileChecksum>
+        <Checksum>6D422143F43ECD5A69932ED1E3F2B356</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn</Path>
-        <Checksum>6E6D9872E14DC5889F34494FEC95C416</Checksum>
+        <Checksum>23B84E8845985695D97E0DA4321913A2</Checksum>
         <ProjectFileChecksum>6071B8C4316A04B7B378DB2BCECB9FFB</ProjectFileChecksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn</Path>
-        <Checksum>BA5140E47D55D70B72B8B86898367E3A</Checksum>
+        <Checksum>CD5D4071A78F90CDE6D5B88E8A1C3C16</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
         <Include value="D:\usbdev\apps\usb\device\cdc_serial_emulator\firmware\src"/>
         <Include value="D:\usbdev\apps\usb\device\cdc_serial_emulator\firmware\src\system_config\pic32mx795_pim_e16_int_dyn"/>
-        <Include value="D:\usbdev\apps\usb\device\cdc_serial_emulator\firmware\src\pic32mx795_pim_e16_int_dyn"/>
         <Include value="D:\usbdev\framework"/>
         <Include value="D:\usbdev\apps\usb\device\cdc_serial_emulator\firmware\src\system_config\pic32mx795_pim_e16_int_dyn\framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16_int_dyn/bsp"/>

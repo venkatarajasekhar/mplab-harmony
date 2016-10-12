@@ -1,44 +1,29 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Serial Data Protocol
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    sdp_config.h
-
-  Summary:
-    Bluetooth API Library interface to the SDP.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.  This module describe functions 
-	and data structures used to start the SDP server and perform SDP queries.
-    
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
-#ifndef __SDP_CONFIG_H  // Guards against multiple inclusion
+#ifndef __SDP_CONFIG_H
 #define __SDP_CONFIG_H
 
 /**
- * Function: sdp_config Configuration
+ * \defgroup sdp_config Configuration
  * \ingroup sdp
  *
- * Summary: This module describes parameters used to configure SDP.
+ * This module describes parameters used to configure SDP.
  *
- * Description: dotstack is customized using a configuration file. The configuration file tailors the dotstack to the application being built. It has to have the structure shown below.
+ * dotstack is customized using a configuration file. The configuration file tailors the dotstack to the application being built. It has to have the structure shown below.
  * 
-   Example: 
     \code
 	#include "cdbt/bt/bt_std.h"
 
@@ -98,10 +83,10 @@
 		#error "SDP_MAX_PDU_BUFFERS is not defined"
 
 		/**
-		* Summary:   Maximum number of SDP server PDU buffers.
+		* \brief  Maximum number of SDP server PDU buffers.
 		* \ingroup sdp_config
 		*
-		* Description:  This parameter defines the maximum number of responses the SDP server can send at the same time.
+		* \details This parameter defines the maximum number of responses the SDP server can send at the same time.
 		*/
 		#define SDP_MAX_PDU_BUFFERS
 	#endif
@@ -135,10 +120,10 @@
 		#error "SDP_MAX_SEARCH_RESULT_LEN is not defined"
 
 		/**
-		* Summary:   Maximum number of service records to find.
+		* \brief  Maximum number of service records to find.
 		* \ingroup sdp_config
 		*
-		* Description:  This parameter defines the maximum number of service records the SDP server will return to the client.
+		* \details This parameter defines the maximum number of service records the SDP server will return to the client.
 		*/
 		#define SDP_MAX_SEARCH_RESULT_LEN
 	#endif
@@ -147,10 +132,10 @@
 		#error "SDP_MAX_ATTRIBUTE_RESULT_LEN is not defined"
 	
 		/**
-		* Summary:   Maximum number of attributes to find
+		* \brief  Maximum number of attributes to find
 		* \ingroup sdp_config
 		*
-		* Description:  This parameter defines the maximum number of attributes withing a service record the SDP server will return to the client.
+		* \details This parameter defines the maximum number of attributes withing a service record the SDP server will return to the client.
 		*/
 		#define SDP_MAX_ATTRIBUTE_RESULT_LEN
 	#endif
@@ -167,6 +152,9 @@
 		bt_buffer_header_t           _sdp_packet_buffer_headers[SDP_MAX_PDU_BUFFERS];	\
 		bt_sdp_packet_t              _sdp_packet_buffers[SDP_MAX_PDU_BUFFERS];	\
 		const bt_byte                _sdp_max_buffers = SDP_MAX_PDU_BUFFERS; \
+		bt_buffer_header_t           _sdp_client_packet_buffer_headers[SDP_MAX_PDU_BUFFERS];	\
+		bt_sdp_packet_t              _sdp_client_packet_buffers[SDP_MAX_PDU_BUFFERS];	\
+		const bt_byte                _sdp_client_max_buffers = SDP_MAX_PDU_BUFFERS; \
 		const bt_uint                _sdp_max_search_result_len = SDP_MAX_SEARCH_RESULT_LEN;	\
 		const bt_uint                _sdp_max_attribute_result_len = SDP_MAX_ATTRIBUTE_RESULT_LEN;	\
 		bt_sr_handle_t               _sdp_found_sr_lists_buffers[SDP_MAX_TRANSACTIONS * SDP_MAX_SEARCH_RESULT_LEN];	\

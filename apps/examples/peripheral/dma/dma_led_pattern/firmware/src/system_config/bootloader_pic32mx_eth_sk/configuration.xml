@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -102,6 +106,10 @@
         <Path>Source Files/framework/system/int/src</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>sys_clk.h</Name>
         <Path>Header Files/framework/system/clk</Path>
       </File>
@@ -128,6 +136,10 @@
       <File>
         <Name>sys_devcon.h</Name>
         <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
         <Name>system.h</Name>
@@ -162,12 +174,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/bootloader_pic32mx_eth_sk/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/bootloader_pic32mx_eth_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>app_mx.ld</Name>
@@ -177,8 +184,8 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/bootloader_pic32mx_eth_sk</Path>
-        <Checksum>B0D7412BC92573A3F5A7E10D8C6ED5D4</Checksum>
-        <ProjectFileChecksum>61780F0D96DC5D4EAD27DE86B83661D1</ProjectFileChecksum>
+        <Checksum>3929748E5F063B91828DEE8CE9C242BC</Checksum>
+        <ProjectFileChecksum>F99A634B719C1197C037DC60A8374D61</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -197,7 +204,7 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/bootloader_pic32mx_eth_sk/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>drv_tmr_static.h</Name>
@@ -226,7 +233,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/bootloader_pic32mx_eth_sk</Path>
-        <Checksum>DCE363E63CF72550E46F93A99805E187</Checksum>
+        <Checksum>77A9388564D8AFF6047B18460E35BDFA</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -245,7 +252,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/bootloader_pic32mx_eth_sk/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>drv_tmr_static.c</Name>
@@ -260,11 +267,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\microchip\harmony\core\apps\examples\peripheral\dma\dma_led_pattern\firmware\src"/>
-        <Include value="C:\microchip\harmony\core\apps\examples\peripheral\dma\dma_led_pattern\firmware\src\system_config\bootloader_pic32mx_eth_sk"/>
-        <Include value="C:\microchip\harmony\core\apps\examples\peripheral\dma\dma_led_pattern\firmware\src\bootloader_pic32mx_eth_sk"/>
-        <Include value="C:\microchip\harmony\core\framework"/>
-        <Include value="C:\microchip\harmony\core\apps\examples\peripheral\dma\dma_led_pattern\firmware\src\system_config\bootloader_pic32mx_eth_sk\framework"/>
+        <Include value="C:\microchip\harmony\core_v2xx\apps\examples\peripheral\dma\dma_led_pattern\firmware\src"/>
+        <Include value="C:\microchip\harmony\core_v2xx\apps\examples\peripheral\dma\dma_led_pattern\firmware\src\system_config\bootloader_pic32mx_eth_sk"/>
+        <Include value="C:\microchip\harmony\core_v2xx\framework"/>
+        <Include value="C:\microchip\harmony\core_v2xx\apps\examples\peripheral\dma\dma_led_pattern\firmware\src\system_config\bootloader_pic32mx_eth_sk\framework"/>
         <Include value="../src/system_config/bootloader_pic32mx_eth_sk/bsp"/>
       </C32>
     </CompilerItems>

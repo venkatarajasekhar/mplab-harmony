@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -409,6 +409,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name=""/>
@@ -707,6 +711,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -796,7 +804,7 @@
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_vga</Path>
-        <Checksum>ADD871ED5A8D105DF9B21B4B99AB8ED3</Checksum>
+        <Checksum>E546147771826AF63C0D2253D0181465</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -810,12 +818,12 @@
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_vga</Path>
-        <Checksum>3354BDDE171E3E79CE2728669A3E37A9</Checksum>
+        <Checksum>F20C404AD7D6082E9CC4633068552443</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_vga/framework/driver/spi/dynamic</Path>
-        <Checksum>0468A6AC4EF824897AA5C22F6EAFBB43</Checksum>
+        <Checksum>B8D534FC99E9DAC9CE3CE2AFE17C3907</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -824,12 +832,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_vga</Path>
-        <Checksum>9097A771817F2A2FC05D8224D82D8E56</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_vga/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>DF203AEF37DB83D54F18FCAF56D219A8</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -839,7 +842,7 @@
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_vga</Path>
-        <Checksum>1C2DE608EEA6CED8436FAFD3BD835F67</Checksum>
+        <Checksum>96BE73F03A96B1C4DCEF0EAA49024123</Checksum>
       </Template>
       <Template>
         <Name>drv_pmp_static.c</Name>
@@ -854,12 +857,12 @@
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_vga</Path>
-        <Checksum>33324AE09F0F672BF4809531A8E6B4D8</Checksum>
+        <Checksum>DB6B4EEDE47D48D14F24C34683DA16AA</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_vga</Path>
-        <Checksum>6FB0AF1501A18C8545E84EA819ED0DE2</Checksum>
+        <Checksum>57F213FF35A313E90ED98BE28953C0B2</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -884,7 +887,7 @@
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_vga</Path>
-        <Checksum>4C7AFF42C49E197208603BC687AC002E</Checksum>
+        <Checksum>F4F5D633241DD15BE2FEBBDCFE60284F</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -893,12 +896,12 @@
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_vga/framework/driver/spi/dynamic</Path>
-        <Checksum>6803BAA6FC8105DD3200F5BF3A8E7577</Checksum>
+        <Checksum>14808E10D15B0CCA85788FD513377478</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_vga/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -908,11 +911,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\resistive_touch_calibrate\firmware\src"/>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\resistive_touch_calibrate\firmware\src\system_config\pic32mx_usb_sk2_s1d_pictail_vga"/>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\resistive_touch_calibrate\firmware\src\pic32mx_usb_sk2_s1d_pictail_vga"/>
-        <Include value="C:\Harmony\gfx2-1\framework"/>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\resistive_touch_calibrate\firmware\src\system_config\pic32mx_usb_sk2_s1d_pictail_vga\framework"/>
+        <Include value="C:\Harmony\v2.02\apps\gfx\resistive_touch_calibrate\firmware\src"/>
+        <Include value="C:\Harmony\v2.02\apps\gfx\resistive_touch_calibrate\firmware\src\system_config\pic32mx_usb_sk2_s1d_pictail_vga"/>
+        <Include value="C:\Harmony\v2.02\framework"/>
+        <Include value="C:\Harmony\v2.02\apps\gfx\resistive_touch_calibrate\firmware\src\system_config\pic32mx_usb_sk2_s1d_pictail_vga\framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_s1d_pictail_vga/bsp"/>
       </C32>
     </CompilerItems>

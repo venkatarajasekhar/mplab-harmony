@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -48,6 +52,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -118,12 +126,12 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_sta</Path>
-        <Checksum>E7C0A80F6FCABE582CEF124CB474E622</Checksum>
+        <Checksum>26877B3E622AA92EDCF0D3C0756BF329</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_sta/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -137,12 +145,12 @@
       <Template>
         <Name>drv_usart_static_buffer_queue.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_sta/framework/driver/usart/src</Path>
-        <Checksum>11B9C5D71A447E3EF5A068ECABE48095</Checksum>
+        <Checksum>95B18C61A1C362CBA1281B6423A234DA</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_sta</Path>
-        <Checksum>A8B5EBC56287485D9B04BFBB33A3DDA5</Checksum>
+        <Checksum>E248144940A4A759034EF9747B5681B5</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -156,7 +164,7 @@
       <Template>
         <Name>drv_usart_static.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_sta/framework/driver/usart</Path>
-        <Checksum>F7844E0349C09C702DF866FB9B64B411</Checksum>
+        <Checksum>369BD58EFC33C9509D2E0125A0CBDE86</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -164,14 +172,9 @@
         <Checksum>EE96DD12865E6C7F0453E07B26BCF042</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_sta/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>drv_usart_static_local.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_sta/framework/driver/usart/src</Path>
-        <Checksum>514C4FD5A696CE11E97A819F3E253781</Checksum>
+        <Checksum>42084823D77BF5467EA9E7A21FF05F2F</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -195,7 +198,7 @@
       <Template>
         <Name>drv_usart_mapping.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_sta/framework/driver/usart/src</Path>
-        <Checksum>91AEA8EC1279ABB3D837746564790392</Checksum>
+        <Checksum>C3C13F61EE628931A2891AC4CC9C090A</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -210,10 +213,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\cm\Harmony\apps\driver\usart\usart_echo\firmware\src"/>
-        <Include value="C:\cm\Harmony\apps\driver\usart\usart_echo\firmware\src\system_config\pic32mx795_pim_e16_int_sta"/>
-        <Include value="C:\cm\Harmony\framework"/>
-        <Include value="C:\cm\Harmony\apps\driver\usart\usart_echo\firmware\src\system_config\pic32mx795_pim_e16_int_sta\framework"/>
+        <Include value="E:/Git/core/apps/driver/usart/usart_echo/firmware/src"/>
+        <Include value="E:/Git/core/apps/driver/usart/usart_echo/firmware/src/system_config/pic32mx795_pim_e16_int_sta"/>
+        <Include value="E:/Git/core/framework"/>
+        <Include value="E:/Git/core/apps/driver/usart/usart_echo/firmware/src/system_config/pic32mx795_pim_e16_int_sta/framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16_int_sta/bsp"/>
       </C32>
     </CompilerItems>

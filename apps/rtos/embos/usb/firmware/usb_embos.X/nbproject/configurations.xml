@@ -6,38 +6,24 @@
                    projectFiles="true">
       <logicalFolder name="app" displayName="app" projectFiles="true">
         <logicalFolder name="f2" displayName="rtos_config" projectFiles="true">
-          <logicalFolder name="f2" displayName="pic32mx_usb_sk2" projectFiles="true">
+          <logicalFolder name="f1" displayName="pic32mx_usb_sk2" projectFiles="true">
             <itemPath>../src/rtos_config/pic32mx_usb_sk2/RTOS.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="pic32mz_ef_sk" projectFiles="true">
+          <logicalFolder name="f2" displayName="pic32mz_ef_sk" projectFiles="true">
             <itemPath>../src/rtos_config/pic32mz_ef_sk/RTOS.h</itemPath>
           </logicalFolder>
         </logicalFolder>
         <logicalFolder name="f1" displayName="system_config" projectFiles="true">
-          <logicalFolder name="f2" displayName="pic32mx_usb_sk2" projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+          <logicalFolder name="f1" displayName="pic32mx_usb_sk2" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mx_usb_sk2/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx_usb_sk2/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mx_usb_sk2/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2/system_definitions.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="pic32mz_ef_sk" projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+          <logicalFolder name="f2" displayName="pic32mz_ef_sk" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_ef_sk/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mz_ef_sk/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk/system_definitions.h</itemPath>
@@ -98,6 +84,7 @@
           <logicalFolder name="f5" displayName="clk" projectFiles="true">
             <itemPath>../../../../../../framework/system/clk/sys_clk.h</itemPath>
             <itemPath>../../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
+            <itemPath>../../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="common" projectFiles="true">
             <itemPath>../../../../../../framework/system/common/sys_common.h</itemPath>
@@ -161,11 +148,11 @@
                    projectFiles="true">
       <logicalFolder name="app" displayName="app" projectFiles="true">
         <logicalFolder name="f1" displayName="rtos_config" projectFiles="true">
-          <logicalFolder name="f2" displayName="pic32mx_usb_sk2" projectFiles="true">
+          <logicalFolder name="f1" displayName="pic32mx_usb_sk2" projectFiles="true">
             <itemPath>../src/rtos_config/pic32mx_usb_sk2/RTOSInit.c</itemPath>
             <itemPath>../src/rtos_config/pic32mx_usb_sk2/OS_Error.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="pic32mz_ef_sk" projectFiles="true">
+          <logicalFolder name="f2" displayName="pic32mz_ef_sk" projectFiles="true">
             <itemPath>../src/rtos_config/pic32mz_ef_sk/RTOSInit.c</itemPath>
             <itemPath>../src/rtos_config/pic32mz_ef_sk/OS_Error.c</itemPath>
           </logicalFolder>
@@ -198,7 +185,7 @@
             <itemPath>../src/system_config/pic32mx_usb_sk2/system_interrupt_a.S</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2/rtos_hooks.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="pic32mz_ef_sk" projectFiles="true">
+          <logicalFolder name="f2" displayName="pic32mz_ef_sk" projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_ef_sk/bsp/bsp.c</itemPath>
             </logicalFolder>
@@ -268,8 +255,8 @@
               <itemPath>../../../../../../framework/system/devcon/src/sys_devcon.c</itemPath>
               <itemPath>../../../../../../framework/system/devcon/src/sys_devcon_pic32mz.c</itemPath>
               <itemPath>../../../../../../framework/system/devcon/src/sys_devcon_cache_pic32mz.S</itemPath>
-              <itemPath>../../../../../../framework/system/devcon/src/sys_devcon_pic32mx.c</itemPath>
               <itemPath>../../../../../../framework/system/devcon/src/sys_devcon_cache.h</itemPath>
+              <itemPath>../../../../../../framework/system/devcon/src/sys_devcon_pic32mx.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f1" displayName="int" projectFiles="true">
@@ -277,7 +264,7 @@
               <itemPath>../../../../../../framework/system/int/src/sys_int_pic32.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="tmr" projectFiles="true">
+          <logicalFolder name="f2" displayName="tmr" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../../framework/system/tmr/src/sys_tmr.c</itemPath>
             </logicalFolder>
@@ -313,6 +300,8 @@
     <Elem>..\src\system_config\pic32mx_usb_sk2</Elem>
     <Elem>..\src\pic32mz_ef_sk</Elem>
     <Elem>..\src\system_config\pic32mz_ef_sk</Elem>
+    <Elem>../src/pic32mx_usb_sk2</Elem>
+    <Elem>../src/pic32mz_ef_sk</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -324,8 +313,8 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>SKDEPIC32PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion></languageToolchainVersion>
-        <platform>3</platform>
+        <languageToolchainVersion>1.42</languageToolchainVersion>
+        <platform>2</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
@@ -719,22 +708,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -872,7 +845,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config/pic32mx_usb_sk2;../../../../../../framework;../src/system_config/pic32mx_usb_sk2/framework;../src/pic32mx_usb_sk2;../src/system_config/pic32mx_usb_sk2/bsp;../../../../../../third_party/rtos/embOS/GenOSSrc;../../../../../../third_party/rtos/embOS/CPU;../src/rtos_config/pic32mx_usb_sk2"/>
+                  value="../src/pic32mx_usb_sk2;../src;../src/system_config/pic32mx_usb_sk2;../../../../../../framework;../src/system_config/pic32mx_usb_sk2/framework;../src/system_config/pic32mx_usb_sk2/bsp;../../../../../../third_party/rtos/embOS/GenOSSrc;../../../../../../third_party/rtos/embOS/CPU;../src/rtos_config/pic32mx_usb_sk2"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -1096,7 +1069,7 @@
         <platformTool>PKOBSKDEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>1.42</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>2</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
@@ -1123,70 +1096,6 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <item path="../../../../../../framework/driver/driver_common.h"
-            ex="false"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../../framework/driver/tmr/drv_tmr_compatibility.h"
-            ex="false"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../../framework/driver/tmr/drv_tmr_mapping.h"
-            ex="false"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../../framework/driver/tmr/src/drv_tmr_local.h"
-            ex="false"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../../framework/driver/tmr/src/drv_tmr_variant_mapping.h"
             ex="false"
             overriding="false">
         <C32>
@@ -1315,38 +1224,6 @@
         </C32Global>
       </item>
       <item path="../../../../../../framework/driver/usb/usbhs/drv_usbhs.h"
-            ex="false"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../../framework/driver/usb/usbhs/src/drv_usbhs_local.h"
-            ex="false"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../../framework/driver/usb/usbhs/src/drv_usbhs_variant_mapping.h"
             ex="false"
             overriding="false">
         <C32>
@@ -1571,22 +1448,6 @@
         </C32Global>
       </item>
       <item path="../../../../../../framework/system/int/sys_int_mapping.h"
-            ex="false"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../../../../../../framework/system/tmr/src/sys_tmr_local.h"
             ex="false"
             overriding="false">
         <C32>
@@ -1874,22 +1735,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -2043,7 +1888,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config/pic32mz_ef_sk;../../../../../../framework;../src/system_config/pic32mz_ef_sk/framework;../src/pic32mz_ef_sk;../src/system_config/pic32mz_ef_sk/bsp;../../../../../../third_party/rtos/embOS/GenOSSrc;../../../../../../third_party/rtos/embOS/CPU;../src/rtos_config/pic32mz_ef_sk"/>
+                  value="../src/pic32mz_ef_sk;../src;../src/system_config/pic32mz_ef_sk;../../../../../../framework;../src/system_config/pic32mz_ef_sk/framework;../src/system_config/pic32mz_ef_sk/bsp;../../../../../../third_party/rtos/embOS/GenOSSrc;../../../../../../third_party/rtos/embOS/CPU;../src/rtos_config/pic32mz_ef_sk"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -2163,6 +2008,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.dataflash" value="true"/>
         <property key="memories.eeprom" value="true"/>

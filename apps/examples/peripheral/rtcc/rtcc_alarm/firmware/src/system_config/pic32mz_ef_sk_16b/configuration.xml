@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.11">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name=""/>
@@ -60,6 +64,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -169,6 +177,7 @@
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_16b</Path>
         <Checksum>14650DF6F04C8EBB98DE2A664E39AC20</Checksum>
+        <ProjectFileChecksum>E622EE8617138430C7950C7E8F3DDD10</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -187,7 +196,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_16b</Path>
-        <Checksum>116C87135294EBC42CB598893C0BB541</Checksum>
+        <Checksum>0AF921574A2681873E68D7E56F40BFEF</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
@@ -197,10 +206,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="E:/harmony/core/apps/examples/peripheral/rtcc/rtcc_alarm/firmware/src"/>
-        <Include value="E:/harmony/core/apps/examples/peripheral/rtcc/rtcc_alarm/firmware/src/system_config/pic32mz_ef_sk_16b"/>
-        <Include value="E:/harmony/core/framework"/>
-        <Include value="E:/harmony/core/apps/examples/peripheral/rtcc/rtcc_alarm/firmware/src/system_config/pic32mz_ef_sk_16b/framework"/>
+        <Include value="E:\harmony\core\apps\examples\peripheral\rtcc\rtcc_alarm\firmware\src"/>
+        <Include value="E:\harmony\core\apps\examples\peripheral\rtcc\rtcc_alarm\firmware\src\system_config\pic32mz_ef_sk_16b"/>
+        <Include value="E:\harmony\core\framework"/>
+        <Include value="E:\harmony\core\apps\examples\peripheral\rtcc\rtcc_alarm\firmware\src\system_config\pic32mz_ef_sk_16b\framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_16b/bsp"/>
       </C32>
     </CompilerItems>

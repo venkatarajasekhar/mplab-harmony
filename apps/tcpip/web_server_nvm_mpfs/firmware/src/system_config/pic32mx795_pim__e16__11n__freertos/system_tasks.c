@@ -66,6 +66,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
  
 static void _SYS_Tasks ( void );
+void _NET_PRES_Tasks(void);
 static void _APP_Tasks(void);
 
 
@@ -89,6 +90,11 @@ void SYS_Tasks ( void )
     xTaskCreate((TaskFunction_t) _SYS_Tasks,
                 "Sys Tasks",
                 2048, NULL, 3, NULL);
+
+    /* Create OS Thread for Net Pres Tasks. */
+    xTaskCreate((TaskFunction_t) _NET_PRES_Tasks,
+                "Net Pres Tasks",
+                1024, NULL, 1, NULL);
 
     /* Create OS Thread for APP Tasks. */
     xTaskCreate((TaskFunction_t) _APP_Tasks,
@@ -134,6 +140,15 @@ static void _SYS_Tasks ( void)
     }
 }
 
+void _NET_PRES_Tasks(void)
+{
+    while(1)
+    {
+        /* Maintain the TCP/IP Stack*/
+        NET_PRES_Tasks(sysObj.netPres);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+    }
+}
 
 /*******************************************************************************
   Function:

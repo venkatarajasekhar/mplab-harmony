@@ -149,7 +149,7 @@ void SYS_PORTS_Initialize(void)
     PLIB_PORTS_ChannelChangeNoticeEnable(PORTS_ID_0, PORT_CHANNEL_H, SYS_PORT_H_CNEN);
     PLIB_PORTS_ChannelChangeNoticePullUpEnable(PORTS_ID_0, PORT_CHANNEL_H, SYS_PORT_H_CNPU);
     PLIB_PORTS_ChannelChangeNoticePullDownEnable(PORTS_ID_0, PORT_CHANNEL_H, SYS_PORT_H_CNPD);
-
+    
     /* PORT J Initialization */
     PLIB_PORTS_OpenDrainEnable(PORTS_ID_0, PORT_CHANNEL_J, SYS_PORT_J_ODC);
     PLIB_PORTS_Write( PORTS_ID_0, PORT_CHANNEL_J,  SYS_PORT_J_LAT);
@@ -159,7 +159,7 @@ void SYS_PORTS_Initialize(void)
     PLIB_PORTS_ChannelChangeNoticeEnable(PORTS_ID_0, PORT_CHANNEL_J, SYS_PORT_J_CNEN);
     PLIB_PORTS_ChannelChangeNoticePullUpEnable(PORTS_ID_0, PORT_CHANNEL_J, SYS_PORT_J_CNPU);
     PLIB_PORTS_ChannelChangeNoticePullDownEnable(PORTS_ID_0, PORT_CHANNEL_J, SYS_PORT_J_CNPD);
-
+    
     /* PORT K Initialization */
     PLIB_PORTS_OpenDrainEnable(PORTS_ID_0, PORT_CHANNEL_K, SYS_PORT_K_ODC);
     PLIB_PORTS_Write( PORTS_ID_0, PORT_CHANNEL_K,  SYS_PORT_K_LAT);

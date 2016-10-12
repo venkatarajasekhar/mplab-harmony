@@ -84,28 +84,6 @@ bool TCPIP_UDP_SetSplitPayload(UDP_SOCKET s, void* pLoad, uint16_t loadSize);
 uint8_t*    TCPIP_UDP_TxPointerGet(UDP_SOCKET s);
 
 
-// debug/trace support
-//
-
-//#define TCPIP_UDP_DEBUG
-
-
-typedef struct
-{
-    uint16_t    addType;            // IPv4/6 not allocated socket
-    uint16_t    remotePort;         // port no
-    uint16_t    localPort;          // port no                  
-    uint16_t    rxQueueSize;        // packets waiting in the rx queue
-    uint16_t    txSize;             // tx buffer size
-}TCPIP_UDP_SKT_DEBUG_INFO;
-
-// returns the number of UDP sockets
-int     TCPIP_UDP_DebugSktNo(void);
-
-// fills a debug info structure for a specified socket
-bool    TCPIP_UDP_DebugSktInfo(int sktNo, TCPIP_UDP_SKT_DEBUG_INFO* pInfo);
-
-
 #endif // __UDP__MANAGER_H_
 
 

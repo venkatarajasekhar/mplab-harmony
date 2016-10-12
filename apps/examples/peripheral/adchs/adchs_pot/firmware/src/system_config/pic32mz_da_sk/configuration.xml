@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2064DAB288"/>
@@ -78,6 +78,10 @@
         <Path>Header Files/framework/system/debug/src</Path>
       </File>
       <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
         <Name>sys_common.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -88,6 +92,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -124,6 +132,10 @@
       <File>
         <Name>sys_devcon.h</Name>
         <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
         <Name>system.h</Name>
@@ -187,7 +199,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk</Path>
-        <Checksum>0FCC137951A56AE1CEC6E31292208251</Checksum>
+        <Checksum>F4D305EC565C2B3D6CE954408536386E</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -202,7 +214,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk/framework/system/clk/src</Path>
-        <Checksum>4ACBE80AD6E6B9C5B8788224DF3C6EE8</Checksum>
+        <Checksum>5DEC6FBF578D0F2E0CFD7A4E273CFADC</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -227,7 +239,7 @@
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk</Path>
         <Checksum>323E7B34076B9C0580AC1EA09A511B0D</Checksum>
-        <ProjectFileChecksum>86FAA371D86E6169EDF8B93F4316EC83</ProjectFileChecksum>
+        <ProjectFileChecksum>962068EB3E097E3D6D73AE732FF2FE37</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -237,7 +249,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk</Path>
-        <Checksum>64AF431EB593F9E6C7D8E937BE8C25C1</Checksum>
+        <Checksum>1EBDAC193F3C5FA1F43625740555F49B</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -261,20 +273,15 @@
       <Template>
         <Name>drv_adc_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk/framework/driver/adc/src</Path>
-        <Checksum>ECE0BA953F23EF5150049DFDF3B1C6DC</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_da_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>D8F380F3EAD08E12830FCB945399363E</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_pot\firmware\src"/>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_pot\firmware\src\system_config\pic32mz_da_sk"/>
-        <Include value="C:\Git_repository\core\framework"/>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_pot\firmware\src\system_config\pic32mz_da_sk\framework"/>
+        <Include value="C:/Git_repository/core1/apps/examples/peripheral/adchs/adchs_pot/firmware/src"/>
+        <Include value="C:/Git_repository/core1/apps/examples/peripheral/adchs/adchs_pot/firmware/src/system_config/pic32mz_da_sk"/>
+        <Include value="C:/Git_repository/core1/framework"/>
+        <Include value="C:/Git_repository/core1/apps/examples/peripheral/adchs/adchs_pot/firmware/src/system_config/pic32mz_da_sk/framework"/>
         <Include value="../src/system_config/pic32mz_da_sk/bsp"/>
       </C32>
     </CompilerItems>

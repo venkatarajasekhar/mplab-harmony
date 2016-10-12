@@ -168,6 +168,7 @@ const DRV_NVM_INIT drvNvmInit =
     .allowIdleRun = DRV_SPI_ALLOW_IDLE_RUN_IDX0,
     .spiProtocolType = DRV_SPI_SPI_PROTOCOL_TYPE_IDX0,
     .commWidth = DRV_SPI_COMM_WIDTH_IDX0,
+    .baudClockSource = DRV_SPI_CLOCK_SOURCE_IDX0,
     .spiClk = DRV_SPI_SPI_CLOCK_IDX0,
     .baudRate = DRV_SPI_BAUD_RATE_IDX0,
     .bufferType = DRV_SPI_BUFFER_TYPE_IDX0,
@@ -456,6 +457,7 @@ const TCPIP_SMTP_CLIENT_MODULE_CONFIG tcpipSMTPInitData =
 { 
 };
 
+
 /*** DHCP client Initialization Data ***/
 const TCPIP_DHCP_MODULE_CONFIG tcpipDHCPInitData =
 {     
@@ -476,6 +478,7 @@ const TCPIP_ICMP_MODULE_CONFIG tcpipICMPInitData =
 const TCPIP_NBNS_MODULE_CONFIG tcpipNBNSInitData =
 { 
 };
+
 
 /*** ETH MAC Initialization Data ***/
 const TCPIP_MODULE_MAC_PIC32INT_CONFIG tcpipMACPIC32INTInitData =
@@ -664,7 +667,7 @@ const USB_DEVICE_DESCRIPTOR deviceDescriptor =
     0x12,                           // Size of this descriptor in bytes
     USB_DESCRIPTOR_DEVICE,          // DEVICE descriptor type
     0x0200,                         // USB Spec Release Number in BCD format
-    USB_CDC_CLASS_CODE,         // Class Code
+	USB_CDC_CLASS_CODE,         // Class Code
     USB_CDC_SUBCLASS_CODE,      // Subclass code
     0x00,                       // Protocol code
     USB_DEVICE_EP0_BUFFER_SIZE,     // Max packet size for EP0, see system_config.h
@@ -686,7 +689,7 @@ const USB_DEVICE_QUALIFIER deviceQualifierDescriptor1 =
     0x0A,                               // Size of this descriptor in bytes
     USB_DESCRIPTOR_DEVICE_QUALIFIER,    // Device Qualifier Type
     0x0200,                             // USB Specification Release number
-    USB_CDC_CLASS_CODE,         // Class Code
+	USB_CDC_CLASS_CODE,         // Class Code
     USB_CDC_SUBCLASS_CODE,      // Subclass code
     0x00,                       // Protocol code
     USB_DEVICE_EP0_BUFFER_SIZE,         // Maximum packet size for endpoint 0

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -36,6 +40,10 @@
       <File>
         <Name>port_asm.S</Name>
         <Path>Source Files/FreeRTOS/portable/MPLAB/PIC32MX</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>list.h</Name>
@@ -154,6 +162,10 @@
         <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -235,7 +247,7 @@
       <Template>
         <Name>drv_i2c_mapping.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_freertos/framework/driver/i2c/src</Path>
-        <Checksum>CB629050E39145CBC1D8920F4AA67CB6</Checksum>
+        <Checksum>A2B98209455D197179919685D1F141EE</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -247,14 +259,9 @@
         <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_freertos</Path>
-        <Checksum>F86F6C6F7976C18B1275B536F3FF45E8</Checksum>
+        <Checksum>6568DE8AAE834E4A1634AB831F01A890</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -274,7 +281,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_freertos</Path>
-        <Checksum>2FF905535A7B10CEE15B8643C8D4F62F</Checksum>
+        <Checksum>22408D9BC656161A7656568B938F0F24</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt_a.S</Name>
@@ -284,7 +291,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_freertos/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -293,7 +300,7 @@
       <Template>
         <Name>drv_i2c_static_buffer_model.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_freertos/framework/driver/i2c/src</Path>
-        <Checksum>5A32790E0686B5D8F88B647476FFAE43</Checksum>
+        <Checksum>8CDA60AD118C187F0DF086B3DE90AC44</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -317,7 +324,7 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_freertos</Path>
-        <Checksum>F6D84EB9F29559F2058D449EAE87C21F</Checksum>
+        <Checksum>FB47E3392A67303C92D563DADC6EDB27</Checksum>
       </Template>
       <Template>
         <Name>rtos_hooks.c</Name>
@@ -332,11 +339,10 @@
         <Include value="../src/system_config/pic32mx795_pim_e16_freertos"/>
       </C32-AS>
       <C32>
-        <Include value="C:\Users\c17015\Projects\GIT_Harmony\core\apps\examples\peripheral\i2c\i2c_interrupt\firmware\src"/>
-        <Include value="C:\Users\c17015\Projects\GIT_Harmony\core\apps\examples\peripheral\i2c\i2c_interrupt\firmware\src\system_config\pic32mx795_pim_e16_freertos"/>
-        <Include value="C:\Users\c17015\Projects\GIT_Harmony\core\apps\examples\peripheral\i2c\i2c_interrupt\firmware\src\pic32mx795_pim_e16_freertos"/>
-        <Include value="C:\Users\c17015\Projects\GIT_Harmony\core\framework"/>
-        <Include value="C:\Users\c17015\Projects\GIT_Harmony\core\apps\examples\peripheral\i2c\i2c_interrupt\firmware\src\system_config\pic32mx795_pim_e16_freertos\framework"/>
+        <Include value="C:\Users\c17015\Projects\GIT_Harmony\HarmonyReposAll\apps\examples\peripheral\i2c\i2c_interrupt\firmware\src"/>
+        <Include value="C:\Users\c17015\Projects\GIT_Harmony\HarmonyReposAll\apps\examples\peripheral\i2c\i2c_interrupt\firmware\src\system_config\pic32mx795_pim_e16_freertos"/>
+        <Include value="C:\Users\c17015\Projects\GIT_Harmony\HarmonyReposAll\framework"/>
+        <Include value="C:\Users\c17015\Projects\GIT_Harmony\HarmonyReposAll\apps\examples\peripheral\i2c\i2c_interrupt\firmware\src\system_config\pic32mx795_pim_e16_freertos\framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16_freertos/bsp"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>

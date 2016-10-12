@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -34,6 +38,10 @@
         <Path>Header Files/framework/system/fs</Path>
       </File>
       <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
         <Name>portmacro.h</Name>
         <Path>Header Files/FreeRTOS/portable/MPLAB/PIC32MZ</Path>
       </File>
@@ -48,6 +56,10 @@
       <File>
         <Name>list.h</Name>
         <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
         <Name>drv_usbhs_host.c</Name>
@@ -130,6 +142,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>diskio.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/hardware_access</Path>
+      </File>
+      <File>
         <Name>projdefs.h</Name>
         <Path>Header Files/FreeRTOS</Path>
       </File>
@@ -140,6 +156,10 @@
       <File>
         <Name>portable.h</Name>
         <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>drv_spi_sys_queue_local_fifo.h</Name>
+        <Path>Header Files/framework/driver/spi/src</Path>
       </File>
       <File>
         <Name>event_groups.h</Name>
@@ -164,6 +184,10 @@
       <File>
         <Name>osal_definitions.h</Name>
         <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>drv_spi_internal.h</Name>
+        <Path>Header Files/framework/driver/spi/src/dynamic</Path>
       </File>
       <File>
         <Name>ff.c</Name>
@@ -230,6 +254,10 @@
         <Path>Source Files/FreeRTOS</Path>
       </File>
       <File>
+        <Name>ff.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
+      </File>
+      <File>
         <Name>drv_usbhs.c</Name>
         <Path>Source Files/framework/driver/usb/usbhs/src/dynamic</Path>
       </File>
@@ -258,6 +286,10 @@
         <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
+        <Name>drv_spi_sys_queue.h</Name>
+        <Path>Header Files/framework/driver/spi/src</Path>
+      </File>
+      <File>
         <Name>drv_tmr.c</Name>
         <Path>Source Files/framework/driver/tmr/src/dynamic</Path>
       </File>
@@ -276,6 +308,10 @@
       <File>
         <Name>sys_tmr_local.h</Name>
         <Path>Header Files/framework/system/tmr/src</Path>
+      </File>
+      <File>
+        <Name>ffconf.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
       </File>
       <File>
         <Name>mpfs_local.h</Name>
@@ -362,6 +398,10 @@
         <Path>Header Files/framework/driver/sdcard</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -426,12 +466,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_freertos/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_freertos/framework/driver/spi/dynamic</Path>
-        <Checksum>0468A6AC4EF824897AA5C22F6EAFBB43</Checksum>
+        <Checksum>B8D534FC99E9DAC9CE3CE2AFE17C3907</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_master_ebm_tasks.c</Name>
@@ -455,12 +495,12 @@
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_freertos</Path>
-        <Checksum>808A745100090699CFF7C34530600BB7</Checksum>
+        <Checksum>EFEC584CF5A8A54B1C82A19B9801CA79</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_freertos</Path>
-        <Checksum>95EE753F86E1632DAE41EF2BC8D308C3</Checksum>
+        <Checksum>72E5BAF3C88DD5E229217B6B21343DE3</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -489,12 +529,7 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_freertos</Path>
-        <Checksum>F45830AF1F429892CD0B1BCEC38D5487</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>C9B946DE55127062CCE3DE1506605C2D</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt_a.S</Name>
@@ -514,7 +549,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_freertos</Path>
-        <Checksum>6297DE0C315B53C01FAAB54CD583A705</Checksum>
+        <Checksum>525CF1037D25485F141C9283FEE2F1CB</Checksum>
         <ProjectFileChecksum>7875CE1A2562DB2867AE2B27852727EB</ProjectFileChecksum>
       </Template>
       <Template>
@@ -524,7 +559,7 @@
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_freertos/framework/driver/spi/dynamic</Path>
-        <Checksum>B3A91E83D97E20F2E6AE74F22B6F32E1</Checksum>
+        <Checksum>615D0B3998780D1680273302CCF44179</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
@@ -536,7 +571,6 @@
       <C32>
         <Include value="D:\trunk_sbx\apps\fs\sdcard_msd_fat_multi_disk\firmware\src"/>
         <Include value="D:\trunk_sbx\apps\fs\sdcard_msd_fat_multi_disk\firmware\src\system_config\pic32mz_ef_sk_meb2_freertos"/>
-        <Include value="D:\trunk_sbx\apps\fs\sdcard_msd_fat_multi_disk\firmware\src\pic32mz_ef_sk_meb2_freertos"/>
         <Include value="D:\trunk_sbx\framework"/>
         <Include value="D:\trunk_sbx\apps\fs\sdcard_msd_fat_multi_disk\firmware\src\system_config\pic32mz_ef_sk_meb2_freertos\framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_meb2_freertos/bsp"/>

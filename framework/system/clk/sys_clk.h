@@ -1140,6 +1140,15 @@ void SYS_CLK_SecondaryOscillatorDisable ( void );
 
 bool SYS_CLK_SecondaryOscillatorIsEnabled ( void );
 
+// *****************************************************************************
+// *****************************************************************************
+// Section: File includes for the APIs which are required for backward
+//          compatibility.
+// *****************************************************************************
+// *****************************************************************************
+#include "system/clk/sys_clk_compatibility.h"
+
+
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 }

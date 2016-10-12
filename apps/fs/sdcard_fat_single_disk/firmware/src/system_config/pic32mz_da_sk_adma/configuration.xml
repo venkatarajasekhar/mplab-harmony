@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MZ2064DAB288"/>
@@ -214,6 +218,10 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -296,18 +304,13 @@
     </Files>
     <Templates>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_da_sk_adma/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>main.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk_adma/framework/system/clk/src</Path>
-        <Checksum>7DDE4C5F0F8AAB9C96732E9BFAAD5602</Checksum>
+        <Checksum>9AA792F5C6729041D965D352B413613D</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -322,7 +325,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk_adma/bsp</Path>
-        <Checksum>07178F2CB15E4CA28B4BD6C501C2FFBA</Checksum>
+        <Checksum>6D0961160B9CA04B50D20493874A5D26</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -332,7 +335,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_adma</Path>
-        <Checksum>FFEB30C7B678BB64C25228D7E8779E94</Checksum>
+        <Checksum>8CC5AF5C096978F443632C4D7C683EDA</Checksum>
         <ProjectFileChecksum>A966FC5B34FC2312DDF3BFF21BC4788A</ProjectFileChecksum>
       </Template>
       <Template>
@@ -342,7 +345,7 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_adma/bsp</Path>
-        <Checksum>428C70E44986005E998DF73E16632B16</Checksum>
+        <Checksum>018D32CE8E3A3DAB4E198AC0EF77984D</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -361,7 +364,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_adma</Path>
-        <Checksum>27CD786C2D925B2A0B514FA36233AB2D</Checksum>
+        <Checksum>4F14E0CD80DBC9F1001D479C5994AED8</Checksum>
       </Template>
       <Template>
         <Name>nvm_disk_images.h</Name>
@@ -371,11 +374,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="D:\trunk_sbx\apps\fs\sdcard_fat_single_disk\firmware\src"/>
-        <Include value="D:\trunk_sbx\apps\fs\sdcard_fat_single_disk\firmware\src\system_config\pic32mz_da_sk_adma"/>
-        <Include value="D:\trunk_sbx\apps\fs\sdcard_fat_single_disk\firmware\src\pic32mz_da_sk_adma"/>
-        <Include value="D:\trunk_sbx\framework"/>
-        <Include value="D:\trunk_sbx\apps\fs\sdcard_fat_single_disk\firmware\src\system_config\pic32mz_da_sk_adma\framework"/>
+        <Include value="D:/trunk_sbx/apps/fs/sdcard_fat_single_disk/firmware/src"/>
+        <Include value="D:/trunk_sbx/apps/fs/sdcard_fat_single_disk/firmware/src/system_config/pic32mz_da_sk_adma"/>
+        <Include value="D:/trunk_sbx/framework"/>
+        <Include value="D:/trunk_sbx/apps/fs/sdcard_fat_single_disk/firmware/src/system_config/pic32mz_da_sk_adma/framework"/>
         <Include value="../src/system_config/pic32mz_da_sk_adma/bsp"/>
       </C32>
     </CompilerItems>

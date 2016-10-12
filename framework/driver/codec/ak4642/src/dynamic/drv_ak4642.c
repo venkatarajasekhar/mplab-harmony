@@ -178,7 +178,7 @@ SYS_MODULE_OBJ  DRV_AK4642_Initialize
     
     drvObj->drvI2CMasterHandle              = DRV_I2C_Open(DRV_AK4642_I2C_DRIVER_MODULE_INDEX_IDX0,
                                                             DRV_IO_INTENT_WRITE );
-    if(drvObj->drvI2CMasterHandle == (DRV_HANDLE) NULL)
+    if(drvObj->drvI2CMasterHandle == DRV_HANDLE_INVALID)
     {
         return SYS_MODULE_OBJ_INVALID;
     }
@@ -1191,8 +1191,7 @@ void DRV_AK4642_SamplingRateSet(DRV_HANDLE handle, uint32_t samplingRate)
 
     clientObj = (DRV_AK4642_CLIENT_OBJ *) handle;
     drvObj = (DRV_AK4642_OBJ *)clientObj->hDriver;
-
-    drvObj->command = DRV_AK4642_COMMAND_SAMPLING_RATE_SET;
+    
     _DRV_AK4642_MasterClockSet(samplingRate, drvObj->mclk_multiplier);
 
 
@@ -1201,7 +1200,6 @@ void DRV_AK4642_SamplingRateSet(DRV_HANDLE handle, uint32_t samplingRate)
                         samplingRate);
 
     drvObj->samplingRate = samplingRate;
-    drvObj->controlCommandStatus = false;
 
     return;
 }
@@ -1278,6 +1276,7 @@ void DRV_AK4642_VolumeSet(DRV_HANDLE handle, DRV_AK4642_CHANNEL channel, uint8_t
         volumeSetCmd1 = _DRV_AK4642_CommandQueueGetSlot();
         if(volumeSetCmd1 == NULL)
         {
+            drvObj->isVolumeSetUnderProcess = false;
             return;
         }
         if(DRV_AK4642_CHANNEL_LEFT == channel)
@@ -1305,6 +1304,7 @@ void DRV_AK4642_VolumeSet(DRV_HANDLE handle, DRV_AK4642_CHANNEL channel, uint8_t
             volumeSetCmd2 = _DRV_AK4642_CommandQueueGetSlot();
             if(volumeSetCmd2 == NULL)
             {
+                drvObj->isVolumeSetUnderProcess = false;
                 return;
             }
             DRV_AK4642_VolumeReMapping( drvObj, DRV_AK4642_CHANNEL_LEFT, volume);
@@ -1320,6 +1320,7 @@ void DRV_AK4642_VolumeSet(DRV_HANDLE handle, DRV_AK4642_CHANNEL channel, uint8_t
             volumeSetCmd2->control_data[1] = (uint8_t)(drvObj->volume[DRV_AK4642_CHANNEL_RIGHT]&0xFF);
             volumeSetCmd2->array_size = 2;
         }
+        drvObj->isVolumeSetUnderProcess = false;
     }
     else
     {
@@ -1422,11 +1423,7 @@ void DRV_AK4642_MuteOn(DRV_HANDLE handle)
     }
     drvObj->command = DRV_AK4642_COMMAND_SEND;
     
-    regValue = _DRV_AK4642_CONTROL_REG_BIT_WRITE_Wrapper(drvObj,
-               AK4642A_REG_MODE_CTRL3,
-               5,
-               0x1
-               );
+    
 
     AK4642_COMMAND *muteOnCmd;
     muteOnCmd = _DRV_AK4642_CommandQueueGetSlot();
@@ -1434,7 +1431,11 @@ void DRV_AK4642_MuteOn(DRV_HANDLE handle)
     {
         return;
     }
-    
+    regValue = _DRV_AK4642_CONTROL_REG_BIT_WRITE_Wrapper(drvObj,
+               AK4642A_REG_MODE_CTRL3,
+               5,
+               0x1
+               );
     
     muteOnCmd->command = DRV_AK4642_COMMAND_MUTE_ON;
     muteOnCmd->control_data[0] = (uint8_t)(AK4642A_REG_MODE_CTRL3&0xFF);
@@ -1932,8 +1933,6 @@ uint32_t DRV_AK4642_VersionGet(void)
 */
 static void DRV_AK4642_VolumeReMapping( DRV_AK4642_OBJ* drvObj, DRV_AK4642_CHANNEL channel, uint8_t volume)
 {
-   //int volCtrl = (255 - volume);
-
     uint8_t gainValue;
     uint8_t gainDACBits;
 

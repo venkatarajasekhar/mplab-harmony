@@ -142,7 +142,6 @@ SYSTEM_OBJECTS sysObj;
  const BOOTLOADER_INIT BootloaderInitData =
 {
     .drvType          = TYPE_USART,
-    .drvTrigger       = BootloaderFlashTriggerCheck
 };
 // </editor-fold>
 //<editor-fold defaultstate="collapsed" desc="SYS_DEVCON Initialization Data">

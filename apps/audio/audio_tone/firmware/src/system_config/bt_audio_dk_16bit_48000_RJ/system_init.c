@@ -286,6 +286,8 @@ void SYS_CLK_DYNAMIC_Initialize()
     /* System Clock Initialization Code */
     PLIB_OSC_FRCDivisorSelect( OSC_ID_0, OSC_FRC_DIV_2);
 
+
+
     /* Enable Peripheral Bus 1 */
     PLIB_OSC_PBClockDivisorSet (OSC_ID_0, OSC_PERIPHERAL_BUS_1, 2 );
     /* Enable and configure REFCLKO1*/
@@ -331,6 +333,7 @@ void SYS_Initialize ( void* data )
     SYS_PORTS_Initialize();
     /* Board Support Package Initialization */
     BSP_Initialize();        
+
 
     /* Initialize Drivers */
     sysObj.drvI2S0 = DRV_I2S_Initialize(DRV_I2S_INDEX_0, (SYS_MODULE_INIT *)&drvI2S0InitData);

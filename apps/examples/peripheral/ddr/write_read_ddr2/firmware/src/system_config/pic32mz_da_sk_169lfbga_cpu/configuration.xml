@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2064DAH169"/>
@@ -89,13 +93,12 @@
         <Name>sys_memory.h</Name>
         <Path>Header Files/framework/system/memory</Path>
       </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
     </Files>
     <Templates>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_da_sk_169lfbga_cpu/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
       <Template>
         <Name>main.c</Name>
         <Path>Source Files/app</Path>
@@ -103,7 +106,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_169lfbga_cpu</Path>
-        <Checksum>A223CB930CB9A4FA44DEAD58619EA86B</Checksum>
+        <Checksum>97C65C09BCB9C851261D694FFBCDD5EF</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -127,7 +130,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk_169lfbga_cpu/framework/system/clk/src</Path>
-        <Checksum>E8008D48869AED01A0D45D83A1809F14</Checksum>
+        <Checksum>FFCE7D3568405DC9BF516144E1781872</Checksum>
       </Template>
       <Template>
         <Name>sys_memory_ddr_static.c</Name>
@@ -142,7 +145,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_169lfbga_cpu</Path>
-        <Checksum>092E3D325B1921E05E86DF66F2D46A6A</Checksum>
+        <Checksum>45AAE76DAF98E14B252A1CC7D357A4D1</Checksum>
       </Template>
       <Template>
         <Name>sys_memory_static.c</Name>
@@ -176,10 +179,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\cm\Harmony\apps\examples\peripheral\ddr\write_read_ddr2\firmware\src"/>
-        <Include value="C:\cm\Harmony\apps\examples\peripheral\ddr\write_read_ddr2\firmware\src\system_config\pic32mz_da_sk_169lfbga_cpu"/>
-        <Include value="C:\cm\Harmony\framework"/>
-        <Include value="C:\cm\Harmony\apps\examples\peripheral\ddr\write_read_ddr2\firmware\src\system_config\pic32mz_da_sk_169lfbga_cpu\framework"/>
+        <Include value="/home/vikasnan/GIT_Coredev/core/apps/examples/peripheral/ddr/write_read_ddr2/firmware/src"/>
+        <Include value="/home/vikasnan/GIT_Coredev/core/apps/examples/peripheral/ddr/write_read_ddr2/firmware/src/system_config/pic32mz_da_sk_169lfbga_cpu"/>
+        <Include value="/home/vikasnan/GIT_Coredev/core/framework"/>
+        <Include value="/home/vikasnan/GIT_Coredev/core/apps/examples/peripheral/ddr/write_read_ddr2/firmware/src/system_config/pic32mz_da_sk_169lfbga_cpu/framework"/>
         <Include value="../src/system_config/pic32mz_da_sk_169lfbga_cpu/bsp"/>
       </C32>
     </CompilerItems>

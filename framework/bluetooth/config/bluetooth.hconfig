@@ -329,10 +329,26 @@ file BT_UTILS_VCARD_PARSER_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/uti
 file BT_UTILS_XML_PARSER_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/utils/xml_parser.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/utils/xml_parser.h"
 
 file SPP_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/spp/spp.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/spp/spp.h"
-library LIB_BLUETOOTH_SPP_ONLY_V151A "$HARMONY_VERSION_PATH/bin/framework/bluetooth/lib_bluetooth_spp_only_v2.3.1.a"
+file BT_VERSION_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/bt/bt_version.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/bt/bt_version.h"
+file DSP_SCRIPT_PB109_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/extra/csr/Driver/dsp_script__PB_109_DSP_rev8.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/extra/csr/Driver/dsp_script__PB_109_DSP_rev8.h"
+file DSP_SCRIPT_PB109_REV8_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/extra/csr/Driver/dsp_script__PB_109_DSP_rev8_friendly_DCR_included.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/extra/csr/Driver/dsp_script__PB_109_DSP_rev8_friendly_DCR_included.h"
+file SCRIPT_PB101_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/extra/csr/Driver/script__PB_101_CSR8811_CSP28_UART.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/extra/csr/Driver/script__PB_101_CSR8811_CSP28_UART.h"
+file SCRIPT_PB109_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/extra/csr/Driver/script__PB_109_CSR8811_REV16.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/extra/csr/Driver/script__PB_109_CSR8811_REV16.h"
+file SCRIPT_PB173_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/extra/csr/Driver/script__PB_173_CSR8X11_REV1.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/extra/csr/Driver/script__PB_173_CSR8X11_REV1.h"
+file SCRIPT_PB27_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/extra/csr/Driver/script__PB_27_R20_BC6ROM_A04.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/extra/csr/Driver/script__PB_27_R20_BC6ROM_A04.h"
+file SCRIPT_PB27_PB90_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/extra/csr/Driver/script__PB_90_REV6.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/extra/csr/Driver/script__PB_90_REV6.h"
+
+file BT_ISSC_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/extra/issc/issc.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/extra/issc/issc.h" 
+file BT_RDA_H  "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/extra/rda/rda.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/extra/rda/rda.h"
+file BT_HCITR_BCSP_CONFIG_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/hci/hcitr_bcsp_config.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/hci/hcitr_bcsp_config.h"
+file BT_RFCOMM_PKT_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/rfcomm/rfcomm_packet.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/rfcomm/rfcomm_packet.h"
+file BT_FIFO_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/utils/fifo.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/utils/fifo.h"
+file BT_MD5_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/utils/md5.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/utils/md5.h"
+file BT_UUID_H "$HARMONY_VERSION_PATH/framework/bluetooth/cdbt/utils/uuid.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/cdbt/utils/uuid.h"
+
+library LIB_BLUETOOTH_SPP_ONLY "$HARMONY_VERSION_PATH/bin/framework/bluetooth/lib_bluetooth_SPPonly_O3_v2_4_1.a"
 
 endif
-
 
 
 
@@ -397,15 +413,15 @@ file PREM_BT_HCITR_BCSP_CONFIG_H "$HARMONY_VERSION_PATH/framework/bluetooth/prem
 file PREM_BT_HCITR_PACKET_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hci/hcitr_packet.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hci/hcitr_packet.h"
 file PREM_BT_HCITR_TIH4_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hci/hcitr_tih4.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hci/hcitr_tih4.h"
 file PREM_BT_HCI_LM_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hci/lm.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hci/lm.h"
-file PREM_BT_HFP_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hfp/hfp.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hfp/hfp.h"
-file PREM_BT_HFP_CONFIG_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hfp/hfp_config.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hfp/hfp_config.h"
-file PREM_BT_HFP_PRIVATE_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hfp/hfp_private.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hfp/hfp_private.h"
-file PREM_BT_HSP_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hsp/hsp.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hsp/hsp.h"
-file PREM_BT_HSP_AG_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hsp/hsp_ag.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hsp/hsp_ag.h"
-file PREM_BT_HSP_AG_CONFIG_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hsp/hsp_ag_config.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hsp/hsp_ag_config.h"
-file PREM_BT_HSP_AG_PRIVATE_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hsp/hsp_ag_private.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hsp/hsp_ag_private.h"
-file PREM_BT_HSP_CONFIG_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hsp/hsp_config.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hsp/hsp_config.h"
-file PREM_BT_HSP_PRIVATE_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hsp/hsp_private.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hsp/hsp_private.h"
+#file PREM_BT_HFP_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hfp/hfp.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hfp/hfp.h"
+#file PREM_BT_HFP_CONFIG_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hfp/hfp_config.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hfp/hfp_config.h"
+#file PREM_BT_HFP_PRIVATE_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hfp/hfp_private.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hfp/hfp_private.h"
+#file PREM_BT_HSP_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hsp/hsp.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hsp/hsp.h"
+#file PREM_BT_HSP_AG_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hsp/hsp_ag.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hsp/hsp_ag.h"
+#file PREM_BT_HSP_AG_CONFIG_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hsp/hsp_ag_config.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hsp/hsp_ag_config.h"
+#file PREM_BT_HSP_AG_PRIVATE_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hsp/hsp_ag_private.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hsp/hsp_ag_private.h"
+#file PREM_BT_HSP_CONFIG_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hsp/hsp_config.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hsp/hsp_config.h"
+#file PREM_BT_HSP_PRIVATE_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/hsp/hsp_private.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/hsp/hsp_private.h"
 file PREM_BT_L2CAP_CHANNEL_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/l2cap/channel.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/l2cap/channel.h"
 file PREM_BT_L2CAP_CHMNGR_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/l2cap/chmanager.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/l2cap/chmanager.h"
 file PREM_BT_L2CAP_CMDBUFFER_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/l2cap/cmdbuffer.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/l2cap/cmdbuffer.h"
@@ -423,12 +439,12 @@ file PREM_BT_L2CAP_PSM_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audi
 file PREM_BT_L2CAP_SIGNAL_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/l2cap/l2cap_signal.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/l2cap/l2cap_signal.h"
 file PREM_BT_L2CAP_TEST_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/l2cap/l2cap_test.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/l2cap/l2cap_test.h"
 file PREM_BT_L2CAP_TIMER_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/l2cap/l2cap_timer.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/l2cap/l2cap_timer.h"
-file PREM_BT_OBEX_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/obex/obex.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/obex/obex.h"
-file PREM_BT_OBEX_CONFIG_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/obex/obex_config.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/obex/obex_config.h"
-file PREM_BT_OBEX_PRIVATE_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/obex/obex_private.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/obex/obex_private.h"
-file PREM_BT_PBAB_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/pbap/pbap.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/pbap/pbap.h"
-file PREM_BT_PBAB_CONFIG_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/pbap/pbap_config.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/pbap/pbap_config.h"
-file PREM_BT_PBAB_PRIVATE_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/pbap/pbap_private.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/pbap/pbap_private.h"
+#file PREM_BT_OBEX_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/obex/obex.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/obex/obex.h"
+#file PREM_BT_OBEX_CONFIG_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/obex/obex_config.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/obex/obex_config.h"
+#file PREM_BT_OBEX_PRIVATE_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/obex/obex_private.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/obex/obex_private.h"
+#file PREM_BT_PBAB_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/pbap/pbap.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/pbap/pbap.h"
+#file PREM_BT_PBAB_CONFIG_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/pbap/pbap_config.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/pbap/pbap_config.h"
+#file PREM_BT_PBAB_PRIVATE_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/pbap/pbap_private.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/pbap/pbap_private.h"
 file PREM_BT_PLAT_CONFIG_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/plat/config.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/plat/config.h"
 file PREM_BT_PLAT_TYPES_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/plat/types.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/plat/types.h"
 file PREM_BT_RFCOMM_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/rfcomm/rfcomm.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/rfcomm/rfcomm.h"
@@ -463,42 +479,33 @@ file PREM_BT_UTILS_XML_PARSER_H "$HARMONY_VERSION_PATH/framework/bluetooth/premi
 file PREM_BT_SBC_DECODER_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/decoder/sbc/Decoder.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/decoder/sbc/Decoder.h"
 file PREM_BT_SBC_ASSEMBLY_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/decoder/sbc/SBC_Assembly.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/decoder/sbc/SBC_Assembly.h"
 
-
 file A2DP_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/a2dp/a2dp.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/a2dp/a2dp.h"
 file A2DP_CODEC_SBC_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/a2dp/a2dp_codec_sbc.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/a2dp/a2dp_codec_sbc.h"
 file AVRCP_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/avrcp/avrcp.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/avrcp/avrcp.h"
 file AVRCP_COMMAND_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/avrcp/avrcp_command.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/avrcp/avrcp_command.h"
-file SBC_DEOCDER_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/decoder/sbc/sbc.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/decoder/sbc/sbc.h"
+file SBC_DECODER_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/decoder/sbc/sbc.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/decoder/sbc/sbc.h"
 
-library LIB_BLUETOOTH_A2DP_AVRCP_V15A "$HARMONY_VERSION_PATH/bin/framework/bluetooth/premium/audio/lib_bluetooth_v2.3.a"
-library LIB_SBC_DECODER_V14A "$HARMONY_VERSION_PATH/bin/framework/bluetooth/premium/audio/lib_sbc_decoder_v1.6.a"
+file PREM_BT_VERSION_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/bt/bt_version.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/bt/bt_version.h"
+file PREM_DSP_SCRIPT_PB109_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/extra/csr/Driver/dsp_script__PB_109_DSP_rev8.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/extra/csr/Driver/dsp_script__PB_109_DSP_rev8.h"
+file PREM_DSP_SCRIPT_PB109_REV8_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/extra/csr/Driver/dsp_script__PB_109_DSP_rev8_friendly_DCR_included.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/extra/csr/Driver/dsp_script__PB_109_DSP_rev8_friendly_DCR_included.h"
+file PREM_SCRIPT_PB101_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/extra/csr/Driver/script__PB_101_CSR8811_CSP28_UART.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/extra/csr/Driver/script__PB_101_CSR8811_CSP28_UART.h"
+file PREM_SCRIPT_PB109_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/extra/csr/Driver/script__PB_109_CSR8811_REV16.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/extra/csr/Driver/script__PB_109_CSR8811_REV16.h"
+file PREM_SCRIPT_PB173_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/extra/csr/Driver/script__PB_173_CSR8X11_REV1.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/extra/csr/Driver/script__PB_173_CSR8X11_REV1.h"
+file PREM_SCRIPT_PB27_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/extra/csr/Driver/script__PB_27_R20_BC6ROM_A04.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/extra/csr/Driver/script__PB_27_R20_BC6ROM_A04.h"
+file PREM_SCRIPT_PB27_PB90_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/extra/csr/Driver/script__PB_90_REV6.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/extra/csr/Driver/script__PB_90_REV6.h"
+file PREM_BT_ISSC_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/extra/issc/issc.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/extra/issc/issc.h"
+file PREM_BT_RDA_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/extra/rda/rda.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/extra/rda/rda.h"
+file PREM_BT_RFCOMM_PKT_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/rfcomm/rfcomm_packet.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/rfcomm/rfcomm_packet.h"
+file PREM_BT_FIFO_H "$HARMONY_VERSION_PATH/framework/bluetooth/premium/audio/cdbt/utils/fifo.h" to "$PROJECT_HEADER_FILES/framework/bluetooth/premium/audio/cdbt/utils/fifo.h"
 
+library LIB_BLUETOOTH_A2DP_AVRCP "$HARMONY_VERSION_PATH/bin/framework/bluetooth/premium/audio/lib_bluetooth_NoHFP_O3_v2_4.a"
+
+ifblock (PIC32MZ)
+library LIB_SBC_DECODER_MZ "$HARMONY_VERSION_PATH/bin/framework/bluetooth/premium/audio/lib_sbc_decoder_MZ_v1.6.a"
 endif
 
+ifblock (PIC32MX)
+library LIB_SBC_DECODER_MX "$HARMONY_VERSION_PATH/bin/framework/bluetooth/premium/audio/lib_sbc_decoder_v1.6.a"
+endif
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+endif

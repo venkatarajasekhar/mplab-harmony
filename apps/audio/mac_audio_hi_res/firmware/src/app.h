@@ -56,14 +56,11 @@ extern "C" {
 #include <xc.h>
 #include "app_config.h"
 #include "bsp.h"    // was "bsp_config.h"
-#include "system/system.h"
-#include "system/devcon/sys_devcon.h"
-#include "system/int/sys_int.h"
-#include "usb/usb_device.h"
-#include "system/int/sys_int.h"
+#include "system_definitions.h"
 #include "usb/usb_audio_v2_0.h"
 #include "usb/usb_device_audio_v2_0.h"
-#include "driver/codec/ak4384/drv_ak4384.h"
+    
+//#define SUPPORT_ALL_SAMPLE_RATES                              // all sample rates if defined, only 44.1, 88.2, 176.4 and 192 if commented out
 
 #define ASYNCHRONOUS_FEEDBACK
 #define AUDIO_FRAME_SIZE                                        (APP_AUDIO_MAX_SAMPLES*4*2)
@@ -156,6 +153,7 @@ typedef enum
     APP_DAC_MUTE,   
     APP_DAC_VOLUME_INCREASE,   
     APP_DAC_VOLUME_DECREASE,            
+    APP_IDLE_BLINK,            
     /* Application Error state*/                        
     APP_STATE_ERROR = -1
 } APP_STATES;
@@ -201,6 +199,7 @@ typedef struct
 typedef struct __attribute__((packed))
 {
     unsigned short  numSampleRate;          // Number of supported sampling rates
+#ifdef SUPPORT_ALL_SAMPLE_RATES
     USB_AUDIO_V2_LAYOUT_3_RANGE_PARAMETER_BLOCK sampleRate32;
     USB_AUDIO_V2_LAYOUT_3_RANGE_PARAMETER_BLOCK sampleRate44;
     USB_AUDIO_V2_LAYOUT_3_RANGE_PARAMETER_BLOCK sampleRate48;
@@ -208,6 +207,12 @@ typedef struct __attribute__((packed))
     USB_AUDIO_V2_LAYOUT_3_RANGE_PARAMETER_BLOCK sampleRate96;
     USB_AUDIO_V2_LAYOUT_3_RANGE_PARAMETER_BLOCK sampleRate176;
     USB_AUDIO_V2_LAYOUT_3_RANGE_PARAMETER_BLOCK sampleRate192;
+#else
+    USB_AUDIO_V2_LAYOUT_3_RANGE_PARAMETER_BLOCK sampleRate44;
+    USB_AUDIO_V2_LAYOUT_3_RANGE_PARAMETER_BLOCK sampleRate88;
+    USB_AUDIO_V2_LAYOUT_3_RANGE_PARAMETER_BLOCK sampleRate176;
+    USB_AUDIO_V2_LAYOUT_3_RANGE_PARAMETER_BLOCK sampleRate192;    
+#endif
 } APP_USB_AUDIO_V2_CLOCKSOURCE_RANGE;
 // *****************************************************************************
 /* Application USB transfer client
@@ -486,6 +491,11 @@ void APP_CodecBufferEventHandler(DRV_CODEC_BUFFER_EVENT event,
 uint32_t __attribute__((nomips16)) APP_ReadCoreTimer(void);
 void GFX_MENU_DRAW(void);
 void DispalyTasks(void);
+
+void muteAudio ( void );
+void syncLRClock( void );
+void APP_TasksCheckStuck( void );
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: extern declarations

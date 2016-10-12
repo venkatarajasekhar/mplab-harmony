@@ -1,42 +1,18 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Serial Data Protocol
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    sdp_packet.h
-
-  Summary:
-    Bluetooth API Library interface to the SDP.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.  This module describe functions
-	and data structures used to start the SDP server and perform SDP queries.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
-*
-*
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
-#ifndef __SDP_PACKET_H  // Guards against multiple inclusion
+#ifndef __SDP_PACKET_H
 #define __SDP_PACKET_H
 
-#include "bluetooth/cdbt/utils/packet.h"
+#include "cdbt/utils/packet.h"
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
 
 struct _bt_sdp_service_transaction_t;
 struct _bt_sdp_transaction_t;

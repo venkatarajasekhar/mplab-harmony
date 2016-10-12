@@ -348,12 +348,6 @@ DRV_HANDLE DRV_SPI_Open ( const SYS_MODULE_INDEX index, const DRV_IO_INTENT inte
 
     if (setupHardware)
     {
-	if (pClient->baudRate != pDrvInstance->currentBaudRate)
-        {
-            PLIB_SPI_BaudRateSet( pDrvInstance->spiId , SYS_CLK_PeripheralFrequencyGet(pDrvInstance->spiClk), pClient->baudRate );
-            pDrvInstance->currentBaudRate = pClient->baudRate;
-        }
-
         if (pDrvInstance->taskMode == DRV_SPI_TASK_MODE_ISR)
         {
             SYS_INT_SourceDisable(pDrvInstance->txInterruptSource);
@@ -868,11 +862,9 @@ int32_t DRV_SPI_ClientConfigure ( DRV_HANDLE handle,
     }
     if (cfgData->baudRate != 0)
     {
+        /* just save the new baud rate value for this client, don't change it here. 
+           Actual change will happen in the task routine when queue request is serviced */
         pClient->baudRate = cfgData->baudRate;
-
-        PLIB_SPI_BaudRateSet (pClient->driverObject->spiId, 
-                              SYS_CLK_PeripheralFrequencyGet(pClient->driverObject->spiClk),
-                              pClient->baudRate);
     }
     else
     {

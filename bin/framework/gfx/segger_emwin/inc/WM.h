@@ -9,7 +9,7 @@
 *                                                                    *
 **********************************************************************
 
-** emWin V5.34 - Graphical user interface for embedded applications **
+** emWin V5.36 - Graphical user interface for embedded applications **
 All  Intellectual Property rights  in the Software belongs to  SEGGER.
 emWin is protected by  international copyright laws.  Knowledge of the
 source code may not be used to write a similar product.  This file may
@@ -26,16 +26,6 @@ libraries. Full source code is available at: www.segger.com
 
 We appreciate your understanding and fairness.
 ----------------------------------------------------------------------
-Licensing information
-
-Licensor:                 SEGGER Microcontroller Systems LLC
-Licensed to:              Microchip Technology Inc., 2355 W Chandler Blvd., Chandler, AZ 85224, US
-Licensed SEGGER software: emWin
-License number:           GUI-00614
-License model:            CPU Object Code License, dated Sept. 8, 2015
-Licensed product:         Any
-Licensed platform:        PIC24, PIC32, dsPIC, PIC16, PIC18 / MPLAB X Integrated Development Evironment, XC16 C Compiler, XC32 C/C++ Compiler
-Licensed number of seats: -
 ----------------------------------------------------------------------
 File        : WM.h
 Purpose     : Windows manager include
@@ -440,6 +430,7 @@ void WM_Activate  (void);
 void WM_Deactivate(void);
 void WM_Init      (void);
 int  WM_Exec      (void);    /* Execute all jobs ... Return 0 if nothing was done. */
+int  WM_Exec1     (void);    // Execute only one job
 U32  WM_SetCreateFlags(U32 Flags);
 WM_tfPollPID * WM_SetpfPollPID(WM_tfPollPID * pf);
 
@@ -490,8 +481,8 @@ I32  WM_GESTURE_SetThresholdDist (I32 ThresholdDist);
 
 /* Motion support */
 void     WM_MOTION_Enable          (int OnOff);
-void     WM_MOTION_SetMovement     (WM_HWIN hWin, int Axis, I32 Velocity, I32 Dist);
-void     WM_MOTION_SetMotion       (WM_HWIN hWin, int Axis, I32 Velocity, I32 Deceleration);
+void     WM_MOTION_SetMovement     (WM_HWIN hWin, int Axis, I32 Speed, I32 Dist);
+void     WM_MOTION_SetMotion       (WM_HWIN hWin, int Axis, I32 Speed, I32 Deceleration);
 void     WM_MOTION_SetMoveable     (WM_HWIN hWin, U32 Flags, int OnOff);
 void     WM_MOTION_SetDeceleration (WM_HWIN hWin, int Axis, I32 Deceleration);
 unsigned WM_MOTION_SetDefaultPeriod(unsigned Period);

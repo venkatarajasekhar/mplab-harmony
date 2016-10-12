@@ -1,42 +1,27 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Host Controller Interface
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    hci_ctrl_state.h
-
-  Summary:
-    Bluetooth API Library interface to the HCI Functions.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 #ifndef __HCI_CTRL_STATE_H
 #define __HCI_CTRL_STATE_H
 
-#include "bluetooth/cdbt/hci/hci_le.h"
-#include "bluetooth/cdbt/ssp/ssp.h"
+#include "cdbt/hci/hci_le.h"
+#include "cdbt/ssp/ssp.h"
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
 
 #define HCI_CTRL_STATE_CLOSED					0x00
 #define HCI_CTRL_STATE_INIT						0x01
@@ -132,13 +117,13 @@ typedef struct _bt_hci_ctrl_state_s
 
 } bt_hci_ctrl_state_t;
 
-/**
-* Summary: listener is triggered by the following events:
-*   - HCI_EVT_AUTHENTICATION_COMPLETE
-*   - HCI_EVT_CONNECTION_COMPLETE
-*   - HCI_EVT_DISCONNECTION_COMPLETE
-*   - HCI_EVT_ROLE_CHANGE
-*   - HCI_EVT_MODE_CHANGE
+/** 
+* listener is triggered by the following events:
+*   HCI_EVT_AUTHENTICATION_COMPLETE
+*   HCI_EVT_CONNECTION_COMPLETE
+*   HCI_EVT_DISCONNECTION_COMPLETE
+*   HCI_EVT_ROLE_CHANGE
+*   HCI_EVT_MODE_CHANGE
 */
 void bt_hci_set_event_listener(bt_hci_event_listener_fp callback);
 

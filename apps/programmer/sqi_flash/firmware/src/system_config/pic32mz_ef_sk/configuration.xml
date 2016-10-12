@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.1">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MZ2048EFH144"/>
@@ -34,8 +38,8 @@
         <Path>Source Files/framework/system/tmr/src</Path>
       </File>
       <File>
-        <Name>net_pres_socketapi.h</Name>
-        <Path>Header Files/framework/net/pres</Path>
+        <Name>ff.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
       </File>
       <File>
         <Name>drv_usbhs.c</Name>
@@ -50,10 +54,6 @@
         <Path>Header Files/framework/driver/usb/usbhs</Path>
       </File>
       <File>
-        <Name>net_pres_socketapiconversion.h</Name>
-        <Path>Header Files/framework/net/pres</Path>
-      </File>
-      <File>
         <Name>sys_fs.h</Name>
         <Path>Header Files/framework/system/fs</Path>
       </File>
@@ -66,8 +66,8 @@
         <Path>Header Files/framework/driver</Path>
       </File>
       <File>
-        <Name>peripheral_common.h</Name>
-        <Path>Header Files/framework/peripheral</Path>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
         <Name>sys_int_pic32.c</Name>
@@ -78,12 +78,8 @@
         <Path>Source Files/framework/usb/src/dynamic</Path>
       </File>
       <File>
-        <Name>net_pres_local.h</Name>
-        <Path>Header Files/framework/net/pres/src</Path>
-      </File>
-      <File>
-        <Name>net_pres.h</Name>
-        <Path>Header Files/framework/net/pres</Path>
+        <Name>mpfs.h</Name>
+        <Path>Header Files/framework/system/fs/mpfs</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -114,16 +110,20 @@
         <Path>Header Files/framework/system</Path>
       </File>
       <File>
+        <Name>ffconf.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
+      </File>
+      <File>
+        <Name>mpfs_local.h</Name>
+        <Path>Header Files/framework/system/fs/mpfs/src</Path>
+      </File>
+      <File>
         <Name>sys_fs.c</Name>
         <Path>Source Files/framework/system/fs/src/dynamic</Path>
       </File>
       <File>
         <Name>sys_fs_media_manager.h</Name>
         <Path>Header Files/framework/system/fs</Path>
-      </File>
-      <File>
-        <Name>net_pres_encryptionproviderapi.h</Name>
-        <Path>Header Files/framework/net/pres</Path>
       </File>
       <File>
         <Name>usb_host_scsi_local.h</Name>
@@ -142,20 +142,12 @@
         <Path>Header Files/framework/osal/src</Path>
       </File>
       <File>
-        <Name>peripheral_common_32bit.h</Name>
-        <Path>Header Files/framework/peripheral</Path>
-      </File>
-      <File>
         <Name>usb_host_scsi.c</Name>
         <Path>Source Files/framework/usb/src/dynamic</Path>
       </File>
       <File>
         <Name>drv_tmr_variant_mapping.h</Name>
         <Path>Header Files/framework/driver/tmr/src</Path>
-      </File>
-      <File>
-        <Name>net_pres_transportapi.h</Name>
-        <Path>Header Files/framework/net/pres</Path>
       </File>
       <File>
         <Name>drv_tmr.h</Name>
@@ -186,10 +178,6 @@
         <Path>Header Files/framework/osal</Path>
       </File>
       <File>
-        <Name>net_pres_certstore.h</Name>
-        <Path>Header Files/framework/net/pres</Path>
-      </File>
-      <File>
         <Name>usb_msd.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
@@ -206,6 +194,10 @@
         <Path>Header Files/framework/system/ports</Path>
       </File>
       <File>
+        <Name>diskio.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/hardware_access</Path>
+      </File>
+      <File>
         <Name>usb_hub.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
@@ -220,6 +212,10 @@
       <File>
         <Name>usb_host_hub.h</Name>
         <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
@@ -262,16 +258,8 @@
         <Path>Source Files/framework/system/fs</Path>
       </File>
       <File>
-        <Name>gfx_palette.h</Name>
-        <Path>Header Files/framework/gfx</Path>
-      </File>
-      <File>
         <Name>sys_devcon.h</Name>
         <Path>Header Files/framework/system/devcon</Path>
-      </File>
-      <File>
-        <Name>ctr_p32mz2048efh144.h</Name>
-        <Path>Header Files/framework/peripheral/ctr/processor</Path>
       </File>
       <File>
         <Name>usb_host_msd.h</Name>
@@ -306,10 +294,6 @@
         <Path>Header Files/framework/usb/src</Path>
       </File>
       <File>
-        <Name>peripheral.h</Name>
-        <Path>Header Files/framework/peripheral</Path>
-      </File>
-      <File>
         <Name>sys_queue.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -322,7 +306,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/bsp</Path>
-        <Checksum>F05FA6CD752CCFEC85C6B17BF6B61604</Checksum>
+        <Checksum>DD885EBE1893567826AD0E35E9F24594</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -337,16 +321,12 @@
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
         <Checksum>7E5DC6D03664C09636AA6C88330FDC4B</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <ProjectFileChecksum>EFA8DACF44F925A619A6A0FFD3DB12BF</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/clk/src</Path>
-        <Checksum>146C9B5334A4AB1E56AA9C566632812F</Checksum>
+        <Checksum>3687AD77242BD023A59E09AF0CED0BC3</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -356,7 +336,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>BB38EDB83E23CB0501C60FAF1ED8DF3E</Checksum>
+        <Checksum>9EECF0632D3439D437CE61A1D2874FAB</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -365,7 +345,7 @@
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/ports/src</Path>
-        <Checksum>93D605F55B1F3027DD6B0DC325FE5B53</Checksum>
+        <Checksum>3DFB0BC56732FDD6D5377CC83C754517</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -379,12 +359,12 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>124550A964A0A3139B876754993A3695</Checksum>
+        <Checksum>F86E7AE7DD7C65CAD576E8FC9CA07729</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk/bsp</Path>
-        <Checksum>D48E3F4A4C9EC7A73FF9E95DB499B155</Checksum>
+        <Checksum>F740DA09253C01A3D03B3FD6565F5267</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -394,11 +374,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\Harmony\gfx2.0\apps\programmer\sqi_flash\firmware\src"/>
-        <Include value="C:\Harmony\gfx2.0\apps\programmer\sqi_flash\firmware\src\system_config\pic32mz_ef_sk"/>
-        <Include value="C:\Harmony\gfx2.0\apps\programmer\sqi_flash\firmware\src\pic32mz_ef_sk"/>
-        <Include value="C:\Harmony\gfx2.0\framework"/>
-        <Include value="C:\Harmony\gfx2.0\apps\programmer\sqi_flash\firmware\src\system_config\pic32mz_ef_sk\framework"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/programmer/sqi_flash/firmware/src"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/programmer/sqi_flash/firmware/src/system_config/pic32mz_ef_sk"/>
+        <Include value="C:/microchip/harmony/core_v2xx/framework"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/programmer/sqi_flash/firmware/src/system_config/pic32mz_ef_sk/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk/bsp"/>
       </C32>
     </CompilerItems>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -38,6 +42,10 @@
         <Path>Header Files/framework/driver/spi</Path>
       </File>
       <File>
+        <Name>drv_spi_sys_queue_local_fifo.h</Name>
+        <Path>Header Files/framework/driver/spi/src</Path>
+      </File>
+      <File>
         <Name>driver.h</Name>
         <Path>Header Files/framework/driver</Path>
       </File>
@@ -54,8 +62,16 @@
         <Path>Source Files/framework/system/int/src</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>sys_clk.h</Name>
         <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>drv_spi_sys_queue.h</Name>
+        <Path>Header Files/framework/driver/spi/src</Path>
       </File>
       <File>
         <Name>osal_impl_none.h</Name>
@@ -72,6 +88,10 @@
       <File>
         <Name>osal_definitions.h</Name>
         <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>drv_spi_internal.h</Name>
+        <Path>Header Files/framework/driver/spi/src/dynamic</Path>
       </File>
       <File>
         <Name>sys_int_private.h</Name>
@@ -137,7 +157,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_sta/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -156,7 +176,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_sta/bsp</Path>
-        <Checksum>D0BABDD8CC269B7DE3BA98239B5ECC8D</Checksum>
+        <Checksum>EE96DD12865E6C7F0453E07B26BCF042</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -181,7 +201,7 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_sta/bsp</Path>
-        <Checksum>999832C5BD5B6EC600BB84C682241D0C</Checksum>
+        <Checksum>7567B3DF8AD82B4BA40BB70A80E7AC51</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_static.c</Name>
@@ -199,23 +219,18 @@
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16_sta/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>app.h</Name>
         <Path>Header Files/app</Path>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_sta</Path>
-        <Checksum>422BB217EE8CFA1521088A7C6EC01A2A</Checksum>
+        <Checksum>7DAEAA282F3CBC5D2992364A81AD9ED0</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_sta</Path>
-        <Checksum>8A7100390DAEF66F8BA919839AF9A786</Checksum>
+        <Checksum>D7AB54AAE723ECF9CD7ECECD382AD547</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_static_sys_queue.c</Name>
@@ -225,11 +240,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="E:/official/git/core_ldra/apps/driver/spi/serial_eeprom/firmware/src"/>
-        <Include value="E:/official/git/core_ldra/apps/driver/spi/serial_eeprom/firmware/src/system_config/pic32mx795_pim_e16_sta"/>
-        <Include value="E:/official/git/core_ldra/apps/driver/spi/serial_eeprom/firmware/src/pic32mx795_pim_e16_sta"/>
-        <Include value="E:/official/git/core_ldra/framework"/>
-        <Include value="E:/official/git/core_ldra/apps/driver/spi/serial_eeprom/firmware/src/system_config/pic32mx795_pim_e16_sta/framework"/>
+        <Include value="E:/official/git/core/apps/driver/spi/serial_eeprom/firmware/src"/>
+        <Include value="E:/official/git/core/apps/driver/spi/serial_eeprom/firmware/src/system_config/pic32mx795_pim_e16_sta"/>
+        <Include value="E:/official/git/core/framework"/>
+        <Include value="E:/official/git/core/apps/driver/spi/serial_eeprom/firmware/src/system_config/pic32mx795_pim_e16_sta/framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16_sta/bsp"/>
       </C32>
     </CompilerItems>

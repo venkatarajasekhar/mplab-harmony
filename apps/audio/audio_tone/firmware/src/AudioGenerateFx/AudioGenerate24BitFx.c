@@ -115,11 +115,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
  *******************************************************************************/
 // DOM-IGNORE-END
 
-#include "AudioGenerateFx.h"
-#include "FxMath.h"
 #include <math.h>
-#include "app_config.h"
 #include <string.h>
+
+#include "AudioGenerateFx.h"
+#include "math/libq/libq_C.h"
+#include "app_config.h"
 
 
 //******************************************************************************
@@ -383,7 +384,7 @@ BOOL AudioGenerateFx(AUDIO_GENERATE * ag, AUDIO_PLAY_BUFFER * audioBuffer)
                 if ((ag->audioSampleCnt < ag->durationSamples) ||
                     infDuration)
                 {
-                    // FrssSin_AngT5() 
+                    // q15 libq_q1d15_Sin_q10d6(q15 angleQ10d6);
                     // Arguments:
                     //   FxPnt16 angleQ10d6
                     //     [in] The angle in degrees for which the sine is computed
@@ -400,11 +401,11 @@ BOOL AudioGenerateFx(AUDIO_GENERATE * ag, AUDIO_PLAY_BUFFER * audioBuffer)
                     //       call overhead. CAL
                     //       
                     //**********************************************************************
-                    Fract16 angleQ10d6;
+                    q15 angleQ10d6;
                     int32_t sinValueQ1d15;
                     int32_t sinValueQ10d22;
                     angleQ10d6 = Fl2FxPnt(360.0*((float)i/ag->samplesPerCycle), 6);
-                    sinValueQ1d15 = (int32_t) FrssSin_AngT5(angleQ10d6);
+                    sinValueQ1d15 = (int32_t) libq_q1d15_Sin_q10d6(angleQ10d6);
 
                     //temp =  (APP_DATA_TYPE) (sinValue >> ampExpFS);
                     sinValueQ10d22 = sinValueQ1d15 << 7;
@@ -438,12 +439,12 @@ BOOL AudioGenerateFx(AUDIO_GENERATE * ag, AUDIO_PLAY_BUFFER * audioBuffer)
                 if ((ag->audioSampleCnt < ag->durationSamples) ||
                     infDuration)
                 {
-                    Fract16 angleQ10d6;
+                    q15 angleQ10d6;
                     int32_t sinValueQ1d15;
                     int32_t sinValueQ10d22;
                     angleQ10d6 = Fl2FxPnt(360.0*((float)i/ag->samplesPerCycle), 6);
 
-                    sinValueQ1d15 = (int32_t) FrssSin_AngT5(angleQ10d6);
+                    sinValueQ1d15 = (int32_t) libq_q1d15_Sin_q10d6(angleQ10d6);
 
                     sinValueQ10d22 = sinValueQ1d15 << 7;
                     sinValueQ10d22 = sinValueQ10d22 *5/8; //Scaling factor

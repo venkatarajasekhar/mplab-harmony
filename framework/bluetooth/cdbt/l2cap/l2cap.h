@@ -1,49 +1,39 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Logical Link Control and Adaptation Protocol
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    l2cap.h
-
-  Summary:
-    Bluetooth API Library interface to the L2CAP Functions.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 #ifndef __L2CAP_H
 #define __L2CAP_H
 
-#include "bluetooth/cdbt/hci/hci.h"
+#include "cdbt/hci/hci.h"
 
-#include "bluetooth/cdbt/l2cap/command.h"
-#include "bluetooth/cdbt/l2cap/cmdbuffer.h"
-#include "bluetooth/cdbt/l2cap/frame_buffer.h"
-#include "bluetooth/cdbt/utils/queue.h"
-#include "bluetooth/cdbt/l2cap/l2cap_packet.h"
-#include "bluetooth/cdbt/l2cap/channel.h"
-#include "bluetooth/cdbt/l2cap/l2cap_command_queue.h"
+#include "cdbt/l2cap/command.h"
+#include "cdbt/l2cap/cmdbuffer.h"
+#include "cdbt/l2cap/frame_buffer.h"
+#include "cdbt/utils/queue.h"
+#include "cdbt/l2cap/l2cap_packet.h"
+#include "cdbt/l2cap/channel.h"
+#include "cdbt/l2cap/l2cap_command_queue.h"
 
-// DOM-IGNORE-BEGIN
+/**
+ * \defgroup l2cap L2CAP
+ */
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
 
 #define PSM_SDP             0x0001
 #define PSM_RFCOMM          0x0003
@@ -126,6 +116,22 @@ typedef struct _bt_l2cap_fixed_channel_s
 	void* connect_cb_param;
 } bt_l2cap_fixed_channel_t;
 
+typedef struct _bt_l2cap_connect_params_s bt_l2cap_connect_params_t;
+
+struct _bt_l2cap_connect_params_s
+{
+	bt_l2cap_connect_params_t* next;
+
+	bt_bdaddr_t addr;
+	bt_int psm;
+	bt_l2cap_connect_callback_fp callback;
+	void* param;
+	bt_l2cap_state_changed_callback_fp state_cb;
+	bt_byte chmode;
+	bt_bool fixed_channel;
+	bt_uint acl_config;
+};
+
 typedef struct _bt_l2cap_mgr_s 
 {
 	bt_int state;
@@ -134,15 +140,26 @@ typedef struct _bt_l2cap_mgr_s
 	bt_l2cap_channel_t* _channels;
 	bt_queue_element_t* cmd_queue;
 	bt_queue_element_t* cmd_res_queue;
-	bt_bool sending;
 	bt_byte max_rtx;
 	bt_hci_ctrl_state_t* hci_ctrl;
 	bt_l2cap_packet_t cmd_tx_packet;
 
+/*
 	bt_int connect_psm;
 	bt_l2cap_connect_callback_fp connect_cb;
 	void* connect_param;
 	bt_l2cap_state_changed_callback_fp connect_state_cb;
+*/
+	bt_queue_element_t* connect_queue;
+	bt_buffer_mgr_t connect_params_mgr;
+
+	struct
+	{
+		unsigned int connecting:1;
+		unsigned int sig_cmd:1;
+		unsigned int sig_connect:1;
+		unsigned int sending:1;
+	} flags;
 
 	bt_hci_listener_t hci_disconnect_listener;
 
@@ -152,27 +169,27 @@ typedef struct _bt_l2cap_mgr_s
 
 
 /**
- * Summary:  Initialize the L2CAP layer.
- * , Functional Group:  l2cap
+ * \brief Initialize the L2CAP layer.
+ * \ingroup l2cap
  *
- * Description:  This function initializes the L2CAP layer of the stack. It must be called prior to any other
+ * \details This function initializes the L2CAP layer of the stack. It must be called prior to any other
  * L2CAP function can be called.
  */
 void bt_l2cap_init(void);
 
 
 /**
- * Summary:  Allocate L2CAP manager.
- * , Functional Group:  l2cap
+ * \brief Allocate L2CAP manager.
+ * \ingroup l2cap
  *
- * Description:  This function allocates and initializes an L2CAP manager structure.
+ * \details This function allocates and initializes an L2CAP manager structure.
  * One L2CAP manager manages all L2CAP connections for a particular local device.
- * The local device is specified by the hci_ctrl parameter.
+ * The local device is specified by the \c hci_ctrl parameter.
  *
- * Parameters:  hci_ctrl - Pointer to the hci_ctrl_state structure that represents the local
+ * \param hci_ctrl Pointer to the hci_ctrl_state structure that represents the local
  * device (HCI controller) for which a L2CAP manager is to be allocated.
  *
- * Returns:  A pointer to the allocated L2CAP manager structure. The returned
+ * \return A pointer to the allocated L2CAP manager structure. The returned
  *         L2CAP manager should be freed by a call to bt_l2cap_free_mgr when it
  *         is no longer needed.
  */
@@ -180,33 +197,33 @@ bt_l2cap_mgr_t* bt_l2cap_allocate_mgr(bt_hci_ctrl_state_t* hci_ctrl);
 
 
 /**
- * Summary:  Release L2CAP manger.
- * , Functional Group:  l2cap
+ * \brief Release L2CAP manger.
+ * \ingroup l2cap
  *
- * Description:  This function releases the L2CAP manager structure.
+ * \details This function releases the L2CAP manager structure.
  *
- * Parameters:  mgr - The L2CAP manager structure to be released.
+ * \param mgr The L2CAP manager structure to be released.
  *
  */
 void bt_l2cap_free_mgr(bt_l2cap_mgr_t* mgr);
 
 
 /**
- * Summary:  Listen for incoming connections.
- * , Functional Group:  l2cap
+ * \brief Listen for incoming connections.
+ * \ingroup l2cap
  *
- * Description:  This function tells the L2CAP manager to listen for incoming connections
+ * \details This function tells the L2CAP manager to listen for incoming connections
  * on a specific PSM. When a connection is established a callback function is called.
  *
- * Parameters:  mgr - The L2CAP manager.
- *   psm - The PSM on which the manager will listen and accept incoming connections.
- *   callback - The callback function that will be called when an incoming connection is established.
- *   param - An arbitrary data pointer that will be passed to the callback function specified by
- *              the callback parameter.
+ * \param mgr The L2CAP manager.
+ * \param psm The PSM on which the manager will listen and accept incoming connections.
+ * \param callback The callback function that will be called when an incoming connection is established.
+ * \param param An arbitrary data pointer that will be passed to the callback function specified by
+ *              the \c callback parameter.
  *
- * Returns:
- *        - TRUE when the function succeeds.
- *        - FALSE otherwise. The callback function is not called in this case.
+ * \return
+ *        \li \c TRUE when the function succeeds.
+ *        \li \c FALSE otherwise. The callback function is not called in this case. 
  */
 bt_bool bt_l2cap_listen_ext(
 	bt_l2cap_mgr_t* mgr, bt_int psm, bt_byte chmode,
@@ -221,22 +238,22 @@ bt_bool bt_l2cap_listen_fixed_channel(
 
 
 /**
- * Summary:  Connect to a remote device.
- * , Functional Group:  l2cap
+ * \brief Connect to a remote device.
+ * \ingroup l2cap
  *
- * Description:  This function establishes an L2CAP connection with a remote device on a specific PSM.
+ * \details This function establishes an L2CAP connection with a remote device on a specific PSM.
  * When connect operation completes a callback function is called.
  *
- * Parameters:  mgr - The L2CAP manager.
- *   remote_addr - The address of the remote device.
- *   psm - The PSM for the connection.
- *   connect_cb - The Callback function that is called when the connect operation completes.
- *   param - A pointer to arbitrary data to be passed to the connect_cb callback.
- *   state_cb - The callback function that is called when the state of the established connection changes.
+ * \param mgr The L2CAP manager.
+ * \param remote_addr The address of the remote device.
+ * \param psm The PSM for the connection.
+ * \param connect_cb The Callback function that is called when the connect operation completes.
+ * \param param A pointer to arbitrary data to be passed to the \c connect_cb callback.
+ * \param state_cb The callback function that is called when the state of the established connection changes.
  *
- * Returns:
- *        - TRUE when the function succeeds.
- *        - FALSE otherwise. None of the callback functions is called in this case.
+ * \return
+ *        \li \c TRUE when the function succeeds.
+ *        \li \c FALSE otherwise. None of the callback functions is called in this case. 
  *
  */
 bt_bool bt_l2cap_connect_ext(
@@ -258,30 +275,30 @@ bt_bool bt_l2cap_connect_fixed_channel(
 	bt_l2cap_state_changed_callback_fp state_cb);
 
 /**
- * Summary:  Close L2CAP channel.
- * , Functional Group:  l2cap
+ * \brief Close L2CAP channel.
+ * \ingroup l2cap
  *
- * Description:  This function closes an L2CAP channel. The channel can be established
+ * \details This function closes an L2CAP channel. The channel can be established
  * either by a call to bt_l2cap_connect() or by an incoming connection request.
  *
- * Parameters:  ch - The L2CAP channel to be closed.
+ * \param ch The L2CAP channel to be closed.
  *
- * Returns:
- *        - TRUE when the function succeeds.
- *        - FALSE otherwise. The callback function is not called in this case.
+ * \return
+ *        \li \c TRUE when the function succeeds.
+ *        \li \c FALSE otherwise. The callback function is not called in this case. 
  */
 bt_bool bt_l2cap_disconnect(bt_l2cap_channel_t* ch);
 
 bt_bool bt_l2cap_disconnect_ex(bt_l2cap_channel_t* pch, bt_bool force_hci_disconnect);
 
 /**
-* Summary:  Send reject command (used to reject unknown or invalid commands)
+* \brief Send reject command (used to reject unknown or invalid commands)
 *
 */
 bt_bool bt_l2cap_reject(bt_l2cap_mgr_p pmgr, bt_hci_conn_state_p pconn, bt_byte cmd_id, bt_byte reason, bt_l2cap_cmd_reject_param_t* param);
 
 /**
-* Summary:  Send echo command
+* \brief Send echo command
 *
 */
 bt_bool bt_l2cap_echo(bt_l2cap_mgr_p pmgr, bt_hci_conn_state_p pconn, bt_byte_p data, bt_int len);
@@ -302,11 +319,10 @@ bt_bool bt_l2cap_hci_has_open_channels(bt_hci_conn_state_t* conn);
 }
 #endif
 
-#include "bluetooth/cdbt/l2cap/chmanager.h"
-#include "bluetooth/cdbt/l2cap/l2cap_psm.h"
-#include "bluetooth/cdbt/l2cap/l2cap_fixed_channel.h"
-
-#include "bluetooth/cdbt/l2cap/l2cap_eretr.h"
-#include "bluetooth/cdbt/l2cap/l2cap_private.h"
+#include "cdbt/l2cap/chmanager.h"
+#include "cdbt/l2cap/l2cap_psm.h"
+#include "cdbt/l2cap/l2cap_fixed_channel.h"
+#include "cdbt/l2cap/l2cap_eretr.h"
+#include "cdbt/l2cap/l2cap_private.h"
 
 #endif // __L2CAP_H

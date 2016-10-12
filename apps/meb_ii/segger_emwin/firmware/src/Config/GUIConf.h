@@ -1,19 +1,31 @@
 /*********************************************************************
-*                SEGGER MICROCONTROLLER SYSTEME GmbH                 *
+*                 SEGGER Microcontroller Systems LLC                 *
 *        Solutions for real time microcontroller applications        *
 **********************************************************************
 *                                                                    *
-*        (c) 2002         SEGGER Microcontroller Systeme GmbH        *
+*        (c) 1996 - 2016  SEGGER Microcontroller GmbH & Co. KG       *
 *                                                                    *
 *        Internet: www.segger.com    Support:  support@segger.com    *
 *                                                                    *
 **********************************************************************
 
-**** emWin/GSC Grafical user interface for embedded applications ****
-emWin is protected by international copyright laws. Knowledge of the
-source code may not be used to write a similar product. This file may
-only be used in accordance with a license and should not be re-
-distributed in any way. We appreciate your understanding and fairness.
+** emWin V5.36 - Graphical user interface for embedded applications **
+All  Intellectual Property rights  in the Software belongs to  SEGGER.
+emWin is protected by  international copyright laws.  Knowledge of the
+source code may not be used to write a similar product.  This file may
+only be used in accordance with the following terms:
+
+The  software has  been licensed  to Microchip Technology Inc. for the
+purposes  of  creating  libraries  for  16 -bit  PIC microcontrollers,
+32-bit  PIC  microntrollers,  dsPIC  digital  signal  controllers  and
+microcontrollers   with   part   name   prefix   "PIC16"  and  "PIC18"
+commercialized and distributed by Microchip Technology Inc. as part of
+the  MPLAB  Integrated  Development  Environment  under  the terms and
+conditions  of  an  End  User  License  Agreement  supplied  with  the
+libraries. Full source code is available at: www.segger.com
+
+We appreciate your understanding and fairness.
+----------------------------------------------------------------------
 ----------------------------------------------------------------------
 File        : GUIConf.h
 Purpose     : Configures emWins abilities, fonts etc.
@@ -27,13 +39,13 @@ Purpose     : Configures emWins abilities, fonts etc.
 *
 *       Multi layer/display support
 */
-#define GUI_NUM_LAYERS            1    // Maximum number of available layers
+#define GUI_NUM_LAYERS            3    // Maximum number of available layers
 
 /*********************************************************************
 *
 *       Multi tasking support
 */
-#define GUI_OS                    (0)  // Compile with multitasking support
+#define GUI_OS                    (1)  // Compile with multitasking support
 
 /*********************************************************************
 *
@@ -51,8 +63,10 @@ Purpose     : Configures emWins abilities, fonts etc.
 *
 *         Configuration of available packages
 */
-#define GUI_SUPPORT_MOUSE             1    /* Support a mouse */
-#define GUI_WINSUPPORT                1    /* Use window manager */
-#define GUI_SUPPORT_MEMDEV            1    /* Memory device package available */
+#define GUI_SUPPORT_MOUSE    1    // Mouse support
+#define GUI_WINSUPPORT       1    // Use Window Manager
+#define GUI_SUPPORT_MEMDEV   1    // Use Memory Devices
 
-#endif  /* Avoid multiple inclusion */
+#endif  // Avoid multiple inclusion
+
+/*************************** End of file ****************************/

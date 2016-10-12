@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V8.2.2 - Copyright (C) 2015 Real Time Engineers Ltd. 
+    FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd. 
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -90,6 +90,8 @@
 #define configMAX_PRIORITIES                    ( 6UL )
 #define configMINIMAL_STACK_SIZE                ( 512 )
 #define configISR_STACK_SIZE                    ( 512 )
+#define configSUPPORT_DYNAMIC_ALLOCATION        1
+#define configSUPPORT_STATIC_ALLOCATION         0
 #define configTOTAL_HEAP_SIZE                   ( ( size_t ) 28000 )
 #define configMAX_TASK_NAME_LEN                 ( 16 )
 #define configUSE_16_BIT_TICKS                  0
@@ -125,6 +127,7 @@
 #define configTIMER_TASK_PRIORITY               
 #define configTIMER_QUEUE_LENGTH                
 #define configTIMER_TASK_STACK_DEPTH            
+#define configUSE_DAEMON_TASK_STARTUP_HOOK      0
 
 /* Misc */
 #define configUSE_APPLICATION_TASK_TAG          0
@@ -148,7 +151,6 @@ Only API functions that end in ...FromISR() can be used within interrupts. */
 #define INCLUDE_vTaskPrioritySet                1
 #define INCLUDE_uxTaskPriorityGet               1
 #define INCLUDE_vTaskDelete                     1
-#define INCLUDE_vTaskCleanUpResources           0
 #define INCLUDE_vTaskSuspend                    1
 #define INCLUDE_vTaskDelayUntil                 1
 #define INCLUDE_vTaskDelay                      1
@@ -156,10 +158,10 @@ Only API functions that end in ...FromISR() can be used within interrupts. */
 #define INCLUDE_xTaskGetCurrentTaskHandle       0
 #define INCLUDE_uxTaskGetStackHighWaterMark     0
 #define INCLUDE_xTaskGetIdleTaskHandle          0
-#define INCLUDE_xTimerGetTimerDaemonTaskHandle  0
-#define INCLUDE_pcTaskGetTaskName               0
 #define INCLUDE_eTaskGetState                   0
 #define INCLUDE_xEventGroupSetBitFromISR        0
 #define INCLUDE_xTimerPendFunctionCall          0
+#define INCLUDE_xTaskAbortDelay                 0
+#define INCLUDE_xTaskGetHandle                  0
 
 #endif /* FREERTOS_CONFIG_H */

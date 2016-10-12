@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -194,6 +198,10 @@
         <Path>Header Files/framework/driver/sdcard</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -275,7 +283,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn/bsp</Path>
-        <Checksum>D0BABDD8CC269B7DE3BA98239B5ECC8D</Checksum>
+        <Checksum>EE96DD12865E6C7F0453E07B26BCF042</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -299,7 +307,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -309,7 +317,7 @@
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn/framework/driver/spi/dynamic</Path>
-        <Checksum>C413E89BE7B38874B2F8BA7A6031B170</Checksum>
+        <Checksum>A02F7278A1A427D24A1D0029FECFF45E</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -323,7 +331,7 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn/bsp</Path>
-        <Checksum>999832C5BD5B6EC600BB84C682241D0C</Checksum>
+        <Checksum>7567B3DF8AD82B4BA40BB70A80E7AC51</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -333,7 +341,7 @@
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn/framework/driver/spi/dynamic</Path>
-        <Checksum>D0C5055D01656F56256C90B3574DAFFC</Checksum>
+        <Checksum>DF06B46C9F0349D36654BF075CFFB71B</Checksum>
       </Template>
       <Template>
         <Name>nvm_disk_images.h</Name>
@@ -343,27 +351,21 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn</Path>
-        <Checksum>3AB4E0209E2B74476961B5FDA0E47387</Checksum>
+        <Checksum>78212C3DC3B40C6B8320004BE07A14A2</Checksum>
         <ProjectFileChecksum>9F05ECD3B08B5EFE693063F0402ED9F0</ProjectFileChecksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn</Path>
-        <Checksum>9B7F572D54BCDDECBA90C100ACB32C0A</Checksum>
+        <Checksum>065911733BD259FA8BC87277F97EEEB9</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_mpfs_multi_disk\firmware\src"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_mpfs_multi_disk\firmware\src\system_config\pic32mx795_pim_e16_int_dyn"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_mpfs_multi_disk\firmware\src\pic32mx795_pim_e16_int_dyn"/>
-        <Include value="D:\trunk_sbx\framework"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_mpfs_multi_disk\firmware\src\system_config\pic32mx795_pim_e16_int_dyn\framework"/>
+        <Include value="D:/trunk_sbx/apps/fs/nvm_sdcard_fat_mpfs_multi_disk/firmware/src"/>
+        <Include value="D:/trunk_sbx/apps/fs/nvm_sdcard_fat_mpfs_multi_disk/firmware/src/system_config/pic32mx795_pim_e16_int_dyn"/>
+        <Include value="D:/trunk_sbx/framework"/>
+        <Include value="D:/trunk_sbx/apps/fs/nvm_sdcard_fat_mpfs_multi_disk/firmware/src/system_config/pic32mx795_pim_e16_int_dyn/framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16_int_dyn/bsp"/>
       </C32>
     </CompilerItems>

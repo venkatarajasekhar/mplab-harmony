@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name=""/>
@@ -64,6 +68,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -136,14 +144,9 @@
     </Files>
     <Templates>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_16b/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_16b/bsp</Path>
-        <Checksum>F68C0372DEED2BB3ED0908D6ED83CB54</Checksum>
+        <Checksum>F17134C042B81B3876554237536D7229</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -157,17 +160,17 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_16b</Path>
-        <Checksum>494AF48B9F74A4A30DB78C4848EF38D3</Checksum>
+        <Checksum>AC075DDAAFD9CE83231B8F804BF80360</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_16b</Path>
-        <Checksum>19C9145C72D5865D8F6BF3AAA22D6E0A</Checksum>
+        <Checksum>6396E079B639E5A5A16695126EED0AD4</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_16b/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -177,7 +180,7 @@
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn_16b/framework/system/ports/src</Path>
-        <Checksum>0DD9E56A0D5228D6D60421D386BB28CE</Checksum>
+        <Checksum>6F3B91E118326CDDB1BF1D7336616643</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -200,14 +203,13 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn_16b/bsp</Path>
-        <Checksum>3DB509F6CDE7AB7F7CA13F4917B64C7D</Checksum>
+        <Checksum>8405F93FE0218536B85400099346BEF4</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
         <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src"/>
         <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/system_config/pic32mz_ef_sk_int_dyn_16b"/>
-        <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/pic32mz_ef_sk_int_dyn_16b"/>
         <Include value="E:/Git/core/framework"/>
         <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/system_config/pic32mz_ef_sk_int_dyn_16b/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_int_dyn_16b/bsp"/>

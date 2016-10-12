@@ -42,7 +42,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #if defined(TCPIP_STACK_USE_TCP)
 
 
-
 /****************************************************************************
   Section:
 	TCP Header Data Types
@@ -61,8 +60,8 @@ typedef struct
 {
 	uint16_t    SourcePort;		// Local port number
 	uint16_t    DestPort;		// Remote port number
-	uint32_t   SeqNumber;		// Local sequence number
-	uint32_t   AckNumber;		// Acknowledging remote sequence number
+	uint32_t    SeqNumber;		// Local sequence number
+	uint32_t    AckNumber;		// Acknowledging remote sequence number
 
 	struct
 	{
@@ -118,8 +117,16 @@ typedef enum
     _TCP_SEND_NO_PKT    = -2,   // socket has no packet, cannot send data
     _TCP_SEND_NO_MEMORY = -3,   // out of memory; however the operation can be retried
     _TCP_SEND_NO_IF     = -4,   // IP layer could not get an interface for this packet
+    _TCP_SEND_QUIET     = -5,   // TCP layer is in quiet time could not send this packet
 }_TCP_SEND_RES;
 
+// abort operation flags
+typedef enum
+{
+    _TCP_ABORT_FLAG_REGULAR     = 0x00,     // regular abort
+    _TCP_ABORT_FLAG_FORCE_CLOSE = 0x01,     // kill the socket according to its state
+    _TCP_ABORT_FLAG_SHUTDOWN    = 0x02,     // shutdown: kill no matter what
+}_TCP_ABORT_FLAGS;
 /****************************************************************************
   Section:
 	TCB Definitions
@@ -133,7 +140,7 @@ static int        tcpInitCount = 0;                 // initialization counter
 static const void*  tcpHeapH = 0;                    // memory allocation handle
 static unsigned int TcpSockets;                      // number of sockets in the current TCP configuration
 
-static tcpipSignalHandle       tcpSignalHandle = 0;
+static tcpipSignalHandle    tcpSignalHandle = 0;
 
 static uint16_t             tcpDefTxSize;               // default size of the TX buffer
 static uint16_t             tcpDefRxSize;               // default size of the RX buffer
@@ -142,6 +149,11 @@ static uint16_t             tcpMssLocal;                // default size of the M
 static uint16_t             tcpMssNonLocal;             // default size of the MSS for nonlocal networks
 
 static OSAL_SEM_HANDLE_TYPE tcpSemaphore;
+
+#if (TCPIP_TCP_QUIET_TIME != 0)
+static uint32_t             tcpStartTime;               // time at which the TCP module starts, after the quiet time
+static bool                 tcpQuietDone;               // the quiet time has elapsed
+#endif  // (TCPIP_TCP_QUIET_TIME != 0)
 
 
 /****************************************************************************
@@ -163,7 +175,7 @@ static void _TcpCleanup(void);
 #define _TcpCleanup();
 #endif  // (TCPIP_STACK_DOWN_OPERATION != 0)
 
-static void _TcpAbort(TCB_STUB* pSkt, bool forceClose, TCPIP_TCP_SIGNAL_TYPE tcpEvent);
+static void _TcpAbort(TCB_STUB* pSkt, _TCP_ABORT_FLAGS abFlags, TCPIP_TCP_SIGNAL_TYPE tcpEvent);
 static _TCP_SEND_RES _TcpDisconnect(TCB_STUB* pSkt, bool signalFIN);
 
 
@@ -327,14 +339,87 @@ static  void        _TcpSocketBind(TCB_STUB* pSkt, TCPIP_NET_IF* pNet, IP_MULTI_
 }
 
 
+static __inline__ bool __attribute__((always_inline)) _TCP_IsConnected(TCB_STUB* pSkt)
+{
+    return (pSkt->smState == TCPIP_TCP_STATE_ESTABLISHED || pSkt->smState == TCPIP_TCP_STATE_FIN_WAIT_1 || pSkt->smState == TCPIP_TCP_STATE_FIN_WAIT_2 || pSkt->smState == TCPIP_TCP_STATE_CLOSE_WAIT);
+} 
+
+#if ((TCPIP_TCP_DEBUG_LEVEL & TCPIP_TCP_DEBUG_MASK_TRACE_STATE) != 0)
+static const char* _tcpTraceStateName[] = 
+{
+    "listen",       // TCPIP_TCP_STATE_LISTEN
+    "syn-sent",     // TCPIP_TCP_STATE_SYN_SENT
+    "syn-recv",     // TCPIP_TCP_STATE_SYN_RECEIVED
+    "est",          // TCPIP_TCP_STATE_ESTABLISHED
+    "fwait-1",      // TCPIP_TCP_STATE_FIN_WAIT_1
+    "fwait-2",      // TCPIP_TCP_STATE_FIN_WAIT_2
+    "closing",      // TCPIP_TCP_STATE_CLOSING
+	"time-wait",    // TCPIP_TCP_STATE_TIME_WAIT
+	"close-wait",   // TCPIP_TCP_STATE_CLOSE_WAIT
+    "last-ack",     // TCPIP_TCP_STATE_LAST_ACK
+    "wait-discon",  // TCPIP_TCP_STATE_CLIENT_WAIT_DISCONNECT
+    "wait-conn",    // TCPIP_TCP_STATE_CLIENT_WAIT_CONNECT
+    "killed",       // TCPIP_TCP_STATE_KILLED
+};
+
+static void _TcpSocketSetState(TCB_STUB* pSkt, TCPIP_TCP_STATE newState)
+{
+    if(pSkt->dbgFlags.traceStateFlag != 0)
+    {   // socket state is traced
+        if(pSkt->dbgFlags.tracePrevState != newState)
+        {
+            pSkt->dbgFlags.tracePrevState = newState;
+            SYS_CONSOLE_PRINT("TCP socket: %d, state: %s\r\n", pSkt->sktIx, _tcpTraceStateName[newState]);
+        } 
+    }
+    pSkt->smState = newState;
+}
+
+static uint32_t    _tcpTraceMask = 0;      // currently only first 32 sockets could be traced from the creation moment
+bool TCPIP_TCP_SocketTraceSet(TCP_SOCKET sktNo, bool enable)
+{
+    TCB_STUB* pSkt;
+
+    if(sktNo >= 0 && sktNo < TcpSockets && (sktNo < sizeof(_tcpTraceMask) * 8))
+    {
+        if(enable)
+        {
+            _tcpTraceMask |= (1 << sktNo);
+        }
+        else
+        {
+            _tcpTraceMask &= ~(1 << sktNo);
+        }
+
+        if((pSkt = TCBStubs[sktNo]) != 0)
+        {
+            pSkt->dbgFlags.traceStateFlag = enable ? 1 : 0;
+        }
+        return true;
+    }
+
+    return false;
+} 
+
+#else
+static __inline__ void __attribute__((always_inline)) _TcpSocketSetState(TCB_STUB* pSkt, TCPIP_TCP_STATE newState)
+{
+    pSkt->smState = newState;
+}
+bool TCPIP_TCP_SocketTraceSet(TCP_SOCKET sktNo, bool enable)
+{
+    return false;
+}
+#endif  // ((TCPIP_TCP_DEBUG_LEVEL & TCPIP_TCP_DEBUG_MASK_TRACE_STATE) != 0)
+
 /*static __inline__*/static  void /*__attribute__((always_inline))*/ _TcpSocketKill(TCB_STUB* pSkt)
 {
+    _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_KILLED);       // trace purpose only
     TCBStubs[pSkt->sktIx] = 0;
     TCPIP_HEAP_Free(tcpHeapH, (void*)pSkt->rxStart);
     TCPIP_HEAP_Free(tcpHeapH, (void*)pSkt->txStart);
     TCPIP_HEAP_Free(tcpHeapH, pSkt);
 }
-
 
 static bool     _TcpSocketSetSourceInterface(TCB_STUB * pSkt)
 {
@@ -353,9 +438,9 @@ static bool     _TcpSocketSetSourceInterface(TCB_STUB * pSkt)
 
 // returns:  0 if a SYN could be sent
 //           > 0 if the operation failed but can be retried
-//           < 0 if there is no valid destination
+//           < 0 if there is no valid destination or some other error
 // client sockets only!
-static int     _TcpClientSocketConnect(TCB_STUB* pSkt)
+static int _TcpClientSocketConnect(TCB_STUB* pSkt)
 {
 
     switch(pSkt->addType)
@@ -391,13 +476,13 @@ static int     _TcpClientSocketConnect(TCB_STUB* pSkt)
 
     pSkt->retryCount = 0;
     pSkt->retryInterval = (SYS_TMR_TickCounterFrequencyGet()/4);
-    if(_TcpSend(pSkt, SYN, SENDTCP_RESET_TIMERS) == _TCP_SEND_OK)
+    _TCP_SEND_RES sendRes = _TcpSend(pSkt, SYN, SENDTCP_RESET_TIMERS);
+    if(sendRes == _TCP_SEND_OK)
     {   // success
         return 0;
     }
 
-    return 1;   // pending
-
+    return sendRes > 0 ? 1 : -1;
 }
 
 #if defined (TCPIP_STACK_USE_IPV4)
@@ -578,6 +663,13 @@ bool TCPIP_TCP_Initialize(const TCPIP_STACK_MODULE_CTRL* const stackInit, const 
 
 
     TcpSockets = nSockets;
+#if (TCPIP_TCP_QUIET_TIME != 0)
+    tcpQuietDone = false;
+    tcpStartTime = 0;
+#endif  // (TCPIP_TCP_QUIET_TIME != 0)
+#if ((TCPIP_TCP_DEBUG_LEVEL & TCPIP_TCP_DEBUG_MASK_TRACE_STATE) != 0)
+    _tcpTraceMask = 0;
+#endif  // ((TCPIP_TCP_DEBUG_LEVEL & TCPIP_TCP_DEBUG_MASK_TRACE_STATE) != 0)
 
     // create the TCP timer
     tcpSignalHandle =_TCPIPStackSignalHandlerRegister(TCPIP_THIS_MODULE_ID, TCPIP_TCP_Task, TCPIP_TCP_TASK_TICK_RATE);
@@ -670,7 +762,7 @@ void TCPIP_TCP_Deinitialize(const TCPIP_STACK_MODULE_CTRL* const stackInit)
             pSkt = TCBStubs[ix]; 
             if(pSkt && pSkt->pSktNet == stackInit->pNetIf)  
             {
-                _TcpAbort(pSkt, false, 0);
+                _TcpAbort(pSkt, _TCP_ABORT_FLAG_REGULAR, 0);
             }
         }
 
@@ -702,7 +794,7 @@ static void _TcpCleanup(void)
             pSkt = TCBStubs[ix]; 
             if(pSkt) 
             {
-                _TcpAbort(pSkt, true, 0);
+                _TcpAbort(pSkt, _TCP_ABORT_FLAG_SHUTDOWN, 0);
             }
         }
     }
@@ -960,7 +1052,7 @@ static TCP_SOCKET _TCP_Open(IP_ADDRESS_TYPE addType, TCP_OPEN_TYPE opType, TCP_P
         remotePort = port;
     }
     else
-    {
+    {   // for server socket allow multiple sockets listening on the same port
         localPort = port;
         remotePort = 0;
     }
@@ -1059,7 +1151,7 @@ static TCP_SOCKET _TCP_Open(IP_ADDRESS_TYPE addType, TCP_OPEN_TYPE opType, TCP_P
     {
         pSkt->localPort = localPort;
         pSkt->Flags.bServer = true;
-        pSkt->smState = TCP_LISTEN;
+        _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_LISTEN);
         pSkt->remoteHash = localPort;
     }
     // Handle all the client mode socket types
@@ -1100,7 +1192,7 @@ static TCP_SOCKET _TCP_Open(IP_ADDRESS_TYPE addType, TCP_OPEN_TYPE opType, TCP_P
                 break;  // IP_ADDRESS_TYPE_ANY
         }
 
-        pSkt->smState = (_TcpClientSocketConnect(pSkt) >= 0) ? TCP_SYN_SENT : TCP_CLIENT_WAIT_CONNECT;
+        _TcpSocketSetState(pSkt, (_TcpClientSocketConnect(pSkt) >= 0) ? TCPIP_TCP_STATE_SYN_SENT : TCPIP_TCP_STATE_CLIENT_WAIT_CONNECT);
     }
 
     return hTCP;		
@@ -1110,6 +1202,23 @@ static TCP_SOCKET _TCP_Open(IP_ADDRESS_TYPE addType, TCP_OPEN_TYPE opType, TCP_P
 void  TCPIP_TCP_Task(void)
 {
     TCPIP_MODULE_SIGNAL sigPend;
+
+#if (TCPIP_TCP_QUIET_TIME != 0)
+    if(!tcpQuietDone)
+    {
+        if(tcpStartTime == 0)
+        {   // make sure the TMR is started
+            if((tcpStartTime = SYS_TMR_TickCountGet()) != 0)
+            {   // calculate the timeout
+                tcpStartTime += TCPIP_TCP_QUIET_TIME * SYS_TMR_TickCounterFrequencyGet();
+            }
+        }
+        else if((int32_t)(SYS_TMR_TickCountGet() - tcpStartTime) >= 0)
+        {
+            tcpQuietDone = true;
+        }
+    }
+#endif  // (TCPIP_TCP_QUIET_TIME != 0)
 
     sigPend = _TCPIPStackModuleSignalGet(TCPIP_THIS_MODULE_ID, TCPIP_MODULE_SIGNAL_MASK_ALL);
 
@@ -1133,19 +1242,24 @@ static void TCPIP_TCP_Process(void)
     while((pRxPkt = _TCPIPStackModuleRxExtract(TCPIP_THIS_MODULE_ID)) != 0)
     {
         ackRes = TCPIP_MAC_PKT_ACK_PROTO_DEST_ERR;
-#if defined (TCPIP_STACK_USE_IPV4)
-        if((pRxPkt->pktFlags & TCPIP_MAC_PKT_FLAG_NET_TYPE) == TCPIP_MAC_PKT_FLAG_IPV4) 
+#if (TCPIP_TCP_QUIET_TIME != 0)
+        if(tcpQuietDone)
+#endif  // (TCPIP_TCP_QUIET_TIME != 0)
         {
-            ackRes = TCPIP_TCP_ProcessIPv4(pRxPkt);
-        }
+#if defined (TCPIP_STACK_USE_IPV4)
+            if((pRxPkt->pktFlags & TCPIP_MAC_PKT_FLAG_NET_TYPE) == TCPIP_MAC_PKT_FLAG_IPV4) 
+            {
+                ackRes = TCPIP_TCP_ProcessIPv4(pRxPkt);
+            }
 #endif  // defined (TCPIP_STACK_USE_IPV4)
 
 #if defined (TCPIP_STACK_USE_IPV6)
-        if((pRxPkt->pktFlags & TCPIP_MAC_PKT_FLAG_NET_TYPE) == TCPIP_MAC_PKT_FLAG_IPV6) 
-        {
-            ackRes = TCPIP_TCP_ProcessIPv6(pRxPkt);
-        }
+            if((pRxPkt->pktFlags & TCPIP_MAC_PKT_FLAG_NET_TYPE) == TCPIP_MAC_PKT_FLAG_IPV6) 
+            {
+                ackRes = TCPIP_TCP_ProcessIPv6(pRxPkt);
+            }
 #endif  // defined (TCPIP_STACK_USE_IPV6)
+        }
 
         if(ackRes != TCPIP_MAC_PKT_ACK_NONE)
         {   // unknown/error; discard it.
@@ -1353,7 +1467,7 @@ static bool _TCPv4Flush(TCB_STUB * pSkt, IPV4_PACKET* pv4Pkt, uint16_t hdrLen, u
     pTCPHdr->Checksum = ~checksum;
 
     // and we're done
-    TCPIP_IPV4_PacketFormatTx(pv4Pkt, IP_PROT_TCP, hdrLen + loadLen);
+    TCPIP_IPV4_PacketFormatTx(pv4Pkt, IP_PROT_TCP, hdrLen + loadLen, 0);
     pv4Pkt->macPkt.next = 0;    // single packet
     if(TCPIP_IPV4_PacketTransmit(pv4Pkt))
     {
@@ -1696,26 +1810,15 @@ bool TCPIP_TCP_WasReset(TCP_SOCKET hTCP)
   	false - The socket is not currently connected.
 
   Remarks:
-	A socket is said to be connected only if it is in the TCP_ESTABLISHED
+	A socket is said to be connected only if it is in the TCPIP_TCP_STATE_ESTABLISHED
 	state.  Sockets in the process of opening or closing will return false.
   ***************************************************************************/
 bool TCPIP_TCP_IsConnected(TCP_SOCKET hTCP)
 {
     TCB_STUB* pSkt = _TcpSocketChk(hTCP); 
-    TCP_STATE smState;
 
-    if(pSkt)
-    {
-        smState = pSkt->smState;
-        if(smState == TCP_ESTABLISHED || smState == TCP_FIN_WAIT_1 || smState == TCP_FIN_WAIT_2 || smState == TCP_CLOSE_WAIT)
-        {
-            return true;
-        }
-    }
-
-    return false;
+    return (pSkt) ? _TCP_IsConnected(pSkt) : false;
 }
-
 
 // This function closes a connection to a remote node by sending a FIN
 // (if currently connected).
@@ -1742,11 +1845,11 @@ static _TCP_SEND_RES _TcpDisconnect(TCB_STUB* pSkt, bool signalFIN)
 	switch(pSkt->smState)
 	{
 
-		case TCP_SYN_RECEIVED:
-		case TCP_ESTABLISHED:
+		case TCPIP_TCP_STATE_SYN_RECEIVED:
+		case TCPIP_TCP_STATE_ESTABLISHED:
 
             // fall through
-		case TCP_CLOSE_WAIT:
+		case TCPIP_TCP_STATE_CLOSE_WAIT:
 			// Send the FIN.
             // If the socket linger is on we should keep the socket opened (for the specified timeout)
             // until all the queued TX data can be sent in the background
@@ -1775,7 +1878,7 @@ static _TCP_SEND_RES _TcpDisconnect(TCB_STUB* pSkt, bool signalFIN)
                 // transmitted or the remote node's receive window fills up.
                 tcpFlags = signalFIN? FIN | ACK : ACK;
                 do
-                { 
+                {   
                     sendRes = _TcpSend(pSkt, tcpFlags, SENDTCP_RESET_TIMERS);
                     if(sendRes < 0 || pSkt->remoteWindow == 0u)
                         break;
@@ -1787,27 +1890,25 @@ static _TCP_SEND_RES _TcpDisconnect(TCB_STUB* pSkt, bool signalFIN)
             }
 			
             if(sendRes < 0)
-            {  
-                // let the user know
-                // another attempt may be done
-                // if it's followed by an close/abort won't matter anyway
+            {   
                 pSkt->Flags.failedDisconnect = 1;
             }
             else
             {
                 pSkt->Flags.failedDisconnect = 0;
-                pSkt->smState = pSkt->smState == TCP_CLOSE_WAIT?TCP_LAST_ACK:TCP_FIN_WAIT_1;
+                _TcpSocketSetState(pSkt, pSkt->smState == TCPIP_TCP_STATE_CLOSE_WAIT ? TCPIP_TCP_STATE_LAST_ACK : TCPIP_TCP_STATE_FIN_WAIT_1);
             }
 			break;
 
-		case TCP_FIN_WAIT_1:
-		case TCP_FIN_WAIT_2:
-		case TCP_CLOSING:
-		case TCP_LAST_ACK:
+		case TCPIP_TCP_STATE_FIN_WAIT_1:
+		case TCPIP_TCP_STATE_FIN_WAIT_2:
+		case TCPIP_TCP_STATE_CLOSING:
+        case TCPIP_TCP_STATE_TIME_WAIT:
+		case TCPIP_TCP_STATE_LAST_ACK:
             sendRes = _TCP_SEND_OK;
             break;
 			
-		case TCP_CLOSED_BUT_RESERVED:
+		case TCPIP_TCP_STATE_CLIENT_WAIT_DISCONNECT:
             // special client socket state
             _TcpCloseSocket(pSkt, 0);
             sendRes = _TCP_SEND_OK;
@@ -1829,26 +1930,33 @@ void TCPIP_TCP_Abort(TCP_SOCKET hTCP, bool killSocket)
 	
     if(pSkt)
     {
-        _TcpAbort(pSkt, killSocket, 0);
+        _TcpAbort(pSkt, killSocket ? _TCP_ABORT_FLAG_FORCE_CLOSE : _TCP_ABORT_FLAG_REGULAR, 0);
     }
 
 }
 
 // internal function to abort a connection
-static void _TcpAbort(TCB_STUB* pSkt, bool forceClose, TCPIP_TCP_SIGNAL_TYPE tcpEvent)
+static void _TcpAbort(TCB_STUB* pSkt, _TCP_ABORT_FLAGS abFlags, TCPIP_TCP_SIGNAL_TYPE tcpEvent)
 {
     bool    sktReset = false;
 
 	switch(pSkt->smState)
 	{
-		case TCP_SYN_RECEIVED:
-		case TCP_ESTABLISHED:
-		case TCP_CLOSE_WAIT:
-		case TCP_FIN_WAIT_1:
-		case TCP_FIN_WAIT_2:
-		case TCP_LAST_ACK:
+		case TCPIP_TCP_STATE_SYN_RECEIVED:
+		case TCPIP_TCP_STATE_ESTABLISHED:
+		case TCPIP_TCP_STATE_CLOSE_WAIT:
+		case TCPIP_TCP_STATE_FIN_WAIT_1:
+		case TCPIP_TCP_STATE_FIN_WAIT_2:
+		case TCPIP_TCP_STATE_LAST_ACK:
             sktReset = true;
 			break;
+
+        case TCPIP_TCP_STATE_TIME_WAIT:
+            if((abFlags & _TCP_ABORT_FLAG_SHUTDOWN) == 0)
+            {
+                return; // nothing to do here
+            }
+            break;
 
 		default:
 			break;
@@ -1860,7 +1968,7 @@ static void _TcpAbort(TCB_STUB* pSkt, bool forceClose, TCPIP_TCP_SIGNAL_TYPE tcp
         _TcpSend(pSkt, RST | ACK, 0);
     }
 
-    if(forceClose)
+    if((abFlags & (_TCP_ABORT_FLAG_FORCE_CLOSE | _TCP_ABORT_FLAG_SHUTDOWN)) != 0)
     {
         pSkt->flags.forceKill = 1;
     }
@@ -1875,11 +1983,11 @@ bool TCPIP_TCP_Connect(TCP_SOCKET hTCP)
 {
     TCB_STUB* pSkt = _TcpSocketChk(hTCP); 
 	
-    if(pSkt && pSkt->smState == TCP_CLIENT_WAIT_CONNECT)
+    if(pSkt && pSkt->smState == TCPIP_TCP_STATE_CLIENT_WAIT_CONNECT)
     {
         if(_TcpClientSocketConnect(pSkt) >= 0)
         {
-            pSkt->smState = TCP_SYN_SENT;
+            _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_SYN_SENT);
             return true;
         }
     }
@@ -1890,7 +1998,7 @@ bool TCPIP_TCP_Connect(TCP_SOCKET hTCP)
 
 // Disconnects an open socket and destroys the socket handle
 // including server mode socket handles.
-void TCPIP_TCP_Close(TCP_SOCKET hTCP)
+bool TCPIP_TCP_Close(TCP_SOCKET hTCP)
 {
     TCB_STUB* pSkt = _TcpSocketChk(hTCP); 
 
@@ -1914,10 +2022,12 @@ void TCPIP_TCP_Close(TCP_SOCKET hTCP)
 
         if(needAbort)
         {
-            _TcpAbort(pSkt, true, 0);
+            _TcpAbort(pSkt, _TCP_ABORT_FLAG_FORCE_CLOSE, 0);
         }
+        return true;
     }
 
+    return false;
 }
 
 
@@ -1977,6 +2087,11 @@ bool TCPIP_TCP_SocketInfoGet(TCP_SOCKET hTCP, TCP_SOCKET_INFO* remoteInfo)
 	remoteInfo->remotePort = pSkt->remotePort;
 	remoteInfo->localPort = pSkt->localPort;
 	remoteInfo->hNet = pSkt->pSktNet;
+	remoteInfo->state = (TCPIP_TCP_STATE)pSkt->smState;
+    remoteInfo->rxSize = pSkt->rxEnd - pSkt->rxStart;
+    remoteInfo->txSize = pSkt->txEnd - pSkt->txStart;
+    remoteInfo->rxPending = _TCPIsGetReady(pSkt);
+    remoteInfo->txPending = TCPIP_TCP_FifoTxFullGet(hTCP);
 
 	return true;
 }
@@ -2090,7 +2205,7 @@ static uint16_t _TCPIsPutReady(TCB_STUB* pSkt)
 static uint16_t _TCPSocketTxFreeSize(TCB_STUB* pSkt)
 {
 	// Unconnected sockets shouldn't be transmitting anything.
-	if(!( (pSkt->smState == TCP_ESTABLISHED) || (pSkt->smState == TCP_CLOSE_WAIT) ))
+	if(!( (pSkt->smState == TCPIP_TCP_STATE_ESTABLISHED) || (pSkt->smState == TCPIP_TCP_STATE_CLOSE_WAIT) ))
     {
 		return 0;
     }
@@ -2957,7 +3072,7 @@ static void TCPIP_TCP_Tick(void)
 	for(hTCP = 0; hTCP < TcpSockets; hTCP++)
 	{
         pSkt = TCBStubs[hTCP];
-        if(pSkt != 0 && pSkt->smState != TCP_CLIENT_WAIT_CONNECT)
+        if(pSkt != 0 && pSkt->smState != TCPIP_TCP_STATE_CLIENT_WAIT_CONNECT)
         {   // existing socket
             vFlags = 0x00;
             bRetransmit = false;
@@ -2990,46 +3105,61 @@ static void TCPIP_TCP_Tick(void)
                 }
             }
 
-            // Process TCP_CLOSE_WAIT timer
-            if(pSkt->smState == TCP_CLOSE_WAIT)
+#if  (TCPIP_TCP_CLOSE_WAIT_TIMEOUT != 0)
+            // Process TCPIP_TCP_STATE_CLOSE_WAIT timer
+            if(pSkt->smState == TCPIP_TCP_STATE_CLOSE_WAIT)
             {
                 // Automatically close the socket on our end if the application 
                 // fails to call TCPIP_TCP_Disconnect() is a reasonable amount of time.
                 if((int32_t)(SYS_TMR_TickCountGet() - pSkt->closeWaitTime) >= 0)
                 {
                     vFlags = FIN | ACK;
-                    pSkt->smState = TCP_LAST_ACK;
+                    _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_LAST_ACK);
                 }
             }
+#endif  // (TCPIP_TCP_CLOSE_WAIT_TIMEOUT != 0)
 
             // Process FIN_WAIT2 timer
-            if(pSkt->smState == TCP_FIN_WAIT_2)
+            if(pSkt->smState == TCPIP_TCP_STATE_FIN_WAIT_2)
             {
-                // Automatically reset the socket on our end if the other side 
-                // fails to call close its connection within the TCPIP_TCP_FIN_WAIT_2_TIMEOUT
                 if((int32_t)(SYS_TMR_TickCountGet() - pSkt->closeWaitTime) >= 0)
-                {
+                {   // the other side failed to close its connection within the TCPIP_TCP_FIN_WAIT_2_TIMEOUT
                     _TcpSend(pSkt, RST | ACK, SENDTCP_RESET_TIMERS);
+#if (TCPIP_TCP_MSL_TIMEOUT != 0)
+                    _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_TIME_WAIT);
+                    pSkt->closeWaitTime = SYS_TMR_TickCountGet() + ((TCPIP_TCP_MSL_TIMEOUT * 2) * SYS_TMR_TickCounterFrequencyGet());
+#else
                     _TcpCloseSocket(pSkt, 0);
+#endif  // (TCPIP_TCP_MSL_TIMEOUT != 0)
                     continue;
                 }
             }
 
-
+#if (TCPIP_TCP_MSL_TIMEOUT != 0)
+            // Process 2MSL timer
+            if(pSkt->smState == TCPIP_TCP_STATE_TIME_WAIT)
+            {
+                if((int32_t)(SYS_TMR_TickCountGet() - pSkt->closeWaitTime) >= 0)
+                {   // timeout expired, close the socket
+                    _TcpCloseSocket(pSkt, 0);
+                    continue;
+                }
+            }
+#endif  // (TCPIP_TCP_MSL_TIMEOUT != 0)
 
             if(vFlags)
             {
                 _TcpSend(pSkt, vFlags, bRetransmit ? 0 : SENDTCP_RESET_TIMERS);
             }
 
-            // The TCP_LISTEN, and sometimes the TCP_ESTABLISHED 
+            // The TCPIP_TCP_STATE_LISTEN, and sometimes the TCPIP_TCP_STATE_ESTABLISHED 
             // state don't need any timeout events, so see if the timer is enabled
             if(!pSkt->Flags.bTimerEnabled)
             {
                 if(pSkt->Flags.keepAlive)
                 {
                     // Only the established state has any use for keep-alives
-                    if(pSkt->smState == TCP_ESTABLISHED)
+                    if(pSkt->smState == TCPIP_TCP_STATE_ESTABLISHED)
                     {
                         // If timeout has not occured, do not do anything.
                         if((int32_t)(SYS_TMR_TickCountGet() - pSkt->eventTime) < 0)
@@ -3049,7 +3179,7 @@ static void TCPIP_TCP_Tick(void)
                             // Also back in the listening state immediately if a server socket.
                             _TcpDisconnect(pSkt, true);
                             pSkt->Flags.bServer = 1;    // force client socket non-closing
-                            _TcpAbort(pSkt, false, TCPIP_TCP_SIGNAL_KEEP_ALIVE_TMO);
+                            _TcpAbort(pSkt, _TCP_ABORT_FLAG_REGULAR, TCPIP_TCP_SIGNAL_KEEP_ALIVE_TMO);
 
                             // Prevent client mode sockets from getting reused by other applications.  
                             // The application must call TCPIP_TCP_Disconnect()/TCPIP_TCP_Abort() with the handle to free this 
@@ -3057,7 +3187,7 @@ static void TCPIP_TCP_Tick(void)
                             if(!vFlags)
                             {
                                 pSkt->Flags.bServer = 0;    // restore the client socket
-                                pSkt->smState = TCP_CLOSED_BUT_RESERVED;
+                                _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_CLIENT_WAIT_DISCONNECT);
                             }
 
                             continue;
@@ -3081,7 +3211,7 @@ static void TCPIP_TCP_Tick(void)
             // depending on what state this socket is in.
             switch(pSkt->smState)
             {
-                case TCP_SYN_SENT:
+                case TCPIP_TCP_STATE_SYN_SENT:
                     // Keep sending SYN until we hear from remote node.
                     // This may be for infinite time, in that case
                     // caller must detect it and do something.
@@ -3097,7 +3227,7 @@ static void TCPIP_TCP_Tick(void)
                     }
                     break;
 
-                case TCP_SYN_RECEIVED:
+                case TCPIP_TCP_STATE_SYN_RECEIVED:
                     // We must receive ACK before timeout expires.
                     // If not, resend SYN+ACK.
                     // Abort, if maximum attempts counts are reached.
@@ -3120,8 +3250,7 @@ static void TCPIP_TCP_Tick(void)
                     }
                     break;
 
-                case TCP_ESTABLISHED:
-                case TCP_CLOSE_WAIT:
+                case TCPIP_TCP_STATE_ESTABLISHED:
                     // Retransmit any unacknowledged data
                     if(pSkt->retryCount < TCPIP_TCP_MAX_RETRIES)
                     {
@@ -3129,16 +3258,15 @@ static void TCPIP_TCP_Tick(void)
                         bRetransmit = true;
                     }
                     else
-                    {
-                        // No response back for too long, close connection
+                    {   // No response back for too long, close connection
                         // This could happen, for instance, if the communication 
                         // medium was lost
-                        pSkt->smState = TCP_FIN_WAIT_1;
+                        _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_FIN_WAIT_1);
                         vFlags = FIN | ACK;
                     }
                     break;
 
-                case TCP_FIN_WAIT_1:
+                case TCPIP_TCP_STATE_FIN_WAIT_1:
                     if(pSkt->retryCount < TCPIP_TCP_MAX_RETRIES)
                     {
                         // Send another FIN
@@ -3146,15 +3274,18 @@ static void TCPIP_TCP_Tick(void)
                         bRetransmit = true;
                     }
                     else
-                    {
-                        // Close on our own, we can't seem to communicate 
+                    {   // Close on our own, we can't seem to communicate 
                         // with the remote node anymore
                         vFlags = RST | ACK;
+#if (TCPIP_TCP_MSL_TIMEOUT != 0)
+                        _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_TIME_WAIT);
+#else
                         bCloseSocket = true;
+#endif  // (TCPIP_TCP_MSL_TIMEOUT != 0)
                     }
                     break;
 
-                case TCP_CLOSING:
+                case TCPIP_TCP_STATE_CLOSING:
                     if(pSkt->retryCount < TCPIP_TCP_MAX_RETRIES)
                     {
                         // Send another ACK+FIN (the FIN is retransmitted 
@@ -3164,21 +3295,19 @@ static void TCPIP_TCP_Tick(void)
                         bRetransmit = true;
                     }
                     else
-                    {
-                        // Close on our own, we can't seem to communicate 
+                    {   // Close on our own, we can't seem to communicate 
                         // with the remote node anymore
                         vFlags = RST | ACK;
+#if (TCPIP_TCP_MSL_TIMEOUT != 0)
+                        _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_TIME_WAIT);
+#else
                         bCloseSocket = true;
+#endif  // (TCPIP_TCP_MSL_TIMEOUT != 0)
                     }
                     break;
 
-                    //			case TCP_TIME_WAIT:
-                    //				// Wait around for a while (2MSL) and then close
-                    //				bCloseSocket = true;
-                    //				break;
-                    //			
 
-                case TCP_LAST_ACK:
+                case TCPIP_TCP_STATE_LAST_ACK:
                     // Send some more FINs or close anyway
                     if(pSkt->retryCount < TCPIP_TCP_MAX_RETRIES)
                     {
@@ -3192,7 +3321,7 @@ static void TCPIP_TCP_Tick(void)
                     }
                     break;
 
-                default:
+                default:    // case TCPIP_TCP_STATE_TIME_WAIT:
                     break;
             }
 
@@ -3408,7 +3537,7 @@ static TCPIP_MAC_PKT_ACK_RES TCPIP_TCP_ProcessIPv6(TCPIP_MAC_PACKET* pRxPkt)
 				 transmit behavior or contents.
 
   Returns:
-	_TCP_SEND_OK for success, a _TCP_SEND_RES code otherwise
+	_TCP_SEND_OK for success, a _TCP_SEND_RES code  < 0 otherwise
   ***************************************************************************/
 static _TCP_SEND_RES _TcpSend(TCB_STUB* pSkt, uint8_t vTCPFlags, uint8_t vSendFlags)
 {
@@ -3418,6 +3547,13 @@ static _TCP_SEND_RES _TcpSend(TCB_STUB* pSkt, uint8_t vTCPFlags, uint8_t vSendFl
     void*           pSendPkt;
     uint16_t 		mss = 0;
     TCP_HEADER *    header = 0;
+
+#if (TCPIP_TCP_QUIET_TIME != 0)
+    if(!tcpQuietDone)
+    {
+        return _TCP_SEND_QUIET;
+    }
+#endif  // (TCPIP_TCP_QUIET_TIME != 0)
 
     //  Make sure that we have an allocated TX packet
     switch(pSkt->addType)
@@ -3825,7 +3961,7 @@ static TCB_STUB* _TcpFindMatchingSocket(TCPIP_MAC_PACKET* pRxPkt, const void * r
     {
         pSkt = TCBStubs[hTCP];
 
-        if(pSkt == 0 || pSkt->smState == TCP_CLIENT_WAIT_CONNECT)
+        if(pSkt == 0 || pSkt->smState == TCPIP_TCP_STATE_CLIENT_WAIT_CONNECT)
         {
             continue;
         }
@@ -3836,7 +3972,7 @@ static TCB_STUB* _TcpFindMatchingSocket(TCPIP_MAC_PACKET* pRxPkt, const void * r
 
             bool found = false;
 
-            if(pSkt->smState == TCP_LISTEN)
+            if(pSkt->smState == TCPIP_TCP_STATE_LISTEN)
             {
                 // For listening ports, check if this is the correct port
                 if(pSkt->remoteHash == h->DestPort && partialSkt == 0)
@@ -4046,6 +4182,15 @@ static void _TcpSocketSetIdleState(TCB_STUB* pSkt)
         pSkt->srcAddress.Val = 0;
     }
 
+    pSkt->dbgFlags.val = 0;
+#if ((TCPIP_TCP_DEBUG_LEVEL & TCPIP_TCP_DEBUG_MASK_TRACE_STATE) != 0)
+    pSkt->dbgFlags.tracePrevState = 0xf;
+    if((_tcpTraceMask & (1 << pSkt->sktIx)) != 0)
+    {
+        pSkt->dbgFlags.traceStateFlag = 1;
+    }
+#endif  // ((TCPIP_TCP_DEBUG_LEVEL & TCPIP_TCP_DEBUG_MASK_TRACE_STATE) != 0)
+
 }
 
 /*****************************************************************************
@@ -4145,7 +4290,7 @@ static void _TcpCloseSocket(TCB_STUB* pSkt, TCPIP_TCP_SIGNAL_TYPE tcpEvent)
         }
     }
     else
-    { 
+    {   
         sktIx = 0;
         pSktNet = 0;
         sigHandler = 0;
@@ -4158,7 +4303,7 @@ static void _TcpCloseSocket(TCB_STUB* pSkt, TCPIP_TCP_SIGNAL_TYPE tcpEvent)
     else
     {
         _TcpSocketSetIdleState(pSkt);
-        pSkt->smState = TCP_LISTEN;
+        _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_LISTEN);
     }
 
     if(tcpEvent)
@@ -4352,13 +4497,13 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
 
     pSkt->flags.ackSent = 0;   // clear the ACK already sent
 
-    // Handle TCP_LISTEN and TCP_SYN_SENT states
+    // Handle TCPIP_TCP_STATE_LISTEN and TCPIP_TCP_STATE_SYN_SENT states
     // Both of these states will return, so code following this 
     // state machine need not check explicitly for these two 
     // states.
     switch(pSkt->smState)
     {
-        case TCP_LISTEN:
+        case TCPIP_TCP_STATE_LISTEN:
             // First: check RST flag
             if(localHeaderFlags & RST)
             {
@@ -4391,7 +4536,7 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
 
                 // Respond with SYN + ACK
                 _TcpSend(pSkt, SYN | ACK, SENDTCP_RESET_TIMERS);
-                pSkt->smState = TCP_SYN_RECEIVED;
+                _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_SYN_RECEIVED);
             }
             else
             {
@@ -4402,7 +4547,7 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
             // Nothing to do since we don't support this
             return;
 
-        case TCP_SYN_SENT:
+        case TCPIP_TCP_STATE_SYN_SENT:
             // Second: check the RST bit
             // This is out of order because this stack has no API for 
             // notifying the application that the connection seems to 
@@ -4452,7 +4597,7 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
                 if(localHeaderFlags & ACK)
                 {
                     _TcpSend(pSkt, ACK, SENDTCP_RESET_TIMERS);
-                    pSkt->smState = TCP_ESTABLISHED;
+                    _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_ESTABLISHED);
                     *pSktEvent |= TCPIP_TCP_SIGNAL_ESTABLISHED;
                     // Set up keep-alive timer
                     if(pSkt->Flags.keepAlive)
@@ -4464,7 +4609,7 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
                 else
                 {
                     _TcpSend(pSkt, SYN | ACK, SENDTCP_RESET_TIMERS);
-                    pSkt->smState = TCP_SYN_RECEIVED;
+                    _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_SYN_RECEIVED);
                 }
             }
 
@@ -4500,7 +4645,7 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
 
     // Calculate the number of bytes ahead of our head pointer this segment skips
     lMissingBytes = localSeqNumber - pSkt->RemoteSEQ;
-    wMissingBytes = (int16_t)lMissingBytes;
+    wMissingBytes = (int16_t)lMissingBytes; 
 
     // Run TCP acceptability tests to verify that this packet has a valid sequence number
     bSegmentAcceptable = false;
@@ -4600,7 +4745,7 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
 
     switch(pSkt->smState)
     {
-        case TCP_SYN_RECEIVED:
+        case TCPIP_TCP_STATE_SYN_RECEIVED:
             if(localAckNumber != pSkt->MySEQ)
             {
                 // Send a RST packet with SEQ = SEG.ACK, but retain our SEQ 
@@ -4611,15 +4756,15 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
                 pSkt->MySEQ = localSeqNumber;	// Restore original SEQ number
                 return;
             }
-            pSkt->smState = TCP_ESTABLISHED;
+            _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_ESTABLISHED);
             *pSktEvent |= TCPIP_TCP_SIGNAL_ESTABLISHED;
             // No break
 
-        case TCP_ESTABLISHED:
-        case TCP_FIN_WAIT_1:
-        case TCP_FIN_WAIT_2:
-        case TCP_CLOSE_WAIT:
-        case TCP_CLOSING:
+        case TCPIP_TCP_STATE_ESTABLISHED:
+        case TCPIP_TCP_STATE_FIN_WAIT_1:
+        case TCPIP_TCP_STATE_FIN_WAIT_2:
+        case TCPIP_TCP_STATE_CLOSE_WAIT:
+        case TCPIP_TCP_STATE_CLOSING:
             // Calculate what the highest possible SEQ number in our TX FIFO is
             wTemp = pSkt->txHead - pSkt->txUnackedTail;
             if((int32_t)wTemp < 0)
@@ -4689,7 +4834,7 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
                     pSkt->txUnackedTail -= pSkt->txEnd - pSkt->txStart;
                 }
 
-                if(pSkt->smState == TCP_ESTABLISHED || pSkt->smState == TCP_CLOSE_WAIT)
+                if(pSkt->smState == TCPIP_TCP_STATE_ESTABLISHED || pSkt->smState == TCPIP_TCP_STATE_CLOSE_WAIT)
                 {
                     *pSktEvent |= TCPIP_TCP_SIGNAL_TX_SPACE; 
                 }
@@ -4762,8 +4907,8 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
             }
             pSkt->remoteWindow = wNewWindow;
 
-            // A couple of states must do all of the TCP_ESTABLISHED stuff, but also a little more
-            if(pSkt->smState == TCP_FIN_WAIT_1)
+            // A couple of states must do all of the TCPIP_TCP_STATE_ESTABLISHED stuff, but also a little more
+            if(pSkt->smState == TCPIP_TCP_STATE_FIN_WAIT_1)
             {
                 // Check to see if our FIN has been ACKnowledged
                 if((pSkt->MySEQ == localAckNumber) && pSkt->flags.bFINSent)
@@ -4771,31 +4916,27 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
                     // Reset our timer for forced closure if the remote node 
                     // doesn't send us a FIN in a timely manner.
                     pSkt->closeWaitTime = SYS_TMR_TickCountGet() + (TCPIP_TCP_FIN_WAIT_2_TIMEOUT * SYS_TMR_TickCounterFrequencyGet())/1000;
-                    pSkt->Flags.bTimerEnabled = 1;
-                    pSkt->smState = TCP_FIN_WAIT_2;
+                    _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_FIN_WAIT_2);
                 }
             }
-            else if(pSkt->smState == TCP_CLOSING)
+            else if(pSkt->smState == TCPIP_TCP_STATE_CLOSING)
             {
                 // Check to see if our FIN has been ACKnowledged
                 if(pSkt->MySEQ == localAckNumber)
                 {
-                    // RFC not recommended: We should be going to 
-                    // the TCP_TIME_WAIT state right here and 
-                    // starting a 2MSL timer.
-                    // If the remote node does 
-                    // not receive this ACK, it'll have to figure 
-                    // out on it's own that the connection is now 
-                    // closed.
+#if (TCPIP_TCP_MSL_TIMEOUT != 0)
+                    _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_TIME_WAIT);
+                    pSkt->closeWaitTime = SYS_TMR_TickCountGet() + ((TCPIP_TCP_MSL_TIMEOUT * 2) * SYS_TMR_TickCounterFrequencyGet());
+#else
                     _TcpCloseSocket(pSkt, 0);
+#endif  // (TCPIP_TCP_MSL_TIMEOUT != 0)
                 }
-
                 return;
             }
 
             break;
 
-        case TCP_LAST_ACK:
+        case TCPIP_TCP_STATE_LAST_ACK:
             // Check to see if our FIN has been ACKnowledged
             if(pSkt->MySEQ + 1 == localAckNumber)
             {
@@ -4803,12 +4944,7 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
             }
             return;
 
-            //		case TCP_TIME_WAIT:
-            //			// Nothing is supposed to arrive here.  If it does, reset the quiet timer.
-            //			_TcpSend(pSkt, ACK, SENDTCP_RESET_TIMERS);
-            //			return;
-
-        default:
+        default:    // case TCPIP_TCP_STATE_TIME_WAIT:
             break;
     }
 
@@ -4826,7 +4962,7 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
     // Seventh: Process the segment text
     //
     // Throw data away if in a state that doesn't accept data
-    if(pSkt->smState == TCP_CLOSE_WAIT || pSkt->smState == TCP_CLOSING || pSkt->smState == TCP_LAST_ACK)
+    if(pSkt->smState == TCPIP_TCP_STATE_CLOSE_WAIT || pSkt->smState == TCPIP_TCP_STATE_CLOSING || pSkt->smState == TCPIP_TCP_STATE_LAST_ACK)
     {
         return;
     }
@@ -4872,7 +5008,7 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
                 pSkt->rxHead = newRxHead;
 
                 // we have some new data in the socket
-                if(pSkt->smState == TCP_ESTABLISHED || pSkt->smState == TCP_FIN_WAIT_1 || pSkt->smState == TCP_FIN_WAIT_2)
+                if(pSkt->smState == TCPIP_TCP_STATE_ESTABLISHED || pSkt->smState == TCPIP_TCP_STATE_FIN_WAIT_1 || pSkt->smState == TCPIP_TCP_STATE_FIN_WAIT_2)
                 {   // valid RX state
                     *pSktEvent |= TCPIP_TCP_SIGNAL_RX_DATA;
                 }
@@ -4984,7 +5120,7 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
         // That'll ensure that the RX window is nonzero and 
         // the remote node will be able to send a FIN response, 
         // which needs an RX window of at least 1.
-        if(pSkt->smState != TCP_ESTABLISHED && pSkt->smState != TCP_FIN_WAIT_1 && pSkt->smState != TCP_FIN_WAIT_2)
+        if(pSkt->smState != TCPIP_TCP_STATE_ESTABLISHED && pSkt->smState != TCPIP_TCP_STATE_FIN_WAIT_1 && pSkt->smState != TCPIP_TCP_STATE_FIN_WAIT_2)
         {
             pSkt->rxTail = pSkt->rxHead;
         }
@@ -5025,27 +5161,29 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
 
             switch(pSkt->smState)
             {
-                case TCP_SYN_RECEIVED:
+                case TCPIP_TCP_STATE_SYN_RECEIVED:
                     // RFC in exact: Our API has no need for the user 
                     // to explicitly close a socket that never really 
                     // got opened fully in the first place, so just 
                     // transmit a FIN automatically and jump to 
-                    // TCP_LAST_ACK
-                    pSkt->smState = TCP_LAST_ACK;
+                    // TCPIP_TCP_STATE_LAST_ACK
+                    _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_LAST_ACK);
                     _TcpSend(pSkt, FIN | ACK, SENDTCP_RESET_TIMERS);
                     return;
 
-                case TCP_ESTABLISHED:
-                    // Go to TCP_CLOSE_WAIT state
-                    pSkt->smState = TCP_CLOSE_WAIT;
+                case TCPIP_TCP_STATE_ESTABLISHED:
+                    // Go to TCPIP_TCP_STATE_CLOSE_WAIT state
+                    _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_CLOSE_WAIT);
                     *pSktEvent |= TCPIP_TCP_SIGNAL_RX_FIN; 
 
+#if (TCPIP_TCP_CLOSE_WAIT_TIMEOUT != 0)
                     // If the application doesn't call 
                     // TCPIP_TCP_Disconnect() as needed and expects the 
                     // stack to automatically close sockets when the 
                     // remote node sends a FIN, a timer is started so 
                     // that the socket will eventually be closed automatically
                     pSkt->closeWaitTime = SYS_TMR_TickCountGet() + (TCPIP_TCP_CLOSE_WAIT_TIMEOUT * SYS_TMR_TickCounterFrequencyGet())/1000;
+#endif  // (TCPIP_TCP_CLOSE_WAIT_TIMEOUT != 0)
 
                     if(pSkt->flags.ackSent)
                     {   // don't send another ack to the FIN if we already did that
@@ -5054,40 +5192,37 @@ static void _TcpHandleSeg(TCB_STUB* pSkt, TCP_HEADER* h, uint16_t len, TCPIP_MAC
 
                     break;
 
-                case TCP_FIN_WAIT_1:
+                case TCPIP_TCP_STATE_FIN_WAIT_1:
                     if(pSkt->MySEQ == localAckNumber)
                     {
-                        // RFC not recommended: We should be going to 
-                        // the TCP_TIME_WAIT state right here and 
-                        // starting a 2MSL timer.
-                        // If the remote node does 
-                        // not receive this ACK, it'll have to figure 
-                        // out on it's own that the connection is now 
-                        // closed.
+#if (TCPIP_TCP_MSL_TIMEOUT != 0)
+                        _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_TIME_WAIT);
+                        pSkt->closeWaitTime = SYS_TMR_TickCountGet() + ((TCPIP_TCP_MSL_TIMEOUT * 2) * SYS_TMR_TickCounterFrequencyGet());
+#else
                         _TcpSend(pSkt, ACK, 0);
                         _TcpCloseSocket(pSkt, 0);
                         return;
+#endif  // (TCPIP_TCP_MSL_TIMEOUT != 0)
                     }
                     else
                     {
-                        pSkt->smState = TCP_CLOSING;
+                        _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_CLOSING);
                         *pSktEvent |= TCPIP_TCP_SIGNAL_RX_FIN;
                     }
                     break;
 
-                case TCP_FIN_WAIT_2:
-                    // RFC not recommended: We should be going to 
-                    // the TCP_TIME_WAIT state right here and 
-                    // starting a 2MSL timer.
-                    // If the remote node does 
-                    // not receive this ACK, it'll have to figure 
-                    // out on it's own that the connection is now 
-                    // closed.
+                case TCPIP_TCP_STATE_FIN_WAIT_2:
+#if (TCPIP_TCP_MSL_TIMEOUT != 0)
+                    _TcpSocketSetState(pSkt, TCPIP_TCP_STATE_TIME_WAIT);
+                    pSkt->closeWaitTime = SYS_TMR_TickCountGet() + ((TCPIP_TCP_MSL_TIMEOUT * 2) * SYS_TMR_TickCounterFrequencyGet());
+                    break;
+#else
                     _TcpSend(pSkt, ACK, 0);
                     _TcpCloseSocket(pSkt, 0);
                     return;
+#endif  // (TCPIP_TCP_MSL_TIMEOUT != 0)
 
-                default:
+                default:    // case TCPIP_TCP_STATE_TIME_WAIT: reacknowledge
                     break;
             }
 
@@ -5418,6 +5553,7 @@ bool TCPIP_TCP_FifoSizeAdjust(TCP_SOCKET hTCP, uint16_t wMinRXSize, uint16_t wMi
     }
 
     // success
+
     // adjust new TX pointers
     if(newTxBuff)
     {
@@ -5443,7 +5579,7 @@ bool TCPIP_TCP_FifoSizeAdjust(TCP_SOCKET hTCP, uint16_t wMinRXSize, uint16_t wMi
     // Send a window update to notify remote node of change
     if(newTxBuff || newRxBuff)
     {
-        if(pSkt->smState == TCP_ESTABLISHED)
+        if(pSkt->smState == TCPIP_TCP_STATE_ESTABLISHED)
         {
             _TcpSend(pSkt, ACK, SENDTCP_RESET_TIMERS);
         }
@@ -5607,6 +5743,7 @@ static bool _TCP_PortIsAvailable(TCP_PORT port)
     Sockets don't need specific binding, it is done automatically by the stack
     However, specific binding can be requested using these functions.
     Works for both client and server sockets.
+    The call will fail if the socket is already bound/connected
   ***************************************************************************/
 bool TCPIP_TCP_Bind(TCP_SOCKET hTCP, IP_ADDRESS_TYPE addType, TCP_PORT localPort,  IP_MULTI_ADDRESS* localAddress)
 {
@@ -5614,7 +5751,7 @@ bool TCPIP_TCP_Bind(TCP_SOCKET hTCP, IP_ADDRESS_TYPE addType, TCP_PORT localPort
     TCB_STUB* pSkt; 
 
     pSkt = _TcpSocketChk(hTCP); 
-    if(pSkt == 0)
+    if(pSkt == 0 || _TCP_IsConnected(pSkt))
     {
         return false;
     }
@@ -5696,12 +5833,13 @@ bool TCPIP_TCP_Bind(TCP_SOCKET hTCP, IP_ADDRESS_TYPE addType, TCP_PORT localPort
     However, specific remote binding can be requested using these functions.
     For a server socket it can be used to restrict accepting connections from  a specific remote host.
     For a client socket it will just change the default binding done when the socket was opened.
+    The call will fail if the socket is already connected.
   ***************************************************************************/
 bool TCPIP_TCP_RemoteBind(TCP_SOCKET hTCP, IP_ADDRESS_TYPE addType, TCP_PORT remotePort,  IP_MULTI_ADDRESS* remoteAddress)
 {
     TCB_STUB* pSkt = _TcpSocketChk(hTCP); 
 
-    if(pSkt)
+    if(pSkt != 0 && !_TCP_IsConnected(pSkt))
     {
 
         if(remoteAddress == 0 || TCPIP_TCP_DestinationIPAddressSet(hTCP, addType, remoteAddress) == true)
@@ -5835,7 +5973,6 @@ bool TCPIP_TCP_OptionsGet(TCP_SOCKET hTCP, TCP_SOCKET_OPTION option, void* optPa
 
 bool TCPIP_TCP_DestinationIPAddressSet(TCP_SOCKET hTCP, IP_ADDRESS_TYPE addType, IP_MULTI_ADDRESS* remoteAddress)
 {
-
     TCB_STUB* pSkt; 
 
     if(remoteAddress == 0)
@@ -5845,7 +5982,7 @@ bool TCPIP_TCP_DestinationIPAddressSet(TCP_SOCKET hTCP, IP_ADDRESS_TYPE addType,
 
     pSkt = _TcpSocketChk(hTCP); 
 
-    while(pSkt != 0 && pSkt->addType == addType)
+    while(pSkt != 0 && pSkt->addType == addType && !_TCP_IsConnected(pSkt))
     {
 #if defined (TCPIP_STACK_USE_IPV6)
         if (pSkt->addType == IP_ADDRESS_TYPE_IPV6)
@@ -5876,9 +6013,13 @@ bool TCPIP_TCP_DestinationIPAddressSet(TCP_SOCKET hTCP, IP_ADDRESS_TYPE addType,
 // sets the source IP address of a packet
 bool TCPIP_TCP_SourceIPAddressSet(TCP_SOCKET hTCP, IP_ADDRESS_TYPE addType, IP_MULTI_ADDRESS* localAddress)
 {
-
     TCB_STUB* pSkt = _TcpSocketChk(hTCP); 
-    return pSkt ? _TCPSetSourceAddress(pSkt, addType, localAddress) : false;
+    if(pSkt == 0 || _TCP_IsConnected(pSkt))
+    {
+        return false;
+    }
+
+    return _TCPSetSourceAddress(pSkt, addType, localAddress);
 }
 
 
@@ -6002,41 +6143,16 @@ bool TCPIP_TCP_SignalHandlerDeregister(TCP_SOCKET s, TCPIP_TCP_SIGNAL_HANDLE hSi
     return false;
 }
 
-
-
-// debug/trace support
-//
-
-#if defined (TCPIP_TCP_DEBUG)
-
-int TCPIP_TCP_DebugSktNo(void)
+bool TCPIP_TCP_IsReady(void)
 {
-    return TcpSockets;
+#if (TCPIP_TCP_QUIET_TIME != 0)
+    return tcpQuietDone;
+#else
+    return true;
+#endif  // (TCPIP_TCP_QUIET_TIME != 0)
 }
 
-bool TCPIP_TCP_DebugSktInfo(int sktNo, TCPIP_TCP_SKT_DEBUG_INFO* pInfo)
-{
-    TCB_STUB* pSkt = _TcpSocketChk(sktNo);
 
-    if(pSkt)
-    {
-        pInfo->addType = pSkt->addType;
-        pInfo->remotePort = pSkt->remotePort;
-        pInfo->localPort = pSkt->localPort;
-        pInfo->rxSize = pSkt->rxEnd - pSkt->rxStart;
-        pInfo->txSize = pSkt->txEnd - pSkt->txStart;
-        pInfo->state = pSkt->smState;
-        pInfo->rxPending = _TCPIsGetReady(pSkt);
-        pInfo->txPending = TCPIP_TCP_FifoTxFullGet(sktNo);
-
-        return true;
-    }
-
-
-    return false;
-}
-
-#endif // defined (TCPIP_TCP_DEBUG)
 
 #endif //#if defined(TCPIP_STACK_USE_TCP)
 

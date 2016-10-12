@@ -211,7 +211,7 @@ typedef enum{
 
 /*******************************************************************************
   Function:
-    SPEEX_ERROR_MSG SPEEX_Initialize();
+    SPEEX_ERROR_MSG SPEEX_Initialize(uintptr_t spx_file_handle);
 
   Summary:
     The function reads SPEEX header page, initialize SPEEX decoder state.
@@ -224,7 +224,7 @@ typedef enum{
     Call SPEEX_Cleanup() function before this function for safety.
 	
   Parameters:
-    None
+    - spx_file_handle       - Current file handle from application
 
   Returns:
     This function returns a enum value.
@@ -235,12 +235,11 @@ typedef enum{
 
   Example:
     <code>
-    SPEEX_Cleanup();
-    APP_ERROR_MSG res = SPEEX_Initialize();
+    APP_ERROR_MSG res = SPEEX_Initialize(spx_file_handle);
     </code>
 	
 */
-SPEEX_ERROR_MSG SPEEX_Initialize();
+SPEEX_ERROR_MSG SPEEX_Initialize(uintptr_t spx_file_handle);
 
 
 

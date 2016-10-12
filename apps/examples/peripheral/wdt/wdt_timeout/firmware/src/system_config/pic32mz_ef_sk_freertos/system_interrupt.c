@@ -79,8 +79,8 @@ void IntHandlerChangeNotification_PortB(void)
         buttonWasPressed = true;
 
        /* Blocking delay causing the WDT to fail to be serviced in time */
-        int i;
-        i = 1024 * 100 * 64;
+        long int i;
+        i = 1024 * 100 * 60;
         while (i--);
     }
     

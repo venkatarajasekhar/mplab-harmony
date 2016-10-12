@@ -142,6 +142,9 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 <#if CONFIG_DRV_SPI_USE_DRIVER == true>
 <#include "/framework/driver/spi/config/drv_spi_int.c.ftl"> 
 </#if>
+<#if CONFIG_USE_DRV_SQI == true>
+<#include "/framework/driver/sqi/config/drv_sqi_int.c.ftl">
+</#if>
 <#if CONFIG_USE_DRV_NVM == true>
 <#include "/framework/driver/nvm/config/drv_nvm_int.c.ftl">
 </#if>
@@ -183,6 +186,9 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 </#if>
 <#if CONFIG_USE_TCPIP_STACK == true>
 <#include "/framework/tcpip/config/tcpip_mac_int.c.ftl">
+</#if>
+<#if CONFIG_USE_DRV_WIFI_WK == true>
+<#include "/framework/driver/wifi/templates/drv_wifi_int.c.ftl">
 </#if>
 <#include "/framework/net/templates/system_interrupt.c.ftl">
  

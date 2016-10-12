@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name=""/>
@@ -56,6 +60,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -143,7 +151,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_16b</Path>
-        <Checksum>9F39A56172F5320C2BD16DEA78F4A929</Checksum>
+        <Checksum>B4999C53A1B8DC9CF942ADDD10255F86</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -162,17 +170,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_16b/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_16b</Path>
         <Checksum>89499E99B74A0B1266E0FFAF35176DC0</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_16b/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -200,16 +203,15 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_16b</Path>
-        <Checksum>144BBD2A375222E28C15F8D61DC3088C</Checksum>
+        <Checksum>A3F16DFB952EE78E8E4BFC829CBABC4A</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src/system_config/pic32mz_ef_sk_meb2_16b"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src/pic32mz_ef_sk_meb2_16b"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/framework"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/driver/i2c/i2c_rtcc/firmware/src/system_config/pic32mz_ef_sk_meb2_16b/framework"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/apps/driver/i2c/i2c_rtcc/firmware/src"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/apps/driver/i2c/i2c_rtcc/firmware/src/system_config/pic32mz_ef_sk_meb2_16b"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/framework"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/apps/driver/i2c/i2c_rtcc/firmware/src/system_config/pic32mz_ef_sk_meb2_16b/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_meb2_16b/bsp"/>
       </C32>
     </CompilerItems>

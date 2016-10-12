@@ -65,6 +65,7 @@ ifblock USE_DRV_OVM7690
 add "<#include \"/framework/driver/camera/ovm7690/config/drv_ovm7690.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
 add "<#include \"/framework/driver/camera/ovm7690/config/drv_ovm7690_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS
 add "<#include \"/framework/driver/camera/ovm7690/config/drv_ovm7690_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_DRIVER_TASKS
+add "<#include \"/framework/driver/camera/ovm7690/config/drv_ovm7690.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 
 file DRV_CAMERA_OVM7690_H "$HARMONY_VERSION_PATH/framework/driver/camera/ovm7690/drv_camera_ovm7690.h" to "$PROJECT_HEADER_FILES/framework/driver/camera/ovm7690/drv_camera_ovm7690.h"
 file DRV_CAMERA_OVM7690_C "$HARMONY_VERSION_PATH/framework/driver/camera/ovm7690/src/drv_camera_ovm7690.c" to "$PROJECT_SOURCE_FILES/framework/driver/camera/ovm7690/src/drv_camera_ovm7690.c"

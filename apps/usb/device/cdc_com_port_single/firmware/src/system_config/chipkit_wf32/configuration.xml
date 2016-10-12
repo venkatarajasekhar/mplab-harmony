@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX695F512L"/>
     <Board name=""/>
     <ForceOptimization flag="true"/>
-    <MergeStrategy flag="USER_ALL"/>
+    <MergeStrategy flag="ALL"/>
   </General>
   <Manifest>
     <Files>
@@ -142,6 +146,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -215,11 +223,13 @@
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/chipkit_wf32/framework/system/ports/src</Path>
         <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
+        <ProjectFileChecksum>57E6670CF29B387333F1DB4C89F28EB6</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/chipkit_wf32/bsp</Path>
         <Checksum>4A576F3E2B6EED0F575746594ADE0082</Checksum>
+        <ProjectFileChecksum>5E8DFE3557F1E86E78280C82FE535152</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -229,59 +239,61 @@
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/chipkit_wf32</Path>
         <Checksum>26C534E11FCF0F431B6C24CD3BE7FC10</Checksum>
+        <ProjectFileChecksum>18F67156BD04B97057FF6BA7F56A61F0</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/chipkit_wf32</Path>
         <Checksum>61C11F06F103735D7B3984C54A722725</Checksum>
+        <ProjectFileChecksum>A5062F6208678B3A2643A180BD853F6A</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/chipkit_wf32/bsp</Path>
         <Checksum>20E92807B76CBF42C1CACC2BCCB8A6DA</Checksum>
+        <ProjectFileChecksum>55352FC65C45682652E683D707885743</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
         <Path>Source Files/app/system_config/chipkit_wf32</Path>
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
+        <ProjectFileChecksum>B1628C9614D46F700A9125EC2A5CA1FA</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/chipkit_wf32</Path>
-        <Checksum>CD7A6473CB25377C9ED9A2E8111D7E2C</Checksum>
+        <Checksum>1FC7D92DDB9E3B50C1EF72A293B0DDF2</Checksum>
+        <ProjectFileChecksum>907BC6B5D5C4E760405573B9096CF3DC</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.h</Name>
         <Path>Header Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/chipkit_wf32/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/chipkit_wf32</Path>
-        <Checksum>D3F9448523EFD34D5495999F81E8661A</Checksum>
-        <ProjectFileChecksum>6FE5A4F4194EAC58637824861C1EBE24</ProjectFileChecksum>
+        <Checksum>8A55B10A2A7732C58D888F22D5E7EE1B</Checksum>
+        <ProjectFileChecksum>7EF7A4CF9EDEC4C2226B17A6D74A011A</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/chipkit_wf32/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
+        <ProjectFileChecksum>E519060CA61DBE819A8964EC36595056</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/chipkit_wf32</Path>
         <Checksum>C051440866B3433982D20908212CADC7</Checksum>
+        <ProjectFileChecksum>3EDD250052254E186E820FCA8FA575D1</ProjectFileChecksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="D:\usbdev\apps\usb\device\cdc_com_port_single\firmware\src"/>
-        <Include value="D:\usbdev\apps\usb\device\cdc_com_port_single\firmware\src\system_config\chipkit_wf32"/>
-        <Include value="D:\usbdev\framework"/>
-        <Include value="D:\usbdev\apps\usb\device\cdc_com_port_single\firmware\src\system_config\chipkit_wf32\framework"/>
+        <Include value="C:\microchip\harmony\usb\apps\usb\device\cdc_com_port_single\firmware\src"/>
+        <Include value="C:\microchip\harmony\usb\apps\usb\device\cdc_com_port_single\firmware\src\system_config\chipkit_wf32"/>
+        <Include value="C:\microchip\harmony\usb\framework"/>
+        <Include value="C:\microchip\harmony\usb\apps\usb\device\cdc_com_port_single\firmware\src\system_config\chipkit_wf32\framework"/>
         <Include value="../src/system_config/chipkit_wf32/bsp"/>
       </C32>
     </CompilerItems>

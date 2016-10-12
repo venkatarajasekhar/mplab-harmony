@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -92,6 +88,63 @@ extern "C" {
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         24000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       32768ul
    
+/*** Command Processor System Service Configuration ***/
+#define SYS_CMD_ENABLE
+#define SYS_CMD_DEVICE_MAX_INSTANCES    SYS_CONSOLE_DEVICE_MAX_INSTANCES
+#define SYS_CMD_PRINT_BUFFER_SIZE       512
+#define SYS_CMD_BUFFER_DMA_READY        __attribute__((coherent)) __attribute__((aligned(16)))
+#define SYS_CMD_REMAP_SYS_CONSOLE_MESSAGE
+#define SYS_CMD_REMAP_SYS_DEBUG_MESSAGE
+// *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
+/*** Console System Service Configuration ***/
+
+#define SYS_CONSOLE_OVERRIDE_STDIO
+#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        2
+#define SYS_CONSOLE_INSTANCES_NUMBER            1
+#define SYS_CONSOLE_USB_CDC_INSTANCE       USB_DEVICE_CDC_INDEX_0
+#define SYS_CONSOLE_USB_CDC_COMM_BAUD_RATE 921600
+#define SYS_CONSOLE_USB_CDC_RD_QUEUE_DEPTH 1
+#define SYS_CONSOLE_USB_CDC_WR_QUEUE_DEPTH 128
+#define SYS_CONSOLE_USB_CDC_READ_BUFFER_SIZE   512
+#define SYS_CONSOLE_BUFFER_DMA_READY        __attribute__((coherent)) __attribute__((aligned(16)))
+
+
+
+/*** Debug System Service Configuration ***/
+#define SYS_DEBUG_ENABLE
+#define DEBUG_PRINT_BUFFER_SIZE       512
+#define SYS_DEBUG_BUFFER_DMA_READY        __attribute__((coherent)) __attribute__((aligned(16)))
+#define SYS_DEBUG_USE_CONSOLE
+
+/*** File System Service Configuration ***/
+
+#define SYS_FS_MEDIA_NUMBER         	1
+
+#define SYS_FS_VOLUME_NUMBER		1
+
+#define SYS_FS_AUTOMOUNT_ENABLE		false
+#define SYS_FS_MAX_FILES	    	25
+#define SYS_FS_MAX_FILE_SYSTEM_TYPE 	1
+#define SYS_FS_MEDIA_MAX_BLOCK_SIZE  	512
+#define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE 2048
+
+
+#define SYS_FS_MEDIA_TYPE_IDX0 				
+#define SYS_FS_TYPE_IDX0 					
+
+
+
+
+
+
+
+
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
@@ -176,6 +229,12 @@ extern "C" {
 #define SYS_PORT_K_CNPD         0x0000
 #define SYS_PORT_K_CNEN         0x0000
 
+// *****************************************************************************
+/* Random System Service Configuration Options
+*/
+
+#define SYS_RANDOM_CRYPTO_SEED_SIZE  32
+
 /*** Timer System Service Configuration ***/
 #define SYS_TMR_POWER_STATE             SYS_MODULE_POWER_RUN_FULL
 #define SYS_TMR_DRIVER_INDEX            DRV_TMR_INDEX_0
@@ -186,69 +245,48 @@ extern "C" {
 #define SYS_TMR_CLIENT_TOLERANCE        10
 #define SYS_TMR_INTERRUPT_NOTIFICATION  true
 
-/*** Console System Service Configuration ***/
-
-#define SYS_CONSOLE_OVERRIDE_STDIO
-#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        2
-#define SYS_CONSOLE_INSTANCES_NUMBER            1
-#define SYS_CONSOLE_USB_CDC_INSTANCE       USB_DEVICE_CDC_INDEX_0
-#define SYS_CONSOLE_USB_CDC_COMM_BAUD_RATE 921600
-#define SYS_CONSOLE_USB_CDC_RD_QUEUE_DEPTH 1
-#define SYS_CONSOLE_USB_CDC_WR_QUEUE_DEPTH 128
-#define SYS_CONSOLE_USB_CDC_READ_BUFFER_SIZE   512
-#define SYS_CONSOLE_BUFFER_DMA_READY        __attribute__((coherent)) __attribute__((aligned(16)))
-
-
-
-/*** Debug System Service Configuration ***/
-#define SYS_DEBUG_ENABLE
-#define DEBUG_PRINT_BUFFER_SIZE       512
-#define SYS_DEBUG_BUFFER_DMA_READY        __attribute__((coherent)) __attribute__((aligned(16)))
-#define SYS_DEBUG_USE_CONSOLE
-
-/*** Command Processor System Service Configuration ***/
-#define SYS_CMD_ENABLE
-#define SYS_CMD_DEVICE_MAX_INSTANCES    SYS_CONSOLE_DEVICE_MAX_INSTANCES
-#define SYS_CMD_PRINT_BUFFER_SIZE       512
-#define SYS_CMD_BUFFER_DMA_READY        __attribute__((coherent)) __attribute__((aligned(16)))
-#define SYS_CMD_REMAP_SYS_CONSOLE_MESSAGE
-#define SYS_CMD_REMAP_SYS_DEBUG_MESSAGE
-
-/*** File System Service Configuration ***/
-
-#define SYS_FS_MEDIA_NUMBER         	1
-
-#define SYS_FS_VOLUME_NUMBER		1
-
-#define SYS_FS_AUTOMOUNT_ENABLE		false
-#define SYS_FS_MAX_FILES	    	25
-#define SYS_FS_MAX_FILE_SYSTEM_TYPE 	1
-#define SYS_FS_MEDIA_MAX_BLOCK_SIZE  	512
-#define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE 2048
-
-
-#define SYS_FS_MEDIA_TYPE_IDX0 				
-#define SYS_FS_TYPE_IDX0 					
-
-
-
-
-
-
-
-
-// *****************************************************************************
-/* Random System Service Configuration Options
-*/
-
-#define SYS_RANDOM_CRYPTO_SEED_SIZE  32
-
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
+
+/*** Graphics Display Configuration ***/
+#define DISP_ORIENTATION                        0
+#define DISP_HOR_RESOLUTION                     480
+#define DISP_VER_RESOLUTION                     272
+#define DISP_DATA_WIDTH			                24
+#define DISP_HOR_PULSE_WIDTH                    42
+#define DISP_HOR_BACK_PORCH                     2
+#define DISP_HOR_FRONT_PORCH                    2
+#define DISP_VER_PULSE_WIDTH                    10
+#define DISP_VER_BACK_PORCH                     2
+#define DISP_VER_FRONT_PORCH                    2
+#define DISP_INV_LSHIFT                         0
+#define GFX_LCD_TYPE                            GFX_LCD_TFT
+#define BACKLIGHT_ENABLE_LEVEL                  1
+#define BACKLIGHT_DISABLE_LEVEL                 0
+#define TCON_MODULE                             NULL
+// DOM-IGNORE-END
+
+/*** NVM Driver Configuration ***/
+
+#define DRV_NVM_INSTANCES_NUMBER     	1
+#define DRV_NVM_CLIENTS_NUMBER        	1
+#define DRV_NVM_BUFFER_OBJECT_NUMBER  	5
+
+#define DRV_NVM_INTERRUPT_MODE        	true
+#define DRV_NVM_INTERRUPT_SOURCE      	INT_SOURCE_FLASH_CONTROL
+
+#define DRV_NVM_MEDIA_SIZE              64
+#define DRV_NVM_MEDIA_START_ADDRESS     0x9D000000
+
+#define DRV_NVM_ERASE_WRITE_ENABLE
+
+
+#define DRV_NVM_SYS_FS_REGISTER
+
+
 /*** Timer Driver Configuration ***/
 #define DRV_TMR_INTERRUPT_MODE             true
 #define DRV_TMR_INSTANCES_NUMBER           1
@@ -268,25 +306,6 @@ extern "C" {
 #define DRV_TMR_POWER_STATE_IDX0            SYS_MODULE_POWER_RUN_FULL
 
  
-/*** NVM Driver Configuration ***/
-
-#define DRV_NVM_INSTANCES_NUMBER     	1
-#define DRV_NVM_CLIENTS_NUMBER        	1
-#define DRV_NVM_BUFFER_OBJECT_NUMBER  	5
-
-#define DRV_NVM_INTERRUPT_MODE        	true
-#define DRV_NVM_INTERRUPT_SOURCE      	INT_SOURCE_FLASH_CONTROL
-
-#define DRV_NVM_MEDIA_SIZE              64
-#define DRV_NVM_MEDIA_START_ADDRESS     0x9D000000
-
-#define DRV_NVM_ERASE_WRITE_ENABLE
-
-
-#define DRV_NVM_SYS_FS_REGISTER
-
-
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Middleware & Other Library Configuration
@@ -302,75 +321,9 @@ extern "C" {
 #define NO_ASN
 #define NO_RSA
 
-/*** USB Driver Configuration ***/
-
-
-/* Enables Device Support */
-#define DRV_USBHS_DEVICE_SUPPORT      true
-
-/* Disable Device Support */
-#define DRV_USBHS_HOST_SUPPORT      false
-
-/* Maximum USB driver instances */
-#define DRV_USBHS_INSTANCES_NUMBER    1
-
-
-/* Interrupt mode enabled */
-#define DRV_USBHS_INTERRUPT_MODE      true
-
-
-/* Number of Endpoints used */
-#define DRV_USBHS_ENDPOINTS_NUMBER    3
-
-
-
-
-/*** USB Device Stack Configuration ***/
-
-
-
-
-
-
-
-
-
-
-/* The USB Device Layer will not initialize the USB Driver */
-#define USB_DEVICE_DRIVER_INITIALIZE_EXPLICIT
-
-/* Maximum device layer instances */
-#define USB_DEVICE_INSTANCES_NUMBER     1
-
-/* EP0 size in bytes */
-#define USB_DEVICE_EP0_BUFFER_SIZE      64
-
-
-
-
-
-
-
-
-
-
-/* Maximum instances of CDC function driver */
-#define USB_DEVICE_CDC_INSTANCES_NUMBER     1
-
-
-
-
-
-
-
-
-
-
-/* CDC Transfer Queue Size for both read and
-   write. Applicable to all instances of the
-   function driver */
-#define USB_DEVICE_CDC_QUEUE_DEPTH_COMBINED 3
-
+/* MPLAB Harmony Net Presentation Layer Definitions*/
+#define NET_PRES_NUM_INSTANCE 1
+#define NET_PRES_NUM_SOCKETS 10
 
 
 
@@ -461,7 +414,6 @@ extern "C" {
 #define TCPIP_HTTP_CACHE_LEN		        		"600"
 #define TCPIP_HTTP_TIMEOUT		            		45
 #define TCPIP_HTTP_MAX_CONNECTIONS		    		4
-#define TCPIP_HTTP_MAX_TLS_CONNECTIONS		  		0
 #define TCPIP_HTTP_DEFAULT_FILE		        		"index.htm"
 #define TCPIP_HTTPS_DEFAULT_FILE	        		"index.htm"
 #define TCPIP_HTTP_DEFAULT_LEN		        		10
@@ -469,8 +421,6 @@ extern "C" {
 #define TCPIP_HTTP_MIN_CALLBACK_FREE				16
 #define TCPIP_HTTP_SKT_TX_BUFF_SIZE		    		0
 #define TCPIP_HTTP_SKT_RX_BUFF_SIZE		    		0
-#define TCPIP_HTTP_TLS_SKT_TX_BUFF_SIZE		                0
-#define TCPIP_HTTP_TLS_SKT_RX_BUFF_SIZE		                0
 #define TCPIP_HTTP_CONFIG_FLAGS		        		1
 #define TCPIP_HTTP_USE_POST
 #define TCPIP_HTTP_USE_COOKIES
@@ -527,6 +477,7 @@ extern "C" {
 #define TCPIP_SMTP_MAX_WRITE_SIZE   	    512
 #define TCPIP_SMTP_TASK_TICK_RATE			55
 
+
 /*** SNTP Configuration ***/
 #define TCPIP_STACK_USE_SNTP_CLIENT
 #define TCPIP_NTP_DEFAULT_IF		        		"PIC32INT"
@@ -563,8 +514,10 @@ extern "C" {
 #define TCPIP_TCP_MAX_SYN_RETRIES		        	3
 #define TCPIP_TCP_AUTO_TRANSMIT_TIMEOUT_VAL			40
 #define TCPIP_TCP_WINDOW_UPDATE_TIMEOUT_VAL			200
-#define TCPIP_TCP_MAX_SOCKETS		            		10
+#define TCPIP_TCP_MAX_SOCKETS		                10
 #define TCPIP_TCP_TASK_TICK_RATE		        	5
+#define TCPIP_TCP_MSL_TIMEOUT		        	    30
+#define TCPIP_TCP_QUIET_TIME		        	    0
 
 /*** announce Configuration ***/
 #define TCPIP_STACK_USE_ANNOUNCE
@@ -647,7 +600,6 @@ extern "C" {
 #define TCPIP_ZC_LL_IPV4_LLBASE 0xa9fe0100
 #define TCPIP_ZC_LL_IPV4_LLBASE_MASK 0x0000FFFF
 #define TCPIP_ZC_LL_TASK_TICK_RATE 333
-
 /*** Network Configuration Index 0 ***/
 #define TCPIP_NETWORK_DEFAULT_INTERFACE_NAME 			"PIC32INT"
 #define TCPIP_IF_PIC32INT
@@ -673,6 +625,8 @@ extern "C" {
 #define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DELAY    1000
 #define TCPIP_STACK_COMMANDS_ICMP_ECHO_TIMEOUT          5000
 #define TCPIP_STACK_COMMANDS_WIFI_ENABLE             	false
+#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_BUFF_SIZE    2000
+#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DATA_SIZE    100
 
 
 /*** TCPIP SYS FS Wrapper ***/
@@ -684,10 +638,76 @@ extern "C" {
 #define SYS_FS_FATFS_STRING					"FATFS"
 #define SYS_FS_MPFS_STRING					"MPFS2"
 
+/*** USB Driver Configuration ***/
 
-/* MPLAB Harmony Net Presentation Layer Definitions*/
-#define NET_PRES_NUM_INSTANCE 1
-#define NET_PRES_NUM_SOCKETS 10
+
+/* Enables Device Support */
+#define DRV_USBHS_DEVICE_SUPPORT      true
+
+/* Disable Device Support */
+#define DRV_USBHS_HOST_SUPPORT      false
+
+/* Maximum USB driver instances */
+#define DRV_USBHS_INSTANCES_NUMBER    1
+
+
+/* Interrupt mode enabled */
+#define DRV_USBHS_INTERRUPT_MODE      true
+
+
+/* Number of Endpoints used */
+#define DRV_USBHS_ENDPOINTS_NUMBER    3
+
+
+
+
+/*** USB Device Stack Configuration ***/
+
+
+
+
+
+
+
+
+
+
+/* The USB Device Layer will not initialize the USB Driver */
+#define USB_DEVICE_DRIVER_INITIALIZE_EXPLICIT
+
+/* Maximum device layer instances */
+#define USB_DEVICE_INSTANCES_NUMBER     1
+
+/* EP0 size in bytes */
+#define USB_DEVICE_EP0_BUFFER_SIZE      64
+
+
+
+
+
+
+
+
+
+
+/* Maximum instances of CDC function driver */
+#define USB_DEVICE_CDC_INSTANCES_NUMBER     1
+
+
+
+
+
+
+
+
+
+
+/* CDC Transfer Queue Size for both read and
+   write. Applicable to all instances of the
+   function driver */
+#define USB_DEVICE_CDC_QUEUE_DEPTH_COMBINED 3
+
+
 
 // *****************************************************************************
 /* BSP Configuration Options

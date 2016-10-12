@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -154,6 +154,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>diskio.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/hardware_access</Path>
+      </File>
+      <File>
         <Name>projdefs.h</Name>
         <Path>Header Files/FreeRTOS</Path>
       </File>
@@ -258,6 +262,10 @@
         <Path>Source Files/FreeRTOS</Path>
       </File>
       <File>
+        <Name>ff.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
+      </File>
+      <File>
         <Name>drv_usbhs.c</Name>
         <Path>Source Files/framework/driver/usb/usbhs/src/dynamic</Path>
       </File>
@@ -308,6 +316,10 @@
       <File>
         <Name>sys_tmr_local.h</Name>
         <Path>Header Files/framework/system/tmr/src</Path>
+      </File>
+      <File>
+        <Name>ffconf.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
       </File>
       <File>
         <Name>mpfs_local.h</Name>
@@ -386,6 +398,10 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -457,11 +473,6 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ec_sk_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>nvm_disk_images.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ec_sk_int_dyn/framework/system/fs</Path>
         <Checksum>B00B90E021F15FFD6B0B1B7F2D0650A5</Checksum>
@@ -469,7 +480,7 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ec_sk_int_dyn/bsp</Path>
-        <Checksum>58EAEDBE2CD910B44926FF7804862569</Checksum>
+        <Checksum>156E342D3F35E13F397868F08F6E4165</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -484,7 +495,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ec_sk_int_dyn/bsp</Path>
-        <Checksum>BF5CEF6A99D463F4E66F970D3607E3C7</Checksum>
+        <Checksum>8C6E544A27BABCB77D57506DCBEFCFE8</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -508,17 +519,17 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ec_sk_int_dyn/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ec_sk_int_dyn</Path>
-        <Checksum>D311CF8CBEF52C0A50FD7187028A5508</Checksum>
+        <Checksum>ADD7ADD2EE21AA59A532C317FC9566CC</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ec_sk_int_dyn</Path>
-        <Checksum>AE3278D5C6845E4FDE765813F33A3314</Checksum>
+        <Checksum>6B2FA245C42CF01BC2F8AE0D4C43F220</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -544,7 +555,6 @@
       <C32>
         <Include value="D:\git_usb\usb\apps\rtos\freertos\cdc_msd_basic\firmware\src"/>
         <Include value="D:\git_usb\usb\apps\rtos\freertos\cdc_msd_basic\firmware\src\system_config\pic32mz_ec_sk_int_dyn"/>
-        <Include value="D:\git_usb\usb\apps\rtos\freertos\cdc_msd_basic\firmware\src\pic32mz_ec_sk_int_dyn"/>
         <Include value="D:\git_usb\usb\framework"/>
         <Include value="D:\git_usb\usb\apps\rtos\freertos\cdc_msd_basic\firmware\src\system_config\pic32mz_ec_sk_int_dyn\framework"/>
         <Include value="../src/system_config/pic32mz_ec_sk_int_dyn/bsp"/>

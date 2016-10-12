@@ -647,6 +647,32 @@ void MPFSClose ( MPFS_HANDLE hMPFS )
 	Data Reading Functions
   ***************************************************************************/
 
+bool MPFSDiskRead
+(
+    uint16_t diskNum,
+    uint8_t *destination,
+    uint8_t *source,
+    const uint32_t nBytes
+)
+{
+    SYS_FS_MEDIA_BLOCK_COMMAND_HANDLE commandHandle = SYS_FS_MEDIA_BLOCK_COMMAND_HANDLE_INVALID;
+    SYS_FS_MEDIA_COMMAND_STATUS commandStatus = SYS_FS_MEDIA_COMMAND_UNKNOWN;
+
+    commandHandle = SYS_FS_MEDIA_MANAGER_Read (diskNum, destination, source, nBytes);
+    if (commandHandle == SYS_FS_MEDIA_BLOCK_COMMAND_HANDLE_INVALID)
+    {
+        return false;
+    }
+
+    do 
+    {
+        SYS_FS_MEDIA_MANAGER_TransferTask (mpfsObject.diskNumber);
+        commandStatus = SYS_FS_MEDIA_MANAGER_CommandStatusGet(mpfsObject.diskNumber, commandHandle);
+    } while (commandStatus == SYS_FS_MEDIA_COMMAND_IN_PROGRESS);
+
+    return (commandStatus == SYS_FS_MEDIA_COMMAND_COMPLETED) ? true : false;
+}
+
 /*****************************************************************************
   Function:
 	bool MPFSGet ( MPFS_HANDLE hMPFS, uint8_t* c )
@@ -691,14 +717,17 @@ bool MPFSGet ( MPFS_HANDLE hMPFS, uint8_t* c )
         /* failed */
         //return false;
     }
-    SYS_FS_MEDIA_MANAGER_Read (mpfsObject.diskNumber, c, ((uint8_t *) MPFSStubs[hMPFS].basePointer + MPFSStubs[hMPFS].addr ), 1);
 
-    MPFSStubs[hMPFS].addr++;
-    MPFSStubs[hMPFS].bytesRem--;
+    if (MPFSDiskRead (mpfsObject.diskNumber, c, ((uint8_t *) MPFSStubs[hMPFS].basePointer + MPFSStubs[hMPFS].addr ), 1) == true)
+    {
+        MPFSStubs[hMPFS].addr++;
+        MPFSStubs[hMPFS].bytesRem--;
 
-    return true;
+        return true;
+    }
+
+    return false;
 }
-
 
 /*****************************************************************************
   Function:
@@ -745,18 +774,15 @@ uint32_t MPFSGetArray ( MPFS_HANDLE hMPFS, uint8_t* cData, uint32_t wLen )
     }
 
     /* Read the data */
-    SYS_FS_MEDIA_MANAGER_Read (mpfsObject.diskNumber, cData,
-            ((uint8_t *)MPFSStubs[hMPFS].basePointer + MPFSStubs[hMPFS].addr), wLen );
+    if (MPFSDiskRead (mpfsObject.diskNumber, cData, ((uint8_t *)MPFSStubs[hMPFS].basePointer + MPFSStubs[hMPFS].addr), wLen) == true)
     {
-        /* failed */
-        //return 0;
+        MPFSStubs[hMPFS].addr += wLen;
+        MPFSStubs[hMPFS].bytesRem -= wLen;
+        return wLen;
     }
 
-    MPFSStubs[hMPFS].addr += wLen;
-    MPFSStubs[hMPFS].bytesRem -= wLen;
-    return wLen;
+    return 0;
 }
-
 
 /*****************************************************************************
   Function:

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -142,6 +146,10 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
+        <Name>smtpc.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
         <Name>zero_conf_helper.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
@@ -182,12 +190,12 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
-        <Name>snmpv3_private.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>ipv4.h</Name>
         <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>snmpv3_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>inflate.c</Name>
@@ -240,6 +248,10 @@
       <File>
         <Name>internal.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>smtpc_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>dns_manager.h</Name>
@@ -322,15 +334,15 @@
         <Path>Header Files/framework/system/devcon</Path>
       </File>
       <File>
+        <Name>ipv4_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>nbns.h</Name>
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>tcpip_packet.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
-        <Name>ipv4_manager.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
@@ -542,6 +554,10 @@
         <Path>Header Files/framework/driver/enc28j60/impl</Path>
       </File>
       <File>
+        <Name>igmp_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>usb_cdc.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
@@ -698,6 +714,10 @@
         <Path>Header Files/framework/driver/ethmac/src/dynamic</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>tcpip_announce.c</Name>
         <Path>Source Files/framework/tcpip/src</Path>
       </File>
@@ -736,6 +756,10 @@
       <File>
         <Name>crc32.h</Name>
         <Path>Header Files/framework/crypto/src/zlib-1.2.7</Path>
+      </File>
+      <File>
+        <Name>igmp.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>md2.h</Name>
@@ -810,6 +834,10 @@
         <Path>Source Files/framework/driver/enc28j60/initialization_state</Path>
       </File>
       <File>
+        <Name>icmp.c</Name>
+        <Path>Source Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>sha.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
@@ -820,6 +848,10 @@
       <File>
         <Name>drv_tmr_local.h</Name>
         <Path>Header Files/framework/driver/tmr/src</Path>
+      </File>
+      <File>
+        <Name>igmp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>infback.c</Name>
@@ -956,6 +988,10 @@
       <File>
         <Name>drv_ethphy.c</Name>
         <Path>Source Files/framework/driver/ethphy</Path>
+      </File>
+      <File>
+        <Name>smtpc_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>sys_devcon.c</Name>
@@ -1474,7 +1510,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk2_enc28j60</Path>
-        <Checksum>496F2C71CCFFAF5245CEBDE0DC6BBBB9</Checksum>
+        <Checksum>0E70EA1D1D64B6454B584F2F19B273F8</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -1493,7 +1529,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk2_enc28j60/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_master_dma_tasks.c</Name>
@@ -1513,7 +1549,7 @@
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk2_enc28j60</Path>
-        <Checksum>BDFFDF586EE2FCD8CB7D86C3AE704AF1</Checksum>
+        <Checksum>23E22F1E99C69750B3B85C7727FC173E</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -1523,7 +1559,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk2_enc28j60</Path>
-        <Checksum>44C0F6EDB67B225A3D81B2493C005E6D</Checksum>
+        <Checksum>B2FFA01D33258D99FDAD6042EC817F74</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -1532,7 +1568,7 @@
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk2_enc28j60/framework/driver/spi/dynamic</Path>
-        <Checksum>807B9679FB38F311FB41FF123A08A29C</Checksum>
+        <Checksum>C3FB9F5A018E50AC62E46A891FC0AF81</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -1542,7 +1578,7 @@
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk2_enc28j60/framework/driver/spi/dynamic</Path>
-        <Checksum>78DF15E856DB8920B4C9CAB971647BD1</Checksum>
+        <Checksum>EFE4DF9B726E3F205AB25C6679ED349D</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -1554,11 +1590,6 @@
         <Path>Header Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_eth_sk2_enc28j60/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk2_enc28j60</Path>
         <Checksum>1141FA9E2AF6081E1F74C28C69F7C5A1</Checksum>
@@ -1566,10 +1597,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="F:\git\net\apps\tcpip\tcpip_tcp_client\firmware\src"/>
-        <Include value="F:\git\net\apps\tcpip\tcpip_tcp_client\firmware\src\system_config\pic32mx_eth_sk2_enc28j60"/>
-        <Include value="F:\git\net\framework"/>
-        <Include value="F:\git\net\apps\tcpip\tcpip_tcp_client\firmware\src\system_config\pic32mx_eth_sk2_enc28j60\framework"/>
+        <Include value="F:\Harmony\TCPIP NET REPO\net\apps\tcpip\tcpip_tcp_client\firmware\src"/>
+        <Include value="F:\Harmony\TCPIP NET REPO\net\apps\tcpip\tcpip_tcp_client\firmware\src\system_config\pic32mx_eth_sk2_enc28j60"/>
+        <Include value="F:\Harmony\TCPIP NET REPO\net\framework"/>
+        <Include value="F:\Harmony\TCPIP NET REPO\net\apps\tcpip\tcpip_tcp_client\firmware\src\system_config\pic32mx_eth_sk2_enc28j60\framework"/>
         <Include value="../src/system_config/pic32mx_eth_sk2_enc28j60/bsp"/>
       </C32>
     </CompilerItems>

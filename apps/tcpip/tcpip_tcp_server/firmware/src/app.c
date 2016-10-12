@@ -277,6 +277,7 @@ void APP_Tasks ( void )
                 }
 
                 // Transfer the data out of our local processing buffer and into the TCP TX FIFO.
+                SYS_CONSOLE_PRINT("Server Sending %s\r\n", AppBuffer);
                 TCPIP_TCP_ArrayPut(appData.socket, AppBuffer, wCurrentChunk);
 
                 // No need to perform any flush.  TCP data in TX FIFO will automatically transmit itself after it accumulates for a while.  If you want to decrease latency (at the expense of wasting network bandwidth on TCP overhead), perform and explicit flush via the TCPFlush() API.

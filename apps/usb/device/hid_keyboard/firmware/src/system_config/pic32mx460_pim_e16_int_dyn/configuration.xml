@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<pic32mx460_pim_e16_int_dyn version="2.0.0.8">
+<pic32mx460_pim_e16_int_dyn version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -46,6 +46,74 @@
   <Manifest>
     <Files>
       <File>
+        <Name>drv_usbfs_local.h</Name>
+        <Path>Header Files/framework/driver/usb/usbfs/src</Path>
+      </File>
+      <File>
+        <Name>driver_common.h</Name>
+        <Path>Header Files/framework/driver</Path>
+      </File>
+      <File>
+        <Name>drv_usbhs.h</Name>
+        <Path>Header Files/framework/driver/usb/usbhs</Path>
+      </File>
+      <File>
+        <Name>drv_usbfs_static.h</Name>
+        <Path>Header Files/framework/driver/usb/usbfs</Path>
+      </File>
+      <File>
+        <Name>usb_device_local.h</Name>
+        <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
+        <Name>usb_chapter_9.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>driver.h</Name>
+        <Path>Header Files/framework/driver</Path>
+      </File>
+      <File>
+        <Name>sys_int_pic32.c</Name>
+        <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>usb_device.c</Name>
+        <Path>Source Files/framework/usb/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>usb_device_hid.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_clk.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>usb_device.h</Name>
+        <Path>Header Files/framework/usb</Path>
+      </File>
+      <File>
+        <Name>sys_int_private.h</Name>
+        <Path>Header Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>system.h</Name>
+        <Path>Header Files/framework/system</Path>
+      </File>
+      <File>
+        <Name>drv_usbfs.h</Name>
+        <Path>Header Files/framework/driver/usb/usbfs</Path>
+      </File>
+      <File>
+        <Name>sys_int.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>drv_usb.h</Name>
+        <Path>Header Files/framework/driver/usb</Path>
+      </File>
+      <File>
         <Name>osal_impl_basic.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -56,14 +124,6 @@
       <File>
         <Name>drv_usbfs.c</Name>
         <Path>Source Files/framework/driver/usb/usbfs/src/dynamic</Path>
-      </File>
-      <File>
-        <Name>drv_usbfs_local.h</Name>
-        <Path>Header Files/framework/driver/usb/usbfs/src</Path>
-      </File>
-      <File>
-        <Name>driver_common.h</Name>
-        <Path>Header Files/framework/driver</Path>
       </File>
       <File>
         <Name>sys_devcon.c</Name>
@@ -86,20 +146,8 @@
         <Path>Header Files/framework/usb/src</Path>
       </File>
       <File>
-        <Name>drv_usbhs.h</Name>
-        <Path>Header Files/framework/driver/usb/usbhs</Path>
-      </File>
-      <File>
-        <Name>drv_usbfs_static.h</Name>
-        <Path>Header Files/framework/driver/usb/usbfs</Path>
-      </File>
-      <File>
         <Name>usb_host_hub_interface.h</Name>
         <Path>Header Files/framework/usb</Path>
-      </File>
-      <File>
-        <Name>usb_device_local.h</Name>
-        <Path>Header Files/framework/usb/src</Path>
       </File>
       <File>
         <Name>usb_common.h</Name>
@@ -114,14 +162,6 @@
         <Path>Source Files/framework/usb/src/dynamic</Path>
       </File>
       <File>
-        <Name>usb_chapter_9.h</Name>
-        <Path>Header Files/framework/usb</Path>
-      </File>
-      <File>
-        <Name>driver.h</Name>
-        <Path>Header Files/framework/driver</Path>
-      </File>
-      <File>
         <Name>usb_hub.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
@@ -134,10 +174,6 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
-        <Name>sys_int_pic32.c</Name>
-        <Path>Source Files/framework/system/int/src</Path>
-      </File>
-      <File>
         <Name>usb_device_mapping.h</Name>
         <Path>Header Files/framework/usb/src</Path>
       </File>
@@ -146,15 +182,7 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
-        <Name>usb_device.c</Name>
-        <Path>Source Files/framework/usb/src/dynamic</Path>
-      </File>
-      <File>
-        <Name>usb_device_hid.h</Name>
-        <Path>Header Files/framework/usb</Path>
-      </File>
-      <File>
-        <Name>sys_clk.h</Name>
+        <Name>sys_clk_compatibility.h</Name>
         <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
@@ -174,20 +202,8 @@
         <Path>Header Files/framework/system/int</Path>
       </File>
       <File>
-        <Name>usb_device.h</Name>
-        <Path>Header Files/framework/usb</Path>
-      </File>
-      <File>
-        <Name>sys_int_private.h</Name>
-        <Path>Header Files/framework/system/int/src</Path>
-      </File>
-      <File>
         <Name>sys_devcon.h</Name>
         <Path>Header Files/framework/system/devcon</Path>
-      </File>
-      <File>
-        <Name>system.h</Name>
-        <Path>Header Files/framework/system</Path>
       </File>
       <File>
         <Name>drv_usbfs_device.c</Name>
@@ -206,10 +222,6 @@
         <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
-        <Name>drv_usbfs.h</Name>
-        <Path>Header Files/framework/driver/usb/usbfs</Path>
-      </File>
-      <File>
         <Name>sys_devcon_local.h</Name>
         <Path>Header Files/framework/system/devcon/src</Path>
       </File>
@@ -222,16 +234,8 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
-        <Name>sys_int.h</Name>
-        <Path>Header Files/framework/system/int</Path>
-      </File>
-      <File>
         <Name>drv_usbfs_mapping.h</Name>
         <Path>Header Files/framework/driver/usb/usbfs</Path>
-      </File>
-      <File>
-        <Name>drv_usb.h</Name>
-        <Path>Header Files/framework/driver/usb</Path>
       </File>
       <File>
         <Name>usb_host_client_driver.h</Name>
@@ -244,14 +248,9 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx460_pim_e16_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx460_pim_e16_int_dyn/bsp</Path>
-        <Checksum>D52ED5C0F5AB6EF16088E5B3CC4BF526</Checksum>
+        <Checksum>279268E87A8F3A911299DDE608943E2E</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -280,12 +279,12 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx460_pim_e16_int_dyn</Path>
-        <Checksum>5902D934BE2F1D8885B79305A30F5AE9</Checksum>
+        <Checksum>CBEC041CD0F7819F3B435AE9D55557AE</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx460_pim_e16_int_dyn</Path>
-        <Checksum>8BFEB0687CAB513985673EB362AFB69A</Checksum>
+        <Checksum>377E33D6FDFA896ED7F0B25BB10BA69F</Checksum>
         <ProjectFileChecksum>557FB388837A4F8247382FC2F57CF4AB</ProjectFileChecksum>
       </Template>
       <Template>
@@ -295,7 +294,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx460_pim_e16_int_dyn/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -305,14 +304,13 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx460_pim_e16_int_dyn/bsp</Path>
-        <Checksum>FF7371D6B420C9E25C536BAC6F2780EC</Checksum>
+        <Checksum>7023AAE2CD6AC676F2592AF882ABD641</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
         <Include value="E:\GIT\ISP_GIT\Repository\usb\apps\usb\device\hid_keyboard\firmware\src"/>
         <Include value="E:\GIT\ISP_GIT\Repository\usb\apps\usb\device\hid_keyboard\firmware\src\system_config\pic32mx460_pim_e16_int_dyn"/>
-        <Include value="E:\GIT\ISP_GIT\Repository\usb\apps\usb\device\hid_keyboard\firmware\src\pic32mx460_pim_e16_int_dyn"/>
         <Include value="E:\GIT\ISP_GIT\Repository\usb\framework"/>
         <Include value="E:\GIT\ISP_GIT\Repository\usb\apps\usb\device\hid_keyboard\firmware\src\system_config\pic32mx460_pim_e16_int_dyn\framework"/>
         <Include value="../src/system_config/pic32mx460_pim_e16_int_dyn/bsp"/>

@@ -76,7 +76,7 @@ PLIB_TEMPLATE bool NVM_ExistsEEPROMAddressControl_Default( NVM_MODULE_ID index )
 PLIB_TEMPLATE bool NVM_EEPROMAddress_Default( NVM_MODULE_ID index , uint32_t address )
 {
     uint32_t base_bits;
-    base_bits = (address & 0x0003u)
+    base_bits = (address & 0x0003u);
     
     if((0u != base_bits) || (address < 0x0000u) || (address > 0x0FFCu))
     {

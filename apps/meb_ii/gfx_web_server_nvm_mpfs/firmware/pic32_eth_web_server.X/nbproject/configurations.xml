@@ -6,19 +6,25 @@
                    projectFiles="true">
       <logicalFolder name="app" displayName="app" projectFiles="true">
         <logicalFolder name="f1" displayName="system_config" projectFiles="true">
-          <logicalFolder name="f2" displayName="pic32mz_ef_sk_meb2" projectFiles="true">
+          <logicalFolder name="f1" displayName="pic32mz_ef_sk_meb2" projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_ef_sk_meb2/bsp/bsp.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/sys_clk_static.h</itemPath>
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.h</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
                 </logicalFolder>
-                <logicalFolder name="f2" displayName="dma" projectFiles="true">
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
+                <logicalFolder name="f1" displayName="dma" projectFiles="true">
                   <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/dma/sys_dma_static.h</itemPath>
                 </logicalFolder>
-                <logicalFolder name="f3" displayName="fs" projectFiles="true">
+                <logicalFolder name="f2" displayName="fs" projectFiles="true">
                   <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/fs/nvm_disk_images.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
@@ -50,9 +56,8 @@
               <itemPath>../../../../../framework/crypto/src/zlib-1.2.7/zutil.h</itemPath>
               <itemPath>../../../../../framework/crypto/src/zlib-1.2.7/gzguts.h</itemPath>
             </logicalFolder>
-            <itemPath>../../../../../framework/crypto/src/random.h</itemPath>
-            <itemPath>../../../../../framework/crypto/src/arc4.h</itemPath>
             <itemPath>../../../../../framework/crypto/src/ecc.h</itemPath>
+            <itemPath>../../../../../framework/crypto/src/arc4.h</itemPath>
             <itemPath>../../../../../framework/crypto/src/pwdbased.h</itemPath>
             <itemPath>../../../../../framework/crypto/src/tfm.h</itemPath>
             <itemPath>../../../../../framework/crypto/src/asn.h</itemPath>
@@ -66,6 +71,7 @@
             <itemPath>../../../../../framework/crypto/src/hmac.h</itemPath>
             <itemPath>../../../../../framework/crypto/src/hash.h</itemPath>
             <itemPath>../../../../../framework/crypto/src/compress.h</itemPath>
+            <itemPath>../../../../../framework/crypto/src/random.h</itemPath>
             <itemPath>../../../../../framework/crypto/src/coding.h</itemPath>
             <itemPath>../../../../../framework/crypto/src/error-crypt.h</itemPath>
             <itemPath>../../../../../framework/crypto/src/integer.h</itemPath>
@@ -109,14 +115,14 @@
           <logicalFolder name="f2" displayName="ethphy" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
+                <itemPath>../../../../../framework/driver/ethphy/src/dynamic/drv_extphy_regs.h</itemPath>
                 <itemPath>../../../../../framework/driver/ethphy/src/dynamic/drv_extphy_dp83640.h</itemPath>
                 <itemPath>../../../../../framework/driver/ethphy/src/dynamic/drv_extphy_dp83848.h</itemPath>
                 <itemPath>../../../../../framework/driver/ethphy/src/dynamic/drv_extphy_ip101gr.h</itemPath>
                 <itemPath>../../../../../framework/driver/ethphy/src/dynamic/drv_extphy_smsc8700.h</itemPath>
                 <itemPath>../../../../../framework/driver/ethphy/src/dynamic/drv_extphy_smsc8720.h</itemPath>
-                <itemPath>../../../../../framework/driver/ethphy/src/dynamic/drv_extphy_smsc9303.h</itemPath>
-                <itemPath>../../../../../framework/driver/ethphy/src/dynamic/drv_extphy_regs.h</itemPath>
                 <itemPath>../../../../../framework/driver/ethphy/src/dynamic/drv_extphy_smsc8740.h</itemPath>
+                <itemPath>../../../../../framework/driver/ethphy/src/dynamic/drv_extphy_smsc9303.h</itemPath>
               </logicalFolder>
               <itemPath>../../../../../framework/driver/ethphy/src/drv_ethphy_local.h</itemPath>
             </logicalFolder>
@@ -124,9 +130,6 @@
           </logicalFolder>
           <logicalFolder name="f3" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="controller" projectFiles="true">
-              <logicalFolder name="f1" displayName="lcc" projectFiles="true">
-                <itemPath>../../../../../framework/driver/gfx/controller/lcc/drv_gfx_lcc.h</itemPath>
-              </logicalFolder>
               <itemPath>../../../../../framework/driver/gfx/controller/drv_gfx_controller.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/driver/gfx/gfx_common.h</itemPath>
@@ -138,15 +141,6 @@
             </logicalFolder>
             <itemPath>../../../../../framework/driver/nvm/drv_nvm.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f7" displayName="pmp" projectFiles="true">
-            <logicalFolder name="f1" displayName="config" projectFiles="true">
-              <itemPath>../../../../../framework/driver/pmp/config/drv_pmp_config.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f2" displayName="src" projectFiles="true">
-              <itemPath>../../../../../framework/driver/pmp/src/drv_pmp_local.h</itemPath>
-            </logicalFolder>
-            <itemPath>../../../../../framework/driver/pmp/drv_pmp.h</itemPath>
-          </logicalFolder>
           <logicalFolder name="f5" displayName="tmr" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/driver/tmr/src/drv_tmr_variant_mapping.h</itemPath>
@@ -156,7 +150,7 @@
             <itemPath>../../../../../framework/driver/tmr/drv_tmr_mapping.h</itemPath>
             <itemPath>../../../../../framework/driver/tmr/drv_tmr_compatibility.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f6" displayName="usb" projectFiles="true">
+          <logicalFolder name="f7" displayName="usb" projectFiles="true">
             <logicalFolder name="f1" displayName="usbhs" projectFiles="true">
               <logicalFolder name="f1" displayName="src" projectFiles="true">
                 <itemPath>../../../../../framework/driver/usb/usbhs/src/drv_usbhs_local.h</itemPath>
@@ -166,7 +160,7 @@
             </logicalFolder>
             <itemPath>../../../../../framework/driver/usb/drv_usb.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f8" displayName="wifi" projectFiles="true">
+          <logicalFolder name="f6" displayName="wifi" projectFiles="true">
             <logicalFolder name="f1" displayName="mrf24w" projectFiles="true">
               <itemPath>../../../../../framework/driver/wifi/mrf24w/drv_wifi.h</itemPath>
             </logicalFolder>
@@ -174,7 +168,7 @@
           <itemPath>../../../../../framework/driver/driver.h</itemPath>
           <itemPath>../../../../../framework/driver/driver_common.h</itemPath>
         </logicalFolder>
-        <logicalFolder name="f3" displayName="gfx" projectFiles="true">
+        <logicalFolder name="f4" displayName="gfx" projectFiles="true">
           <itemPath>../../../../../framework/gfx/gfx.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_primitive.h</itemPath>
           <itemPath>../../../../../framework/gfx/gfx_colors.h</itemPath>
@@ -207,15 +201,15 @@
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/net/pres/src/net_pres_local.h</itemPath>
             </logicalFolder>
-            <itemPath>../../../../../framework/net/pres/net_pres.h</itemPath>
             <itemPath>../../../../../framework/net/pres/net_pres_certstore.h</itemPath>
             <itemPath>../../../../../framework/net/pres/net_pres_encryptionproviderapi.h</itemPath>
             <itemPath>../../../../../framework/net/pres/net_pres_socketapi.h</itemPath>
             <itemPath>../../../../../framework/net/pres/net_pres_transportapi.h</itemPath>
             <itemPath>../../../../../framework/net/pres/net_pres_socketapiconversion.h</itemPath>
+            <itemPath>../../../../../framework/net/pres/net_pres.h</itemPath>
           </logicalFolder>
         </logicalFolder>
-        <logicalFolder name="f9" displayName="osal" projectFiles="true">
+        <logicalFolder name="f5" displayName="osal" projectFiles="true">
           <logicalFolder name="f1" displayName="src" projectFiles="true">
             <itemPath>../../../../../framework/osal/src/osal_impl_basic.h</itemPath>
             <itemPath>../../../../../framework/osal/src/osal_impl_none.h</itemPath>
@@ -234,46 +228,47 @@
           <itemPath>../../../../../framework/peripheral/peripheral_common.h</itemPath>
           <itemPath>../../../../../framework/peripheral/peripheral_common_32bit.h</itemPath>
         </logicalFolder>
-        <logicalFolder name="f4" displayName="system" projectFiles="true">
-          <logicalFolder name="f13" displayName="clk" projectFiles="true">
+        <logicalFolder name="f3" displayName="system" projectFiles="true">
+          <logicalFolder name="f2" displayName="clk" projectFiles="true">
             <itemPath>../../../../../framework/system/clk/sys_clk.h</itemPath>
+            <itemPath>../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
             <itemPath>../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f1" displayName="command" projectFiles="true">
+          <logicalFolder name="f3" displayName="command" projectFiles="true">
             <itemPath>../../../../../framework/system/command/sys_command.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="common" projectFiles="true">
+          <logicalFolder name="f4" displayName="common" projectFiles="true">
             <itemPath>../../../../../framework/system/common/sys_common.h</itemPath>
             <itemPath>../../../../../framework/system/common/sys_module.h</itemPath>
             <itemPath>../../../../../framework/system/common/sys_buffer.h</itemPath>
             <itemPath>../../../../../framework/system/common/sys_queue.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="console" projectFiles="true">
+          <logicalFolder name="f5" displayName="console" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/console/src/sys_console_local.h</itemPath>
               <itemPath>../../../../../framework/system/console/src/sys_console_usb_cdc_local.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/system/console/sys_console.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f4" displayName="debug" projectFiles="true">
+          <logicalFolder name="f6" displayName="debug" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/debug/src/sys_debug_local.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/system/debug/sys_debug.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f5" displayName="devcon" projectFiles="true">
+          <logicalFolder name="f7" displayName="devcon" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/devcon/src/sys_devcon_local.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/system/devcon/sys_devcon.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f6" displayName="dma" projectFiles="true">
+          <logicalFolder name="f8" displayName="dma" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/dma/src/sys_dma_local.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/system/dma/sys_dma.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f7" displayName="fs" projectFiles="true">
+          <logicalFolder name="f1" displayName="fs" projectFiles="true">
             <logicalFolder name="f2" displayName="fat_fs" projectFiles="true">
               <logicalFolder name="f1" displayName="src" projectFiles="true">
                 <logicalFolder name="f1" displayName="file_system" projectFiles="true">
@@ -298,30 +293,30 @@
             <itemPath>../../../../../framework/system/fs/sys_fs.h</itemPath>
             <itemPath>../../../../../framework/system/fs/sys_fs_media_manager.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f8" displayName="int" projectFiles="true">
+          <logicalFolder name="f9" displayName="int" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/int/src/sys_int_private.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/system/int/sys_int.h</itemPath>
             <itemPath>../../../../../framework/system/int/sys_int_mapping.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f9" displayName="ports" projectFiles="true">
+          <logicalFolder name="f10" displayName="ports" projectFiles="true">
             <itemPath>../../../../../framework/system/ports/sys_ports.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f10" displayName="random" projectFiles="true">
+          <logicalFolder name="f11" displayName="random" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/random/src/sys_random_local.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/system/random/sys_random.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f11" displayName="reset" projectFiles="true">
+          <logicalFolder name="f12" displayName="reset" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/reset/src/sys_reset_local.h</itemPath>
               <itemPath>../../../../../framework/system/reset/src/sys_reset_mapping.h</itemPath>
             </logicalFolder>
             <itemPath>../../../../../framework/system/reset/sys_reset.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f12" displayName="tmr" projectFiles="true">
+          <logicalFolder name="f13" displayName="tmr" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/tmr/src/sys_tmr_local.h</itemPath>
             </logicalFolder>
@@ -329,8 +324,8 @@
           </logicalFolder>
           <itemPath>../../../../../framework/system/system.h</itemPath>
         </logicalFolder>
-        <logicalFolder name="f5" displayName="tcpip" projectFiles="true">
-          <logicalFolder name="f3" displayName="src" projectFiles="true">
+        <logicalFolder name="f6" displayName="tcpip" projectFiles="true">
+          <logicalFolder name="f1" displayName="src" projectFiles="true">
             <logicalFolder name="f2" displayName="common" projectFiles="true">
               <itemPath>../../../../../framework/tcpip/src/common/sys_fs_wrapper.h</itemPath>
               <itemPath>../../../../../framework/tcpip/src/common/helpers.h</itemPath>
@@ -344,32 +339,8 @@
               <itemPath>../../../../../framework/tcpip/src/crypto/aes_ecb_pic32.h</itemPath>
               <itemPath>../../../../../framework/tcpip/src/crypto/aes_ofb.h</itemPath>
             </logicalFolder>
-            <itemPath>../../../../../framework/tcpip/src/dhcps_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/dhcps_private.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/dnss_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/dnss_private.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/ddns_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/ftp_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/ftp_private.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/http_net_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/http_net_private.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/icmp_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/tcpip_reboot_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/smtp_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/snmp_private.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/snmp_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/snmpv3_private.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/telnet_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/zero_conf_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/iperf_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/tftpc_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/tftpc_private.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/berkeley_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/dhcpv6_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/dhcpv6_private.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/lldp_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/lldp_private.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/lldp_tlv.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/ipv4_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/ipv4_private.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/ndp_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/ndp_private.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/ipv6_manager.h</itemPath>
@@ -384,16 +355,40 @@
             <itemPath>../../../../../framework/tcpip/src/arp_private.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/dhcp_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/dhcp_private.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/dhcps_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/dhcps_private.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/dns_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/dns_private.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/dnss_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/dnss_private.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/ddns_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/ftp_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/ftp_private.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/http_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/http_private.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/http_net_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/http_net_private.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/icmp_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/nbns_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/tcpip_reboot_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/smtp_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/smtpc_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/smtpc_private.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/snmp_private.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/snmp_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/snmpv3_private.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/sntp_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/telnet_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/zero_conf_helper.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/zero_conf_link_local_private.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/zero_conf_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/tcpip_announce_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/iperf_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/tcpip_commands_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/tftpc_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/tftpc_private.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/igmp_private.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/igmp_manager.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/hash_fnv.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/link_list.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/oahash.h</itemPath>
@@ -404,60 +399,63 @@
             <itemPath>../../../../../framework/tcpip/src/tcpip_packet.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/tcpip_private.h</itemPath>
             <itemPath>../../../../../framework/tcpip/src/tcpip_types.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/ipv4_manager.h</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/ipv4_private.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/berkeley_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/dhcpv6_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/dhcpv6_private.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/lldp_manager.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/lldp_private.h</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/lldp_tlv.h</itemPath>
           </logicalFolder>
+          <itemPath>../../../../../framework/tcpip/ipv4.h</itemPath>
           <itemPath>../../../../../framework/tcpip/ndp.h</itemPath>
           <itemPath>../../../../../framework/tcpip/ipv6.h</itemPath>
           <itemPath>../../../../../framework/tcpip/icmpv6.h</itemPath>
           <itemPath>../../../../../framework/tcpip/tcp.h</itemPath>
           <itemPath>../../../../../framework/tcpip/udp.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/tcpip_heap.h</itemPath>
           <itemPath>../../../../../framework/tcpip/arp.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/berkeley_api.h</itemPath>
           <itemPath>../../../../../framework/tcpip/tls.h</itemPath>
           <itemPath>../../../../../framework/tcpip/dhcp.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/dns.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/http.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/nbns.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/sntp.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/zero_conf_link_local.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/tcpip_helpers.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/tcpip_manager.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/tcpip.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/tcpip_common_ports.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/ipv4.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/tcpip_mac.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/tcpip_mac_object.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/tcpip_ethernet.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/tcpip_commands.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/tcpip_heap.h</itemPath>
-          <itemPath>../../../../../framework/tcpip/berkeley_api.h</itemPath>
           <itemPath>../../../../../framework/tcpip/dhcps.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/dns.h</itemPath>
           <itemPath>../../../../../framework/tcpip/dnss.h</itemPath>
           <itemPath>../../../../../framework/tcpip/ddns.h</itemPath>
           <itemPath>../../../../../framework/tcpip/ftp.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/http.h</itemPath>
           <itemPath>../../../../../framework/tcpip/http_net.h</itemPath>
           <itemPath>../../../../../framework/tcpip/icmp.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/nbns.h</itemPath>
           <itemPath>../../../../../framework/tcpip/smtp.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/smtpc.h</itemPath>
           <itemPath>../../../../../framework/tcpip/snmp.h</itemPath>
           <itemPath>../../../../../framework/tcpip/snmpv3.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/sntp.h</itemPath>
           <itemPath>../../../../../framework/tcpip/telnet.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/zero_conf_link_local.h</itemPath>
           <itemPath>../../../../../framework/tcpip/zero_conf_multicast_dns.h</itemPath>
           <itemPath>../../../../../framework/tcpip/iperf.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/tcpip_commands.h</itemPath>
           <itemPath>../../../../../framework/tcpip/tftpc.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/igmp.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/tcpip_helpers.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/tcpip_manager.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/tcpip.h</itemPath>
           <itemPath>../../../../../framework/tcpip/dhcpv6.h</itemPath>
           <itemPath>../../../../../framework/tcpip/lldp.h</itemPath>
           <itemPath>../../../../../framework/tcpip/tcpip_announce.h</itemPath>
           <itemPath>../../../../../framework/tcpip/tcpip_reboot.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/tcpip_common_ports.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/tcpip_mac.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/tcpip_mac_object.h</itemPath>
+          <itemPath>../../../../../framework/tcpip/tcpip_ethernet.h</itemPath>
         </logicalFolder>
-        <logicalFolder name="f6" displayName="usb" projectFiles="true">
+        <logicalFolder name="f9" displayName="usb" projectFiles="true">
           <logicalFolder name="f1" displayName="src" projectFiles="true">
             <itemPath>../../../../../framework/usb/src/usb_device_local.h</itemPath>
             <itemPath>../../../../../framework/usb/src/usb_device_mapping.h</itemPath>
             <itemPath>../../../../../framework/usb/src/usb_device_cdc_local.h</itemPath>
           </logicalFolder>
-          <itemPath>../../../../../framework/usb/usb_device.h</itemPath>
-          <itemPath>../../../../../framework/usb/usb_cdc.h</itemPath>
-          <itemPath>../../../../../framework/usb/usb_device_cdc.h</itemPath>
           <itemPath>../../../../../framework/usb/usb_common.h</itemPath>
           <itemPath>../../../../../framework/usb/usb_chapter_9.h</itemPath>
           <itemPath>../../../../../framework/usb/usb_hub.h</itemPath>
@@ -465,7 +463,10 @@
           <itemPath>../../../../../framework/usb/usb_host_client_driver.h</itemPath>
           <itemPath>../../../../../framework/usb/usb_host.h</itemPath>
           <itemPath>../../../../../framework/usb/usb_host_hub_interface.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_device.h</itemPath>
           <itemPath>../../../../../framework/usb/usb_billboard.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_cdc.h</itemPath>
+          <itemPath>../../../../../framework/usb/usb_device_cdc.h</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -477,15 +478,22 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="app" displayName="app" projectFiles="true">
-        <logicalFolder name="system_config"
-                       displayName="system_config"
-                       projectFiles="true">
-          <logicalFolder name="f2" displayName="pic32mz_ef_sk_meb2" projectFiles="true">
+        <logicalFolder name="f1" displayName="system_config" projectFiles="true">
+          <logicalFolder name="f1" displayName="pic32mz_ef_sk_meb2" projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_ef_sk_meb2/bsp/bsp.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+                  <logicalFolder name="f1" displayName="controller" projectFiles="true">
+                    <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                      <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc/drv_gfx_lcc_generic.c</itemPath>
+                    </logicalFolder>
+                  </logicalFolder>
+                </logicalFolder>
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
                 <logicalFolder name="f1" displayName="clk" projectFiles="true">
                   <logicalFolder name="f1" displayName="src" projectFiles="true">
                     <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c</itemPath>
@@ -529,10 +537,8 @@
               <itemPath>../../../../../framework/crypto/src/zlib-1.2.7/uncompr.c</itemPath>
               <itemPath>../../../../../framework/crypto/src/zlib-1.2.7/zutil.c</itemPath>
             </logicalFolder>
-            <itemPath>../../../../../framework/crypto/src/random.c</itemPath>
-            <itemPath>../../../../../framework/crypto/src/arc4.c</itemPath>
-            <itemPath>../../../../../framework/crypto/src/crypto.c</itemPath>
             <itemPath>../../../../../framework/crypto/src/ecc.c</itemPath>
+            <itemPath>../../../../../framework/crypto/src/arc4.c</itemPath>
             <itemPath>../../../../../framework/crypto/src/pwdbased.c</itemPath>
             <itemPath>../../../../../framework/crypto/src/tfm.c</itemPath>
             <itemPath>../../../../../framework/crypto/src/asn.c</itemPath>
@@ -546,6 +552,9 @@
             <itemPath>../../../../../framework/crypto/src/hmac.c</itemPath>
             <itemPath>../../../../../framework/crypto/src/hash.c</itemPath>
             <itemPath>../../../../../framework/crypto/src/compress.c</itemPath>
+            <itemPath>../../../../../framework/crypto/src/random.c</itemPath>
+            <itemPath>../../../../../framework/crypto/src/crypto.c</itemPath>
+            <itemPath>../../../../../framework/crypto/src/asm.c</itemPath>
             <itemPath>../../../../../framework/crypto/src/coding.c</itemPath>
             <itemPath>../../../../../framework/crypto/src/error.c</itemPath>
             <itemPath>../../../../../framework/crypto/src/integer.c</itemPath>
@@ -553,7 +562,6 @@
             <itemPath>../../../../../framework/crypto/src/memory.c</itemPath>
             <itemPath>../../../../../framework/crypto/src/misc.c</itemPath>
             <itemPath>../../../../../framework/crypto/src/port.c</itemPath>
-            <itemPath>../../../../../framework/crypto/src/asm.c</itemPath>
           </logicalFolder>
         </logicalFolder>
         <logicalFolder name="f2" displayName="driver" projectFiles="true">
@@ -565,16 +573,7 @@
             <itemPath>../../../../../framework/driver/ethphy/src/dynamic/drv_ethphy.c</itemPath>
             <itemPath>../../../../../framework/driver/ethphy/src/dynamic/drv_extphy_smsc8740.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f1" displayName="controller" projectFiles="true">
-              <logicalFolder name="f1" displayName="lcc" projectFiles="true">
-                <logicalFolder name="f1" displayName="src" projectFiles="true">
-                  <itemPath>../../../../../framework/driver/gfx/controller/lcc/src/drv_gfx_lcc_int_pe.c</itemPath>
-                </logicalFolder>
-              </logicalFolder>
-            </logicalFolder>
-          </logicalFolder>
-          <logicalFolder name="f4" displayName="nvm" projectFiles="true">
+          <logicalFolder name="f3" displayName="nvm" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
                 <itemPath>../../../../../framework/driver/nvm/src/dynamic/drv_nvm.c</itemPath>
@@ -582,14 +581,14 @@
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f5" displayName="tmr" projectFiles="true">
+          <logicalFolder name="f4" displayName="tmr" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
                 <itemPath>../../../../../framework/driver/tmr/src/dynamic/drv_tmr.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f6" displayName="usb" projectFiles="true">
+          <logicalFolder name="f5" displayName="usb" projectFiles="true">
             <logicalFolder name="f1" displayName="usbhs" projectFiles="true">
               <logicalFolder name="f1" displayName="src" projectFiles="true">
                 <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
@@ -604,11 +603,6 @@
           <logicalFolder name="f1" displayName="src" projectFiles="true">
             <itemPath>../../../../../framework/gfx/src/gfx.c</itemPath>
             <itemPath>../../../../../framework/gfx/src/gfx_primitive.c</itemPath>
-          </logicalFolder>
-        </logicalFolder>
-        <logicalFolder name="f7" displayName="src" projectFiles="true">
-          <logicalFolder name="f1" displayName="stack" projectFiles="true">
-            <itemPath>../../../../../framework/tcpip/src/dns.c</itemPath>
           </logicalFolder>
         </logicalFolder>
         <logicalFolder name="f4" displayName="system" projectFiles="true">
@@ -659,17 +653,17 @@
               <itemPath>../../../../../framework/system/int/src/sys_int_pic32.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f10" displayName="random" projectFiles="true">
+          <logicalFolder name="f9" displayName="random" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/random/src/sys_random.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f11" displayName="reset" projectFiles="true">
+          <logicalFolder name="f10" displayName="reset" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/reset/src/sys_reset.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f12" displayName="tmr" projectFiles="true">
+          <logicalFolder name="f11" displayName="tmr" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../../../../../framework/system/tmr/src/sys_tmr.c</itemPath>
             </logicalFolder>
@@ -683,6 +677,8 @@
             <logicalFolder name="f1" displayName="common" projectFiles="true">
               <itemPath>../../../../../framework/tcpip/src/common/helpers.c</itemPath>
             </logicalFolder>
+            <itemPath>../../../../../framework/tcpip/src/zero_conf_multicast_dns.c</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/ipv4.c</itemPath>
             <itemPath>../../../../../framework/tcpip/src/ndp.c</itemPath>
             <itemPath>../../../../../framework/tcpip/src/ipv6.c</itemPath>
             <itemPath>../../../../../framework/tcpip/src/icmpv6.c</itemPath>
@@ -692,6 +688,7 @@
             <itemPath>../../../../../framework/tcpip/src/tcpip_heap_internal.c</itemPath>
             <itemPath>../../../../../framework/tcpip/src/arp.c</itemPath>
             <itemPath>../../../../../framework/tcpip/src/dhcp.c</itemPath>
+            <itemPath>../../../../../framework/tcpip/src/dns.c</itemPath>
             <itemPath>../../../../../framework/tcpip/src/http.c</itemPath>
             <itemPath>../../../../../framework/tcpip/src/nbns.c</itemPath>
             <itemPath>../../../../../framework/tcpip/src/sntp.c</itemPath>
@@ -706,8 +703,6 @@
             <itemPath>../../../../../framework/tcpip/src/tcpip_manager.c</itemPath>
             <itemPath>../../../../../framework/tcpip/src/tcpip_notify.c</itemPath>
             <itemPath>../../../../../framework/tcpip/src/tcpip_packet.c</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/ipv4.c</itemPath>
-            <itemPath>../../../../../framework/tcpip/src/zero_conf_multicast_dns.c</itemPath>
           </logicalFolder>
         </logicalFolder>
         <logicalFolder name="f6" displayName="usb" projectFiles="true">
@@ -775,7 +770,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion></languageToolchainVersion>
+        <languageToolchainVersion>1.40</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -842,7 +837,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config/pic32mz_ef_sk_meb2;../src/pic32mz_ef_sk_meb2;../../../../../framework;../src/system_config/pic32mz_ef_sk_meb2/framework;../src/system_config/pic32mz_ef_sk_meb2/bsp"/>
+                  value="../src/pic32mz_ef_sk_meb2;../src;../src/system_config/pic32mz_ef_sk_meb2;../../../../../framework;../src/system_config/pic32mz_ef_sk_meb2/framework;../src/system_config/pic32mz_ef_sk_meb2/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>

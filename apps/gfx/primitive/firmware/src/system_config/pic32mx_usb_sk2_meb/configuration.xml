@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -582,6 +582,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -654,7 +658,7 @@
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_meb</Path>
-        <Checksum>D3C6E9D253EDCC2AD5F531A16C216021</Checksum>
+        <Checksum>054AE5273EC49FF207629D8F775D7160</Checksum>
       </Template>
       <Template>
         <Name>drv_pmp_static.h</Name>
@@ -679,21 +683,16 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_meb</Path>
-        <Checksum>6487C086A866D03697A8819202BE5D87</Checksum>
+        <Checksum>DD85A729C7CDA5A5AF259B70B97AE8EB</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_meb/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>drv_pmp_static.c</Name>
@@ -708,7 +707,7 @@
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb</Path>
-        <Checksum>075E9455A6560D873F179CC1DD7F6EA7</Checksum>
+        <Checksum>1F609514E35D06F46179A847F58B27D9</Checksum>
       </Template>
       <Template>
         <Name>sys_dma_static.h</Name>
@@ -718,7 +717,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_meb</Path>
-        <Checksum>9BD24B9D2C7EF4D128A44019A0172D76</Checksum>
+        <Checksum>9A02B8CE97863453FCD300C688E95516</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -728,12 +727,12 @@
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb</Path>
-        <Checksum>895B8685C7E3B069186312B7B70B2E2E</Checksum>
+        <Checksum>AC071AF59B2D11C5075684D154FA3C14</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_meb</Path>
-        <Checksum>D704C5DC53E977A3992362F3946FC510</Checksum>
+        <Checksum>2DC13EFA7E4A35D835A1CB4D2EF89E23</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -752,16 +751,15 @@
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_meb</Path>
-        <Checksum>8CDBDCB6B9CC062278DD1E988DE7044A</Checksum>
+        <Checksum>AA193CE5549BE5FAE0AC9CDFB62D7C0A</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/system_config/pic32mx_usb_sk2_meb"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/pic32mx_usb_sk2_meb"/>
-        <Include value="C:/Harmony/gfx2-1/framework"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/system_config/pic32mx_usb_sk2_meb/framework"/>
+        <Include value="C:/Harmony/v2_02/apps/gfx/primitive/firmware/src"/>
+        <Include value="C:/Harmony/v2_02/apps/gfx/primitive/firmware/src/system_config/pic32mx_usb_sk2_meb"/>
+        <Include value="C:/Harmony/v2_02/framework"/>
+        <Include value="C:/Harmony/v2_02/apps/gfx/primitive/firmware/src/system_config/pic32mx_usb_sk2_meb/framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_meb/bsp"/>
       </C32>
     </CompilerItems>

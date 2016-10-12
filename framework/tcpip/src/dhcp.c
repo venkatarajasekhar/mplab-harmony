@@ -350,7 +350,7 @@ static void _DHCPClose(TCPIP_NET_IF* pNetIf, bool disable, bool release)
         if(pClient->hDHCPSocket != INVALID_UDP_SOCKET)
         {
             if(release && pClient->smState >= TCPIP_DHCP_BOUND)
-            {
+            {   
                 _DHCPSend(pClient, pNetIf, TCPIP_DHCP_RELEASE_MESSAGE, 0);
             }
 

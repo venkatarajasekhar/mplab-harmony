@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -72,6 +76,10 @@
       <File>
         <Name>mpfs.h</Name>
         <Path>Header Files/framework/system/fs/mpfs</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -174,12 +182,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk_int_dyn/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>nvm_disk_images.h</Name>
@@ -208,7 +211,8 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk_int_dyn</Path>
-        <Checksum>410DFFEBCDB63BFCFEACD924A72C1D8F</Checksum>
+        <Checksum>92D5F36B9445A921B6262CA624EECD34</Checksum>
+        <ProjectFileChecksum>99D4C150026F3844F321981D1A57B892</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -223,17 +227,17 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk_int_dyn/bsp</Path>
-        <Checksum>179E817CC19FC69D5CCC381C2A12A7F8</Checksum>
+        <Checksum>A0108224C3C4EEE7788ED5D0A9AFF415</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk_int_dyn/bsp</Path>
-        <Checksum>CBF03DE5B6B19266BD4688E1798EF83F</Checksum>
+        <Checksum>39E17613B39B615BB8EDD13BE7647B97</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk_int_dyn</Path>
-        <Checksum>1D02444A4EFAD021A62C4C13FADC24B5</Checksum>
+        <Checksum>2D9238A5F39ED37B6DFF9696DCFEC935</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -244,7 +248,6 @@
       <C32>
         <Include value="D:\trunk_sbx\apps\fs\nvm_mpfs_single_disk\firmware\src"/>
         <Include value="D:\trunk_sbx\apps\fs\nvm_mpfs_single_disk\firmware\src\system_config\pic32mx_usb_sk_int_dyn"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_mpfs_single_disk\firmware\src\pic32mx_usb_sk_int_dyn"/>
         <Include value="D:\trunk_sbx\framework"/>
         <Include value="D:\trunk_sbx\apps\fs\nvm_mpfs_single_disk\firmware\src\system_config\pic32mx_usb_sk_int_dyn\framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk_int_dyn/bsp"/>

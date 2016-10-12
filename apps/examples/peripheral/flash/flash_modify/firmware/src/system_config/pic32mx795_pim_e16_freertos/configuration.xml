@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -36,6 +40,10 @@
       <File>
         <Name>port_asm.S</Name>
         <Path>Source Files/FreeRTOS/portable/MPLAB/PIC32MX</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>list.h</Name>
@@ -150,6 +158,10 @@
         <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -221,11 +233,6 @@
         <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>drv_flash_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_freertos/framework/driver/flash/src</Path>
         <Checksum>EE69DF17F926634F8ADAC7E9D07B3746</Checksum>
@@ -233,7 +240,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_freertos</Path>
-        <Checksum>2B048B7BA0779ABEAC3B0BB01293D573</Checksum>
+        <Checksum>5B270CD54CE44EB8287145AA8B4E859B</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -253,8 +260,8 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_freertos</Path>
-        <Checksum>C2224567AE9F900A42C331B9892E3E67</Checksum>
-        <ProjectFileChecksum>1214C0EE7B99C03AB568B2D33034FDB6</ProjectFileChecksum>
+        <Checksum>437E032EB5B401AB042A19ACCA96E947</Checksum>
+        <ProjectFileChecksum>873B7BF39F5BB870DD1C8BE1D2F790FA</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt_a.S</Name>
@@ -264,7 +271,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_freertos/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -273,7 +280,7 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_freertos/bsp</Path>
-        <Checksum>999832C5BD5B6EC600BB84C682241D0C</Checksum>
+        <Checksum>7567B3DF8AD82B4BA40BB70A80E7AC51</Checksum>
       </Template>
       <Template>
         <Name>drv_flash_static.h</Name>
@@ -292,12 +299,12 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_freertos/bsp</Path>
-        <Checksum>D0BABDD8CC269B7DE3BA98239B5ECC8D</Checksum>
+        <Checksum>EE96DD12865E6C7F0453E07B26BCF042</Checksum>
       </Template>
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_freertos</Path>
-        <Checksum>F6D84EB9F29559F2058D449EAE87C21F</Checksum>
+        <Checksum>FB47E3392A67303C92D563DADC6EDB27</Checksum>
       </Template>
       <Template>
         <Name>rtos_hooks.c</Name>
@@ -312,11 +319,10 @@
         <Include value="../src/system_config/pic32mx795_pim_e16_freertos"/>
       </C32-AS>
       <C32>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/flash/flash_modify/firmware/src"/>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/flash/flash_modify/firmware/src/system_config/pic32mx795_pim_e16_freertos"/>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/flash/flash_modify/firmware/src/pic32mx795_pim_e16_freertos"/>
-        <Include value="E:/official/git/core_ldra/framework"/>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/flash/flash_modify/firmware/src/system_config/pic32mx795_pim_e16_freertos/framework"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/flash/flash_modify/firmware/src"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/flash/flash_modify/firmware/src/system_config/pic32mx795_pim_e16_freertos"/>
+        <Include value="E:/official/git/core/framework"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/flash/flash_modify/firmware/src/system_config/pic32mx795_pim_e16_freertos/framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16_freertos/bsp"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>

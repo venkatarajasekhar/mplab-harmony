@@ -286,6 +286,7 @@ const TCPIP_TCP_MODULE_CONFIG tcpipTCPInitData =
 
 
 
+
 /*** DHCP client Initialization Data ***/
 const TCPIP_DHCP_MODULE_CONFIG tcpipDHCPInitData =
 {     

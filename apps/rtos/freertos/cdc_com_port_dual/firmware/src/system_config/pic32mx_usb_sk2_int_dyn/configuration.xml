@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -88,6 +92,10 @@
       <File>
         <Name>usb_device_local.h</Name>
         <Path>Header Files/framework/usb/src</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>usb_chapter_9.h</Name>
@@ -262,6 +270,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -354,7 +366,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn</Path>
-        <Checksum>95E6699D11DB68CBD5D2F155427CAA1D</Checksum>
+        <Checksum>F465DCC16A36D3907150E11494E096C2</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt_a.S</Name>
@@ -382,11 +394,6 @@
         <Checksum>1C2BCB9D8C0FE4A230C8BE67D8817639</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
       </Template>
@@ -398,7 +405,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn</Path>
-        <Checksum>F96FFCCA8C7EA3EF6162F11C699FB8CC</Checksum>
+        <Checksum>EC3D48B561BCD897A69C7911A0621273</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -407,7 +414,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -422,7 +429,7 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn</Path>
-        <Checksum>7284C5DA5D1A0D4D2588089230774AEC</Checksum>
+        <Checksum>A5D00F5A53382020A18869063C6EA3BA</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>

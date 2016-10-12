@@ -144,6 +144,7 @@ ifblock USE_SYS_FS
 
 add "<#include \"/framework/system/fs/templates/sys_fs.c.ftl\">"  to list SYSTEM_INIT_C_MODULE_INITIALIZATION_DATA
 add "<#include \"/framework/system/fs/templates/sys_fs_init.c.ftl\">"  to list SYSTEM_INIT_C_INITIALIZE_SYSTEM_SERVICES
+add "<#include \"/framework/system/fs/templates/sys_fs.h.ftl\">"  to list SYSTEM_CONFIG_H_SYSTEM_SERVICE_CONFIGURATION
 add "<#assign SYS_FS_TASKS = \"TASK_CALL_NO_RTOS\"><#include \"/framework/system/fs/templates/sys_fs_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_SYSTEM_TASKS
 
 file SYS_FS_H "$HARMONY_VERSION_PATH/framework/system/fs/sys_fs.h" to "$PROJECT_HEADER_FILES/framework/system/fs/sys_fs.h"

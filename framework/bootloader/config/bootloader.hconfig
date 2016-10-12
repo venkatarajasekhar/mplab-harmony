@@ -8,6 +8,7 @@ enum BOOTLOADER_TYPES
      || "USB_HOST"
      || "USB_DEVICE"
       || "ETHERNET_UDP_PULL"
+      || "SD_CARD"
 
 ################################################################
 
@@ -54,6 +55,7 @@ config DATASTREAM_USART_USED
     default y if BOOTLOADER_TYPE = "USART"
     select USE_DRV_USART_NEEDED
     select USE_DRV_USART_STATIC_NEEDED
+    select USE_SYS_RESET_NEEDED
 
 config DATASTREAM_USBHOST_USED
     bool
@@ -62,11 +64,12 @@ config DATASTREAM_USBHOST_USED
     select USE_USB_STACK_NEEDED
     select DRV_USB_HOST_SUPPORT_NEEDED
     select USB_HOST_USE_MSD
+    select USE_SYS_RESET_NEEDED
 
 comment "Make sure USB Host is setup properly in MHC. msd_basic demo config can be used for reference"
      depends on DATASTREAM_USBHOST_USED
      
-ifblock BOOTLOADER_TYPE = "USB_HOST"
+ifblock BOOTLOADER_TYPE = "USB_HOST" || BOOTLOADER_TYPE = "SD_CARD"
 config DATASTREAM_USBHOST_FILENAME
     string "File name to load from drive"
     default "image.hex"
@@ -80,6 +83,7 @@ config DATASTREAM_USBDEVICE_USED
     select USE_USB_STACK_NEEDED
     select DRV_USB_DEVICE_SUPPORT_NEEDED
     select USB_DEVICE_USE_HID_NEEDED
+    select USE_SYS_RESET_NEEDED
 
 comment "Make sure USB HID Device is setup properly in MHC. hid_basic demo config can be used for reference"
      depends on DATASTREAM_USBDEVICE_USED
@@ -89,6 +93,7 @@ config DATASTREAM_UDP_USED
     depends on USE_BOOTLOADER_LIBRARY
     default y if BOOTLOADER_TYPE = "ETHERNET_UDP_PULL"
     select USE_TCPIP_STACK_NEEDED
+    select USE_SYS_RESET_NEEDED
 
 comment "Make sure TCPIP UDP is setup properly in MHC. Bootloader basic demo MHC config can be used for reference"
      depends on DATASTREAM_UDP_USED
@@ -103,6 +108,14 @@ config BOOTLOADER_PORT_NUMBER
      ---endhelp---
 endif
 
+config DATASTREAM_SDCARD_USED
+    bool
+    depends on USE_BOOTLOADER_LIBRARY
+    default y if BOOTLOADER_TYPE = "SD_CARD"
+    select DRV_SDHC_NEEDED if HAVE_SDHC
+    select DRV_SDCARD_NEEDED if !HAVE_SDHC
+    select USE_SYS_RESET_NEEDED
+    
 ifblock USE_SPI_FLASH = n
 config USE_LIVE_UPDATE
     bool "Use Live Update?"
@@ -157,6 +170,7 @@ ifblock CUSTOM_BOOTLOADER_PROGRAM_SPACE = n
 add "<#include \"/framework/bootloader/templates/bootloader_init_data.c.ftl\">"  to list SYSTEM_INIT_C_MODULE_INITIALIZATION_DATA
 add "<#include \"/framework/bootloader/templates/bootloader_init.c.ftl\">"  to list SYSTEM_INIT_C_INITIALIZE_MIDDLEWARE
 add "<#include \"/framework/bootloader/templates/bootloader_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_LIB_TASKS
+add "<#include \"/framework/bootloader/templates/bootloader_config.h.ftl\">"  to list SYSTEM_CONFIG_H_MIDDLEWARE_CONFIGURATION 
 endif
 endif
 ifblock (CUSTOM_BOOTLOADER_PROGRAM_SPACE)
@@ -180,7 +194,7 @@ ifblock USE_SPI_FLASH = n
 file BOOTLOADER_NVM_H "$HARMONY_VERSION_PATH/framework/bootloader/src/nvm.h" to "$PROJECT_HEADER_FILES/framework/bootloader/src/nvm.h"
 file BOOTLOADER_NVM_C "$HARMONY_VERSION_PATH/framework/bootloader/src/nvm.c" to "$PROJECT_SOURCE_FILES/framework/bootloader/src/nvm.c"
 endif
-ifblock BOOTLOADER_TYPE != "USB_HOST"
+ifblock BOOTLOADER_TYPE != "USB_HOST" && BOOTLOADER_TYPE != "SD_CARD"
 file BOOTLOADER_DATASTREAM_H "$HARMONY_VERSION_PATH/framework/bootloader/src/datastream.h" to "$PROJECT_HEADER_FILES/framework/bootloader/src/datastream.h"
 file BOOTLOADER_DATASTREAM_C "$HARMONY_VERSION_PATH/framework/bootloader/src/datastream/datastream.c" to "$PROJECT_SOURCE_FILES/framework/bootloader/src/datastream/datastream.c"
 endif
@@ -199,5 +213,8 @@ file BOOTLOADER_DRIVERUSBDEVICE_C "$HARMONY_VERSION_PATH/framework/bootloader/sr
 endif
 ifblock BOOTLOADER_TYPE = "ETHERNET_UDP_PULL"
 file BOOTLOADER_DRIVERUDPPULL_C "$HARMONY_VERSION_PATH/framework/bootloader/src/datastream/datastream_udp.c" to "$PROJECT_SOURCE_FILES/framework/bootloader/src/datastream/datastream_udp.c"
+endif
+ifblock BOOTLOADER_TYPE = "SD_CARD"
+file BOOTLOADER_DRIVERSDCARD_C "$HARMONY_VERSION_PATH/framework/bootloader/src/datastream/datastream_sdcard.c" to "$PROJECT_SOURCE_FILES/framework/bootloader/src/datastream/datastream_sdcard.c"
 endif
 endif

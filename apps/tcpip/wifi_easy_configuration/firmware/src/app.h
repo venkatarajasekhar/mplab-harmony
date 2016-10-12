@@ -66,6 +66,14 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #   define APP_SWITCH_1StateGet() BSP_SWITCH_4StateGet()
 #   define APP_SWITCH_2StateGet() BSP_SWITCH_5StateGet()
 #   define APP_SWITCH_3StateGet() BSP_SWITCH_6StateGet()
+#elif !defined(BSP_SWITCH_2StateGet) // very roughly assume that pic32mz_ef_curiosity is used
+#   define APP_LED_1 BSP_LED_1
+#   define APP_LED_2 BSP_LED_2
+#   define APP_LED_3 BSP_LED_3
+
+#   define APP_SWITCH_1StateGet() BSP_SWITCH_1StateGet()
+#   define APP_SWITCH_2StateGet() BSP_SWITCH_1StateGet()
+#   define APP_SWITCH_3StateGet() BSP_SWITCH_1StateGet()
 #else
 #   define APP_LED_1 BSP_LED_3
 #   define APP_LED_2 BSP_LED_2

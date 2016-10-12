@@ -112,6 +112,7 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 <#include "/framework/tcpip/config/ipv6.h.ftl">
 <#include "/framework/tcpip/config/nbns.h.ftl">
 <#include "/framework/tcpip/config/smtp.h.ftl">
+<#include "/framework/tcpip/config/smtpc.h.ftl">
 <#include "/framework/tcpip/config/sntp.h.ftl">
 <#include "/framework/tcpip/config/snmp.h.ftl">
 <#include "/framework/tcpip/config/tcp.h.ftl">
@@ -125,6 +126,8 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 <#include "/framework/tcpip/config/network_config_idx1.h.ftl">
 <#include "/framework/tcpip/config/tcpip_cmd.h.ftl">
 <#include "/framework/tcpip/config/tftpc.h.ftl">
+<#include "/framework/tcpip/config/ip.h.ftl">
+<#include "/framework/tcpip/config/igmp.h.ftl">
 <#if CONFIG_TCPIP_STACK_USE_HTTP_SERVER == true || CONFIG_TCPIP_STACK_USE_HTTP_NET_SERVER == true || CONFIG_TCPIP_USE_SNMP == true || CONFIG_TCPIP_USE_FTP_MODULE == true || CONFIG_TCPIP_USE_TFTPC_MODULE>
 <#include "/framework/tcpip/config/sys_fs_wrapper.h.ftl">
 </#if>

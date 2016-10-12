@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -250,6 +254,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -323,17 +331,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/usbdevice_pic32mx_usb_sk2/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/usbdevice_pic32mx_usb_sk2</Path>
         <Checksum>A57FCE04BB5B87385D49D6FAA98B9BB8</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/usbdevice_pic32mx_usb_sk2/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -362,7 +365,7 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/usbdevice_pic32mx_usb_sk2/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -371,26 +374,25 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/usbdevice_pic32mx_usb_sk2</Path>
-        <Checksum>7C38665724BC075D9070A8C99A0DEA3A</Checksum>
+        <Checksum>A12BACC4BE53FC9A2B218BD421B344F5</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/usbdevice_pic32mx_usb_sk2/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/usbdevice_pic32mx_usb_sk2</Path>
-        <Checksum>96668EC1A56CECA7546E0779BBF646DA</Checksum>
+        <Checksum>8F9177AC0658C4137F6B5A589F031478</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src"/>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src/system_config/usbdevice_pic32mx_usb_sk2"/>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src/usbdevice_pic32mx_usb_sk2"/>
-        <Include value="C:/microchip/harmony/core/framework"/>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src/system_config/usbdevice_pic32mx_usb_sk2/framework"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/bootloader/basic/firmware/src"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/bootloader/basic/firmware/src/system_config/usbdevice_pic32mx_usb_sk2"/>
+        <Include value="C:/microchip/harmony/core_v2xx/framework"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/bootloader/basic/firmware/src/system_config/usbdevice_pic32mx_usb_sk2/framework"/>
         <Include value="../src/system_config/usbdevice_pic32mx_usb_sk2/bsp"/>
       </C32>
     </CompilerItems>

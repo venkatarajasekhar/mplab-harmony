@@ -1,39 +1,24 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Utilities
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    vcard_parser.h
-
-  Summary:
-    Bluetooth API Library interface Utilities.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
-#ifndef __UTILS_VCARD_PARSER_H  // Guards against multiple inclusion
+#ifndef __UTILS_VCARD_PARSER_H
 #define __UTILS_VCARD_PARSER_H
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
 
 #define	VCARD_PROPERTY_BEGIN		0
 #define	VCARD_PROPERTY_END			1
@@ -92,8 +77,6 @@ extern "C" {
 #define VCARD_PARSER_STATE_SKIP_PARAM		4
 #define VCARD_PARSER_STATE_SKIP_TYPE		5
 
-#define VCARD_BUFFER_LEN	30
-
 #define VCARD_EVT_VCARD_STARTED			0
 #define VCARD_EVT_VCARD_ENDED			1
 #define VCARD_EVT_PROPERTY_STARTED		2
@@ -122,7 +105,8 @@ typedef struct _bt_vcard_evt_prop_param_t
 typedef struct _bt_vcard_parser_t
 {
 	bt_byte state;
-	bt_byte buffer[VCARD_BUFFER_LEN];
+	bt_byte* buffer;
+	bt_uint buffer_size;
 	bt_byte write_pos;
 	bt_byte prev_c;
 	bt_byte cur_prop_id;

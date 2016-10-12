@@ -131,9 +131,11 @@ PLIB_TEMPLATE bool ADCHS_DMASourceSelect_wk( ADCHS_MODULE_ID index , ADCHS_CHANN
 	volatile adchs_register_t *regs = (adchs_register_t *)index;
 	
 	if(channelID > ADCHS_CHANNEL_0)
-		return;
+		return false;
 	
 	regs->ADCxTIME[channelID].ADCxTIME = 1 << _ADC0TIME_BCHEN0_POSITION;
+	
+	return true;
 }
 
 
@@ -152,9 +154,11 @@ PLIB_TEMPLATE bool ADCHS_DMASourceRemove_wk( ADCHS_MODULE_ID index , ADCHS_CHANN
 	volatile adchs_register_t *regs = (adchs_register_t *)index;
 	
 	if(channelID > ADCHS_CHANNEL_0)
-		return;
+		return false;
 	
     regs->ADCxTIME[channelID].ADCxTIME &= ~(1 << _ADC0TIME_BCHEN0_POSITION);
+	
+	return true;
 }
 
 
@@ -172,9 +176,11 @@ PLIB_TEMPLATE bool ADCHS_DMABuffer_A_InterruptEnable_wk( ADCHS_MODULE_ID index ,
 {
 	volatile adchs_register_t *regs = (adchs_register_t *)index;
 	if(channelID > ADCHS_CHANNEL_0)
-		return;
+		return false;
 	
     regs->ADCDMAST.RAF0IEN = 1;
+	
+	return true;
 }
 
 
@@ -192,9 +198,11 @@ PLIB_TEMPLATE bool ADCHS_DMABuffer_A_InterruptDisable_wk( ADCHS_MODULE_ID index 
 {
 	volatile adchs_register_t *regs = (adchs_register_t *)index;
 	if(channelID > ADCHS_CHANNEL_0)
-		return;
+		return false;
 	
 	regs->ADCDMAST.RAF0IEN = 0;
+	
+	return true;
 }
 
 
@@ -212,9 +220,11 @@ PLIB_TEMPLATE bool ADCHS_DMABuffer_B_InterruptEnable_wk( ADCHS_MODULE_ID index ,
 {
 	volatile adchs_register_t *regs = (adchs_register_t *)index;
 	if(channelID > ADCHS_CHANNEL_0)
-		return;
+		return false;
 	
 	regs->ADCDMAST.RBF0IEN = 1;
+	
+	return true;
 }
 
 
@@ -232,9 +242,11 @@ PLIB_TEMPLATE bool ADCHS_DMABuffer_B_InterruptDisable_wk( ADCHS_MODULE_ID index 
 {
 	volatile adchs_register_t *regs = (adchs_register_t *)index;
 	if(channelID > ADCHS_CHANNEL_0)
-		return;
+		return false;
 	
 	regs->ADCDMAST.RBF0IEN = 0;
+	
+	return true;
 }
 
 

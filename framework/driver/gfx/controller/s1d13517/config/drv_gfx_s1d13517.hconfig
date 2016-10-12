@@ -20,6 +20,7 @@ ifblock USE_DRV_GFX_S1D13517
 
 add "<#include \"/framework/driver/gfx/controller/config/drv_gfx_init_data.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
 add "<#include \"/framework/driver/gfx/controller/s1d13517/config/drv_gfx_s1d13517_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS
+add "<#include \"/framework/driver/gfx/controller/s1d13517/config/drv_gfx_s1d13517_config.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 
 file DRV_PMP_S1D13517_H "$HARMONY_VERSION_PATH/framework/driver/pmp/drv_pmp.h" to "$PROJECT_HEADER_FILES/framework/driver/pmp/drv_pmp.h" 
 file DRV_PMP_CFG_S1D13517_H "$HARMONY_VERSION_PATH/framework/driver/pmp/config/drv_pmp_config.h" to "$PROJECT_HEADER_FILES/framework/driver/pmp/config/drv_pmp_config.h" 

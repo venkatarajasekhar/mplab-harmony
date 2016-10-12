@@ -653,24 +653,58 @@ config DRV_SPI_AUDIO_PROTOCOL_MODE_IDX${INSTANCE}
     ---help---
     IDH_HTML_SPI_AUDIO_PROTOCOL
     ---endhelp---
-    
+
+# this option has been hided as its not user configurable. its not completely removed in order to have backward compatibility.   
 config DRV_SPI_SPI_CLOCK_IDX${INSTANCE}
     depends on DRV_SPI_USE_DRIVER
     depends on DRV_SPI_IDX${INSTANCE}
     depends on DRV_SPI_IDX${INSTANCE} && USE_SYS_CLK
-    string "Clock To Use"
+    string
     range CLK_BUSES_PERIPHERAL
     default DRV_SPI_SPI_CLOCK_STATIC_IDX${INSTANCE}
 #Set default values at DRV_SPI_SPI_CLOCK_STATIC_IDX${INSTANCE}
     ---help---
     IDH_HTML_CLK_BUSES_PERIPHERAL
     ---endhelp---
+
+config DRV_SPI_CLOCK_SOURCE1_IDX${INSTANCE}
+    depends on DRV_SPI_USE_DRIVER
+    depends on DRV_SPI_IDX${INSTANCE} && USE_SYS_CLK
+    depends on DS60001143 || DS60001156
+    string "Baud Clock Source"
+    persistent
+    default "SPI_BAUD_RATE_PBCLK_CLOCK"
+    ---help---
+    IDH_HTML_SPI_BAUD_RATE_CLOCK
+    ---endhelp---
+
+config DRV_SPI_CLOCK_SOURCE2_IDX${INSTANCE}
+    depends on DRV_SPI_USE_DRIVER
+    depends on DRV_SPI_IDX${INSTANCE} && USE_SYS_CLK
+    depends on !DS60001143 && !DS60001156
+    string "Baud Clock Source"
+    range SPI_BAUD_RATE_CLOCK
+    default "SPI_BAUD_RATE_PBCLK_CLOCK"
+    ---help---
+    IDH_HTML_SPI_BAUD_RATE_CLOCK
+    ---endhelp---
+
+config DRV_SPI_CLOCK_SOURCE_IDX${INSTANCE}
+    string
+    depends on DRV_SPI_USE_DRIVER
+    depends on DRV_SPI_IDX${INSTANCE} && USE_SYS_CLK
+    default DRV_SPI_CLOCK_SOURCE1_IDX${INSTANCE} if DS60001143 || DS60001156
+    default DRV_SPI_CLOCK_SOURCE2_IDX${INSTANCE}
+    ---help---
+    IDH_HTML_SPI_BAUD_RATE_CLOCK
+    ---endhelp---
+
     
 config DRV_SPI_BAUD_RATE_IDX${INSTANCE}
     depends on DRV_SPI_USE_DRIVER
     depends on DRV_SPI_IDX${INSTANCE}
     depends on DRV_SPI_IDX${INSTANCE}
-    int "SPI Clock Rate - Hz"
+    int "Clock/Baud Rate - Hz"
     default DRV_SPI_BAUD_RATE_STATIC_IDX${INSTANCE}
 #Set default values at DRV_SPI_BAUD_RATE_STATIC_IDX${INSTANCE}
     ---help---
@@ -856,6 +890,12 @@ config DRV_SPI_AUDIO_PROTOCOL_MODE_STATIC_IDX${INSTANCE}
 config DRV_SPI_SPI_CLOCK_STATIC_IDX${INSTANCE}
     depends on DRV_SPI_USE_DRIVER
     string "Deprecated Option 14"
+    default "CLK_BUS_PERIPHERAL_1" if PIC32MX
+    default "CLK_BUS_PERIPHERAL_2" if PIC32MZ
+    default "CLK_BUS_PERIPHERAL_2" if PIC32MK && (DRV_SPI_SPI_ID_IDX${INSTANCE} = "SPI_ID_1" || DRV_SPI_SPI_ID_IDX${INSTANCE} = "SPI_ID_2")
+    default "CLK_BUS_PERIPHERAL_3" if PIC32MK && (DRV_SPI_SPI_ID_IDX${INSTANCE} = "SPI_ID_3" || DRV_SPI_SPI_ID_IDX${INSTANCE} = "SPI_ID_4" || DRV_SPI_SPI_ID_IDX${INSTANCE} = "SPI_ID_5" || DRV_SPI_SPI_ID_IDX${INSTANCE} = "SPI_ID_6")
+    default "CLK_BUS_PERIPHERAL_3" if PIC32WK && "SPI_ID_2" = DRV_SPI_SPI_ID_IDX${INSTANCE}
+    default "CLK_BUS_PERIPHERAL_1" if PIC32WK && "SPI_ID_0" = DRV_SPI_SPI_ID_IDX${INSTANCE}
     default "CLK_BUS_PERIPHERAL_2"
 
 config DRV_SPI_BAUD_RATE_STATIC_IDX${INSTANCE}

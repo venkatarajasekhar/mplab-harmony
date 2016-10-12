@@ -111,11 +111,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
             </#if>
         </#if>
         <#if CONFIG_DRV_TMR_DRIVER_MODE == "DYNAMIC">
-            <#if (CONFIG_USE_3RDPARTY_RTOS) && (CONFIG_3RDPARTY_RTOS_USED == "embOS")>
-                <#lt>    DRV_TMR_Tasks_ISR(sysObj.drvTmr${DRV_TMR_INSTANCE});
-            <#else>
-                <#lt>    DRV_TMR_Tasks(sysObj.drvTmr${DRV_TMR_INSTANCE});
-            </#if>
+            <#lt>    DRV_TMR_Tasks(sysObj.drvTmr${DRV_TMR_INSTANCE});
         <#else>
             <#lt>    PLIB_INT_SourceFlagClear(INT_ID_0,${TMR_STATIC_INT_SRC});
             <#if DRV_TMR_ALARM_FUNCS == true>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -48,6 +52,10 @@
       <File>
         <Name>port_asm.S</Name>
         <Path>Source Files/FreeRTOS/portable/MPLAB/PIC32MX</Path>
+      </File>
+      <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
         <Name>list.h</Name>
@@ -182,6 +190,10 @@
         <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -246,7 +258,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk_freertos/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -255,19 +267,19 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk_freertos</Path>
-        <Checksum>2D5A7334870ADA525A30FD8102FC29B3</Checksum>
-        <ProjectFileChecksum>C4CD28D12F08EBF35328E1BFD841DB33</ProjectFileChecksum>
+        <Checksum>DC061497694A7D080E375C3C3BD6BA72</Checksum>
+        <ProjectFileChecksum>213D5F160FB182014F85D2A2E30EFA74</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk_freertos</Path>
         <Checksum>3D215873BE4FA4D420AD8B9FC4FBE1E6</Checksum>
-        <ProjectFileChecksum>D13D6E4F35A9B35E0BE9DC36194ECE2C</ProjectFileChecksum>
+        <ProjectFileChecksum>DDA17DB914F96CCF07489A1D084DB854</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk_freertos/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>rtos_hooks.c</Name>
@@ -277,7 +289,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk_freertos/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -296,7 +308,7 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk_freertos</Path>
-        <Checksum>5B3F7436C0B4700CAF00A431104C3A1D</Checksum>
+        <Checksum>42530C39E5FBDD010E7691F3F30F5EC9</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -311,16 +323,11 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk_freertos</Path>
-        <Checksum>BAED616A54CA13BDDFA5382E343301ED</Checksum>
+        <Checksum>4A7EAB461A7F8089C36476AB6CE16623</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
         <Path>Header Files/app</Path>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_eth_sk_freertos/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -335,11 +342,10 @@
         <Include value="../src/system_config/pic32mx_eth_sk_freertos"/>
       </C32-AS>
       <C32>
-        <Include value="E:\official\git\core_ldra\apps\examples\peripheral\ports\cn_interrupt\firmware\src"/>
-        <Include value="E:\official\git\core_ldra\apps\examples\peripheral\ports\cn_interrupt\firmware\src\system_config\pic32mx_eth_sk_freertos"/>
-        <Include value="E:\official\git\core_ldra\apps\examples\peripheral\ports\cn_interrupt\firmware\src\pic32mx_eth_sk_freertos"/>
-        <Include value="E:\official\git\core_ldra\framework"/>
-        <Include value="E:\official\git\core_ldra\apps\examples\peripheral\ports\cn_interrupt\firmware\src\system_config\pic32mx_eth_sk_freertos\framework"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/ports/cn_interrupt/firmware/src"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/ports/cn_interrupt/firmware/src/system_config/pic32mx_eth_sk_freertos"/>
+        <Include value="E:/official/git/core/framework"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/ports/cn_interrupt/firmware/src/system_config/pic32mx_eth_sk_freertos/framework"/>
         <Include value="../src/system_config/pic32mx_eth_sk_freertos/bsp"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX"/>
         <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>

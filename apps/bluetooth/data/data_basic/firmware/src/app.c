@@ -50,6 +50,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "app.h"
 #include "gfx_resources.h"
 #include "msg_handler.h"
+#include "cdbt/bt/bt_version.h"
+
+#if defined( ENABLE_SYS_LOG )
+#include "application/sys_log/sys_log.h"
+#endif
+#include "application/sys_log/sys_log_define.h"
 
 //static GFX_INDEX            gfxIndex=0;
 // *****************************************************************************
@@ -74,6 +80,17 @@ APP_DATA appData =
  ******************************************************/
 void APP_Initialize (void)
 {
+    //Bluetooth Version 1.8.xx is Dostack 30
+    const bt_byte * __attribute__((unused)) version =  bt_sys_get_version();
+
+    #if defined( ENABLE_SYS_LOG )    
+    SYS_LOG_Init();
+    SYS_LOG("----------------------------------------");
+    SYS_LOG1("- Starting: BT Version %s",version);
+    SYS_LOG("----------------------------------------");
+
+    #endif
+
     /* Bluetooth related Initializations */
     bluetoothInit();
 
@@ -89,6 +106,7 @@ void APP_Initialize (void)
  ***********************************************************/
 void APP_Tasks (void )
 {
+
     switch(appData.state)
     {
         /* Register the BT Tick Handler with Timer system service */
@@ -176,9 +194,9 @@ void APP_Tasks (void )
 //                appData.state = APP_STATE_SETUP_BUTTON_TIMER;
 //            }
         }
-            break;
-
-        /* Setting up the repeat timer */
+        break; 
+        // Setting up the repeat timer 
+        // --For servicing the bluetooth task
         case APP_STATE_SETUP_BUTTON_TIMER:
         {
             /* Open the repeat timer driver */
@@ -194,10 +212,15 @@ void APP_Tasks (void )
                 else
                 {
                     DRV_TMR_Start (appData.repeatTmrHandle);
-                    DRV_TMR_Alarm32BitRegister (appData.repeatTmrHandle,
+                    DRV_TMR_AlarmRegister (appData.repeatTmrHandle,
                             APP_BT_BUTTON_REPEAT_TIMER_INIT_PERIOD, true,
                             (uintptr_t)0, &APP_BTRepeatTimerCallbackHandler);
-                    appData.state = APP_STATE_BT_TASK_RUN;
+
+    	    #ifdef ENABLE_SYS_LOG
+    	    appData.state = APP_STATE_BT_SYS_LOG;
+    	    #else
+    	    appData.state = APP_STATE_BT_TASK_RUN;
+    	    #endif
                 }
             }
             else
@@ -205,8 +228,16 @@ void APP_Tasks (void )
                 SYS_DEBUG(0, "Timer Driver Not Ready");
             }
         }
-
         break;
+
+        #ifdef ENABLE_SYS_LOG
+        case APP_STATE_BT_SYS_LOG:
+        {
+            SYS_LOG_Task();
+            appData.state = APP_STATE_BT_TASK_RUN;
+        }
+        break;
+        #endif
 
         /* Run the Bluetooth Task */
         case APP_STATE_BT_TASK_RUN:
@@ -236,7 +267,12 @@ void APP_Tasks (void )
         case APP_STATE_DISPLAY:
         {
             display_tasks();
+
+            #ifdef ENABLE_SYS_LOG
+            appData.state = APP_STATE_BT_SYS_LOG;
+            #else
             appData.state = APP_STATE_BT_TASK_RUN;
+            #endif
         }
         break;
 
@@ -245,7 +281,9 @@ void APP_Tasks (void )
         }
         break;
     }
-}
+
+} //End APP_Tasks())
+
 
 /**********************************************************
  * Application USART buffer Event handler.

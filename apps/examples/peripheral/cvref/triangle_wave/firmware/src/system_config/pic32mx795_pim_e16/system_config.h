@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -86,14 +82,19 @@ extern "C" {
 #define SYS_CLK_UPLL_BEFORE_DIV2_FREQ       7999992ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         8000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       32768ul
-   
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
 /*** Ports System Service Configuration ***/
-#define SYS_PORT_AD1PCFG        ~0x00000000
-#define SYS_PORT_CNPUE          0x00000000
-#define SYS_PORT_CNEN           0x00000000
+#define SYS_PORT_AD1PCFG        ~0xffff
+#define SYS_PORT_CNPUE          0x98000
+#define SYS_PORT_CNEN           0x3fffff
 #define SYS_PORT_A_TRIS         0xFF00
 #define SYS_PORT_A_LAT          0x0000
 #define SYS_PORT_A_ODC          0x0000
@@ -123,12 +124,29 @@ extern "C" {
 #define SYS_PORT_G_ODC          0x0000
 
 
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
+
+/*** Graphics Display Configuration ***/
+#define DISP_ORIENTATION                        0
+#define DISP_HOR_RESOLUTION                     480
+#define DISP_VER_RESOLUTION                     272
+#define DISP_DATA_WIDTH			                24
+#define DISP_HOR_PULSE_WIDTH                    42
+#define DISP_HOR_BACK_PORCH                     2
+#define DISP_HOR_FRONT_PORCH                    2
+#define DISP_VER_PULSE_WIDTH                    10
+#define DISP_VER_BACK_PORCH                     2
+#define DISP_VER_FRONT_PORCH                    2
+#define DISP_INV_LSHIFT                         0
+#define GFX_LCD_TYPE                            GFX_LCD_TFT
+#define BACKLIGHT_ENABLE_LEVEL                  1
+#define BACKLIGHT_DISABLE_LEVEL                 0
+#define TCON_MODULE                             NULL
+// DOM-IGNORE-END
 
 // *****************************************************************************
 // *****************************************************************************

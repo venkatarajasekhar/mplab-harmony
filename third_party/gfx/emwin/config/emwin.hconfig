@@ -37,9 +37,20 @@ compiler EMWIN_WRAPPER_COMPILER_INCLUDEPATH includepath "$PROJECT_HEADER_FILES/s
 endif
 
 ifblock (3RDPARTY_SEGGER_EMWIN_LIBRARY)
+ifblock (DS60001320)
 library LIB_SEGGER_EMWIN "$HARMONY_VERSION_PATH/bin/framework/gfx/segger_emwin/lib/emWin.a"
+endif
+
+ifblock (!DS60001320)
+library LIB_SEGGER_EMWIN_NOFP "$HARMONY_VERSION_PATH/bin/framework/gfx/segger_emwin/lib/emWin_noFP.a"
+endif
+
 compiler EMWIN_COMPILER_INCLUDEPATH includepath "$HARMONY_VERSION_PATH/bin/framework/gfx/segger_emwin/inc"
 endif
 
 endmenu
+
+ifblock (USE_SEGGER_EMWIN)
+add "<#include \"/third_party/gfx/emwin/templates/system_config.h.ftl\">"  to list SYSTEM_CONFIG_H_MIDDLEWARE_CONFIGURATION 
+endif
 

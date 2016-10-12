@@ -72,7 +72,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
  
 void __ISR(_CHANGE_NOTICE_VECTOR, ipl2AUTO) _IntHandlerChangeNotification(void)
 {
-    /* TODO: Add code to process interrupt here */
+    /* KEEP THIS: Add code to process interrupt here */
     if(true == SYS_INT_SourceStatusGet(INT_SOURCE_CHANGE_NOTICE_A) || true == SYS_INT_SourceStatusGet(INT_SOURCE_CHANGE_NOTICE_B))
         {
         uint32_t portAState=0;
@@ -88,10 +88,11 @@ void __ISR(_CHANGE_NOTICE_VECTOR, ipl2AUTO) _IntHandlerChangeNotification(void)
         PLIB_INT_SourceFlagClear(INT_ID_0,INT_SOURCE_CHANGE_NOTICE_A);
         PLIB_INT_SourceFlagClear(INT_ID_0,INT_SOURCE_CHANGE_NOTICE_B);
         }
-
+//KEEP THIS
 }
 
 
+    
 void __ISR(_TIMER_1_VECTOR, ipl1AUTO) IntHandlerDrvTmrInstance0(void)
 {
     DRV_TMR_Tasks(sysObj.drvTmr0);

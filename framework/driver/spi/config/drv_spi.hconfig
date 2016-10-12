@@ -18,7 +18,7 @@ enum DRV_SPI_PROTOCOL_TYPE
 
 enum DRV_SPI_CLOCK_MODE
     "DRV_SPI_CLOCK_MODE_IDLE_LOW_EDGE_RISE" || "DRV_SPI_CLOCK_MODE_IDLE_LOW_EDGE_FALL" || "DRV_SPI_CLOCK_MODE_IDLE_HIGH_EDGE_FALL" || "DRV_SPI_CLOCK_MODE_IDLE_HIGH_EDGE_RISE"
-
+    
 config DRV_SPI_USE_DRIVER_NEEDED
     bool
 
@@ -243,6 +243,7 @@ ifblock DRV_SPI_USE_DRIVER
 add "<#include \"/framework/driver/spi/config/drv_spi.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
 add "<#include \"/framework/driver/spi/config/drv_spi_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DEPENDENT_DRIVERS
 add "<#include \"/framework/driver/spi/config/drv_spi_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_DRIVER_TASKS
+add "<#include \"/framework/driver/spi/config/drv_spi.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION
 
 endif
 

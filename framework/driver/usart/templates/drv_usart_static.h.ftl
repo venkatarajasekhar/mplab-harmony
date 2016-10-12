@@ -104,6 +104,9 @@ DRV_USART_TRANSFER_STATUS DRV_USART${DRV_INSTANCE}_TransferStatus(void);
 void DRV_USART${DRV_INSTANCE}_BufferAddWrite (DRV_USART_BUFFER_HANDLE * bufferHandle, void * buffer, const size_t size);
 void DRV_USART${DRV_INSTANCE}_BufferAddRead(DRV_USART_BUFFER_HANDLE * const bufferHandle,void * buffer,const size_t size);
 void DRV_USART${DRV_INSTANCE}_BufferEventHandlerSet(const DRV_USART_BUFFER_EVENT_HANDLER eventHandler,const uintptr_t context);
+size_t DRV_USART${DRV_INSTANCE}_BufferCompletedBytesGet(DRV_USART_BUFFER_HANDLE bufferHandle );
+DRV_USART_BUFFER_RESULT DRV_USART${DRV_INSTANCE}_BufferRemove(DRV_USART_BUFFER_HANDLE bufferHandle);
+/* The following function will be deprecated */
 size_t DRV_USART${DRV_INSTANCE}_BufferProcessedSizeGet(DRV_USART_BUFFER_HANDLE bufferHandle );
 
 </#if>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name=""/>
@@ -58,6 +62,10 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>sys_clk.h</Name>
         <Path>Header Files/framework/system/clk</Path>
       </File>
@@ -80,6 +88,10 @@
       <File>
         <Name>sys_devcon.h</Name>
         <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
         <Name>system.h</Name>
@@ -118,17 +130,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_16b/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_16b/bsp</Path>
-        <Checksum>D48E3F4A4C9EC7A73FF9E95DB499B155</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_16b/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>F740DA09253C01A3D03B3FD6565F5267</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -157,7 +164,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_16b/bsp</Path>
-        <Checksum>F05FA6CD752CCFEC85C6B17BF6B61604</Checksum>
+        <Checksum>DD885EBE1893567826AD0E35E9F24594</Checksum>
       </Template>
       <Template>
         <Name>drv_oc_static.h</Name>
@@ -196,7 +203,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_16b</Path>
-        <Checksum>1515F4063CD18B1FF964DFCF8DE76B1D</Checksum>
+        <Checksum>BC99CABB961697B9B4113C5DAE6236B1</Checksum>
       </Template>
       <Template>
         <Name>drv_oc_mapping.c</Name>
@@ -206,16 +213,15 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_16b</Path>
-        <Checksum>0D08C4593747A5B79D873D699F7A0427</Checksum>
+        <Checksum>94BEFA4CE7C8ACF100A8DE33D4FA89CD</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="D:\git_view\isp_trunk\mcu32apps\apps\examples\peripheral\oc\oc_pwm\firmware\src"/>
-        <Include value="D:\git_view\isp_trunk\mcu32apps\apps\examples\peripheral\oc\oc_pwm\firmware\src\system_config\pic32mz_ef_sk_16b"/>
-        <Include value="D:\git_view\isp_trunk\mcu32apps\apps\examples\peripheral\oc\oc_pwm\firmware\src\pic32mz_ef_sk_16b"/>
-        <Include value="D:\git_view\isp_trunk\mcu32apps\framework"/>
-        <Include value="D:\git_view\isp_trunk\mcu32apps\apps\examples\peripheral\oc\oc_pwm\firmware\src\system_config\pic32mz_ef_sk_16b\framework"/>
+        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/examples/peripheral/oc/oc_pwm/firmware/src"/>
+        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/examples/peripheral/oc/oc_pwm/firmware/src/system_config/pic32mz_ef_sk_16b"/>
+        <Include value="D:/git_view/isp_trunk/mcu32apps/framework"/>
+        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/examples/peripheral/oc/oc_pwm/firmware/src/system_config/pic32mz_ef_sk_16b/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_16b/bsp"/>
       </C32>
     </CompilerItems>

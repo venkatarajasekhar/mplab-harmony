@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -100,6 +104,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -186,11 +194,6 @@
         <Checksum>6F3B91E118326CDDB1BF1D7336616643</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
       </Template>
@@ -202,12 +205,12 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn</Path>
-        <Checksum>D3975642D964098325FB9CFD9F6F8C82</Checksum>
+        <Checksum>AC075DDAAFD9CE83231B8F804BF80360</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn</Path>
-        <Checksum>19C9145C72D5865D8F6BF3AAA22D6E0A</Checksum>
+        <Checksum>6396E079B639E5A5A16695126EED0AD4</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -226,7 +229,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -241,10 +244,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\cm\Harmony\apps\driver\usart\usart_loopback\firmware\src"/>
-        <Include value="C:\cm\Harmony\apps\driver\usart\usart_loopback\firmware\src\system_config\pic32mz_ef_sk_int_dyn"/>
-        <Include value="C:\cm\Harmony\framework"/>
-        <Include value="C:\cm\Harmony\apps\driver\usart\usart_loopback\firmware\src\system_config\pic32mz_ef_sk_int_dyn\framework"/>
+        <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src"/>
+        <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/system_config/pic32mz_ef_sk_int_dyn"/>
+        <Include value="E:/Git/core/framework"/>
+        <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/system_config/pic32mz_ef_sk_int_dyn/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_int_dyn/bsp"/>
       </C32>
     </CompilerItems>

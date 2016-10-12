@@ -450,21 +450,29 @@ ALT_INPUT_CHNL_0 ALT_INPUT_CHNL_1 ALT_INPUT_CHNL_2 ALT_INPUT_CHNL_3 ALT_INPUT_CH
 	);
 </#if>
 <#if CHANNEL_ID == "ADCHS_CHANNEL_0">
-    PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ${(CHANNEL_ID)}, DEVADC0);
+    if (DEVADC0 != 0xFFFFFFFF)
+        PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ${(CHANNEL_ID)}, DEVADC0);
 <#elseif CHANNEL_ID == "ADCHS_CHANNEL_1">
-    PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ${(CHANNEL_ID)}, DEVADC1);
+    if (DEVADC1 != 0xFFFFFFFF)
+        PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ${(CHANNEL_ID)}, DEVADC1);
 <#elseif CHANNEL_ID == "ADCHS_CHANNEL_2">
-    PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ${(CHANNEL_ID)}, DEVADC2);
+    if (DEVADC2 != 0xFFFFFFFF)
+        PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ${(CHANNEL_ID)}, DEVADC2);
 <#elseif CHANNEL_ID == "ADCHS_CHANNEL_3">
-    PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ${(CHANNEL_ID)}, DEVADC3);
+    if (DEVADC3 != 0xFFFFFFFF)
+        PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ${(CHANNEL_ID)}, DEVADC3);
 <#elseif CHANNEL_ID == "ADCHS_CHANNEL_4">
-    PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ${(CHANNEL_ID)}, DEVADC4);
+    if (DEVADC4 != 0xFFFFFFFF)
+        PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ${(CHANNEL_ID)}, DEVADC4);
 <#elseif CHANNEL_ID == "ADCHS_CHANNEL_5">
+    if (DEVADC5 != 0xFFFFFFFF)
     PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ${(CHANNEL_ID)}, DEVADC5);
 <#elseif CHANNEL_ID == "ADCHS_CHANNEL_6">
-    PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ${(CHANNEL_ID)}, DEVADC6);
+    if (DEVADC6 != 0xFFFFFFFF)
+        PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ${(CHANNEL_ID)}, DEVADC6);
 <#elseif CHANNEL_ID == "ADCHS_CHANNEL_1">
-    PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ${(CHANNEL_ID)}, DEVADC7);
+    if (DEVADC7 != 0xFFFFFFFF)
+        PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ${(CHANNEL_ID)}, DEVADC7);
 </#if>
 </#macro>
 <#if CONFIG_DRV_ADCHS_CHANNEL_INST_IDX0 == true>

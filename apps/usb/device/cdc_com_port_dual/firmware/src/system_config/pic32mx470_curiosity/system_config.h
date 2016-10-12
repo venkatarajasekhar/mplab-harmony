@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -86,6 +82,11 @@ extern "C" {
 #define SYS_CLK_UPLL_BEFORE_DIV2_FREQ       96000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         20000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       32768ul
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
    
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
@@ -107,15 +108,15 @@ extern "C" {
 #define SYS_PORT_C_CNPD         0x0000
 #define SYS_PORT_C_CNEN         0x0000
 
-#define SYS_PORT_D_ANSEL        0xFF3F
-#define SYS_PORT_D_TRIS         0xFFFF
+#define SYS_PORT_D_ANSEL        0xF00E
+#define SYS_PORT_D_TRIS         0xFF7F
 #define SYS_PORT_D_LAT          0x0000
 #define SYS_PORT_D_ODC          0x0000
-#define SYS_PORT_D_CNPU         0x0000
+#define SYS_PORT_D_CNPU         0x0040
 #define SYS_PORT_D_CNPD         0x0000
 #define SYS_PORT_D_CNEN         0x0000
 
-#define SYS_PORT_E_ANSEL        0xFF28
+#define SYS_PORT_E_ANSEL        0xFF20
 #define SYS_PORT_E_TRIS         0xFF28
 #define SYS_PORT_E_LAT          0x0000
 #define SYS_PORT_E_ODC          0x0000
@@ -123,7 +124,7 @@ extern "C" {
 #define SYS_PORT_E_CNPD         0x0000
 #define SYS_PORT_E_CNEN         0x0000
 
-#define SYS_PORT_F_ANSEL        0xFFFF
+#define SYS_PORT_F_ANSEL        0xFFC4
 #define SYS_PORT_F_TRIS         0xFFFF
 #define SYS_PORT_F_LAT          0x0000
 #define SYS_PORT_F_ODC          0x0000
@@ -140,7 +141,6 @@ extern "C" {
 #define SYS_PORT_G_CNEN         0x0000
 
 
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
@@ -152,6 +152,7 @@ extern "C" {
 // Section: Middleware & Other Library Configuration
 // *****************************************************************************
 // *****************************************************************************
+
 /*** USB Driver Configuration ***/
 
 
@@ -220,7 +221,6 @@ extern "C" {
    write. Applicable to all instances of the
    function driver */
 #define USB_DEVICE_CDC_QUEUE_DEPTH_COMBINED 6
-
 
 
 

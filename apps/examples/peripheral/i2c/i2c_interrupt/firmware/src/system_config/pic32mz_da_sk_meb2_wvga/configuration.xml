@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2064DAB288"/>
@@ -52,6 +56,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -134,12 +142,12 @@
       <Template>
         <Name>drv_i2c_static_buffer_model.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk_meb2_wvga/framework/driver/i2c/src</Path>
-        <Checksum>467ACE1A2F4AAEDD2980334B266DC0B3</Checksum>
+        <Checksum>4DFCB8190CA46F9EB0478D7747C1B430</Checksum>
       </Template>
       <Template>
         <Name>drv_i2c_mapping.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk_meb2_wvga/framework/driver/i2c/src</Path>
-        <Checksum>CB629050E39145CBC1D8920F4AA67CB6</Checksum>
+        <Checksum>A2B98209455D197179919685D1F141EE</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -148,7 +156,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk_meb2_wvga/framework/system/clk/src</Path>
-        <Checksum>4ACBE80AD6E6B9C5B8788224DF3C6EE8</Checksum>
+        <Checksum>5DEC6FBF578D0F2E0CFD7A4E273CFADC</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -163,17 +171,12 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_meb2_wvga</Path>
-        <Checksum>206193E58732EFAB0F07F18771965330</Checksum>
+        <Checksum>FCA46C84CA2A4143941692825D77AF1C</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk_meb2_wvga</Path>
         <Checksum>C06F5B7C872E89B58A923189BFD936CF</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_da_sk_meb2_wvga/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -187,7 +190,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk_meb2_wvga</Path>
-        <Checksum>C9FDBDD24DC3960C3891E8E31D5B077E</Checksum>
+        <Checksum>A4236526904ADDF9F8390ED0F6A1794C</Checksum>
       </Template>
       <Template>
         <Name>drv_i2c_static_buffer_model.h</Name>
@@ -216,11 +219,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/examples/peripheral/i2c/i2c_interrupt/firmware/src"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/examples/peripheral/i2c/i2c_interrupt/firmware/src/system_config/pic32mz_da_sk_meb2_wvga"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/examples/peripheral/i2c/i2c_interrupt/firmware/src/pic32mz_da_sk_meb2_wvga"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/framework"/>
-        <Include value="C:/Users/c17015/Projects/GIT_Harmony/core/apps/examples/peripheral/i2c/i2c_interrupt/firmware/src/system_config/pic32mz_da_sk_meb2_wvga/framework"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/apps/examples/peripheral/i2c/i2c_interrupt/firmware/src"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/apps/examples/peripheral/i2c/i2c_interrupt/firmware/src/system_config/pic32mz_da_sk_meb2_wvga"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/framework"/>
+        <Include value="C:/Users/c17015/Projects/GIT_Harmony/HarmonyReposAll/apps/examples/peripheral/i2c/i2c_interrupt/firmware/src/system_config/pic32mz_da_sk_meb2_wvga/framework"/>
         <Include value="../src/system_config/pic32mz_da_sk_meb2_wvga/bsp"/>
       </C32>
     </CompilerItems>

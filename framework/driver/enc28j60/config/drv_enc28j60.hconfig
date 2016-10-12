@@ -52,6 +52,9 @@ source "$HARMONY_VERSION_PATH/framework/driver/enc28j60/config/drv_enc28j60_idx.
 
 ifblock DRV_ENC28J60_USE_DRIVER
 add "<#include \"/framework/driver/enc28j60/config/drv_enc28j60.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
+add "<#include \"/framework/driver/enc28j60/config/drv_enc28j60.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
+
+
 file DRV_ENC28J60_H "$HARMONY_VERSION_PATH/framework/driver/enc28j60/drv_enc28j60.h" to "$PROJECT_HEADER_FILES/framework/driver/enc28j60/drv_enc28j60.h"
 file DRV_ENC28J60_API_C "$HARMONY_VERSION_PATH/framework/driver/enc28j60/src/dynamic/drv_enc28j60_api.c" to "$PROJECT_SOURCE_FILES/framework/driver/enc28j60/drv_enc28j60_api.c"
 file DRV_ENC28J60_DS_DEFS_H "$HARMONY_VERSION_PATH/framework/driver/enc28j60/src/dynamic/drv_enc28j60_ds_defs.h" to "$PROJECT_HEADER_FILES/framework/driver/enc28j60/impl/drv_enc28j60_ds_defs.h"

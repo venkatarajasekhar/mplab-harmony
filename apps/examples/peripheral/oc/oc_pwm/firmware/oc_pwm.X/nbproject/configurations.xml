@@ -21,16 +21,11 @@
                   <itemPath>../src/system_config/pic32mx_usb_sk2/framework/driver/tmr/drv_tmr_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx_usb_sk2/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mx_usb_sk2/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2/system_definitions.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f6"
+          <logicalFolder name="f5"
                          displayName="pic32mx_usb_sk2_freertos"
                          projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
@@ -45,17 +40,12 @@
                   <itemPath>../src/system_config/pic32mx_usb_sk2_freertos/framework/driver/tmr/drv_tmr_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx_usb_sk2_freertos/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mx_usb_sk2_freertos/FreeRTOSConfig.h</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2_freertos/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2_freertos/system_definitions.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f4" displayName="pic32mz_da_sk" projectFiles="true">
+          <logicalFolder name="f3" displayName="pic32mz_da_sk" projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_da_sk/bsp/bsp.h</itemPath>
             </logicalFolder>
@@ -66,11 +56,6 @@
                 </logicalFolder>
                 <logicalFolder name="f2" displayName="tmr" projectFiles="true">
                   <itemPath>../src/system_config/pic32mz_da_sk/framework/driver/tmr/drv_tmr_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_da_sk/framework/system/clk/sys_clk_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
             </logicalFolder>
@@ -90,16 +75,11 @@
                   <itemPath>../src/system_config/pic32mz_ef_sk/framework/driver/tmr/drv_tmr_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mz_ef_sk/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk/system_definitions.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f5" displayName="pic32mz_ef_sk_16b" projectFiles="true">
+          <logicalFolder name="f4" displayName="pic32mz_ef_sk_16b" projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_ef_sk_16b/bsp/bsp.h</itemPath>
             </logicalFolder>
@@ -112,16 +92,11 @@
                   <itemPath>../src/system_config/pic32mz_ef_sk_16b/framework/driver/tmr/drv_tmr_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mz_ef_sk_16b/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk_16b/system_definitions.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f7"
+          <logicalFolder name="f6"
                          displayName="pic32mz_ef_sk_freertos"
                          projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
@@ -134,11 +109,6 @@
                 </logicalFolder>
                 <logicalFolder name="f2" displayName="tmr" projectFiles="true">
                   <itemPath>../src/system_config/pic32mz_ef_sk_freertos/framework/driver/tmr/drv_tmr_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk_freertos/framework/system/clk/sys_clk_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
             </logicalFolder>
@@ -160,6 +130,7 @@
             </logicalFolder>
             <itemPath>../../../../../../../framework/driver/tmr/drv_tmr.h</itemPath>
             <itemPath>../../../../../../../framework/driver/tmr/drv_tmr_mapping.h</itemPath>
+            <itemPath>../../../../../../../framework/driver/tmr/drv_tmr_compatibility.h</itemPath>
           </logicalFolder>
           <itemPath>../../../../../../../framework/driver/driver.h</itemPath>
           <itemPath>../../../../../../../framework/driver/driver_common.h</itemPath>
@@ -177,6 +148,7 @@
           <logicalFolder name="f4" displayName="clk" projectFiles="true">
             <itemPath>../../../../../../../framework/system/clk/sys_clk.h</itemPath>
             <itemPath>../../../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
+            <itemPath>../../../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="common" projectFiles="true">
             <itemPath>../../../../../../../framework/system/common/sys_common.h</itemPath>
@@ -232,6 +204,7 @@
         <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/task.h</itemPath>
         <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/timers.h</itemPath>
         <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/deprecated_definitions.h</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_prototypes.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -282,7 +255,7 @@
             <itemPath>../src/system_config/pic32mx_usb_sk2/system_exceptions.c</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2/system_tasks.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f6"
+          <logicalFolder name="f5"
                          displayName="pic32mx_usb_sk2_freertos"
                          projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
@@ -323,7 +296,7 @@
             <itemPath>../src/system_config/pic32mx_usb_sk2_freertos/system_interrupt_a.S</itemPath>
             <itemPath>../src/system_config/pic32mx_usb_sk2_freertos/rtos_hooks.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f4" displayName="pic32mz_da_sk" projectFiles="true">
+          <logicalFolder name="f3" displayName="pic32mz_da_sk" projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_da_sk/bsp/bsp.c</itemPath>
             </logicalFolder>
@@ -397,7 +370,7 @@
             <itemPath>../src/system_config/pic32mz_ef_sk/system_exceptions.c</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk/system_tasks.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f5" displayName="pic32mz_ef_sk_16b" projectFiles="true">
+          <logicalFolder name="f4" displayName="pic32mz_ef_sk_16b" projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/pic32mz_ef_sk_16b/bsp/bsp.c</itemPath>
             </logicalFolder>
@@ -434,7 +407,7 @@
             <itemPath>../src/system_config/pic32mz_ef_sk_16b/system_exceptions.c</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk_16b/system_tasks.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f7"
+          <logicalFolder name="f6"
                          displayName="pic32mz_ef_sk_freertos"
                          projectFiles="true">
             <logicalFolder name="f2" displayName="bsp" projectFiles="true">
@@ -579,7 +552,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>SKDEPIC32PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion></languageToolchainVersion>
+        <languageToolchainVersion>1.42</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -862,6 +835,22 @@
         </C32Global>
       </item>
       <item path="../../../../../../../third_party/rtos/FreeRTOS/Source/include/list.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
+      <item path="../../../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_prototypes.h"
             ex="true"
             overriding="false">
         <C32>
@@ -1357,22 +1346,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_freertos/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2_freertos/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -1661,22 +1634,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_da_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_da_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -1933,22 +1890,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -2190,22 +2131,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -2493,22 +2418,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_freertos/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_freertos/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -2662,7 +2571,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config;../src/system_config/pic32mx_usb_sk2;../../../../../../../framework;../../../../../../../framework/driver;../../../../../../../framework/system/common;../../../../../../../framework/system/devcon;../../../../../../../framework/system;../../../../../../../framework/system/clk;../../../../../../../framework/system/clk/src;../../../../../../../framework/system/int;../src/system_config/pic32mx_usb_sk2/framework;../src/pic32mx_usb_sk2;../src/system_config/pic32mx_usb_sk2/bsp"/>
+                  value="../src/system_config;../../../../../../../framework/driver;../../../../../../../framework/system/common;../../../../../../../framework/system/devcon;../../../../../../../framework/system;../../../../../../../framework/system/clk;../../../../../../../framework/system/clk/src;../../../../../../../framework/system/int;../src;../src/system_config/pic32mx_usb_sk2;../../../../../../../framework;../src/system_config/pic32mx_usb_sk2/framework;../src/system_config/pic32mx_usb_sk2/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -3118,6 +3027,22 @@
         <C32Global>
         </C32Global>
       </item>
+      <item path="../../../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_prototypes.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
       <item path="../../../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_wrappers.h"
             ex="true"
             overriding="false">
@@ -3582,22 +3507,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -3855,22 +3764,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_freertos/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_freertos/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -4174,22 +4067,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_da_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_da_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -4431,22 +4308,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -4734,22 +4595,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_freertos/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_freertos/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -4903,7 +4748,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src/system_config;../../../../../../../framework/driver;../../../../../../../framework/system/common;../../../../../../../framework/system/devcon;../../../../../../../framework/system;../../../../../../../framework/system/devcon/src;../../../../../../../framework/system/clk;../../../../../../../framework/system/clk/src;../../../../../../../framework/system/int;../../../../../../../framework/system/ports;../src;../src/system_config/pic32mz_ef_sk;../src/pic32mz_ef_sk;../../../../../../../framework;../src/system_config/pic32mz_ef_sk/framework;../src/system_config/pic32mz_ef_sk/bsp"/>
+                  value="../src/system_config;../../../../../../../framework/driver;../../../../../../../framework/system/common;../../../../../../../framework/system/devcon;../../../../../../../framework/system;../../../../../../../framework/system/devcon/src;../../../../../../../framework/system/clk;../../../../../../../framework/system/clk/src;../../../../../../../framework/system/int;../../../../../../../framework/system/ports;../src;../src/system_config/pic32mz_ef_sk;../../../../../../../framework;../src/system_config/pic32mz_ef_sk/framework;../src/system_config/pic32mz_ef_sk/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -5023,6 +4868,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.dataflash" value="true"/>
         <property key="memories.eeprom" value="true"/>
@@ -5460,6 +5306,22 @@
         <C32Global>
         </C32Global>
       </item>
+      <item path="../../../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_prototypes.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
       <item path="../../../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_wrappers.h"
             ex="true"
             overriding="false">
@@ -5924,22 +5786,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -6197,22 +6043,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_freertos/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_freertos/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -6516,22 +6346,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -6773,22 +6587,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -7076,22 +6874,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_freertos/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_freertos/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -7245,7 +7027,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config/pic32mz_da_sk;../src/pic32mz_da_sk;../../../../../../../framework;../src/system_config/pic32mz_da_sk/framework;../src/system_config/pic32mz_da_sk/bsp"/>
+                  value="../src;../src/system_config/pic32mz_da_sk;../../../../../../../framework;../src/system_config/pic32mz_da_sk/framework;../src/system_config/pic32mz_da_sk/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -7897,6 +7679,22 @@
         <C32Global>
         </C32Global>
       </item>
+      <item path="../../../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_prototypes.h"
+            ex="true"
+            overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
+      </item>
       <item path="../../../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_wrappers.h"
             ex="true"
             overriding="false">
@@ -8361,22 +8159,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -8634,22 +8416,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_freertos/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_freertos/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -8953,22 +8719,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_da_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_da_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -9210,22 +8960,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -9513,22 +9247,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_freertos/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_freertos/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -9682,7 +9400,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config/pic32mz_ef_sk_16b;../src/pic32mz_ef_sk_16b;../../../../../../../framework;../src/system_config/pic32mz_ef_sk_16b/framework;../src/system_config/pic32mz_ef_sk_16b/bsp"/>
+                  value="../src;../src/system_config/pic32mz_ef_sk_16b;../../../../../../../framework;../src/system_config/pic32mz_ef_sk_16b/framework;../src/system_config/pic32mz_ef_sk_16b/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="true"/>
         <property key="isolate-each-function" value="true"/>
@@ -9711,7 +9429,7 @@
         <property key="extra-include-directories-for-preprocessor" value=""/>
         <property key="false-conditionals" value="false"/>
         <property key="generate-16-bit-code" value="false"/>
-        <property key="generate-micro-compressed-code" value="false"/>
+        <property key="generate-micro-compressed-code" value="true"/>
         <property key="keep-locals" value="false"/>
         <property key="list-assembly" value="false"/>
         <property key="list-source" value="false"/>
@@ -9803,6 +9521,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.dataflash" value="true"/>
         <property key="memories.eeprom" value="true"/>
@@ -10272,22 +9991,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -10529,22 +10232,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mz_da_sk/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_da_sk/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -10816,22 +10503,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -11073,22 +10744,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -11376,22 +11031,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_freertos/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_freertos/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -11545,7 +11184,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config;../../../../../../../framework;../../../../../../../framework/driver;../../../../../../../framework/system/common;../../../../../../../framework/system/devcon;../../../../../../../framework/system;../../../../../../../framework/system/clk;../../../../../../../framework/system/clk/src;../../../../../../../framework/system/int;../src/pic32mx_usb_sk2_freertos;../src/system_config/pic32mx_usb_sk2_freertos/framework;../src/system_config/pic32mx_usb_sk2_freertos;../src/system_config/pic32mx_usb_sk2_freertos/bsp;../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX;../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>
+                  value="../src/system_config;../../../../../../../framework/driver;../../../../../../../framework/system/common;../../../../../../../framework/system/devcon;../../../../../../../framework/system;../../../../../../../framework/system/clk;../../../../../../../framework/system/clk/src;../../../../../../../framework/system/int;../src;../src/system_config/pic32mx_usb_sk2_freertos;../../../../../../../framework;../src/system_config/pic32mx_usb_sk2_freertos/framework;../src/system_config/pic32mx_usb_sk2_freertos/bsp;../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX;../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -12034,22 +11673,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mx_usb_sk2/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mx_usb_sk2/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -12307,22 +11930,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mx_usb_sk2_freertos/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mx_usb_sk2_freertos/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -12626,22 +12233,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_da_sk/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_da_sk/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -12883,22 +12474,6 @@
         </C32Global>
       </item>
       <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
         <C32>
@@ -13170,22 +12745,6 @@
         <C32Global>
         </C32Global>
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_16b/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -13307,7 +12866,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src/system_config;../../../../../../../framework/driver;../../../../../../../framework/system/common;../../../../../../../framework/system/devcon;../../../../../../../framework/system;../../../../../../../framework/system/devcon/src;../../../../../../../framework/system/clk;../../../../../../../framework/system/clk/src;../../../../../../../framework/system/int;../../../../../../../framework/system/ports;../src;../src/pic32mz_ef_sk_freertos;../../../../../../../framework;../src/system_config/pic32mz_ef_sk_freertos/framework;../src/system_config/pic32mz_ef_sk_freertos;../src/system_config/pic32mz_ef_sk_freertos/bsp;../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>
+                  value="../src/system_config;../../../../../../../framework/driver;../../../../../../../framework/system/common;../../../../../../../framework/system/devcon;../../../../../../../framework/system;../../../../../../../framework/system/devcon/src;../../../../../../../framework/system/clk;../../../../../../../framework/system/clk/src;../../../../../../../framework/system/int;../../../../../../../framework/system/ports;../src;../src/system_config/pic32mz_ef_sk_freertos;../../../../../../../framework;../src/system_config/pic32mz_ef_sk_freertos/framework;../src/system_config/pic32mz_ef_sk_freertos/bsp;../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -13428,6 +12987,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.dataflash" value="true"/>
         <property key="memories.eeprom" value="true"/>

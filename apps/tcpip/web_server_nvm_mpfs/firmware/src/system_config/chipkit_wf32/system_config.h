@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -87,6 +83,61 @@ extern "C" {
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         8000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       32768ul
    
+/*** Command Processor System Service Configuration ***/
+#define SYS_CMD_ENABLE
+#define SYS_CMD_DEVICE_MAX_INSTANCES    SYS_CONSOLE_DEVICE_MAX_INSTANCES
+#define SYS_CMD_PRINT_BUFFER_SIZE       1024
+#define SYS_CMD_BUFFER_DMA_READY
+#define SYS_CMD_REMAP_SYS_CONSOLE_MESSAGE
+#define SYS_CMD_REMAP_SYS_DEBUG_MESSAGE
+// *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
+/*** Console System Service Configuration ***/
+
+#define SYS_CONSOLE_OVERRIDE_STDIO
+#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        2
+#define SYS_CONSOLE_INSTANCES_NUMBER            1
+#define SYS_CONSOLE_UART_IDX               DRV_USART_INDEX_0
+#define SYS_CONSOLE_UART_RD_QUEUE_DEPTH    1
+#define SYS_CONSOLE_UART_WR_QUEUE_DEPTH    128
+#define SYS_CONSOLE_BUFFER_DMA_READY
+
+
+
+/*** Debug System Service Configuration ***/
+#define SYS_DEBUG_ENABLE
+#define DEBUG_PRINT_BUFFER_SIZE       512
+#define SYS_DEBUG_BUFFER_DMA_READY
+#define SYS_DEBUG_USE_CONSOLE
+
+/*** File System Service Configuration ***/
+
+#define SYS_FS_MEDIA_NUMBER         	1
+
+#define SYS_FS_VOLUME_NUMBER		1
+
+#define SYS_FS_AUTOMOUNT_ENABLE		false
+#define SYS_FS_MAX_FILES	    	25
+#define SYS_FS_MAX_FILE_SYSTEM_TYPE 	1
+#define SYS_FS_MEDIA_MAX_BLOCK_SIZE  	512
+#define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE 512
+
+
+#define SYS_FS_MEDIA_TYPE_IDX0 				
+#define SYS_FS_TYPE_IDX0 					
+
+
+
+
+
+
+
+
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
@@ -122,6 +173,12 @@ extern "C" {
 #define SYS_PORT_G_LAT          0x0000
 #define SYS_PORT_G_ODC          0x0000
 
+// *****************************************************************************
+/* Random System Service Configuration Options
+*/
+
+#define SYS_RANDOM_CRYPTO_SEED_SIZE  55
+
 /*** Timer System Service Configuration ***/
 #define SYS_TMR_POWER_STATE             SYS_MODULE_POWER_RUN_FULL
 #define SYS_TMR_DRIVER_INDEX            DRV_TMR_INDEX_0
@@ -132,67 +189,64 @@ extern "C" {
 #define SYS_TMR_CLIENT_TOLERANCE        10
 #define SYS_TMR_INTERRUPT_NOTIFICATION  true
 
-/*** Console System Service Configuration ***/
-
-#define SYS_CONSOLE_OVERRIDE_STDIO
-#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        2
-#define SYS_CONSOLE_INSTANCES_NUMBER            1
-#define SYS_CONSOLE_UART_IDX               DRV_USART_INDEX_0
-#define SYS_CONSOLE_UART_RD_QUEUE_DEPTH    1
-#define SYS_CONSOLE_UART_WR_QUEUE_DEPTH    128
-#define SYS_CONSOLE_BUFFER_DMA_READY
-
-
-
-/*** Debug System Service Configuration ***/
-#define SYS_DEBUG_ENABLE
-#define DEBUG_PRINT_BUFFER_SIZE       512
-#define SYS_DEBUG_BUFFER_DMA_READY
-#define SYS_DEBUG_USE_CONSOLE
-
-/*** Command Processor System Service Configuration ***/
-#define SYS_CMD_ENABLE
-#define SYS_CMD_DEVICE_MAX_INSTANCES    SYS_CONSOLE_DEVICE_MAX_INSTANCES
-#define SYS_CMD_PRINT_BUFFER_SIZE       1024
-#define SYS_CMD_BUFFER_DMA_READY
-#define SYS_CMD_REMAP_SYS_CONSOLE_MESSAGE
-#define SYS_CMD_REMAP_SYS_DEBUG_MESSAGE
-
-/*** File System Service Configuration ***/
-
-#define SYS_FS_MEDIA_NUMBER         	1
-
-#define SYS_FS_VOLUME_NUMBER		1
-
-#define SYS_FS_AUTOMOUNT_ENABLE		false
-#define SYS_FS_MAX_FILES	    	25
-#define SYS_FS_MAX_FILE_SYSTEM_TYPE 	1
-#define SYS_FS_MEDIA_MAX_BLOCK_SIZE  	512
-#define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE 512
-
-
-#define SYS_FS_MEDIA_TYPE_IDX0 				
-#define SYS_FS_TYPE_IDX0 					
-
-
-
-
-
-
-
-
-// *****************************************************************************
-/* Random System Service Configuration Options
-*/
-
-#define SYS_RANDOM_CRYPTO_SEED_SIZE  55
-
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
+
+/*** NVM Driver Configuration ***/
+
+#define DRV_NVM_INSTANCES_NUMBER     	1
+#define DRV_NVM_CLIENTS_NUMBER        	2
+#define DRV_NVM_BUFFER_OBJECT_NUMBER  	5
+
+#define DRV_NVM_INTERRUPT_MODE        	true
+#define DRV_NVM_INTERRUPT_SOURCE      	INT_SOURCE_FLASH_CONTROL
+
+#define DRV_NVM_MEDIA_SIZE              64
+#define DRV_NVM_MEDIA_START_ADDRESS     0x9D000000
+
+#define DRV_NVM_ERASE_WRITE_ENABLE
+
+
+#define DRV_NVM_SYS_FS_REGISTER
+
+
+
+/*** SPI Driver Configuration ***/
+#define DRV_SPI_NUMBER_OF_MODULES		4
+/*** Driver Compilation and static configuration options. ***/
+/*** Select SPI compilation units.***/
+#define DRV_SPI_POLLED 				1
+#define DRV_SPI_ISR 				1
+#define DRV_SPI_MASTER 				1
+#define DRV_SPI_SLAVE 				0
+#define DRV_SPI_RM 					0
+#define DRV_SPI_EBM 				1
+#define DRV_SPI_8BIT 				1
+#define DRV_SPI_16BIT 				0
+#define DRV_SPI_32BIT 				0
+#define DRV_SPI_DMA 				0
+
+/*** SPI Driver Static Allocation Options ***/
+#define DRV_SPI_INSTANCES_NUMBER 		1
+#define DRV_SPI_CLIENTS_NUMBER 			1
+#define DRV_SPI_ELEMENTS_PER_QUEUE 		10
+/* SPI Driver Instance 0 Configuration */
+#define DRV_SPI_SPI_ID_IDX0 				SPI_ID_4
+#define DRV_SPI_TASK_MODE_IDX0 				DRV_SPI_TASK_MODE_POLLED
+#define DRV_SPI_SPI_MODE_IDX0				DRV_SPI_MODE_MASTER
+#define DRV_SPI_ALLOW_IDLE_RUN_IDX0			false
+#define DRV_SPI_SPI_PROTOCOL_TYPE_IDX0 		DRV_SPI_PROTOCOL_TYPE_STANDARD
+#define DRV_SPI_COMM_WIDTH_IDX0 			SPI_COMMUNICATION_WIDTH_8BITS
+#define DRV_SPI_SPI_CLOCK_IDX0 				CLK_BUS_PERIPHERAL_2
+#define DRV_SPI_BAUD_RATE_IDX0 				8000000
+#define DRV_SPI_BUFFER_TYPE_IDX0 			DRV_SPI_BUFFER_TYPE_ENHANCED
+#define DRV_SPI_CLOCK_MODE_IDX0 			DRV_SPI_CLOCK_MODE_IDLE_HIGH_EDGE_FALL
+#define DRV_SPI_INPUT_PHASE_IDX0 			SPI_INPUT_SAMPLING_PHASE_AT_END
+#define DRV_SPI_QUEUE_SIZE_IDX0 			10
+#define DRV_SPI_RESERVED_JOB_IDX0 			1
 /*** Timer Driver Configuration ***/
 #define DRV_TMR_INTERRUPT_MODE             true
 #define DRV_TMR_INSTANCES_NUMBER           1
@@ -251,60 +305,8 @@ extern "C" {
 
 #define DRV_USART_QUEUE_DEPTH_COMBINED              20
 
-/*** NVM Driver Configuration ***/
-
-#define DRV_NVM_INSTANCES_NUMBER     	1
-#define DRV_NVM_CLIENTS_NUMBER        	2
-#define DRV_NVM_BUFFER_OBJECT_NUMBER  	5
-
-#define DRV_NVM_INTERRUPT_MODE        	true
-#define DRV_NVM_INTERRUPT_SOURCE      	INT_SOURCE_FLASH_CONTROL
-
-#define DRV_NVM_MEDIA_SIZE              64
-#define DRV_NVM_MEDIA_START_ADDRESS     0x9D000000
-
-#define DRV_NVM_ERASE_WRITE_ENABLE
-
-
-#define DRV_NVM_SYS_FS_REGISTER
-
-
-
-/*** SPI Driver Configuration ***/
-#define DRV_SPI_NUMBER_OF_MODULES		4
-/*** Driver Compilation and static configuration options. ***/
-/*** Select SPI compilation units.***/
-#define DRV_SPI_POLLED 				1
-#define DRV_SPI_ISR 				1
-#define DRV_SPI_MASTER 				1
-#define DRV_SPI_SLAVE 				0
-#define DRV_SPI_RM 					0
-#define DRV_SPI_EBM 				1
-#define DRV_SPI_8BIT 				1
-#define DRV_SPI_16BIT 				0
-#define DRV_SPI_32BIT 				0
-#define DRV_SPI_DMA 				0
-
-/*** SPI Driver Static Allocation Options ***/
-#define DRV_SPI_INSTANCES_NUMBER 		1
-#define DRV_SPI_CLIENTS_NUMBER 			1
-#define DRV_SPI_ELEMENTS_PER_QUEUE 		10
-/* SPI Driver Instance 0 Configuration */
-#define DRV_SPI_SPI_ID_IDX0 				SPI_ID_4
-#define DRV_SPI_TASK_MODE_IDX0 				DRV_SPI_TASK_MODE_POLLED
-#define DRV_SPI_SPI_MODE_IDX0				DRV_SPI_MODE_MASTER
-#define DRV_SPI_ALLOW_IDLE_RUN_IDX0			false
-#define DRV_SPI_SPI_PROTOCOL_TYPE_IDX0 		DRV_SPI_PROTOCOL_TYPE_STANDARD
-#define DRV_SPI_COMM_WIDTH_IDX0 			SPI_COMMUNICATION_WIDTH_8BITS
-#define DRV_SPI_SPI_CLOCK_IDX0 				CLK_BUS_PERIPHERAL_2
-#define DRV_SPI_BAUD_RATE_IDX0 				8000000
-#define DRV_SPI_BUFFER_TYPE_IDX0 			DRV_SPI_BUFFER_TYPE_ENHANCED
-#define DRV_SPI_CLOCK_MODE_IDX0 			DRV_SPI_CLOCK_MODE_IDLE_HIGH_EDGE_FALL
-#define DRV_SPI_INPUT_PHASE_IDX0 			SPI_INPUT_SAMPLING_PHASE_AT_END
-#define DRV_SPI_QUEUE_SIZE_IDX0 			10
-#define DRV_SPI_RESERVED_JOB_IDX0 			1
-
 /*** Wi-Fi Driver Configuration ***/
+
 
 #define DRV_WIFI_CONFIG_MHC
 
@@ -382,6 +384,11 @@ extern "C" {
 #define NO_AES
 #define NO_ASN
 #define NO_RSA
+
+/* MPLAB Harmony Net Presentation Layer Definitions*/
+#define NET_PRES_NUM_INSTANCE 1
+#define NET_PRES_NUM_SOCKETS 10
+
 
 
 // *****************************************************************************
@@ -471,7 +478,6 @@ extern "C" {
 #define TCPIP_HTTP_CACHE_LEN		        		"600"
 #define TCPIP_HTTP_TIMEOUT		            		45
 #define TCPIP_HTTP_MAX_CONNECTIONS		    		4
-#define TCPIP_HTTP_MAX_TLS_CONNECTIONS		  		0
 #define TCPIP_HTTP_DEFAULT_FILE		        		"index.htm"
 #define TCPIP_HTTPS_DEFAULT_FILE	        		"index.htm"
 #define TCPIP_HTTP_DEFAULT_LEN		        		10
@@ -479,8 +485,6 @@ extern "C" {
 #define TCPIP_HTTP_MIN_CALLBACK_FREE				16
 #define TCPIP_HTTP_SKT_TX_BUFF_SIZE		    		0
 #define TCPIP_HTTP_SKT_RX_BUFF_SIZE		    		0
-#define TCPIP_HTTP_TLS_SKT_TX_BUFF_SIZE		                0
-#define TCPIP_HTTP_TLS_SKT_RX_BUFF_SIZE		                0
 #define TCPIP_HTTP_CONFIG_FLAGS		        		1
 #define TCPIP_HTTP_FILE_UPLOAD_ENABLE
 #define TCPIP_HTTP_FILE_UPLOAD_NAME				"mpfsupload"
@@ -497,12 +501,16 @@ extern "C" {
 /*** ICMPv4 Client Configuration ***/
 #define TCPIP_STACK_USE_ICMP_CLIENT
 #define TCPIP_ICMP_CLIENT_USER_NOTIFICATION   true
+#define TCPIP_ICMP_ECHO_REQUEST_TIMEOUT       500
+#define TCPIP_ICMP_TASK_TICK_RATE             33
 /*** iperf Configuration ***/
 #define TCPIP_STACK_USE_IPERF
 #define TCPIP_IPERF_TX_BUFFER_SIZE		4096
 #define TCPIP_IPERF_RX_BUFFER_SIZE  	4096
 #define TCPIP_IPERF_TX_WAIT_TMO     	400
 #define TCPIP_IPERF_TX_QUEUE_LIMIT  	2
+#define TCPIP_IPERF_TIMING_ERROR_MARGIN 0
+#define TCPIP_IPERF_MAX_INSTANCES       1
 
 
 /*** NBNS Configuration ***/
@@ -515,6 +523,7 @@ extern "C" {
 #define TCPIP_SMTP_WRITE_READY_SPACE 	    150
 #define TCPIP_SMTP_MAX_WRITE_SIZE   	    512
 #define TCPIP_SMTP_TASK_TICK_RATE			55
+
 
 
 
@@ -537,8 +546,10 @@ extern "C" {
 #define TCPIP_TCP_MAX_SYN_RETRIES		        	2
 #define TCPIP_TCP_AUTO_TRANSMIT_TIMEOUT_VAL			40
 #define TCPIP_TCP_WINDOW_UPDATE_TIMEOUT_VAL			200
-#define TCPIP_TCP_MAX_SOCKETS		            		10
+#define TCPIP_TCP_MAX_SOCKETS		                10
 #define TCPIP_TCP_TASK_TICK_RATE		        	5
+#define TCPIP_TCP_MSL_TIMEOUT		        	    0
+#define TCPIP_TCP_QUIET_TIME		        	    0
 
 
 
@@ -587,10 +598,9 @@ extern "C" {
 #define TCPIP_ZC_MDNS_ANNOUNCE_INTERVAL 250
 #define TCPIP_ZC_MDNS_ANNOUNCE_WAIT 250
 
-
 /*** Network Configuration Index 0 ***/
 #define TCPIP_NETWORK_DEFAULT_INTERFACE_NAME 			"MRF24W"
-#define TCPIP_IF_MRF24W
+#define TCPIP_IF_MRF24W 
 #define TCPIP_NETWORK_DEFAULT_HOST_NAME 			"MCHPBOARD_W"
 #define TCPIP_NETWORK_DEFAULT_MAC_ADDR	 			0
 #define TCPIP_NETWORK_DEFAULT_IP_ADDRESS 			"0.0.0.0"
@@ -614,7 +624,11 @@ extern "C" {
 #define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DELAY    1000
 #define TCPIP_STACK_COMMANDS_ICMP_ECHO_TIMEOUT          5000
 #define TCPIP_STACK_COMMANDS_WIFI_ENABLE             	true
+#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_BUFF_SIZE    2000
+#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DATA_SIZE    100
 
+
+/*** IPv4 Configuration ***/
 
 /*** TCPIP SYS FS Wrapper ***/
 #define SYS_FS_MAX_PATH						80
@@ -624,11 +638,6 @@ extern "C" {
 #define SYS_FS_NVM_VOL						"/dev/nvma1"
 #define SYS_FS_FATFS_STRING					"FATFS"
 #define SYS_FS_MPFS_STRING					"MPFS2"
-
-
-/* MPLAB Harmony Net Presentation Layer Definitions*/
-#define NET_PRES_NUM_INSTANCE 1
-#define NET_PRES_NUM_SOCKETS 10
 
 // *****************************************************************************
 /* BSP Configuration Options

@@ -115,8 +115,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
     #define _DRV_NVM_ERASE_WRITE_WRAPPER NULL
 #endif
 
-#define _DRV_NVM_KVA_TO_PA(address)                             (address & 0x1FFFFFFF)
-
 #if defined (DRV_NVM_DISABLE_ERROR_CHECK)
 #define _DRV_NVM_VALIDATE_EXPR(y, z)
 #else

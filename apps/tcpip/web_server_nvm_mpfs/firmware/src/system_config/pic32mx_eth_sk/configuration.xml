@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -30,12 +30,12 @@
         <Path>Source Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>helpers.h</Name>
-        <Path>Header Files/framework/tcpip/src/common</Path>
-      </File>
-      <File>
         <Name>asn_public.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>helpers.h</Name>
+        <Path>Header Files/framework/tcpip/src/common</Path>
       </File>
       <File>
         <Name>snmpv3.h</Name>
@@ -50,12 +50,12 @@
         <Path>Source Files/framework/tcpip/src</Path>
       </File>
       <File>
-        <Name>usb_device_local.h</Name>
-        <Path>Header Files/framework/usb/src</Path>
-      </File>
-      <File>
         <Name>tcpip_mac.h</Name>
         <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>usb_device_local.h</Name>
+        <Path>Header Files/framework/usb/src</Path>
       </File>
       <File>
         <Name>sys_reset_mapping.h</Name>
@@ -102,12 +102,12 @@
         <Path>Source Files/framework/system/command/src</Path>
       </File>
       <File>
-        <Name>ipv6_manager.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>dh.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>ipv6_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>sys_console_usb_cdc.c</Name>
@@ -142,12 +142,12 @@
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
-        <Name>oahash.c</Name>
-        <Path>Source Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>tcpip_manager.h</Name>
         <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>oahash.c</Name>
+        <Path>Source Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>tcpip_common_ports.h</Name>
@@ -186,10 +186,6 @@
         <Path>Header Files/framework/driver/nvm/src</Path>
       </File>
       <File>
-        <Name>dns.c</Name>
-        <Path>Source Files/framework/src/stack</Path>
-      </File>
-      <File>
         <Name>osal_impl_basic.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -198,12 +194,12 @@
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
-        <Name>dns_private.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>sys_reset.h</Name>
         <Path>Header Files/framework/system/reset</Path>
+      </File>
+      <File>
+        <Name>dns_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>trees.h</Name>
@@ -278,12 +274,12 @@
         <Path>Header Files/framework/system/int</Path>
       </File>
       <File>
-        <Name>tcpip_reboot.h</Name>
-        <Path>Header Files/framework/tcpip</Path>
-      </File>
-      <File>
         <Name>logging.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>tcpip_reboot.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>md4.h</Name>
@@ -294,15 +290,15 @@
         <Path>Header Files/framework/system/devcon</Path>
       </File>
       <File>
-        <Name>ipv4_manager.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>nbns.h</Name>
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>tcpip_packet.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>ipv4_manager.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
@@ -410,12 +406,12 @@
         <Path>Source Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>tcpip_commands_manager.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>arp.h</Name>
         <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>tcpip_commands_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>driver.h</Name>
@@ -466,6 +462,10 @@
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
+      </File>
+      <File>
         <Name>sys_console_usb_cdc_local.h</Name>
         <Path>Header Files/framework/system/console/src</Path>
       </File>
@@ -474,16 +474,12 @@
         <Path>Header Files/framework/system/tmr/src</Path>
       </File>
       <File>
-        <Name>tcpip_mac_object.h</Name>
-        <Path>Header Files/framework/tcpip</Path>
-      </File>
-      <File>
-        <Name>drv_tmr_compatibility.h</Name>
-        <Path>Header Files/framework/driver/tmr</Path>
-      </File>
-      <File>
         <Name>tcpip_notify.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>tcpip_mac_object.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>inftrees.h</Name>
@@ -594,23 +590,23 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
-        <Name>hmac.c</Name>
-        <Path>Source Files/framework/crypto/src</Path>
-      </File>
-      <File>
         <Name>asn.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>hmac.c</Name>
+        <Path>Source Files/framework/crypto/src</Path>
       </File>
       <File>
         <Name>tcpip_heap_alloc.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
-        <Name>rabbit.h</Name>
+        <Name>des3.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>des3.h</Name>
+        <Name>rabbit.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
@@ -662,24 +658,24 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
-        <Name>dhcpv6.h</Name>
-        <Path>Header Files/framework/tcpip</Path>
-      </File>
-      <File>
         <Name>arp_private.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>dhcpv6.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>misc.c</Name>
         <Path>Source Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>aes_ecb_pic32.h</Name>
-        <Path>Header Files/framework/tcpip/src/crypto</Path>
-      </File>
-      <File>
         <Name>sys_clk_mapping.h</Name>
         <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>aes_ecb_pic32.h</Name>
+        <Path>Header Files/framework/tcpip/src/crypto</Path>
       </File>
       <File>
         <Name>crc32.h</Name>
@@ -714,12 +710,12 @@
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>drv_usbfs_device.c</Name>
-        <Path>Source Files/framework/driver/usb/usbfs/src/dynamic</Path>
-      </File>
-      <File>
         <Name>ipv6.c</Name>
         <Path>Source Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>drv_usbfs_device.c</Name>
+        <Path>Source Files/framework/driver/usb/usbfs/src/dynamic</Path>
       </File>
       <File>
         <Name>drv_nvm.h</Name>
@@ -910,12 +906,12 @@
         <Path>Header Files/framework/system/random/src</Path>
       </File>
       <File>
-        <Name>sys_tmr.h</Name>
-        <Path>Header Files/framework/system/tmr</Path>
-      </File>
-      <File>
         <Name>sys_reset.c</Name>
         <Path>Source Files/framework/system/reset/src</Path>
+      </File>
+      <File>
+        <Name>sys_tmr.h</Name>
+        <Path>Header Files/framework/system/tmr</Path>
       </File>
       <File>
         <Name>usb_host.h</Name>
@@ -966,12 +962,12 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
-        <Name>http.h</Name>
-        <Path>Header Files/framework/tcpip</Path>
-      </File>
-      <File>
         <Name>sys_random.h</Name>
         <Path>Header Files/framework/system/random</Path>
+      </File>
+      <File>
+        <Name>http.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>tcpip_manager_control.h</Name>
@@ -1026,12 +1022,12 @@
         <Path>Header Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
       <File>
-        <Name>net_pres.c</Name>
-        <Path>Source Files/framework/net/pres/src</Path>
-      </File>
-      <File>
         <Name>random.c</Name>
         <Path>Source Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>net_pres.c</Name>
+        <Path>Source Files/framework/net/pres/src</Path>
       </File>
       <File>
         <Name>sys_devcon_local.h</Name>
@@ -1114,12 +1110,12 @@
         <Path>Source Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>drv_wifi.h</Name>
-        <Path>Header Files/framework/driver/wifi/mrf24w</Path>
-      </File>
-      <File>
         <Name>drv_ethmac_lib.c</Name>
         <Path>Source Files/framework/driver/ethmac</Path>
+      </File>
+      <File>
+        <Name>drv_wifi.h</Name>
+        <Path>Header Files/framework/driver/wifi/mrf24w</Path>
       </File>
       <File>
         <Name>des3.c</Name>
@@ -1130,15 +1126,15 @@
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
-        <Name>sntp.h</Name>
-        <Path>Header Files/framework/tcpip</Path>
-      </File>
-      <File>
         <Name>deflate.h</Name>
         <Path>Header Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
       <File>
         <Name>http_net.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>sntp.h</Name>
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
@@ -1150,12 +1146,12 @@
         <Path>Header Files/framework/system/fs/mpfs</Path>
       </File>
       <File>
-        <Name>tcpip_announce_manager.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>net_pres_local.h</Name>
         <Path>Header Files/framework/net/pres/src</Path>
+      </File>
+      <File>
+        <Name>tcpip_announce_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -1166,12 +1162,12 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
-        <Name>dnss_private.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>inffast.c</Name>
         <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
+      </File>
+      <File>
+        <Name>dnss_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>ecc.h</Name>
@@ -1187,6 +1183,10 @@
       </File>
       <File>
         <Name>tcpip_heap_internal.c</Name>
+        <Path>Source Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>dns.c</Name>
         <Path>Source Files/framework/tcpip/src</Path>
       </File>
       <File>
@@ -1254,12 +1254,12 @@
         <Path>Source Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>drv_tmr_variant_mapping.h</Name>
-        <Path>Header Files/framework/driver/tmr/src</Path>
-      </File>
-      <File>
         <Name>_eth_dcpt_lists.h</Name>
         <Path>Header Files/framework/driver/ethmac/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_variant_mapping.h</Name>
+        <Path>Header Files/framework/driver/tmr/src</Path>
       </File>
       <File>
         <Name>sntp_manager.h</Name>
@@ -1274,12 +1274,12 @@
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>sys_console.c</Name>
-        <Path>Source Files/framework/system/console/src</Path>
-      </File>
-      <File>
         <Name>arc4.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>sys_console.c</Name>
+        <Path>Source Files/framework/system/console/src</Path>
       </File>
       <File>
         <Name>drv_ethphy.h</Name>
@@ -1338,12 +1338,12 @@
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
-        <Name>usb_device_mapping.h</Name>
-        <Path>Header Files/framework/usb/src</Path>
-      </File>
-      <File>
         <Name>crc32.c</Name>
         <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
+      </File>
+      <File>
+        <Name>usb_device_mapping.h</Name>
+        <Path>Header Files/framework/usb/src</Path>
       </File>
       <File>
         <Name>error-crypt.h</Name>
@@ -1366,12 +1366,16 @@
         <Path>Source Files/framework/driver/nvm/src/dynamic</Path>
       </File>
       <File>
+        <Name>pwdbased.c</Name>
+        <Path>Source Files/framework/crypto/src</Path>
+      </File>
+      <File>
         <Name>dhcpv6_private.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
-        <Name>pwdbased.c</Name>
-        <Path>Source Files/framework/crypto/src</Path>
+        <Name>mpi_class.h</Name>
+        <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
         <Name>icmpv6.c</Name>
@@ -1380,10 +1384,6 @@
       <File>
         <Name>ftp_manager.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
-        <Name>mpi_class.h</Name>
-        <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
         <Name>sys_debug.c</Name>
@@ -1426,7 +1426,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk</Path>
-        <Checksum>53AFD735FF6B37DAF6BC80C7B90A7884</Checksum>
+        <Checksum>7FD2D88E0ACF2BF7098D0FF78CCFBBE0</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -1477,6 +1477,12 @@
         <Checksum>D756C1F74E3725D11FF6CA61418AF216</Checksum>
       </Template>
       <Template>
+        <Name>net_pres_enc_glue.h</Name>
+        <Path>Header Files/app/system_config/pic32mx_eth_sk/framework/net/pres</Path>
+        <Checksum>3FDF1EF72050D3301433F2D1893EC89D</Checksum>
+        <ProjectFileChecksum>BA7928D1314CB7AB3C829157C0DB4E9F</ProjectFileChecksum>
+      </Template>
+      <Template>
         <Name>system_exceptions.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk</Path>
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
@@ -1494,7 +1500,6 @@
         <Name>nvm_disk_images.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk/framework/system/fs</Path>
         <Checksum>B00B90E021F15FFD6B0B1B7F2D0650A5</Checksum>
-        <ProjectFileChecksum>D3A4C5F8A62CEBC0783DE9FA2965DC03</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>http_print.c</Name>
@@ -1519,11 +1524,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/isp/git/release_master/apps/tcpip/web_server_nvm_mpfs/firmware/src"/>
-        <Include value="C:/isp/git/release_master/apps/tcpip/web_server_nvm_mpfs/firmware/src/system_config/pic32mx_eth_sk"/>
-        <Include value="C:/isp/git/release_master/apps/tcpip/web_server_nvm_mpfs/firmware/src/pic32mx_eth_sk"/>
-        <Include value="C:/isp/git/release_master/framework"/>
-        <Include value="C:/isp/git/release_master/apps/tcpip/web_server_nvm_mpfs/firmware/src/system_config/pic32mx_eth_sk/framework"/>
+        <Include value="C:\cm\Harmony\apps\tcpip\web_server_nvm_mpfs\firmware\src"/>
+        <Include value="C:\cm\Harmony\apps\tcpip\web_server_nvm_mpfs\firmware\src\system_config\pic32mx_eth_sk"/>
+        <Include value="C:\cm\Harmony\framework"/>
+        <Include value="C:\cm\Harmony\apps\tcpip\web_server_nvm_mpfs\firmware\src\system_config\pic32mx_eth_sk\framework"/>
         <Include value="../src/system_config/pic32mx_eth_sk/bsp"/>
       </C32>
     </CompilerItems>

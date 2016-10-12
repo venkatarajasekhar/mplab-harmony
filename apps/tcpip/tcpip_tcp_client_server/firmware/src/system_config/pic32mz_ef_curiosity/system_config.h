@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -92,75 +88,18 @@ extern "C" {
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         24000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       32768ul
    
-/*** Interrupt System Service Configuration ***/
-#define SYS_INT                     true
-
-/*** Ports System Service Configuration ***/
-#define SYS_PORT_A_ANSEL        0xFFC0
-#define SYS_PORT_A_TRIS         0xFFDE
-#define SYS_PORT_A_LAT          0x0000
-#define SYS_PORT_A_ODC          0x0000
-#define SYS_PORT_A_CNPU         0x0000
-#define SYS_PORT_A_CNPD         0x0000
-#define SYS_PORT_A_CNEN         0x0000
-
-#define SYS_PORT_B_ANSEL        0x0FDC
-#define SYS_PORT_B_TRIS         0x3FDC
-#define SYS_PORT_B_LAT          0x0000
-#define SYS_PORT_B_ODC          0x0000
-#define SYS_PORT_B_CNPU         0x3000
-#define SYS_PORT_B_CNPD         0x0000
-#define SYS_PORT_B_CNEN         0x0000
-
-#define SYS_PORT_C_ANSEL        0xEFFF
-#define SYS_PORT_C_TRIS         0xFFFF
-#define SYS_PORT_C_LAT          0x0000
-#define SYS_PORT_C_ODC          0x0000
-#define SYS_PORT_C_CNPU         0x0000
-#define SYS_PORT_C_CNPD         0x0000
-#define SYS_PORT_C_CNEN         0x0000
-
-#define SYS_PORT_D_ANSEL        0xFFFE
-#define SYS_PORT_D_TRIS         0xFFFF
-#define SYS_PORT_D_LAT          0x0000
-#define SYS_PORT_D_ODC          0x0000
-#define SYS_PORT_D_CNPU         0x0000
-#define SYS_PORT_D_CNPD         0x0000
-#define SYS_PORT_D_CNEN         0x0000
-
-#define SYS_PORT_E_ANSEL        0xFFA7
-#define SYS_PORT_E_TRIS         0xFFA7
-#define SYS_PORT_E_LAT          0x0000
-#define SYS_PORT_E_ODC          0x0000
-#define SYS_PORT_E_CNPU         0x0000
-#define SYS_PORT_E_CNPD         0x0000
-#define SYS_PORT_E_CNEN         0x0000
-
-#define SYS_PORT_F_ANSEL        0xFFEF
-#define SYS_PORT_F_TRIS         0xFFFF
-#define SYS_PORT_F_LAT          0x0000
-#define SYS_PORT_F_ODC          0x0000
-#define SYS_PORT_F_CNPU         0x0000
-#define SYS_PORT_F_CNPD         0x0000
-#define SYS_PORT_F_CNEN         0x0000
-
-#define SYS_PORT_G_ANSEL        0xCCFF
-#define SYS_PORT_G_TRIS         0xFFFF
-#define SYS_PORT_G_LAT          0x0000
-#define SYS_PORT_G_ODC          0x0000
-#define SYS_PORT_G_CNPU         0x1000
-#define SYS_PORT_G_CNPD         0x0000
-#define SYS_PORT_G_CNEN         0x0000
-
-/*** Timer System Service Configuration ***/
-#define SYS_TMR_POWER_STATE             SYS_MODULE_POWER_RUN_FULL
-#define SYS_TMR_DRIVER_INDEX            DRV_TMR_INDEX_0
-#define SYS_TMR_MAX_CLIENT_OBJECTS      5
-#define SYS_TMR_FREQUENCY               1000
-#define SYS_TMR_FREQUENCY_TOLERANCE     10
-#define SYS_TMR_UNIT_RESOLUTION         10000
-#define SYS_TMR_CLIENT_TOLERANCE        10
-#define SYS_TMR_INTERRUPT_NOTIFICATION  false
+/*** Command Processor System Service Configuration ***/
+#define SYS_CMD_ENABLE
+#define SYS_CMD_DEVICE_MAX_INSTANCES    SYS_CONSOLE_DEVICE_MAX_INSTANCES
+#define SYS_CMD_PRINT_BUFFER_SIZE       512
+#define SYS_CMD_BUFFER_DMA_READY        __attribute__((coherent)) __attribute__((aligned(16)))
+#define SYS_CMD_REMAP_SYS_CONSOLE_MESSAGE
+#define SYS_CMD_REMAP_SYS_DEBUG_MESSAGE
+// *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
 
 /*** Console System Service Configuration ***/
 
@@ -182,19 +121,81 @@ extern "C" {
 #define SYS_DEBUG_BUFFER_DMA_READY        __attribute__((coherent)) __attribute__((aligned(16)))
 #define SYS_DEBUG_USE_CONSOLE
 
-/*** Command Processor System Service Configuration ***/
-#define SYS_CMD_ENABLE
-#define SYS_CMD_DEVICE_MAX_INSTANCES    SYS_CONSOLE_DEVICE_MAX_INSTANCES
-#define SYS_CMD_PRINT_BUFFER_SIZE       512
-#define SYS_CMD_BUFFER_DMA_READY        __attribute__((coherent)) __attribute__((aligned(16)))
-#define SYS_CMD_REMAP_SYS_CONSOLE_MESSAGE
-#define SYS_CMD_REMAP_SYS_DEBUG_MESSAGE
+/*** Interrupt System Service Configuration ***/
+#define SYS_INT                     true
+
+/*** Ports System Service Configuration ***/
+#define SYS_PORT_A_ANSEL        0x3F00
+#define SYS_PORT_A_TRIS         0xFFDE
+#define SYS_PORT_A_LAT          0x0000
+#define SYS_PORT_A_ODC          0x0000
+#define SYS_PORT_A_CNPU         0x0000
+#define SYS_PORT_A_CNPD         0x0000
+#define SYS_PORT_A_CNEN         0x0000
+
+#define SYS_PORT_B_ANSEL        0x07DC
+#define SYS_PORT_B_TRIS         0x3FDC
+#define SYS_PORT_B_LAT          0x0000
+#define SYS_PORT_B_ODC          0x0000
+#define SYS_PORT_B_CNPU         0x3000
+#define SYS_PORT_B_CNPD         0x0000
+#define SYS_PORT_B_CNEN         0x0000
+
+#define SYS_PORT_C_ANSEL        0xEFFF
+#define SYS_PORT_C_TRIS         0xFFFF
+#define SYS_PORT_C_LAT          0x0000
+#define SYS_PORT_C_ODC          0x0000
+#define SYS_PORT_C_CNPU         0x0000
+#define SYS_PORT_C_CNPD         0x0000
+#define SYS_PORT_C_CNEN         0x0000
+
+#define SYS_PORT_D_ANSEL        0xC1C0
+#define SYS_PORT_D_TRIS         0xFFFF
+#define SYS_PORT_D_LAT          0x0000
+#define SYS_PORT_D_ODC          0x0000
+#define SYS_PORT_D_CNPU         0x0000
+#define SYS_PORT_D_CNPD         0x0000
+#define SYS_PORT_D_CNEN         0x0000
+
+#define SYS_PORT_E_ANSEL        0xFFA0
+#define SYS_PORT_E_TRIS         0xFFA7
+#define SYS_PORT_E_LAT          0x0000
+#define SYS_PORT_E_ODC          0x0000
+#define SYS_PORT_E_CNPU         0x0000
+#define SYS_PORT_E_CNPD         0x0000
+#define SYS_PORT_E_CNEN         0x0000
+
+#define SYS_PORT_F_ANSEL        0xFEC0
+#define SYS_PORT_F_TRIS         0xFFFF
+#define SYS_PORT_F_LAT          0x0000
+#define SYS_PORT_F_ODC          0x0000
+#define SYS_PORT_F_CNPU         0x0000
+#define SYS_PORT_F_CNPD         0x0000
+#define SYS_PORT_F_CNEN         0x0000
+
+#define SYS_PORT_G_ANSEL        0x8CFC
+#define SYS_PORT_G_TRIS         0xDFFF
+#define SYS_PORT_G_LAT          0x0000
+#define SYS_PORT_G_ODC          0x0000
+#define SYS_PORT_G_CNPU         0x1000
+#define SYS_PORT_G_CNPD         0x0000
+#define SYS_PORT_G_CNEN         0x0000
+
 // *****************************************************************************
 /* Random System Service Configuration Options
 */
 
 #define SYS_RANDOM_CRYPTO_SEED_SIZE  32
 
+/*** Timer System Service Configuration ***/
+#define SYS_TMR_POWER_STATE             SYS_MODULE_POWER_RUN_FULL
+#define SYS_TMR_DRIVER_INDEX            DRV_TMR_INDEX_0
+#define SYS_TMR_MAX_CLIENT_OBJECTS      5
+#define SYS_TMR_FREQUENCY               1000
+#define SYS_TMR_FREQUENCY_TOLERANCE     10
+#define SYS_TMR_UNIT_RESOLUTION         10000
+#define SYS_TMR_CLIENT_TOLERANCE        10
+#define SYS_TMR_INTERRUPT_NOTIFICATION  false
 
 // *****************************************************************************
 // *****************************************************************************
@@ -235,76 +236,6 @@ extern "C" {
 #define NO_AES
 #define NO_ASN
 #define NO_RSA
-
-/*** USB Driver Configuration ***/
-
-
-/* Enables Device Support */
-#define DRV_USBHS_DEVICE_SUPPORT      true
-
-/* Disable Device Support */
-#define DRV_USBHS_HOST_SUPPORT      false
-
-/* Maximum USB driver instances */
-#define DRV_USBHS_INSTANCES_NUMBER    1
-
-
-/* Interrupt mode enabled */
-#define DRV_USBHS_INTERRUPT_MODE      true
-
-
-/* Number of Endpoints used */
-#define DRV_USBHS_ENDPOINTS_NUMBER    3
-
-
-
-
-/*** USB Device Stack Configuration ***/
-
-
-
-
-
-
-
-
-
-
-/* The USB Device Layer will not initialize the USB Driver */
-#define USB_DEVICE_DRIVER_INITIALIZE_EXPLICIT
-
-/* Maximum device layer instances */
-#define USB_DEVICE_INSTANCES_NUMBER     1
-
-/* EP0 size in bytes */
-#define USB_DEVICE_EP0_BUFFER_SIZE      64
-
-
-
-
-
-
-
-
-
-
-/* Maximum instances of CDC function driver */
-#define USB_DEVICE_CDC_INSTANCES_NUMBER     1
-
-
-
-
-
-
-
-
-
-
-/* CDC Transfer Queue Size for both read and
-   write. Applicable to all instances of the
-   function driver */
-#define USB_DEVICE_CDC_QUEUE_DEPTH_COMBINED 3
-
 
 
 
@@ -390,11 +321,15 @@ extern "C" {
 
 
 
+/*** ICMPv4 Server Configuration ***/
+#define TCPIP_STACK_USE_ICMP_SERVER
+
 
 
 /*** NBNS Configuration ***/
 #define TCPIP_STACK_USE_NBNS
 #define TCPIP_NBNS_TASK_TICK_RATE   110
+
 
 
 
@@ -418,8 +353,10 @@ extern "C" {
 #define TCPIP_TCP_MAX_SYN_RETRIES		        	3
 #define TCPIP_TCP_AUTO_TRANSMIT_TIMEOUT_VAL			40
 #define TCPIP_TCP_WINDOW_UPDATE_TIMEOUT_VAL			200
-#define TCPIP_TCP_MAX_SOCKETS		            		10
+#define TCPIP_TCP_MAX_SOCKETS		                10
 #define TCPIP_TCP_TASK_TICK_RATE		        	5
+#define TCPIP_TCP_MSL_TIMEOUT		        	    0
+#define TCPIP_TCP_QUIET_TIME		        	    0
 
 /*** announce Configuration ***/
 #define TCPIP_STACK_USE_ANNOUNCE
@@ -502,7 +439,6 @@ extern "C" {
 #define TCPIP_ZC_LL_IPV4_LLBASE 0xa9fe0100
 #define TCPIP_ZC_LL_IPV4_LLBASE_MASK 0x0000FFFF
 #define TCPIP_ZC_LL_TASK_TICK_RATE 333
-
 /*** Network Configuration Index 0 ***/
 #define TCPIP_NETWORK_DEFAULT_INTERFACE_NAME 			"PIC32INT"
 #define TCPIP_IF_PIC32INT
@@ -528,6 +464,80 @@ extern "C" {
 #define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DELAY    1000
 #define TCPIP_STACK_COMMANDS_ICMP_ECHO_TIMEOUT          5000
 #define TCPIP_STACK_COMMANDS_WIFI_ENABLE             	false
+#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_BUFF_SIZE    2000
+#define TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DATA_SIZE    100
+
+
+/*** IPv4 Configuration ***/
+
+/*** USB Driver Configuration ***/
+
+
+/* Enables Device Support */
+#define DRV_USBHS_DEVICE_SUPPORT      true
+
+/* Disable Device Support */
+#define DRV_USBHS_HOST_SUPPORT      false
+
+/* Maximum USB driver instances */
+#define DRV_USBHS_INSTANCES_NUMBER    1
+
+
+/* Interrupt mode enabled */
+#define DRV_USBHS_INTERRUPT_MODE      true
+
+
+/* Number of Endpoints used */
+#define DRV_USBHS_ENDPOINTS_NUMBER    3
+
+
+
+
+/*** USB Device Stack Configuration ***/
+
+
+
+
+
+
+
+
+
+
+/* The USB Device Layer will not initialize the USB Driver */
+#define USB_DEVICE_DRIVER_INITIALIZE_EXPLICIT
+
+/* Maximum device layer instances */
+#define USB_DEVICE_INSTANCES_NUMBER     1
+
+/* EP0 size in bytes */
+#define USB_DEVICE_EP0_BUFFER_SIZE      64
+
+
+
+
+
+
+
+
+
+
+/* Maximum instances of CDC function driver */
+#define USB_DEVICE_CDC_INSTANCES_NUMBER     1
+
+
+
+
+
+
+
+
+
+
+/* CDC Transfer Queue Size for both read and
+   write. Applicable to all instances of the
+   function driver */
+#define USB_DEVICE_CDC_QUEUE_DEPTH_COMBINED 3
 
 
 
@@ -553,21 +563,21 @@ extern "C" {
 
 /*** Functions for BSP_RGB_LED_RED pin ***/
 #define BSP_RGB_LED_REDToggle() PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_5)
-#define BSP_RGB_LED_REDOn() PLIB_PORTS_PinSet(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_5)
-#define BSP_RGB_LED_REDOff() PLIB_PORTS_PinClear(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_5)
-#define BSP_RGB_LED_REDStateGet() PLIB_PORTS_PinGetLatched(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_5)
+#define BSP_RGB_LED_REDOn() PLIB_PORTS_PinClear(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_5)
+#define BSP_RGB_LED_REDOff() PLIB_PORTS_PinSet(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_5)
+#define BSP_RGB_LED_REDStateGet() ~(PLIB_PORTS_PinGetLatched(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_5))
 
 /*** Functions for BSP_RGB_LED_GREEN pin ***/
 #define BSP_RGB_LED_GREENToggle() PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_1)
-#define BSP_RGB_LED_GREENOn() PLIB_PORTS_PinSet(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_1)
-#define BSP_RGB_LED_GREENOff() PLIB_PORTS_PinClear(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_1)
-#define BSP_RGB_LED_GREENStateGet() PLIB_PORTS_PinGetLatched(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_1)
+#define BSP_RGB_LED_GREENOn() PLIB_PORTS_PinClear(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_1)
+#define BSP_RGB_LED_GREENOff() PLIB_PORTS_PinSet(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_1)
+#define BSP_RGB_LED_GREENStateGet() ~(PLIB_PORTS_PinGetLatched(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_1))
 
 /*** Functions for BSP_RGB_LED_BLUE pin ***/
 #define BSP_RGB_LED_BLUEToggle() PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_0)
-#define BSP_RGB_LED_BLUEOn() PLIB_PORTS_PinSet(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_0)
-#define BSP_RGB_LED_BLUEOff() PLIB_PORTS_PinClear(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_0)
-#define BSP_RGB_LED_BLUEStateGet() PLIB_PORTS_PinGetLatched(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_0)
+#define BSP_RGB_LED_BLUEOn() PLIB_PORTS_PinClear(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_0)
+#define BSP_RGB_LED_BLUEOff() PLIB_PORTS_PinSet(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_0)
+#define BSP_RGB_LED_BLUEStateGet() ~(PLIB_PORTS_PinGetLatched(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_0))
 
 /*** Functions for BSP_LED_1 pin ***/
 #define BSP_LED_1Toggle() PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_E, PORTS_BIT_POS_3)

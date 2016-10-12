@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -100,6 +104,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -181,24 +189,19 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_poll_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_poll_dyn</Path>
-        <Checksum>19C9145C72D5865D8F6BF3AAA22D6E0A</Checksum>
+        <Checksum>6396E079B639E5A5A16695126EED0AD4</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_poll_dyn/bsp</Path>
-        <Checksum>F68C0372DEED2BB3ED0908D6ED83CB54</Checksum>
+        <Checksum>F17134C042B81B3876554237536D7229</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_poll_dyn/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -207,7 +210,7 @@
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_poll_dyn/framework/system/ports/src</Path>
-        <Checksum>0DD9E56A0D5228D6D60421D386BB28CE</Checksum>
+        <Checksum>6F3B91E118326CDDB1BF1D7336616643</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -221,7 +224,7 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_poll_dyn/bsp</Path>
-        <Checksum>3DB509F6CDE7AB7F7CA13F4917B64C7D</Checksum>
+        <Checksum>8405F93FE0218536B85400099346BEF4</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -231,7 +234,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_poll_dyn</Path>
-        <Checksum>4A75E68E9865F3AF4FA9AFC70D87442C</Checksum>
+        <Checksum>498E5303ACE827359C321475F7F4CE38</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -243,7 +246,6 @@
       <C32>
         <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src"/>
         <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/system_config/pic32mz_ef_sk_poll_dyn"/>
-        <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/pic32mz_ef_sk_poll_dyn"/>
         <Include value="E:/Git/core/framework"/>
         <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/system_config/pic32mz_ef_sk_poll_dyn/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_poll_dyn/bsp"/>

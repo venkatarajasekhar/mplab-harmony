@@ -52,11 +52,19 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 // *****************************************************************************
 /* Clock System Service Configuration Options
 */
-<#if CONFIG_PIC32MX == true>
+<#if (CONFIG_PIC32MX == true && CONFIG_DS60001404 = false)>
 #define SYS_CLK_FREQ                        ${CONFIG_SYS_CLK_FREQ}ul
 #define SYS_CLK_BUS_PERIPHERAL_1            ${CONFIG_SYS_CLK_PBCLK_FREQ}ul
 <#if CONFIG_SYS_CLK_REFCLK_ENABLE == true>
 #define SYS_CLK_BUS_REFERENCE_1             ${CONFIG_SYS_CLK_REFCLK_FREQ}ul
+</#if>
+#define SYS_CLK_UPLL_BEFORE_DIV2_FREQ       ${CONFIG_SYS_CLK_UPLL_BEFORE_DIV2_FREQ}ul
+</#if>
+<#if (CONFIG_DS60001404 == true)>
+#define SYS_CLK_FREQ                        ${CONFIG_SYS_CLK_FREQ}ul
+#define SYS_CLK_BUS_PERIPHERAL_1            ${CONFIG_SYS_CLK_PBCLK0_FREQ}ul
+<#if CONFIG_SYS_CLK_PBCLK0_ENABLE == true>
+#define SYS_CLK_BUS_REFERENCE_1             ${CONFIG_SYS_CLK_REFCLK0_FREQ}ul
 </#if>
 #define SYS_CLK_UPLL_BEFORE_DIV2_FREQ       ${CONFIG_SYS_CLK_UPLL_BEFORE_DIV2_FREQ}ul
 </#if>

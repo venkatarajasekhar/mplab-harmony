@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -110,6 +114,10 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>sys_clk.h</Name>
         <Path>Header Files/framework/system/clk</Path>
       </File>
@@ -182,7 +190,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/usart_pic32mx_eth_sk/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -191,7 +199,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/usart_pic32mx_eth_sk</Path>
-        <Checksum>AC5D61D8254270F6D99CBFD0F488A0A0</Checksum>
+        <Checksum>80E28EFABF09565ACA6A2FCFE2CC4AC7</Checksum>
       </Template>
       <Template>
         <Name>drv_usart_static_byte_model.c</Name>
@@ -220,17 +228,17 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/usart_pic32mx_eth_sk/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/usart_pic32mx_eth_sk/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/usart_pic32mx_eth_sk</Path>
-        <Checksum>EC5C389A6DE6206BE03476CE9E9EE3BD</Checksum>
+        <Checksum>F5AAC94ADA5A45138345696276EBEE2E</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -257,11 +265,6 @@
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/usart_pic32mx_eth_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>btl_mx.ld</Name>
         <Path>Linker Files/system_config/usart_pic32mx_eth_sk</Path>
         <Checksum>79C9B1E91868B46D9D75FFB4C983A2A7</Checksum>
@@ -279,11 +282,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src"/>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src/system_config/usart_pic32mx_eth_sk"/>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src/usart_pic32mx_eth_sk"/>
-        <Include value="C:/microchip/harmony/core/framework"/>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src/system_config/usart_pic32mx_eth_sk/framework"/>
+        <Include value="C:\microchip\harmony\core_v2xx\apps\bootloader\basic\firmware\src"/>
+        <Include value="C:\microchip\harmony\core_v2xx\apps\bootloader\basic\firmware\src\system_config\usart_pic32mx_eth_sk"/>
+        <Include value="C:\microchip\harmony\core_v2xx\framework"/>
+        <Include value="C:\microchip\harmony\core_v2xx\apps\bootloader\basic\firmware\src\system_config\usart_pic32mx_eth_sk\framework"/>
         <Include value="../src/system_config/usart_pic32mx_eth_sk/bsp"/>
       </C32>
     </CompilerItems>

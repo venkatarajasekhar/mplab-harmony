@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name=""/>
@@ -24,10 +28,6 @@
       <File>
         <Name>ecc.c</Name>
         <Path>Source Files/framework/crypto/src</Path>
-      </File>
-      <File>
-        <Name>helpers.h</Name>
-        <Path>Header Files/framework/tcpip/src/common</Path>
       </File>
       <File>
         <Name>sys_reset_mapping.h</Name>
@@ -330,6 +330,10 @@
         <Path>Source Files/framework/system/fs/src/dynamic</Path>
       </File>
       <File>
+        <Name>igmp_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
         <Name>zero_conf_multicast_dns.h</Name>
         <Path>Header Files/framework/tcpip</Path>
       </File>
@@ -452,6 +456,10 @@
       <File>
         <Name>rsa.h</Name>
         <Path>Header Files/third_party/tcpip/wolfssl/wolfssl/wolfcrypt</Path>
+      </File>
+      <File>
+        <Name>igmp.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
         <Name>md2.h</Name>
@@ -620,6 +628,10 @@
       <File>
         <Name>camellia.c</Name>
         <Path>Source Files/third_party/wolfssl/wolfcrypt</Path>
+      </File>
+      <File>
+        <Name>smtpc_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>blake2-int.h</Name>
@@ -1102,6 +1114,10 @@
         <Path>Header Files/third_party/tcpip/wolfssl/wolfssl</Path>
       </File>
       <File>
+        <Name>smtpc.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
         <Name>dnss_manager.h</Name>
         <Path>Header Files/framework/tcpip/src</Path>
       </File>
@@ -1134,16 +1150,12 @@
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
-        <Name>snmpv3_private.h</Name>
-        <Path>Header Files/framework/tcpip/src</Path>
-      </File>
-      <File>
         <Name>ipv4.h</Name>
         <Path>Header Files/framework/tcpip</Path>
       </File>
       <File>
-        <Name>dns.c</Name>
-        <Path>Source Files/framework/src/stack</Path>
+        <Name>snmpv3_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>opensslconf.h</Name>
@@ -1582,6 +1594,10 @@
         <Path>Header Files/third_party/tcpip/wolfssl/cyassl/ctaocrypt</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>tcpip_announce.c</Name>
         <Path>Source Files/framework/tcpip/src</Path>
       </File>
@@ -1656,6 +1672,10 @@
       <File>
         <Name>drv_tmr_local.h</Name>
         <Path>Header Files/framework/driver/tmr/src</Path>
+      </File>
+      <File>
+        <Name>igmp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>hmac.h</Name>
@@ -1780,10 +1800,6 @@
       <File>
         <Name>ssl.c</Name>
         <Path>Source Files/third_party/wolfssl</Path>
-      </File>
-      <File>
-        <Name>sys_fs_wrapper.h</Name>
-        <Path>Header Files/framework/tcpip/src/common</Path>
       </File>
       <File>
         <Name>smtp.c</Name>
@@ -1918,10 +1934,6 @@
         <Path>Source Files/third_party/wolfssl/wolfcrypt</Path>
       </File>
       <File>
-        <Name>net_pres_local.h</Name>
-        <Path>Header Files/framework/net/pres/src</Path>
-      </File>
-      <File>
         <Name>conf.h</Name>
         <Path>Header Files/third_party/tcpip/wolfssl/wolfssl/openssl</Path>
       </File>
@@ -1932,6 +1944,10 @@
       <File>
         <Name>dh.h</Name>
         <Path>Header Files/third_party/wolfssl/wolfcrypt</Path>
+      </File>
+      <File>
+        <Name>dns.c</Name>
+        <Path>Source Files/framework/tcpip/src</Path>
       </File>
       <File>
         <Name>aes_ctr.h</Name>
@@ -2170,7 +2186,7 @@
       <Template>
         <Name>config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_16b</Path>
-        <Checksum>8C02EA670A0009B034FA607E6B623109</Checksum>
+        <Checksum>749472BED82AEFABD52B8182E1F86B3B</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -2179,7 +2195,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_16b/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -2195,11 +2211,6 @@
         <Name>custom_http_net_app.c</Name>
         <Path>Source Files/app</Path>
         <Checksum>AC703472A6B928AF0813631E0E61D87F</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_16b/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -2234,12 +2245,16 @@
         <Name>nvm_disk_images.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_16b/framework/system/fs</Path>
         <Checksum>B00B90E021F15FFD6B0B1B7F2D0650A5</Checksum>
-        <ProjectFileChecksum>6350AFCB056BFB68BC01AD5EF58B1758</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_16b</Path>
         <Checksum>15479A2F7CB375B31FECA956F5C5D3B0</Checksum>
+      </Template>
+      <Template>
+        <Name>net_pres_enc_glue.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk_16b/framework/net/pres</Path>
+        <Checksum>C3A9B65F096BA3C9EA1F80FA19222D8F</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -2258,7 +2273,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_16b</Path>
-        <Checksum>0B10466B6376B3A20DCA6C1B8A25B55C</Checksum>
+        <Checksum>B601F6FEE70D27FC4E0C875A10605E92</Checksum>
       </Template>
       <Template>
         <Name>net_pres_cert_store.c</Name>
@@ -2268,14 +2283,13 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_16b</Path>
-        <Checksum>0C403B3AF81828615AF677E98AB9FDA7</Checksum>
+        <Checksum>E9A335FA29FEDF8D17A31CA52EC32384</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
         <Include value="C:/isp/git/release_master/apps/tcpip/web_net_server_nvm_mpfs/firmware/src"/>
         <Include value="C:/isp/git/release_master/apps/tcpip/web_net_server_nvm_mpfs/firmware/src/system_config/pic32mz_ef_sk_16b"/>
-        <Include value="C:/isp/git/release_master/apps/tcpip/web_net_server_nvm_mpfs/firmware/src/pic32mz_ef_sk_16b"/>
         <Include value="C:/isp/git/release_master/framework"/>
         <Include value="C:/isp/git/release_master/apps/tcpip/web_net_server_nvm_mpfs/firmware/src/system_config/pic32mz_ef_sk_16b/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_16b/bsp"/>

@@ -142,6 +142,22 @@ config TCPIP_TCP_TASK_TICK_RATE
     IDH_HTML_TCPIP_TCP_TASK_TICK_RATE
     ---endhelp---
 
+config TCPIP_TCP_MSL_TIMEOUT
+    int "Maximum Segment Length (MSL) Timeout - seconds"
+    depends on TCPIP_USE_TCP
+    default 0
+    ---help---
+    IDH_HTML_TCPIP_TCP_MSL_TIMEOUT
+    ---endhelp---
+
+config TCPIP_TCP_QUIET_TIME
+    int "TCP quiet time - seconds"
+    depends on TCPIP_USE_TCP
+    default 0
+    ---help---
+    IDH_HTML_TCPIP_TCP_QUIET_TIME
+    ---endhelp---
+
 ifblock USE_TCPIP_STACK    
 file TCPIP_TCP_H "$HARMONY_VERSION_PATH/framework/tcpip/tcp.h" to "$PROJECT_HEADER_FILES/framework/tcpip/tcp.h"
 file TCPIP_TCP_PRIVATE_H "$HARMONY_VERSION_PATH/framework/tcpip/src/tcp_private.h" to "$PROJECT_HEADER_FILES/framework/tcpip/src/tcp_private.h"

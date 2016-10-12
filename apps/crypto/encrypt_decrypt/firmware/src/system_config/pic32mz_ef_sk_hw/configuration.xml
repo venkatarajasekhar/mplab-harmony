@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -102,12 +102,12 @@
         <Path>Header Files/framework/osal</Path>
       </File>
       <File>
-        <Name>internal.h</Name>
-        <Path>Header Files/framework/crypto/src</Path>
-      </File>
-      <File>
         <Name>rsa.c</Name>
         <Path>Source Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>internal.h</Name>
+        <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
         <Name>compress.h</Name>
@@ -142,16 +142,16 @@
         <Path>Source Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>sys_int_mapping.h</Name>
-        <Path>Header Files/framework/system/int</Path>
-      </File>
-      <File>
         <Name>uncompr.c</Name>
         <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
       <File>
         <Name>osal_definitions.h</Name>
         <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>sys_int_mapping.h</Name>
+        <Path>Header Files/framework/system/int</Path>
       </File>
       <File>
         <Name>logging.h</Name>
@@ -266,11 +266,11 @@
         <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
       <File>
-        <Name>rsa.h</Name>
+        <Name>ecc.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>ecc.h</Name>
+        <Name>rsa.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
@@ -302,6 +302,10 @@
         <Path>Header Files/framework/system/int/src</Path>
       </File>
       <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
+      </File>
+      <File>
         <Name>inftrees.h</Name>
         <Path>Header Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
@@ -322,12 +326,12 @@
         <Path>Source Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>sys_int.h</Name>
-        <Path>Header Files/framework/system/int</Path>
-      </File>
-      <File>
         <Name>pic32mz-crypt.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>sys_int.h</Name>
+        <Path>Header Files/framework/system/int</Path>
       </File>
       <File>
         <Name>compress.c</Name>
@@ -390,6 +394,10 @@
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
+        <Name>crc32.c</Name>
+        <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
+      </File>
+      <File>
         <Name>sys_common.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -398,12 +406,12 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
-        <Name>crc32.c</Name>
-        <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
-      </File>
-      <File>
         <Name>error-crypt.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>version.h</Name>
@@ -498,7 +506,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_hw</Path>
-        <Checksum>8DC02B3AC60D415682554CC6B81D1636</Checksum>
+        <Checksum>4834ECAE7FE868BA02C538746C73CA8B</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -544,11 +552,6 @@
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_hw/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>drv_tmr_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_hw/framework/driver/tmr/src</Path>
         <Checksum>6B161A6B1570CA774655A2716B68F904</Checksum>
@@ -570,20 +573,20 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_hw/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_hw</Path>
-        <Checksum>702F67EE47602162F4B47A5614D217D3</Checksum>
+        <Checksum>F47ADD73E7B30AF7BEEF74CE04C4D01A</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/cm/Harmony/apps/crypto/encrypt_decrypt/firmware/src"/>
-        <Include value="C:/cm/Harmony/apps/crypto/encrypt_decrypt/firmware/src/system_config/pic32mz_ef_sk_hw"/>
-        <Include value="C:/cm/Harmony/framework"/>
-        <Include value="C:/cm/Harmony/apps/crypto/encrypt_decrypt/firmware/src/system_config/pic32mz_ef_sk_hw/framework"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/crypto/encrypt_decrypt/firmware/src"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/crypto/encrypt_decrypt/firmware/src/system_config/pic32mz_ef_sk_hw"/>
+        <Include value="C:/microchip/harmony/core_v2xx/framework"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/crypto/encrypt_decrypt/firmware/src/system_config/pic32mz_ef_sk_hw/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_hw/bsp"/>
       </C32>
     </CompilerItems>

@@ -743,7 +743,7 @@ static void TCPIP_HTTP_ProcessConnection(HTTP_CONN* pHttpCon)
                 // Compare to known extensions to determine Content-Type
                 ext++;
                 for(pHttpCon->fileType = HTTP_TXT; pHttpCon->fileType < HTTP_UNKNOWN; pHttpCon->fileType++)
-                    if(!stricmppgm2ram(ext, (const void*)httpFileExtensions[pHttpCon->fileType]))
+                    if(!strcmp((char *)ext, (const void*)httpFileExtensions[pHttpCon->fileType]))
                         break;
 
                 // Perform first round authentication (pass file name only)
@@ -1419,7 +1419,7 @@ static bool TCPIP_HTTP_FileSend(HTTP_CONN* pHttpCon)
                 pHttpCon->TxFile.dynVarCntr-=1;
                 pHttpCon->file_sm=SM_GET_DYN_VAR_FILE_RCRD;
                 if(pHttpCon->TxFile.dynVarCntr == 0)
-                {
+                {       
                     if (pHttpCon->TxFile.numBytes != 0)
                     {
                         pHttpCon->file_sm =SM_SERVE_TEXT_DATA;
@@ -2084,7 +2084,7 @@ static HTTP_READ_STATUS _HTTP_ReadTo(HTTP_CONN* pHttpCon, uint8_t cDelim, uint8_
     which is read 16 bytes at a time and written to external memory.
   ***************************************************************************/
 #if defined(TCPIP_HTTP_FILE_UPLOAD_ENABLE) && defined(NVM_DRIVER_V080_WORKAROUND)
-#define     SYS_FS_MEDIA_SECTOR_SIZE        512
+#define     SYS_FS_MEDIA_SECTOR_SIZE        512     
 #define MPFS_UPLOAD_WRITE_BUFFER_SIZE       (4 * 1024)
 static HTTP_IO_RESULT TCPIP_HTTP_MPFSUpload(HTTP_CONN* pHttpCon)
 {

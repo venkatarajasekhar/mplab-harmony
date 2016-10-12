@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -118,6 +118,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MZ2048EFH144"/>
@@ -148,10 +152,6 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
-        <Name>drv_pmp_config.h</Name>
-        <Path>Header Files/framework/driver/pmp/config</Path>
-      </File>
-      <File>
         <Name>drv_usbhs.h</Name>
         <Path>Header Files/framework/driver/usb/usbhs</Path>
       </File>
@@ -174,10 +174,6 @@
       <File>
         <Name>sys_devcon_cache.h</Name>
         <Path>Source Files/framework/system/devcon/src</Path>
-      </File>
-      <File>
-        <Name>drv_pmp_local.h</Name>
-        <Path>Header Files/framework/driver/pmp/src</Path>
       </File>
       <File>
         <Name>gfx_gol_digital_meter.h</Name>
@@ -238,10 +234,6 @@
       <File>
         <Name>sys_dma.c</Name>
         <Path>Source Files/framework/system/dma</Path>
-      </File>
-      <File>
-        <Name>drv_pmp.h</Name>
-        <Path>Header Files/framework/driver/pmp</Path>
       </File>
       <File>
         <Name>osal_impl_basic.h</Name>
@@ -388,10 +380,6 @@
         <Path>Source Files/framework/usb/src/dynamic</Path>
       </File>
       <File>
-        <Name>drv_gfx_lcc_int_pe.c</Name>
-        <Path>Source Files/framework/driver/gfx/controller/lcc/src</Path>
-      </File>
-      <File>
         <Name>driver.h</Name>
         <Path>Header Files/framework/driver</Path>
       </File>
@@ -512,6 +500,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>drv_ak4953.c</Name>
         <Path>Source Files/framework/driver/codec/ak4953/src/dynamic</Path>
       </File>
@@ -572,10 +564,6 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
-        <Name>drv_gfx_lcc.h</Name>
-        <Path>Header Files/framework/driver/gfx/controller/lcc</Path>
-      </File>
-      <File>
         <Name>usb_host_client_driver.h</Name>
         <Path>Header Files/framework/usb</Path>
       </File>
@@ -588,12 +576,12 @@
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>C21A774B85689FB4C4BFF07A1EB235A0</Checksum>
+        <Checksum>F2D63784566481CF093F4B281122A54C</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>2A47B5EC3C6F5B04ED2D87C351B9E927</Checksum>
+        <Checksum>BBE5526B4415A26ED4DDC2F1E1138EE2</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -602,55 +590,60 @@
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>2717A160EE6B7A3BE26225B1D20563A8</Checksum>
+        <Checksum>6AF564938DC05AEA5995FAFE1A2CCBE3</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>3A79392B3BCD55A7511B2BAE7B147070</Checksum>
-        <ProjectFileChecksum>ABCF6923CBD2E208B86985F3B453DE8F</ProjectFileChecksum>
+        <Checksum>0B021D19F9FC1559AF88588E253E4EE2</Checksum>
+        <ProjectFileChecksum>7876C51308C94D545A3145FA73BFF364</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
-        <ProjectFileChecksum>80D6170391811754A459845C149C79AF</ProjectFileChecksum>
+        <ProjectFileChecksum>1CB093F2AEFEEF891AD1B0AD00D6C67A</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>04E614E1197116907C1839DA535F4C8F</Checksum>
-        <ProjectFileChecksum>2493A546529DCF92C9140FE45AE40267</ProjectFileChecksum>
+        <Checksum>90D10AE2FA7C2CBA1207A06D147D1E65</Checksum>
+        <ProjectFileChecksum>A920194CF80966A69503412F22752CD7</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum>EF6DB2C885047503734AFBBDEA3121E2</Checksum>
-        <ProjectFileChecksum>460D24AA71C7C085C63CD7ED18CA333B</ProjectFileChecksum>
+        <ProjectFileChecksum>45F4BAE34BE524CD128F787D9B300BAF</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/ports/src</Path>
         <Checksum>057BBF0B8CA1B757C5B8D970EC2DE4AF</Checksum>
-        <ProjectFileChecksum>411766AD78A4F6BFA657243E16C58F7A</ProjectFileChecksum>
+        <ProjectFileChecksum>1A83AC75A46708E61BB313AD1289C546</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>CE167985536104030A06D2AFA83715A2</Checksum>
-        <ProjectFileChecksum>4515915ADAFC2B67C41EA1B98D6680E9</ProjectFileChecksum>
+        <Checksum>2728EA0920456882BEC6EE6548FF4106</Checksum>
+        <ProjectFileChecksum>A0599223F42F71E66EB1AE13A745BACE</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>drv_gfx_lcc_generic.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>43202FF875E91AE678E480419B7F819E</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum>B16C6A1F937D1F49D51E03AC59E868B7</Checksum>
-        <ProjectFileChecksum>8F87EEE6720AB4DD5DDD93DFFCA34430</ProjectFileChecksum>
+        <ProjectFileChecksum>F32ECF0AA2CC21C34C14F16D6D261EA5</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum>EA33AAB71E31BAA2D272850242489D5C</Checksum>
-        <ProjectFileChecksum>695265FCFC7C0BCF60D2D30E3C22B6ED</ProjectFileChecksum>
+        <ProjectFileChecksum>6D9094161E0B9B9AFC05C861E9D3FEBB</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -660,13 +653,17 @@
         <Name>sys_dma_static.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/dma</Path>
         <Checksum>0CE14BBEB78DCA8EA4AE6AABF57ACD8D</Checksum>
-        <ProjectFileChecksum>BA725ECBCDA7DC13054F3CFD33E865D5</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/bsp</Path>
         <Checksum>39FEE672808DEB893C173294BF4FDA1E</Checksum>
-        <ProjectFileChecksum>2805039F96EC8FC9514C3F337801A47C</ProjectFileChecksum>
+        <ProjectFileChecksum>2889684A12F076980F10D6B4C8C0056E</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>drv_gfx_lcc_generic.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>98EF6EC93694B20A57E71A0DCEC25FF4</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -676,22 +673,21 @@
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum>BFDFB461267A99B12D9222A777854C97</Checksum>
-        <ProjectFileChecksum>2BBD68464844AB9A976D63CB8E2DE257</ProjectFileChecksum>
+        <ProjectFileChecksum>3C78340AD8A4849DCCF920859A32C484</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/bsp</Path>
         <Checksum>AA6011B767EDCB147EEF7DE49458DAB4</Checksum>
-        <ProjectFileChecksum>4A34AAF081305567E59B922C7EC9D6F4</ProjectFileChecksum>
+        <ProjectFileChecksum>114A6FFA46FC2ACB44D6967DE6D7AE21</ProjectFileChecksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\Microchip\harmony\btaudio_2XX\apps\audio\usb_speaker\firmware\src"/>
-        <Include value="C:\Microchip\harmony\btaudio_2XX\apps\audio\usb_speaker\firmware\src\system_config\pic32mz_ef_sk_meb2"/>
-        <Include value="C:\Microchip\harmony\btaudio_2XX\apps\audio\usb_speaker\firmware\src\pic32mz_ef_sk_meb2"/>
-        <Include value="C:\Microchip\harmony\btaudio_2XX\framework"/>
-        <Include value="C:\Microchip\harmony\btaudio_2XX\apps\audio\usb_speaker\firmware\src\system_config\pic32mz_ef_sk_meb2\framework"/>
+        <Include value="C:/Microchip/harmony/2xxDev/apps/audio/usb_speaker/firmware/src"/>
+        <Include value="C:/Microchip/harmony/2xxDev/apps/audio/usb_speaker/firmware/src/system_config/pic32mz_ef_sk_meb2"/>
+        <Include value="C:/Microchip/harmony/2xxDev/framework"/>
+        <Include value="C:/Microchip/harmony/2xxDev/apps/audio/usb_speaker/firmware/src/system_config/pic32mz_ef_sk_meb2/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_meb2/bsp"/>
       </C32>
     </CompilerItems>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX470F512L"/>
@@ -142,6 +146,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -210,7 +218,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk3_int_dyn</Path>
-        <Checksum>CD7A6473CB25377C9ED9A2E8111D7E2C</Checksum>
+        <Checksum>1FC7D92DDB9E3B50C1EF72A293B0DDF2</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -219,7 +227,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk3_int_dyn/framework/system/clk/src</Path>
-        <Checksum>6AF033A7E8ECB69981D88ED27526EF17</Checksum>
+        <Checksum>9E1735DC00A06796E5D2C1A7FF8668AC</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -238,18 +246,13 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk3_int_dyn</Path>
-        <Checksum>1B1FE4C6A53C1D1678F69ECA1CFD1296</Checksum>
+        <Checksum>0EEFC58AE2965C9D7B93C0176CEC3FF3</Checksum>
         <ProjectFileChecksum>CAE2D34CCE9FD73755CDA1B8773978F3</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk3_int_dyn/framework/system/ports/src</Path>
         <Checksum>D9054704DD87FED0FBA7F6E763DB9568</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk3_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>

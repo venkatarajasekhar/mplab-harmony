@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -91,43 +87,95 @@ extern "C" {
 #define SYS_CLK_BUS_PERIPHERAL_8            200000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         24000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       0ul
-   
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
 /*** Ports System Service Configuration ***/
+#define SYS_PORT_A_ANSEL        0x3F23
+#define SYS_PORT_A_TRIS         0xFFFF
+#define SYS_PORT_A_LAT          0x0000
+#define SYS_PORT_A_ODC          0x0000
+#define SYS_PORT_A_CNPU         0x0000
+#define SYS_PORT_A_CNPD         0x0000
+#define SYS_PORT_A_CNEN         0x0000
 
-#define SYS_PORT_B_ANSEL        0x8fdf
-#define SYS_PORT_B_TRIS         0xffdf
-#define SYS_PORT_B_LAT          0x0
-#define SYS_PORT_B_ODC          0x0
+#define SYS_PORT_B_ANSEL        0x8FDF
+#define SYS_PORT_B_TRIS         0xFFDF
+#define SYS_PORT_B_LAT          0x0000
+#define SYS_PORT_B_ODC          0x0000
 #define SYS_PORT_B_CNPU         0x7000
-#define SYS_PORT_B_CNPD         0x0
-#define SYS_PORT_B_CNEN         0x0
+#define SYS_PORT_B_CNPD         0x0000
+#define SYS_PORT_B_CNEN         0x0000
 
-#define SYS_PORT_C_ANSEL        0xe01e
-#define SYS_PORT_C_TRIS         0xf01e
-#define SYS_PORT_C_LAT          0x0
-#define SYS_PORT_C_ODC          0x0
-#define SYS_PORT_C_CNPU         0x0
-#define SYS_PORT_C_CNPD         0x0
-#define SYS_PORT_C_CNEN         0x0
+#define SYS_PORT_C_ANSEL        0xEFFF
+#define SYS_PORT_C_TRIS         0xFFFF
+#define SYS_PORT_C_LAT          0x0000
+#define SYS_PORT_C_ODC          0x0000
+#define SYS_PORT_C_CNPU         0x0000
+#define SYS_PORT_C_CNPD         0x0000
+#define SYS_PORT_C_CNEN         0x0000
 
-#define SYS_PORT_G_ANSEL        0x0
-#define SYS_PORT_G_TRIS         0xf3c3
-#define SYS_PORT_G_LAT          0x0
-#define SYS_PORT_G_ODC          0x0
-#define SYS_PORT_G_CNPU         0x0
-#define SYS_PORT_G_CNPD         0x0
-#define SYS_PORT_G_CNEN         0x0
+#define SYS_PORT_D_ANSEL        0xC100
+#define SYS_PORT_D_TRIS         0xFFFF
+#define SYS_PORT_D_LAT          0x0000
+#define SYS_PORT_D_ODC          0x0000
+#define SYS_PORT_D_CNPU         0x0000
+#define SYS_PORT_D_CNPD         0x0000
+#define SYS_PORT_D_CNEN         0x0000
 
-#define SYS_PORT_H_ANSEL        0x70
-#define SYS_PORT_H_TRIS         0xfff8
-#define SYS_PORT_H_LAT          0x0
-#define SYS_PORT_H_ODC          0x0
-#define SYS_PORT_H_CNPU         0x0
-#define SYS_PORT_H_CNPD         0x0
-#define SYS_PORT_H_CNEN         0x0
+#define SYS_PORT_E_ANSEL        0xFFF0
+#define SYS_PORT_E_TRIS         0xFFFF
+#define SYS_PORT_E_LAT          0x0000
+#define SYS_PORT_E_ODC          0x0000
+#define SYS_PORT_E_CNPU         0x0000
+#define SYS_PORT_E_CNPD         0x0000
+#define SYS_PORT_E_CNEN         0x0000
+
+#define SYS_PORT_F_ANSEL        0xFEC0
+#define SYS_PORT_F_TRIS         0xFFFF
+#define SYS_PORT_F_LAT          0x0000
+#define SYS_PORT_F_ODC          0x0000
+#define SYS_PORT_F_CNPU         0x0000
+#define SYS_PORT_F_CNPD         0x0000
+#define SYS_PORT_F_CNEN         0x0000
+
+#define SYS_PORT_G_ANSEL        0x0C3C
+#define SYS_PORT_G_TRIS         0xFFFF
+#define SYS_PORT_G_LAT          0x0000
+#define SYS_PORT_G_ODC          0x0000
+#define SYS_PORT_G_CNPU         0x0000
+#define SYS_PORT_G_CNPD         0x0000
+#define SYS_PORT_G_CNEN         0x0000
+
+#define SYS_PORT_H_ANSEL        0x0070
+#define SYS_PORT_H_TRIS         0xFFF8
+#define SYS_PORT_H_LAT          0x0000
+#define SYS_PORT_H_ODC          0x0000
+#define SYS_PORT_H_CNPU         0x0000
+#define SYS_PORT_H_CNPD         0x0000
+#define SYS_PORT_H_CNEN         0x0000
+
+#define SYS_PORT_J_ANSEL        0x0B00
+#define SYS_PORT_J_TRIS         0xFFFF
+#define SYS_PORT_J_LAT          0x0000
+#define SYS_PORT_J_ODC          0x0000
+#define SYS_PORT_J_CNPU         0x0000
+#define SYS_PORT_J_CNPD         0x0000
+#define SYS_PORT_J_CNEN         0x0000
+
+#define SYS_PORT_K_ANSEL        0xFF00
+#define SYS_PORT_K_TRIS         0xFFFF
+#define SYS_PORT_K_LAT          0x0000
+#define SYS_PORT_K_ODC          0x0000
+#define SYS_PORT_K_CNPU         0x0000
+#define SYS_PORT_K_CNPD         0x0000
+#define SYS_PORT_K_CNEN         0x0000
 
 
 // *****************************************************************************

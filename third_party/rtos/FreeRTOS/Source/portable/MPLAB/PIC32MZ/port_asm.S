@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V8.2.3 - Copyright (C) 2015 Real Time Engineers Ltd.
+    FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd.
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -88,7 +88,6 @@
 /******************************************************************/
 
 	.set  nomips16
-	.set  nomicromips
 	.set  noreorder
 	.set  noat
 
@@ -177,7 +176,6 @@ vPortStartFirstTask:
 /*******************************************************************/
 
 	.set  nomips16
-	.set  nomicromips
 	.set  noreorder
 	.set  noat
 	/***************************************************************

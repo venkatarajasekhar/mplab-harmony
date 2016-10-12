@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -88,6 +92,10 @@
       <File>
         <Name>sys_buffer.h</Name>
         <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -177,7 +185,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16/bsp</Path>
-        <Checksum>D0BABDD8CC269B7DE3BA98239B5ECC8D</Checksum>
+        <Checksum>EE96DD12865E6C7F0453E07B26BCF042</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_mapping.c</Name>
@@ -192,7 +200,7 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16/bsp</Path>
-        <Checksum>999832C5BD5B6EC600BB84C682241D0C</Checksum>
+        <Checksum>7567B3DF8AD82B4BA40BB70A80E7AC51</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -231,8 +239,8 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16</Path>
-        <Checksum>9290B61AFC647F2B730ED83BBC5E30D0</Checksum>
-        <ProjectFileChecksum>C8BF52A7BE81E018857E2EE2A6C4DD21</ProjectFileChecksum>
+        <Checksum>C4C7E1FD45E6CAAA0A6D255EF540D5A2</Checksum>
+        <ProjectFileChecksum>9E02542ED6BC255B2E20CE650F38A09B</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -246,17 +254,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16</Path>
-        <Checksum>E67E731DBB2978E63F98F3466C0A0977</Checksum>
+        <Checksum>EEE449B98A9214312E8A2A1E595D5D28</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -266,11 +269,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/spi/spi_loopback/firmware/src"/>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/spi/spi_loopback/firmware/src/system_config/pic32mx795_pim_e16"/>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/spi/spi_loopback/firmware/src/pic32mx795_pim_e16"/>
-        <Include value="E:/official/git/core_ldra/framework"/>
-        <Include value="E:/official/git/core_ldra/apps/examples/peripheral/spi/spi_loopback/firmware/src/system_config/pic32mx795_pim_e16/framework"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/spi/spi_loopback/firmware/src"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/spi/spi_loopback/firmware/src/system_config/pic32mx795_pim_e16"/>
+        <Include value="E:/official/git/core/framework"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/spi/spi_loopback/firmware/src/system_config/pic32mx795_pim_e16/framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16/bsp"/>
       </C32>
     </CompilerItems>

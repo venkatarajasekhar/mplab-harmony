@@ -1,48 +1,31 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Serial Data Protocol
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    sdp_private.h
-
-  Summary:
-    Bluetooth API Library interface to the SDP.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.  This module describe functions
-	and data structures used to start the SDP server and perform SDP queries.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
-#ifndef __SDP_PRIVATE_H  // Guards against multiple inclusion
+#ifndef __SDP_PRIVATE_H
 #define __SDP_PRIVATE_H
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
+
 //
 // Global variables defined in SDP modules
 // -------------------------------------------------------------------
 //
 
-// DOM-IGNORE-BEGIN
 // In sdp_server.c
-extern bt_buffer_mgr_t  _sdp_packet_buffer_mgr;
 extern const bt_byte* sdp_db_main2;
 extern bt_uint sdp_db_main2_len;
 
@@ -50,11 +33,12 @@ extern bt_uint sdp_db_main2_len;
 // Global variables defined by OEM configuration
 // -------------------------------------------------------------------
 //
-extern bt_buffer_header_t           _sdp_buffer_headers[];
-extern bt_byte                      _sdp_buffers[];
+extern bt_buffer_header_t           _sdp_client_packet_buffer_headers[];
+extern bt_sdp_packet_t              _sdp_client_packet_buffers[];
 extern bt_buffer_header_t           _sdp_packet_buffer_headers[];
 extern bt_sdp_packet_t              _sdp_packet_buffers[];
 extern const bt_byte                _sdp_max_buffers;
+extern const bt_byte                _sdp_client_max_buffers;
 extern const bt_uint                _sdp_max_search_result_len;
 extern const bt_uint                _sdp_max_attribute_result_len;
 extern bt_sr_handle_t               _sdp_found_sr_lists_buffers[];
@@ -69,11 +53,12 @@ extern bt_sdp_service_transaction_t _sdp_service_tran_buffers[];
 
 extern bt_bool             (*_sdp_start_fp)(bt_l2cap_mgr_p l2cap_mgr, const bt_byte* sdp_db, bt_uint sdp_db_len);
 
+void _bt_sdp_client_init(void);
 
 #ifdef _DEBUG
 extern const bt_uint _ram_size_sdp_buffers;
 #endif
-// DOM-IGNORE-END
+
 //
 // Private types
 // -------------------------------------------------------------------
@@ -118,10 +103,6 @@ bt_bool sdp_find_attributes(
 	bt_int offsetInit, bt_byte patternCount,
 	bt_sdp_transaction_t* ptran, bt_int max_attrs);
 
-// From sdp_uuid.c
-void sdp_uuid16_to_uuid128(bt_uuid16 uuid16, bt_uuid_p puuid);
-void sdp_uuid32_to_uuid128(bt_uuid32 uuid32, bt_uuid_p puuid);
-bt_int sdp_compare_uuid(bt_uuid_cp puuid1, bt_uuid_cp puuid2);
 bt_bool sdp_compare_uuid_de(bt_sdp_data_element_cp pde1, bt_sdp_data_element_cp pde2);
 
 // From sdp_tran_buffer.c

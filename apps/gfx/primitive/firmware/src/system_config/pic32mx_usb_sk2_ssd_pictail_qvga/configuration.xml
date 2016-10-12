@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -562,6 +562,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -630,7 +634,7 @@
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_ssd_pictail_qvga</Path>
-        <Checksum>E6D071507CBDE50D57D8AFA19E3659BA</Checksum>
+        <Checksum>70FC40E8D8C112425B150AF2736D020B</Checksum>
       </Template>
       <Template>
         <Name>drv_pmp_static.h</Name>
@@ -647,14 +651,9 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_ssd_pictail_qvga</Path>
-        <Checksum>1A81A4DA44571DAA911B57E362A7E9FB</Checksum>
+        <Checksum>35C1C014D5119B28F41E55BCC63D3D71</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -664,7 +663,7 @@
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_ssd_pictail_qvga</Path>
-        <Checksum>D3C6E9D253EDCC2AD5F531A16C216021</Checksum>
+        <Checksum>054AE5273EC49FF207629D8F775D7160</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -693,12 +692,12 @@
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_ssd_pictail_qvga</Path>
-        <Checksum>E24FDF86E049875362049A21096052B4</Checksum>
+        <Checksum>7844A22A5C67C97D25D868B4C23D1DF9</Checksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_ssd_pictail_qvga</Path>
-        <Checksum>895B8685C7E3B069186312B7B70B2E2E</Checksum>
+        <Checksum>AC071AF59B2D11C5075684D154FA3C14</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -708,7 +707,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework/system/clk/src</Path>
-        <Checksum>45DCC5FDCEA03577B1B40B781BCC20C5</Checksum>
+        <Checksum>FFBC0ECD02319812A90B6AACC6A7F7F0</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -717,7 +716,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_ssd_pictail_qvga</Path>
-        <Checksum>F1DEA7FBB9172942099C644633637C54</Checksum>
+        <Checksum>8EF8C2508081D673CB7BA642143E5DF3</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -727,16 +726,15 @@
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_ssd_pictail_qvga</Path>
-        <Checksum>61D2CA7EC4CB61936695E34A1F113E1C</Checksum>
+        <Checksum>D5C0598A776DF70F2FFAE52AF2600DD1</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/pic32mx_usb_sk2_ssd_pictail_qvga"/>
-        <Include value="C:/Harmony/gfx2-1/framework"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework"/>
+        <Include value="C:/Harmony/v2_02/apps/gfx/primitive/firmware/src"/>
+        <Include value="C:/Harmony/v2_02/apps/gfx/primitive/firmware/src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga"/>
+        <Include value="C:/Harmony/v2_02/framework"/>
+        <Include value="C:/Harmony/v2_02/apps/gfx/primitive/firmware/src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_ssd_pictail_qvga/bsp"/>
       </C32>
     </CompilerItems>

@@ -19,11 +19,6 @@
                   <itemPath>../src/system_config/pic32mx795_pim_e16/framework/driver/tmr/drv_tmr_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mx795_pim_e16/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mx795_pim_e16/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mx795_pim_e16/system_definitions.h</itemPath>
@@ -39,6 +34,7 @@
             </logicalFolder>
             <itemPath>../../../../../../../framework/driver/tmr/drv_tmr.h</itemPath>
             <itemPath>../../../../../../../framework/driver/tmr/drv_tmr_mapping.h</itemPath>
+            <itemPath>../../../../../../../framework/driver/tmr/drv_tmr_compatibility.h</itemPath>
           </logicalFolder>
           <itemPath>../../../../../../../framework/driver/driver.h</itemPath>
           <itemPath>../../../../../../../framework/driver/driver_common.h</itemPath>
@@ -54,6 +50,7 @@
         <logicalFolder name="f3" displayName="system" projectFiles="true">
           <logicalFolder name="f1" displayName="clk" projectFiles="true">
             <itemPath>../../../../../../../framework/system/clk/sys_clk.h</itemPath>
+            <itemPath>../../../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
             <itemPath>../../../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="common" projectFiles="true">
@@ -202,7 +199,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src/system_config;../../../../../../../framework/system/common;../../../../../../../framework/system/devcon;../../../../../../../framework/system;../../../../../../../framework/driver;../src;../src/system_config/pic32mx795_pim_e16;../src/pic32mx795_pim_e16;../../../../../../../framework;../src/system_config/pic32mx795_pim_e16/framework;../src/system_config/pic32mx795_pim_e16/bsp"/>
+                  value="../src/system_config;../../../../../../../framework/system/common;../../../../../../../framework/system/devcon;../../../../../../../framework/system;../../../../../../../framework/driver;../src/pic32mx795_pim_e16;../src;../src/system_config/pic32mx795_pim_e16;../../../../../../../framework;../src/system_config/pic32mx795_pim_e16/framework;../src/system_config/pic32mx795_pim_e16/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>

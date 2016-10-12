@@ -1,30 +1,17 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Bluetooth General Functions
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    bt_types.h
-
-  Summary:
-    Bluetooth API Library interface to Bluetooth General Functions.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.  
-	
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 #ifndef __BT_TYPES_H_INCLUDED__
 #define __BT_TYPES_H_INCLUDED__
@@ -36,15 +23,7 @@ void test(void);
 //#error bt_config.h must be included before bt_types.h.  Use bt_std.h to have both included in proper order.
 //#endif
 
-#include "bluetooth/cdbt/plat/types.h"
-
-#ifndef BYTE_SIZE
-	#error "BYTE_SIZE is not defined"
-#else
-	#if BYTE_SIZE != 1 && BYTE_SIZE != 2
-		#error "Only BYTE_SIZE = 1 or BYTE_SIZE = 2 is supported"
-	#endif
-#endif
+#include "cdbt/plat/types.h"
 
 #define BT_TRUE   1
 #define BT_FALSE  0
@@ -69,15 +48,15 @@ typedef char              bt_char;
 typedef bt_char*          bt_char_p;
 typedef const bt_char*    bt_char_cp;
 
-typedef bt_int  bt_uuid16;
-typedef bt_long bt_uuid32;
+typedef bt_uint  bt_uuid16;
+typedef bt_ulong bt_uuid32;
 
 typedef struct _bt_uuid_s
 {
-	bt_long uuid0;
-	bt_long uuid1;
-	bt_long uuid2;
-	bt_long uuid3;
+	bt_ulong uuid0;
+	bt_ulong uuid1;
+	bt_ulong uuid2;
+	bt_ulong uuid3;
 } bt_uuid_t;
 typedef bt_uuid_t*       bt_uuid_p;
 typedef const bt_uuid_t* bt_uuid_cp;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<pic32mx795_pim_e16 version="2.0.0.9">
+<pic32mx795_pim_e16 version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -94,6 +98,10 @@
         <Path>Header Files/framework/system/devcon</Path>
       </File>
       <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
+      </File>
+      <File>
         <Name>system.h</Name>
         <Path>Header Files/framework/system</Path>
       </File>
@@ -132,6 +140,10 @@
       <File>
         <Name>sys_queue.h</Name>
         <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
     </Files>
     <Templates>
@@ -191,7 +203,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16</Path>
-        <Checksum>9A88911F5DEEB49DA50582938EAD88F4</Checksum>
+        <Checksum>13F95E4EFF275462CE623CA20FAD0FE8</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -210,17 +222,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16</Path>
-        <Checksum>05273DD1EE12498D7D260B97A0408128</Checksum>
+        <Checksum>756D61B2892D61FB6F70EB5FEB6D4190</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -230,11 +237,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="E:\git\harmony_trunk\gfx\apps\examples\peripheral\pmp\pmp_lcd\firmware\src"/>
-        <Include value="E:\git\harmony_trunk\gfx\apps\examples\peripheral\pmp\pmp_lcd\firmware\src\system_config\pic32mx795_pim_e16"/>
-        <Include value="E:\git\harmony_trunk\gfx\apps\examples\peripheral\pmp\pmp_lcd\firmware\src\pic32mx795_pim_e16"/>
-        <Include value="E:\git\harmony_trunk\gfx\framework"/>
-        <Include value="E:\git\harmony_trunk\gfx\apps\examples\peripheral\pmp\pmp_lcd\firmware\src\system_config\pic32mx795_pim_e16\framework"/>
+        <Include value="E:\Microchip\harmony\repo\git\gfx\apps\examples\peripheral\pmp\pmp_lcd\firmware\src"/>
+        <Include value="E:\Microchip\harmony\repo\git\gfx\apps\examples\peripheral\pmp\pmp_lcd\firmware\src\system_config\pic32mx795_pim_e16"/>
+        <Include value="E:\Microchip\harmony\repo\git\gfx\framework"/>
+        <Include value="E:\Microchip\harmony\repo\git\gfx\apps\examples\peripheral\pmp\pmp_lcd\firmware\src\system_config\pic32mx795_pim_e16\framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16/bsp"/>
       </C32>
     </CompilerItems>

@@ -1,39 +1,24 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Secure Simple Pairing
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    ssp_event_handler.h
-
-  Summary:
-    Bluetooth API Library interface to the SSP.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
-#ifndef __SSP_EVENT_HANDLER_H // Guards against multiple inclusion
+#ifndef __SSP_EVENT_HANDLER_H
 #define __SSP_EVENT_HANDLER_H
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
 
 void ssp_evt_io_capability_request(bt_hci_event_t* evt);
 void ssp_evt_io_capability_response(bt_hci_event_t* evt);

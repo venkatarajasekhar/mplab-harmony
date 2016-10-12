@@ -50,6 +50,7 @@ extern "C" {
 #endif
 
 #define MICROCHIP_MPLAB_HARMONY
+#define MICROCHIP_PIC32
 #define MICROCHIP_TCPIP
 #define WOLFSSL_HAVE_MIN
 #define WOLFSSL_HAVE_MAX
@@ -68,6 +69,7 @@ extern "C" {
 
 #define USE_FAST_MATH
 #define TFM_TIMING_RESISTANT
+
 
 
 

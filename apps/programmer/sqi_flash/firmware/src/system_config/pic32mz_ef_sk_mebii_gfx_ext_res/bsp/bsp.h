@@ -63,6 +63,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // *****************************************************************************
 // *****************************************************************************
 #define BSP_LCD_BACKLIGHT_ON            1
+#define PMADDR_OVERFLOW                 65536
 
 // *****************************************************************************
 /* BT Pin State
@@ -87,6 +88,7 @@ typedef enum
 } BSP_BT_STATE;
 
 /*** Functions for BSP_AK4953_PDN pin ***/
+/*** !!!Workaround of Pin Control Macro Function Generation!!! ***/ 
 #define BSP_AK4953_PDNToggle() PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_H, PORTS_BIT_POS_3)
 #define BSP_AK4953_PDNOn() PLIB_PORTS_PinSet(PORTS_ID_0, PORT_CHANNEL_H, PORTS_BIT_POS_3)
 #define BSP_AK4953_PDNOff() PLIB_PORTS_PinClear(PORTS_ID_0, PORT_CHANNEL_H, PORTS_BIT_POS_3)
@@ -224,7 +226,28 @@ typedef enum
 
 } BSP_LED_STATE;
 
+// *****************************************************************************
+/* LED Active Level
 
+  Summary:
+    Enumerates the supported LED active level.
+
+  Description:
+    This enumeration defines the supported LED sactive levels.
+
+  Remarks:
+    None.
+*/
+
+typedef enum
+{
+    /* LED active level is low */
+    BSP_LED_ACTIVE_LOW = /*DOM-IGNORE-BEGIN*/0/*DOM-IGNORE-END*/,
+
+    /* LED active level is high */
+    BSP_LED_ACTIVE_HIGH = /*DOM-IGNORE-BEGIN*/1/*DOM-IGNORE-END*/
+
+} BSP_LED_ACTIVE_LEVEL;
 // *****************************************************************************
 /* Function: 
     void BSP_LEDStateSet(BSP_LED led, BSP_LED_STATE state);

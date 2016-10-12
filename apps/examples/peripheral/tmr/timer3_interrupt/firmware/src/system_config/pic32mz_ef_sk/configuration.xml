@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<pic32mz_ec_sk version="2.0.0.8">
+<pic32mz_ec_sk version="2.0.0.12">
   <HarmonyPath path="../../../../.."/>
   <ForceOptimization flag="true"/>
   <Files>
@@ -80,6 +80,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -126,8 +130,8 @@
         <Path>Header Files/framework/driver</Path>
       </File>
       <File>
-        <Name>sys_int_pic32.c</Name>
-        <Path>Source Files/framework/system/int/src</Path>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
         <Name>sys_common.h</Name>
@@ -136,6 +140,14 @@
       <File>
         <Name>sys_buffer.h</Name>
         <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_int_pic32.c</Name>
+        <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -154,12 +166,12 @@
         <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
-        <Name>sys_int_mapping.h</Name>
-        <Path>Header Files/framework/system/int</Path>
-      </File>
-      <File>
         <Name>osal_definitions.h</Name>
         <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>sys_int_mapping.h</Name>
+        <Path>Header Files/framework/system/int</Path>
       </File>
       <File>
         <Name>sys_int_private.h</Name>
@@ -168,6 +180,10 @@
       <File>
         <Name>sys_devcon.h</Name>
         <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
         <Name>system.h</Name>
@@ -221,7 +237,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -231,7 +247,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>5C51787C470B5EA969B163510D28D2C0</Checksum>
+        <Checksum>57E1E7455F9631EDFB44BD28179E5F43</Checksum>
       </Template>
       <Template>
         <Name>drv_tmr_static.c</Name>
@@ -259,7 +275,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>8DC02B3AC60D415682554CC6B81D1636</Checksum>
+        <Checksum>4834ECAE7FE868BA02C538746C73CA8B</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -276,7 +292,6 @@
       <C32>
         <Include value="E:/harmony/core/apps/examples/peripheral/tmr/timer3_interrupt/firmware/src"/>
         <Include value="E:/harmony/core/apps/examples/peripheral/tmr/timer3_interrupt/firmware/src/system_config/pic32mz_ef_sk"/>
-        <Include value="E:/harmony/core/apps/examples/peripheral/tmr/timer3_interrupt/firmware/src/pic32mz_ef_sk"/>
         <Include value="E:/harmony/core/framework"/>
         <Include value="E:/harmony/core/apps/examples/peripheral/tmr/timer3_interrupt/firmware/src/system_config/pic32mz_ef_sk/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk/bsp"/>

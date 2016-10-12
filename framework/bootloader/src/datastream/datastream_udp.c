@@ -230,8 +230,12 @@ void DATASTREAM_Close(void)
     }
     //Disable Interrupt sources so bootloader application runs without issues
     SYS_INT_SourceDisable(DRV_TMR_INTERRUPT_SOURCE_IDX0);
+    SYS_INT_VectorPrioritySet(DRV_TMR_INTERRUPT_VECTOR_IDX0, INT_DISABLE_INTERRUPT);
+    SYS_INT_VectorSubprioritySet(DRV_TMR_INTERRUPT_VECTOR_IDX0, INT_SUBPRIORITY_LEVEL0);
+    SYS_INT_VectorPrioritySet(INT_VECTOR_ETH, INT_DISABLE_INTERRUPT);
+    SYS_INT_VectorSubprioritySet(INT_VECTOR_ETH, INT_SUBPRIORITY_LEVEL0);
     SYS_INT_SourceDisable(INT_SOURCE_ETH_1);
-    
+    PLIB_TMR_Stop(DRV_TMR_PERIPHERAL_ID_IDX0);
 }
 
 /*******************************************************************************

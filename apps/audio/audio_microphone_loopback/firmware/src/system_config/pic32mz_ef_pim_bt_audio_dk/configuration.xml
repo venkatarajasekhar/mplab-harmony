@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -415,6 +415,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -511,19 +515,19 @@
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_pim_bt_audio_dk</Path>
-        <Checksum>4E4FA0A65A7D477B0360322AD0F4F344</Checksum>
+        <Checksum>B6014222F67A7504E98C154A24D3E8EE</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_pim_bt_audio_dk</Path>
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
-        <ProjectFileChecksum>5B6C9B52680D3441CCD2761EA6952751</ProjectFileChecksum>
+        <ProjectFileChecksum>965ABA8263A65EE0A2664EABD530FEAE</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_pmp_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_pim_bt_audio_dk/framework/driver/pmp/src</Path>
         <Checksum>7E0E8C7B51328EA63F3F919C820E179F</Checksum>
-        <ProjectFileChecksum>CCF93179BF55E96238F7EA9456B02227</ProjectFileChecksum>
+        <ProjectFileChecksum>F5D8F8C8C2F65A3BC1716470AD1D7ED4</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -533,30 +537,30 @@
         <Name>drv_pmp_static.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_pim_bt_audio_dk/framework/driver/pmp</Path>
         <Checksum>799BFBF404CEF514B5929A7011B8FCD7</Checksum>
-        <ProjectFileChecksum>EF59E735C7576AA6097A2FD866BD445D</ProjectFileChecksum>
+        <ProjectFileChecksum>78CDD162F94B9550398005CA36E3E25A</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_pim_bt_audio_dk</Path>
-        <Checksum>59F09FE2F316122EA172C6E67146B67A</Checksum>
+        <Checksum>3C999773854CE5F78AE0416CB37A6FC0</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_pim_bt_audio_dk/bsp</Path>
         <Checksum>1C35B910D8D164510DE6E2D4B8E68609</Checksum>
-        <ProjectFileChecksum>DBE97D995363D20410B4F3C13D3777B5</ProjectFileChecksum>
+        <ProjectFileChecksum>066BBA07B6339A401012FB7B91FF6DB4</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_dma_static.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_pim_bt_audio_dk/framework/system/dma</Path>
         <Checksum>03852E55C37A93C50A04522C41BC8495</Checksum>
-        <ProjectFileChecksum>7819C3D6482AB2769B954C871616841E</ProjectFileChecksum>
+        <ProjectFileChecksum>4107EA74056B36AB72D052884A8BDCAD</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_pim_bt_audio_dk</Path>
-        <Checksum>A32E42090CEE5A4FE939F8DEADF3CF67</Checksum>
-        <ProjectFileChecksum>65DF21D1BC52A5A504A1F84F6BB60790</ProjectFileChecksum>
+        <Checksum>E06BC3CE9BE24200D7D8CEB3817AC591</Checksum>
+        <ProjectFileChecksum>F58CD914071A8B50DBC5DDD0B63313F7</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -566,54 +570,54 @@
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_pim_bt_audio_dk</Path>
         <Checksum>38C4F1FEFABBF72A27D5153078648677</Checksum>
-        <ProjectFileChecksum>81922151B05ABA645F80195020408737</ProjectFileChecksum>
+        <ProjectFileChecksum>3487B103794DA08FD660BE39800D85AC</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_pim_bt_audio_dk</Path>
-        <Checksum>2C7514D4AE018991F8A5F7E0648838C4</Checksum>
+        <Checksum>D9A0F4A9F44E86E643FDD567B69E4F5A</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_pim_bt_audio_dk</Path>
         <Checksum>C458DA1E8B4486911B0B8AF81E8B1F3A</Checksum>
-        <ProjectFileChecksum>9072FCA34E91C8E73C9A1B6068298473</ProjectFileChecksum>
+        <ProjectFileChecksum>D6096EFA2FA77B6446D3F6195AA1FFF2</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_pim_bt_audio_dk</Path>
         <Checksum>AD50604E1DFB2AE1FAEE014A9DDE8C31</Checksum>
-        <ProjectFileChecksum>AD779D896904B0B94651A292E513A594</ProjectFileChecksum>
+        <ProjectFileChecksum>9AF14C034F3FD2624229DD49F18CEB11</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_pim_bt_audio_dk</Path>
         <Checksum>725D2C0927F5177B71C25852F994F5D8</Checksum>
-        <ProjectFileChecksum>D9D4CB6F99B6ED2D2E1CD33BCD8EAC65</ProjectFileChecksum>
+        <ProjectFileChecksum>6041B25FC451C9457AD4CBC9B8218E98</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_pim_bt_audio_dk/bsp</Path>
         <Checksum>2973100D90990248AD8A5FACE07234F3</Checksum>
-        <ProjectFileChecksum>6FEDE56A3F976125B6BFBE1C40F55E7E</ProjectFileChecksum>
+        <ProjectFileChecksum>9AA8F58A4A965976A4277CAB79DAA2E7</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_pim_bt_audio_dk</Path>
-        <Checksum>CD18FBB2C4F18F64BB63AEBE00A2D4C9</Checksum>
-        <ProjectFileChecksum>68E87AF781ED867CAAD9CCBC1AE5E96B</ProjectFileChecksum>
+        <Checksum>B57776D4CBC880D51D0E39864C62A782</Checksum>
+        <ProjectFileChecksum>D89C0591D0E0F0B00BFE7241B3381CEC</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_pim_bt_audio_dk/framework/system/ports/src</Path>
         <Checksum>685B99380D19BE95BD6BE4D8E3865AE1</Checksum>
-        <ProjectFileChecksum>745FABECC1556CD94FED7020E210C39C</ProjectFileChecksum>
+        <ProjectFileChecksum>52184CCF8EBC49B0B7BBEF3D73EEE39F</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_pim_bt_audio_dk</Path>
-        <Checksum>A9CCA6B7AED92F4C09A56BD8EC97CC16</Checksum>
-        <ProjectFileChecksum>979408F6B03E09F435413C4BCF2ED52B</ProjectFileChecksum>
+        <Checksum>01EB126AD5598207B80F7F5F0AF74872</Checksum>
+        <ProjectFileChecksum>452F26A0750D036502192D90F6CE3290</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -622,11 +626,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\microchip\harmony\btaudio_btaudiodev(2.0)\apps\audio\audio_microphone_loopback\firmware\src"/>
-        <Include value="C:\microchip\harmony\btaudio_btaudiodev(2.0)\apps\audio\audio_microphone_loopback\firmware\src\system_config\pic32mz_ef_pim_bt_audio_dk"/>
-        <Include value="C:\microchip\harmony\btaudio_btaudiodev(2.0)\apps\audio\audio_microphone_loopback\firmware\src\pic32mz_ef_pim_bt_audio_dk"/>
-        <Include value="C:\microchip\harmony\btaudio_btaudiodev(2.0)\framework"/>
-        <Include value="C:\microchip\harmony\btaudio_btaudiodev(2.0)\apps\audio\audio_microphone_loopback\firmware\src\system_config\pic32mz_ef_pim_bt_audio_dk\framework"/>
+        <Include value="C:/microchip/harmony/btaudio_btaudiodev(2.0)090716a/apps/audio/audio_microphone_loopback/firmware/src"/>
+        <Include value="C:/microchip/harmony/btaudio_btaudiodev(2.0)090716a/apps/audio/audio_microphone_loopback/firmware/src/system_config/pic32mz_ef_pim_bt_audio_dk"/>
+        <Include value="C:/microchip/harmony/btaudio_btaudiodev(2.0)090716a/framework"/>
+        <Include value="C:/microchip/harmony/btaudio_btaudiodev(2.0)090716a/apps/audio/audio_microphone_loopback/firmware/src/system_config/pic32mz_ef_pim_bt_audio_dk/framework"/>
         <Include value="../src/system_config/pic32mz_ef_pim_bt_audio_dk/bsp"/>
         <Include value="../src/system_config/pic32mz_ef_pim_bt_audio_dk/bsp"/>
       </C32>

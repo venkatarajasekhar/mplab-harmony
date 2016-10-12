@@ -45,6 +45,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // *****************************************************************************
 // *****************************************************************************
 #include "app.h"
+#include <stdio.h>
 
 // *****************************************************************************
 // *****************************************************************************
@@ -113,23 +114,51 @@ void btapp_spp_reconnect(bt_uint newConnectTick, bt_uint reConnectTick)
 void SendTemp(void)
 {
     int Temp, BuffSize = 0;
-    char Buffer[BUFFER_SIZE] = {0};
+    char __attribute__((unused)) Buffer[BUFFER_SIZE] = {0};
     char Buffer2[100]= {0};
+    char TempBuffer[100] = {"253,99"};
+    char TestBuffer[100] = {"253,98"};
 
     Temp = ReadTemp(FAHRENHEIT);
-    if (mRateChange == BT_TRUE) {
-        strcpy(Buffer, "252,");
+    if (mRateChange == BT_TRUE) 
+    {
+        strcpy(TempBuffer, "252,");
         mRateChange = BT_FALSE;
-    } else {
-        strcpy(Buffer, "253,");
     }
-    strcat(Buffer, itoa(Buffer2, Temp, 10));
-    strcat(Buffer, "\r\n");
+    else 
+    {
+        strcpy(TempBuffer, "253,");
+    }
 
-    BuffSize = (strlen(Buffer) + 1);
+    //NOTE: itoa seems to add some spurious characters at times.
+    itoa(Buffer2, Temp, 10);
+    TestBuffer[4] = Buffer2[0];
+    TestBuffer[5] = Buffer2[1];
+    if (Buffer2[3] == '1')
+    {
+       TestBuffer[6] = '1';
+       TestBuffer[7] = 0x00;
+    }
+    else
+    {
+       TestBuffer[7] = 0x00;
+    }
+    //strcat(TestBuffer, Buffer2);
+    //strcat(TempBuffer, "\r\n");
 
-    if (!mSending) {
-        if (bt_spp_send(mPort, Buffer, BuffSize, &sppSendCallback)) {
+    //Buffer[0] = '2';
+    //Buffer[1] = '5';
+    //Buffer[2] = '3';
+    //Buffer[3] = ',';
+    //Buffer[4] = '9';
+    //Buffer[5] = '9';
+    //Buffer[6] = 0x00;
+
+    BuffSize = (strlen(TestBuffer) + 1);
+    if (!mSending) 
+    {
+        if (bt_spp_send(mPort, TestBuffer, BuffSize, &sppSendCallback)) 
+        {
             mSending = 1;
         }
     }
@@ -396,7 +425,7 @@ void bt_oem_get_pin_code(bt_bdaddr_t* bdaddr_remote)
 
 #ifndef BT_PASSKEY_ENABLE
 // Bluetooth SSP handler customized to bypass passkey
-void bt_oem_ssp_callback(SPP_EVENT spp_event, void* event_param, void* init_param) {
+void bt_oem_ssp_callback(SSP_EVENT spp_event, void* event_param, void* init_param) {
     switch (spp_event) {
         case SSP_EVENT_SIMPLE_PAIRING_COMPLETE:
         {

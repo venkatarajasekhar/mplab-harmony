@@ -81,6 +81,7 @@ endmenu
 ifblock USE_DRV_GFX_GLCD
 add "<#include \"/framework/driver/gfx/controller/config/drv_gfx_init_data.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
 add "<#include \"/framework/driver/gfx/controller/glcd/config/drv_gfx_glcd_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS
+add "<#include \"/framework/driver/gfx/controller/glcd/config/drv_gfx_glcd_config.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 endif
 
 ifblock USE_DRV_GFX_GLCD

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2048EFH144"/>
@@ -56,10 +60,6 @@
       <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
-      </File>
-      <File>
-        <Name>driver_common.h</Name>
-        <Path>Header Files/framework/driver</Path>
       </File>
       <File>
         <Name>sys_clk_mapping.h</Name>
@@ -110,8 +110,8 @@
         <Path>Header Files/framework/system/devcon/src</Path>
       </File>
       <File>
-        <Name>driver.h</Name>
-        <Path>Header Files/framework/driver</Path>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
         <Name>sys_common.h</Name>
@@ -125,12 +125,16 @@
         <Name>sys_queue.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
     </Files>
     <Templates>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/bsp</Path>
-        <Checksum>F05FA6CD752CCFEC85C6B17BF6B61604</Checksum>
+        <Checksum>DD885EBE1893567826AD0E35E9F24594</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -142,14 +146,9 @@
         <Checksum>44EA930091A2C230A8819395CA8433F8</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/clk/src</Path>
-        <Checksum>2DDE43190ACBF7B2AC5C4073E2A88BB3</Checksum>
+        <Checksum>BB0D6CB06BD5490896F25B1F82B8F38C</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -159,7 +158,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>2197D13873FBFC7A844769F0626A567B</Checksum>
+        <Checksum>B4C8A28A34C687B148AD4456FCF7E403</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -182,12 +181,12 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>08B5EB4F7D9B07DBF06AD124A3AC99C1</Checksum>
+        <Checksum>E988A97EABA1FD430A42ED40A4616EB3</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk/bsp</Path>
-        <Checksum>D48E3F4A4C9EC7A73FF9E95DB499B155</Checksum>
+        <Checksum>F740DA09253C01A3D03B3FD6565F5267</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -199,7 +198,6 @@
       <C32>
         <Include value="D:\trunk_sbx\apps\examples\peripheral\sqi\flash_read_xip_mode\firmware\src"/>
         <Include value="D:\trunk_sbx\apps\examples\peripheral\sqi\flash_read_xip_mode\firmware\src\system_config\pic32mz_ef_sk"/>
-        <Include value="D:\trunk_sbx\apps\examples\peripheral\sqi\flash_read_xip_mode\firmware\src\pic32mz_ef_sk"/>
         <Include value="D:\trunk_sbx\framework"/>
         <Include value="D:\trunk_sbx\apps\examples\peripheral\sqi\flash_read_xip_mode\firmware\src\system_config\pic32mz_ef_sk\framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk/bsp"/>

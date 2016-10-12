@@ -1,41 +1,25 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Bluetooth General Functions
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    bt_oem.h
-
-  Summary:
-    Bluetooth API Library interface to Bluetooth General Functions.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
-
 #ifndef __BT_OEM_H
 #define __BT_OEM_H
 
-#include "bluetooth/cdbt/ssp/ssp_event.h"
+#include "cdbt/ssp/ssp_event.h"
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
 
 typedef struct _bt_linkkey_notification_t
 {
@@ -57,7 +41,7 @@ bt_long bt_oem_get_device_class(void);
 
 void bt_oem_get_pin_code(bt_bdaddr_t* bdaddr_remote);
 
-void bt_oem_ssp_callback(SPP_EVENT spp_event, void* event_param, void* init_param);
+void bt_oem_ssp_callback(SSP_EVENT spp_event, void* event_param, void* init_param);
 
 void bt_oem_schedule_signals(void);
 

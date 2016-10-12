@@ -7,15 +7,8 @@
       <logicalFolder name="f3" displayName="app" projectFiles="true">
         <logicalFolder name="f1" displayName="system_config" projectFiles="true">
           <logicalFolder name="f1" displayName="bt_audio_dk_int_dyn" projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/bt_audio_dk_int_dyn/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/bt_audio_dk_int_dyn/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/bt_audio_dk_int_dyn/system_config.h</itemPath>
             <itemPath>../src/system_config/bt_audio_dk_int_dyn/system_definitions.h</itemPath>
@@ -23,15 +16,8 @@
           <logicalFolder name="f2"
                          displayName="bt_audio_dk_int_dyn_freertos"
                          projectFiles="true">
-            <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+            <logicalFolder name="f1" displayName="bsp" projectFiles="true">
               <itemPath>../src/system_config/bt_audio_dk_int_dyn_freertos/bsp/bsp.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/bt_audio_dk_int_dyn_freertos/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/bt_audio_dk_int_dyn_freertos/FreeRTOSConfig.h</itemPath>
             <itemPath>../src/system_config/bt_audio_dk_int_dyn_freertos/system_config.h</itemPath>
@@ -78,6 +64,7 @@
           <logicalFolder name="f5" displayName="clk" projectFiles="true">
             <itemPath>../../../../../../framework/system/clk/sys_clk.h</itemPath>
             <itemPath>../../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
+            <itemPath>../../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="common" projectFiles="true">
             <itemPath>../../../../../../framework/system/common/sys_common.h</itemPath>
@@ -136,6 +123,7 @@
         <itemPath>../../../../../../third_party/rtos/FreeRTOS/Source/include/deprecated_definitions.h</itemPath>
         <itemPath>../../../../../../third_party/rtos/FreeRTOS/Source/include/task.h</itemPath>
         <itemPath>../../../../../../third_party/rtos/FreeRTOS/Source/include/timers.h</itemPath>
+        <itemPath>../../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_prototypes.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -334,16 +322,52 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <item path="../../../../../../framework/driver/spi/src/drv_spi_sys_queue.h"
-            ex="true"
+            ex="false"
             overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
       </item>
       <item path="../../../../../../framework/driver/spi/src/drv_spi_sys_queue_local_fifo.h"
-            ex="true"
+            ex="false"
             overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
       </item>
       <item path="../../../../../../framework/driver/spi/src/dynamic/drv_spi_internal.h"
-            ex="true"
+            ex="false"
             overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
       </item>
       <item path="../../../../../../framework/osal/src/osal_freertos.c"
             ex="true"
@@ -382,6 +406,10 @@
             overriding="false">
       </item>
       <item path="../../../../../../third_party/rtos/FreeRTOS/Source/include/list.h"
+            ex="true"
+            overriding="false">
+      </item>
+      <item path="../../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_prototypes.h"
             ex="true"
             overriding="false">
       </item>
@@ -477,10 +505,6 @@
             ex="true"
             overriding="false">
       </item>
-      <item path="../src/system_config/bt_audio_dk_int_dyn_freertos/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-      </item>
       <item path="../src/system_config/bt_audio_dk_int_dyn_freertos/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -526,7 +550,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config/bt_audio_dk_int_dyn;../src/bt_audio_dk_int_dyn;../../../../../../framework;../src/system_config/bt_audio_dk_int_dyn/framework;../src/system_config/bt_audio_dk_int_dyn/bsp"/>
+                  value="../src;../src/system_config/bt_audio_dk_int_dyn;../../../../../../framework;../src/system_config/bt_audio_dk_int_dyn/framework;../src/system_config/bt_audio_dk_int_dyn/bsp"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -871,10 +895,6 @@
             ex="true"
             overriding="false">
       </item>
-      <item path="../src/system_config/bt_audio_dk_int_dyn/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-      </item>
       <item path="../src/system_config/bt_audio_dk_int_dyn/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -912,7 +932,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value=";../src;../src/system_config/bt_audio_dk_int_dyn_freertos;../src/bt_audio_dk_int_dyn_freertos;../../../../../../framework;../src/system_config/bt_audio_dk_int_dyn_freertos/framework;../src/system_config/bt_audio_dk_int_dyn_freertos/bsp;../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX;../../../../../../third_party/rtos/FreeRTOS/Source/include"/>
+                  value=";../src;../src/system_config/bt_audio_dk_int_dyn_freertos;../../../../../../framework;../src/system_config/bt_audio_dk_int_dyn_freertos/framework;../src/system_config/bt_audio_dk_int_dyn_freertos/bsp;../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MX;../../../../../../third_party/rtos/FreeRTOS/Source/include"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>

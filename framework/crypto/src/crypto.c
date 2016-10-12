@@ -392,6 +392,7 @@ int CRYPT_RNG_BlockGenerate(CRYPT_RNG_CTX* rng, unsigned char* b,
 
 #endif
 
+#ifndef NO_DES3
 /* Triple DES Key Set, may have iv, will have direction */
 int CRYPT_TDES_KeySet(CRYPT_TDES_CTX* tdes, const unsigned char* key,
                       const unsigned char* iv, int dir)
@@ -436,6 +437,8 @@ int CRYPT_TDES_CBC_Decrypt(CRYPT_TDES_CTX* tdes, unsigned char* out,
 
     return wc_Des3_CbcDecrypt((Des3*)tdes, out, in, inSz);
 }
+
+#endif
 
 #ifndef NO_AES
 

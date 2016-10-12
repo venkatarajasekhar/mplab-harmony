@@ -412,6 +412,28 @@ void _DRV_IPF_HoldAssert();
 void _DRV_IPF_HoldAssert();
 void _DRV_IPF_HoldDeAssert();
 
+/* FS Related functions */
+void DRV_IPF_FS_BlockRead
+(
+    const DRV_HANDLE hClient,
+    DRV_IPF_BLOCK_COMMAND_HANDLE * commandHandle,
+    uint8_t *targetBuffer,
+    uint32_t blockStart,
+    uint32_t nBlock
+);
+
+uintptr_t DRV_IPF_AddressGet
+(
+    const DRV_HANDLE handle
+);
+
+DRV_IPF_COMMAND_STATUS DRV_IPF_CommandStatus
+(
+    const DRV_HANDLE handle,
+    const DRV_IPF_BLOCK_COMMAND_HANDLE commandHandle
+);
+
+
 #endif //#ifndef _DRV_IPF_LOCAL_H
 
 /*******************************************************************************

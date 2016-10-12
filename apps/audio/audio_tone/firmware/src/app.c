@@ -57,7 +57,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // Application Include Files
 //******************************************************************************
 #include "app_config.h"  //Non generated data
-#include "FxMath.h"
 
 #include <string.h> //memcpy
 #include <math.h>   //sin
@@ -157,10 +156,10 @@ void APP_PeriodicTimerInit()
         }
         else
         {
-            DRV_TMR_Alarm32BitRegister (appData.repeatTmrHandle,
-                                        APP_REPEAT_TIMER_PERIOD, true,
-                                        (uintptr_t)0, 
-                                        &APP_handlePeriodicTimerSignal);
+            DRV_TMR_AlarmRegister (appData.repeatTmrHandle,
+                                   APP_REPEAT_TIMER_PERIOD, true,
+                                   (uintptr_t)0, 
+                                   &APP_handlePeriodicTimerSignal);
             DRV_TMR_Start (appData.repeatTmrHandle);
         }
     }

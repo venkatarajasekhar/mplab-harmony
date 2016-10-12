@@ -9,7 +9,7 @@
     bsp.c
 
   Summary:
-    Board Support Package implementation for PIC32MZ EF Curiosity Development 
+    Board Support Package implementation for PIC32MZ EF Curiosity Development
     Board.
 
   Description:
@@ -68,16 +68,16 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // *****************************************************************************
 
 // *****************************************************************************
-/* Function: 
+/* Function:
     void BSP_Initialize(void)
 
   Summary:
     Performs the necessary actions to initialize a board
-  
+
   Description:
     This function initializes the LED, Switch and other ports on the board.
     This function must be called by the user before using any APIs present in
-    this BSP.  
+    this BSP.
 
   Remarks:
     Refer to bsp.h for usage information.
@@ -85,9 +85,9 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 void BSP_Initialize(void )
 {
-	/* Setting the SLEW rate for the SPI peripheral pins */
-	PLIB_PORTS_ChannelSlewRateSelect(PORTS_ID_0, PORT_CHANNEL_B, 0x4700, PORTS_PIN_SLEW_RATE_FAST);
-	
+    /* Setting the SLEW rate for the SPI peripheral pins */
+    PLIB_PORTS_ChannelSlewRateSelect(PORTS_ID_0, PORT_CHANNEL_B, 0x4700, PORTS_PIN_SLEW_RATE_FAST);
+
 <#if (VBUS_PortPin_List?size > 0)>
     /* Setup the USB VBUS Switch Control Pin */
     BSP_USBVBUSSwitchStateSet(BSP_USB_VBUS_SWITCH_STATE_DISABLE);

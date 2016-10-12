@@ -1,30 +1,9 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Extra Files
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    extra/ti.h
-
-  Summary:
-    Bluetooth API Library interface to the TI driver.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
-*
-*
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 #ifndef __BTX_TI_TI_H_INCLUDED
 #define __BTX_TI_TI_H_INCLUDED
@@ -33,11 +12,9 @@
 #include "cdbt/bt/bt_signal.h"
 #include "cdbt/hci/hci.h"
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
 
 #define BTX_TI_MODULATION_TYPE_GFSK    0
 #define BTX_TI_MODULATION_TYPE_EDR2    1

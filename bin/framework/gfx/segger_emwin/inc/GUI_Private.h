@@ -9,7 +9,7 @@
 *                                                                    *
 **********************************************************************
 
-** emWin V5.34 - Graphical user interface for embedded applications **
+** emWin V5.36 - Graphical user interface for embedded applications **
 All  Intellectual Property rights  in the Software belongs to  SEGGER.
 emWin is protected by  international copyright laws.  Knowledge of the
 source code may not be used to write a similar product.  This file may
@@ -26,16 +26,6 @@ libraries. Full source code is available at: www.segger.com
 
 We appreciate your understanding and fairness.
 ----------------------------------------------------------------------
-Licensing information
-
-Licensor:                 SEGGER Microcontroller Systems LLC
-Licensed to:              Microchip Technology Inc., 2355 W Chandler Blvd., Chandler, AZ 85224, US
-Licensed SEGGER software: emWin
-License number:           GUI-00614
-License model:            CPU Object Code License, dated Sept. 8, 2015
-Licensed product:         Any
-Licensed platform:        PIC24, PIC32, dsPIC, PIC16, PIC18 / MPLAB X Integrated Development Evironment, XC16 C Compiler, XC32 C/C++ Compiler
-Licensed number of seats: -
 ----------------------------------------------------------------------
 File        : GUI_Private.h
 Purpose     : GUI internal declarations
@@ -358,6 +348,39 @@ U16  GUI__BIDI_GetCursorCharacter(const char * s, int Index, int MaxNumChars, in
 int  GUI__BIDI_GetWordWrap       (const char * s, int xSize, int * pxDist);
 int  GUI__BIDI_GetCharWrap       (const char * s, int xSize);
 
+#if (GUI_USE_BIDI2)
+
+#define GUI__BIDI_Log2Vis            GUI__BIDI2_Log2Vis
+#define GUI__BIDI_GetCursorPosX      GUI__BIDI2_GetCursorPosX
+#define GUI__BIDI_GetCursorPosChar   GUI__BIDI2_GetCursorPosChar
+#define GUI__BIDI_GetLogChar         GUI__BIDI2_GetLogChar
+#define GUI__BIDI_GetCharDir         GUI__BIDI2_GetCharDir
+#define GUI__BIDI_IsNSM              GUI__BIDI2_IsNSM
+#define GUI__BIDI_GetCursorCharacter GUI__BIDI2_GetCursorCharacter
+#define GUI__BIDI_GetWordWrap        GUI__BIDI2_GetWordWrap
+#define GUI__BIDI_GetCharWrap        GUI__BIDI2_GetCharWrap
+#define GUI__BIDI_SetBaseDir         GUI__BIDI2_SetBaseDir
+#define GUI__BIDI_GetBaseDir         GUI__BIDI2_GetBaseDir
+
+int  GUI__BIDI_Log2Vis           (const char * s, int NumChars, char * pBuffer, int BufferSize);
+int  GUI__BIDI_GetCursorPosX     (const char * s, int NumChars, int Index);
+int  GUI__BIDI_GetCursorPosChar  (const char * s, int NumChars, int x);
+U16  GUI__BIDI_GetLogChar        (const char * s, int NumChars, int Index);
+int  GUI__BIDI_GetCharDir        (const char * s, int NumChars, int Index);
+int  GUI__BIDI_IsNSM             (U16 Char);
+U16  GUI__BIDI_GetCursorCharacter(const char * s, int Index, int MaxNumChars, int * pIsRTL);
+int  GUI__BIDI_GetWordWrap       (const char * s, int xSize, int * pxDist);
+int  GUI__BIDI_GetCharWrap       (const char * s, int xSize);
+void GUI__BIDI_SetBaseDir        (int Dir);
+int  GUI__BIDI_GetBaseDir        (void);
+
+#else
+
+#define GUI__BIDI_SetBaseDir
+#define GUI__BIDI_GetBaseDir
+
+#endif
+
 const char * GUI__BIDI_Log2VisBuffered(const char * s, int * pMaxNumChars);
 
 extern int GUI__BIDI_Enabled;
@@ -633,6 +656,11 @@ extern LCD_COLOR (* GUI__pfMixColors)(LCD_COLOR Color, LCD_COLOR BkColor, U8 Int
 // Function pointer for mixing up arrays of colors
 //
 extern void (* GUI__pfMixColorsBulk)(U32 * pFG, U32 * pBG, U32 * pDst, unsigned OffFG, unsigned OffBG, unsigned OffDest, unsigned xSize, unsigned ySize, U8 Intens);
+
+//
+// Function pointer for mixing color and gamma values
+//
+extern LCD_COLOR (* LCD_AA_pfMixColors16)(LCD_COLOR Color, LCD_COLOR BkColor, U8 Intens);
 
 //
 // Function pointer for drawing alpha memory devices

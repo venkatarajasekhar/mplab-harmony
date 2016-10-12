@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -74,10 +78,6 @@
         <Path>Header Files/FreeRTOS</Path>
       </File>
       <File>
-        <Name>drv_pmp_config.h</Name>
-        <Path>Header Files/framework/driver/pmp/config</Path>
-      </File>
-      <File>
         <Name>gfx_colors.h</Name>
         <Path>Header Files/framework/gfx</Path>
       </File>
@@ -102,16 +102,16 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>mpu_prototypes.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
         <Name>gfx_gol_window.h</Name>
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
         <Name>portmacro.h</Name>
         <Path>Header Files/FreeRTOS/portable/MPLAB/PIC32MZ</Path>
-      </File>
-      <File>
-        <Name>drv_gfx_lcc_int_pe.c</Name>
-        <Path>Source Files/framework/driver/gfx/controller/lcc/src</Path>
       </File>
       <File>
         <Name>list.h</Name>
@@ -124,10 +124,6 @@
       <File>
         <Name>sys_devcon_cache.h</Name>
         <Path>Source Files/framework/system/devcon/src</Path>
-      </File>
-      <File>
-        <Name>drv_pmp_local.h</Name>
-        <Path>Header Files/framework/driver/pmp/src</Path>
       </File>
       <File>
         <Name>gfx_gol_digital_meter.h</Name>
@@ -216,10 +212,6 @@
       <File>
         <Name>osal_freertos.h</Name>
         <Path>Header Files/framework/osal/src</Path>
-      </File>
-      <File>
-        <Name>drv_pmp.h</Name>
-        <Path>Header Files/framework/driver/pmp</Path>
       </File>
       <File>
         <Name>osal_impl_basic.h</Name>
@@ -314,6 +306,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -397,18 +393,8 @@
         <Name>queue.c</Name>
         <Path>Source Files/FreeRTOS</Path>
       </File>
-      <File>
-        <Name>drv_gfx_lcc.h</Name>
-        <Path>Header Files/framework/driver/gfx/controller/lcc</Path>
-      </File>
     </Files>
     <Templates>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-        <ProjectFileChecksum>2E87BA19FB28F61EC92423883CA50C7A</ProjectFileChecksum>
-      </Template>
       <Template>
         <Name>main.c</Name>
         <Path>Source Files/app</Path>
@@ -420,44 +406,50 @@
       <Template>
         <Name>FreeRTOSConfig.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>FD80831C73BDC35B32D8685710C21213</Checksum>
-        <ProjectFileChecksum>33EE1F0C923A6A814A1D54B442BB9462</ProjectFileChecksum>
+        <Checksum>B221CD203DE89AE6CF6A504DA7DE4696</Checksum>
+        <ProjectFileChecksum>612A7054C385147CE132286F4D6A9F9D</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>C3A1169FF8EEF47FCC0B716607279C44</Checksum>
-        <ProjectFileChecksum>E4E0310150396885D0D7C8FCB045039B</ProjectFileChecksum>
+        <Checksum>3F6C8FF9FFA310790897DE2D6F322753</Checksum>
+        <ProjectFileChecksum>D7BD56C8508146464F9645FEFD6F2143</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
-        <ProjectFileChecksum>3D4903257FC09F8BF26DD1B6FD36BCC2</ProjectFileChecksum>
+        <ProjectFileChecksum>45B5945A8DE653B18CEECA241723AEDE</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum>33651BEBAF4B4B8FFD2162722C68592C</Checksum>
-        <ProjectFileChecksum>7538109E63A5C4E94837BD4077F48394</ProjectFileChecksum>
+        <ProjectFileChecksum>AD60B71AC92EE545D5C395B11D2C0D0F</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/ports/src</Path>
         <Checksum>3DFB0BC56732FDD6D5377CC83C754517</Checksum>
-        <ProjectFileChecksum>36E90C1719A493567A9A003CCEF14D28</ProjectFileChecksum>
+        <ProjectFileChecksum>8B36A5A508D46AE866C2C722570984A8</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>drv_gfx_lcc_generic.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>43202FF875E91AE678E480419B7F819E</Checksum>
+        <ProjectFileChecksum>877AF1A234B672B2A04479EA40AB15B6</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2</Path>
-        <Checksum>263629995FB6620E5DC78236EF0AE138</Checksum>
-        <ProjectFileChecksum>F59FA1B46F589FF4C69C043F29907C66</ProjectFileChecksum>
+        <Checksum>EA9A088CB586267E9BF56B383418A6D1</Checksum>
+        <ProjectFileChecksum>78141630C31CD3AEC5983E217C971621</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum>53EA09B2440873D991457FC1860B7B32</Checksum>
-        <ProjectFileChecksum>D9C3C12C684E94D5FC24D83EEBEFF5C4</ProjectFileChecksum>
+        <ProjectFileChecksum>EC8C640659FD1E8141111F5B95C03B66</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -467,6 +459,7 @@
         <Name>sys_dma_static.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/dma</Path>
         <Checksum>0CE14BBEB78DCA8EA4AE6AABF57ACD8D</Checksum>
+        <ProjectFileChecksum>5C1D65386EB32B8384FCB70838AAD501</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app1.h</Name>
@@ -476,19 +469,25 @@
         <Name>system_interrupt_a.S</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum>77B861D94DBC49A75E083F10C1D5FB73</Checksum>
-        <ProjectFileChecksum>1F1308088418F4F6E884C2D7B96889C6</ProjectFileChecksum>
+        <ProjectFileChecksum>50B53E57033D80C7CE67AE5AA64C1757</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>rtos_hooks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum>FA52743264536E5207D2ADBE57B48D05</Checksum>
-        <ProjectFileChecksum>11DB3B859F29A1DE9B1AA4F7260E7AF0</ProjectFileChecksum>
+        <ProjectFileChecksum>576E6B333CFA0BCC579DDEF392156A99</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2/bsp</Path>
-        <Checksum>F45D3FB1DCD997D286E66B8F8708C841</Checksum>
-        <ProjectFileChecksum>B1ACE380A3676CC399A56259EA7961A5</ProjectFileChecksum>
+        <Checksum>E25CE2E8561A30622F0189580F28A92A</Checksum>
+        <ProjectFileChecksum>AC40981FCA5C245EDF2B2C6E291CE605</ProjectFileChecksum>
+      </Template>
+      <Template>
+        <Name>drv_gfx_lcc_generic.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>01FDB7AA1F703F4B8126F30E907BE813</Checksum>
+        <ProjectFileChecksum>C17CF2649AE4ABAD1D9E635E37202AF0</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -498,19 +497,19 @@
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum>7C350A91E03A9BF5EC76E29F67769808</Checksum>
-        <ProjectFileChecksum>2496B1936AC6402D0A56F8408F328072</ProjectFileChecksum>
+        <ProjectFileChecksum>B6B5610B512AF6D9C52E0076132B30CA</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src</Path>
-        <Checksum>43CD13B257C108BC5299013363E7E51B</Checksum>
-        <ProjectFileChecksum>4E131963D19B56898C0A73E550ED16A2</ProjectFileChecksum>
+        <Checksum>8796A1E2178E066295C2DAAEDA992E00</Checksum>
+        <ProjectFileChecksum>A0668B1E6A448CF0B81FF35CDDF2C46B</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2/bsp</Path>
-        <Checksum>FB16F3E8BBE4E3DF1D43A1459B0C7A8E</Checksum>
-        <ProjectFileChecksum>A575363B128E0ADE1ABBDAB74E9E69C5</ProjectFileChecksum>
+        <Checksum>9AFAF3F6210EF658384438E21E6E4724</Checksum>
+        <ProjectFileChecksum>DFDD62966FD04932D26B8A6EC91FB8E3</ProjectFileChecksum>
       </Template>
     </Templates>
     <CompilerItems>
@@ -520,11 +519,10 @@
         <Include value="../src/system_config/pic32mz_ef_sk_meb2"/>
       </C32-AS>
       <C32>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\freertos\gfx\firmware\src"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\freertos\gfx\firmware\src\system_config\pic32mz_ef_sk_meb2"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\freertos\gfx\firmware\src\pic32mz_ef_sk_meb2"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\framework"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\freertos\gfx\firmware\src\system_config\pic32mz_ef_sk_meb2\framework"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/freertos/gfx/firmware/src"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/freertos/gfx/firmware/src/system_config/pic32mz_ef_sk_meb2"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/framework"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/freertos/gfx/firmware/src/system_config/pic32mz_ef_sk_meb2/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_meb2/bsp"/>
         <Include value="../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ"/>
         <Include value="../../../../../../third_party/rtos/FreeRTOS/Source/include"/>

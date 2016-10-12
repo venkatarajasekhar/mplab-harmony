@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -100,6 +104,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -174,12 +182,12 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn</Path>
-        <Checksum>29B927CE564CB66EBFE5A5F61700CF26</Checksum>
+        <Checksum>91DB2A931AA9A0907BAB027012E55828</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -197,18 +205,13 @@
         <Checksum>AE2AAAEBF5F61D38797173AF66E46904</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn</Path>
-        <Checksum>19C9145C72D5865D8F6BF3AAA22D6E0A</Checksum>
+        <Checksum>6396E079B639E5A5A16695126EED0AD4</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -217,17 +220,17 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk/src</Path>
-        <Checksum>E84A12DB48C02A2DC1686B4835818883</Checksum>
+        <Checksum>D98BF06DE2384C667B1216850F415DCE</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_dyn/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_dyn/framework/system/ports/src</Path>
-        <Checksum>BD5D9BDDD9262C8D616C515AD5C5D1E6</Checksum>
+        <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -239,7 +242,6 @@
       <C32>
         <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src"/>
         <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/system_config/pic32mx_usb_sk2_int_dyn"/>
-        <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/pic32mx_usb_sk2_int_dyn"/>
         <Include value="E:/Git/core/framework"/>
         <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/system_config/pic32mx_usb_sk2_int_dyn/framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_int_dyn/bsp"/>

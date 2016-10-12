@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -86,7 +82,28 @@ extern "C" {
 #define SYS_CLK_UPLL_BEFORE_DIV2_FREQ       48000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         8000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       0ul
-   
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
+/*** Console System Service Configuration ***/
+
+#define SYS_CONSOLE_OVERRIDE_STDIO
+#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        2
+#define SYS_CONSOLE_INSTANCES_NUMBER            2
+#define SYS_CONSOLE_APPIO_RD_QUEUE_DEPTH    8
+#define SYS_CONSOLE_APPIO_WR_QUEUE_DEPTH    128
+#define SYS_CONSOLE_USB_CDC_INSTANCE       USB_DEVICE_CDC_INDEX_0
+#define SYS_CONSOLE_USB_CDC_COMM_BAUD_RATE 921600
+#define SYS_CONSOLE_USB_CDC_RD_QUEUE_DEPTH 10
+#define SYS_CONSOLE_USB_CDC_WR_QUEUE_DEPTH 128
+#define SYS_CONSOLE_USB_CDC_READ_BUFFER_SIZE   64
+#define SYS_CONSOLE_BUFFER_DMA_READY
+
+
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
@@ -132,22 +149,6 @@ extern "C" {
 #define SYS_TMR_CLIENT_TOLERANCE        10
 #define SYS_TMR_INTERRUPT_NOTIFICATION  false
 
-/*** Console System Service Configuration ***/
-
-#define SYS_CONSOLE_OVERRIDE_STDIO
-#define SYS_CONSOLE_DEVICE_MAX_INSTANCES        2
-#define SYS_CONSOLE_INSTANCES_NUMBER            2
-#define SYS_CONSOLE_APPIO_RD_QUEUE_DEPTH    8
-#define SYS_CONSOLE_APPIO_WR_QUEUE_DEPTH    128
-#define SYS_CONSOLE_USB_CDC_INSTANCE       USB_DEVICE_CDC_INDEX_0
-#define SYS_CONSOLE_USB_CDC_COMM_BAUD_RATE 921600
-#define SYS_CONSOLE_USB_CDC_RD_QUEUE_DEPTH 10
-#define SYS_CONSOLE_USB_CDC_WR_QUEUE_DEPTH 128
-#define SYS_CONSOLE_USB_CDC_READ_BUFFER_SIZE   64
-#define SYS_CONSOLE_BUFFER_DMA_READY
-
-
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
@@ -177,6 +178,7 @@ extern "C" {
 // Section: Middleware & Other Library Configuration
 // *****************************************************************************
 // *****************************************************************************
+
 /*** USB Driver Configuration ***/
 
 
@@ -245,7 +247,6 @@ extern "C" {
    write. Applicable to all instances of the
    function driver */
 #define USB_DEVICE_CDC_QUEUE_DEPTH_COMBINED 3
-
 
 
 

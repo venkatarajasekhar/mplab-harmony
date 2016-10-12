@@ -9,7 +9,7 @@
 *                                                                    *
 **********************************************************************
 
-** emWin V5.34 - Graphical user interface for embedded applications **
+** emWin V5.36 - Graphical user interface for embedded applications **
 All  Intellectual Property rights  in the Software belongs to  SEGGER.
 emWin is protected by  international copyright laws.  Knowledge of the
 source code may not be used to write a similar product.  This file may
@@ -26,16 +26,6 @@ libraries. Full source code is available at: www.segger.com
 
 We appreciate your understanding and fairness.
 ----------------------------------------------------------------------
-Licensing information
-
-Licensor:                 SEGGER Microcontroller Systems LLC
-Licensed to:              Microchip Technology Inc., 2355 W Chandler Blvd., Chandler, AZ 85224, US
-Licensed SEGGER software: emWin
-License number:           GUI-00614
-License model:            CPU Object Code License, dated Sept. 8, 2015
-Licensed product:         Any
-Licensed platform:        PIC24, PIC32, dsPIC, PIC16, PIC18 / MPLAB X Integrated Development Evironment, XC16 C Compiler, XC32 C/C++ Compiler
-Licensed number of seats: -
 ----------------------------------------------------------------------
 File        : SWIPELIST.h
 Purpose     : SWIPELIST include
@@ -167,6 +157,7 @@ int                SWIPELIST_GetSepSize              (SWIPELIST_Handle hObj, uns
 void               SWIPELIST_GetText                 (SWIPELIST_Handle hObj, unsigned ItemIndex, unsigned TextIndex, char * pBuffer, int MaxSize);
 int                SWIPELIST_GetTextAlign            (SWIPELIST_Handle hObj, unsigned ItemIndex);
 GUI_COLOR          SWIPELIST_GetTextColor            (SWIPELIST_Handle hObj, unsigned Index);
+int                SWIPELIST_GetThreshold            (SWIPELIST_Handle hObj);
 int                SWIPELIST_GetUserData             (SWIPELIST_Handle hObj, void * pDest, int NumBytes);
 
 int                SWIPELIST_ItemAttachWindow        (SWIPELIST_Handle hObj, unsigned ItemIndex, WM_HWIN hWin, int x0, int y0);
@@ -190,6 +181,7 @@ void               SWIPELIST_SetSepSize              (SWIPELIST_Handle hObj, uns
 void               SWIPELIST_SetText                 (SWIPELIST_Handle hObj, unsigned ItemIndex, unsigned TextIndex, char * sText);
 void               SWIPELIST_SetTextAlign            (SWIPELIST_Handle hObj, unsigned ItemIndex, int Align);
 void               SWIPELIST_SetTextColor            (SWIPELIST_Handle hObj, unsigned Index, GUI_COLOR Color);
+int                SWIPELIST_SetThreshold            (SWIPELIST_Handle hObj, int Threshold);
 int                SWIPELIST_SetUserData             (SWIPELIST_Handle hObj, const void * pSrc, int NumBytes);
 
 /*********************************************************************
@@ -206,6 +198,7 @@ GUI_COLOR        SWIPELIST_GetDefaultSepColor        (void);
 unsigned         SWIPELIST_GetDefaultSepSize         (void);
 GUI_COLOR        SWIPELIST_GetDefaultTextColor       (unsigned Index);
 int              SWIPELIST_GetDefaultTextAlign       (void);
+int              SWIPELIST_GetDefaultThreshold       (void);
 
 void             SWIPELIST_SetDefaultBitmapSpace     (unsigned Size);
 void             SWIPELIST_SetDefaultBkColor         (unsigned Index, GUI_COLOR Color);
@@ -215,6 +208,7 @@ void             SWIPELIST_SetDefaultSepColor        (GUI_COLOR Color);
 void             SWIPELIST_SetDefaultSepSize         (unsigned Size);
 void             SWIPELIST_SetDefaultTextColor       (unsigned Index, GUI_COLOR Color);
 void             SWIPELIST_SetDefaultTextAlign       (int Align);
+void             SWIPELIST_SetDefaultThreshold       (int Threshold);
 
 #if defined(__cplusplus)
   }

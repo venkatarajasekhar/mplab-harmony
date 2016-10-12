@@ -65,6 +65,16 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 #endif
  </#if><#-- CONFIG_BSP_PIC32MX_ETH_SK == true -->
 </#if><#-- CONFIG_DRV_WIFI_DEVICE == "MRF24WN" -->
+<#if CONFIG_USE_DRV_WIFI_WK == true>
+
+	IPC21bits.RFMACIP = 1;
+    IPC21bits.RFMACIS = 0;
+    
+    IPC21bits.RFTM0IP = 1;
+    IPC21bits.RFTM0IS = 0;
+
+	MAC_Interrupt_enable();
+</#if><#-- CONFIG_USE_DRV_WIFI_WK == true -->
 <#--
 /*******************************************************************************
  End of File

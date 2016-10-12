@@ -1499,7 +1499,7 @@ void DRV_I2C1_Tasks(void)
             if (IsQueueEmpty_1() == false)
             {
                 i2c1State = DRV_I2C_TASK_SEND_DEVICE_ADDRESS;
-                PLIB_I2C_MasterStart(I2C_ID_2);
+                PLIB_I2C_MasterStart(I2C_ID_4);
                 Nop();
             }
         }

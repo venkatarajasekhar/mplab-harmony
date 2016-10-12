@@ -19,11 +19,6 @@
                   <itemPath>../src/system_config/pic32mz_da_sk_meb2/framework/driver/tmr/drv_tmr_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_da_sk_meb2/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mz_da_sk_meb2/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mz_da_sk_meb2/system_definitions.h</itemPath>
@@ -39,11 +34,6 @@
                 </logicalFolder>
                 <logicalFolder name="f2" displayName="tmr" projectFiles="true">
                   <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/driver/tmr/drv_tmr_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/sys_clk_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
             </logicalFolder>
@@ -65,11 +55,6 @@
                   <itemPath>../src/system_config/pic32mz_ef_sk_meb2_16b/framework/driver/tmr/drv_tmr_static.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="f2" displayName="system" projectFiles="true">
-                <logicalFolder name="f1" displayName="clk" projectFiles="true">
-                  <itemPath>../src/system_config/pic32mz_ef_sk_meb2_16b/framework/system/clk/sys_clk_static.h</itemPath>
-                </logicalFolder>
-              </logicalFolder>
             </logicalFolder>
             <itemPath>../src/system_config/pic32mz_ef_sk_meb2_16b/system_config.h</itemPath>
             <itemPath>../src/system_config/pic32mz_ef_sk_meb2_16b/system_definitions.h</itemPath>
@@ -85,6 +70,7 @@
             </logicalFolder>
             <itemPath>../../../../../../../framework/driver/tmr/drv_tmr.h</itemPath>
             <itemPath>../../../../../../../framework/driver/tmr/drv_tmr_mapping.h</itemPath>
+            <itemPath>../../../../../../../framework/driver/tmr/drv_tmr_compatibility.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="usart" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
@@ -108,6 +94,7 @@
           <logicalFolder name="f8" displayName="clk" projectFiles="true">
             <itemPath>../../../../../../../framework/system/clk/sys_clk.h</itemPath>
             <itemPath>../../../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
+            <itemPath>../../../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="common" projectFiles="true">
             <itemPath>../../../../../../../framework/system/common/sys_common.h</itemPath>
@@ -344,13 +331,13 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion></languageToolchainVersion>
+        <languageToolchainVersion>1.42</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>../../../../../../../bin/framework/peripheral/PIC32MZ2048EFM144_peripherals.a</linkerLibFileItem>
+            <linkerLibFileItem>../../../../../../../bin/framework/peripheral/PIC32MZ2048EFH144_peripherals.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -371,8 +358,20 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <item path="../../../../../../../framework/system/devcon/src/sys_devcon_cache.h"
-            ex="true"
+            ex="false"
             overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
       </item>
       <item path="../src/system_config/pic32mz_da_sk_meb2/bsp/bsp.c"
             ex="true"
@@ -403,10 +402,6 @@
             overriding="false">
       </item>
       <item path="../src/system_config/pic32mz_da_sk_meb2/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-      </item>
-      <item path="../src/system_config/pic32mz_da_sk_meb2/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
       </item>
@@ -467,10 +462,6 @@
             overriding="false">
       </item>
       <item path="../src/system_config/pic32mz_ef_sk_meb2_16b/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_16b/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
       </item>
@@ -905,10 +896,6 @@
             ex="true"
             overriding="false">
       </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/sys_clk_static.h"
-            ex="true"
-            overriding="false">
-      </item>
       <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/ports/src/sys_ports_static.c"
             ex="true"
             overriding="false">
@@ -966,10 +953,6 @@
             overriding="false">
       </item>
       <item path="../src/system_config/pic32mz_ef_sk_meb2_16b/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2_16b/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
       </item>
@@ -1315,8 +1298,20 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <item path="../../../../../../../framework/system/devcon/src/sys_devcon_cache.h"
-            ex="true"
+            ex="false"
             overriding="false">
+        <C32>
+        </C32>
+        <C32-AR>
+        </C32-AR>
+        <C32-AS>
+        </C32-AS>
+        <C32-LD>
+        </C32-LD>
+        <C32CPP>
+        </C32CPP>
+        <C32Global>
+        </C32Global>
       </item>
       <item path="../src/system_config/pic32mz_da_sk_meb2/bsp/bsp.c"
             ex="true"
@@ -1347,10 +1342,6 @@
             overriding="false">
       </item>
       <item path="../src/system_config/pic32mz_da_sk_meb2/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-      </item>
-      <item path="../src/system_config/pic32mz_da_sk_meb2/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
       </item>
@@ -1411,10 +1402,6 @@
             overriding="false">
       </item>
       <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src/sys_clk_static.c"
-            ex="true"
-            overriding="false">
-      </item>
-      <item path="../src/system_config/pic32mz_ef_sk_meb2/framework/system/clk/sys_clk_static.h"
             ex="true"
             overriding="false">
       </item>
@@ -1653,6 +1640,7 @@
         <property key="UART5" value="true"/>
         <property key="UART6" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="hwtoolclock.instructionspeed" value="4"/>
         <property key="hwtoolclock.units" value="mips"/>

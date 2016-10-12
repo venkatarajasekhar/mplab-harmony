@@ -1404,13 +1404,220 @@ SYS_FS_MEDIA_GEOMETRY * DRV_IPF_GeometryGet( DRV_HANDLE handle );
 
 bool DRV_IPF_MediaIsAttached(DRV_HANDLE handle);
 
+// *****************************************************************************
+/* Function:
+    void DRV_IPF_WPAssert();
+
+  Summary:
+    Asserts the WP pin for flash.
+	<p><b>Implementation:</b> Dynamic</p>
+
+  Description:
+    This API is used to assert the Write Protect (WP) pin of the in-package flash.
+
+  Precondition:
+    None.
+
+  Parameters:
+	None.
+
+  Returns:
+	None.
+
+  Example:
+    <code>
+	DRV_IPF_WPAssert();
+    </code>
+
+  Remarks:
+	The Write Protection GPIO is fixed in case of PIC32WK devices.
+*/
+
 void DRV_IPF_WPAssert();
+
+// *****************************************************************************
+/* Function:
+    void DRV_IPF_WPAssert();
+
+  Summary:
+    Deasserts the WP pin for flash.
+	<p><b>Implementation:</b> Dynamic</p>
+
+  Description:
+    This API is used to deassert the Write Protect (WP) pin of the in-package flash.
+
+  Precondition:
+    None.
+
+  Parameters:
+	None.
+
+  Returns:
+	None.
+
+  Example:
+    <code>
+	DRV_IPF_WPDeAssert();
+    </code>
+
+  Remarks:
+	The Write Protection GPIO is fixed in case of PIC32WK devices.
+*/
 
 void DRV_IPF_WPDeAssert();
 
+// *****************************************************************************
+/* Function:
+    void DRV_IPF_HoldAssert();
+
+  Summary:
+    Asserts the Hold pin for flash.
+	<p><b>Implementation:</b> Dynamic</p>
+
+  Description:
+    This API is used to assert the Hold pin of the in-package flash.
+
+  Precondition:
+    None.
+
+  Parameters:
+	None.
+
+  Returns:
+	None.
+
+  Example:
+    <code>
+	DRV_IPF_HoldAssert();
+    </code>
+
+  Remarks:
+	The Hold GPIO is fixed in case of PIC32WK devices.
+*/
+
 void DRV_IPF_HoldAssert();
 
+// *****************************************************************************
+/* Function:
+    void DRV_IPF_HoldDeAssert();
+
+  Summary:
+    Deasserts the Hold pin for flash.
+	<p><b>Implementation:</b> Dynamic</p>
+
+  Description:
+    This API is used to deassert the Hold pin of the in-package flash.
+
+  Precondition:
+    None.
+
+  Parameters:
+	None.
+
+  Returns:
+	None.
+
+  Example:
+    <code>
+	DRV_IPF_HoldDeAssert();
+    </code>
+
+  Remarks:
+	The Hold GPIO is fixed in case of PIC32WK devices.
+*/
+
 void DRV_IPF_HoldDeAssert();
+
+// *****************************************************************************
+/* Function:
+	void DRV_IPF_ProtectMemoryVolatile
+	(
+		DRV_HANDLE clientHandle, 
+		DRV_IPF_BLOCK_COMMAND_HANDLE * commandHandle, 
+		uintptr_t memAddress, 
+		DRV_IPF_PROT_MODE protMode
+	);
+  Summary:
+    Protects the memory block to which the given memory address belongs
+	<p><b>Implementation:</b> Dynamic</p>
+
+  Description:
+    This API is used to protect the memory block to which a given memory address
+	belongs. Both read and write protection mode is supported. The memory will be
+	protected until the next power cycle.
+
+  Precondition:
+    In-package flash driver open function must be called and a valid client handle
+	must be available.
+
+  Parameters:
+	clientHandle 	- A valid open-instance handle, returned from the driver's
+                   open function
+	commandHandle 	- Pointer to an argument that will contain the return buffer
+                   handle
+	memAddress 		- Memory address which belongs to the memory block which needs 
+					to be protected
+	protMode 		- Read or write protect mode. If a block needs to be protected
+					for both read and write, then both enum values can be ORed and
+					passed to the function.
+	
+  Returns:
+	None.
+
+  Example:
+    <code>
+    uintptr_t memAddr = IPF_ADDRESS_PROTECT;
+    DRV_IPF_PROT_MODE    protMode = DRV_IPF_WRITE_PROTECT;
+    DRV_IPF_BLOCK_COMMAND_HANDLE commandHandle;
+    MY_APP_OBJ myAppObj;
+
+    // myIPFHandle is the handle returned
+    // by the DRV_IPF_Open function.
+
+    // Client registers an event handler with driver
+
+    DRV_IPF_BlockEventHandlerSet(myIPFHandle,
+                    APP_IPFEventHandler, (uintptr_t)&myAppObj);
+
+    DRV_IPF_ProtectMemoryVolatile( myIPFHandle, commandHandle,
+                                            memAddr, protMode );
+
+    if(DRV_IPF_BLOCK_COMMAND_HANDLE_INVALID == commandHandle)
+    {
+        // Error handling here
+    }
+
+    // Event is received when
+    // the buffer is processed.
+
+    void APP_IPFEventHandler(DRV_IPF_BLOCK_EVENT event,
+            DRV_IPF_BLOCK_COMMAND_HANDLE commandHandle, uintptr_t contextHandle)
+    {
+        // contextHandle points to myAppObj.
+
+        switch(event)
+        {
+            case DRV_IPF_EVENT_BLOCK_COMMAND_COMPLETE:
+
+                // This means the memory protection is complete.
+                break;
+
+            case DRV_IPF_EVENT_BLOCK_COMMAND_ERROR:
+
+                // Error handling here.
+
+                break;
+
+            default:
+                break;
+        }
+    }
+    </code>
+
+  Remarks:
+	Only the selected blocks can be read protected, which is as per the 
+	in-package flash specification.
+*/
 
 void DRV_IPF_ProtectMemoryVolatile
 (
@@ -1420,25 +1627,198 @@ void DRV_IPF_ProtectMemoryVolatile
     DRV_IPF_PROT_MODE protMode
 );
 
-void DRV_IPF_FS_BlockRead
+// *****************************************************************************
+/* Function:
+	void DRV_IPF_UnProtectMemoryVolatile
+	(
+		DRV_HANDLE clientHandle, 
+		DRV_IPF_BLOCK_COMMAND_HANDLE * commandHandle, 
+		uintptr_t memAddress, 
+		DRV_IPF_PROT_MODE protMode
+	);
+  Summary:
+    Un-protects the memory block to which the given memory address belongs
+	<p><b>Implementation:</b> Dynamic</p>
+
+  Description:
+    This API is used to un-protect the memory block to which a given memory address
+	belongs. Both read and write protection mode is supported. The memory will be
+	protected until the next power cycle.
+
+  Precondition:
+    In-package flash driver open function must be called and a valid client handle
+	must be available.
+
+  Parameters:
+	clientHandle 	- A valid open-instance handle, returned from the driver's
+                   open function
+	commandHandle 	- Pointer to an argument that will contain the return buffer
+                   handle
+	memAddress 		- Memory address which belongs to the memory block which needs 
+					to be un-protected
+	protMode 		- Read or write protect mode. If a block needs to be un-protected
+					for both read and write, then both enum values can be ORed and
+					passed to the function.
+	
+  Returns:
+	None.
+
+  Example:
+    <code>
+    uintptr_t memAddr = IPF_ADDRESS_UNPROTECT;
+    DRV_IPF_PROT_MODE    protMode = DRV_IPF_WRITE_PROTECT;
+    DRV_IPF_BLOCK_COMMAND_HANDLE commandHandle;
+    MY_APP_OBJ myAppObj;
+
+    // myIPFHandle is the handle returned
+    // by the DRV_IPF_Open function.
+
+    // Client registers an event handler with driver
+
+    DRV_IPF_BlockEventHandlerSet(myIPFHandle,
+                    APP_IPFEventHandler, (uintptr_t)&myAppObj);
+
+    DRV_IPF_UnProtectMemoryVolatile( myIPFHandle, commandHandle,
+                                            memAddr, protMode );
+
+    if(DRV_IPF_BLOCK_COMMAND_HANDLE_INVALID == commandHandle)
+    {
+        // Error handling here
+    }
+
+    // Event is received when
+    // the buffer is processed.
+
+    void APP_IPFEventHandler(DRV_IPF_BLOCK_EVENT event,
+            DRV_IPF_BLOCK_COMMAND_HANDLE commandHandle, uintptr_t contextHandle)
+    {
+        // contextHandle points to myAppObj.
+
+        switch(event)
+        {
+            case DRV_IPF_EVENT_BLOCK_COMMAND_COMPLETE:
+
+                // This means the memory unprotection is complete.
+                break;
+
+            case DRV_IPF_EVENT_BLOCK_COMMAND_ERROR:
+
+                // Error handling here.
+
+                break;
+
+            default:
+                break;
+        }
+    }
+    </code>
+
+  Remarks:
+	If the memory block a client is trying to unprotect, is protected by some other
+	client, then memory unprotection will not executed. The function will return 
+	without	unprotecting.
+*/
+
+void DRV_IPF_UnProtectMemoryVolatile
 (
-    const DRV_HANDLE hClient,
-    DRV_IPF_BLOCK_COMMAND_HANDLE * commandHandle,
-    uint8_t *targetBuffer,
-    uint32_t blockStart,
-    uint32_t nBlock
+    DRV_HANDLE clientHandle, 
+    DRV_IPF_BLOCK_COMMAND_HANDLE * commandHandle, 
+    uintptr_t memAddress, 
+    DRV_IPF_PROT_MODE protMode
 );
 
-uintptr_t DRV_IPF_AddressGet
+// *****************************************************************************
+/* Function:
+	void DRV_IPF_ReadBlockProtectionStatus
+	(
+		DRV_HANDLE clientHandle, 
+		DRV_IPF_BLOCK_COMMAND_HANDLE * commandHandle, 
+		uint8_t * buffer
+	);
+  Summary:
+    Reads the content of Block Protection Register which belongs to In-Package 
+	flash.
+	<p><b>Implementation:</b> Dynamic</p>
+
+  Description:
+    This API is read the current contents of the block protection register in 
+	in-package flash and fills the buffer passed by the client. 
+
+  Precondition:
+    In-package flash driver open function must be called and a valid client handle
+	must be available.
+
+  Parameters:
+	clientHandle 	- A valid open-instance handle, returned from the driver's
+                   open function
+	commandHandle 	- Pointer to an argument that will contain the return buffer
+                   handle
+	buffer  		- pointer to a buffer to which the block protection status
+					has to be updated
+	
+  Returns:
+	None.
+
+  Example:
+    <code>
+    uint8_t buf[6] = {0,};
+    DRV_IPF_BLOCK_COMMAND_HANDLE commandHandle;
+    MY_APP_OBJ myAppObj;
+
+    // myIPFHandle is the handle returned
+    // by the DRV_IPF_Open function.
+
+    // Client registers an event handler with driver
+
+    DRV_IPF_BlockEventHandlerSet(myIPFHandle,
+                    APP_IPFEventHandler, (uintptr_t)&myAppObj);
+
+    DRV_IPF_ReadBlockProtectionStatus( myIPFHandle, commandHandle,
+                                            buf );
+
+    if(DRV_IPF_BLOCK_COMMAND_HANDLE_INVALID == commandHandle)
+    {
+        // Error handling here
+    }
+
+    // Event is received when
+    // the buffer is processed.
+
+    void APP_IPFEventHandler(DRV_IPF_BLOCK_EVENT event,
+            DRV_IPF_BLOCK_COMMAND_HANDLE commandHandle, uintptr_t contextHandle)
+    {
+        // contextHandle points to myAppObj.
+
+        switch(event)
+        {
+            case DRV_IPF_EVENT_BLOCK_COMMAND_COMPLETE:
+
+                // This means the BPR read is complete.
+                break;
+
+            case DRV_IPF_EVENT_BLOCK_COMMAND_ERROR:
+
+                // Error handling here.
+
+                break;
+
+            default:
+                break;
+        }
+    }
+    </code>
+
+  Remarks:
+	The block protection word is 6-bytes wide.
+*/
+
+void DRV_IPF_ReadBlockProtectionStatus
 (
-    const DRV_HANDLE handle
+    DRV_HANDLE clientHandle, 
+    DRV_IPF_BLOCK_COMMAND_HANDLE * commandHandle, 
+    uint8_t * buffer
 );
 
-DRV_IPF_BLOCK_EVENT DRV_IPF_CommandStatus
-(
-    const DRV_HANDLE handle,
-    const DRV_IPF_BLOCK_COMMAND_HANDLE commandHandle
-);
 
 // ****************************************************************************
 // ****************************************************************************
@@ -1449,7 +1829,6 @@ DRV_IPF_BLOCK_EVENT DRV_IPF_CommandStatus
     static implementations, depending on build mode.
 */
 
-// #include "driver/IPF/drv_IPF_mapping.h"
 
 
 #endif // #ifndef _DRV_IPF_H

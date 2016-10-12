@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MZ2048EFH144"/>
@@ -50,6 +54,10 @@
         <Path>Header Files/framework/osal/src</Path>
       </File>
       <File>
+        <Name>sys_reset.h</Name>
+        <Path>Header Files/framework/system/reset</Path>
+      </File>
+      <File>
         <Name>driver_common.h</Name>
         <Path>Header Files/framework/driver</Path>
       </File>
@@ -58,8 +66,16 @@
         <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
+        <Name>sys_reset_local.h</Name>
+        <Path>Header Files/framework/system/reset/src</Path>
+      </File>
+      <File>
         <Name>sys_dma.h</Name>
         <Path>Header Files/framework/system/dma</Path>
+      </File>
+      <File>
+        <Name>sys_reset.c</Name>
+        <Path>Source Files/framework/system/reset/src</Path>
       </File>
       <File>
         <Name>nvm.c</Name>
@@ -74,6 +90,10 @@
         <Path>Header Files/framework/system/fs</Path>
       </File>
       <File>
+        <Name>sys_reset_mapping.h</Name>
+        <Path>Header Files/framework/system/reset/src</Path>
+      </File>
+      <File>
         <Name>sys_ports.h</Name>
         <Path>Header Files/framework/system/ports</Path>
       </File>
@@ -86,12 +106,20 @@
         <Path>Header Files/framework/driver</Path>
       </File>
       <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
         <Name>sys_common.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
         <Name>sys_buffer.h</Name>
         <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -175,7 +203,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/usart_pic32mz_ef_sk</Path>
-        <Checksum>B871407DD68B9089C93A0617C080B4F4</Checksum>
+        <Checksum>194415180A289E7909BB77487B101420</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -202,14 +230,9 @@
         <Checksum>89F74A34367F033B72BD3022FF1F60F3</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/usart_pic32mz_ef_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/usart_pic32mz_ef_sk/bsp</Path>
-        <Checksum>F68C0372DEED2BB3ED0908D6ED83CB54</Checksum>
+        <Checksum>F17134C042B81B3876554237536D7229</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -233,12 +256,12 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/usart_pic32mz_ef_sk/bsp</Path>
-        <Checksum>3DB509F6CDE7AB7F7CA13F4917B64C7D</Checksum>
+        <Checksum>8405F93FE0218536B85400099346BEF4</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/usart_pic32mz_ef_sk/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -248,7 +271,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/usart_pic32mz_ef_sk</Path>
-        <Checksum>FB53D4B2C4371E7B74D7EFE452CCFC97</Checksum>
+        <Checksum>80E28EFABF09565ACA6A2FCFE2CC4AC7</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -267,11 +290,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src"/>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src/system_config/usart_pic32mz_ef_sk"/>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src/usart_pic32mz_ef_sk"/>
-        <Include value="C:/microchip/harmony/core/framework"/>
-        <Include value="C:/microchip/harmony/core/apps/bootloader/basic/firmware/src/system_config/usart_pic32mz_ef_sk/framework"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/bootloader/basic/firmware/src"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/bootloader/basic/firmware/src/system_config/usart_pic32mz_ef_sk"/>
+        <Include value="C:/microchip/harmony/core_v2xx/framework"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/bootloader/basic/firmware/src/system_config/usart_pic32mz_ef_sk/framework"/>
         <Include value="../src/system_config/usart_pic32mz_ef_sk/bsp"/>
       </C32>
     </CompilerItems>

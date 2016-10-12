@@ -78,7 +78,7 @@ void __ISR(_EXTERNAL_1_VECTOR, IPL5AUTO) _IntHandlerExternalInterruptInstance0(v
     
 void __ISR(_TIMER_1_VECTOR, ipl1AUTO) IntHandlerDrvTmrInstance0(void)
 {
-    DRV_TMR_Tasks(sysObj.drvTmr0);    
+    DRV_TMR_Tasks(sysObj.drvTmr0);
 }
  
 void __ISR(_SPI2_RX_VECTOR, ipl3AUTO) _IntHandlerSPIRxInstance0(void)
@@ -145,7 +145,7 @@ void __ISR(_I2C1_BUS_VECTOR, ipl4AUTO) _IntHandlerDrvI2CErrorInstance1(void)
     DRV_GFX_LCC_DisplayRefresh();
 }
 
- 
+	
 	
 	
 void __ISR(_USB_VECTOR, ipl1AUTO) _IntHandlerUSBInstance0(void)

@@ -54,7 +54,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // DOM-IGNORE-END
 #define ADC_NUM_SAMPLE_PER_AVERAGE  16
 
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Included Files

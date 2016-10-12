@@ -1,45 +1,32 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Bluetooth General Functions
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    bt_config.h
-
-  Summary:
-    Bluetooth API Library interface to Bluetooth General Functions.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.  
-	
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 #ifndef __BT_CONFIG_H_INCLUDED__
 #define __BT_CONFIG_H_INCLUDED__
 
-#include "bluetooth/cdbt/plat/config.h"
+#include "cdbt/plat/config.h"
 
 /**
  * \defgroup btconfig DotStack Configuration
  */
 
 /**
- * Summary:  BT_ENABLE_SCO.
- * , Functional Group:  btconfig
+ * \brief BT_ENABLE_SCO.
+ * \ingroup btconfig
  *
- * Description:  Enables support of synchronous connections.
+ * \details Enables support of synchronous connections.
  * HCI_MAX_CONNECTIONS must be at least 2
  */
 //#define BT_ENABLE_SCO
@@ -49,18 +36,18 @@
 
 
 /**
-* Summary:  BT_ENABLE_SSP.
-* , Functional Group:  btconfig
+* \brief BT_ENABLE_SSP.
+* \ingroup btconfig
 *
-* Description:  Enables support of Simple Secure Pairing.
+* \details Enables support of Simple Secure Pairing.
 */
 //#define BT_ENABLE_SSP
 
 /**
- * Summary:  L2CAP_ENABLE_EXT_FEATURES.
- * , Functional Group:  btconfig
+ * \brief L2CAP_ENABLE_EXT_FEATURES.
+ * \ingroup btconfig
  *
- * Description:  Enables support of Enhanced Retransmission ans Streaming modes.
+ * \details Enables support of Enhanced Retransmission ans Streaming modes.
  */
 
 

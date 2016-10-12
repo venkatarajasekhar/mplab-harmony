@@ -226,7 +226,19 @@ int32_t DRV_SPI_SetupHardware(struct DRV_SPI_DRIVER_OBJECT * driverObject, const
     PLIB_SPI_CommunicationWidthSelect ( spiId, init->commWidth );
 
     /* Baudrate selection */
-    PLIB_SPI_BaudRateSet( spiId , SYS_CLK_PeripheralFrequencyGet(init->spiClk), init->baudRate );
+    #if defined (PLIB_SPI_ExistsBaudRateClock)
+        if (init->baudClockSource == SPI_BAUD_RATE_PBCLK_CLOCK)
+        {
+            PLIB_SPI_BaudRateSet( spiId , SYS_CLK_PeripheralFrequencyGet(init->spiClk), init->baudRate );
+        }
+        else // if baud clock source is reference clock
+        {
+            PLIB_SPI_BaudRateSet( spiId , SYS_CLK_ReferenceFrequencyGet(CLK_BUS_REFERENCE_1), init->baudRate );
+        }
+    #else
+        PLIB_SPI_BaudRateSet( spiId , SYS_CLK_PeripheralFrequencyGet(init->spiClk), init->baudRate );
+    #endif
+    
     driverObject->currentBaudRate = init->baudRate;
     driverObject->baudRate = init->baudRate;
     

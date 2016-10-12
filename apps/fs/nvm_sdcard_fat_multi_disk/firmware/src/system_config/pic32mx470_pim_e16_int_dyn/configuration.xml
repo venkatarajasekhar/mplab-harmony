@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX470F512L"/>
@@ -190,6 +194,10 @@
         <Path>Header Files/framework/driver/sdcard</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -275,12 +283,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx470_pim_e16_int_dyn/framework/system/clk/src</Path>
-        <Checksum>A0AE6A7C71AF906122FDC5BCFF27499B</Checksum>
+        <Checksum>8C1B5936A765E47ED1273EF0D134FEA2</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mx470_pim_e16_int_dyn/framework/driver/spi/dynamic</Path>
-        <Checksum>B3A91E83D97E20F2E6AE74F22B6F32E1</Checksum>
+        <Checksum>615D0B3998780D1680273302CCF44179</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -290,22 +298,22 @@
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mx470_pim_e16_int_dyn</Path>
-        <Checksum>91262BD5D0BDD2DEE0C99571F4B9C271</Checksum>
+        <Checksum>B63206C99DACD5744361AF1283F44FDE</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx470_pim_e16_int_dyn/bsp</Path>
-        <Checksum>22206B72AE082E1D22467517776C46C4</Checksum>
+        <Checksum>0792B3FAE7BE44BF009E5C2CCECCA696</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx470_pim_e16_int_dyn</Path>
-        <Checksum>2959CBC12EF7BFAF64D33B863B1CE491</Checksum>
+        <Checksum>41F27E1A652E577E8C735261F8D1E83A</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx470_pim_e16_int_dyn/framework/driver/spi/dynamic</Path>
-        <Checksum>0468A6AC4EF824897AA5C22F6EAFBB43</Checksum>
+        <Checksum>B8D534FC99E9DAC9CE3CE2AFE17C3907</Checksum>
       </Template>
       <Template>
         <Name>nvm_disk_images.h</Name>
@@ -327,14 +335,9 @@
         <Checksum>10B833714F919868795998B644ED718C</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx470_pim_e16_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx470_pim_e16_int_dyn</Path>
-        <Checksum>2F047600F129998AD8DDD4D6D7A7EBC1</Checksum>
+        <Checksum>6A9AFFE36C660E0FD64216F01D46A6DA</Checksum>
         <ProjectFileChecksum>ECE3884445033B51E1312ADD69C3D807</ProjectFileChecksum>
       </Template>
       <Template>
@@ -349,14 +352,13 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx470_pim_e16_int_dyn/bsp</Path>
-        <Checksum>035BE54F297A38CFC3F60FBD8B74621E</Checksum>
+        <Checksum>DB993FB0DF0EBB649A46E8D914CBB89A</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
         <Include value="D:/trunk_sbx/apps/fs/nvm_sdcard_fat_multi_disk/firmware/src"/>
         <Include value="D:/trunk_sbx/apps/fs/nvm_sdcard_fat_multi_disk/firmware/src/system_config/pic32mx470_pim_e16_int_dyn"/>
-        <Include value="D:/trunk_sbx/apps/fs/nvm_sdcard_fat_multi_disk/firmware/src/pic32mx470_pim_e16_int_dyn"/>
         <Include value="D:/trunk_sbx/framework"/>
         <Include value="D:/trunk_sbx/apps/fs/nvm_sdcard_fat_multi_disk/firmware/src/system_config/pic32mx470_pim_e16_int_dyn/framework"/>
         <Include value="../src/system_config/pic32mx470_pim_e16_int_dyn/bsp"/>

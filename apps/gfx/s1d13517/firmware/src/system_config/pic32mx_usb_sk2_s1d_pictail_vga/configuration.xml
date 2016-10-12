@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -289,6 +289,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -395,12 +399,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_vga</Path>
-        <Checksum>E50761286F03F00CAAFE1F1BC0D85963</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_vga/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>3AE40F694900BAD28DC8F3E14B195859</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -415,7 +414,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_vga</Path>
-        <Checksum>1311E5CE075505B40842A233A0A7A309</Checksum>
+        <Checksum>79F7630E8A3040182F02517936F6A788</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -444,7 +443,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_s1d_pictail_vga/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -454,11 +453,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\s1d13517\firmware\src"/>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\s1d13517\firmware\src\system_config\pic32mx_usb_sk2_s1d_pictail_vga"/>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\s1d13517\firmware\src\pic32mx_usb_sk2_s1d_pictail_vga"/>
-        <Include value="C:\Harmony\gfx2-1\framework"/>
-        <Include value="C:\Harmony\gfx2-1\apps\gfx\s1d13517\firmware\src\system_config\pic32mx_usb_sk2_s1d_pictail_vga\framework"/>
+        <Include value="C:\Harmony\v2_02\apps\gfx\s1d13517\firmware\src"/>
+        <Include value="C:\Harmony\v2_02\apps\gfx\s1d13517\firmware\src\system_config\pic32mx_usb_sk2_s1d_pictail_vga"/>
+        <Include value="C:\Harmony\v2_02\framework"/>
+        <Include value="C:\Harmony\v2_02\apps\gfx\s1d13517\firmware\src\system_config\pic32mx_usb_sk2_s1d_pictail_vga\framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_s1d_pictail_vga/bsp"/>
       </C32>
     </CompilerItems>

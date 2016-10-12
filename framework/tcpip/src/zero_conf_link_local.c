@@ -437,6 +437,25 @@ bool TCPIP_ZCLL_IsEnabled(TCPIP_NET_HANDLE hNet)
     return false;
 }
 
+// Enables/disables the ZCLL service as requested by the stack manager
+// No callback into the stack manager is done
+// No other checking is done
+bool TCPIP_ZCLL_ServiceEnable(TCPIP_NET_IF* pNetIf, bool enable)
+{
+    bool res = false;
+
+    if(enable == true && pNetIf->Flags.bIsZcllEnabled == 0)
+    {
+        res = _ZCLLEnable(pNetIf);
+    }
+    else if(enable == false && pNetIf->Flags.bIsZcllEnabled != 0)
+    {
+        _ZCLLDisable(pNetIf);
+        res = true;
+    }
+
+    return res;
+}
 
 /***************************************************************
   Function:

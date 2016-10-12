@@ -1,45 +1,33 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Serial Data Protocol
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    sdp.h
-
-  Summary:
-    Bluetooth API Library interface to the SDP.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.  This module describe functions
-	and data structures used to start the SDP server and perform SDP queries.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
-#ifndef __SDP_H    // Guards against multiple inclusion
+#ifndef __SDP_H
 #define __SDP_H
 
-#include "bluetooth/cdbt/l2cap/l2cap.h"
-#include "bluetooth/cdbt/sdp/sdp_packet.h"
+#include "cdbt/l2cap/l2cap.h"
+#include "cdbt/sdp/sdp_packet.h"
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
 
-
+/**
+* \defgroup sdp SDP
+*
+*  This module describe functions and data structures used to start the SDP server and perform SDP queries.
+*/
 
 #define SDP_CLSID_ServiceDiscoveryServerServiceClassID	0x1000
 #define SDP_CLSID_BrowseGroupDescriptorServiceClassID	0x1001
@@ -61,6 +49,9 @@ extern "C" {
 #define SDP_CLSID_HSP_AG								0x1112
 #define SDP_CLSID_HFP									0x111E
 #define SDP_CLSID_HFP_AG								0x111F
+#define SDP_CLSID_HARD_COPY_CABLE_REPLACEMENT           0x1125
+#define SDP_CLSID_HCR_PRINT                             0x1126
+#define SDP_CLSID_HCR_SCAN                              0x1127
 #define SDP_CLSID_PBAP_PCE								0x112E
 #define SDP_CLSID_PBAP_PSE								0x112F
 #define SDP_CLSID_HSP_HS								0x1131
@@ -73,6 +64,9 @@ extern "C" {
 #define SDP_CLSID_HDP									0x1400
 #define SDP_CLSID_HDP_SOURCE							0x1401
 #define SDP_CLSID_HDP_SINK								0x1402
+#define SDP_CLSID_HARD_COPY_CONTROL_CHANNEL             0x0012
+#define SDP_CLSID_HARD_COPY_DATA_CHANNEL                0x0014
+#define SDP_CLSID_HARD_COPY_NOTIFICATION                0x0016
 
 #define SDP_CLSID_MCAP_CONTROL							0x001E
 #define SDP_CLSID_MCAP_DATA								0x001F
@@ -133,6 +127,11 @@ extern "C" {
 #define SDP_ATTRID_HDPSuportedFeatures					0x200
 #define SDP_ATTRID_HDPDataExchangeSpecification			0x301
 #define SDP_ATTRID_HDPMCAPSupportedProcedures			0x302
+
+#define SDP_ATTRID_HCRP_1284ID                          0x300
+#define SDP_ATTRID_HCRP_DeviceName                      0x302
+#define SDP_ATTRID_HCRP_FriendlyName                    0x304
+#define SDP_ATTRID_HCRP_DeviceLocation                  0x306
 
 #define SDP_ATTRID_INVALID	0xFFFF
 
@@ -197,7 +196,6 @@ extern "C" {
 
 #define SDP_PDU_HEADER_LEN	5
 
-#define SDP_BASE_UUID			{ 0x5F9B34FB, 0x80000080, 0x00001000, 0x00000000 }
 #define SDP_RFCOMM_SERVICE_ID	0x1234
 #define SDP_HID_SERVICE_ID		0x1235
 #define SDP_HSP_HS_SERVICE_ID	0x1236
@@ -262,16 +260,21 @@ typedef struct _sdp_db {
 */
 
 
-#define SDP_MAX_TRANSACTIONS	1
+#define SDP_MAX_TRANSACTIONS	2
 
 typedef struct _bt_sdp_serialization_state_t 
 {
 	bt_int listIndex;
 	bt_int attrIndex;
-	bt_int firstSkippedAttrIndex;
 	bt_byte attrPart;
 	bt_int attrPartPos;
-	bt_int bytecount;
+	bt_int attr_bytes;
+	bt_int first_list;
+	bt_int last_list;
+	bt_int first_attr;
+	bt_int last_attr;
+	bt_uint attr_lists_seq_len;
+	bt_bool write_seq_len;
 } bt_sdp_serialization_state_t, *bt_sdp_serialization_state_p;
 
 typedef struct _bt_sdp_found_attr_list_t
@@ -287,6 +290,7 @@ typedef struct _bt_sdp_transaction_t
 	bt_sdp_found_attr_list_t* found_attr_lists;//SDP_MAX_SEARCH_RESULT_LEN];
 	bt_uint max_bytecount;
 	bt_bool complete;
+	bt_bool continuation;
 
 	bt_sdp_serialization_state_t sr_state;
 } bt_sdp_transaction_t;
@@ -303,14 +307,14 @@ typedef struct _bt_sdp_service_transaction_t
 
 
 /**
- * Summary:  Begin a data element sequence
+ * \brief Begin a data element sequence
  * \ingroup sdp
  *
- * Description:  BEGIN_DE_SEQUENCE and END_DE_SEQUENCE are used to define a data element sequence which is an array of sdp_data_element structures.
+ * \details BEGIN_DE_SEQUENCE and END_DE_SEQUENCE are used to define a data element sequence which is an array of sdp_data_element structures.
  *          The array is used a search pattern in bt_sdp_request_service_search() and bt_sdp_request_service_attribute().
  *          For example, to find a AVRCP Target the following code can be used:
 
-	Example:
+	\code
 	const bt_uuid_t AVRCP_AV_REMOTE_CONTROL_CLSID = { 0x5F9B34FB, 0x80000080, 0x00001000, SDP_CLSID_AV_REMOTE_CONTROL };
 	const bt_uuid_t AVRCP_AV_REMOTE_CONTROL_TARGET_CLSID = { 0x5F9B34FB, 0x80000080, 0x00001000, SDP_CLSID_AV_REMOTE_CONTROL_TARGET };
 
@@ -334,9 +338,9 @@ typedef struct _bt_sdp_service_transaction_t
 
 
  *
- * Parameters:  id - The data element sequence identifier.
- *    len - The number of elements in the data element sequence.
- *
+ * \param id The data element sequence identifier. 
+ * \param len The number of elements in the data element sequence. 
+ * 
  */
 #define BEGIN_DE_SEQUENCE(id, len)	\
 	static bt_sdp_data_element_t id[len];	\
@@ -350,168 +354,168 @@ typedef struct _bt_sdp_service_transaction_t
 			initialized = TRUE;
 
 /**
- * Summary:  End a data element sequence
+ * \brief End a data element sequence
  * \ingroup sdp
  *
- * Description:  BEGIN_DE_SEQUENCE and END_DE_SEQUENCE are used to define a data element sequence which is an array of bt_sdp_data_element structures.
+ * \details BEGIN_DE_SEQUENCE and END_DE_SEQUENCE are used to define a data element sequence which is an array of bt_sdp_data_element structures.
  *
- * Parameters:  id - The data element sequence identifier.
- *
+ * \param id The data element sequence identifier. 
+ * 
  */
 #define END_DE_SEQUENCE(id)		}}
 
 /**
- * Summary:  Initialize a data element sequence
+ * \brief Initialize a data element sequence
  * \ingroup sdp
  *
- * Description:  This macro calls a function defined in BEGIN_DE_SEQUENCE which initializes the data element sequence.
+ * \details This macro calls a function defined in BEGIN_DE_SEQUENCE which initializes the data element sequence.
  *
- * Parameters:  id - The data element sequence identifier.
- *
+ * \param id The data element sequence identifier. 
+ * 
  */
 #define INIT_DE_SEQUENCE(id)	init_de_sequence_##id();
 
 /**
- * Summary:  Declare a 1-byte unsigned integer data element
+ * \brief Declare a 1-byte unsigned integer data element
  * \ingroup sdp
- *
- * Description:  This macro adds a 1-byte unsigned integer data element to a data element sequence.
+ * 
+ * \details This macro adds a 1-byte unsigned integer data element to a data element sequence. 
  * This macro is to be used between BEGIN_DE_SEQUENCE and END_DE_SEQUENCE.
  *
- * Parameters:  value - The data element value.
- *
+ * \param value The data element value. 
+ * 
  */
 #define DE_UINT(value)		cur_de->type = SDP_DATA_TYPE_UINT; cur_de->data.b = value; cur_de++; if (++i == max_len) return;
 
 /**
- * Summary:  Declare a 2-byte unsigned integer data element
+ * \brief Declare a 2-byte unsigned integer data element
  * \ingroup sdp
- *
- * Description:  This macro adds a 2-byte unsigned integer data element to a data element sequence.
+ * 
+ * \details This macro adds a 2-byte unsigned integer data element to a data element sequence. 
  * This macro is to be used between BEGIN_DE_SEQUENCE and END_DE_SEQUENCE.
  *
- * Parameters:  value - The data element value.
- *
+ * \param value The data element value. 
+ * 
  */
 #define DE_UINT16(value)	cur_de->type = SDP_DATA_TYPE_UINT16; cur_de->data.ui = value; cur_de++; if (++i == max_len) return;
 
 /**
- * Summary:  Declare a 1-byte signed integer data element
+ * \brief Declare a 1-byte signed integer data element
  * \ingroup sdp
- *
- * Description:  This macro adds a 1-byte signed integer data element to a data element sequence.
+ * 
+ * \details This macro adds a 1-byte signed integer data element to a data element sequence. 
  * This macro is to be used between BEGIN_DE_SEQUENCE and END_DE_SEQUENCE.
  *
- * Parameters:  value - The data element value.
- *
+ * \param value The data element value. 
+ * 
  */
 #define DE_INT(value)		cur_de->type = SDP_DATA_TYPE_INT; cur_de->data.b = value; cur_de++; if (++i == max_len) return;
 
 /**
- * Summary:  Declare a text string data element
+ * \brief Declare a text string data element
  * \ingroup sdp
- *
- * Description:  This macro adds a text string data element to a data element sequence.
+ * 
+ * \details This macro adds a text string data element to a data element sequence. 
  * The length of the generated data element will be the actual length of the string.
  * This macro is to be used between BEGIN_DE_SEQUENCE and END_DE_SEQUENCE.
  *
- * Parameters:  value - The data element value.
- *
+ * \param value The data element value. 
+ * 
  */
 #define DE_STRING(value)	cur_de->type = SDP_DATA_TYPE_STRING; cur_de->data.pstr = value; cur_de++;
 
 /**
- * Summary:  Declare a text string data element
+ * \brief Declare a text string data element
  * \ingroup sdp
- *
- * Description:  This macro adds a text string data element to a data element sequence.
- * The length of the generated data element will be the value specified by the "len" parameter
+ * 
+ * \details This macro adds a text string data element to a data element sequence. 
+ * The length of the generated data element will be the value specified by the "len" parameter 
  * even if the actual length of the string is not equal to the "len" value.
  * This macro is to be used between BEGIN_DE_SEQUENCE and END_DE_SEQUENCE.
  *
- * Parameters:  value - The data element value.
- *   len - The length of the data element value.
- *
+ * \param value The data element value. 
+ * \param len The length of the data element value. 
+ * 
  */
 #define DE_STRING2(value, len)	cur_de->type = SDP_DATA_TYPE_UINT; cur_de->data.pstr = value; cur_de->bytecount = len; cur_de++; if (++i == max_len) return;
 
 /**
- * Summary:  Declare a boolean data element
+ * \brief Declare a boolean data element
  * \ingroup sdp
- *
- * Description:  This macro adds a boolean data element to a data element sequence.
+ * 
+ * \details This macro adds a boolean data element to a data element sequence. 
  * This macro is to be used between BEGIN_DE_SEQUENCE and END_DE_SEQUENCE.
  *
- *   value - The data element value.
- *
+ * \param value The data element value. 
+ * 
  */
 #define DE_BOOL(value)		cur_de->type = SDP_DATA_TYPE_BOOL; cur_de->data.b = value; cur_de++; if (++i == max_len) return;
 
 /**
- * Summary:  Declare a 16-bit UUID data element
+ * \brief Declare a 16-bit UUID data element
  * \ingroup sdp
- *
- * Description:  This macro adds a 16-bit UUID data element to a data element sequence.
+ * 
+ * \details This macro adds a 16-bit UUID data element to a data element sequence. 
  * This macro is to be used between BEGIN_DE_SEQUENCE and END_DE_SEQUENCE.
  *
- * Parameters:  value - The data element value.
- *
+ * \param value The data element value. 
+ * 
 */
 #define DE_UUID16(value)	cur_de->type = SDP_DATA_TYPE_UUID16; cur_de->data.uuid16 = value; cur_de++; if (++i == max_len) return;
 
 /**
- * Summary:  Declare a 32-bit UUID data element
+ * \brief Declare a 32-bit UUID data element
  * \ingroup sdp
- *
- * Description:  This macro adds a 32-bit UUID data element to a data element sequence.
+ * 
+ * \details This macro adds a 32-bit UUID data element to a data element sequence. 
  * This macro is to be used between BEGIN_DE_SEQUENCE and END_DE_SEQUENCE.
  *
- * Parameters:  value - The data element value.
- *
+ * \param value The data element value. 
+ * 
  */
 #define DE_UUID32(value)	cur_de->type = SDP_DATA_TYPE_UUID32; cur_de->data.uuid32 = value; cur_de++; if (++i == max_len) return;
 
 /**
- * Summary:  Declare a 128-bit UUID data element
+ * \brief Declare a 128-bit UUID data element
  * \ingroup sdp
- *
- * Description:  This macro adds a 128-bit UUID data element to a data element sequence.
+ * 
+ * \details This macro adds a 128-bit UUID data element to a data element sequence. 
  * This macro is to be used between BEGIN_DE_SEQUENCE and END_DE_SEQUENCE.
  *
- * Parameters:  value - The data element value. The value must be a name of a variable of type bt_uuid.
- *
+ * \param value The data element value. The value must be a name of a variable of type bt_uuid. 
+ * 
  */
 #define DE_UUID128(value)	cur_de->type = SDP_DATA_TYPE_UUID128; cur_de->data.uuid128 = (bt_uuid_t*)&value; cur_de++; if (++i == max_len) return;
 
 /**
- * Summary:  Declare a URL data element
+ * \brief Declare a URL data element
  * \ingroup sdp
- *
- * Description:  This macro adds a URL data element to a data element sequence.
+ * 
+ * \details This macro adds a URL data element to a data element sequence. 
  * This macro is to be used between BEGIN_DE_SEQUENCE and END_DE_SEQUENCE.
  *
- * Parameters:  value - The data element value which is a pointer to a string.
- *
+ * \param value The data element value which is a pointer to a string.
+ * 
  */
 #define DE_URL(value)		cur_de->type = SDP_DATA_TYPE_URL; cur_de->data.purl = value; cur_de++; if (++i == max_len) return;
 
 
 /**
- * Summary:  Start SDP server
+ * \brief Start SDP server
  * \ingroup sdp
  *
- * Description:  This function starts the SDP server.
+ * \details This function starts the SDP server.
  *
- * Parameters:  l2cap_mgr - The L2CAP manager on which the SDP server is to be started.
- *   sdp_db - A pointer to the SDP database define with BEGIN_SDP_DB and END_SDP_DB macros.
- *
- * Returns:
- *          TRUE if the function succeeds.
- *          FALSE otherwise.
+ * \param l2cap_mgr The L2CAP manager on which the SDP server is to be started.
+ * \param sdp_db A pointer to the SDP database define with BEGIN_SDP_DB and END_SDP_DB macros.
+ * 
+ * \return
+ *        \li \c TRUE if the function succeeds.
+ *        \li \c FALSE otherwise.
  */
 bt_bool bt_sdp_start(bt_l2cap_mgr_p l2cap_mgr, const bt_byte* sdp_db, bt_uint sdp_db_len);
 
-#include "bluetooth/cdbt/sdp/sdp_private.h"
+#include "cdbt/sdp/sdp_private.h"
 
 #ifdef __cplusplus
 }

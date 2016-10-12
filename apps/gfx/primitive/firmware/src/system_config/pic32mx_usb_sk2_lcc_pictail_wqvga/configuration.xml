@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -475,10 +479,6 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
-        <Name>drv_pmp_config.h</Name>
-        <Path>Header Files/framework/driver/pmp/config</Path>
-      </File>
-      <File>
         <Name>gfx_colors.h</Name>
         <Path>Header Files/framework/gfx</Path>
       </File>
@@ -505,10 +505,6 @@
       <File>
         <Name>driver.h</Name>
         <Path>Header Files/framework/driver</Path>
-      </File>
-      <File>
-        <Name>drv_pmp_local.h</Name>
-        <Path>Header Files/framework/driver/pmp/src</Path>
       </File>
       <File>
         <Name>gfx_gol_digital_meter.h</Name>
@@ -551,10 +547,6 @@
         <Path>Header Files/framework/system</Path>
       </File>
       <File>
-        <Name>drv_gfx_lcc_ext.c</Name>
-        <Path>Source Files/framework/driver/gfx/controller/lcc/src</Path>
-      </File>
-      <File>
         <Name>gfx_gol_edit_box.h</Name>
         <Path>Header Files/framework/gfx</Path>
       </File>
@@ -577,10 +569,6 @@
       <File>
         <Name>sys_int.h</Name>
         <Path>Header Files/framework/system/int</Path>
-      </File>
-      <File>
-        <Name>drv_pmp.h</Name>
-        <Path>Header Files/framework/driver/pmp</Path>
       </File>
       <File>
         <Name>osal_impl_basic.h</Name>
@@ -639,6 +627,10 @@
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -694,10 +686,6 @@
         <Name>sys_queue.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
-      <File>
-        <Name>drv_gfx_lcc.h</Name>
-        <Path>Header Files/framework/driver/gfx/controller/lcc</Path>
-      </File>
     </Files>
     <Templates>
       <Template>
@@ -712,7 +700,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga</Path>
-        <Checksum>0188CFF90BD5DE22359632B13E8C8DB0</Checksum>
+        <Checksum>4E424586719D87D06DD63A346E301E76</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -722,7 +710,7 @@
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga</Path>
-        <Checksum>81A74423D904BF0A3481FFF200C0FAFC</Checksum>
+        <Checksum>BBEB4CBB4D1B0E15F8AEF8F0B6CE1E26</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -730,14 +718,19 @@
         <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Name>drv_gfx_lcc_generic.h</Name>
+        <Path>Header Files/app/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>43202FF875E91AE678E480419B7F819E</Checksum>
+      </Template>
+      <Template>
+        <Name>drv_gfx_lcc_generic.c</Name>
+        <Path>Source Files/app/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>E4D524A35F1AB6CA325BCAC7B2046EE1</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -747,7 +740,7 @@
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga</Path>
-        <Checksum>E58EDEE5A2C8558BFCF7D477186C922F</Checksum>
+        <Checksum>5F7ECB1C786A6DD0134B669B3DAFA259</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -761,7 +754,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga</Path>
-        <Checksum>7AFBE39BF1C7AACAF0FC730C4184DB0D</Checksum>
+        <Checksum>1B27AA5AB9E6F5F8EFDA25306B706D17</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -771,12 +764,12 @@
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga</Path>
-        <Checksum>614EE400E385892216F0A4F8C7F9640F</Checksum>
+        <Checksum>EAC8C0886B40764856E3C97FD2924883</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga</Path>
-        <Checksum>782EED691D30E652988AAA6A2E4A2B93</Checksum>
+        <Checksum>8554951913C660523B6D8F5F59DE32C5</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -790,7 +783,7 @@
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga</Path>
-        <Checksum>162D403A02370EFD3BD9D7235378FD19</Checksum>
+        <Checksum>1041DE8ADE9483E2739919B17BED7FC3</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -800,11 +793,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/pic32mx_usb_sk2_lcc_pictail_wqvga"/>
-        <Include value="C:/Harmony/gfx2-1/framework"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/primitive/firmware/src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/framework"/>
+        <Include value="C:\Harmony\v2.02\apps\gfx\primitive\firmware\src"/>
+        <Include value="C:\Harmony\v2.02\apps\gfx\primitive\firmware\src\system_config\pic32mx_usb_sk2_lcc_pictail_wqvga"/>
+        <Include value="C:\Harmony\v2.02\framework"/>
+        <Include value="C:\Harmony\v2.02\apps\gfx\primitive\firmware\src\system_config\pic32mx_usb_sk2_lcc_pictail_wqvga\framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_lcc_pictail_wqvga/bsp"/>
       </C32>
     </CompilerItems>

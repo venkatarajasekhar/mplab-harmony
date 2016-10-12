@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<pic32mz_ef_sk version="2.0.0.8">
+<pic32mz_ef_sk version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2048EFH144"/>
@@ -98,6 +102,10 @@
         <Path>Source Files/framework/system/int/src</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>sys_clk.h</Name>
         <Path>Header Files/framework/system/clk</Path>
       </File>
@@ -128,6 +136,10 @@
       <File>
         <Name>sys_devcon.h</Name>
         <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
         <Name>system.h</Name>
@@ -166,7 +178,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/bsp</Path>
-        <Checksum>F05FA6CD752CCFEC85C6B17BF6B61604</Checksum>
+        <Checksum>DD885EBE1893567826AD0E35E9F24594</Checksum>
       </Template>
       <Template>
         <Name>drv_tmr_mapping.c</Name>
@@ -183,14 +195,9 @@
         <Checksum>5937574E77EFD91B6073D20853F9DA08</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -205,7 +212,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>01E23745280765FA62AF9292904E1FB6</Checksum>
+        <Checksum>4564ECC921B54C4D67586894EFDDE4E7</Checksum>
       </Template>
       <Template>
         <Name>drv_oc_static.c</Name>
@@ -248,12 +255,12 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>4903EC4786F0EE0C867CCD010EA6D8E3</Checksum>
+        <Checksum>B14154552DD966203AD320076F5EE980</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk/bsp</Path>
-        <Checksum>D48E3F4A4C9EC7A73FF9E95DB499B155</Checksum>
+        <Checksum>F740DA09253C01A3D03B3FD6565F5267</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -263,11 +270,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="D:\git_view\isp_trunk\mcu32apps\apps\examples\peripheral\oc\oc_pwm\firmware\src"/>
-        <Include value="D:\git_view\isp_trunk\mcu32apps\apps\examples\peripheral\oc\oc_pwm\firmware\src\system_config\pic32mz_ef_sk"/>
-        <Include value="D:\git_view\isp_trunk\mcu32apps\apps\examples\peripheral\oc\oc_pwm\firmware\src\pic32mz_ef_sk"/>
-        <Include value="D:\git_view\isp_trunk\mcu32apps\framework"/>
-        <Include value="D:\git_view\isp_trunk\mcu32apps\apps\examples\peripheral\oc\oc_pwm\firmware\src\system_config\pic32mz_ef_sk\framework"/>
+        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/examples/peripheral/oc/oc_pwm/firmware/src"/>
+        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/examples/peripheral/oc/oc_pwm/firmware/src/system_config/pic32mz_ef_sk"/>
+        <Include value="D:/git_view/isp_trunk/mcu32apps/framework"/>
+        <Include value="D:/git_view/isp_trunk/mcu32apps/apps/examples/peripheral/oc/oc_pwm/firmware/src/system_config/pic32mz_ef_sk/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk/bsp"/>
       </C32>
     </CompilerItems>

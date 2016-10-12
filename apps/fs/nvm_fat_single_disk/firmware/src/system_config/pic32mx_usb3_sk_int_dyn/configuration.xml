@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX470F512L"/>
@@ -30,6 +34,10 @@
         <Path>Header Files/framework/osal</Path>
       </File>
       <File>
+        <Name>ff.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
+      </File>
+      <File>
         <Name>sys_fs_media_manager.c</Name>
         <Path>Source Files/framework/system/fs/src/dynamic</Path>
       </File>
@@ -40,6 +48,10 @@
       <File>
         <Name>sys_ports.h</Name>
         <Path>Header Files/framework/system/ports</Path>
+      </File>
+      <File>
+        <Name>diskio.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/hardware_access</Path>
       </File>
       <File>
         <Name>driver.h</Name>
@@ -60,6 +72,10 @@
       <File>
         <Name>mpfs.h</Name>
         <Path>Header Files/framework/system/fs/mpfs</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -104,6 +120,10 @@
       <File>
         <Name>system.h</Name>
         <Path>Header Files/framework/system</Path>
+      </File>
+      <File>
+        <Name>ffconf.h</Name>
+        <Path>Header Files/framework/system/fs/fat_fs/src/file_system</Path>
       </File>
       <File>
         <Name>drv_nvm.h</Name>
@@ -166,13 +186,13 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb3_sk_int_dyn</Path>
-        <Checksum>3A2555FB31F831D12AE74E569343430D</Checksum>
+        <Checksum>D794A6EBBAE9E12D912807BD8CB7DDC7</Checksum>
         <ProjectFileChecksum>FAA2DD764546C776C300BB4B8BE7B8E8</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb3_sk_int_dyn/framework/system/clk/src</Path>
-        <Checksum>6AF033A7E8ECB69981D88ED27526EF17</Checksum>
+        <Checksum>9E1735DC00A06796E5D2C1A7FF8668AC</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -194,14 +214,9 @@
         <Checksum>BE907394EB79678EFFC7EDDF358A1DFE</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb3_sk_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb3_sk_int_dyn</Path>
-        <Checksum>4EF7BEAF83A09F60BAD5DA069B303071</Checksum>
+        <Checksum>CE43C30CCD7570EFFA8732B33C00E3F3</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -220,7 +235,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb3_sk_int_dyn/bsp</Path>
-        <Checksum>E45BC96ED257C3DADF682FD789C2F01C</Checksum>
+        <Checksum>0F39A39DE00D6C419B5320D82B9808B7</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -230,7 +245,7 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb3_sk_int_dyn/bsp</Path>
-        <Checksum>E106E3241184D2C88D0F0DA0F0B33F5D</Checksum>
+        <Checksum>36AC9754152E0D31C62E56C290243ED6</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -241,7 +256,6 @@
       <C32>
         <Include value="D:\trunk_sbx\apps\fs\nvm_fat_single_disk\firmware\src"/>
         <Include value="D:\trunk_sbx\apps\fs\nvm_fat_single_disk\firmware\src\system_config\pic32mx_usb3_sk_int_dyn"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_fat_single_disk\firmware\src\pic32mx_usb3_sk_int_dyn"/>
         <Include value="D:\trunk_sbx\framework"/>
         <Include value="D:\trunk_sbx\apps\fs\nvm_fat_single_disk\firmware\src\system_config\pic32mx_usb3_sk_int_dyn\framework"/>
         <Include value="../src/system_config/pic32mx_usb3_sk_int_dyn/bsp"/>

@@ -109,7 +109,8 @@ void DRV_ADC_Initialize(void)
 			ADCHS_CLASS12_AN0,
 			ADCHS_TRIGGER_SOURCE_TMR3_MATCH
 	);
-    PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ADCHS_CHANNEL_0, DEVADC0);
+    if (DEVADC0 != 0xFFFFFFFF)
+        PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ADCHS_CHANNEL_0, DEVADC0);
 	PLIB_ADCHS_ChannelSetup(
 	DRV_ADC_ID_1,
 	ADCHS_CHANNEL_1,
@@ -150,7 +151,8 @@ void DRV_ADC_Initialize(void)
 			ADCHS_CLASS12_AN1,
 			ADCHS_TRIGGER_SOURCE_TMR3_MATCH
 	);
-    PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ADCHS_CHANNEL_1, DEVADC1);
+    if (DEVADC1 != 0xFFFFFFFF)
+        PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ADCHS_CHANNEL_1, DEVADC1);
 	PLIB_ADCHS_ChannelSetup(
 	DRV_ADC_ID_1,
 	ADCHS_CHANNEL_2,
@@ -191,7 +193,8 @@ void DRV_ADC_Initialize(void)
 			ADCHS_CLASS12_AN2,
 			ADCHS_TRIGGER_SOURCE_TMR3_MATCH
 	);
-    PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ADCHS_CHANNEL_2, DEVADC2);
+    if (DEVADC2 != 0xFFFFFFFF)
+        PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ADCHS_CHANNEL_2, DEVADC2);
 
 
 

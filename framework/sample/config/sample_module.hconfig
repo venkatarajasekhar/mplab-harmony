@@ -50,6 +50,7 @@ ifblock USE_SAMPLE_MODULE
 add "<#include \"/framework/sample/templates/system_init.c.data.ftl\">"  to list SYSTEM_INIT_C_MODULE_INITIALIZATION_DATA
 add "<#include \"/framework/sample/templates/system_init.c.call.ftl\">"  to list SYSTEM_INIT_C_INITIALIZE_MIDDLEWARE
 add "<#include \"/framework/sample/templates/system_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_LIB_TASKS
+add "<#include \"/framework/sample/templates/system_config.h.ftl\">"  to list SYSTEM_CONFIG_H_MIDDLEWARE_CONFIGURATION 
 
 file SAMPLE_MODULE_H "$HARMONY_VERSION_PATH/framework/sample/sample_module.h" to "$PROJECT_HEADER_FILES/framework/sample/sample_module.h"
 file SAMPLE_MODULE_C "$HARMONY_VERSION_PATH/framework/sample/src/sample_module.c"  to "$PROJECT_SOURCE_FILES/framework/sample/src/sample_module.c"

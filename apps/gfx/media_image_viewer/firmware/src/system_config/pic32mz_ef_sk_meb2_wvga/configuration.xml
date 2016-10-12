@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16" encoding="ASCII">
@@ -35,7 +35,7 @@
       <Image compress="false" fileName="script_invert.bmp" height="120" location="internal" name="script_invert" width="120">Qk2+BwAAAAAAAD4AAAAoAAAAeAAAAHgAAAABAAEAAAAAAIAHAAAAAAAAAAAAAAAAAAACAAAAAAAA////////9///////////3/////8A/7////////////v/////AP7////////////+/////wD9/////////////3////8A+/////////////+/////APf8AAAAAAAAf8B/3////wDv8AAAAAAAAP8AH+////8A38AAAAAAAAH8AAf3////AP+AAAAAAAAD+AAD/////wC/AAAAAAAAA/AAAfv///8A/gAAAAAAAAfgAAD/////AP4AAAAAAAAH4AAA/////wB8AAAAAAAAB8AAAH3///8A/AAAAAAAAA/AAAB/////APgAAAAAAAAPgAAAP////wD4AAAAAAAAD4AAAD////8A+AAAAAAAAA+AAAA/////APgAAAAAAAAPgAAAP////wD4AAAAAAAAD4AAAD////8A+AAAAAAAAA+AAAA/////APgAAAAAAAAPgAAAP////wD8AAAAAAAAD8AAAD////8AfAAAAAAAAAfAAAA/////AP4AAAAAAAAH4AAAP////wD+AAAAAAAAB+AAAD////8AvwAAAAAAAAPwAAA/////AP+AAAAAAAAD+AAAP////wDfwAAAAAAAAfwAAD////8A7/AAAAAAAAD/AAA/////APf8AAAAAAAAf8AAP////wD7///////////+AD////8A/f///////////wA/////AP7///////////8AP////wD/v///////////AD////8A//f//////////gA/////AP////wAAAAAAAAAP////wD////8AAAAAAAAAD////8A/////AAAAAAAAAA/////AP////wAAAAAAAAAP////wD////8AAAAAAAAAD////8A/////AAAAAAAAAA/////AP////wAAAAAAAAAP////wD////8AAAAAAAAAD////8A/////AAAAAAAAAA/////AP////wAAAAAAAAAP////wD////8AB/////AAD////8A/////AAf////4AA/////AP////wAP////+AAP////wD////8AB/////gAD////8A/////AAf////wAA/////AP////wAAAAAAAAAP////wD////8AAAAAAAAAD////8A/////AAAAAAAAAA/////AP////wAAAAAAAAAP////wD////8AAAAAAAAAD////8A/////AAAAAAAAAA/////AP////wAAAAAAAAAP////wD////8AAAAAAAAAD////8A/////AAAAAAAAAA/////AP////wAAAAAAAAAP////wD////8AB/////AAD////8A/////AAf////4AA/////AP////wAP////+AAP////wD////8AB/////gAD////8A/////AAf////wAA/////AP////wAAAAAAAAAP////wD////8AAAAAAAAAD////8A/////AAAAAAAAAA/////AP////wAAAAAAAAAP////wD////8AAAAAAAAAD////8A/////AAAAAAAAAA/////AP////wAAAAAAAAAP////wD////8AAAAAAAAAD////8A/////AAAAAAAAAA/////AP////wAAAAAAAAAP////wD////8AB/////AAD////8A/////AAf////4AA/////AP////wAP////+AAP////wD////8AB/////gAD////8A/////AAf////wAA/////AP////wAAAAAAAAAP////wD////8AAAAAAAAAD////8A/////AAAAAAAAAA/////AP////wAAAAAAAAAP////wD////8AAAAAAAAAD////8A/////AAAAAAAAAA/////AP////wAAAAAAAAAP////wD////8AAAAAAAAAD////8A/////AAAAAAAAAA/////AP////wAAAAAAAAAP////wD////8AB/////AAD////8A/////AAf////4AA/////AP////wAP////+AAP////wD////8AB/////gAD////8A/////AAf////wAA/////AP////wAAAAAAAAAP////wD////8AAAAAAAAAD////8A/////AAAAAAAAAA/////AP////wAAAAAAAAAP////wD////8AAAAAAAAAD////8A/////AAAAAAAAAA////+AP////wAAAAAAAAAP////wD////8AAAAAAAAAD////8A/////AAAAAAAAAA/////AP////wAAAAAAAAAP////wD////8AAAAAAAAAD///98A/////gAAAAAAAAA+////AP///74AAAAAAAAAPv///wD/////AAAAAAAAAD///74A/////wAAAAAAAAAff///AP///9+AAAAAAAAAH///fwD/////wAAAAAAAAB+///0A////7+AAAAAAAAAP3///AP////f4AAAAAAAAB/f7+wD////7/gAAAAAAAAf8z/cA/////f//////////////AP////7/////////////3wD/////f////////////78A/////9////////////9/AP/////7///////////7/wA=</Image>
       <Image compress="false" fileName="layers_image.bmp" height="120" location="internal" name="layers_image" width="120">Qk2+BwAAAAAAAD4AAAAoAAAAeAAAAHgAAAABAAEAAAAAAIAHAAAAAAAAAAAAAAAAAAACAAAAAAAA///////////gAAAAAAAAAAAAAAAA////4AAAAAAAAAAAAAAAAP///+AAAAAAAAAAAAAAAAD////gAAAAAAAAAAAAAAAA////4AAAAAAAAAAAAAAAAP//////////////////4AD//////////////////+AA///////////////////gAP//////////////////4AD//////////////////+AA//AAAAAAAAAAAAAAAAPgAP/wAAAAAAAAAAAAAAAD4AD/8AAAAAAAAAAAAAAAA+AA//AAAAAAAAAAAAAAAAPgAP/wAAAAAAAAAAAAAAAD4AD/////////////////g+AA/////////////////4PgAP////////////////+D4AD/////////////////g+AA/////////////////4PgAAAAAAAAAAAAAAAAAA+D4AAAAAAAAAAAAAAAAAAPg+AAAAAAAAAAAAAAAAAAD4PgAAAAAAAAAAAAAAAAAA+D4AAAAAAAAAAAAAAAAAAPg+AAAAAAAAAAAAAAAAAAD4PgAAAAAAAAAAAAAAAAAA+D4AAAAAAAAAAAAAAAAAAPg+AAAAAAAAAAAAAAAAAAD4PgAAAAAAAAAAAAAAAAAA+D4AAAAAAAAAAAAAAAAAAPg+AAAAAAAAAAAAAAAAAAD4PgAAAAAAAAAAAAAAAAAA+D4AAAAAAAAAAAAAAAAAAPg+AAAAAAAAAAAAAAAAAAD4PgAAAAAAAAAAAAAAAAAA+D4AAAAAAAAAAAAAAAAAAPg+AAAAAAAAAAAAAAAAAAD4PgAAAAAAAAAAAAAAAAAA+D4AAAAAAAAAAAAAAAAAAPg+AA/////////////////4PgAP////////////////+D4AD/////////////////g+AA/////////////////4PgAP////////////////+D4AAAAAP//////////AAPg+AAAAAD//////////wAD4PgAAAAAf/////////8AA+D4AAAAAH/////////+AAPg+AAAAAA//////////gAD4PgAAAAAH/////////wAA+D4AAAAAB/////////8AAPg+AAAAAAP/////////AAD4PgAAAAAD/////////gAA+D4AAAAAAf////////4AAPg+AAAAAAD////////+AAD4PgAAAAAA/////////AAA+D4AAAAAAH//+f////wAAPg+AAAAAAB///H////4AAD4PgAAAAAAP//g////+AAA+D4AAAAAAB//wH////gAAPg+AAAAAAAf/8B////wAAD4PgAAAAAAD/+AP///8AAA+D4AAAAAAA//AB////AAAPg+AAAAAAAH/gAf///gAAD4PgAAAAAAA/wAD///4AAA+D4AAAAAAAP4AAf//8AAAPg+AAAAAAAB+AAH///AAAD4PgAAAAAAAfAAA///wAAA+D4AAAAAAADgAAH//4AAAPg+AAAAAAAAAAAB//+AAAD4PgAAAAAAAAAAAP//gAAA+D4AAAAAAAAAAAB//wAAAPg+AAAAAAAAAAAAf/8AAAD4PgAAAAAAAAAAAD/+AAAA+D4AAAAAAAAAAAAf/gAAAPg+AAAAAAAAAAAAH/4AAAD4PgAAAAAAAAAAAA/8AAAA+D4AAAAAAAAAAAAH/AAAAPg+AAAAAAAAAAAAB/wAAAD4PgAAAAAAAAAAAAP4AAAA+D4AAAAAAAAAAAAB+AAAAPg+AAAAAAAAAAAAAfAAAAD4PgAAAAAAAAAAAADwAAAA+D4AAAAAAAAAAAAAYAAAAPg+AAAAAADwAAAAAAAAAAD4PgAAAAAH/gAAAAAAAAAA+D4AAAAAD/8AAAAAAAAAAPg+AAAAAB//gAAAAAAAAAD4PgAAAAA//8AAAAAAAAAA+D4AAAAAf//gAAAAAAAAAPg+AAAAAH//4AAAAAAAAAD4PgAAAAB//+AAAAAAAAAA+D4AAAAA///wAAAAAAAAAPg/8AAAAP//8AAAAAAAAAD4P/AAAAD///AAAAAAAAAA+D/wAAAA///wAAAAAAAAAPg/8AAAAH//4AAAAAAAAAD4P/AAAAB//+AAAAAAAAAA+D/wAAAAf//gAAAAAAAAAPg/8AAAAD//wAAAAAAAAAD4P/AAAAAf/4AAAAAAAAAA+D/wAAAAD/8AAAAAAAAAAPg/8AAAAAf+AAAAAAAAAAD4P/AAAAAA8AAAAAAAAAAA+D/wAAAAAAAAAAAAAAAAAPg/8AAAAAAAAAAAAAAAAAD4P/AAAAAAAAAAAAAAAAAA+D/wAAAAAAAAAAAAAAAAAP//8AAAAAAAAAAAAAAAAAD///AAAAAAAAAAAAAAAAAA///wAAAAAAAAAAAAAAAAAP//8AAAAAAAAAAAAAAAAAD///AAAAAAAAAAAAAAAAAA///wAAAAAAAAAAAAAAAAAP//8AAAAAAAAAAAAAAAAAD///AAAAAAAAAAAAAAAAAA///wAAAAAAAAAAAAAAAAAP//8AAAAAAAAAAAAAAAAAD///AAAAAAAAAAAAAAAAAA///wA=</Image>
       <Image compress="false" fileName="layers_image_outline.bmp" height="120" location="internal" name="layers_image_outline" width="120">Qk2+BwAAAAAAAD4AAAAoAAAAeAAAAHgAAAABAAEAAAAAAIAHAAAAAAAAAAAAAAAAAAACAAAAAAAA///////////gAAAAAAAAAAAAAAEA////4AAAAAAAAAAAAAAAAP///+AAAAAAAAAAAAAAAAD////gAAAAAAAAAAAAAAAA////4AAAAAAAAAAAAAAAAP//////////////////4AD//////////////////+AA///////////////////gAP//////////////////4AD//////////////////+AA//AAAAAAAAAAAAAAAAfgAP/wAAAAAAAAAAAAAAAD4AD/8AAAAAAAAAAAAAAAA+AA//AAAAAAAAAAAAAAAAPgAP/wAAAAAAAAAAAAAAAD4AD/////////////////g+AA/////////////////4PgAP////////////////+D4AD/////////////////g+AA/////////////////4PgAIAAAAAAAAAAAAAAAB+D4AAAAAAAAAAAAAAAAAAPg+AAAAAAAAAAAAAAAAAAD4PgAAAAAAAAAAAAAAAAAA+D4AAAAAAAAAAAAAAAAAAPg+AAB//////////////+D4PgAAf//////////////g+D4AAH//////////////4Pg+AAB//////////////+D4PgAAf//////////////g+D4AAH//////////////4Pg+AAB//////////////+D4PgAAf//////////////g+D4AAH//////////////4Pg+AAB//////////////+D4PgAAf//////////////g+D4AAH//////////////4Pg+AAB//////////////+D4PgAAf//////////////g+D4AAH//////////////4Pg+AAAAAAAAAAAAAAAAAAD4PgAAAAAAAAAAAAAAAAAA+D4AAAAAAAAAAAAAAAAAAPg+AAAAAAAAAAAAAAAAAAD4PgAAAAAAAAAAAAAAAAAA+D4AAH//gf////////gf4Pg+AAB//8D////////4P+D4PgAAf//Af///////8D/g+D4AAH//4H////////B/4Pg+AAB///A////////wf+D4PgAAf//wP//w////4H/g+D4AAH//+B//4P///+D/4Pg+AAB///gP/+B////g/+D4PgAAf//8D//AP///wP/g+D4AAH///gf/gD///8H/4Pg+AAB///4H/wAf//+B/+D4PgAAf///A/4AD///g//g+D4AAH///wH8BA///4P/4Pg+AAB///+B/A4H//8D/+D4PgAAf///wPgPA///B//g+D4AAH///8DwHwP//wf/4Pg+AAB////gYD+B//4H/+D4PgAAf///4AB/wP/+D//g+D4AAH////AA/8D//A//4Pg+AAB////4Af/gf/wf/+D4PgAAf///+AH/8D/8H//g+D4AAH////wD//A/+B//4Pg+AAB////8B//4H/g//+D4PgAAf////g///A/4P//g+D4AAH////8f//wP8D//4Pg+AAB////////+B/B//+D4PgAAf////////wPgf//g+D4AAH////////8D4P//4Pg+AAB/////////geD//+D4PgAAf////////8DA///g+D4AAH/////////Awf//4Pg+AAB/////////4AH//+D4PgAAf/////////AB///g+D4AAH/////////wA///4Pg+AAB/////////+AP//+D4PgAAf/////////wH///g+D4AAH/////////8B///4Pg+AAB//////////gf//+D4PgAAf/////////8P///g+D4AAH//////////D///4Pg+AAB///4H/////////+D4PgAAf//4Af/////////g+D4AAH//4AB/////////4Pg+AAB//8AAP////////+D4PgAAf//AAD/////////g+D4AAH//gPAf////////4Pg+AAB//4H4H////////+D4PgAAf/8D/A/////////g+D4AAH//B/4P////////4Pg/8AB//wf+D////////+D4P/AAf/8H/g/////////g+D/wAH//B/4P////////4Pg/8AB//wP8D////////+D4P/AAf/+B+B/////////g+D/wAH//gPAf////////4Pg/8AB//8AAP////////+D4P/AAf//AAD/////////g+D/wAH//4AB/////////4Pg/8AB///gB/////////+D4P/AAf//+B//////////g+D/wAH//////////////4Pg/8AB//////////////+D4P/AAf//////////////g+D/wAH//////////////4P//8AB//////////////+D///AAf//////////////g///wAH//////////////4P//8AB//////////////+D///AAf//////////////g///wAH//////////////4P//8AAAAAAAAAAAAAAAAAD///AAAAAAAAAAAAAAAAAA///wAAAAAAAAAAAAAAAAAP//8AAAAAAAAAAAAAAAAAD///AIAAAAAAAAAAAAAAAB///wA=</Image>
-      <Image compress="false" fileName="microchipLogo_small.jpg" height="120" location="internal" name="microchipLogo_small" width="230">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</Image>
+      <Image compress="false" fileName="microchipLogo_small.jpg" height="120" location="internal" name="microchipLogo_small" width="230">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</Image>
       <Font antialiasing="false" bold="false" compress="false" extendedGlyph="false" fileName="VeraMono.ttf" italic="false" location="internal" name="VeraMono26" size="26">
         <Ranges>
           <Range end="127" name="default" start="32"/>
@@ -920,6 +920,10 @@ appData.state = APP_STATE_IDLE;</Text>
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name=""/>
@@ -944,10 +948,6 @@ appData.state = APP_STATE_IDLE;</Text>
       <File>
         <Name>gfx_gol_static_text.h</Name>
         <Path>Header Files/framework/gfx</Path>
-      </File>
-      <File>
-        <Name>drv_pmp_config.h</Name>
-        <Path>Header Files/framework/driver/pmp/config</Path>
       </File>
       <File>
         <Name>sys_fs_local.h</Name>
@@ -980,10 +980,6 @@ appData.state = APP_STATE_IDLE;</Text>
       <File>
         <Name>sys_devcon_cache.h</Name>
         <Path>Source Files/framework/system/devcon/src</Path>
-      </File>
-      <File>
-        <Name>drv_pmp_local.h</Name>
-        <Path>Header Files/framework/driver/pmp/src</Path>
       </File>
       <File>
         <Name>gfx_gol_digital_meter.h</Name>
@@ -1060,10 +1056,6 @@ appData.state = APP_STATE_IDLE;</Text>
       <File>
         <Name>BmpDecoder.h</Name>
         <Path>Header Files/framework/decoder/bmp</Path>
-      </File>
-      <File>
-        <Name>drv_pmp.h</Name>
-        <Path>Header Files/framework/driver/pmp</Path>
       </File>
       <File>
         <Name>osal_impl_basic.h</Name>
@@ -1192,10 +1184,6 @@ appData.state = APP_STATE_IDLE;</Text>
       <File>
         <Name>jpeg_image.h</Name>
         <Path>Header Files/framework/gfx</Path>
-      </File>
-      <File>
-        <Name>drv_gfx_lcc_ext_wvga.c</Name>
-        <Path>Source Files/framework/driver/gfx/controller/lcc/src</Path>
       </File>
       <File>
         <Name>gfx_gol_scheme_default.c</Name>
@@ -1414,6 +1402,10 @@ appData.state = APP_STATE_IDLE;</Text>
         <Path>Header Files/framework/gfx</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -1486,10 +1478,6 @@ appData.state = APP_STATE_IDLE;</Text>
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
-        <Name>drv_gfx_lcc.h</Name>
-        <Path>Header Files/framework/driver/gfx/controller/lcc</Path>
-      </File>
-      <File>
         <Name>drv_i2c_bb_a_compatibility.h</Name>
         <Path>Header Files/framework/driver/i2c</Path>
       </File>
@@ -1501,6 +1489,16 @@ appData.state = APP_STATE_IDLE;</Text>
         <Checksum>672BBA1919877C55512F63C1BDC61A8D</Checksum>
       </Template>
       <Template>
+        <Name>drv_gfx_lcc_generic.h</Name>
+        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_wvga/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>43202FF875E91AE678E480419B7F819E</Checksum>
+      </Template>
+      <Template>
+        <Name>drv_gfx_lcc_generic.c</Name>
+        <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_wvga/framework/driver/gfx/controller/lcc</Path>
+        <Checksum>F8D587E238CA2ED65B87F7D5E0639FE2</Checksum>
+      </Template>
+      <Template>
         <Name>drv_mtch6303_static.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_wvga/framework/driver/touch/mtch6303</Path>
         <Checksum>1908DAE442253D99EC77E9A8E3126E37</Checksum>
@@ -1508,12 +1506,12 @@ appData.state = APP_STATE_IDLE;</Text>
       <Template>
         <Name>gfx_resources_int.S</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_wvga</Path>
-        <Checksum>5FA9BED8A71B1916DBD24D74A519BA16</Checksum>
+        <Checksum>D473EF96BC3CDB6F31B35CFED19C7FAE</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_wvga</Path>
-        <Checksum>C6BF14C6A1B4667EC44B833159E4FE93</Checksum>
+        <Checksum>45508FEFE58E04C30A50B928AAEF910F</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_master_dma_tasks.c</Name>
@@ -1543,22 +1541,23 @@ appData.state = APP_STATE_IDLE;</Text>
       <Template>
         <Name>gfx_hgc_definitions.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_wvga</Path>
-        <Checksum>F758B61C5FD355F013C7AD848FCB9C93</Checksum>
+        <Checksum>807317E0767E4AEA329D4A21347C089F</Checksum>
+        <ProjectFileChecksum>8C183E0F8C4F29193C87068EABA48809</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_wvga/framework/driver/spi/dynamic</Path>
-        <Checksum>7D79BD8EB7868A4BB3E6D88BE9E9760D</Checksum>
+        <Checksum>536C82CD403378AECB8200A86CE640DC</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_wvga/framework/driver/spi/dynamic</Path>
-        <Checksum>4FF988138085F1E9771E88FD07FB9B64</Checksum>
+        <Checksum>9C1A6AFABB16F21E998E1B49EB8947E5</Checksum>
       </Template>
       <Template>
         <Name>gfx_hgc_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_wvga</Path>
-        <Checksum>FB50548828044E6FF6600AD1B42388B1</Checksum>
+        <Checksum>F4BB465D8C59ADB79E3589E23B538AB0</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -1582,12 +1581,12 @@ appData.state = APP_STATE_IDLE;</Text>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_wvga/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_wvga</Path>
-        <Checksum>AB7851473FA9EF219CC6977079DA2099</Checksum>
+        <Checksum>6E898DB9AFC608B52CDE636B6510155A</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -1597,12 +1596,12 @@ appData.state = APP_STATE_IDLE;</Text>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_wvga</Path>
-        <Checksum>4B021133E603457FADF133A026162179</Checksum>
+        <Checksum>15F242954CCE5B826386D3218AF25AC1</Checksum>
       </Template>
       <Template>
         <Name>gfx_resources_int_reference.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_wvga</Path>
-        <Checksum>F3A58E4BCED3445D1EEB3F3E27714B5D</Checksum>
+        <Checksum>D5D4E645B0B380E7D325250F20CED79C</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -1616,7 +1615,7 @@ appData.state = APP_STATE_IDLE;</Text>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_wvga</Path>
-        <Checksum>439B3ECA0525D720A51EDCBE418810D3</Checksum>
+        <Checksum>3045FDC13B783C0916D8B0DD0F23F4AB</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -1628,11 +1627,6 @@ appData.state = APP_STATE_IDLE;</Text>
         <Path>Header Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_wvga/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>nvm_disk_images.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_wvga/framework/system/fs</Path>
         <Checksum>B00B90E021F15FFD6B0B1B7F2D0650A5</Checksum>
@@ -1640,11 +1634,10 @@ appData.state = APP_STATE_IDLE;</Text>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/media_image_viewer/firmware/src"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/media_image_viewer/firmware/src/system_config/pic32mz_ef_sk_meb2_wvga"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/media_image_viewer/firmware/src/pic32mz_ef_sk_meb2_wvga"/>
-        <Include value="C:/Harmony/gfx2-1/framework"/>
-        <Include value="C:/Harmony/gfx2-1/apps/gfx/media_image_viewer/firmware/src/system_config/pic32mz_ef_sk_meb2_wvga/framework"/>
+        <Include value="C:/Users/c16118/Desktop/Git/gfx/apps/gfx/media_image_viewer/firmware/src"/>
+        <Include value="C:/Users/c16118/Desktop/Git/gfx/apps/gfx/media_image_viewer/firmware/src/system_config/pic32mz_ef_sk_meb2_wvga"/>
+        <Include value="C:/Users/c16118/Desktop/Git/gfx/framework"/>
+        <Include value="C:/Users/c16118/Desktop/Git/gfx/apps/gfx/media_image_viewer/firmware/src/system_config/pic32mz_ef_sk_meb2_wvga/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_meb2_wvga/bsp"/>
       </C32>
     </CompilerItems>

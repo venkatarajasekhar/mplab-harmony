@@ -92,6 +92,7 @@ ifblock USE_DRV_TOUCH_ADC10BIT
 add "<#include \"/framework/driver/touch/adc10bit/config/drv_adc10bit.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
 add "<#include \"/framework/driver/touch/adc10bit/config/drv_adc10bit_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS
 add "<#include \"/framework/driver/touch/adc10bit/config/drv_adc10bit_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_DRIVER_TASKS
+add "<#include \"/framework/driver/touch/adc10bit/config/drv_adc10bit.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 
 file DRV_ADC10BIT_H "$HARMONY_VERSION_PATH/framework/driver/touch/adc10bit/drv_adc10bit.h" to "$PROJECT_HEADER_FILES/framework/driver/touch/adc10bit/drv_adc10bit.h"
 file DRV_ADC10BIT_TOUCH_H "$HARMONY_VERSION_PATH/framework/driver/touch/drv_touch.h" to "$PROJECT_HEADER_FILES/framework/driver/touch/drv_touch.h"

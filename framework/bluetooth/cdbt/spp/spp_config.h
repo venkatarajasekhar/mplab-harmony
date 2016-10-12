@@ -1,23 +1,30 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Serial Port Profile
+* Contains proprietary and confidential information of SEARAN LLC.
+* May not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
+*
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
+*
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
+*******************************************************************************/
 
-  Company:
-    Searan LLC.
+#ifndef __SPP_CONFIG_H
+#define __SPP_CONFIG_H
 
-  File Name:
-    spp_config.h
-
-  Summary:
-    Bluetooth API Library interface to the SPP.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.  
-	dotstack is customized using a configuration file. The configuration file tailors the 
-	dotstack to the application being built. It has to have the structure shown below.
-	
-  Example: 
-    <code>
+/**
+ * \defgroup spp_config SPP Configuration
+ * \ingroup spp
+ *
+ * This module describes parameters used to configure SPP layer.
+ *
+ * dotstack is customized using a configuration file. The configuration file tailors the dotstack to the application being built. It has to have the structure shown below.
+ * 
+    \code
 	#include "cdbt/bt/bt_std.h"
 
 	// HCI and L2CAP must always be present
@@ -61,31 +68,18 @@
 
 	#include "cdbt/bt/bt_oem_config.h"
 
-	</code>
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
-* May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
-*
-*
-*******************************************************************************/
-// DOM-IGNORE-END
-
-#ifndef __SPP_CONFIG_H
-#define __SPP_CONFIG_H
-
+	\endcode
+ *
+*/
 
 #ifndef SPP_MAX_PORTS
 #error "SPP_MAX_PORTS is not defined"
 
 /**
-* Summary:   Maximum number of SPP ports.
+* \brief  Maximum number of SPP ports.
 * \ingroup spp_config
 *
-* Description:  This parameter defines the maximum number of SPP port that can be open between the local and remote devices.
+* \details This parameter defines the maximum number of SPP port that can be open between the local and remote devices.
 *          If RFCOMM_ENABLE_MULTIDEVICE_CHANNELS is FALSE (default) this value should be equal to RFCOMM_MAX_SERVER_CHANNELS.
 *          If RFCOMM_ENABLE_MULTIDEVICE_CHANNELS is TRUE this value should be between RFCOMM_MAX_SERVER_CHANNELS and RFCOMM_MAX_SERVER_CHANNELS * RFCOMM_MAX_SESSIONS.
 */

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -322,6 +322,10 @@
         <Path>Source Files/micrium/ucos_III</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -410,7 +414,8 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/bsp</Path>
-        <Checksum>F05FA6CD752CCFEC85C6B17BF6B61604</Checksum>
+        <Checksum>DD885EBE1893567826AD0E35E9F24594</Checksum>
+        <ProjectFileChecksum>050414C28FE483FBD5C9378182C2A3A5</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -420,47 +425,41 @@
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
         <Checksum>464F21AE6E3989061787A25648751A4F</Checksum>
-        <ProjectFileChecksum>D2626BBE62CA907AFD0367F705D5CEC5</ProjectFileChecksum>
+        <ProjectFileChecksum>F75B905EB49D79C47B7DC31EE94A62ED</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app1.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-        <ProjectFileChecksum>036D092B23091814E62FA902E9ABC575</ProjectFileChecksum>
-      </Template>
-      <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
-        <ProjectFileChecksum>5731914138ED4BF802C7E0513673E904</ProjectFileChecksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
+        <ProjectFileChecksum>7AFE3D27A7B1EAC30E8D338CC5B16C64</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
         <Checksum>5BB3E8F72567FF2EAC0133084F17D2E5</Checksum>
-        <ProjectFileChecksum>1F99989206E2E6DE6B7B27456E302860</ProjectFileChecksum>
+        <ProjectFileChecksum>CC3CEBCD551B53020413F89D7EB943BF</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>os_cfg.h</Name>
         <Path>Header Files/app/rtos_config/pic32mz_ef_sk</Path>
         <Checksum>31B78AE2D6BF515A94CE4FE3811A630D</Checksum>
-        <ProjectFileChecksum>16537A1B30344F6C9FE181A7CFEF18A5</ProjectFileChecksum>
+        <ProjectFileChecksum>93435533DDF61A83C2A8A691FB9B23DD</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>36C065A35960A19F98D238E61C354279</Checksum>
-        <ProjectFileChecksum>FE00315E7C9028E215B3EF40B75A4F84</ProjectFileChecksum>
+        <Checksum>45B96CBB3BF330682D91B611E52D787A</Checksum>
+        <ProjectFileChecksum>49B587F93E9019E907F4AD4BD1E06C77</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app_cfg.h</Name>
         <Path>Header Files/app/rtos_config/pic32mz_ef_sk</Path>
         <Checksum>B41B0C7280CCA6A4A9D795DD61B67A31</Checksum>
-        <ProjectFileChecksum>E949392BEE3BA57778851594D28F53EA</ProjectFileChecksum>
+        <ProjectFileChecksum>252BDCEA32002871E0ABA6838495E60A</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -474,13 +473,13 @@
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/ports/src</Path>
         <Checksum>3DFB0BC56732FDD6D5377CC83C754517</Checksum>
-        <ProjectFileChecksum>58AC7C6D40B5D2B52002681A79316032</ProjectFileChecksum>
+        <ProjectFileChecksum>CD1E7F5C2006C61688A2DE6BFD3AC4C3</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
-        <ProjectFileChecksum>572102170EE077B8C6C17A4B4112F856</ProjectFileChecksum>
+        <ProjectFileChecksum>7BE763F4BF9273FBE47EB16A04DAB91A</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -490,42 +489,43 @@
         <Name>os_cfg_app.h</Name>
         <Path>Header Files/app/rtos_config/pic32mz_ef_sk</Path>
         <Checksum>1536F0A4A644DABC198EAA73A170A6B8</Checksum>
-        <ProjectFileChecksum>F66BDC6F1D2D1436BF639699FF055064</ProjectFileChecksum>
+        <ProjectFileChecksum>8D78EDE88805041ADD52A46253C99639</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>FAE2E560FA69484816FA98A02EFC4AE2</Checksum>
-        <ProjectFileChecksum>97734D663A28F676E021DFF2D0AE94E0</ProjectFileChecksum>
+        <Checksum>0B418C190521A2A6FCDD28202EF74A59</Checksum>
+        <ProjectFileChecksum>EB7814FBA9F3B958F3142872568909DA</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt_a.S</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>B15D479A75748A65AF8C7ACE11DD75EB</Checksum>
-        <ProjectFileChecksum>5D43A9E3DFBE8FAB374D30B6B72789E9</ProjectFileChecksum>
+        <Checksum>7DFFDE3FA2E9711774069B58C10181C8</Checksum>
+        <ProjectFileChecksum>197CC314F7F3C6BA98135939080AAC79</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk/bsp</Path>
-        <Checksum>D48E3F4A4C9EC7A73FF9E95DB499B155</Checksum>
+        <Checksum>F740DA09253C01A3D03B3FD6565F5267</Checksum>
+        <ProjectFileChecksum>7F7AF41F8401032C7DB251B146914C9D</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>cpu_cfg.h</Name>
         <Path>Header Files/app/rtos_config/pic32mz_ef_sk</Path>
         <Checksum>56C5FBE62FAA3B23B2F81030474182BA</Checksum>
-        <ProjectFileChecksum>79884799D6D028985A9232400BA055A8</ProjectFileChecksum>
+        <ProjectFileChecksum>B8164566F3AA675EBF17531E8DA646B7</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>rtos_hooks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
         <Checksum>EABABE6F6504F002BE5D5D186F6DB9FA</Checksum>
-        <ProjectFileChecksum>BAF727AC3FAEE341669BA65DF7F36B97</ProjectFileChecksum>
+        <ProjectFileChecksum>1AE62060C5AA0088E207BB6FE8DCD6BC</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
         <Checksum>691ABECDEFFBB38D52FB79341261AF0B</Checksum>
-        <ProjectFileChecksum>06B66BE54E1878030DE8549A80688904</ProjectFileChecksum>
+        <ProjectFileChecksum>DEEA72F4B3676F38813DAD2E031140B3</ProjectFileChecksum>
       </Template>
     </Templates>
     <CompilerItems>
@@ -539,11 +539,10 @@
         <Include value="../../../../../../third_party/rtos/MicriumOSIII/Software/uCOS_III/Ports/MIPS32_M14KEc/ExternalInterruptController/MPLABX_XC32_GCC"/>
       </C32-AS>
       <C32>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\uC_OS_III\usb\firmware\src"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\uC_OS_III\usb\firmware\src\system_config\pic32mz_ef_sk"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\uC_OS_III\usb\firmware\src\pic32mz_ef_sk"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\framework"/>
-        <Include value="D:\sources\GitSathiyan\rtos\dft_july2016\rtos\apps\rtos\uC_OS_III\usb\firmware\src\system_config\pic32mz_ef_sk\framework"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/uC_OS_III/usb/firmware/src"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/uC_OS_III/usb/firmware/src/system_config/pic32mz_ef_sk"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/framework"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/uC_OS_III/usb/firmware/src/system_config/pic32mz_ef_sk/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk/bsp"/>
         <Include value="../../../../../../third_party/rtos/MicriumOSIII/Software/uC_CPU/MIPS32_14KEc/MPLABX_XC32_GCC"/>
         <Include value="../../../../../../third_party/rtos/MicriumOSIII/Software/uCOS_III/Ports/MIPS32_M14KEc/ExternalInterruptController/MPLABX_XC32_GCC"/>

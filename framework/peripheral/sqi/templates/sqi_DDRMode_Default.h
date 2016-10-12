@@ -14,6 +14,7 @@
     For following APIs :
         PLIB_SQI_DDRModeSet
         PLIB_SQI_DDRModeGet
+        PLIB_SQI_DDRModeClear
         PLIB_SQI_ExistsDDRMode
 
 *******************************************************************************/
@@ -82,6 +83,21 @@ PLIB_TEMPLATE bool SQI_DDRModeGet_Default( SQI_MODULE_ID index )
     return (bool) sqi->SQICON.DDRMODE;
 }
 
+//******************************************************************************
+/* Function :  SQI_DDRModeClear_Default
+
+  Summary:
+    Implements Default variant of PLIB_SQI_DDRModeClear 
+
+  Description:
+    This template implements the Default variant of the PLIB_SQI_DDRModeClear function.
+*/
+
+PLIB_TEMPLATE void SQI_DDRModeClear_Default( SQI_MODULE_ID index )
+{
+    volatile sqi_registers_t *sqi = (volatile sqi_registers_t *)index;
+    sqi->SQICON.DDRMODE = 0;
+}
 
 //******************************************************************************
 /* Function :  SQI_ExistsDDRMode_Default

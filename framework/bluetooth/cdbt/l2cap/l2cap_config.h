@@ -1,30 +1,17 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Logical Link Control and Adaptation Protocol
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    l2cap_config.h
-
-  Summary:
-    Bluetooth API Library interface to the L2CAP Functions.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.  
-	
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 #ifndef __L2CAP_CONFIG_H
 #define __L2CAP_CONFIG_H
@@ -42,6 +29,7 @@
 #endif
 
 #ifndef L2CAP_MAX_FIXED_CHANNELS
+#define L2CAP_MAX_FIXED_CHANNELS    0
 #define L2CAP_FIXED_CHANNELS_DECL	\
 	bt_l2cap_fixed_channel_t* _l2cap_fixed_channels = NULL;	\
 	bt_byte _l2cap_max_fixed_channels = 0;
@@ -53,10 +41,10 @@
 #endif
 
 /**
-* Summary:  L2CAP_HCI_PACKET_TYPE.
-* , Functional Group:  btconfig
+* \brief L2CAP_HCI_PACKET_TYPE.
+* \ingroup btconfig
 *
-* Description:  Defines a set of packets that link manager is allowed to use when calling bt_l2cap_connect.
+* \details Defines a set of packets that link manager is allowed to use when calling bt_l2cap_connect.
 * The default value is to enable all packet types.
 */
 // enable all packet types
@@ -88,14 +76,14 @@
 */
 
 /**
-* Summary:  L2CAP_HCI_PAGE_SCAN_REPETITION_MODE.
-* , Functional Group:  btconfig
+* \brief L2CAP_HCI_PAGE_SCAN_REPETITION_MODE.
+* \ingroup btconfig
 *
-* Description:  Defines a default value of the page scan repetition mode when calling bt_l2cap_connect. 
+* \details Defines a default value of the page scan repetition mode when calling bt_l2cap_connect. 
 * Must be set to one of the following values:
-*     - HCI_PAGE_SCAN_REPETITION_MODE_R0
-*     - HCI_PAGE_SCAN_REPETITION_MODE_R1
-*     - HCI_PAGE_SCAN_REPETITION_MODE_R2
+*     HCI_PAGE_SCAN_REPETITION_MODE_R0
+*     HCI_PAGE_SCAN_REPETITION_MODE_R1
+*     HCI_PAGE_SCAN_REPETITION_MODE_R2
 *     
 * The default value is HCI_PAGE_SCAN_REPETITION_MODE_R0. 
 */
@@ -104,13 +92,13 @@
 #endif
 
 /**
-* Summary:  L2CAP_HCI_ROLE_SWITCH.
-* , Functional Group:  btconfig
+* \brief L2CAP_HCI_ROLE_SWITCH.
+* \ingroup btconfig
 *
-* Description:  Defines a default value of the role switch parameter when calling bt_l2cap_connect.
+* \details Defines a default value of the role switch parameter when calling bt_l2cap_connect.
 * Must be set to one of the following values:
-*     - HCI_ROLE_SWITCH_ALLOW
-*     - HCI_ROLE_SWITCH_DISALLOW
+*     HCI_ROLE_SWITCH_ALLOW
+*     HCI_ROLE_SWITCH_DISALLOW
 * The default value is to allow the role switch.
 */
 #ifndef L2CAP_HCI_ROLE_SWITCH
@@ -118,10 +106,10 @@
 #endif
 
 /**
-* Summary:  L2CAP_IDLE_CONNECTION_TIMEOUT.
-* , Functional Group:  btconfig
+* \brief L2CAP_IDLE_CONNECTION_TIMEOUT.
+* \ingroup btconfig
 *
-* Description:  Defines a timeout value in seconds for closing idle HCI connections (connections that do not have L2CAP channels open).
+* \details Defines a timeout value in seconds for closing idle HCI connections (connections that do not have L2CAP channels open).
 * Connections are closed only if local device is master.
 * The default value is 5 seconds.
 */
@@ -181,7 +169,7 @@
 	#define L2CAP_ALLOCATE_BUFFERS_RAM_SIZE_VAR
 #endif
 
-#include "bluetooth/cdbt/l2cap/l2cap_config_handlers.h"
+#include "cdbt/l2cap/l2cap_config_handlers.h"
 
 #define L2CAP_ALLOCATE_BUFFERS_VARS()	\
 	bt_buffer_header_t  _l2cap_cmd_buffer_headers[L2CAP_MAX_CMD_BUFFERS];	\
@@ -197,6 +185,9 @@
 	bt_byte             _l2cap_hci_page_scan_repetition_mode;	\
 	bt_byte             _l2cap_hci_role_switch;	\
 	bt_long             _l2cap_idle_hci_connection_timeout;	\
+	\
+	bt_buffer_header_t  _l2cap_connect_params_headers[(L2CAP_MAX_CHANNELS) * (L2CAP_MAX_MANAGERS)];	\
+	bt_l2cap_connect_params_t  _l2cap_connect_params[(L2CAP_MAX_CHANNELS) * (L2CAP_MAX_MANAGERS)];	\
 	\
 	L2CAP_DECL_ERETR_FUNCTIONS	\
 	\
@@ -226,6 +217,8 @@
 		{	\
 			_mgrs[i]._psms = &_l2cap_psms[i * L2CAP_MAX_PSMS];	\
 			_mgrs[i]._channels = &_l2cap_channels[i * (L2CAP_MAX_CHANNELS)];	\
+			bt_init_buffer_mgr(&_mgrs[i].connect_params_mgr, L2CAP_MAX_CHANNELS, sizeof(bt_l2cap_connect_params_t), &_l2cap_connect_params_headers[(L2CAP_MAX_CHANNELS) * i], &_l2cap_connect_params[(L2CAP_MAX_CHANNELS) * i]);	\
+			\
 			if (_l2cap_channels_ext)	\
 			{	\
 				int j;	\

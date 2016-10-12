@@ -44,7 +44,25 @@ config TCPIP_STACK_COMMANDS_WIFI_ENABLE
     default n
     ---help---
     ---endhelp---
+    
 
+config TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_BUFF_SIZE
+    int "Echo Request Data Buffer size - bytes"
+    depends on TCPIP_USE_TCP
+    default 2000
+    ---help---
+    IDH_HTML_TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_BUFF_SIZE
+    ---endhelp---
+
+config TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DATA_SIZE
+    int "Echo request Default Data Size - bytes"
+    depends on TCPIP_USE_TCP
+    default 100
+    ---help---
+    IDH_HTML_TCPIP_STACK_COMMANDS_ICMP_ECHO_REQUEST_DATA_SIZE
+    ---endhelp---
+
+    
 ifblock USE_TCPIP_STACK
 file TCPIP_CMD_H "$HARMONY_VERSION_PATH/framework/tcpip/tcpip_commands.h" to "$PROJECT_HEADER_FILES/framework/tcpip/tcpip_commands.h"
 file TCPIP_CMD_MANAGER_H "$HARMONY_VERSION_PATH/framework/tcpip/src/tcpip_commands_manager.h" to "$PROJECT_HEADER_FILES/framework/tcpip/src/tcpip_commands_manager.h"

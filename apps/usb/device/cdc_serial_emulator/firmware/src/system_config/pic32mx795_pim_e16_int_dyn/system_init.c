@@ -226,9 +226,9 @@ const USB_DEVICE_DESCRIPTOR deviceDescriptor =
     0x12,                           // Size of this descriptor in bytes
     USB_DESCRIPTOR_DEVICE,          // DEVICE descriptor type
     0x0200,                         // USB Spec Release Number in BCD format
-    0x02,                           // Class Code
-    0x00,                           // Subclass code
-    0x00,                           // Protocol code
+	USB_CDC_CLASS_CODE,         // Class Code
+    USB_CDC_SUBCLASS_CODE,      // Subclass code
+    0x00,                       // Protocol code
     USB_DEVICE_EP0_BUFFER_SIZE,     // Max packet size for EP0, see system_config.h
     0x04D8,                         // Vendor ID
     0x000A,                         // Product ID
@@ -487,7 +487,7 @@ void SYS_Initialize ( void* data )
     SYS_DEVCON_JTAGDisable();
     SYS_PORTS_Initialize();
     /* Board Support Package Initialization */
-    BSP_Initialize();
+    BSP_Initialize();        
 
     /* Initialize Drivers */
     sysObj.drvUsart0 = DRV_USART_Initialize(DRV_USART_INDEX_0, (SYS_MODULE_INIT *)&drvUsart0InitData);
@@ -499,8 +499,8 @@ void SYS_Initialize ( void* data )
     /* Initialize System Services */
 
     /*** Interrupt Service Initialization Code ***/
-    SYS_INT_Initialize();  
-
+    SYS_INT_Initialize();
+  
     /* Initialize Middleware */
     /* Set priority of USB interrupt source */
     SYS_INT_VectorPrioritySet(INT_VECTOR_USB1, INT_PRIORITY_LEVEL4);

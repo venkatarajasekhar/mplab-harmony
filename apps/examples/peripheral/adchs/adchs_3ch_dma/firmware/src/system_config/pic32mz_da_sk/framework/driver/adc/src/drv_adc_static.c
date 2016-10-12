@@ -52,7 +52,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // *****************************************************************************
 void DRV_ADC_Initialize(void)
 {
-
     /* Select Power Mode */
 	PLIB_ADCHS_Setup(
 	DRV_ADC_ID_1,
@@ -109,7 +108,8 @@ void DRV_ADC_Initialize(void)
 			ADCHS_CLASS12_AN2,
 			ADCHS_TRIGGER_SOURCE_TMR3_MATCH
 	);
-    PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ADCHS_CHANNEL_2, DEVADC2);
+    if (DEVADC2 != 0xFFFFFFFF)
+        PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ADCHS_CHANNEL_2, DEVADC2);
 	PLIB_ADCHS_ChannelSetup(
 	DRV_ADC_ID_1,
 	ADCHS_CHANNEL_3,
@@ -150,7 +150,8 @@ void DRV_ADC_Initialize(void)
 			ADCHS_CLASS12_AN3,
 			ADCHS_TRIGGER_SOURCE_TMR3_MATCH
 	);
-    PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ADCHS_CHANNEL_3, DEVADC3);
+    if (DEVADC3 != 0xFFFFFFFF)
+        PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ADCHS_CHANNEL_3, DEVADC3);
 	PLIB_ADCHS_ChannelSetup(
 	DRV_ADC_ID_1,
 	ADCHS_CHANNEL_4,
@@ -191,7 +192,8 @@ void DRV_ADC_Initialize(void)
 			ADCHS_CLASS12_AN4,
 			ADCHS_TRIGGER_SOURCE_TMR3_MATCH
 	);
-    PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ADCHS_CHANNEL_4, DEVADC4);
+    if (DEVADC4 != 0xFFFFFFFF)
+        PLIB_ADCHS_ChannelConfigurationSet(DRV_ADC_ID_1, ADCHS_CHANNEL_4, DEVADC4);
 
 
 

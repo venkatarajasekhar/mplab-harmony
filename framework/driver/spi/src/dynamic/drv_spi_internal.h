@@ -91,18 +91,22 @@ struct DRV_SPI_DRIVER_OBJECT
     INT_SOURCE                                  errInterruptSource;
     bool                                        errEnabled;
     
-    /* Peripheral clock used by the SPI driver*/
+    /* SPI clock source which generates required baud rate */
+    SPI_BAUD_RATE_CLOCK                         baudClockSource;
+    
+    /* when Baud rate clock source is peripheral clock, then this element is used
+    to define which peripheral bus clock is used for this particular SPI instance.  */
     CLK_BUSES_PERIPHERAL                        spiClk;
     
     /* Baud Rate Value */
     uint32_t                        		    baudRate;
     uint32_t                                    currentBaudRate;
 
-    DRV_SPI_BUFFER_EVENT_HANDLER operationStarting;
+    DRV_SPI_BUFFER_EVENT_HANDLER                operationStarting;
 
-    DRV_SPI_BUFFER_EVENT_HANDLER operationEnded;
+    DRV_SPI_BUFFER_EVENT_HANDLER                operationEnded;
 
-    DRV_SPI_SYS_QUEUE_HANDLE queue;
+    DRV_SPI_SYS_QUEUE_HANDLE                    queue;
 
     DRV_SPI_JOB_OBJECT *                        currentJob;
 
@@ -143,18 +147,22 @@ struct DRV_SPI_DRIVER_OBJECT
 typedef struct _DRV_SPI_CLIENT_OBJECT
 {
     /* Driver Object associated with the client */
-    struct DRV_SPI_DRIVER_OBJECT*                                      	driverObject;
+    struct DRV_SPI_DRIVER_OBJECT*                       driverObject;
 
     /* The intent with which the client was opened */
     DRV_IO_INTENT                                      	intent;
 
-    struct _DRV_SPI_CLIENT_OBJECT * pNext;
-    DRV_SPI_BUFFER_EVENT_HANDLER operationStarting;
+    struct _DRV_SPI_CLIENT_OBJECT                       * pNext;
+    
+    DRV_SPI_BUFFER_EVENT_HANDLER                        operationStarting;
 
-    DRV_SPI_BUFFER_EVENT_HANDLER operationEnded;
+    DRV_SPI_BUFFER_EVENT_HANDLER                        operationEnded;
+    
     /* Baud Rate Value */
-    uint32_t                        		baudRate;
+    uint32_t                        		            baudRate;
+    
 }DRV_SPI_CLIENT_OBJECT;
+
 
 typedef struct _DRV_SPI_MANAGER_OBJECT
 {

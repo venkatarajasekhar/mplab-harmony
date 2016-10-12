@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.6">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -48,6 +52,10 @@
       <File>
         <Name>drv_tmr_mapping.h</Name>
         <Path>Header Files/framework/driver/tmr</Path>
+      </File>
+      <File>
+        <Name>usb_audio_v1_0.h</Name>
+        <Path>Header Files/framework/usb</Path>
       </File>
       <File>
         <Name>drv_tmr_local.h</Name>
@@ -70,16 +78,8 @@
         <Path>Source Files/framework/system/tmr/src</Path>
       </File>
       <File>
-        <Name>net_pres_socketapi.h</Name>
-        <Path>Header Files/framework/net/pres</Path>
-      </File>
-      <File>
         <Name>drv_usbfs_static.h</Name>
         <Path>Header Files/framework/driver/usb/usbfs</Path>
-      </File>
-      <File>
-        <Name>net_pres_socketapiconversion.h</Name>
-        <Path>Header Files/framework/net/pres</Path>
       </File>
       <File>
         <Name>usb_chapter_9.h</Name>
@@ -90,24 +90,12 @@
         <Path>Header Files/framework/driver</Path>
       </File>
       <File>
-        <Name>peripheral_common.h</Name>
-        <Path>Header Files/framework/peripheral</Path>
-      </File>
-      <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
       </File>
       <File>
         <Name>usb_host.c</Name>
         <Path>Source Files/framework/usb/src/dynamic</Path>
-      </File>
-      <File>
-        <Name>net_pres_local.h</Name>
-        <Path>Header Files/framework/net/pres/src</Path>
-      </File>
-      <File>
-        <Name>net_pres.h</Name>
-        <Path>Header Files/framework/net/pres</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -142,10 +130,6 @@
         <Path>Source Files/framework/driver/usb/usbfs/src/dynamic</Path>
       </File>
       <File>
-        <Name>net_pres_encryptionproviderapi.h</Name>
-        <Path>Header Files/framework/net/pres</Path>
-      </File>
-      <File>
         <Name>sys_int.h</Name>
         <Path>Header Files/framework/system/int</Path>
       </File>
@@ -158,20 +142,12 @@
         <Path>Header Files/framework/osal/src</Path>
       </File>
       <File>
-        <Name>peripheral_common_32bit.h</Name>
-        <Path>Header Files/framework/peripheral</Path>
-      </File>
-      <File>
         <Name>drv_tmr_variant_mapping.h</Name>
         <Path>Header Files/framework/driver/tmr/src</Path>
       </File>
       <File>
         <Name>drv_usbfs.c</Name>
         <Path>Source Files/framework/driver/usb/usbfs/src/dynamic</Path>
-      </File>
-      <File>
-        <Name>net_pres_transportapi.h</Name>
-        <Path>Header Files/framework/net/pres</Path>
       </File>
       <File>
         <Name>drv_tmr.h</Name>
@@ -196,10 +172,6 @@
       <File>
         <Name>usb_host_audio_v1_0.h</Name>
         <Path>Header Files/framework/usb</Path>
-      </File>
-      <File>
-        <Name>net_pres_certstore.h</Name>
-        <Path>Header Files/framework/net/pres</Path>
       </File>
       <File>
         <Name>usb_host_audio_v1_0.c</Name>
@@ -234,6 +206,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -252,14 +228,6 @@
       <File>
         <Name>sys_int_mapping.h</Name>
         <Path>Header Files/framework/system/int</Path>
-      </File>
-      <File>
-        <Name>gfx_palette.h</Name>
-        <Path>Header Files/framework/gfx</Path>
-      </File>
-      <File>
-        <Name>ctr_p32mx795f512l.h</Name>
-        <Path>Header Files/framework/peripheral/ctr/processor</Path>
       </File>
       <File>
         <Name>sys_devcon.h</Name>
@@ -290,10 +258,6 @@
         <Path>Header Files/framework/driver/usb/usbfs/src</Path>
       </File>
       <File>
-        <Name>peripheral.h</Name>
-        <Path>Header Files/framework/peripheral</Path>
-      </File>
-      <File>
         <Name>usb_host_audio_v1_mapping.h</Name>
         <Path>Header Files/framework/usb/src</Path>
       </File>
@@ -318,13 +282,12 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn</Path>
-        <Checksum>57C8DF877FDC2F1B66334CAD8550A6B6</Checksum>
-        <ProjectFileChecksum>6D8083E52FB392BF94DF7A1E0F1C2394</ProjectFileChecksum>
+        <Checksum>1AB905E04DD1A0DC8C4ADABB0FB0DBE8</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn/bsp</Path>
-        <Checksum>979B354AA82E3DB47F9F224277179FDC</Checksum>
+        <Checksum>A785E028EAAA33AAAFFC9B9FBF016350</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -342,18 +305,13 @@
         <Checksum>91B3033F053F87BCE6A0A3F40939B8A7</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn</Path>
-        <Checksum>7ADC91F4E2A9DA31696DBAB3E76C0F5B</Checksum>
+        <Checksum>C9F12D0F29E302A9A7F3C057412B3C2C</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -362,17 +320,17 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_dyn/bsp</Path>
-        <Checksum>A27476DECF3963E23B217F95796161FA</Checksum>
+        <Checksum>6979F2D12F66C271AEB68DDA2141EA53</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_dyn/framework/system/ports/src</Path>
-        <Checksum>BD5D9BDDD9262C8D616C515AD5C5D1E6</Checksum>
+        <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -382,11 +340,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\cm\Harmony\apps\usb\host\audio_speaker\firmware\src"/>
-        <Include value="C:\cm\Harmony\apps\usb\host\audio_speaker\firmware\src\system_config\pic32mx_usb_sk2_int_dyn"/>
-        <Include value="C:\cm\Harmony\apps\usb\host\audio_speaker\firmware\src\pic32mx_usb_sk2_int_dyn"/>
-        <Include value="C:\cm\Harmony\framework"/>
-        <Include value="C:\cm\Harmony\apps\usb\host\audio_speaker\firmware\src\system_config\pic32mx_usb_sk2_int_dyn\framework"/>
+        <Include value="D:\usbdev\apps\usb\host\audio_speaker\firmware\src"/>
+        <Include value="D:\usbdev\apps\usb\host\audio_speaker\firmware\src\system_config\pic32mx_usb_sk2_int_dyn"/>
+        <Include value="D:\usbdev\framework"/>
+        <Include value="D:\usbdev\apps\usb\host\audio_speaker\firmware\src\system_config\pic32mx_usb_sk2_int_dyn\framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_int_dyn/bsp"/>
       </C32>
     </CompilerItems>

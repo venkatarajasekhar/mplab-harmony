@@ -40,7 +40,6 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 -->
 
 /*** Audio Decoders Configuration ***/
-
 <#if CONFIG_USE_WMA_DECODER == true>
 #define WMA_DECODER_ENABLED
 </#if>
@@ -62,6 +61,10 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 <#if CONFIG_USE_ADPCM_STREAMING == true>
 #define ADPCM_STREAMING_ENABLED
 </#if>
+
+/* Customize buffer size depends on device SRAM */
+#define DECODER_MAX_INPUT_BUFFER_SIZE (1024*7)
+#define DECODER_MAX_OUTPUT_BUFFER_SIZE (1024*7)
 
 <#--
 /*******************************************************************************

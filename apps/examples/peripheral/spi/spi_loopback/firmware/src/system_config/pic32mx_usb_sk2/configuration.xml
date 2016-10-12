@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -88,6 +92,10 @@
       <File>
         <Name>sys_buffer.h</Name>
         <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -175,11 +183,6 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>drv_spi_static_rm_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2/framework/driver/spi/static/src</Path>
         <Checksum>BED98A3F5628502709D95341DC70019B</Checksum>
@@ -187,7 +190,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -221,23 +224,23 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2</Path>
-        <Checksum>1FFDEC233CAA8851AD841F2AD5AB0C49</Checksum>
-        <ProjectFileChecksum>290267CF682DCB04E4A2C557A45AE452</ProjectFileChecksum>
+        <Checksum>245705D2FD7753EF6F1195C8B3AAD72E</Checksum>
+        <ProjectFileChecksum>AFEFCC73C15A1B077454388446CF9AB6</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2</Path>
-        <Checksum>E67E731DBB2978E63F98F3466C0A0977</Checksum>
+        <Checksum>EEE449B98A9214312E8A2A1E595D5D28</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -266,11 +269,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="E:\official\git\core_ldra\apps\examples\peripheral\spi\spi_loopback\firmware\src"/>
-        <Include value="E:\official\git\core_ldra\apps\examples\peripheral\spi\spi_loopback\firmware\src\system_config\pic32mx_usb_sk2"/>
-        <Include value="E:\official\git\core_ldra\apps\examples\peripheral\spi\spi_loopback\firmware\src\pic32mx_usb_sk2"/>
-        <Include value="E:\official\git\core_ldra\framework"/>
-        <Include value="E:\official\git\core_ldra\apps\examples\peripheral\spi\spi_loopback\firmware\src\system_config\pic32mx_usb_sk2\framework"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/spi/spi_loopback/firmware/src"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/spi/spi_loopback/firmware/src/system_config/pic32mx_usb_sk2"/>
+        <Include value="E:/official/git/core/framework"/>
+        <Include value="E:/official/git/core/apps/examples/peripheral/spi/spi_loopback/firmware/src/system_config/pic32mx_usb_sk2/framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2/bsp"/>
       </C32>
     </CompilerItems>

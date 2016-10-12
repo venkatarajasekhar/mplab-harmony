@@ -155,6 +155,7 @@ ifblock USE_DRV_CODEC_AK7755=y && SELECT_DRV_AK7755=y
 add "<#include \"/framework/driver/codec/ak7755/templates/drv_ak7755.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
 add "<#include \"/framework/driver/codec/ak7755/templates/drv_ak7755_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS
 add "<#include \"/framework/driver/codec/ak7755/templates/drv_ak7755_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_DRIVER_TASKS
+add "<#include \"/framework/driver/codec/ak7755/templates/drv_ak7755.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 
 file DRV_CODEC_AK7755 "$HARMONY_VERSION_PATH/framework/driver/codec/ak7755/drv_ak7755.h" to "$PROJECT_HEADER_FILES/framework/driver/codec/ak7755/drv_ak7755.h"
 file DRV_CODEC_AK7755_LOCAL_H "$HARMONY_VERSION_PATH/framework/driver/codec/ak7755/src/drv_ak7755_local.h" to "$PROJECT_HEADER_FILES/framework/driver/codec/ak7755/drv_ak7755_local.h"

@@ -42,9 +42,9 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
         <#elseif CONFIG_BOOTLOADER_TYPE == "ETHERNET_UDP_PULL">
             <#assign bootloader_length = "0x13000">
         <#elseif CONFIG_BOOTLOADER_TYPE == "USB_DEVICE">
-            <#assign bootloader_length = "0x5C00">
+            <#assign bootloader_length = "0x7400">
         <#elseif CONFIG_BOOTLOADER_TYPE == "USART" || CONFIG_BOOTLOADER_TYPE == "I2C">
-            <#assign bootloader_length = "0x1C00">
+            <#assign bootloader_length = "0x2000">
         <#else>
             <#assign bootloader_length = "0x3000">
         </#if>
@@ -84,7 +84,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 <#if CONFIG_BOOTLOADER_TYPE == "ETHERNET_UDP_PULL">
 #define BOOTLOADER_UDP_PORT_NUMBER "${CONFIG_BOOTLOADER_PORT_NUMBER}"
 </#if>
-<#if CONFIG_BOOTLOADER_TYPE == "USB_HOST">
+<#if CONFIG_BOOTLOADER_TYPE == "USB_HOST" || CONFIG_BOOTLOADER_TYPE == "SD_CARD">
 #define BOOTLOADER_IMAGE_FILE_NAME  "${CONFIG_DATASTREAM_USBHOST_FILENAME}"
 </#if>
 

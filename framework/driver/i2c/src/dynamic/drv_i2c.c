@@ -866,6 +866,29 @@ void DRV_I2C_Deinitialize ( SYS_MODULE_OBJ object )
 #endif
 
     PLIB_I2C_Disable(i2cId);
+    /* Delete the hardware instance mutex. */
+    if(OSAL_MUTEX_Delete(&(dObj->mutexDriverInstance)) != OSAL_RESULT_TRUE)
+    {
+       return;
+    }
+    
+    /* Check if the global mutexes have been created. If so
+       then delete these. */
+    if(gDrvI2CCommonDataObj.membersAreInitialized)
+    {
+        /* This means that mutexes where created. Delete them. */
+        if(OSAL_MUTEX_Delete(&(gDrvI2CCommonDataObj.mutexClientObjects)) != OSAL_RESULT_TRUE)
+        {
+                 return;
+        }
+        if(OSAL_MUTEX_Delete(&(gDrvI2CCommonDataObj.mutexBufferQueueObjects)) != OSAL_RESULT_TRUE)
+        {
+                 return;
+        }
+        /* Set this flag so that global mutexes get allocated only once */
+        gDrvI2CCommonDataObj.membersAreInitialized = false;
+    }
+        
 
 	for (iClient = 0; iClient < DRV_I2C_CLIENTS_NUMBER; iClient++)
 	{
@@ -878,7 +901,12 @@ void DRV_I2C_Deinitialize ( SYS_MODULE_OBJ object )
 	dObj->numClients = 0;
 	dObj->isExclusive = false;
 	/* Clear all the pending requests */
-        while (_DRV_I2C_QueuePop(dObj) != NULL);
+        //while (_DRV_I2C_QueuePop(dObj) != NULL);
+    while ((_DRV_I2C_IsQueueEmpty(dObj) == false))        
+    {
+        _DRV_I2C_Advance_Queue(dObj);
+    }
+    
 	dObj->queueHead = NULL;
 	/* Set the Device Status */
 	dObj->status = SYS_STATUS_UNINITIALIZED;
@@ -1736,8 +1764,7 @@ void DRV_I2C_Tasks ( SYS_MODULE_OBJ object )
         
         if ( (dObj->i2cMode) == DRV_I2C_MODE_MASTER)
         {
-//        if ( (dObj->queueHead != NULL) &&  ((_DRV_I2C_CLIENT_OBJ(lBufferObj, status) == DRV_I2C_BUFFER_EVENT_COMPLETE) || (_DRV_I2C_CLIENT_OBJ(lBufferObj, status) == DRV_I2C_BUFFER_EVENT_ERROR)) )      //GJV107_Queue Original code
-            if ( (_DRV_I2C_CLIENT_OBJ(lBufferObj, status) == DRV_I2C_BUFFER_EVENT_COMPLETE) || (_DRV_I2C_CLIENT_OBJ(lBufferObj, status) == DRV_I2C_BUFFER_EVENT_ERROR) )        //GJV107_Queue
+            if ( (lBufferObj != NULL) &&  ((_DRV_I2C_CLIENT_OBJ(lBufferObj, status) == DRV_I2C_BUFFER_EVENT_COMPLETE) || (_DRV_I2C_CLIENT_OBJ(lBufferObj, status) == DRV_I2C_BUFFER_EVENT_ERROR) ))
             {                
                 _DRV_I2C_Advance_Queue(dObj);
                 if ((_DRV_I2C_IsQueueEmpty(dObj) == false))

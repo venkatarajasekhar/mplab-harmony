@@ -153,8 +153,13 @@ void display_tasks(PLAYER_EVENT event, uint32_t data)
             break;
         case APP_STREAM_OPUS:
             GFX_CircleFillDraw(GFX_INDEX_0,124,60+Arial12Height, 2);
-            break;        
-            
+            break;
+// Tobe added
+/*
+        case APP_STREAM_FLAC:
+            GFX_CircleFillDraw(GFX_INDEX_0,30,66+Arial12Height, 2);
+            break;
+*/          
         default:
             break;
             
@@ -246,7 +251,19 @@ void display_tasks(PLAYER_EVENT event, uint32_t data)
         GFX_FontSet(GFX_INDEX_0, (GFX_RESOURCE_HDR*) &Arial12pt);
         GFX_TextStringDraw(GFX_INDEX_0, 110, 45+Arial12Height, "OPUS", 0);
     }
-    
+	// Tobe added
+    /*
+    if(appDataPtr->FLAC_decoder_enabled)
+    {       
+        GFX_ColorSet(GFX_INDEX_0, BRIGHTBLUE);
+        GFX_FontSet(GFX_INDEX_0, (GFX_RESOURCE_HDR*) &Arial12pt);
+        GFX_TextStringDraw(GFX_INDEX_0, 15, 70+Arial12Height, "FLAC", 0);
+    }else{
+        GFX_ColorSet(GFX_INDEX_0, GRAY128);
+        GFX_FontSet(GFX_INDEX_0, (GFX_RESOURCE_HDR*) &Arial12pt);
+        GFX_TextStringDraw(GFX_INDEX_0, 15, 70+Arial12Height, "FLAC", 0);
+    }
+    */
 
 //******************************************************************************
 // Lower GFX area

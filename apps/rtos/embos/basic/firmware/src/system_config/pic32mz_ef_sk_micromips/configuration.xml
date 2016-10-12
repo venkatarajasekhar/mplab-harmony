@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -48,6 +48,10 @@
       <File>
         <Name>osal_embos.c</Name>
         <Path>Source Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -127,7 +131,7 @@
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_micromips/framework/system/ports/src</Path>
         <Checksum>3DFB0BC56732FDD6D5377CC83C754517</Checksum>
-        <ProjectFileChecksum>D9BDB0A3AD34FC571ECADE8BB2C9313E</ProjectFileChecksum>
+        <ProjectFileChecksum>D48204FE3280BAF2C1764F2A6CBB6AE1</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -137,49 +141,49 @@
         <Name>RTOS.h</Name>
         <Path>Header Files/app/rtos_config/pic32mz_ef_sk_micromips</Path>
         <Checksum>5EE013B210F5F61A0B5DE6B377A3C32A</Checksum>
-        <ProjectFileChecksum>827D724496560A175D2F636FCB08EAF7</ProjectFileChecksum>
+        <ProjectFileChecksum>148BE025E82F1189EF6528EA66B86AC9</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt_a.S</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_micromips</Path>
-        <Checksum>74134F0E30F5D978D94FD274A4EDEA5C</Checksum>
-        <ProjectFileChecksum>3AE2D4A0BE392D95802DEEE76EDC7E1A</ProjectFileChecksum>
+        <Checksum>0269135996D3B3B1B14E72D37F417239</Checksum>
+        <ProjectFileChecksum>162DDC03B53296BC7EA1F9260B91221E</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_micromips/bsp</Path>
-        <Checksum>D48E3F4A4C9EC7A73FF9E95DB499B155</Checksum>
-        <ProjectFileChecksum>A6465D15EFE6CC89B74DA1615BD9E4EE</ProjectFileChecksum>
+        <Checksum>F740DA09253C01A3D03B3FD6565F5267</Checksum>
+        <ProjectFileChecksum>AA9C18CAF8967C3499BFE91376D40E99</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_micromips/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
-        <ProjectFileChecksum>AD0E6092009B4531C0BD86EE9829089A</ProjectFileChecksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
+        <ProjectFileChecksum>89B063AB4D0284247B00D0D207FE4A47</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_micromips</Path>
-        <Checksum>DBEB0754128518EED6C16904F3E85E5D</Checksum>
-        <ProjectFileChecksum>4692491D61B74738722223685357007B</ProjectFileChecksum>
+        <Checksum>097CADE990B17F89B8C343083556879D</Checksum>
+        <ProjectFileChecksum>9B2822525B2850B946E64AD344457742</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_micromips</Path>
         <Checksum>7432E24A386A828CEDDB3D118AAB7FBC</Checksum>
-        <ProjectFileChecksum>86CB144CD16A8F1A5DC74ACFE235BA77</ProjectFileChecksum>
+        <ProjectFileChecksum>AC04E451F7F2A76B0CE3613C2C57B579</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_micromips</Path>
-        <Checksum>E036F5153BAEB084DF4655C4CEFC9CAA</Checksum>
-        <ProjectFileChecksum>A54A093EAED51B44F46EAC29680012C5</ProjectFileChecksum>
+        <Checksum>13FB8422ED753D86F7146E935C766EDE</Checksum>
+        <ProjectFileChecksum>C07E3AEC7307C30766DB2F7726E83074</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_micromips</Path>
         <Checksum>C934CFD980878E57EE336D976F540A07</Checksum>
-        <ProjectFileChecksum>C2FC5078A05857753EA8246B7E54E73E</ProjectFileChecksum>
+        <ProjectFileChecksum>A595D57CFB3A3A9EBF10197249C703B3</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -189,37 +193,31 @@
         <Name>rtos_hooks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_micromips</Path>
         <Checksum>EABABE6F6504F002BE5D5D186F6DB9FA</Checksum>
-        <ProjectFileChecksum>5507ACE285ADC1874ADA65FB6F5DF42F</ProjectFileChecksum>
+        <ProjectFileChecksum>D31E926629014334C6A4FC4BADA91254</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>OS_Error.c</Name>
         <Path>Source Files/app/rtos_config/pic32mz_ef_sk_micromips</Path>
         <Checksum>B90C38D0534E50ED1F12503829C27C7F</Checksum>
-        <ProjectFileChecksum>2B67C0D1035CC19AFFE71EA10F641687</ProjectFileChecksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_micromips/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-        <ProjectFileChecksum>FE07D726C7251AE135E7402757F6986E</ProjectFileChecksum>
+        <ProjectFileChecksum>7EBB22AAFA11A29C926C6B2EFED72A1C</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_micromips</Path>
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
-        <ProjectFileChecksum>F6F378722FBF1DEA834414F709D17705</ProjectFileChecksum>
+        <ProjectFileChecksum>8A98F825D4664086F0C1CCBE41DE145F</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>RTOSInit.c</Name>
         <Path>Source Files/app/rtos_config/pic32mz_ef_sk_micromips</Path>
         <Checksum>7C3C5370FDD01E69F593A516163C4D65</Checksum>
-        <ProjectFileChecksum>6C2D73B5D871B0C492823192DD57808C</ProjectFileChecksum>
+        <ProjectFileChecksum>EE81118638E22F24719D7B50ADFABBF9</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_micromips</Path>
         <Checksum>B207152D092232269632CAC6DEB13EBC</Checksum>
-        <ProjectFileChecksum>6D6B9870AE30C38BEFEC25D4C7A51112</ProjectFileChecksum>
+        <ProjectFileChecksum>BA25C6968DE8E195282DFFC78D431459</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -228,17 +226,16 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_micromips/bsp</Path>
-        <Checksum>F05FA6CD752CCFEC85C6B17BF6B61604</Checksum>
-        <ProjectFileChecksum>EEBD8299EDE7EF63A65E3217A4EBD139</ProjectFileChecksum>
+        <Checksum>DD885EBE1893567826AD0E35E9F24594</Checksum>
+        <ProjectFileChecksum>BF1E02490A707A5C3543ADAF953FC215</ProjectFileChecksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="D:/sources/GitSathiyan/rtos/dft_july2016/rtos/apps/rtos/embos/basic/firmware/src"/>
-        <Include value="D:/sources/GitSathiyan/rtos/dft_july2016/rtos/apps/rtos/embos/basic/firmware/src/system_config/pic32mz_ef_sk_micromips"/>
-        <Include value="D:/sources/GitSathiyan/rtos/dft_july2016/rtos/apps/rtos/embos/basic/firmware/src/pic32mz_ef_sk_micromips"/>
-        <Include value="D:/sources/GitSathiyan/rtos/dft_july2016/rtos/framework"/>
-        <Include value="D:/sources/GitSathiyan/rtos/dft_july2016/rtos/apps/rtos/embos/basic/firmware/src/system_config/pic32mz_ef_sk_micromips/framework"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/embos/basic/firmware/src"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/embos/basic/firmware/src/system_config/pic32mz_ef_sk_micromips"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/framework"/>
+        <Include value="/home/vikasnan/GITDevRTOS/rtos/apps/rtos/embos/basic/firmware/src/system_config/pic32mz_ef_sk_micromips/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_micromips/bsp"/>
         <Define value="OS_LIBMODE_DP"/>
         <Include value="../../../../../../third_party/rtos/embOS/GenOSSrc"/>

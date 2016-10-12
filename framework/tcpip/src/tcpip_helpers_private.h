@@ -41,9 +41,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 
 
-uint16_t 	    TCPIP_Helper_Base64Decode(uint8_t* cSourceData, uint16_t wSourceLen, uint8_t* cDestData, uint16_t wDestLen);
-uint16_t	    TCPIP_Helper_Base64Encode(uint8_t* cSourceData, uint16_t wSourceLen, uint8_t* cDestData, uint16_t wDestLen);
-
 unsigned char   TCPIP_Helper_FindCommonPrefix (unsigned char * addr1, unsigned char * addr2, unsigned char bytes);
 
 TCPIP_MAC_POWER_MODE TCPIP_Helper_StringToPowerMode(const char* str);

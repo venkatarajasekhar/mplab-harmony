@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX695F512L"/>
@@ -198,6 +202,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -329,26 +337,21 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/chipkit_wf32</Path>
-        <Checksum>02EDBBFE9EBD26F62386FFDF238A4601</Checksum>
+        <Checksum>1BA7D5EE3FD3305B5E272AD214AEB913</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
         <Path>Header Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/chipkit_wf32/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/chipkit_wf32</Path>
-        <Checksum>F7ECC7A9068F77BD91E51B031A704F22</Checksum>
+        <Checksum>AEAB5E98DBECBB87EF21169FE311EE65</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/chipkit_wf32/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -358,10 +361,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\cm\Harmony\apps\usb\host\msd_basic\firmware\src"/>
-        <Include value="C:\cm\Harmony\apps\usb\host\msd_basic\firmware\src\system_config\chipkit_wf32"/>
-        <Include value="C:\cm\Harmony\framework"/>
-        <Include value="C:\cm\Harmony\apps\usb\host\msd_basic\firmware\src\system_config\chipkit_wf32\framework"/>
+        <Include value="D:/git_repositories/usb/apps/usb/host/msd_basic/firmware/src"/>
+        <Include value="D:/git_repositories/usb/apps/usb/host/msd_basic/firmware/src/system_config/chipkit_wf32"/>
+        <Include value="D:/git_repositories/usb/framework"/>
+        <Include value="D:/git_repositories/usb/apps/usb/host/msd_basic/firmware/src/system_config/chipkit_wf32/framework"/>
         <Include value="../src/system_config/chipkit_wf32/bsp"/>
       </C32>
     </CompilerItems>

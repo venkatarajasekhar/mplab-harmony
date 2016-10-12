@@ -91,6 +91,7 @@ config SYS_CLK_MANAGER_PLUGIN_SELECT
     default "mzda:MZDAClockModel" if DS60001361
     default "mk:MKClockModel" if DS60001402
 	default "wk:WKClockModel" if PIC32WK
+	default "mx1_xlp:MX1_XLPClockModel" if DS60001404			
 
 config USE_SYS_CLK_DYNAMIC_NEEDED
 	depends on USE_SYS_CLK
@@ -138,7 +139,8 @@ config SYS_CLK_FSOSCEN_OVERRIDE
     default n
 
 config SYS_CLK_FRCDIV
-	string
+	string "FRC Clock Divider"
+    range OSC_FRC_DIV
 	depends on USE_SYS_CLK
 	default "OSC_FRC_DIV_2" if PIC32MX
 	default "OSC_FRC_DIV_1" if PIC32MZ || PIC32MK
@@ -159,7 +161,7 @@ config SYS_CLK_PBDIV0_OVERRIDE
     
 config SYS_CLK_PBDIV0_MX
     string "Peripheral Clock Bus Divisor (1-8)" if PIC32MX
-    depends on USE_SYS_CLK && PIC32MX
+    depends on USE_SYS_CLK && PIC32MX && !DS60001404
     persistent if SYS_CLK_PBDIV0_OVERRIDE = n
     default "DIV_1"
     range CLK_PBDIV_MX
@@ -167,11 +169,22 @@ config SYS_CLK_PBDIV0_MX
 	IDH_HTML_CONFIGURATOR_Configuring_the_Peripheral_Bus_Clocks_MX
     ---endhelp---
 
+
+config SYS_CLK_PBDIV0_XLP
+    int "Peripheral Clock Bus #1 Divisor (1-128)" if DS60001404
+    depends on USE_SYS_CLK && DS60001404
+    persistent if SYS_CLK_PBDIV0_OVERRIDE = n
+    default 2
+    range 1 128
+    ---help---
+	IDH_HTML_CONFIGURATOR_Configuring_the_Peripheral_Bus_Clocks_MZ
+    ---endhelp---
+    
 config SYS_CLK_PBDIV0_MZ
     int "Peripheral Clock Bus #1 Divisor (1-128)" if PIC32MZ || PIC32MK || PIC32WK
-    depends on USE_SYS_CLK && (PIC32MZ || PIC32MK || PIC32WK)
-    default 2 if !DS60001402
-    default 1 if DS60001402
+    depends on USE_SYS_CLK && (PIC32MZ || PIC32MK || PIC32WK  || DS60001404)
+    default 2 if !DS60001402 || DS60001404
+    default 1 if DS60001402 
     range 1 128
     ---help---
 	IDH_HTML_CONFIGURATOR_Configuring_the_Peripheral_Bus_Clocks_MZ
@@ -180,11 +193,12 @@ config SYS_CLK_PBDIV0_MZ
 config SYS_CLK_PBDIV0
     int
     depends on USE_SYS_CLK
-    default 1 if PIC32MX && SYS_CLK_PBDIV0_MX = "DIV_1"
-    default 2 if PIC32MX && SYS_CLK_PBDIV0_MX = "DIV_2"
-    default 4 if PIC32MX && SYS_CLK_PBDIV0_MX = "DIV_4"
-    default 8 if PIC32MX && SYS_CLK_PBDIV0_MX = "DIV_8"
+    default 1 if PIC32MX && SYS_CLK_PBDIV0_MX = "DIV_1" &&  !DS60001404
+    default 2 if PIC32MX && SYS_CLK_PBDIV0_MX = "DIV_2" &&  !DS60001404
+    default 4 if PIC32MX && SYS_CLK_PBDIV0_MX = "DIV_4" &&  !DS60001404
+    default 8 if PIC32MX && SYS_CLK_PBDIV0_MX = "DIV_8" &&  !DS60001404
     default SYS_CLK_PBDIV0_MZ if (PIC32MZ || PIC32MK || PIC32WK)
+    default SYS_CLK_PBDIV0_XLP if DS60001404
     
 ifblock PIC32WK = y
 
@@ -401,7 +415,7 @@ config SYS_CLK_PBDIV5
 config SYS_CLK_PBCLK6_ENABLE
     bool "Enable Peripheral Clock Bus #7"
     default y
-    depends on USE_SYS_CLK
+    depends on USE_SYS_CLK && !DS60001404
     ---help---
 	IDH_HTML_CONFIGURATOR_Configuring_the_Peripheral_Bus_Clocks_MZ
     ---endhelp---
@@ -418,7 +432,7 @@ config SYS_CLK_PBDIV6
 config SYS_CLK_PBCLK7_ENABLE
     bool "Enable Peripheral Clock Bus #8"
     default y
-    depends on USE_SYS_CLK && !DS60001361 && !DS60001402
+    depends on USE_SYS_CLK && !DS60001361 && !DS60001402 && !DS60001404
     ---help---
 	IDH_HTML_CONFIGURATOR_Configuring_the_Peripheral_Bus_Clocks_MZ
     ---endhelp---
@@ -483,7 +497,7 @@ config SYS_CLK_REFCLK_ENABLE
 config SYS_CLK_REFCLK_OE
 	bool "Reference Clock Output Enable OE"
 	default n 
-	depends on USE_SYS_CLK && SYS_CLK_REFCLK_ENABLE
+	depends on USE_SYS_CLK && SYS_CLK_REFCLK_ENABLE  
     ---help---
 	IDH_HTML_CONFIGURATOR_Configuring_the_Reference_Clocks_MX
     ---endhelp---
@@ -529,10 +543,11 @@ config SYS_CLK_ROTRIM
 	IDH_HTML_CONFIGURATOR_Configuring_the_Reference_Clocks_MX
     ---endhelp---
 
-ifblock (PIC32MZ || PIC32MK)
+ 
+ifblock (PIC32MZ || PIC32MK || PIC32WK)
 
 config SYS_CLK_REFCLK0_ENABLE
-    bool "Enable Reference Clock REFCLKO1"
+    bool "Enable Reference Clock REFCLKO"
     default n
     depends on USE_SYS_CLK && (PIC32MZ || PIC32MK || PIC32WK)
     ---help---
@@ -557,10 +572,11 @@ config SYS_CLK_REFCLK_SOURCE0
     ---help---
 	IDH_HTML_CONFIGURATOR_Configuring_the_Reference_Clocks_MZ
     ---endhelp---
-
+   
 config SYS_CLK_REFCLK_ROSEL0
     int
-    depends on USE_SYS_CLK && SYS_CLK_REFCLK0_ENABLE    
+    depends on USE_SYS_CLK && SYS_CLK_REFCLK0_ENABLE
+
     default 0 if SYS_CLK_REFCLK_SOURCE0 = "System Clock SYSCLK"
     default 1 if SYS_CLK_REFCLK_SOURCE0 = "Peripheral Clock #1 PBCLK1"
     default 2 if SYS_CLK_REFCLK_SOURCE0 = "Primary Oscillator POSC"
@@ -570,8 +586,7 @@ config SYS_CLK_REFCLK_ROSEL0
     default 6 if SYS_CLK_REFCLK_SOURCE0 = "USB Clock USBCLK"
     default 7 if SYS_CLK_REFCLK_SOURCE0 = "System PLL output SPLL"
     default 8 if SYS_CLK_REFCLK_SOURCE0 = "Reference Clock Input REFCLKIx"
-    default 9 if SYS_CLK_REFCLK_SOURCE0 = "Internal Backup FRC BFRC"
-    
+
 config SYS_CLK_RODIV0
     int "Select Reference Clock Output Divider RODIV (0-65534)"
     depends on USE_SYS_CLK && SYS_CLK_REFCLK0_ENABLE
@@ -591,7 +606,7 @@ config SYS_CLK_ROTRIM0
     ---endhelp---
 
 config SYS_CLK_REFCLK1_ENABLE
-    bool "Enable Reference Clock REFCLKO2"
+    bool "Enable Reference Clock REFCLKO"
     default n
     depends on USE_SYS_CLK && (PIC32MZ || PIC32MK || PIC32WK)
     ---help---
@@ -656,7 +671,7 @@ config SYS_CLK_ROTRIM1
     ---endhelp---
 
 config SYS_CLK_REFCLK2_ENABLE
-    bool "Enable Reference Clock REFCLKO3"
+    bool "Enable Reference Clock REFCLKO"
     depends on USE_SYS_CLK && (PIC32MZ || PIC32MK || PIC32WK)
     default n
     ---help---
@@ -715,7 +730,7 @@ config SYS_CLK_ROTRIM2
     ---endhelp---
 
 config SYS_CLK_REFCLK3_ENABLE
-    bool "Enable Reference Clock REFCLKO4"
+    bool "Enable Reference Clock REFCLKO"
     default n
     depends on USE_SYS_CLK && (PIC32MZ || PIC32MK || PIC32WK)
     ---help---
@@ -776,7 +791,7 @@ config SYS_CLK_ROTRIM3
 ifblock HAVE_REFCLOCK5
 
 config SYS_CLK_REFCLK4_ENABLE
-    bool "Enable Reference Clock REFCLKO5"
+    bool "Enable Reference Clock REFCLKO"
     default n
     depends on USE_SYS_CLK && DS60001361
     ---help---
@@ -845,6 +860,7 @@ config SYS_CLK_CONFIG_PRIMARY_XTAL
     string "Primary Oscillator Input Frequency (Hz)"
     depends on USE_SYS_CLK
     default "24000000" if BSP_POSC_24MHz = y || PIC32MZ = y || PIC32MK = y
+    default "12000000" if BSP_POSC_12MHz = y
     default "8000000" if BSP_POSC_8MHz = y || PIC32MX = y
     default "40000000" if PIC32WK = y
 	persistent if PIC32WK = y
@@ -879,7 +895,7 @@ config SYS_CLK_CONFIG_UFRCEN
     ---endhelp---
 endif
 
-ifblock (PIC32MK || PIC32WK)
+ifblock (PIC32MK || PIC32WK ||  DS60001404)
 
 enum USB_RUN_CLK_SOURCE
 	"UPLL" ||
@@ -892,17 +908,9 @@ enum USB_SLEEP_CLOCK_SOURCE
 menu "USB Clock Configuration"
     depends on USE_SYS_CLK
 
-config SYS_CLK_UBYPASS
-    bool "ByPass USB PLL"
-	depends on USE_SYS_CLK && PIC32WK 
-    default n
-	---help---
-	This option is used to Bypass the USB PLL
-	---endhelp---
-	
 config SYS_CLK_UPOSCEN
 	string "USB Clock Source"
-	depends on USE_SYS_CLK
+	depends on USE_SYS_CLK  && !DS60001404
 	range USB_RUN_CLK_SOURCE
 	default "UPLL"
 	---help---
@@ -920,7 +928,7 @@ config SYS_CLK_UPLLIDIV
 
 config SYS_CLK_UPLLRNG
 	string "UPLL Input Clock Range"
-	depends on USE_SYS_CLK
+	depends on USE_SYS_CLK && !DS60001404
 	default "OSC_UPLL_FREQ_RANGE_10M_TO_16M" if PIC32WK	
 	default "OSC_UPLL_FREQ_RANGE_8M_TO_16M" 
 	range OSC_UPLL_FREQ_RANGE
@@ -929,11 +937,14 @@ config SYS_CLK_UPLLRNG
 	---endhelp---
 
 config SYS_CLK_UPLLMULT
-	int "UPLL Multiplier (1-128)"
+	int "UPLL Multiplier (1-128)" if !DS60001404
+	int "UPLL Multiplier (15-24)" if DS60001404
 	depends on USE_SYS_CLK
-	default 32
-	range 1 256 if PIC32WK
-	range 1 128 if !PIC32WK
+	default 32 if !DS60001404
+	default 24 if DS60001404
+    range 15 24 if DS60001404
+	range 1 256 if (PIC32WK && !DS60001404)
+	range 1 128 if (!PIC32WK && !DS60001404)
 	---help---
 	This option selects UPLL input clock multiplier value
 	---endhelp---
@@ -973,30 +984,32 @@ config SYS_CLK_FREQ
     default "80000000" if (DS60001143 || DS60001156 || DS60001185)
     default "40000000" if (DS60001168 || DS60001290)
     default "120000000" if PIC32WK
+	default "72000000" if DS60001404
     ---help---
 	IDH_HTML_SYS_CLK_SystemFrequencyGet
     ---endhelp---
 
 config SYS_CLK_PBCLK_FREQ
     string "Peripheral Bus Clock Frequency (Hz)"
-    depends on USE_SYS_CLK && PIC32MX
+    depends on USE_SYS_CLK && PIC32MX && !DS60001404
     persistent
     default "100000000" if (DS60001191 || DS60001320)
     default "120000000" if DS60001402
     default "80000000" if (DS60001143 || DS60001156 || DS60001185)
     default "40000000" if (DS60001168 || DS60001290)
-    ---help---
+	---help---
 	IDH_HTML_SYS_CLK_PeripheralFrequencyGet_CLK_BUSES_PERIPHERAL
     ---endhelp---
 
 config SYS_CLK_PBCLK0_FREQ
     string "Peripheral Bus Clock #1 Frequency (Hz)"
-    depends on USE_SYS_CLK && SYS_CLK_PBCLK0_ENABLE && (PIC32MZ || PIC32MK || PIC32WK)
+    depends on USE_SYS_CLK && SYS_CLK_PBCLK0_ENABLE && (PIC32MZ || PIC32MK || PIC32WK || DS60001404)
     persistent
     default "100000000" if (DS60001191 || DS60001320)
     default "120000000" if DS60001402
     default "80000000" if (DS60001143 || DS60001156 || DS60001185)
     default "40000000" if (DS60001168 || DS60001290)
+	default "36000000" if DS60001404
     default "60000000" if PIC32WK
     ---help---
 	IDH_HTML_SYS_CLK_PeripheralFrequencyGet_CLK_BUSES_PERIPHERAL
@@ -1004,7 +1017,7 @@ config SYS_CLK_PBCLK0_FREQ
 
 config SYS_CLK_PBCLK1_FREQ
     string "Peripheral Bus Clock #2 Frequency (Hz)"
-    depends on USE_SYS_CLK && SYS_CLK_PBCLK1_ENABLE
+    depends on USE_SYS_CLK && SYS_CLK_PBCLK1_ENABLE && !DS60001404
     persistent
     default "100000000" if (DS60001191 || DS60001320)
     default "120000000" if DS60001402
@@ -1017,7 +1030,7 @@ config SYS_CLK_PBCLK1_FREQ
 
 config SYS_CLK_PBCLK2_FREQ
     string "Peripheral Bus Clock #3 Frequency (Hz)"
-    depends on USE_SYS_CLK && SYS_CLK_PBCLK2_ENABLE
+    depends on USE_SYS_CLK && SYS_CLK_PBCLK2_ENABLE && !DS60001404
     persistent
     default "100000000" if (DS60001191 || DS60001320)
     default "120000000" if DS60001402
@@ -1030,7 +1043,7 @@ config SYS_CLK_PBCLK2_FREQ
 
 config SYS_CLK_PBCLK3_FREQ
     string "Peripheral Bus Clock #4 Frequency (Hz)"
-    depends on USE_SYS_CLK && SYS_CLK_PBCLK3_ENABLE
+    depends on USE_SYS_CLK && SYS_CLK_PBCLK3_ENABLE && !DS60001404
     persistent
     default "200000000" if DS60001320
     default "120000000" if DS60001402
@@ -1044,7 +1057,7 @@ config SYS_CLK_PBCLK3_FREQ
 
 config SYS_CLK_PBCLK4_FREQ
     string "Peripheral Bus Clock #5 Frequency (Hz)"
-    depends on USE_SYS_CLK && SYS_CLK_PBCLK4_ENABLE
+    depends on USE_SYS_CLK && SYS_CLK_PBCLK4_ENABLE && !DS60001404
     persistent
     default "120000000" if DS60001402
     default "100000000" if (DS60001191 || DS60001320)
@@ -1097,6 +1110,7 @@ config SYS_CLK_REFCLK_FREQ
     default "120000000" if DS60001402
     default "80000000" if (DS60001143 || DS60001156 || DS60001185)
     default "40000000" if (DS60001168 || DS60001290)
+	default "72000000" if DS60001404
     ---help---
 	IDH_HTML_SYS_CLK_ReferenceClockFrequencyGet_CLK_BUSES_REFERENCE
     ---endhelp---
@@ -1109,6 +1123,7 @@ config SYS_CLK_REFCLK0_FREQ
     default "120000000" if DS60001402
     default "80000000" if (DS60001143 || DS60001156 || DS60001185)
     default "40000000" if (DS60001168 || DS60001290)
+	default "72000000" if DS60001404
     default "120000000" if PIC32WK
     ---help---
 	IDH_HTML_SYS_CLK_ReferenceClockFrequencyGet_CLK_BUSES_REFERENCE
@@ -1208,12 +1223,13 @@ endif
 endmenu
 
 ifblock USE_SYS_CLK
+add "<#include \"/framework/system/clk/templates/sys_clk.h.ftl\">"  to list SYSTEM_CONFIG_H_SYSTEM_SERVICE_CONFIGURATION
 
 file SYS_CLK_H "$HARMONY_VERSION_PATH/framework/system/clk/sys_clk.h" to "$PROJECT_HEADER_FILES/framework/system/clk/sys_clk.h"
+file SYS_CLK_COMPATIBILITY_H "$HARMONY_VERSION_PATH/framework/system/clk/sys_clk_compatibility.h" to "$PROJECT_HEADER_FILES/framework/system/clk/sys_clk_compatibility.h"
 
 ifblock SYS_CLK_MODE = "STATIC"
 
-template SYS_CLK_STATIC_H_FTL "$HARMONY_VERSION_PATH/framework/system/clk/templates/sys_clk_static.h.ftl" to "$PROJECT_HEADER_FILES/app/system_config/$CONFIGURATION/framework/system/clk/sys_clk_static.h"
 template SYS_CLK_STATIC_C_FTL "$HARMONY_VERSION_PATH/framework/system/clk/templates/sys_clk_static.c.ftl" to "$PROJECT_SOURCE_FILES/app/system_config/$CONFIGURATION/framework/system/clk/src/sys_clk_static.c"
 file SYS_CLK_MAPPING_H "$HARMONY_VERSION_PATH/framework/system/clk/sys_clk_mapping.h" to "$PROJECT_HEADER_FILES/framework/system/clk/sys_clk_mapping.h"
 
@@ -1226,12 +1242,12 @@ add "<#include \"/framework/system/clk/templates/sys_clk.c.ftl\">"  to list SYST
 file SYS_CLK_C "$HARMONY_VERSION_PATH/framework/system/clk/src/sys_clk.c" to "$PROJECT_SOURCE_FILES/framework/system/clk/src/sys_clk.c"
 file SYS_CLK_LOCAL_H "$HARMONY_VERSION_PATH/framework/system/clk/src/sys_clk_local.h" to "$PROJECT_HEADER_FILES/framework/system/clk/src/sys_clk_local.h"
 file SYS_CLK_VAR_MAPPING_H "$HARMONY_VERSION_PATH/framework/system/clk/src/sys_clk_variant_mapping.h" to "$PROJECT_HEADER_FILES/framework/system/clk/src/sys_clk_variant_mapping.h"
-file SYS_CLK_PIC32MX_H "$HARMONY_VERSION_PATH/framework/system/clk/src/sys_clk_pic32mx.h" to "$PROJECT_HEADER_FILES/framework/system/clk/src/sys_clk_pic32mx.h" if PIC32MX
-file SYS_CLK_PIC32MX_C "$HARMONY_VERSION_PATH/framework/system/clk/src/sys_clk_pic32mx.c" to "$PROJECT_SOURCE_FILES/framework/system/clk/src/sys_clk_pic32mx.c" if PIC32MX
+file SYS_CLK_PIC32MX_H "$HARMONY_VERSION_PATH/framework/system/clk/src/sys_clk_pic32mx.h" to "$PROJECT_HEADER_FILES/framework/system/clk/src/sys_clk_pic32mx.h" if (PIC32MX && !DS60001404)
+file SYS_CLK_PIC32MX_C "$HARMONY_VERSION_PATH/framework/system/clk/src/sys_clk_pic32mx.c" to "$PROJECT_SOURCE_FILES/framework/system/clk/src/sys_clk_pic32mx.c" if (PIC32MX && !DS60001404)
 file SYS_CLK_PIC32MZ_H "$HARMONY_VERSION_PATH/framework/system/clk/src/sys_clk_pic32mz.h" to "$PROJECT_HEADER_FILES/framework/system/clk/src/sys_clk_pic32mz.h" if PIC32MZ
 file SYS_CLK_PIC32MZ_C "$HARMONY_VERSION_PATH/framework/system/clk/src/sys_clk_pic32mz.c" to "$PROJECT_SOURCE_FILES/framework/system/clk/src/sys_clk_pic32mz.c" if PIC32MZ
-file SYS_CLK_PIC32MK_H "$HARMONY_VERSION_PATH/framework/system/clk/src/sys_clk_pic32mk.h" to "$PROJECT_HEADER_FILES/framework/system/clk/src/sys_clk_pic32mk.h" if PIC32MK
-file SYS_CLK_PIC32MK_C "$HARMONY_VERSION_PATH/framework/system/clk/src/sys_clk_pic32mk.c" to "$PROJECT_SOURCE_FILES/framework/system/clk/src/sys_clk_pic32mk.c" if PIC32MK
+file SYS_CLK_PIC32MK_H "$HARMONY_VERSION_PATH/framework/system/clk/src/sys_clk_pic32mk.h" to "$PROJECT_HEADER_FILES/framework/system/clk/src/sys_clk_pic32mk.h" if (PIC32MK || DS60001404)
+file SYS_CLK_PIC32MK_C "$HARMONY_VERSION_PATH/framework/system/clk/src/sys_clk_pic32mk.c" to "$PROJECT_SOURCE_FILES/framework/system/clk/src/sys_clk_pic32mk.c" if (PIC32MK || DS60001404)
 
 file SYS_CLK_PIC32WK_H "$HARMONY_VERSION_PATH/framework/system/clk/src/sys_clk_pic32wk.h" to "$PROJECT_HEADER_FILES/framework/system/clk/src/sys_clk_pic32wk.h" if PIC32WK
 file SYS_CLK_PIC32WK_C "$HARMONY_VERSION_PATH/framework/system/clk/src/sys_clk_pic32wk.c" to "$PROJECT_SOURCE_FILES/framework/system/clk/src/sys_clk_pic32wk.c" if PIC32WK

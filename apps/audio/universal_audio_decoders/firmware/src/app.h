@@ -153,6 +153,7 @@ typedef enum{
     APP_STREAM_SPEEX,
     APP_STREAM_ADPCM,
     APP_STREAM_OPUS,
+    APP_STREAM_FLAC,
 }PLAYER_STREAM_TYPE;
 
 typedef enum{
@@ -174,6 +175,7 @@ typedef enum{
     APP_DECODER_WAV,
     APP_DECODER_SPEEX,
     APP_DECODER_OPUS,
+    APP_DECODER_FLAC,
     APP_DECODER_UNKNOWN,
 
 }APP_DECODER_TYPE;
@@ -248,6 +250,7 @@ typedef struct{
     bool SPEEX_decoder_enabled;
     bool ADPCM_decoder_enabled;
     bool OPUS_decoder_enabled;
+    bool FLAC_decoder_enabled;
     
     UpdatePlaytimeFuncPtr updatePlaytimeFunc;
     

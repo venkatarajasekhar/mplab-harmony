@@ -9,7 +9,7 @@
 *                                                                    *
 **********************************************************************
 
-** emWin V5.34 - Graphical user interface for embedded applications **
+** emWin V5.36 - Graphical user interface for embedded applications **
 All  Intellectual Property rights  in the Software belongs to  SEGGER.
 emWin is protected by  international copyright laws.  Knowledge of the
 source code may not be used to write a similar product.  This file may
@@ -26,16 +26,6 @@ libraries. Full source code is available at: www.segger.com
 
 We appreciate your understanding and fairness.
 ----------------------------------------------------------------------
-Licensing information
-
-Licensor:                 SEGGER Microcontroller Systems LLC
-Licensed to:              Microchip Technology Inc., 2355 W Chandler Blvd., Chandler, AZ 85224, US
-Licensed SEGGER software: emWin
-License number:           GUI-00614
-License model:            CPU Object Code License, dated Sept. 8, 2015
-Licensed product:         Any
-Licensed platform:        PIC24, PIC32, dsPIC, PIC16, PIC18 / MPLAB X Integrated Development Evironment, XC16 C Compiler, XC32 C/C++ Compiler
-Licensed number of seats: -
 ----------------------------------------------------------------------
 File        : GRAPH.h
 Purpose     : GRAPH include
@@ -158,6 +148,8 @@ void      GRAPH_SetUserDraw            (GRAPH_Handle hObj, void (* pOwnerDraw)(W
 void      GRAPH_DATA_YT_AddValue       (GRAPH_DATA_Handle hDataObj, I16 Value);
 void      GRAPH_DATA_YT_Clear          (GRAPH_DATA_Handle hDataObj);
 void      GRAPH_DATA_YT_Delete         (GRAPH_DATA_Handle hDataObj);
+int       GRAPH_DATA_YT_GetValue       (GRAPH_DATA_Handle hDataObj, I16 * pValue, U32 Index);
+
 void      GRAPH_DATA_YT_SetAlign       (GRAPH_DATA_Handle hDataObj, int Align);
 void      GRAPH_DATA_YT_SetOffY        (GRAPH_DATA_Handle hDataObj, int Off);
 void      GRAPH_DATA_YT_MirrorX        (GRAPH_DATA_Handle hDataObj, int OnOff);
@@ -166,6 +158,7 @@ void      GRAPH_DATA_XY_AddPoint       (GRAPH_DATA_Handle hDataObj, GUI_POINT * 
 void      GRAPH_DATA_XY_Clear          (GRAPH_DATA_Handle hDataObj);
 void      GRAPH_DATA_XY_Delete         (GRAPH_DATA_Handle hDataObj);
 unsigned  GRAPH_DATA_XY_GetLineVis     (GRAPH_DATA_Handle hDataObj);
+int       GRAPH_DATA_XY_GetPoint       (GRAPH_DATA_Handle hDataObj, GUI_POINT * pPoint, U32 Index);
 unsigned  GRAPH_DATA_XY_GetPointVis    (GRAPH_DATA_Handle hDataObj);
 void      GRAPH_DATA_XY_SetLineStyle   (GRAPH_DATA_Handle hDataObj, U8 LineStyle);
 unsigned  GRAPH_DATA_XY_SetLineVis     (GRAPH_DATA_Handle hDataObj, unsigned OnOff);

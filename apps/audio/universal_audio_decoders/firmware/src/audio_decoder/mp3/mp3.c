@@ -1,4 +1,4 @@
-#include "decoder.h"
+#include "mp3.h"
 
 bool MP3_Initialize ( void *heap, uint16_t size, SYS_FS_HANDLE mp3Filehandle)
 {

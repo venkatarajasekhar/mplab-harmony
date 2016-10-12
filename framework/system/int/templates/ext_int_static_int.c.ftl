@@ -72,7 +72,7 @@ void __ISR(${ISR_VECTOR}, IPL${INT_PRIO}AUTO) _IntHandlerExternalInterruptInstan
     </#if>
     <#if INST_NUMBER == CONFIG_DRV_WIFI_EXT_INT_INSTANCE_INDEX>
       <#if CONFIG_DRV_WIFI_DEVICE == "MRF24WG">
-        <#if CONFIG_3RDPARTY_RTOS_USED == "FreeRTOS_V8.x.x">
+        <#if CONFIG_3RDPARTY_RTOS_USED == "FreeRTOS">
     SYS_INT_SourceDisable(MRF_INT_SOURCE); // disable further interrupts
     DRV_WIFI_DeferredISR_SemGive();
         <#else>

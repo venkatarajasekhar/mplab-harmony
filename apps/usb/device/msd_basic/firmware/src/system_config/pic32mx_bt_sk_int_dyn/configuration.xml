@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX270F256D"/>
@@ -162,6 +166,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -242,12 +250,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_bt_sk_int_dyn/framework/system/clk/src</Path>
-        <Checksum>6AF033A7E8ECB69981D88ED27526EF17</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_bt_sk_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>9E1735DC00A06796E5D2C1A7FF8668AC</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -276,7 +279,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_bt_sk_int_dyn</Path>
-        <Checksum>1D9F7D7D46186602225254259A1DCF4B</Checksum>
+        <Checksum>B1E3603E083C52B2A32712725AF55D10</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -300,8 +303,8 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_bt_sk_int_dyn</Path>
-        <Checksum>8D69B97591E70CCFE514CE7B936E05F5</Checksum>
-        <ProjectFileChecksum>5EEC07924C32FF9805A88113CA1A842D</ProjectFileChecksum>
+        <Checksum>FEF4C15C02594FD50596310146FF53E1</Checksum>
+        <ProjectFileChecksum>6FDBBD5BF5E70AA81387E794B3E3B583</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -311,10 +314,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="D:\git_view\isp_trunk\mcu32apps\apps\usb\device\msd_basic\firmware\src"/>
-        <Include value="D:\git_view\isp_trunk\mcu32apps\apps\usb\device\msd_basic\firmware\src\system_config\pic32mx_bt_sk_int_dyn"/>
-        <Include value="D:\git_view\isp_trunk\mcu32apps\framework"/>
-        <Include value="D:\git_view\isp_trunk\mcu32apps\apps\usb\device\msd_basic\firmware\src\system_config\pic32mx_bt_sk_int_dyn\framework"/>
+        <Include value="D:\git_repositories\usb\apps\usb\device\msd_basic\firmware\src"/>
+        <Include value="D:\git_repositories\usb\apps\usb\device\msd_basic\firmware\src\system_config\pic32mx_bt_sk_int_dyn"/>
+        <Include value="D:\git_repositories\usb\framework"/>
+        <Include value="D:\git_repositories\usb\apps\usb\device\msd_basic\firmware\src\system_config\pic32mx_bt_sk_int_dyn\framework"/>
         <Include value="../src/system_config/pic32mx_bt_sk_int_dyn/bsp"/>
       </C32>
     </CompilerItems>

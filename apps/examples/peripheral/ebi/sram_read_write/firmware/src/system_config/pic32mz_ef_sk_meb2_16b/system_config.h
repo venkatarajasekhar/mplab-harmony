@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -91,7 +87,12 @@ extern "C" {
 #define SYS_CLK_BUS_PERIPHERAL_8            100000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         24000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       0ul
-   
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
+
 // *****************************************************************************
 /* Memory System Service Configuration Options
 */
@@ -154,7 +155,7 @@ extern "C" {
 #define SYS_PORT_G_CNEN         0x0000
 
 #define SYS_PORT_H_ANSEL        0x0030
-#define SYS_PORT_H_TRIS         0xFFB0
+#define SYS_PORT_H_TRIS         0xF7B0
 #define SYS_PORT_H_LAT          0x0000
 #define SYS_PORT_H_ODC          0x0000
 #define SYS_PORT_H_CNPU         0x0000
@@ -176,7 +177,6 @@ extern "C" {
 #define SYS_PORT_K_CNPU         0x0000
 #define SYS_PORT_K_CNPD         0x0000
 #define SYS_PORT_K_CNEN         0x0000
-
 
 
 // *****************************************************************************

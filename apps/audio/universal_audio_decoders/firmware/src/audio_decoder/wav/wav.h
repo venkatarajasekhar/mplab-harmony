@@ -42,6 +42,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include <stdint.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include "system/fs/sys_fs.h"
 
 #ifndef WAV_H
 
@@ -56,11 +57,9 @@ extern "C" {
 #define WAVE_FORMAT_PCM    0x0001
 #define WAVE_FORMAT_ALAW   0x0006
 #define WAVE_FORMAT_MULAW  0x0007
-#define WAV_HEADER_SIZE 44
-//#define WAV_HEAP_SIZE  1024
-//#define WAV_INPUT_BUFFER_SIZE        ((2544*4)) //working perfectly
-#define WAV_INPUT_BUFFER_SIZE        ((1152*6))
-#define WAV_OUTPUT_BUFFER_SIZE       WAV_INPUT_BUFFER_SIZE
+#define WAV_HEADER_SIZE    44
+#define WAV_INPUT_BUFFER_SIZE       (DECODER_MAX_OUTPUT_BUFFER_SIZE>DECODER_MAX_INPUT_BUFFER_SIZE?DECODER_MAX_INPUT_BUFFER_SIZE:DECODER_MAX_OUTPUT_BUFFER_SIZE)
+#define WAV_OUTPUT_BUFFER_SIZE      (WAV_INPUT_BUFFER_SIZE)
 
 
 typedef struct {
@@ -94,6 +93,10 @@ typedef struct{
 
 
 void WAV_Initialize(uint8_t *input);
+void WAV_Initialize_N(uint8_t *input, SYS_FS_HANDLE wavFilehandle);
+uint16_t WAV_GetSampleRate(void);
+uint32_t WAV_GetBitRate(void);
+uint32_t WAV_GetDuration(void);
 uint32_t WAV_GetAudioSize();
 bool WAV_Decoder(uint8_t *input, uint16_t inSize, uint16_t *read, int16_t *output, uint16_t *written);
 int WAV_HdrGetSamplesPerSec(void);

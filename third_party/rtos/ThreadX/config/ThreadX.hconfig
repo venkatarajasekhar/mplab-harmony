@@ -21,6 +21,18 @@ config THREADX_TX_DISABLE_ERROR_CHECKING
 <p>When error checking is disabled, MHC defines the ThreadX preprocessor variable TX_DISABLE_ERROR_CHECKING.</p>   
     ---endhelp---
 
+config THREADX_TICK_INTERRUPT
+    select USE_SYS_INT_NEEDED
+    bool "Tick interrupt"
+    default y
+    persistent
+    
+    ---help---
+<p>	<strong>ThreadX - Tick Interrupt </strong></p>
+<p>	Enables (when set to 1) or disables (when set to 0) the code generation of the system interrupt services </p>
+<p>	MHC sets the system service preprocessor variable SYS_INT to TRUE.</p>
+    ---endhelp---
+    
 config THREADX_TX_MAX_PRIORITIES
     int "Maximum number of priority levels"
     default 32

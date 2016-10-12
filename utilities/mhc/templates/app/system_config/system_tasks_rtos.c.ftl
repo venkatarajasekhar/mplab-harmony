@@ -198,6 +198,14 @@ CPU_STK _DRV_SST25VF016B_IDX1_TasksStk[${CONFIG_DRV_SST25VF016B_IDX1_RTOS_TASK_S
 OS_TCB  _DRV_IPF_Tasks_TCB;
 CPU_STK _DRV_IPF_TasksStk[${CONFIG_DRV_IPF_RTOS_TASK_SIZE}];
 </#if>
+<#if CONFIG_DRV_SST25_INST_IDX0 == true && CONFIG_DRV_SST0B_RTOS_IDX0 == "Standalone">
+OS_TCB  _DRV_SST25_IDX0_Tasks_TCB;
+CPU_STK _DRV_SST25_IDX0_TasksStk[${CONFIG_DRV_SST25_IDX0_RTOS_TASK_SIZE}];
+</#if>
+<#if CONFIG_DRV_SST25_INST_IDX1 == true && CONFIG_DRV_SST25_RTOS_IDX1 == "Standalone">
+OS_TCB  _DRV_SST25_IDX1_Tasks_TCB;
+CPU_STK _DRV_SST25_IDX1_TasksStk[${CONFIG_DRV_SST25_IDX1_RTOS_TASK_SIZE}];
+</#if>
 <#if CONFIG_DRV_SST25VF020B_INST_IDX0 == true && CONFIG_DRV_SST25VF020B_RTOS_IDX0 == "Standalone">
 OS_TCB  _DRV_SST25VF020B_IDX0_Tasks_TCB;
 CPU_STK _DRV_SST25VF020B_IDX0_TasksStk[${CONFIG_DRV_SST25VF020B_IDX0_RTOS_TASK_SIZE}];
@@ -469,6 +477,12 @@ OS_STK _DRV_SST25VF016B_IDX1_TasksStk[${CONFIG_DRV_SST25VF016B_IDX1_RTOS_TASK_SI
 <#if CONFIG_USE_DRV_IPF == true && CONFIG_DRV_IPF_RTOS == "Standalone">
 OS_STK _DRV_IPF_TasksStk[${CONFIG_DRV_IPF_RTOS_TASK_SIZE}];
 </#if>
+<#if CONFIG_DRV_SST25_INST_IDX0 == true && CONFIG_DRV_SST25_RTOS_IDX0 == "Standalone">
+OS_STK _DRV_SST25_IDX0_TasksStk[${CONFIG_DRV_SST25_IDX0_RTOS_TASK_SIZE}];
+</#if>
+<#if CONFIG_DRV_SST25_INST_IDX1 == true && CONFIG_DRV_SST25_RTOS_IDX1 == "Standalone">
+OS_STK _DRV_SST25_IDX1_TasksStk[${CONFIG_DRV_SST25_IDX1_RTOS_TASK_SIZE}];
+</#if>
 <#if CONFIG_DRV_SST25VF020B_INST_IDX0 == true && CONFIG_DRV_SST25VF020B_RTOS_IDX0 == "Standalone">
 OS_STK _DRV_SST25VF020B_IDX0_TasksStk[${CONFIG_DRV_SST25VF020B_IDX0_RTOS_TASK_SIZE}];
 </#if>
@@ -724,6 +738,14 @@ TX_THREAD  _DRV_SST25VF016B_IDX1_Tasks_TCB;
 <#if CONFIG_USE_DRV_IPF == true && CONFIG_DRV_IPF_RTOS == "Standalone">
 TX_THREAD  _DRV_IPF_Tasks_TCB;
 <#assign THREADX_TOTAL_THREADSTK_SIZE = THREADX_TOTAL_THREADSTK_SIZE + CONFIG_DRV_IPF_RTOS_TASK_SIZE?number>
+</#if>
+<#if CONFIG_DRV_SST25_INST_IDX0 == true && CONFIG_DRV_SST25_RTOS_IDX0 == "Standalone">
+TX_THREAD  _DRV_SST25_IDX0_Tasks_TCB;
+<#assign THREADX_TOTAL_THREADSTK_SIZE = THREADX_TOTAL_THREADSTK_SIZE + CONFIG_DRV_SST25_IDX0_RTOS_TASK_SIZE?number>
+</#if>
+<#if CONFIG_DRV_SST25_INST_IDX1 == true && CONFIG_DRV_SST25_RTOS_IDX1 == "Standalone">
+TX_THREAD  _DRV_SST25_IDX1_Tasks_TCB;
+<#assign THREADX_TOTAL_THREADSTK_SIZE = THREADX_TOTAL_THREADSTK_SIZE + CONFIG_DRV_SST25_IDX1_RTOS_TASK_SIZE?number>
 </#if>
 <#if CONFIG_DRV_SST25VF020B_INST_IDX0 == true && CONFIG_DRV_SST25VF020B_RTOS_IDX0 == "Standalone">
 TX_THREAD  _DRV_SST25VF020B_IDX0_Tasks_TCB;
@@ -1030,7 +1052,14 @@ uint32_t _DRV_SST25VF016B_IDX1_TasksStk[${CONFIG_DRV_SST25VF016B_IDX1_RTOS_TASK_
 OS_TASK  _DRV_IPF_Tasks_TCB;
 uint32_t _DRV_IPF_TasksStk[${CONFIG_DRV_IPF_RTOS_TASK_SIZE}];
 </#if>
-
+<#if CONFIG_DRV_SST25_INST_IDX0 == true && CONFIG_DRV_SST25_RTOS_IDX0 == "Standalone">
+OS_TASK  _DRV_SST25_IDX0_Tasks_TCB;
+uint32_t _DRV_SST25_IDX0_TasksStk[${CONFIG_DRV_SST25_IDX0_RTOS_TASK_SIZE}];
+</#if>
+<#if CONFIG_DRV_SST25_INST_IDX1 == true && CONFIG_DRV_SST25_RTOS_IDX1 == "Standalone">
+OS_TASK  _DRV_SST25_IDX1_Tasks_TCB;
+uint32_t _DRV_SST25_IDX1_TasksStk[${CONFIG_DRV_SST25_IDX1_RTOS_TASK_SIZE}];
+</#if>
 <#if CONFIG_DRV_SST25VF020B_INST_IDX0 == true && CONFIG_DRV_SST25VF020B_RTOS_IDX0 == "Standalone">
 OS_TASK  _DRV_SST25VF020B_IDX0_Tasks_TCB;
 uint32_t _DRV_SST25VF020B_IDX0_TasksStk[${CONFIG_DRV_SST25VF020B_IDX0_RTOS_TASK_SIZE}];
@@ -1286,6 +1315,10 @@ static void _SYS_Tasks ( void );
 <#assign DRV_USART_TASKS = "PROTO">
 <#include "/framework/driver/usart/templates/drv_usart_tasks.c.ftl">
 </#if>
+<#if CONFIG_USE_DRV_SST25 == true>
+<#assign DRV_SST25_TASKS = "PROTO">
+<#include "/framework/driver/spi_flash/sst25/templates/drv_sst25_tasks.c.ftl">
+</#if>
 <#if CONFIG_USE_DRV_SST25VF020B == true>
 <#assign DRV_SST25VF020B_TASKS = "PROTO">
 <#include "/framework/driver/spi_flash/sst25vf020b/templates/drv_sst25vf020b_tasks.c.ftl">
@@ -1305,6 +1338,10 @@ static void _SYS_Tasks ( void );
 <#if CONFIG_DRV_SPI_USE_DRIVER == true>
 <#assign DRV_SPI_TASKS = "PROTO">
 <#include "/framework/driver/spi/config/drv_spi_tasks.c.ftl">
+</#if>
+<#if CONFIG_USE_DRV_SST26 == true>
+<#assign DRV_SST26_TASKS = "PROTO">
+<#include "/framework/driver/sqi_flash/sst26/config/drv_sst26_tasks.c.ftl">
 </#if>
 <#if CONFIG_USE_DRV_I2S == true>
 <#assign DRV_I2S_TASKS = "PROTO">
@@ -1522,7 +1559,7 @@ static void _${APP_NAME?upper_case}_Tasks(void)
     {
         ${APP_NAME?upper_case}_Tasks();
 <#if APP_USE_DELAY>
-<#if (RTOS_NAME == "FreeRTOS_V8.x.x") || (RTOS_NAME == "OpenRTOS_V8.x.x")>
+<#if (RTOS_NAME == "FreeRTOS") || (RTOS_NAME == "OpenRTOS_V8.x.x")>
 <#if CONFIG_FREERTOS_ENABLE_BACKWARD_COMPATIBILITY == true>
         vTaskDelay(${APP_DELAY} / portTICK_RATE_MS);
 <#else>
@@ -1601,6 +1638,10 @@ void tx_application_define(void* first_unused_memory)
 <#assign DRV_USART_TASKS = "CREATE_TASK">
 <#include "/framework/driver/usart/templates/drv_usart_tasks.c.ftl">
 </#if>
+<#if CONFIG_USE_DRV_SST25 == true>
+<#assign DRV_SST25_TASKS = "CREATE_TASK">
+<#include "/framework/driver/spi_flash/sst25/templates/drv_sst25_tasks.c.ftl">
+</#if>
 <#if CONFIG_USE_DRV_SST25VF020B == true>
 <#assign DRV_SST25VF020B_TASKS = "CREATE_TASK">
 <#include "/framework/driver/spi_flash/sst25vf020b/templates/drv_sst25vf020b_tasks.c.ftl">
@@ -1616,6 +1657,10 @@ void tx_application_define(void* first_unused_memory)
 <#if CONFIG_DRV_SPI_USE_DRIVER == true>
 <#assign DRV_SPI_TASKS = "CREATE_TASK">
 <#include "/framework/driver/spi/config/drv_spi_tasks.c.ftl">
+</#if>
+<#if CONFIG_USE_DRV_SST26 == true>
+<#assign DRV_SST26_TASKS = "CREATE_TASK">
+<#include "/framework/driver/sqi_flash/sst26/config/drv_sst26_tasks.c.ftl">
 </#if>
 <#if CONFIG_USE_DRV_I2S == true>
 <#assign DRV_I2S_TASKS = "CREATE_TASK">
@@ -1769,6 +1814,10 @@ void SYS_Tasks ( void )
 <#assign DRV_USART_TASKS = "CREATE_TASK">
 <#include "/framework/driver/usart/templates/drv_usart_tasks.c.ftl">
 </#if>
+<#if CONFIG_USE_DRV_SST25 == true>
+<#assign DRV_SST25_TASKS = "CREATE_TASK">
+<#include "/framework/driver/spi_flash/sst25/templates/drv_sst25_tasks.c.ftl">
+</#if>
 <#if CONFIG_USE_DRV_SST25VF020B == true>
 <#assign DRV_SST25VF020B_TASKS = "CREATE_TASK">
 <#include "/framework/driver/spi_flash/sst25vf020b/templates/drv_sst25vf020b_tasks.c.ftl">
@@ -1788,6 +1837,10 @@ void SYS_Tasks ( void )
 <#if CONFIG_DRV_SPI_USE_DRIVER == true>
 <#assign DRV_SPI_TASKS = "CREATE_TASK">
 <#include "/framework/driver/spi/config/drv_spi_tasks.c.ftl">
+</#if>
+<#if CONFIG_USE_DRV_SST26 == true>
+<#assign DRV_SST26_TASKS = "CREATE_TASK">
+<#include "/framework/driver/sqi_flash/sst26/config/drv_sst26_tasks.c.ftl">
 </#if>
 <#if CONFIG_USE_DRV_I2S == true>
 <#assign DRV_I2S_TASKS = "CREATE_TASK">
@@ -1877,7 +1930,7 @@ void SYS_Tasks ( void )
     /**************
      * Start RTOS * 
      **************/
-<#if (CONFIG_3RDPARTY_RTOS_USED == "FreeRTOS_V8.x.x") || (CONFIG_3RDPARTY_RTOS_USED == "OpenRTOS_V8.x.x")>
+<#if (CONFIG_3RDPARTY_RTOS_USED == "FreeRTOS") || (CONFIG_3RDPARTY_RTOS_USED == "OpenRTOS_V8.x.x")>
     vTaskStartScheduler(); /* This function never returns. */
 </#if>
 <#if CONFIG_3RDPARTY_RTOS_USED == "uC/OS-III">
@@ -1963,6 +2016,10 @@ static void _SYS_Tasks ( void)
 <#assign DRV_USART_TASKS = "TASK_CALL">
 <#include "/framework/driver/usart/templates/drv_usart_tasks.c.ftl">
 </#if>
+<#if CONFIG_USE_DRV_SST25 == true>
+<#assign DRV_SST25_TASKS = "TASK_CALL">
+<#include "/framework/driver/spi_flash/sst25/templates/drv_sst25_tasks.c.ftl">
+</#if>
 <#if CONFIG_USE_DRV_SST25VF020B == true>
 <#assign DRV_SST25VF020B_TASKS = "TASK_CALL">
 <#include "/framework/driver/spi_flash/sst25vf020b/templates/drv_sst25vf020b_tasks.c.ftl">
@@ -1982,6 +2039,10 @@ static void _SYS_Tasks ( void)
 <#if CONFIG_DRV_SPI_USE_DRIVER == true>
 <#assign DRV_SPI_TASKS = "TASK_CALL">
 <#include "/framework/driver/spi/config/drv_spi_tasks.c.ftl">
+</#if>
+<#if CONFIG_USE_DRV_SST26 == true>
+<#assign DRV_SST26_TASKS = "TASK_CALL">
+<#include "/framework/driver/sqi_flash/sst26/config/drv_sst26_tasks.c.ftl">
 </#if>
 <#if CONFIG_USE_DRV_I2S == true>
 <#assign DRV_I2S_TASKS = "TASK_CALL">
@@ -2083,6 +2144,10 @@ static void _SYS_Tasks ( void)
 <#assign DRV_USART_TASKS = "LOCAL_FUNCTION">
 <#include "/framework/driver/usart/templates/drv_usart_tasks.c.ftl">
 </#if>
+<#if CONFIG_USE_DRV_SST25 == true>
+<#assign DRV_SST25_TASKS = "LOCAL_FUNCTION">
+<#include "/framework/driver/spi_flash/sst25/templates/drv_sst25_tasks.c.ftl">
+</#if>
 <#if CONFIG_USE_DRV_SST25VF020B == true>
 <#assign DRV_SST25VF020B_TASKS = "LOCAL_FUNCTION">
 <#include "/framework/driver/spi_flash/sst25vf020b/templates/drv_sst25vf020b_tasks.c.ftl">
@@ -2102,6 +2167,10 @@ static void _SYS_Tasks ( void)
 <#if CONFIG_DRV_SPI_USE_DRIVER == true>
 <#assign DRV_SPI_TASKS = "LOCAL_FUNCTION">
 <#include "/framework/driver/spi/config/drv_spi_tasks.c.ftl">
+</#if>
+<#if CONFIG_USE_DRV_SST26 == true>
+<#assign DRV_SST26_TASKS = "LOCAL_FUNCTION">
+<#include "/framework/driver/sqi_flash/sst26/config/drv_sst26_tasks.c.ftl">
 </#if>
 <#if CONFIG_USE_DRV_I2S == true>
 <#assign DRV_I2S_TASKS = "LOCAL_FUNCTION">

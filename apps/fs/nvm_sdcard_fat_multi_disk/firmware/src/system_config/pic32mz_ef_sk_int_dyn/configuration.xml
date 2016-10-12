@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -230,6 +234,10 @@
         <Path>Header Files/framework/driver/sdcard</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -324,7 +332,7 @@
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn/framework/driver/spi/dynamic</Path>
-        <Checksum>B3A91E83D97E20F2E6AE74F22B6F32E1</Checksum>
+        <Checksum>615D0B3998780D1680273302CCF44179</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -337,39 +345,34 @@
         <Checksum>B00B90E021F15FFD6B0B1B7F2D0650A5</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn/framework/driver/spi/dynamic</Path>
-        <Checksum>0468A6AC4EF824897AA5C22F6EAFBB43</Checksum>
+        <Checksum>B8D534FC99E9DAC9CE3CE2AFE17C3907</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn/bsp</Path>
-        <Checksum>FB16F3E8BBE4E3DF1D43A1459B0C7A8E</Checksum>
+        <Checksum>9AFAF3F6210EF658384438E21E6E4724</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn</Path>
-        <Checksum>99BFFBB7BF30207C5B48D33E0B9E4BD7</Checksum>
+        <Checksum>D527A64CA4168036F0E6C65E31549FBD</Checksum>
         <ProjectFileChecksum>122AD856609576C9AD36D8776CAF901C</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn</Path>
-        <Checksum>2959CBC12EF7BFAF64D33B863B1CE491</Checksum>
+        <Checksum>41F27E1A652E577E8C735261F8D1E83A</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_int_dyn/bsp</Path>
-        <Checksum>F45D3FB1DCD997D286E66B8F8708C841</Checksum>
+        <Checksum>E25CE2E8561A30622F0189580F28A92A</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -383,7 +386,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn/framework/system/clk/src</Path>
-        <Checksum>6C07E4984368F52244D6790084A8ED66</Checksum>
+        <Checksum>091679006649FD2C1F94CE9EF4A2F7B6</Checksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
@@ -393,16 +396,15 @@
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_int_dyn</Path>
-        <Checksum>35D56B0B28D7C10315CCB1435996BA94</Checksum>
+        <Checksum>0E2F06A6753663FE71D9017C5572CF37</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_multi_disk\firmware\src"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_multi_disk\firmware\src\system_config\pic32mz_ef_sk_int_dyn"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_multi_disk\firmware\src\pic32mz_ef_sk_int_dyn"/>
-        <Include value="D:\trunk_sbx\framework"/>
-        <Include value="D:\trunk_sbx\apps\fs\nvm_sdcard_fat_multi_disk\firmware\src\system_config\pic32mz_ef_sk_int_dyn\framework"/>
+        <Include value="D:/trunk_sbx/apps/fs/nvm_sdcard_fat_multi_disk/firmware/src"/>
+        <Include value="D:/trunk_sbx/apps/fs/nvm_sdcard_fat_multi_disk/firmware/src/system_config/pic32mz_ef_sk_int_dyn"/>
+        <Include value="D:/trunk_sbx/framework"/>
+        <Include value="D:/trunk_sbx/apps/fs/nvm_sdcard_fat_multi_disk/firmware/src/system_config/pic32mz_ef_sk_int_dyn/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_int_dyn/bsp"/>
       </C32>
     </CompilerItems>

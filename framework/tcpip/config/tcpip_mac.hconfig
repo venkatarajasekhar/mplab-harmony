@@ -68,7 +68,7 @@ config TCPIP_EMAC_RX_INIT_BUFFERS
     ---endhelp---
     
 config TCPIP_EMAC_RX_LOW_THRESHOLD
-    int "Minumum threshold for the buffer replenish process"
+    int "Minimum threshold for the buffer replenish process"
     depends on TCPIP_USE_ETH_MAC
     default 1
     ---help---

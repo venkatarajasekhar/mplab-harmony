@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -194,6 +194,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>osal_impl_none.h</Name>
         <Path>Header Files/framework/osal/src</Path>
       </File>
@@ -270,7 +274,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn/bsp</Path>
-        <Checksum>D0BABDD8CC269B7DE3BA98239B5ECC8D</Checksum>
+        <Checksum>EE96DD12865E6C7F0453E07B26BCF042</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -294,7 +298,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -308,35 +312,30 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn/bsp</Path>
-        <Checksum>999832C5BD5B6EC600BB84C682241D0C</Checksum>
+        <Checksum>7567B3DF8AD82B4BA40BB70A80E7AC51</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mx795_pim_e16_int_dyn</Path>
         <Checksum>ABE81FBA8D4FA9C439627F7E1075FC7B</Checksum>
+        <ProjectFileChecksum>F73D196D1C89AF711C902D484051B5B3</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn</Path>
-        <Checksum>36C7F006FA552D7883381FD8C4897037</Checksum>
+        <Checksum>6D61D8CC1B24F8CBCB3BB68790191D77</Checksum>
         <ProjectFileChecksum>44BE39D67BB4BE44A6D58BD68D026D39</ProjectFileChecksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx795_pim_e16_int_dyn</Path>
-        <Checksum>71F283C874FDE9D37182FF53E83C9BF6</Checksum>
+        <Checksum>912C965F381C73C9B94AC8F7CB16F658</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
         <Include value="E:\GIT\ISP_GIT\Repository\usb\apps\usb\host\hid_basic_keyboard\firmware\src"/>
         <Include value="E:\GIT\ISP_GIT\Repository\usb\apps\usb\host\hid_basic_keyboard\firmware\src\system_config\pic32mx795_pim_e16_int_dyn"/>
-        <Include value="E:\GIT\ISP_GIT\Repository\usb\apps\usb\host\hid_basic_keyboard\firmware\src\pic32mx795_pim_e16_int_dyn"/>
         <Include value="E:\GIT\ISP_GIT\Repository\usb\framework"/>
         <Include value="E:\GIT\ISP_GIT\Repository\usb\apps\usb\host\hid_basic_keyboard\firmware\src\system_config\pic32mx795_pim_e16_int_dyn\framework"/>
         <Include value="../src/system_config/pic32mx795_pim_e16_int_dyn/bsp"/>

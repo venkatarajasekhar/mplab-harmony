@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.10">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -202,6 +202,10 @@
         <Path>Header Files/framework/usb</Path>
       </File>
       <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
         <Name>usb_host_cdc_local.h</Name>
         <Path>Header Files/framework/usb/src</Path>
       </File>
@@ -278,7 +282,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn</Path>
-        <Checksum>8B604DA75BB32FCFE6B598414ED9E0BD</Checksum>
+        <Checksum>0C3D99A4C4F36BCAFAB589DBD86CDA3F</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -301,18 +305,13 @@
         <Checksum>63FB3718B3895018DBD91EBAF461151B</Checksum>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>app.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_dyn</Path>
-        <Checksum>924D8248F9E631F98B39F79E56BAEA75</Checksum>
+        <Checksum>E3E706525A3B0A591164DB38A77CC7F9</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -321,7 +320,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_dyn/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
@@ -341,10 +340,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/cm/Harmony/apps/usb/host/cdc_basic/firmware/src"/>
-        <Include value="C:/cm/Harmony/apps/usb/host/cdc_basic/firmware/src/system_config/pic32mx_usb_sk2_int_dyn"/>
-        <Include value="C:/cm/Harmony/framework"/>
-        <Include value="C:/cm/Harmony/apps/usb/host/cdc_basic/firmware/src/system_config/pic32mx_usb_sk2_int_dyn/framework"/>
+        <Include value="D:/git_usb/usb/apps/usb/host/cdc_basic/firmware/src"/>
+        <Include value="D:/git_usb/usb/apps/usb/host/cdc_basic/firmware/src/system_config/pic32mx_usb_sk2_int_dyn"/>
+        <Include value="D:/git_usb/usb/framework"/>
+        <Include value="D:/git_usb/usb/apps/usb/host/cdc_basic/firmware/src/system_config/pic32mx_usb_sk2_int_dyn/framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_int_dyn/bsp"/>
       </C32>
     </CompilerItems>

@@ -79,6 +79,8 @@ extern "C" {
 #define APP_LED5_OFF()        BSP_LEDOff(BSP_LED_9)
 #define APP_LED5_TOGGLE()     BSP_LEDToggle(BSP_LED_9)
 
+// AK4642 Codec DB
+#define USE_EXT_MIC
 
 void APP_CODECBufferEventHandler(DRV_CODEC_BUFFER_EVENT event, DRV_CODEC_BUFFER_HANDLE handle, uintptr_t context );
 #ifdef __cplusplus

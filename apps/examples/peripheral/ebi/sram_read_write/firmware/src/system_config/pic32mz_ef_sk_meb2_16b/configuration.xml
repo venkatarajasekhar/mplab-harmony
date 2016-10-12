@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name=""/>
@@ -70,6 +70,10 @@
         <Path>Header Files/framework/system/devcon/src</Path>
       </File>
       <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
         <Name>sys_common.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -85,6 +89,10 @@
         <Name>sys_memory.h</Name>
         <Path>Header Files/framework/system/memory</Path>
       </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
     </Files>
     <Templates>
       <Template>
@@ -95,7 +103,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_16b</Path>
-        <Checksum>8235E25700139455E101372A49E33898</Checksum>
+        <Checksum>E3F3ACF718EE6605CC78BE6409461CD8</Checksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
@@ -119,17 +127,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_16b/framework/system/clk/src</Path>
-        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+        <Checksum>CC45A61DC821F2A45FBFD5EB0F76DD59</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_16b</Path>
         <Checksum>4F89353325928624FC4B4E01B8970E72</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_16b/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
       </Template>
       <Template>
         <Name>sys_memory_static.c</Name>
@@ -143,7 +146,7 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk_meb2_16b/bsp</Path>
-        <Checksum>FB16F3E8BBE4E3DF1D43A1459B0C7A8E</Checksum>
+        <Checksum>9AFAF3F6210EF658384438E21E6E4724</Checksum>
       </Template>
       <Template>
         <Name>sys_memory_ebi_static.c</Name>
@@ -153,7 +156,7 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_16b/bsp</Path>
-        <Checksum>F45D3FB1DCD997D286E66B8F8708C841</Checksum>
+        <Checksum>E25CE2E8561A30622F0189580F28A92A</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -167,16 +170,15 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk_meb2_16b</Path>
-        <Checksum>DEFE274743510A1260324620D03BE5E8</Checksum>
+        <Checksum>04F75DCCF4910AD20762446644C3D130</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\harmony_core\apps\examples\peripheral\ebi\sram_read_write\firmware\src"/>
-        <Include value="C:\harmony_core\apps\examples\peripheral\ebi\sram_read_write\firmware\src\system_config\pic32mz_ef_sk_meb2_16b"/>
-        <Include value="C:\harmony_core\apps\examples\peripheral\ebi\sram_read_write\firmware\src\pic32mz_ef_sk_meb2_16b"/>
-        <Include value="C:\harmony_core\framework"/>
-        <Include value="C:\harmony_core\apps\examples\peripheral\ebi\sram_read_write\firmware\src\system_config\pic32mz_ef_sk_meb2_16b\framework"/>
+        <Include value="C:\harmony\core\apps\examples\peripheral\ebi\sram_read_write\firmware\src"/>
+        <Include value="C:\harmony\core\apps\examples\peripheral\ebi\sram_read_write\firmware\src\system_config\pic32mz_ef_sk_meb2_16b"/>
+        <Include value="C:\harmony\core\framework"/>
+        <Include value="C:\harmony\core\apps\examples\peripheral\ebi\sram_read_write\firmware\src\system_config\pic32mz_ef_sk_meb2_16b\framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk_meb2_16b/bsp"/>
       </C32>
     </CompilerItems>

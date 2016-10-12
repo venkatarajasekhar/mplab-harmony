@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -98,12 +102,12 @@
         <Path>Header Files/framework/osal</Path>
       </File>
       <File>
-        <Name>internal.h</Name>
-        <Path>Header Files/framework/crypto/src</Path>
-      </File>
-      <File>
         <Name>rsa.c</Name>
         <Path>Source Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>internal.h</Name>
+        <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
         <Name>compress.h</Name>
@@ -146,12 +150,12 @@
         <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
       <File>
-        <Name>osal_definitions.h</Name>
-        <Path>Header Files/framework/osal</Path>
-      </File>
-      <File>
         <Name>sys_int_mapping.h</Name>
         <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>osal_definitions.h</Name>
+        <Path>Header Files/framework/osal</Path>
       </File>
       <File>
         <Name>logging.h</Name>
@@ -170,24 +174,24 @@
         <Path>Header Files/framework/system/debug</Path>
       </File>
       <File>
-        <Name>drv_usart_variant_mapping.h</Name>
-        <Path>Header Files/framework/driver/usart/src</Path>
-      </File>
-      <File>
         <Name>inflate.h</Name>
         <Path>Header Files/framework/crypto/src/zlib-1.2.7</Path>
+      </File>
+      <File>
+        <Name>drv_usart_variant_mapping.h</Name>
+        <Path>Header Files/framework/driver/usart/src</Path>
       </File>
       <File>
         <Name>sys_devcon_pic32mx.c</Name>
         <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
-        <Name>sys_devcon_local.h</Name>
-        <Path>Header Files/framework/system/devcon/src</Path>
-      </File>
-      <File>
         <Name>misc.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_local.h</Name>
+        <Path>Header Files/framework/system/devcon/src</Path>
       </File>
       <File>
         <Name>inffast.h</Name>
@@ -270,11 +274,11 @@
         <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
       <File>
-        <Name>rsa.h</Name>
+        <Name>ecc.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>ecc.h</Name>
+        <Name>rsa.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
@@ -282,12 +286,12 @@
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>ssl.h</Name>
-        <Path>Header Files/framework/crypto/src</Path>
-      </File>
-      <File>
         <Name>arc4.c</Name>
         <Path>Source Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>ssl.h</Name>
+        <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
         <Name>aes.h</Name>
@@ -342,12 +346,12 @@
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>sys_console.c</Name>
-        <Path>Source Files/framework/system/console/src</Path>
-      </File>
-      <File>
         <Name>arc4.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>sys_console.c</Name>
+        <Path>Source Files/framework/system/console/src</Path>
       </File>
       <File>
         <Name>integer.c</Name>
@@ -378,16 +382,20 @@
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>hmac.c</Name>
-        <Path>Source Files/framework/crypto/src</Path>
-      </File>
-      <File>
         <Name>asn.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
+        <Name>hmac.c</Name>
+        <Path>Source Files/framework/crypto/src</Path>
+      </File>
+      <File>
         <Name>drv_usart_read_write.c</Name>
         <Path>Source Files/framework/driver/usart/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>des3.h</Name>
+        <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
         <Name>rabbit.h</Name>
@@ -398,16 +406,16 @@
         <Path>Source Files/framework/driver/usart/src/dynamic</Path>
       </File>
       <File>
-        <Name>des3.h</Name>
-        <Path>Header Files/framework/crypto/src</Path>
-      </File>
-      <File>
         <Name>hash.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
         <Name>sys_debug_local.h</Name>
         <Path>Header Files/framework/system/debug/src</Path>
+      </File>
+      <File>
+        <Name>crc32.c</Name>
+        <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
       <File>
         <Name>sys_common.h</Name>
@@ -418,12 +426,12 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
-        <Name>crc32.c</Name>
-        <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
-      </File>
-      <File>
         <Name>error-crypt.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>version.h</Name>
@@ -518,7 +526,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk</Path>
-        <Checksum>FDC466BA5AEA6F3E0F4F81BB4DAFEA67</Checksum>
+        <Checksum>D972741A21FDAF213F7F03416F33626B</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
@@ -551,7 +559,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -568,14 +576,9 @@
         <Path>Header Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_eth_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk</Path>
-        <Checksum>2DEE489858CBC77B3E6D916C48030B33</Checksum>
+        <Checksum>73BC6C99CB617F76D852197BF7AEC2CF</Checksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -585,11 +588,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/microchip/harmony/core/apps/crypto/large_hash/firmware/src"/>
-        <Include value="C:/microchip/harmony/core/apps/crypto/large_hash/firmware/src/system_config/pic32mx_eth_sk"/>
-        <Include value="C:/microchip/harmony/core/apps/crypto/large_hash/firmware/src/pic32mx_eth_sk"/>
-        <Include value="C:/microchip/harmony/core/framework"/>
-        <Include value="C:/microchip/harmony/core/apps/crypto/large_hash/firmware/src/system_config/pic32mx_eth_sk/framework"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/crypto/large_hash/firmware/src"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/crypto/large_hash/firmware/src/system_config/pic32mx_eth_sk"/>
+        <Include value="C:/microchip/harmony/core_v2xx/framework"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/crypto/large_hash/firmware/src/system_config/pic32mx_eth_sk/framework"/>
         <Include value="../src/system_config/pic32mx_eth_sk/bsp"/>
       </C32>
     </CompilerItems>

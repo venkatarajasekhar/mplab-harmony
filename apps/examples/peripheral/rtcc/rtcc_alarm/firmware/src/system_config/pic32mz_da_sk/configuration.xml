@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.11">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2064DAB288"/>
@@ -60,6 +64,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -134,7 +142,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_da_sk</Path>
-        <Checksum>9DEFC128DE2087488A995F3369E03BF2</Checksum>
+        <Checksum>67A9756AEB050CF77F8EA5C4EB883E6B</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -159,6 +167,7 @@
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_da_sk</Path>
         <Checksum>A057453A46D14DF680E4C0050B140CB9</Checksum>
+        <ProjectFileChecksum>DCEA3B4506612A7FE198BA3311FD3FFA</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
@@ -197,10 +206,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="E:/harmony/core/apps/examples/peripheral/rtcc/rtcc_alarm/firmware/src"/>
-        <Include value="E:/harmony/core/apps/examples/peripheral/rtcc/rtcc_alarm/firmware/src/system_config/pic32mz_da_sk"/>
-        <Include value="E:/harmony/core/framework"/>
-        <Include value="E:/harmony/core/apps/examples/peripheral/rtcc/rtcc_alarm/firmware/src/system_config/pic32mz_da_sk/framework"/>
+        <Include value="E:\harmony\core\apps\examples\peripheral\rtcc\rtcc_alarm\firmware\src"/>
+        <Include value="E:\harmony\core\apps\examples\peripheral\rtcc\rtcc_alarm\firmware\src\system_config\pic32mz_da_sk"/>
+        <Include value="E:\harmony\core\framework"/>
+        <Include value="E:\harmony\core\apps\examples\peripheral\rtcc\rtcc_alarm\firmware\src\system_config\pic32mz_da_sk\framework"/>
         <Include value="../src/system_config/pic32mz_da_sk/bsp"/>
       </C32>
     </CompilerItems>

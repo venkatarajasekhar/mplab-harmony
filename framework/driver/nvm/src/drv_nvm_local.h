@@ -53,6 +53,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include <stddef.h>
 #include "driver/nvm/drv_nvm.h"
 #include "driver/nvm/src/drv_nvm_variant_mapping.h"
+#include <sys/kmem.h>
 
 // *****************************************************************************
 // *****************************************************************************

@@ -81,7 +81,7 @@ void __ISR(_CHANGE_NOTICE_VECTOR, ipl2AUTO) _IntHandlerChangeNotification(void)
 
        /* Blocking delay causing the WDT to fail to be serviced in time */
         int i;
-        i = 1024 * 100 * 100;
+        i = 1024 * 100;
         while (i--);
     }
 

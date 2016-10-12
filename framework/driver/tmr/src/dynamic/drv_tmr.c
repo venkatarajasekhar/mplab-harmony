@@ -53,7 +53,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include <string.h>
 #include "driver/tmr/src/drv_tmr_local.h"
 #include "system/clk/sys_clk.h"
-#include "driver/tmr/drv_tmr_compatibility.h"
 
 // *****************************************************************************
 // *****************************************************************************

@@ -201,6 +201,7 @@ ifblock USE_DRV_CODEC_AK4953=y && SELECT_DRV_AK4953=y
 add "<#include \"/framework/driver/codec/ak4953/templates/drv_ak4953.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
 add "<#include \"/framework/driver/codec/ak4953/templates/drv_ak4953_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS
 add "<#include \"/framework/driver/codec/ak4953/templates/drv_ak4953_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_DRIVER_TASKS
+add "<#include \"/framework/driver/codec/ak4953/templates/drv_ak4953.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 
 file DRV_CODEC_AK4953 "$HARMONY_VERSION_PATH/framework/driver/codec/ak4953/drv_ak4953.h" to "$PROJECT_HEADER_FILES/framework/driver/codec/ak4953/drv_ak4953.h"
 file DRV_CODEC_AK4953_LOCAL_H "$HARMONY_VERSION_PATH/framework/driver/codec/ak4953/src/drv_ak4953_local.h" to "$PROJECT_HEADER_FILES/framework/driver/codec/ak4953/drv_ak4953_local.h"

@@ -38,10 +38,11 @@ CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
 SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
  *******************************************************************************/
-
 #include <stdint.h>
-//#include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
+#include "system/fs/sys_fs.h"
+#include "system_config.h"
 
 #ifndef WAV_H
 
@@ -50,18 +51,16 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 extern "C" {
 #endif
 //DOM-IGNORE-END
-
-
 #define	WAV_H
-#define WAVE_FORMAT_PCM    0x0001
-#define WAVE_FORMAT_ALAW   0x0006
-#define WAVE_FORMAT_MULAW  0x0007
-#define WAV_HEADER_SIZE 44
-#define WAV_HEAP_SIZE  1024
-#define WAV_INPUT_BUFFER_SIZE        (DECODER_MAX_OUTPUT_BUFFER_SIZE>DECODER_MAX_INPUT_BUFFER_SIZE?DECODER_MAX_INPUT_BUFFER_SIZE:DECODER_MAX_OUTPUT_BUFFER_SIZE)
-    //((1152*6))//DECODER_MAX_INPUT_BUFFER_SIZE //
-#define WAV_OUTPUT_BUFFER_SIZE       WAV_INPUT_BUFFER_SIZE
-
+    
+    
+#define WAVE_FORMAT_PCM             0x0001
+#define WAVE_FORMAT_ALAW            0x0006
+#define WAVE_FORMAT_MULAW           0x0007
+#define WAV_HEADER_SIZE             44
+#define WAV_HEAP_SIZE               1024
+#define WAV_INPUT_BUFFER_SIZE       (DECODER_MAX_OUTPUT_BUFFER_SIZE>DECODER_MAX_INPUT_BUFFER_SIZE?DECODER_MAX_INPUT_BUFFER_SIZE:DECODER_MAX_OUTPUT_BUFFER_SIZE)
+#define WAV_OUTPUT_BUFFER_SIZE      (WAV_INPUT_BUFFER_SIZE)
 
 typedef struct {
     int format;
@@ -86,20 +85,21 @@ typedef struct{
     uint32_t wavDuration;
     // start point for decoder to decode
     uint32_t decodeStartPos;
-    
-    // for VBR MP3, mp3ValidBytes is the number of bytes in file is given by XING header,
-    // for CBR MP3, mp3ValidBytes is MP3 audio file size - first frame position
     uint32_t wavFileBytes;
 }WAV_DEC;
 
-
 void WAV_Initialize(uint8_t *input);
+void WAV_Initialize_N(uint8_t *input, SYS_FS_HANDLE wavFilehandle);
 uint32_t WAV_GetAudioSize();
 bool WAV_Decoder(uint8_t *input, uint16_t inSize, uint16_t *read, int16_t *output, uint16_t *written);
 int WAV_HdrGetSamplesPerSec(void);
 int WAV_HdrGetBytesPerSec(void);
 int WAV_HdrGetDataLen(void);
 unsigned int WAV_HdrGetFileSize(void);
+uint16_t WAV_GetSampleRate(void);
+uint32_t WAV_GetBitRate(void);
+uint32_t WAV_GetDuration(void);
+
 bool isWAVdecoder_enabled();
 uint32_t WAV_UpdatePlaytime();
 uint8_t WAV_GetChannels();

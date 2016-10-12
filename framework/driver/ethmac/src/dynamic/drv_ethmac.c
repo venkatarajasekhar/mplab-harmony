@@ -1565,6 +1565,7 @@ TCPIP_MAC_RES DRV_ETHMAC_PIC32MACParametersGet(DRV_HANDLE hMac, TCPIP_MAC_PARAME
             PLIB_ETH_MACGetAddress(pMacD->mData.macConfig.ethModuleId, pMacParams->ifPhyAddress.v); 
             pMacParams->processFlags = (TCPIP_MAC_PROCESS_FLAG_RX | TCPIP_MAC_PROCESS_FLAG_TX); 
             pMacParams->macType = TCPIP_MAC_TYPE_ETH;
+            pMacParams->linkMtu = TCPIP_MAC_LINK_MTU_ETH;
         }
 
         return TCPIP_MAC_RES_OK;

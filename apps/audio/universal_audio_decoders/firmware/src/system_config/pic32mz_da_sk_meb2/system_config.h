@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
     
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -95,7 +91,38 @@ extern "C" {
 #define SYS_CLK_CONFIG_FREQ_ERROR_LIMIT     10
 #define SYS_CLK_WAIT_FOR_SWITCH             true
 #define SYS_CLK_ON_WAIT                     OSC_ON_WAIT_IDLE
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
    
+/*** File System Service Configuration ***/
+
+#define SYS_FS_MEDIA_NUMBER         	1
+
+#define SYS_FS_VOLUME_NUMBER		(1)
+
+#define SYS_FS_AUTOMOUNT_ENABLE		true
+#define SYS_FS_MAX_FILES	    	2
+#define SYS_FS_MAX_FILE_SYSTEM_TYPE 	1
+#define SYS_FS_MEDIA_MAX_BLOCK_SIZE  	512
+#define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE 2048
+
+
+#define SYS_FS_MEDIA_TYPE_IDX0 				SYS_FS_MEDIA_TYPE_MSD
+#define SYS_FS_TYPE_IDX0 					FAT
+
+
+
+
+
+
+
+#define SYS_FS_MEDIA_IDX0_MOUNT_NAME_VOLUME_IDX0 			"/mnt/myDrive1"
+#define SYS_FS_MEDIA_IDX0_DEVICE_NAME_VOLUME_IDX0 			"/dev/sda1"
+
+
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
 
@@ -190,83 +217,78 @@ extern "C" {
 #define SYS_TMR_CLIENT_TOLERANCE        10
 #define SYS_TMR_INTERRUPT_NOTIFICATION  false
 
-
-/*** File System Service Configuration ***/
-
-#define SYS_FS_MEDIA_NUMBER         	1
-
-#define SYS_FS_VOLUME_NUMBER		(1)
-
-#define SYS_FS_AUTOMOUNT_ENABLE		true
-#define SYS_FS_MAX_FILES	    	2
-#define SYS_FS_MAX_FILE_SYSTEM_TYPE 	1
-#define SYS_FS_MEDIA_MAX_BLOCK_SIZE  	512
-#define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE 2048
-
-
-#define SYS_FS_MEDIA_TYPE_IDX0 				SYS_FS_MEDIA_TYPE_MSD
-#define SYS_FS_TYPE_IDX0 					FAT
-
-
-
-
-
-
-
-#define SYS_FS_MEDIA_IDX0_MOUNT_NAME_VOLUME_IDX0 			"/mnt/myDrive1"
-#define SYS_FS_MEDIA_IDX0_DEVICE_NAME_VOLUME_IDX0 			"/dev/sda1"
-
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
-/*** Timer Driver Configuration ***/
-#define DRV_TMR_INTERRUPT_MODE             true
-#define DRV_TMR_INSTANCES_NUMBER           3
-#define DRV_TMR_CLIENTS_NUMBER             2
 
-/*** Timer Driver 0 Configuration ***/
-#define DRV_TMR_PERIPHERAL_ID_IDX0          TMR_ID_2
-#define DRV_TMR_INTERRUPT_SOURCE_IDX0       INT_SOURCE_TIMER_2
-#define DRV_TMR_INTERRUPT_VECTOR_IDX0       INT_VECTOR_T2
-#define DRV_TMR_ISR_VECTOR_IDX0             _TIMER_2_VECTOR
-#define DRV_TMR_INTERRUPT_PRIORITY_IDX0     INT_PRIORITY_LEVEL4
-#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX0 INT_SUBPRIORITY_LEVEL0
-#define DRV_TMR_CLOCK_SOURCE_IDX0           DRV_TMR_CLKSOURCE_INTERNAL
-#define DRV_TMR_PRESCALE_IDX0               TMR_PRESCALE_VALUE_256
-#define DRV_TMR_OPERATION_MODE_IDX0         DRV_TMR_OPERATION_MODE_16_BIT
-#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX0     false
-#define DRV_TMR_POWER_STATE_IDX0            SYS_MODULE_POWER_RUN_FULL
+/*** Codec Driver Configuration ***/
 
-/*** Timer Driver 1 Configuration ***/
-#define DRV_TMR_PERIPHERAL_ID_IDX1          TMR_ID_1
-#define DRV_TMR_INTERRUPT_SOURCE_IDX1       INT_SOURCE_TIMER_1
-#define DRV_TMR_INTERRUPT_VECTOR_IDX1       INT_VECTOR_T1
-#define DRV_TMR_ISR_VECTOR_IDX1             _TIMER_1_VECTOR
-#define DRV_TMR_INTERRUPT_PRIORITY_IDX1     INT_PRIORITY_LEVEL4
-#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX1 INT_SUBPRIORITY_LEVEL0
-#define DRV_TMR_CLOCK_SOURCE_IDX1           DRV_TMR_CLKSOURCE_INTERNAL
-#define DRV_TMR_PRESCALE_IDX1               TMR_PRESCALE_VALUE_256
-#define DRV_TMR_OPERATION_MODE_IDX1         DRV_TMR_OPERATION_MODE_16_BIT
-#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX1     false
-#define DRV_TMR_POWER_STATE_IDX1            SYS_MODULE_POWER_RUN_FULL
+#define DRV_AK4953_CLIENTS_NUMBER                           1 
+#define DRV_AK4953_INSTANCES_NUMBER                         1
+#define DRV_AK4953_INPUT_REFCLOCK    	                	7
+#define DRV_AK4953_AUDIO_SAMPLING_RATE                      48000
+#define DRV_AK4953_MCLK_SAMPLE_FREQ_MULTPLIER	            (SYS_CLK_BUS_REFERENCE_1/DRV_AK4953_AUDIO_SAMPLING_RATE)
+#define DRV_AK4953_BCLK_BIT_CLK_DIVISOR	                	4
 
-/*** Timer Driver 2 Configuration ***/
-#define DRV_TMR_PERIPHERAL_ID_IDX2          TMR_ID_4
-#define DRV_TMR_INTERRUPT_SOURCE_IDX2       INT_SOURCE_TIMER_5
-#define DRV_TMR_INTERRUPT_VECTOR_IDX2       INT_VECTOR_T5
-#define DRV_TMR_ISR_VECTOR_IDX2             _TIMER_5_VECTOR
-#define DRV_TMR_INTERRUPT_PRIORITY_IDX2     INT_PRIORITY_LEVEL2
-#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX2 INT_SUBPRIORITY_LEVEL0
-#define DRV_TMR_CLOCK_SOURCE_IDX2           DRV_TMR_CLKSOURCE_INTERNAL
-#define DRV_TMR_PRESCALE_IDX2               TMR_PRESCALE_VALUE_1
-#define DRV_TMR_OPERATION_MODE_IDX2         DRV_TMR_OPERATION_MODE_32_BIT
-#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX2     false
-#define DRV_TMR_POWER_STATE_IDX2            SYS_MODULE_POWER_RUN_FULL
+#define DRV_AK4953_I2S_DRIVER_MODULE_INDEX_IDX0             DRV_I2S_INDEX_0
+#define DRV_AK4953_I2C_DRIVER_MODULE_INDEX_IDX0             DRV_I2C_INDEX_0
+#define DRV_AK4953_VOLUME                                   220	
+#define DRV_AK4953_VOLUME_MIN                               0x0                                           
+#define DRV_AK4953_VOLUME_MAX                               0xFF
+#define DRV_AK4953_AUDIO_DATA_FORMAT_MACRO                  DRV_AK4953_AUDIO_DATA_FORMAT_I2S
 
- // *****************************************************************************
+/* CODEC Driver Abstraction definition */
+
+#define DRV_CODEC_INDEX_0                                   DRV_AK4953_INDEX_0
+#define sysObjdrvCodec0                                     sysObj.drvak4953Codec0
+#define DRV_CODEC_CHANNEL                                   DRV_AK4953_CHANNEL
+#define DRV_CODEC_CHANNEL_LEFT                              DRV_AK4953_CHANNEL_LEFT
+#define DRV_CODEC_CHANNEL_RIGHT                             DRV_AK4953_CHANNEL_RIGHT
+#define DRV_CODEC_CHANNEL_LEFT_RIGHT                        DRV_AK4953_CHANNEL_LEFT_RIGHT
+#define DRV_CODEC_BUFFER_HANDLE                             DRV_AK4953_BUFFER_HANDLE
+#define DRV_CODEC_BUFFER_HANDLE_INVALID                     DRV_AK4953_BUFFER_HANDLE_INVALID
+#define DRV_CODEC_BUFFER_EVENT_HANDLER                      DRV_AK4953_BUFFER_EVENT_HANDLER
+#define DRV_CODEC_BUFFER_EVENT                              DRV_AK4953_BUFFER_EVENT
+#define DRV_CODEC_BUFFER_EVENT_COMPLETE                     DRV_AK4953_BUFFER_EVENT_COMPLETE
+#define DRV_CODEC_BUFFER_EVENT_ERROR                        DRV_AK4953_BUFFER_EVENT_ERROR
+#define DRV_CODEC_BUFFER_EVENT_ABORT                        DRV_AK4953_BUFFER_EVENT_ABORT
+#define DRV_CODEC_COMMAND_EVENT_HANDLER                     DRV_AK4953_COMMAND_EVENT_HANDLER
+#define DRV_CODEC_VOLUME_MIN                                DRV_AK4953_VOLUME_MIN                                                                             
+#define DRV_CODEC_VOLUME_MAX                                DRV_AK4953_VOLUME_MAX 
+#define DRV_CODEC_MICROPHONE_TYPE                           DRV_AK4953_INT_EXT_MIC
+#define DRV_CODEC_MICROPHONE_TYPE_INTERNAL                  INT_MIC
+#define DRV_CODEC_MICROPHONE_TYPE_EXTERNAL                  EXT_MIC
+#define DRV_CODEC_MICROPHONE_SOUND                          DRV_AK4953_MONO_STEREO_MIC
+#define DRV_CODEC_MICROPHONE_SOUND_NONE                     ALL_ZEROS
+#define DRV_CODEC_MICROPHONE_SOUND_MONO_RIGHT               MONO_RIGHT_CHANNEL
+#define DRV_CODEC_MICROPHONE_SOUND_MONO_LEFT                MONO_LEFT_CHANNEL
+#define DRV_CODEC_MICROPHONE_SOUND_STEREO                   STEREO
+
+#define DRV_CODEC_Initialize                                DRV_AK4953_Initialize
+#define DRV_CODEC_Deinitialize                              DRV_AK4953_Deinitialize
+#define DRV_CODEC_Status                                    DRV_AK4953_Status
+#define DRV_CODEC_Tasks                                     DRV_AK4953_Tasks
+#define DRV_CODEC_Open                                      DRV_AK4953_Open
+#define DRV_CODEC_Close                                     DRV_AK4953_Close
+#define DRV_CODEC_BufferEventHandlerSet                     DRV_AK4953_BufferEventHandlerSet
+#define DRV_CODEC_BufferAddWrite                            DRV_AK4953_BufferAddWrite
+#define DRV_CODEC_BufferAddRead                             DRV_AK4953_BufferAddRead
+#define DRV_CODEC_BufferAddWriteRead                        DRV_AK4953_BufferAddWriteRead
+#define DRV_CODEC_SamplingRateSet                           DRV_AK4953_SamplingRateSet
+#define DRV_CODEC_SamplingRateGet                           DRV_AK4953_SamplingRateGet
+#define DRV_CODEC_VolumeSet                                 DRV_AK4953_VolumeSet
+#define DRV_CODEC_VolumeGet                                 DRV_AK4953_VolumeGet
+#define DRV_CODEC_MuteOn                                    DRV_AK4953_MuteOn
+#define DRV_CODEC_MuteOff                                   DRV_AK4953_MuteOff
+#define DRV_CODEC_MicrophoneTypeSet                         DRV_AK4953_IntExtMicSet
+#define DRV_CODEC_MicrophoneSoundSet                        DRV_AK4953_MonoStereoMicSet
+#define DRV_CODEC_CommandEventHandlerSet                    DRV_AK4953_CommandEventHandlerSet
+
+
+
+// *****************************************************************************
 /* I2C Driver Configuration Options
 */
 #define DRV_I2C_INTERRUPT_MODE                    		true
@@ -330,71 +352,49 @@ extern "C" {
 #define DRV_I2S_POWER_STATE_IDX0				SYS_MODULE_POWER_RUN_FULL
 #define DRV_I2S_QUEUE_DEPTH_COMBINED     		5
 
+/*** Timer Driver Configuration ***/
+#define DRV_TMR_INTERRUPT_MODE             true
+#define DRV_TMR_INSTANCES_NUMBER           3
+#define DRV_TMR_CLIENTS_NUMBER             2
 
-/*** Codec Driver Configuration ***/
+/*** Timer Driver 0 Configuration ***/
+#define DRV_TMR_PERIPHERAL_ID_IDX0          TMR_ID_2
+#define DRV_TMR_INTERRUPT_SOURCE_IDX0       INT_SOURCE_TIMER_2
+#define DRV_TMR_INTERRUPT_VECTOR_IDX0       INT_VECTOR_T2
+#define DRV_TMR_ISR_VECTOR_IDX0             _TIMER_2_VECTOR
+#define DRV_TMR_INTERRUPT_PRIORITY_IDX0     INT_PRIORITY_LEVEL4
+#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX0 INT_SUBPRIORITY_LEVEL0
+#define DRV_TMR_CLOCK_SOURCE_IDX0           DRV_TMR_CLKSOURCE_INTERNAL
+#define DRV_TMR_PRESCALE_IDX0               TMR_PRESCALE_VALUE_256
+#define DRV_TMR_OPERATION_MODE_IDX0         DRV_TMR_OPERATION_MODE_16_BIT
+#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX0     false
+#define DRV_TMR_POWER_STATE_IDX0            SYS_MODULE_POWER_RUN_FULL
 
-#define DRV_AK4953_CLIENTS_NUMBER                           1 
-#define DRV_AK4953_INSTANCES_NUMBER                         1
-#define DRV_AK4953_INPUT_REFCLOCK    	                	7
-#define DRV_AK4953_AUDIO_SAMPLING_RATE                      48000
-#define DRV_AK4953_MCLK_SAMPLE_FREQ_MULTPLIER	            (SYS_CLK_BUS_REFERENCE_1/DRV_AK4953_AUDIO_SAMPLING_RATE)
-#define DRV_AK4953_BCLK_BIT_CLK_DIVISOR	                	4
+/*** Timer Driver 1 Configuration ***/
+#define DRV_TMR_PERIPHERAL_ID_IDX1          TMR_ID_1
+#define DRV_TMR_INTERRUPT_SOURCE_IDX1       INT_SOURCE_TIMER_1
+#define DRV_TMR_INTERRUPT_VECTOR_IDX1       INT_VECTOR_T1
+#define DRV_TMR_ISR_VECTOR_IDX1             _TIMER_1_VECTOR
+#define DRV_TMR_INTERRUPT_PRIORITY_IDX1     INT_PRIORITY_LEVEL4
+#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX1 INT_SUBPRIORITY_LEVEL0
+#define DRV_TMR_CLOCK_SOURCE_IDX1           DRV_TMR_CLKSOURCE_INTERNAL
+#define DRV_TMR_PRESCALE_IDX1               TMR_PRESCALE_VALUE_256
+#define DRV_TMR_OPERATION_MODE_IDX1         DRV_TMR_OPERATION_MODE_16_BIT
+#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX1     false
+#define DRV_TMR_POWER_STATE_IDX1            SYS_MODULE_POWER_RUN_FULL
        
-#define DRV_AK4953_I2S_DRIVER_MODULE_INDEX_IDX0             DRV_I2S_INDEX_0
-#define DRV_AK4953_I2C_DRIVER_MODULE_INDEX_IDX0             DRV_I2C_INDEX_0
-#define DRV_AK4953_VOLUME                                   220	
-#define DRV_AK4953_VOLUME_MIN                               0x0                                           
-#define DRV_AK4953_VOLUME_MAX                               0xFF
-#define DRV_AK4953_AUDIO_DATA_FORMAT_MACRO                  DRV_AK4953_AUDIO_DATA_FORMAT_I2S
-
-/* CODEC Driver Abstraction definition */
-
-#define DRV_CODEC_INDEX_0                                   DRV_AK4953_INDEX_0
-#define sysObjdrvCodec0                                     sysObj.drvak4953Codec0
-#define DRV_CODEC_CHANNEL                                   DRV_AK4953_CHANNEL
-#define DRV_CODEC_CHANNEL_LEFT                              DRV_AK4953_CHANNEL_LEFT
-#define DRV_CODEC_CHANNEL_RIGHT                             DRV_AK4953_CHANNEL_RIGHT
-#define DRV_CODEC_CHANNEL_LEFT_RIGHT                        DRV_AK4953_CHANNEL_LEFT_RIGHT
-#define DRV_CODEC_BUFFER_HANDLE                             DRV_AK4953_BUFFER_HANDLE
-#define DRV_CODEC_BUFFER_HANDLE_INVALID                     DRV_AK4953_BUFFER_HANDLE_INVALID
-#define DRV_CODEC_BUFFER_EVENT_HANDLER                      DRV_AK4953_BUFFER_EVENT_HANDLER
-#define DRV_CODEC_BUFFER_EVENT                              DRV_AK4953_BUFFER_EVENT
-#define DRV_CODEC_BUFFER_EVENT_COMPLETE                     DRV_AK4953_BUFFER_EVENT_COMPLETE
-#define DRV_CODEC_BUFFER_EVENT_ERROR                        DRV_AK4953_BUFFER_EVENT_ERROR
-#define DRV_CODEC_BUFFER_EVENT_ABORT                        DRV_AK4953_BUFFER_EVENT_ABORT
-#define DRV_CODEC_COMMAND_EVENT_HANDLER                     DRV_AK4953_COMMAND_EVENT_HANDLER
-#define DRV_CODEC_VOLUME_MIN                                DRV_AK4953_VOLUME_MIN                                                                             
-#define DRV_CODEC_VOLUME_MAX                                DRV_AK4953_VOLUME_MAX 
-#define DRV_CODEC_MICROPHONE_TYPE                           DRV_AK4953_INT_EXT_MIC
-#define DRV_CODEC_MICROPHONE_TYPE_INTERNAL                  INT_MIC
-#define DRV_CODEC_MICROPHONE_TYPE_EXTERNAL                  EXT_MIC
-#define DRV_CODEC_MICROPHONE_SOUND                          DRV_AK4953_MONO_STEREO_MIC
-#define DRV_CODEC_MICROPHONE_SOUND_NONE                     ALL_ZEROS
-#define DRV_CODEC_MICROPHONE_SOUND_MONO_RIGHT               MONO_RIGHT_CHANNEL
-#define DRV_CODEC_MICROPHONE_SOUND_MONO_LEFT                MONO_LEFT_CHANNEL
-#define DRV_CODEC_MICROPHONE_SOUND_STEREO                   STEREO
-
-#define DRV_CODEC_Initialize                                DRV_AK4953_Initialize
-#define DRV_CODEC_Deinitialize                              DRV_AK4953_Deinitialize
-#define DRV_CODEC_Status                                    DRV_AK4953_Status
-#define DRV_CODEC_Tasks                                     DRV_AK4953_Tasks
-#define DRV_CODEC_Open                                      DRV_AK4953_Open
-#define DRV_CODEC_Close                                     DRV_AK4953_Close
-#define DRV_CODEC_BufferEventHandlerSet                     DRV_AK4953_BufferEventHandlerSet
-#define DRV_CODEC_BufferAddWrite                            DRV_AK4953_BufferAddWrite
-#define DRV_CODEC_BufferAddRead                             DRV_AK4953_BufferAddRead
-#define DRV_CODEC_BufferAddWriteRead                        DRV_AK4953_BufferAddWriteRead
-#define DRV_CODEC_SamplingRateSet                           DRV_AK4953_SamplingRateSet
-#define DRV_CODEC_SamplingRateGet                           DRV_AK4953_SamplingRateGet
-#define DRV_CODEC_VolumeSet                                 DRV_AK4953_VolumeSet
-#define DRV_CODEC_VolumeGet                                 DRV_AK4953_VolumeGet
-#define DRV_CODEC_MuteOn                                    DRV_AK4953_MuteOn
-#define DRV_CODEC_MuteOff                                   DRV_AK4953_MuteOff
-#define DRV_CODEC_MicrophoneTypeSet                         DRV_AK4953_IntExtMicSet
-#define DRV_CODEC_MicrophoneSoundSet                        DRV_AK4953_MonoStereoMicSet
-#define DRV_CODEC_CommandEventHandlerSet                    DRV_AK4953_CommandEventHandlerSet
-
-
+/*** Timer Driver 2 Configuration ***/
+#define DRV_TMR_PERIPHERAL_ID_IDX2          TMR_ID_4
+#define DRV_TMR_INTERRUPT_SOURCE_IDX2       INT_SOURCE_TIMER_5
+#define DRV_TMR_INTERRUPT_VECTOR_IDX2       INT_VECTOR_T5
+#define DRV_TMR_ISR_VECTOR_IDX2             _TIMER_5_VECTOR
+#define DRV_TMR_INTERRUPT_PRIORITY_IDX2     INT_PRIORITY_LEVEL2
+#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX2 INT_SUBPRIORITY_LEVEL0
+#define DRV_TMR_CLOCK_SOURCE_IDX2           DRV_TMR_CLKSOURCE_INTERNAL
+#define DRV_TMR_PRESCALE_IDX2               TMR_PRESCALE_VALUE_1
+#define DRV_TMR_OPERATION_MODE_IDX2         DRV_TMR_OPERATION_MODE_32_BIT
+#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX2     false
+#define DRV_TMR_POWER_STATE_IDX2            SYS_MODULE_POWER_RUN_FULL
 
 
 // *****************************************************************************
@@ -402,6 +402,7 @@ extern "C" {
 // Section: Middleware & Other Library Configuration
 // *****************************************************************************
 // *****************************************************************************
+
 /*** USB Driver Configuration ***/
 
 
@@ -471,7 +472,6 @@ extern "C" {
 /* Number of Logical Units */
 #define USB_HOST_SCSI_INSTANCES_NUMBER        1
 #define USB_HOST_MSD_LUN_NUMBERS              1
-
 
 
 
@@ -551,8 +551,13 @@ extern "C" {
 
 
 /*** Audio Decoders Configuration ***/
-
 #define WAV_STREAMING_ENABLED
+
+/************** DO NOT UPDATE ***************/ 
+/* Customize buffer size depends on device SRAM */
+#define DECODER_MAX_OUTPUT_BUFFER_SIZE       (1024 * 12)
+#define DECODER_MAX_INPUT_BUFFER_SIZE        (1024 * 20)  //wma decoder requires 1024*20 input buffer
+    
 
 
 /************** DO NOT DELETE ***************/
@@ -562,7 +567,7 @@ extern "C" {
 #define DISK_MAX_FILES   800
     
 #if defined(WMA_DECODER_ENABLED)
-#warning "WMA decoder requires large heap memory, better to disable all other decoders"
+//#warning "WMA decoder requires large heap memory, better to disable all other decoders"
 #endif
 
 #define APP_BUTTON1 1
@@ -593,8 +598,7 @@ extern "C" {
 
 
 #define DRV_CODEC_IO_INTENT                 DRV_IO_INTENT_WRITE|DRV_IO_INTENT_EXCLUSIVE
-#define DECODER_MAX_OUTPUT_BUFFER_SIZE       (1024 * 12)
-#define DECODER_MAX_INPUT_BUFFER_SIZE        (1024 * 20)  //wma decoder requires 1024*20 input buffer
+
     
 //#define USE_DISPLAY
 

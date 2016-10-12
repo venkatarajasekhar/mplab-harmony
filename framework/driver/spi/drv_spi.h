@@ -271,15 +271,13 @@ typedef enum
 
    Description
     This enumeration identifies the possible events that can result from a
-    buffer add request caused by the client calling either the
-    DRV_SPI_BufferAddRead or DRV_SPI_BufferAddWrite functions.
+    buffer add request caused by the client calling either
+    DRV_SPI_BufferAddRead2 or DRV_SPI_BufferAddWrite2 or similar functions.
 
    Remarks:
     One of these values is passed in the "event" parameter of the event
-    handling callback function that the client registered with the driver by
-    calling the DRV_SPI_BufferEventHandlerSet function when a buffer
-    transfer request is completed.
-
+    handling callback function that the client registered during buffer add
+    requests.
 */
 
 typedef enum
@@ -413,11 +411,11 @@ typedef enum
     failed.
 
     The context parameter contains the a handle to the client context,
-    provided at the time the event handling function was  registered using the
-    DRV_SPI_BufferEventHandlerSet function.  This context handle value is
-    passed back to the client as the "context" parameter.  It can be any value
-    necessary to identify the client context or instance (such as a pointer to
-    the client's data) instance of the client that made the buffer add request.
+    provided at the time the event handling function registration.
+    This context handle value is passed back to the client as the "context"
+    parameter.  It can be any value necessary to identify the client context
+    or instance (such as a pointer to the client's data) instance of the
+    client that made the buffer add request.
 
     The event handler function executes in an interrupt context when the driver
     is configured for interrupt mode operation. It is recommended of the
@@ -448,25 +446,25 @@ typedef void ( *DRV_SPI_BUFFER_EVENT_HANDLER )  (DRV_SPI_BUFFER_EVENT event,
 typedef struct _DRV_SPI_INIT
 {
     /* System module initialization */
-    SYS_MODULE_INIT                 		moduleInit;
+    SYS_MODULE_INIT                             moduleInit;
 
     /* Identifies peripheral (PLIB-level) ID */
-    SPI_MODULE_ID                   		spiId;
+    SPI_MODULE_ID                               spiId;
 
     /* SPI Task Mode Type*/
     DRV_SPI_TASK_MODE                           taskMode;
 
     /* SPI Usage Mode Type */
-    DRV_SPI_MODE                    		spiMode;
+    DRV_SPI_MODE                                spiMode;
 
     /* Allow SPI to run when CPU goes to idle mode*/
     bool                                        allowIdleRun;
 
     /* SPI Protocol Type */
-    DRV_SPI_PROTOCOL_TYPE           		spiProtocolType;
+    DRV_SPI_PROTOCOL_TYPE                       spiProtocolType;
 
     /* SPI Slave Mode SSx Pin Select */
-    bool                                    spiSlaveSSPin;
+    bool                                        spiSlaveSSPin;
 
     /* Framed mode Sync Pulse*/
     SPI_FRAME_SYNC_PULSE                        frameSyncPulse;
@@ -490,31 +488,37 @@ typedef struct _DRV_SPI_INIT
     SPI_AUDIO_PROTOCOL                          audioProtocolMode;
 
     /* Communication Width */
-    SPI_COMMUNICATION_WIDTH         		commWidth;
+    SPI_COMMUNICATION_WIDTH                     commWidth;
 
-    /* Peripheral clock used by the SPI driver*/
+    /* SPI clock source which generates required baud rate.
+       It can be either PBCLK or Reference Clock */
+    SPI_BAUD_RATE_CLOCK                         baudClockSource;
+    
+    /* when Baud rate clock source is peripheral clock, then this element is
+       used to define which peripheral bus clock is used for this particular
+       SPI instance.  */
     CLK_BUSES_PERIPHERAL                        spiClk;
-
+    
     /* Baud Rate Value */
-    uint32_t                        		baudRate;
+    uint32_t                                    baudRate;
 
     /* SPI Buffer Type */
-    DRV_SPI_BUFFER_TYPE             		bufferType;
+    DRV_SPI_BUFFER_TYPE                         bufferType;
 
     /* SPI Clock mode */
-    DRV_SPI_CLOCK_MODE              		clockMode;
+    DRV_SPI_CLOCK_MODE                          clockMode;
 
     /* SPI Input Sample Phase Selection */
-    SPI_INPUT_SAMPLING_PHASE        		inputSamplePhase;
+    SPI_INPUT_SAMPLING_PHASE                    inputSamplePhase;
 
     /* Transmit/Receive or Transmit Interrupt Source for SPI module */
-    INT_SOURCE                      		txInterruptSource;
+    INT_SOURCE                                  txInterruptSource;
 
     /* Receive Interrupt Source for SPI module */
-    INT_SOURCE                      		rxInterruptSource;
+    INT_SOURCE                                  rxInterruptSource;
 
     /* Error Interrupt Source for SPI module */
-    INT_SOURCE                      		errInterruptSource;
+    INT_SOURCE                                  errInterruptSource;
 
     /* While using standard buffer and polled mode how many transfers to do
        before yielding to other tasks*/
@@ -537,7 +541,7 @@ typedef struct _DRV_SPI_INIT
 	/* This controls the minimum number of jobs that the driver will be able
          to accept without running out of memory.  The driver will reserve this
          number of jobs from the global SPI queue so that it will always be available*/
-        uint8_t         jobQueueReserveSize;
+        uint8_t                                 jobQueueReserveSize;
         
 
 
@@ -547,7 +551,7 @@ typedef struct _DRV_SPI_INIT
            calls.  The context parameter is the same one passed into the
            BufferAddRead, BufferAddWrite, BufferAddWriteRead function.
          */
-        DRV_SPI_BUFFER_EVENT_HANDLER operationStarting;
+        DRV_SPI_BUFFER_EVENT_HANDLER            operationStarting;
 
         /* This callback is fired when an operation has just completed on the
            SPI bus.  This allows the user to set any pins that need to be set.
@@ -555,7 +559,7 @@ typedef struct _DRV_SPI_INIT
            calls.  The context parameter is the same one passed into the
            BufferAddRead, BufferAddWrite, BufferAddWriteRead function.
          */
-        DRV_SPI_BUFFER_EVENT_HANDLER operationEnded;
+        DRV_SPI_BUFFER_EVENT_HANDLER            operationEnded;
 
 
 } DRV_SPI_INIT;
@@ -652,6 +656,7 @@ typedef struct _DRV_SPI_CLIENT_DATA
     init.allowIdleRun = false,
     init.spiProtocolType = DRV_SPI_PROTOCOL_TYPE_STANDARD,
     init.commWidth = SPI_COMMUNICATION_WIDTH_8BITS,
+    init.baudClockSource = SPI_BAUD_RATE_PBCLK_CLOCK;
     init.spiClk = CLK_BUS_PERIPHERAL_2,
     init.baudRate = 10000000,
     init.bufferType = DRV_SPI_BUFFER_TYPE_ENHANCED,
@@ -1038,7 +1043,7 @@ void DRV_SPI_Close ( DRV_HANDLE handle );
     DRV_SPI_Open must have been called to obtain a valid opened device
     handle.
 
-    DRV_IO_INTENT_WRITE or DRV_IO_INTENT_READWRITE must have been specified
+    DRV_IO_INTENT_READ or DRV_IO_INTENT_READWRITE must have been specified
     in the DRV_SPI_Open call.
 
   Parameters:
@@ -1270,7 +1275,7 @@ DRV_SPI_BUFFER_HANDLE DRV_SPI_BufferAddWriteRead ( DRV_HANDLE handle, void *txBu
     DRV_SPI_Open must have been called to obtain a valid opened device
     handle.
 
-    DRV_IO_INTENT_WRITE or DRV_IO_INTENT_READWRITE must have been specified
+    DRV_IO_INTENT_READ or DRV_IO_INTENT_READWRITE must have been specified
     in the DRV_SPI_Open call.
 
   Parameters:

@@ -98,6 +98,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 
 
+//unsigned char nvmBufferData[NVM_ROW_SIZE] __attribute__((coherent));
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Callback Functions
@@ -106,15 +108,28 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 int APP_ForceBootloaderCheck(void)
 {
-    // For most of the basic bootloaders, the check of the switch (S3) and
+    // For most of the basic bootloaders, the check of the switch (S1) and
     // the memory location will decide the question.
-#if defined(BSP_SWITCH_3)
-    if (BSP_SWITCH_STATE_PRESSED == BSP_SwitchStateGet(BSP_SWITCH_3))
+#if defined(DRV_SDCARD_INSTANCES_NUMBER)
+    /* The SD Card bootloader for MEB II requires using the switch on the MEB II */
+    if (BSP_SWITCH_STATE_PRESSED == BSP_SwitchStateGet(BSP_SWITCH_S1))
 #else
-    // This is due to some SKs that share BSP_SWITCH_3 with UART2.
     if (BSP_SWITCH_STATE_PRESSED == BSP_SwitchStateGet(BSP_SWITCH_1))
 #endif
+    {
+        /* Delay 500 msec to give us a debounce. */
+        _CP0_SET_COUNT(0);
+        while (_CP0_GET_COUNT() < SYS_CLK_FREQ / 4);
+        
+#if defined(DRV_SDCARD_INSTANCES_NUMBER)
+        if (BSP_SWITCH_STATE_PRESSED == BSP_SwitchStateGet(BSP_SWITCH_S1))
+#else
+    if (BSP_SWITCH_STATE_PRESSED == BSP_SwitchStateGet(BSP_SWITCH_1))
+#endif
+        {
         return (1);
+        }
+    }
     
     return (0);
 }

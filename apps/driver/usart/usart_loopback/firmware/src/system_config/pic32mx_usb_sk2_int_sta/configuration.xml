@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -48,6 +52,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -118,7 +126,7 @@
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_sta/framework/system/ports/src</Path>
-        <Checksum>BD5D9BDDD9262C8D616C515AD5C5D1E6</Checksum>
+        <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -132,7 +140,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_sta</Path>
-        <Checksum>DDCA6AA65BD31528FF7A2E3DC824A9B5</Checksum>
+        <Checksum>6F6D3215924B7DA7816A0E335E4AF2C4</Checksum>
       </Template>
       <Template>
         <Name>drv_usart_static.c</Name>
@@ -156,32 +164,27 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_sta</Path>
-        <Checksum>956C3865DC732CC059988146B803791E</Checksum>
+        <Checksum>EE7B5BF6505B65B57F01AF5C1EE583FE</Checksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_sta/framework/system/clk/src</Path>
-        <Checksum>E84A12DB48C02A2DC1686B4835818883</Checksum>
+        <Checksum>D98BF06DE2384C667B1216850F415DCE</Checksum>
       </Template>
       <Template>
         <Name>drv_usart_static_local.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_sta/framework/driver/usart/src</Path>
-        <Checksum>E57D66630398FBABFEC398D170A1B2E1</Checksum>
-      </Template>
-      <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_sta/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+        <Checksum>8191C35EEC5983516FD647B212786647</Checksum>
       </Template>
       <Template>
         <Name>drv_usart_static_buffer_queue.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_sta/framework/driver/usart/src</Path>
-        <Checksum>0B7E9EFC6826D00552254A1AC91BAFD3</Checksum>
+        <Checksum>80B982837E6F3AED144D86E269D9CFC8</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_sta/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -191,7 +194,7 @@
       <Template>
         <Name>drv_usart_mapping.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_sta/framework/driver/usart/src</Path>
-        <Checksum>8BB56A57E34F7165DF76EDAE74360F63</Checksum>
+        <Checksum>087438D341ECCC991CB311C2B3B6D2EB</Checksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -200,19 +203,18 @@
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_int_sta/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>drv_usart_static.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_int_sta/framework/driver/usart</Path>
-        <Checksum>ACE0B5379B23B084BA94CC95D1184214</Checksum>
+        <Checksum>5D0E4A5E359093077D998079FA1349BD</Checksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
         <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src"/>
         <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/system_config/pic32mx_usb_sk2_int_sta"/>
-        <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/pic32mx_usb_sk2_int_sta"/>
         <Include value="E:/Git/core/framework"/>
         <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/system_config/pic32mx_usb_sk2_int_sta/framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_int_sta/bsp"/>

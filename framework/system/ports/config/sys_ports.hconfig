@@ -146,6 +146,8 @@ endmenu
 endmenu
 
 ifblock USE_SYS_PORTS
+add "<#include \"/framework/system/ports/config/sys_ports.h.ftl\">"  to list SYSTEM_CONFIG_H_SYSTEM_SERVICE_CONFIGURATION
+
 template SYS_PORTS_STATIC_C "$HARMONY_VERSION_PATH/framework/system/ports/templates/sys_ports_static.c.ftl" to "$PROJECT_SOURCE_FILES/app/system_config/$CONFIGURATION/framework/system/ports/src/sys_ports_static.c"
 file SYS_PORTS_H "$HARMONY_VERSION_PATH/framework/system/ports/sys_ports.h" to "$PROJECT_HEADER_FILES/framework/system/ports/sys_ports.h"
 endif

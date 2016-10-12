@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<pic32mx_eth_sk version="2.0.0.10">
+<pic32mx_eth_sk version="2.0.0.12">
   <General>
     <HarmonyPath path="../../.."/>
     <Processor name="PIC32MX795F512L"/>
     <Board name=""/>
     <ForceOptimization flag="true"/>
-    <MergeStrategy flag="USER_ALL"/>
+    <MergeStrategy flag="ALL"/>
   </General>
   <Manifest>
     <Files>
@@ -94,12 +94,12 @@
         <Path>Header Files/framework/osal</Path>
       </File>
       <File>
-        <Name>internal.h</Name>
-        <Path>Header Files/framework/crypto/src</Path>
-      </File>
-      <File>
         <Name>rsa.c</Name>
         <Path>Source Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>internal.h</Name>
+        <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
         <Name>compress.h</Name>
@@ -134,16 +134,16 @@
         <Path>Source Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>sys_int_mapping.h</Name>
-        <Path>Header Files/framework/system/int</Path>
-      </File>
-      <File>
         <Name>uncompr.c</Name>
         <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
       <File>
         <Name>osal_definitions.h</Name>
         <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>sys_int_mapping.h</Name>
+        <Path>Header Files/framework/system/int</Path>
       </File>
       <File>
         <Name>logging.h</Name>
@@ -166,12 +166,12 @@
         <Path>Header Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
       <File>
-        <Name>sys_devcon_pic32mx.c</Name>
-        <Path>Source Files/framework/system/devcon/src</Path>
-      </File>
-      <File>
         <Name>random.c</Name>
         <Path>Source Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_pic32mx.c</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
         <Name>misc.h</Name>
@@ -262,11 +262,11 @@
         <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
       </File>
       <File>
-        <Name>rsa.h</Name>
+        <Name>ecc.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
-        <Name>ecc.h</Name>
+        <Name>rsa.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
@@ -296,6 +296,10 @@
       <File>
         <Name>sys_int_private.h</Name>
         <Path>Header Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
         <Name>inftrees.h</Name>
@@ -382,6 +386,10 @@
         <Path>Header Files/framework/crypto/src</Path>
       </File>
       <File>
+        <Name>crc32.c</Name>
+        <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
+      </File>
+      <File>
         <Name>sys_common.h</Name>
         <Path>Header Files/framework/system/common</Path>
       </File>
@@ -390,12 +398,12 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
-        <Name>crc32.c</Name>
-        <Path>Source Files/framework/crypto/src/zlib-1.2.7</Path>
-      </File>
-      <File>
         <Name>error-crypt.h</Name>
         <Path>Header Files/framework/crypto/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>version.h</Name>
@@ -482,17 +490,20 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk</Path>
-        <Checksum>8C96A1F59E2A72556C63D7D28D9B0175</Checksum>
+        <Checksum>5BAD36CA7011BCE00BF49C61D8F8D30E</Checksum>
+        <ProjectFileChecksum>55684ED1291E2BF65298F183CB49B1B0</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk/bsp</Path>
         <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
+        <ProjectFileChecksum>A06F3FFEDF29BC232C8D8AFEEE296C28</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk</Path>
         <Checksum>CE46EE383F1D386A152EB07C31948DFD</Checksum>
+        <ProjectFileChecksum>600E88729A10F235DF2B685E6DB506CB</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>main.c</Name>
@@ -502,11 +513,13 @@
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk/bsp</Path>
         <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
+        <ProjectFileChecksum>0B91DBB651961F5B77AA74F6D9B4788E</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk</Path>
         <Checksum>BE644D0142ACA48D9CA2E6255A02CDBA</Checksum>
+        <ProjectFileChecksum>1C599DDD1B59F842C4F91726D8E04876</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -516,58 +529,61 @@
         <Name>drv_tmr_static.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk/framework/driver/tmr</Path>
         <Checksum>89CD3C8E9265D0E3AD21A0A64E5994AF</Checksum>
+        <ProjectFileChecksum>5A770ADFA6CD999BEE1B54CF6743F6D7</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_tmr_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk/framework/driver/tmr/src</Path>
         <Checksum>34B6104EB603021403EAC6EB9F883261</Checksum>
+        <ProjectFileChecksum>5E09C434B1891653232F77734686B260</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk/framework/system/clk/src</Path>
-        <Checksum>E8C935BED4628875A8C3428DDD07355C</Checksum>
+        <Checksum>FDF6C8068CFFAEEC5F8537A8D6514230</Checksum>
+        <ProjectFileChecksum>155E276CC753D936121531C0CC33ABFF</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk</Path>
         <Checksum>6C91062AB8826D264BEC7CBC001C7474</Checksum>
+        <ProjectFileChecksum>5002B741C03EF9E23861854020D72CB3</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>system_exceptions.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk</Path>
         <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
+        <ProjectFileChecksum>9D8C4DC39257E476CD94C0A092540AC4</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_tmr_mapping.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk/framework/driver/tmr/src</Path>
         <Checksum>94844A42DCFFEF2B4C9BA110246F14FC</Checksum>
+        <ProjectFileChecksum>674F6DDE57716C6E950AFF8BE73B58FA</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.h</Name>
         <Path>Header Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_eth_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_eth_sk</Path>
-        <Checksum>8DC02B3AC60D415682554CC6B81D1636</Checksum>
+        <Checksum>4834ECAE7FE868BA02C538746C73CA8B</Checksum>
+        <ProjectFileChecksum>65926D49ED15B0B4CE40FFA9E1AE6E46</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_eth_sk/framework/system/ports/src</Path>
         <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
+        <ProjectFileChecksum>54D9A4438720FABE37ED83BD492AC0AF</ProjectFileChecksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:/cm/Harmony/apps/crypto/encrypt_decrypt/firmware/src"/>
-        <Include value="C:/cm/Harmony/apps/crypto/encrypt_decrypt/firmware/src/system_config/pic32mx_eth_sk"/>
-        <Include value="C:/cm/Harmony/framework"/>
-        <Include value="C:/cm/Harmony/apps/crypto/encrypt_decrypt/firmware/src/system_config/pic32mx_eth_sk/framework"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/crypto/encrypt_decrypt/firmware/src"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/crypto/encrypt_decrypt/firmware/src/system_config/pic32mx_eth_sk"/>
+        <Include value="C:/microchip/harmony/core_v2xx/framework"/>
+        <Include value="C:/microchip/harmony/core_v2xx/apps/crypto/encrypt_decrypt/firmware/src/system_config/pic32mx_eth_sk/framework"/>
         <Include value="../src/system_config/pic32mx_eth_sk/bsp"/>
       </C32>
     </CompilerItems>

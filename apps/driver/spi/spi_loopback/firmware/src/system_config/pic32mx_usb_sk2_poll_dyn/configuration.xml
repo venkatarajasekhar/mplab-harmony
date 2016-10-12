@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <HarmonyPath path="../../../.."/>
   <ForceOptimization flag="true"/>
   <Files>
@@ -185,6 +185,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -249,6 +253,10 @@
       <File>
         <Name>sys_int_pic32.c</Name>
         <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -321,28 +329,23 @@
     </Files>
     <Templates>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_poll_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>main.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
         <Name>drv_spi_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_poll_dyn/framework/driver/spi/dynamic</Path>
-        <Checksum>AA3C69A31B05D3D6BBF83D088FBAF3BF</Checksum>
+        <Checksum>8D9B6FD5EDAD3B05D63E546CA7D5022B</Checksum>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_poll_dyn</Path>
-        <Checksum>02DD3F0069665CDB8684A87E28FF0C77</Checksum>
+        <Checksum>C7E530D77AE913BF702B5C37D7E5CBF8</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_api.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_poll_dyn/framework/driver/spi/dynamic</Path>
-        <Checksum>298CC33E5B3D214E9C890E45F1568BC5</Checksum>
+        <Checksum>150BE0AD1FA70119ADE6EC549BB07DE3</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_master_rm_tasks.c</Name>
@@ -352,7 +355,7 @@
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_poll_dyn/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>drv_spi_slave_rm_tasks.c</Name>
@@ -375,12 +378,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_poll_dyn/framework/system/clk/src</Path>
-        <Checksum>E84A12DB48C02A2DC1686B4835818883</Checksum>
+        <Checksum>D98BF06DE2384C667B1216850F415DCE</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_poll_dyn/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -395,7 +398,7 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_poll_dyn</Path>
-        <Checksum>6594CD0DE0E32EB5CD673564B296AB70</Checksum>
+        <Checksum>CA2AF6297DE479D013EA2AB5FC5ADA43</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -406,15 +409,15 @@
         <Name>system_tasks.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_poll_dyn</Path>
         <Checksum>AD0675C3EFF4E13E621340F1BF4B8DDD</Checksum>
+        <ProjectFileChecksum>8BB91762CAA4328ADF85A3A2718F73C2</ProjectFileChecksum>
       </Template>
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="E:\official\git\core_ldra\apps\driver\spi\spi_loopback\firmware\src"/>
-        <Include value="E:\official\git\core_ldra\apps\driver\spi\spi_loopback\firmware\src\system_config\pic32mx_usb_sk2_poll_dyn"/>
-        <Include value="E:\official\git\core_ldra\apps\driver\spi\spi_loopback\firmware\src\pic32mx_usb_sk2_poll_dyn"/>
-        <Include value="E:\official\git\core_ldra\framework"/>
-        <Include value="E:\official\git\core_ldra\apps\driver\spi\spi_loopback\firmware\src\system_config\pic32mx_usb_sk2_poll_dyn\framework"/>
+        <Include value="E:/official/git/core/apps/driver/spi/spi_loopback/firmware/src"/>
+        <Include value="E:/official/git/core/apps/driver/spi/spi_loopback/firmware/src/system_config/pic32mx_usb_sk2_poll_dyn"/>
+        <Include value="E:/official/git/core/framework"/>
+        <Include value="E:/official/git/core/apps/driver/spi/spi_loopback/firmware/src/system_config/pic32mx_usb_sk2_poll_dyn/framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_poll_dyn/bsp"/>
       </C32>
     </CompilerItems>

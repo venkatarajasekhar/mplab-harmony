@@ -104,12 +104,14 @@ void __attribute__((nomips16)) SYS_DEVCON_PerformanceConfig( unsigned int sysclk
         /* Is ECC enabled? */
         /* TODO: replace register read with plib when available */
         ecc = (((CFGCON & 0x00000030) >> 4) < 2) ? true : false;
-        if (sysclk <= (ecc ? 66000000 : 83000000))
+        if (sysclk <= (ecc ? 60000000 : 74000000))
             ws = 0;
-        else if (sysclk <= (ecc ? 133000000 : 166000000))
+        else if (sysclk <= (ecc ? 120000000 : 140000000))
             ws = 1;
-        else
+        else if (sysclk <= 200000000)
             ws = 2;
+        else
+            ws = 4;
 
         /* Interrupts must be disabled when changing wait states */
         int_flag = (bool)(PLIB_INT_GetStateAndDisable( INT_ID_0 ) & 0x01);

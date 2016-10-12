@@ -71,7 +71,7 @@ config USB_RTOS_DELAY
 endmenu
 
 config DRV_USB_DRIVER_MODE
-    string "USB Driver Implementation"
+    string
     depends on USE_USB_STACK && (PIC32MX || PIC32WK)
     range DRV_USB_MODE
     default "DYNAMIC"
@@ -763,6 +763,7 @@ enum USB_DEVICE_HID_TYPE
 enum USB_DEVICE_MSD_TYPE
      "SDCARD"
      ||"NVM"
+     ||"SPI_FLASH"
 	  
 enum USB_DEVICE_MSD_MAX_SECTORS
        "1"
@@ -788,6 +789,7 @@ enum USB_DEVICE_PRODCUCT_ID_ENUM
         || "hid_mouse_demo"
         || "hid_msd_demo"
         || "msd_basic_demo"
+        || "msd_spiflash_demo"
         || "msd_basic_sdcard_demo"
         || "vendor_demo"
         
@@ -797,6 +799,8 @@ ifblock USE_USB_STACK
 add "<#include \"/framework/usb/templates/system_init.c.device_data.ftl\">"  to list SYSTEM_INIT_C_LIBRARY_INITIALIZATION_DATA
 add "<#include \"/framework/usb/templates/system_init.c.device_calls.ftl\">"  to list SYSTEM_INIT_C_INITIALIZE_MIDDLEWARE
 add "<#include \"/framework/usb/templates/usb_tasks.c.ftl\">"  to list SYSTEM_TASKS_C_CALL_LIB_TASKS
+add "<#include \"/framework/usb/templates/system_config.h.common.ftl\">"  to list SYSTEM_CONFIG_H_MIDDLEWARE_CONFIGURATION 
+
 file USB_COMMON_H "$HARMONY_VERSION_PATH/framework/usb/usb_common.h" to "$PROJECT_HEADER_FILES/framework/usb/usb_common.h"
 file USB_CHAPTER_9_H "$HARMONY_VERSION_PATH/framework/usb/usb_chapter_9.h" to "$PROJECT_HEADER_FILES/framework/usb/usb_chapter_9.h"
 file USB_HUB_H "$HARMONY_VERSION_PATH/framework/usb/usb_hub.h" to "$PROJECT_HEADER_FILES/framework/usb/usb_hub.h"

@@ -110,10 +110,36 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // Timeout for FIN WAIT 2 state, ms
 #define TCPIP_TCP_FIN_WAIT_2_TIMEOUT		(5000ul)
 
+// Maximum Segment Length (MSL) timeout, seconds
+// This value sets the time a socket will be in the TIME_WAIT/2MSL state
+// after the socket performed an active close.
+// RFC recommended value is 120 sec.
+// Other common values are: 30/60 sec
+// Note that if this symbol is defined to 0, then the TIME_WAIT/2MSL state is skipped!
+// This could lead to duplicate sequence numbers problems
+// if sockets are frequently/rapidly closed and reopened
+// and normally should be avoided.
+#define     TCPIP_TCP_MSL_TIMEOUT           (30)
+
+
+// This value specifies the TCP quiet time:
+// TCP will not send any data for TCPIP_TCP_QUIET_TIME seconds after rebooting!
+// Usualy this value should match the MSL value.
+// Note that if this symbol is defined to 0, then the TCP quiet time state is skipped!
+// During the quiet time there will be no TCP traffic initiated by TCP.
+// So, clients won't be able to connect to remote hosts
+// and servers won't reply to client requests.
+#define     TCPIP_TCP_QUIET_TIME           (30)
+
 // Timeout for keep-alive messages when no traffic is sent, ms
 #define TCPIP_TCP_KEEP_ALIVE_TIMEOUT		(10000ul)
 
 // Timeout for the CLOSE_WAIT state, ms
+// If the remote socket closes the connection
+// the TCP/IP stack will automatically close the socket
+// after this timeout.
+// If the value is set to 0 then the socket will wait forever
+// for the application to close the socket (default behavior). 
 #define TCPIP_TCP_CLOSE_WAIT_TIMEOUT		(200ul)
 
 // Maximum number of retransmission attempts

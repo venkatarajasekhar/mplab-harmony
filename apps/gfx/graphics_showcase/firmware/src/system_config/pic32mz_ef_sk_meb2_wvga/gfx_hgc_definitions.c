@@ -12,7 +12,7 @@
     Build-time generated implementation from the MPLAB Harmony
     Graphics Composer.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
@@ -125,41 +125,39 @@ static const GFX_XCHAR radioButtonStr_0[] = { 0x0 }; //
 static const GFX_XCHAR radioButtonStr_1[] = { 0x0 }; //  
 static const GFX_XCHAR radioButtonStr_2[] = { 0x0 }; //  
 static const GFX_XCHAR staticTextStr_0[] = { 0x50, 0x49, 0x43, 0x33, 0x32, 0x20, 0x48, 0x61, 0x72, 0x6d, 0x6f, 0x6e, 0x79, 0x20, 0x47, 0x72, 0x61, 0x70, 0x68, 0x69, 0x63, 0x73, 0x20, 0x53, 0x68, 0x6f, 0x77, 0x63, 0x61, 0x73, 0x65, 0x0 }; // PIC32 Harmony Graphics Showcase
-static const GFX_XCHAR staticTextStr_1[] = { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2f, 0x0, 0x0 }; // PIC32 Harmony ????
-static const GFX_XCHAR staticTextStr_2[] = { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2f, 0x0, 0x0 }; // PIC32 Harmony ????
-static const GFX_XCHAR staticTextStr_3[] = { 0x53, 0x6c, 0x69, 0x64, 0x65, 0x73, 0x68, 0x6f, 0x77, 0x0 }; // Slideshow
-static const GFX_XCHAR staticTextStr_4[] = { 0x54, 0x6f, 0x75, 0x63, 0x68, 0x20, 0x54, 0x65, 0x73, 0x74, 0x0 }; // Touch Test
-static const GFX_XCHAR staticTextStr_5[] = { 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73, 0x0 }; // Settings
-static const GFX_XCHAR staticTextStr_6[] = { 0x46, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x73, 0x0 }; // Features
-static const GFX_XCHAR staticTextStr_7[] = { 0x3c, 0x34, 0x0 }; // ??
-static const GFX_XCHAR staticTextStr_8[] = { 0x3a, 0x34, 0x0 }; // ??
-static const GFX_XCHAR staticTextStr_9[] = { 0x37, 0x26, 0x3f, 0x22, 0x0 }; // ????
-static const GFX_XCHAR staticTextStr_10[] = { 0x38, 0x26, 0x3e, 0x22, 0x0 }; // ????
-static const GFX_XCHAR staticTextStr_11[] = { 0x2b, 0x2f, 0x23, 0x35, 0x0 }; // ????
-static const GFX_XCHAR staticTextStr_12[] = { 0x24, 0x2d, 0x2e, 0x0 }; // ???
-static const GFX_XCHAR staticTextStr_13[] = { 0x24, 0x2c, 0x2e, 0x0 }; // ???
-static const GFX_XCHAR staticTextStr_14[] = { 0x53, 0x6c, 0x69, 0x64, 0x65, 0x73, 0x68, 0x6f, 0x77, 0x20, 0x54, 0x69, 0x70, 0x73, 0xA, 0xA, 0x31, 0x29, 0x20, 0x54, 0x61, 0x70, 0x20, 0x74, 0x6f, 0x20, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x65, 0x64, 0x20, 0x74, 0x6f, 0x20, 0x74, 0x68, 0x65, 0x20, 0x6e, 0x65, 0x78, 0x74, 0x20, 0x73, 0x6c, 0x69, 0x64, 0x65, 0xA, 0x32, 0x29, 0x20, 0x50, 0x72, 0x65, 0x73, 0x73, 0x20, 0x61, 0x6e, 0x64, 0x20, 0x68, 0x6f, 0x6c, 0x64, 0x20, 0x74, 0x6f, 0x20, 0x72, 0x65, 0x6d, 0x61, 0x69, 0x6e, 0x20, 0x6f, 0x6e, 0x20, 0x74, 0x68, 0x65, 0x20, 0x63, 0x75, 0x72, 0x72, 0x65, 0x6e, 0x74, 0x20, 0xA, 0x20, 0x20, 0x20, 0x69, 0x6d, 0x61, 0x67, 0x65, 0xA, 0x33, 0x29, 0x20, 0x50, 0x72, 0x65, 0x73, 0x73, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x69, 0x63, 0x6f, 0x6e, 0x20, 0x74, 0x6f, 0x20, 0x72, 0x65, 0x74, 0x75, 0x72, 0x6e, 0x20, 0x74, 0x6f, 0x20, 0x74, 0x68, 0x65, 0x20, 0x6d, 0x61, 0x69, 0x6e, 0x20, 0x6d, 0x65, 0x6e, 0x75, 0xA, 0xA, 0x34, 0x29, 0x20, 0x53, 0x6c, 0x69, 0x64, 0x65, 0x20, 0x70, 0x61, 0x75, 0x73, 0x65, 0x20, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x76, 0x61, 0x6c, 0x20, 0x74, 0x69, 0x6d, 0x65, 0x20, 0x63, 0x61, 0x6e, 0x20, 0x62, 0x65, 0x20, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x75, 0x72, 0x65, 0x64, 0x20, 0xA, 0x20, 0x20, 0x20, 0x76, 0x69, 0x61, 0x20, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73, 0xA, 0x35, 0x29, 0x20, 0x50, 0x72, 0x65, 0x73, 0x73, 0x20, 0x74, 0x68, 0x65, 0x20, 0x69, 0x63, 0x6f, 0x6e, 0x20, 0x62, 0x65, 0x6c, 0x6f, 0x77, 0x20, 0x74, 0x6f, 0x20, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x65, 0x64, 0x0 }; // Slideshow Tips1) Tap to proceed to the next slide2) Press and hold to remain on the current    image3) Press       icon to return to the main menu4) Slide pause interval time can be configured    via Settings5) Press the icon below to proceed
-static const GFX_XCHAR staticTextStr_15[] = { 0x59, 0x3a, 0x0 }; // Y:
-static const GFX_XCHAR staticTextStr_16[] = { 0x58, 0x3a, 0x0 }; // X:
-static const GFX_XCHAR staticTextStr_17[] = { 0x73, 0x65, 0x63, 0x0 }; // sec
-static const GFX_XCHAR staticTextStr_18[] = { 0x30, 0x0 }; // ?
-static const GFX_XCHAR staticTextStr_19[] = { 0x29, 0x0 }; // )
-static const GFX_XCHAR staticTextStr_20[] = { 0x53, 0x6c, 0x69, 0x64, 0x65, 0x20, 0x50, 0x61, 0x75, 0x73, 0x65, 0x20, 0x54, 0x69, 0x6d, 0x65, 0x0 }; // Slide Pause Time
-static const GFX_XCHAR staticTextStr_21[] = { 0x24, 0x2d, 0x2e, 0x42, 0x44, 0x2a, 0x42, 0x0 }; // ???????
-static const GFX_XCHAR staticTextStr_22[] = { 0x24, 0x2c, 0x2e, 0x43, 0x44, 0x29, 0x43, 0x0 }; // ???????
-static const GFX_XCHAR staticTextStr_23[] = { 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x20, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x0 }; // Select Language
-static const GFX_XCHAR staticTextStr_24[] = { 0x3b, 0x39, 0x41, 0x27, 0x0 }; // ????
-static const GFX_XCHAR staticTextStr_25[] = { 0x3d, 0x39, 0x40, 0x25, 0x0 }; // ????
-static const GFX_XCHAR staticTextStr_26[] = { 0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x69, 0x66, 0x69, 0x65, 0x64, 0x0 }; // Chinese Simplified
-static const GFX_XCHAR staticTextStr_27[] = { 0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x54, 0x72, 0x61, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x0 }; // Chinese Traditional
-static const GFX_XCHAR staticTextStr_28[] = { 0x31, 0x21, 0x20, 0x28, 0x0 }; // ????
-static const GFX_XCHAR staticTextStr_29[] = { 0x33, 0x45, 0x20, 0x28, 0x0 }; // ????
-static const GFX_XCHAR staticTextStr_30[] = { 0x45, 0x6e, 0x67, 0x6c, 0x69, 0x73, 0x68, 0x0 }; // English
-static const GFX_XCHAR staticTextStr_31[] = { 0x28, 0x0 }; // (
-static const GFX_XCHAR staticTextStr_32[] = { 0x32, 0x0 }; // 2
-static const GFX_XCHAR staticTextStr_33[] = { 0x35, 0x0 }; // 5
-static const GFX_XCHAR staticTextStr_34[] = { 0x30, 0x0 }; // 0
-static const GFX_XCHAR staticTextStr_35[] = { 0x44, 0x65, 0x6d, 0x6f, 0x6e, 0x73, 0x74, 0x72, 0x61, 0x74, 0x65, 0x64, 0x20, 0x46, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x73, 0xA, 0xA, 0x57, 0x56, 0x47, 0x41, 0x20, 0x64, 0x69, 0x73, 0x70, 0x6c, 0x61, 0x79, 0xA, 0x49, 0x6e, 0x74, 0x65, 0x67, 0x72, 0x61, 0x74, 0x65, 0x64, 0x20, 0x4d, 0x54, 0x43, 0x48, 0x36, 0x33, 0x30, 0x33, 0x20, 0x50, 0x43, 0x41, 0x50, 0x20, 0x74, 0x6f, 0x75, 0x63, 0x68, 0x20, 0x69, 0x6e, 0x70, 0x75, 0x74, 0xA, 0x4c, 0x6f, 0x77, 0x2d, 0x43, 0x6f, 0x73, 0x74, 0x20, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x6c, 0x65, 0x72, 0x2d, 0x6c, 0x65, 0x73, 0x73, 0x20, 0x47, 0x72, 0x61, 0x70, 0x68, 0x69, 0x63, 0x73, 0x20, 0x64, 0x72, 0x69, 0x76, 0x65, 0x72, 0xA, 0x31, 0x36, 0x2d, 0x62, 0x69, 0x74, 0x20, 0x63, 0x6f, 0x6c, 0x6f, 0x72, 0x20, 0x64, 0x65, 0x70, 0x74, 0x68, 0x20, 0x73, 0x75, 0x70, 0x70, 0x6f, 0x72, 0x74, 0x20, 0x28, 0x36, 0x35, 0x35, 0x33, 0x35, 0x20, 0x75, 0x6e, 0x69, 0x71, 0x75, 0x65, 0x20, 0x63, 0x6f, 0x6c, 0x6f, 0x72, 0x73, 0x29, 0xA, 0x4a, 0x50, 0x45, 0x47, 0x20, 0x61, 0x6e, 0x64, 0x20, 0x42, 0x4d, 0x50, 0x20, 0x69, 0x6d, 0x61, 0x67, 0x65, 0x73, 0x20, 0x73, 0x74, 0x6f, 0x72, 0x65, 0x64, 0x20, 0x6f, 0x6e, 0x20, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x20, 0x66, 0x6c, 0x61, 0x73, 0x68, 0xA, 0x52, 0x65, 0x61, 0x6c, 0x2d, 0x74, 0x69, 0x6d, 0x65, 0x20, 0x4a, 0x50, 0x45, 0x47, 0x20, 0x64, 0x65, 0x63, 0x6f, 0x64, 0x65, 0x20, 0x61, 0x6e, 0x64, 0x20, 0x72, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x69, 0x6e, 0x67, 0xA, 0x31, 0x36, 0x2d, 0x62, 0x69, 0x74, 0x20, 0x55, 0x6e, 0x69, 0x63, 0x6f, 0x64, 0x65, 0x20, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x20, 0x66, 0x6f, 0x6e, 0x74, 0x20, 0x73, 0x75, 0x70, 0x70, 0x6f, 0x72, 0x74, 0xA, 0x4d, 0x75, 0x6c, 0x74, 0x69, 0x6c, 0x69, 0x6e, 0x67, 0x75, 0x61, 0x6c, 0x20, 0x6c, 0x6f, 0x63, 0x61, 0x6c, 0x69, 0x7a, 0x65, 0x64, 0x20, 0x6d, 0x65, 0x6e, 0x75, 0x20, 0x28, 0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x54, 0x72, 0x61, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x20, 0xA, 0x61, 0x6e, 0x64, 0x20, 0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x69, 0x66, 0x69, 0x65, 0x64, 0x29, 0xA, 0x0 }; // Demonstrated FeaturesWVGA displayIntegrated MTCH6303 PCAP touch inputLow-Cost Controller-less Graphics driver16-bit color depth support (65535 unique colors)JPEG and BMP images stored on internal flashReal-time JPEG decode and rendering16-bit Unicode character font supportMultilingual localized menu (Chinese Traditional and Chinese Simplified)
+static const GFX_XCHAR staticTextStr_1[] = { 0x53, 0x6c, 0x69, 0x64, 0x65, 0x73, 0x68, 0x6f, 0x77, 0x0 }; // Slideshow
+static const GFX_XCHAR staticTextStr_2[] = { 0x54, 0x6f, 0x75, 0x63, 0x68, 0x20, 0x54, 0x65, 0x73, 0x74, 0x0 }; // Touch Test
+static const GFX_XCHAR staticTextStr_3[] = { 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73, 0x0 }; // Settings
+static const GFX_XCHAR staticTextStr_4[] = { 0x46, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x73, 0x0 }; // Features
+static const GFX_XCHAR staticTextStr_5[] = { 0x3c, 0x34, 0x0 }; // ??
+static const GFX_XCHAR staticTextStr_6[] = { 0x3a, 0x34, 0x0 }; // ??
+static const GFX_XCHAR staticTextStr_7[] = { 0x37, 0x26, 0x3f, 0x22, 0x0 }; // ????
+static const GFX_XCHAR staticTextStr_8[] = { 0x38, 0x26, 0x3e, 0x22, 0x0 }; // ????
+static const GFX_XCHAR staticTextStr_9[] = { 0x2b, 0x2f, 0x23, 0x35, 0x0 }; // ????
+static const GFX_XCHAR staticTextStr_10[] = { 0x24, 0x2d, 0x2e, 0x0 }; // ???
+static const GFX_XCHAR staticTextStr_11[] = { 0x24, 0x2c, 0x2e, 0x0 }; // ???
+static const GFX_XCHAR staticTextStr_12[] = { 0x53, 0x6c, 0x69, 0x64, 0x65, 0x73, 0x68, 0x6f, 0x77, 0x20, 0x54, 0x69, 0x70, 0x73, 0xA, 0xA, 0x31, 0x29, 0x20, 0x54, 0x61, 0x70, 0x20, 0x74, 0x6f, 0x20, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x65, 0x64, 0x20, 0x74, 0x6f, 0x20, 0x74, 0x68, 0x65, 0x20, 0x6e, 0x65, 0x78, 0x74, 0x20, 0x73, 0x6c, 0x69, 0x64, 0x65, 0xA, 0x32, 0x29, 0x20, 0x50, 0x72, 0x65, 0x73, 0x73, 0x20, 0x61, 0x6e, 0x64, 0x20, 0x68, 0x6f, 0x6c, 0x64, 0x20, 0x74, 0x6f, 0x20, 0x72, 0x65, 0x6d, 0x61, 0x69, 0x6e, 0x20, 0x6f, 0x6e, 0x20, 0x74, 0x68, 0x65, 0x20, 0x63, 0x75, 0x72, 0x72, 0x65, 0x6e, 0x74, 0x20, 0xA, 0x20, 0x20, 0x20, 0x69, 0x6d, 0x61, 0x67, 0x65, 0xA, 0x33, 0x29, 0x20, 0x50, 0x72, 0x65, 0x73, 0x73, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x69, 0x63, 0x6f, 0x6e, 0x20, 0x74, 0x6f, 0x20, 0x72, 0x65, 0x74, 0x75, 0x72, 0x6e, 0x20, 0x74, 0x6f, 0x20, 0x74, 0x68, 0x65, 0x20, 0x6d, 0x61, 0x69, 0x6e, 0x20, 0x6d, 0x65, 0x6e, 0x75, 0xA, 0xA, 0x34, 0x29, 0x20, 0x53, 0x6c, 0x69, 0x64, 0x65, 0x20, 0x70, 0x61, 0x75, 0x73, 0x65, 0x20, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x76, 0x61, 0x6c, 0x20, 0x74, 0x69, 0x6d, 0x65, 0x20, 0x63, 0x61, 0x6e, 0x20, 0x62, 0x65, 0x20, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x75, 0x72, 0x65, 0x64, 0x20, 0xA, 0x20, 0x20, 0x20, 0x76, 0x69, 0x61, 0x20, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x73, 0xA, 0x35, 0x29, 0x20, 0x50, 0x72, 0x65, 0x73, 0x73, 0x20, 0x74, 0x68, 0x65, 0x20, 0x69, 0x63, 0x6f, 0x6e, 0x20, 0x62, 0x65, 0x6c, 0x6f, 0x77, 0x20, 0x74, 0x6f, 0x20, 0x70, 0x72, 0x6f, 0x63, 0x65, 0x65, 0x64, 0x0 }; // Slideshow Tips1) Tap to proceed to the next slide2) Press and hold to remain on the current    image3) Press       icon to return to the main menu4) Slide pause interval time can be configured    via Settings5) Press the icon below to proceed
+static const GFX_XCHAR staticTextStr_13[] = { 0x59, 0x3a, 0x0 }; // Y:
+static const GFX_XCHAR staticTextStr_14[] = { 0x58, 0x3a, 0x0 }; // X:
+static const GFX_XCHAR staticTextStr_15[] = { 0x73, 0x65, 0x63, 0x0 }; // sec
+static const GFX_XCHAR staticTextStr_16[] = { 0x30, 0x0 }; // ?
+static const GFX_XCHAR staticTextStr_17[] = { 0x29, 0x0 }; // )
+static const GFX_XCHAR staticTextStr_18[] = { 0x53, 0x6c, 0x69, 0x64, 0x65, 0x20, 0x50, 0x61, 0x75, 0x73, 0x65, 0x20, 0x54, 0x69, 0x6d, 0x65, 0x0 }; // Slide Pause Time
+static const GFX_XCHAR staticTextStr_19[] = { 0x24, 0x2d, 0x2e, 0x42, 0x44, 0x2a, 0x42, 0x0 }; // ???????
+static const GFX_XCHAR staticTextStr_20[] = { 0x24, 0x2c, 0x2e, 0x43, 0x44, 0x29, 0x43, 0x0 }; // ???????
+static const GFX_XCHAR staticTextStr_21[] = { 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x20, 0x4c, 0x61, 0x6e, 0x67, 0x75, 0x61, 0x67, 0x65, 0x0 }; // Select Language
+static const GFX_XCHAR staticTextStr_22[] = { 0x3b, 0x39, 0x41, 0x27, 0x0 }; // ????
+static const GFX_XCHAR staticTextStr_23[] = { 0x3d, 0x39, 0x40, 0x25, 0x0 }; // ????
+static const GFX_XCHAR staticTextStr_24[] = { 0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x69, 0x66, 0x69, 0x65, 0x64, 0x0 }; // Chinese Simplified
+static const GFX_XCHAR staticTextStr_25[] = { 0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x54, 0x72, 0x61, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x0 }; // Chinese Traditional
+static const GFX_XCHAR staticTextStr_26[] = { 0x31, 0x21, 0x20, 0x28, 0x0 }; // ????
+static const GFX_XCHAR staticTextStr_27[] = { 0x33, 0x45, 0x20, 0x28, 0x0 }; // ????
+static const GFX_XCHAR staticTextStr_28[] = { 0x45, 0x6e, 0x67, 0x6c, 0x69, 0x73, 0x68, 0x0 }; // English
+static const GFX_XCHAR staticTextStr_29[] = { 0x28, 0x0 }; // (
+static const GFX_XCHAR staticTextStr_30[] = { 0x32, 0x0 }; // 2
+static const GFX_XCHAR staticTextStr_31[] = { 0x35, 0x0 }; // 5
+static const GFX_XCHAR staticTextStr_32[] = { 0x30, 0x0 }; // 0
+static const GFX_XCHAR staticTextStr_33[] = { 0x44, 0x65, 0x6d, 0x6f, 0x6e, 0x73, 0x74, 0x72, 0x61, 0x74, 0x65, 0x64, 0x20, 0x46, 0x65, 0x61, 0x74, 0x75, 0x72, 0x65, 0x73, 0xA, 0xA, 0x57, 0x56, 0x47, 0x41, 0x20, 0x64, 0x69, 0x73, 0x70, 0x6c, 0x61, 0x79, 0xA, 0x49, 0x6e, 0x74, 0x65, 0x67, 0x72, 0x61, 0x74, 0x65, 0x64, 0x20, 0x4d, 0x54, 0x43, 0x48, 0x36, 0x33, 0x30, 0x33, 0x20, 0x50, 0x43, 0x41, 0x50, 0x20, 0x74, 0x6f, 0x75, 0x63, 0x68, 0x20, 0x69, 0x6e, 0x70, 0x75, 0x74, 0xA, 0x4c, 0x6f, 0x77, 0x2d, 0x43, 0x6f, 0x73, 0x74, 0x20, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x6c, 0x65, 0x72, 0x2d, 0x6c, 0x65, 0x73, 0x73, 0x20, 0x47, 0x72, 0x61, 0x70, 0x68, 0x69, 0x63, 0x73, 0x20, 0x64, 0x72, 0x69, 0x76, 0x65, 0x72, 0xA, 0x31, 0x36, 0x2d, 0x62, 0x69, 0x74, 0x20, 0x63, 0x6f, 0x6c, 0x6f, 0x72, 0x20, 0x64, 0x65, 0x70, 0x74, 0x68, 0x20, 0x73, 0x75, 0x70, 0x70, 0x6f, 0x72, 0x74, 0x20, 0x28, 0x36, 0x35, 0x35, 0x33, 0x35, 0x20, 0x75, 0x6e, 0x69, 0x71, 0x75, 0x65, 0x20, 0x63, 0x6f, 0x6c, 0x6f, 0x72, 0x73, 0x29, 0xA, 0x4a, 0x50, 0x45, 0x47, 0x20, 0x61, 0x6e, 0x64, 0x20, 0x42, 0x4d, 0x50, 0x20, 0x69, 0x6d, 0x61, 0x67, 0x65, 0x73, 0x20, 0x73, 0x74, 0x6f, 0x72, 0x65, 0x64, 0x20, 0x6f, 0x6e, 0x20, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x20, 0x66, 0x6c, 0x61, 0x73, 0x68, 0xA, 0x52, 0x65, 0x61, 0x6c, 0x2d, 0x74, 0x69, 0x6d, 0x65, 0x20, 0x4a, 0x50, 0x45, 0x47, 0x20, 0x64, 0x65, 0x63, 0x6f, 0x64, 0x65, 0x20, 0x61, 0x6e, 0x64, 0x20, 0x72, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x69, 0x6e, 0x67, 0xA, 0x31, 0x36, 0x2d, 0x62, 0x69, 0x74, 0x20, 0x55, 0x6e, 0x69, 0x63, 0x6f, 0x64, 0x65, 0x20, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x20, 0x66, 0x6f, 0x6e, 0x74, 0x20, 0x73, 0x75, 0x70, 0x70, 0x6f, 0x72, 0x74, 0xA, 0x4d, 0x75, 0x6c, 0x74, 0x69, 0x6c, 0x69, 0x6e, 0x67, 0x75, 0x61, 0x6c, 0x20, 0x6c, 0x6f, 0x63, 0x61, 0x6c, 0x69, 0x7a, 0x65, 0x64, 0x20, 0x6d, 0x65, 0x6e, 0x75, 0x20, 0x28, 0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x54, 0x72, 0x61, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x61, 0x6c, 0x20, 0xA, 0x61, 0x6e, 0x64, 0x20, 0x43, 0x68, 0x69, 0x6e, 0x65, 0x73, 0x65, 0x20, 0x53, 0x69, 0x6d, 0x70, 0x6c, 0x69, 0x66, 0x69, 0x65, 0x64, 0x29, 0xA, 0x0 }; // Demonstrated FeaturesWVGA displayIntegrated MTCH6303 PCAP touch inputLow-Cost Controller-less Graphics driver16-bit color depth support (65535 unique colors)JPEG and BMP images stored on internal flashReal-time JPEG decode and rendering16-bit Unicode character font supportMultilingual localized menu (Chinese Traditional and Chinese Simplified)
 static const GFX_XCHAR windowTextStr_0[] = { 0x57, 0x69, 0x6e, 0x64, 0x6f, 0x77, 0x0 }; // Window
 
 /*** HGC Object Global ***/
@@ -1612,93 +1610,168 @@ void GFX_HGC_SetupScreen(uint8_t screenId)
     switch (screenId)
     {
         case MainMenu:
+			// disable double buffering
+            GFX_DoubleBufferDisable(GFX_INDEX_0);
+			
             GFX_ColorSet(GFX_INDEX_0, GFX_RGBConvert(0xFF,0xFF,0xFF));
             GFX_ScreenClear(GFX_INDEX_0);
 			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case SlideShowInstructions:
+			// disable double buffering
+            GFX_DoubleBufferDisable(GFX_INDEX_0);
+			
             GFX_ColorSet(GFX_INDEX_0, GFX_RGBConvert(0xFF,0xFF,0xFF));
             GFX_ScreenClear(GFX_INDEX_0);
 			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case Microchip:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case ScienceWorld:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case CoalHarbour:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case EnglishBay:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case AutumnGrass:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case FalseCreek:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case BoraBoraSunset:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case DowntownVancouver:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case MacBethChart:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case Colors:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case Fishes:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case PartkTrees:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case Rockies:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case SnowLeopard:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case SnowHills:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case Splash:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case Waterfall:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case Wheats:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case Harmony:
+            // enable double buffering
+            GFX_DoubleBufferEnable(GFX_INDEX_0);
+			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case TouchTest:
+			// disable double buffering
+            GFX_DoubleBufferDisable(GFX_INDEX_0);
+			
             GFX_ColorSet(GFX_INDEX_0, GFX_RGBConvert(0xFF,0xFF,0xFF));
             GFX_ScreenClear(GFX_INDEX_0);
 			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case Settings:
+			// disable double buffering
+            GFX_DoubleBufferDisable(GFX_INDEX_0);
+			
             GFX_ColorSet(GFX_INDEX_0, GFX_RGBConvert(0xFF,0xFF,0xFF));
             GFX_ScreenClear(GFX_INDEX_0);
 			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case FeatureList:
+			// disable double buffering
+            GFX_DoubleBufferDisable(GFX_INDEX_0);
+			
             GFX_ColorSet(GFX_INDEX_0, GFX_RGBConvert(0xFF,0xFF,0xFF));
             GFX_ScreenClear(GFX_INDEX_0);
 			
             GFX_GOL_ObjectListFree(GFX_INDEX_0); // free memory for the objects in the previous linked list and start new list
             break;
         case Lines:
+			// disable double buffering
+            GFX_DoubleBufferDisable(GFX_INDEX_0);
+			
             GFX_ColorSet(GFX_INDEX_0, GFX_RGBConvert(0x00,0x00,0x00));
             GFX_ScreenClear(GFX_INDEX_0);
 			
@@ -1909,8 +1982,6 @@ bool GFX_HGC_DrawScreen_GOL(uint8_t screenId)
             GFX_HGC_DrawItem(e_st_Settings);
             GFX_HGC_DrawItem(e_st_TouchTest);
             GFX_HGC_DrawItem(e_st_Slideshow);
-            GFX_HGC_DrawItem(cs_st_DemoName);
-            GFX_HGC_DrawItem(ct_st_DemoName);
             GFX_HGC_DrawItem(e_st_DemoName);
             break;
         case SlideShowInstructions:
@@ -2759,11 +2830,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_0
                  ); // use alternate scheme
         break;
-    case ct_st_DemoName:
-        hgcObj.pct_st_DemoNameObj = GFX_GOL_StaticTextCreate
+    case e_st_Slideshow:
+        hgcObj.pe_st_SlideshowObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 ct_st_DemoName,      // button ID
+                 e_st_Slideshow,      // button ID
                  GFX_STATICTEXT_LEFT_1,    // left
                  GFX_STATICTEXT_TOP_1,     // top
                  GFX_STATICTEXT_RIGHT_1,   // right
@@ -2774,11 +2845,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_1
                  ); // use alternate scheme
         break;
-    case cs_st_DemoName:
-        hgcObj.pcs_st_DemoNameObj = GFX_GOL_StaticTextCreate
+    case e_st_TouchTest:
+        hgcObj.pe_st_TouchTestObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 cs_st_DemoName,      // button ID
+                 e_st_TouchTest,      // button ID
                  GFX_STATICTEXT_LEFT_2,    // left
                  GFX_STATICTEXT_TOP_2,     // top
                  GFX_STATICTEXT_RIGHT_2,   // right
@@ -2789,11 +2860,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_2
                  ); // use alternate scheme
         break;
-    case e_st_Slideshow:
-        hgcObj.pe_st_SlideshowObj = GFX_GOL_StaticTextCreate
+    case e_st_Settings:
+        hgcObj.pe_st_SettingsObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 e_st_Slideshow,      // button ID
+                 e_st_Settings,      // button ID
                  GFX_STATICTEXT_LEFT_3,    // left
                  GFX_STATICTEXT_TOP_3,     // top
                  GFX_STATICTEXT_RIGHT_3,   // right
@@ -2804,11 +2875,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_3
                  ); // use alternate scheme
         break;
-    case e_st_TouchTest:
-        hgcObj.pe_st_TouchTestObj = GFX_GOL_StaticTextCreate
+    case e_st_Features:
+        hgcObj.pe_st_FeaturesObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 e_st_TouchTest,      // button ID
+                 e_st_Features,      // button ID
                  GFX_STATICTEXT_LEFT_4,    // left
                  GFX_STATICTEXT_TOP_4,     // top
                  GFX_STATICTEXT_RIGHT_4,   // right
@@ -2819,11 +2890,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_4
                  ); // use alternate scheme
         break;
-    case e_st_Settings:
-        hgcObj.pe_st_SettingsObj = GFX_GOL_StaticTextCreate
+    case cs_st_Settings:
+        hgcObj.pcs_st_SettingsObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 e_st_Settings,      // button ID
+                 cs_st_Settings,      // button ID
                  GFX_STATICTEXT_LEFT_5,    // left
                  GFX_STATICTEXT_TOP_5,     // top
                  GFX_STATICTEXT_RIGHT_5,   // right
@@ -2834,11 +2905,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_5
                  ); // use alternate scheme
         break;
-    case e_st_Features:
-        hgcObj.pe_st_FeaturesObj = GFX_GOL_StaticTextCreate
+    case ct_st_Settings:
+        hgcObj.pct_st_SettingsObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 e_st_Features,      // button ID
+                 ct_st_Settings,      // button ID
                  GFX_STATICTEXT_LEFT_6,    // left
                  GFX_STATICTEXT_TOP_6,     // top
                  GFX_STATICTEXT_RIGHT_6,   // right
@@ -2849,11 +2920,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_6
                  ); // use alternate scheme
         break;
-    case cs_st_Settings:
-        hgcObj.pcs_st_SettingsObj = GFX_GOL_StaticTextCreate
+    case cs_st_TouchTest:
+        hgcObj.pcs_st_TouchTestObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 cs_st_Settings,      // button ID
+                 cs_st_TouchTest,      // button ID
                  GFX_STATICTEXT_LEFT_7,    // left
                  GFX_STATICTEXT_TOP_7,     // top
                  GFX_STATICTEXT_RIGHT_7,   // right
@@ -2864,11 +2935,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_7
                  ); // use alternate scheme
         break;
-    case ct_st_Settings:
-        hgcObj.pct_st_SettingsObj = GFX_GOL_StaticTextCreate
+    case ct_st_TouchTest:
+        hgcObj.pct_st_TouchTestObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 ct_st_Settings,      // button ID
+                 ct_st_TouchTest,      // button ID
                  GFX_STATICTEXT_LEFT_8,    // left
                  GFX_STATICTEXT_TOP_8,     // top
                  GFX_STATICTEXT_RIGHT_8,   // right
@@ -2879,11 +2950,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_8
                  ); // use alternate scheme
         break;
-    case cs_st_TouchTest:
-        hgcObj.pcs_st_TouchTestObj = GFX_GOL_StaticTextCreate
+    case c_st_Features:
+        hgcObj.pc_st_FeaturesObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 cs_st_TouchTest,      // button ID
+                 c_st_Features,      // button ID
                  GFX_STATICTEXT_LEFT_9,    // left
                  GFX_STATICTEXT_TOP_9,     // top
                  GFX_STATICTEXT_RIGHT_9,   // right
@@ -2894,11 +2965,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_9
                  ); // use alternate scheme
         break;
-    case ct_st_TouchTest:
-        hgcObj.pct_st_TouchTestObj = GFX_GOL_StaticTextCreate
+    case ct_st_SlideShow:
+        hgcObj.pct_st_SlideShowObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 ct_st_TouchTest,      // button ID
+                 ct_st_SlideShow,      // button ID
                  GFX_STATICTEXT_LEFT_10,    // left
                  GFX_STATICTEXT_TOP_10,     // top
                  GFX_STATICTEXT_RIGHT_10,   // right
@@ -2909,11 +2980,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_10
                  ); // use alternate scheme
         break;
-    case c_st_Features:
-        hgcObj.pc_st_FeaturesObj = GFX_GOL_StaticTextCreate
+    case cs_st_SlideShow:
+        hgcObj.pcs_st_SlideShowObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 c_st_Features,      // button ID
+                 cs_st_SlideShow,      // button ID
                  GFX_STATICTEXT_LEFT_11,    // left
                  GFX_STATICTEXT_TOP_11,     // top
                  GFX_STATICTEXT_RIGHT_11,   // right
@@ -2924,11 +2995,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_11
                  ); // use alternate scheme
         break;
-    case ct_st_SlideShow:
-        hgcObj.pct_st_SlideShowObj = GFX_GOL_StaticTextCreate
+    case e_st_SlideShowTips:
+        hgcObj.pe_st_SlideShowTipsObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 ct_st_SlideShow,      // button ID
+                 e_st_SlideShowTips,      // button ID
                  GFX_STATICTEXT_LEFT_12,    // left
                  GFX_STATICTEXT_TOP_12,     // top
                  GFX_STATICTEXT_RIGHT_12,   // right
@@ -2939,11 +3010,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_12
                  ); // use alternate scheme
         break;
-    case cs_st_SlideShow:
-        hgcObj.pcs_st_SlideShowObj = GFX_GOL_StaticTextCreate
+    case StaticText11:
+        hgcObj.pStaticText11Obj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 cs_st_SlideShow,      // button ID
+                 StaticText11,      // button ID
                  GFX_STATICTEXT_LEFT_13,    // left
                  GFX_STATICTEXT_TOP_13,     // top
                  GFX_STATICTEXT_RIGHT_13,   // right
@@ -2954,11 +3025,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_13
                  ); // use alternate scheme
         break;
-    case e_st_SlideShowTips:
-        hgcObj.pe_st_SlideShowTipsObj = GFX_GOL_StaticTextCreate
+    case StaticText10:
+        hgcObj.pStaticText10Obj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 e_st_SlideShowTips,      // button ID
+                 StaticText10,      // button ID
                  GFX_STATICTEXT_LEFT_14,    // left
                  GFX_STATICTEXT_TOP_14,     // top
                  GFX_STATICTEXT_RIGHT_14,   // right
@@ -2969,11 +3040,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_14
                  ); // use alternate scheme
         break;
-    case StaticText11:
-        hgcObj.pStaticText11Obj = GFX_GOL_StaticTextCreate
+    case e_st_Second:
+        hgcObj.pe_st_SecondObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 StaticText11,      // button ID
+                 e_st_Second,      // button ID
                  GFX_STATICTEXT_LEFT_15,    // left
                  GFX_STATICTEXT_TOP_15,     // top
                  GFX_STATICTEXT_RIGHT_15,   // right
@@ -2984,11 +3055,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_15
                  ); // use alternate scheme
         break;
-    case StaticText10:
-        hgcObj.pStaticText10Obj = GFX_GOL_StaticTextCreate
+    case c_st_Second:
+        hgcObj.pc_st_SecondObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 StaticText10,      // button ID
+                 c_st_Second,      // button ID
                  GFX_STATICTEXT_LEFT_16,    // left
                  GFX_STATICTEXT_TOP_16,     // top
                  GFX_STATICTEXT_RIGHT_16,   // right
@@ -2999,11 +3070,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_16
                  ); // use alternate scheme
         break;
-    case e_st_Second:
-        hgcObj.pe_st_SecondObj = GFX_GOL_StaticTextCreate
+    case e_st_CloseBracket:
+        hgcObj.pe_st_CloseBracketObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 e_st_Second,      // button ID
+                 e_st_CloseBracket,      // button ID
                  GFX_STATICTEXT_LEFT_17,    // left
                  GFX_STATICTEXT_TOP_17,     // top
                  GFX_STATICTEXT_RIGHT_17,   // right
@@ -3014,11 +3085,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_17
                  ); // use alternate scheme
         break;
-    case c_st_Second:
-        hgcObj.pc_st_SecondObj = GFX_GOL_StaticTextCreate
+    case e_st_SlidePauseTime:
+        hgcObj.pe_st_SlidePauseTimeObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 c_st_Second,      // button ID
+                 e_st_SlidePauseTime,      // button ID
                  GFX_STATICTEXT_LEFT_18,    // left
                  GFX_STATICTEXT_TOP_18,     // top
                  GFX_STATICTEXT_RIGHT_18,   // right
@@ -3029,11 +3100,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_18
                  ); // use alternate scheme
         break;
-    case e_st_CloseBracket:
-        hgcObj.pe_st_CloseBracketObj = GFX_GOL_StaticTextCreate
+    case ct_st_SlidePauseTime:
+        hgcObj.pct_st_SlidePauseTimeObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 e_st_CloseBracket,      // button ID
+                 ct_st_SlidePauseTime,      // button ID
                  GFX_STATICTEXT_LEFT_19,    // left
                  GFX_STATICTEXT_TOP_19,     // top
                  GFX_STATICTEXT_RIGHT_19,   // right
@@ -3044,11 +3115,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_19
                  ); // use alternate scheme
         break;
-    case e_st_SlidePauseTime:
-        hgcObj.pe_st_SlidePauseTimeObj = GFX_GOL_StaticTextCreate
+    case cs_st_SlidePauseTime:
+        hgcObj.pcs_st_SlidePauseTimeObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 e_st_SlidePauseTime,      // button ID
+                 cs_st_SlidePauseTime,      // button ID
                  GFX_STATICTEXT_LEFT_20,    // left
                  GFX_STATICTEXT_TOP_20,     // top
                  GFX_STATICTEXT_RIGHT_20,   // right
@@ -3059,11 +3130,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_20
                  ); // use alternate scheme
         break;
-    case ct_st_SlidePauseTime:
-        hgcObj.pct_st_SlidePauseTimeObj = GFX_GOL_StaticTextCreate
+    case e_st_SelectLanguage:
+        hgcObj.pe_st_SelectLanguageObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 ct_st_SlidePauseTime,      // button ID
+                 e_st_SelectLanguage,      // button ID
                  GFX_STATICTEXT_LEFT_21,    // left
                  GFX_STATICTEXT_TOP_21,     // top
                  GFX_STATICTEXT_RIGHT_21,   // right
@@ -3074,11 +3145,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_21
                  ); // use alternate scheme
         break;
-    case cs_st_SlidePauseTime:
-        hgcObj.pcs_st_SlidePauseTimeObj = GFX_GOL_StaticTextCreate
+    case ct_st_SelectLanguage:
+        hgcObj.pct_st_SelectLanguageObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 cs_st_SlidePauseTime,      // button ID
+                 ct_st_SelectLanguage,      // button ID
                  GFX_STATICTEXT_LEFT_22,    // left
                  GFX_STATICTEXT_TOP_22,     // top
                  GFX_STATICTEXT_RIGHT_22,   // right
@@ -3089,11 +3160,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_22
                  ); // use alternate scheme
         break;
-    case e_st_SelectLanguage:
-        hgcObj.pe_st_SelectLanguageObj = GFX_GOL_StaticTextCreate
+    case cs_st_SelectLanguage:
+        hgcObj.pcs_st_SelectLanguageObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 e_st_SelectLanguage,      // button ID
+                 cs_st_SelectLanguage,      // button ID
                  GFX_STATICTEXT_LEFT_23,    // left
                  GFX_STATICTEXT_TOP_23,     // top
                  GFX_STATICTEXT_RIGHT_23,   // right
@@ -3104,11 +3175,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_23
                  ); // use alternate scheme
         break;
-    case ct_st_SelectLanguage:
-        hgcObj.pct_st_SelectLanguageObj = GFX_GOL_StaticTextCreate
+    case e_st_ChineseSimplified:
+        hgcObj.pe_st_ChineseSimplifiedObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 ct_st_SelectLanguage,      // button ID
+                 e_st_ChineseSimplified,      // button ID
                  GFX_STATICTEXT_LEFT_24,    // left
                  GFX_STATICTEXT_TOP_24,     // top
                  GFX_STATICTEXT_RIGHT_24,   // right
@@ -3119,11 +3190,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_24
                  ); // use alternate scheme
         break;
-    case cs_st_SelectLanguage:
-        hgcObj.pcs_st_SelectLanguageObj = GFX_GOL_StaticTextCreate
+    case e_st_ChineseTraditional:
+        hgcObj.pe_st_ChineseTraditionalObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 cs_st_SelectLanguage,      // button ID
+                 e_st_ChineseTraditional,      // button ID
                  GFX_STATICTEXT_LEFT_25,    // left
                  GFX_STATICTEXT_TOP_25,     // top
                  GFX_STATICTEXT_RIGHT_25,   // right
@@ -3134,11 +3205,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_25
                  ); // use alternate scheme
         break;
-    case e_st_ChineseSimplified:
-        hgcObj.pe_st_ChineseSimplifiedObj = GFX_GOL_StaticTextCreate
+    case cs_st_ChineseSimplified:
+        hgcObj.pcs_st_ChineseSimplifiedObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 e_st_ChineseSimplified,      // button ID
+                 cs_st_ChineseSimplified,      // button ID
                  GFX_STATICTEXT_LEFT_26,    // left
                  GFX_STATICTEXT_TOP_26,     // top
                  GFX_STATICTEXT_RIGHT_26,   // right
@@ -3149,11 +3220,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_26
                  ); // use alternate scheme
         break;
-    case e_st_ChineseTraditional:
-        hgcObj.pe_st_ChineseTraditionalObj = GFX_GOL_StaticTextCreate
+    case ct_st_ChineseTraditional:
+        hgcObj.pct_st_ChineseTraditionalObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 e_st_ChineseTraditional,      // button ID
+                 ct_st_ChineseTraditional,      // button ID
                  GFX_STATICTEXT_LEFT_27,    // left
                  GFX_STATICTEXT_TOP_27,     // top
                  GFX_STATICTEXT_RIGHT_27,   // right
@@ -3164,11 +3235,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_27
                  ); // use alternate scheme
         break;
-    case cs_st_ChineseSimplified:
-        hgcObj.pcs_st_ChineseSimplifiedObj = GFX_GOL_StaticTextCreate
+    case e_st_English:
+        hgcObj.pe_st_EnglishObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 cs_st_ChineseSimplified,      // button ID
+                 e_st_English,      // button ID
                  GFX_STATICTEXT_LEFT_28,    // left
                  GFX_STATICTEXT_TOP_28,     // top
                  GFX_STATICTEXT_RIGHT_28,   // right
@@ -3179,11 +3250,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_28
                  ); // use alternate scheme
         break;
-    case ct_st_ChineseTraditional:
-        hgcObj.pct_st_ChineseTraditionalObj = GFX_GOL_StaticTextCreate
+    case e_st_OpenBracket:
+        hgcObj.pe_st_OpenBracketObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 ct_st_ChineseTraditional,      // button ID
+                 e_st_OpenBracket,      // button ID
                  GFX_STATICTEXT_LEFT_29,    // left
                  GFX_STATICTEXT_TOP_29,     // top
                  GFX_STATICTEXT_RIGHT_29,   // right
@@ -3194,11 +3265,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_29
                  ); // use alternate scheme
         break;
-    case e_st_English:
-        hgcObj.pe_st_EnglishObj = GFX_GOL_StaticTextCreate
+    case SecondsString:
+        hgcObj.pSecondsStringObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 e_st_English,      // button ID
+                 SecondsString,      // button ID
                  GFX_STATICTEXT_LEFT_30,    // left
                  GFX_STATICTEXT_TOP_30,     // top
                  GFX_STATICTEXT_RIGHT_30,   // right
@@ -3209,11 +3280,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_30
                  ); // use alternate scheme
         break;
-    case e_st_OpenBracket:
-        hgcObj.pe_st_OpenBracketObj = GFX_GOL_StaticTextCreate
+    case e_st_5:
+        hgcObj.pe_st_5Obj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 e_st_OpenBracket,      // button ID
+                 e_st_5,      // button ID
                  GFX_STATICTEXT_LEFT_31,    // left
                  GFX_STATICTEXT_TOP_31,     // top
                  GFX_STATICTEXT_RIGHT_31,   // right
@@ -3224,11 +3295,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_31
                  ); // use alternate scheme
         break;
-    case SecondsString:
-        hgcObj.pSecondsStringObj = GFX_GOL_StaticTextCreate
+    case e_st_0:
+        hgcObj.pe_st_0Obj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 SecondsString,      // button ID
+                 e_st_0,      // button ID
                  GFX_STATICTEXT_LEFT_32,    // left
                  GFX_STATICTEXT_TOP_32,     // top
                  GFX_STATICTEXT_RIGHT_32,   // right
@@ -3239,11 +3310,11 @@ bool GFX_HGC_DrawItem(int itemId)
                  GFX_STATICTEXT_SCHEME_32
                  ); // use alternate scheme
         break;
-    case e_st_5:
-        hgcObj.pe_st_5Obj = GFX_GOL_StaticTextCreate
+    case e_st_DemonstratedFeatures:
+        hgcObj.pe_st_DemonstratedFeaturesObj = GFX_GOL_StaticTextCreate
                 (
                  GFX_INDEX_0,
-                 e_st_5,      // button ID
+                 e_st_DemonstratedFeatures,      // button ID
                  GFX_STATICTEXT_LEFT_33,    // left
                  GFX_STATICTEXT_TOP_33,     // top
                  GFX_STATICTEXT_RIGHT_33,   // right
@@ -3252,36 +3323,6 @@ bool GFX_HGC_DrawItem(int itemId)
                  (GFX_XCHAR*)staticTextStr_33,    // text
                  GFX_STATICTEXT_ALIGNMENT_33,       //alignment
                  GFX_STATICTEXT_SCHEME_33
-                 ); // use alternate scheme
-        break;
-    case e_st_0:
-        hgcObj.pe_st_0Obj = GFX_GOL_StaticTextCreate
-                (
-                 GFX_INDEX_0,
-                 e_st_0,      // button ID
-                 GFX_STATICTEXT_LEFT_34,    // left
-                 GFX_STATICTEXT_TOP_34,     // top
-                 GFX_STATICTEXT_RIGHT_34,   // right
-                 GFX_STATICTEXT_BOTTOM_34,  // bottom
-                 GFX_STATICTEXT_STATE_34,   // state
-                 (GFX_XCHAR*)staticTextStr_34,    // text
-                 GFX_STATICTEXT_ALIGNMENT_34,       //alignment
-                 GFX_STATICTEXT_SCHEME_34
-                 ); // use alternate scheme
-        break;
-    case e_st_DemonstratedFeatures:
-        hgcObj.pe_st_DemonstratedFeaturesObj = GFX_GOL_StaticTextCreate
-                (
-                 GFX_INDEX_0,
-                 e_st_DemonstratedFeatures,      // button ID
-                 GFX_STATICTEXT_LEFT_35,    // left
-                 GFX_STATICTEXT_TOP_35,     // top
-                 GFX_STATICTEXT_RIGHT_35,   // right
-                 GFX_STATICTEXT_BOTTOM_35,  // bottom
-                 GFX_STATICTEXT_STATE_35,   // state
-                 (GFX_XCHAR*)staticTextStr_35,    // text
-                 GFX_STATICTEXT_ALIGNMENT_35,       //alignment
-                 GFX_STATICTEXT_SCHEME_35
                  ); // use alternate scheme
         break;
     case TouchArea:

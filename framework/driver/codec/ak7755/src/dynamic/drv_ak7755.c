@@ -212,6 +212,10 @@ SYS_MODULE_OBJ  DRV_AK7755_Initialize
     drvObj->drvI2CMasterHandle              = DRV_I2C_Open(DRV_AK7755_I2C_DRIVER_MODULE_INDEX_IDX0,
                                                             DRV_IO_INTENT_WRITE );
     
+    if(drvObj->drvI2CMasterHandle == DRV_HANDLE_INVALID)
+    {
+        return SYS_MODULE_OBJ_INVALID;
+    }
     /*Assigning the init volume to all supported audio channels*/
     for(index=0; index < DRV_AK7755_NUMBER_OF_CHANNELS; index++)
     {
@@ -1323,7 +1327,6 @@ void DRV_AK7755_SamplingRateSet(DRV_HANDLE handle, uint32_t samplingRate)
     clientObj = (DRV_AK7755_CLIENT_OBJ *) handle;
     drvObj = (DRV_AK7755_OBJ *)clientObj->hDriver;
 
-    drvObj->command = DRV_AK7755_COMMAND_SAMPLING_RATE_SET;
     _DRV_AK7755_MasterClockSet(samplingRate, drvObj->mclk_multiplier);
 
 
@@ -1550,17 +1553,18 @@ void DRV_AK7755_MuteOn(DRV_HANDLE handle)
         return;
     }
     drvObj->command = DRV_AK7755_COMMAND_SEND;
-    regValue = _DRV_AK7755_CONTROL_REG_BIT_WRITE_Wrapper(drvObj,
-               AK7755_CONTROL_REG_CONT1A+AK7755_WRITE_OFFSET,
-               5,
-               0x1
-               );
+    
     AK7755_COMMAND *muteOnCmd;
     muteOnCmd = _DRV_AK7755_CommandQueueGetSlot();
     if(muteOnCmd == NULL)
     {
         return;
     }
+    regValue = _DRV_AK7755_CONTROL_REG_BIT_WRITE_Wrapper(drvObj,
+               AK7755_CONTROL_REG_CONT1A+AK7755_WRITE_OFFSET,
+               5,
+               0x1
+               );
     
     muteOnCmd->command = DRV_AK7755_COMMAND_MUTE_ON;
     muteOnCmd->control_data[0] = (uint8_t)(AK7755_CONTROL_REG_CONT1A+AK7755_WRITE_OFFSET);

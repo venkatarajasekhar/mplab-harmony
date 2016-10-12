@@ -45,7 +45,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // always power of 2
 #if defined(__PIC32MX__)
 typedef uint32_t _heap_Align;
-#elif defined(__PIC32MZ__)
+#elif defined(__PIC32MZ__) || defined(__PIC32WK__)
 typedef struct __attribute__((aligned(16)))
 {
     uint64_t     pad[2];

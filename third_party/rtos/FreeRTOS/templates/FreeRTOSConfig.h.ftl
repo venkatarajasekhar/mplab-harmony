@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V8.2.2 - Copyright (C) 2015 Real Time Engineers Ltd. 
+    FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd. 
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -97,6 +97,8 @@
 #define configMAX_PRIORITIES                    ( ${CONFIG_FREERTOS_MAX_PRIORITIES}UL )
 #define configMINIMAL_STACK_SIZE                ( ${CONFIG_FREERTOS_MINIMAL_STACK_SIZE} )
 #define configISR_STACK_SIZE                    ( ${CONFIG_FREERTOS_ISR_STACK_SIZE} )
+#define configSUPPORT_DYNAMIC_ALLOCATION        <#if CONFIG_FREERTOS_DYNAMIC_ALLOC == true>1<#else>0</#if>
+#define configSUPPORT_STATIC_ALLOCATION         <#if CONFIG_FREERTOS_STATIC_ALLOC == true>1<#else>0</#if>
 #define configTOTAL_HEAP_SIZE                   ( ( size_t ) ${CONFIG_FREERTOS_TOTAL_HEAP_SIZE} )
 #define configMAX_TASK_NAME_LEN                 ( ${CONFIG_FREERTOS_MAX_TASK_NAME_LEN} )
 #define configUSE_16_BIT_TICKS                  <#if CONFIG_FREERTOS_USE_16_BIT_TICKS == true>1<#else>0</#if>
@@ -134,6 +136,7 @@
 #define configTIMER_TASK_PRIORITY               ${CONFIG_FREERTOS_TIMER_TASK_PRIORITY}
 #define configTIMER_QUEUE_LENGTH                ${CONFIG_FREERTOS_TIMER_QUEUE_LENGTH}
 #define configTIMER_TASK_STACK_DEPTH            ${CONFIG_FREERTOS_TIMER_TASK_STACK_DEPTH}
+#define configUSE_DAEMON_TASK_STARTUP_HOOK      <#if CONFIG_FREERTOS_DAEMON_TASK_STARTUP_HOOK == true>1<#else>0</#if>
 
 /* Misc */
 #define configUSE_APPLICATION_TASK_TAG          <#if CONFIG_FREERTOS_USE_APPLICATION_TASK_TAG == true>1<#else>0</#if>
@@ -159,7 +162,6 @@ Only API functions that end in ...FromISR() can be used within interrupts. */
 #define INCLUDE_vTaskPrioritySet                <#if CONFIG_FREERTOS_INCLUDE_VTASKPRIORITYSET == true>1<#else>0</#if>
 #define INCLUDE_uxTaskPriorityGet               <#if CONFIG_FREERTOS_INCLUDE_UXTASKPRIORITYGET == true>1<#else>0</#if>
 #define INCLUDE_vTaskDelete                     <#if CONFIG_FREERTOS_INCLUDE_VTASKDELETE == true>1<#else>0</#if>
-#define INCLUDE_vTaskCleanUpResources           <#if CONFIG_FREERTOS_INCLUDE_VTASKCLEANUPRESOURCES == true>1<#else>0</#if>
 #define INCLUDE_vTaskSuspend                    <#if CONFIG_FREERTOS_INCLUDE_VTASKSUSPEND == true>1<#else>0</#if>
 #define INCLUDE_vTaskDelayUntil                 <#if CONFIG_FREERTOS_INCLUDE_VTASKDELAYUNTIL == true>1<#else>0</#if>
 #define INCLUDE_vTaskDelay                      <#if CONFIG_FREERTOS_INCLUDE_VTASKDELAY == true>1<#else>0</#if>
@@ -167,10 +169,10 @@ Only API functions that end in ...FromISR() can be used within interrupts. */
 #define INCLUDE_xTaskGetCurrentTaskHandle       <#if CONFIG_FREERTOS_INCLUDE_XTASKGETCURRENTTASKHANDLE == true>1<#else>0</#if>
 #define INCLUDE_uxTaskGetStackHighWaterMark     <#if CONFIG_FREERTOS_INCLUDE_UXTASKGETSTACKHIGHWATERMARK == true>1<#else>0</#if>
 #define INCLUDE_xTaskGetIdleTaskHandle          <#if CONFIG_FREERTOS_INCLUDE_XTASKGETIDLETASKHANDLE == true>1<#else>0</#if>
-#define INCLUDE_xTimerGetTimerDaemonTaskHandle  <#if CONFIG_FREERTOS_INCLUDE_XTASKGETTIMERDAEMONTASKHANDLE == true>1<#else>0</#if>
-#define INCLUDE_pcTaskGetTaskName               <#if CONFIG_FREERTOS_INCLUDE_PCTASKGETTASKNAME == true>1<#else>0</#if>
 #define INCLUDE_eTaskGetState                   <#if CONFIG_FREERTOS_INCLUDE_ETASKGETSTATE == true>1<#else>0</#if>
 #define INCLUDE_xEventGroupSetBitFromISR        <#if CONFIG_FREERTOS_INCLUDE_XEVENTGROUPSETBITFROMISR == true>1<#else>0</#if>
 #define INCLUDE_xTimerPendFunctionCall          <#if CONFIG_FREERTOS_INCLUDE_XTIMERPENDFUNCTIONCALL == true>1<#else>0</#if>
+#define INCLUDE_xTaskAbortDelay                 <#if CONFIG_FREERTOS_INCLUDE_XTASKABORTDELAY == true>1<#else>0</#if>
+#define INCLUDE_xTaskGetHandle                  <#if CONFIG_FREERTOS_INCLUDE_XTASKGETHANDLE == true>1<#else>0</#if>
 
 #endif /* FREERTOS_CONFIG_H */

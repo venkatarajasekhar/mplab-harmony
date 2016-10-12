@@ -37,6 +37,18 @@ config EMBOS_OS_PCLK_TIMER
 <p>	This is the frequency in Hz at which the Timer peripherals are clocked (PBCLK), obtained from the Clock System Service configuration.</p>
 <p>	MHC sets the FreeRTOS preprocessor variable OS_PCLK_TIMER.</p>
     ---endhelp---
+
+config EMBOS_TICK_INTERRUPT
+    select USE_SYS_INT_NEEDED
+    bool "Tick interrupt"
+    default y
+    persistent
+    
+    ---help---
+<p>	<strong>embOS - Tick Interrupt </strong></p>
+<p>	Enables (when set to 1) or disables (when set to 0) the code generation of the system interrupt services </p>
+<p>	MHC sets the system service preprocessor variable SYS_INT to TRUE.</p>
+    ---endhelp---
     
 config EMBOS_OS_TICK_FREQ
     int "Tick rate (Hz)"

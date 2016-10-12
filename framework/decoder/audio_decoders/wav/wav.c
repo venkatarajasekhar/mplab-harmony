@@ -44,12 +44,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-//#include "wav.h"
-#include "app.h"
+#include "wav.h"
 
 
 static WAVHEADER wavHeader;
 static WAV_DEC   wavDecoder;
+static SYS_FS_HANDLE currentWAVFileHandle;
 
 int WAV_HdrGetFormat (void)
 {
@@ -96,7 +96,33 @@ unsigned int WAV_HdrGetFileSize(void)
     return (unsigned int) wavHeader.extralen;
 }
 
-void WAV_Initialize(uint8_t *input)
+uint16_t WAV_GetSampleRate(void){
+    return wavDecoder.wavSampleRate;
+}
+
+uint32_t WAV_GetBitRate(void){
+    return wavDecoder.wavBitRate;
+}
+
+uint32_t WAV_GetDuration(void){
+    return wavDecoder.wavFileBytes / wavHeader.bytesPerSec;
+}
+/*
+* This function is deprecated,
+* Use WAV_Initialize_N() instead.
+*/
+void WAV_Initialize(uint8_t *input){
+	memcpy(&wavHeader, input, WAV_HEADER_SIZE);
+
+    wavDecoder.decodeStartPos = WAV_HEADER_SIZE;
+    wavDecoder.wavSampleRate  = wavHeader.samplesPerSec;
+    wavDecoder.wavBitRate     = wavHeader.bytesPerSec*8/1000;
+    wavDecoder.wavFileBytes   = wavHeader.extralen;
+    wavDecoder.wavDuration    = wavDecoder.wavFileBytes / wavHeader.bytesPerSec;
+	currentWAVFileHandle = NULL;
+}
+
+void WAV_Initialize_N(uint8_t *input, SYS_FS_HANDLE wavFilehandle)
 {
     memcpy(&wavHeader, input, WAV_HEADER_SIZE);
 
@@ -106,15 +132,15 @@ void WAV_Initialize(uint8_t *input)
     wavDecoder.wavFileBytes   = wavHeader.extralen;
     wavDecoder.wavDuration    = wavDecoder.wavFileBytes / wavHeader.bytesPerSec;
 
-    DECODER_EventHandler ( DECODER_EVENT_SAMPLERATE, wavHeader.samplesPerSec );
-    DECODER_EventHandler ( DECODER_EVENT_BITRATE, wavDecoder.wavBitRate );
-    DECODER_EventHandler ( DECODER_EVENT_TRACK_TIME, wavDecoder.wavDuration);
+    currentWAVFileHandle = wavFilehandle;
 }
 
 uint32_t WAV_UpdatePlaytime(){
     uint32_t playtime;
-
-    playtime = (DISK_GetCurrentFilePosition() - WAV_HEADER_SIZE)>>12;
+	if(currentWAVFileHandle == NULL){
+		return 0;
+	}
+    playtime = (SYS_FS_FileTell(currentWAVFileHandle) - WAV_HEADER_SIZE)>>12;
     playtime *= wavDecoder.wavDuration;
     playtime /= wavDecoder.wavFileBytes >> 12;
     return playtime;

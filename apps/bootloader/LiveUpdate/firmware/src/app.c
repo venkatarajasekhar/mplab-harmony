@@ -86,6 +86,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // *****************************************************************************
 // *****************************************************************************
 
+#define BOOTLOADER_FLASH_TRIGGER_ADDRESS    0x9D100000
+
 int APP_ForceBootloaderCheck(void)
 {
     // For most of the basic bootloaders, the check of the switch (S3) and
@@ -122,7 +124,7 @@ int APP_ForceBootloaderCheck(void)
 void APP_Initialize ( void )
 {
     // Register the bootloader callbacks
-//    BOOTLOADER_ForceBootloadRegister(APP_ForceBootloaderCheck);
+    BOOTLOADER_ForceBootloadRegister(APP_ForceBootloaderCheck);
 }
 
 

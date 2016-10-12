@@ -383,11 +383,13 @@ config DRV_PMP_DUALMODE_ENABLE
 endmenu
 
 ifblock USE_DRV_PMP
+add "<#include \"/framework/driver/pmp/config/drv_pmp.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 
 ifblock (DRV_PMP_IMPL = "DYNAMIC") 
 
 add "<#include \"/framework/driver/pmp/config/pmp_init_data.c.ftl\">"  to list SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA
 add "<#include \"/framework/driver/pmp/config/drv_pmp_init.c.ftl\">"  to list SYSTEM_INIT_C_SYS_INITIALIZE_DEPENDENT_DRIVERS
+add "<#include \"/framework/driver/ctr/templates/drv_ctr.h.ftl\">"  to list SYSTEM_CONFIG_H_DRIVER_CONFIGURATION 
 
 file DRV_PMP_H "$HARMONY_VERSION_PATH/framework/driver/pmp/drv_pmp.h" to "$PROJECT_HEADER_FILES/framework/driver/pmp/drv_pmp.h" 
 file DRV_PMP_CFG_H "$HARMONY_VERSION_PATH/framework/driver/pmp/config/drv_pmp_config.h" to "$PROJECT_HEADER_FILES/framework/driver/pmp/config/drv_pmp_config.h" 

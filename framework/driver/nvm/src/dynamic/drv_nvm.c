@@ -250,8 +250,8 @@ void _DRV_NVM_WriteBufferObjProcess
     DRV_NVM_BUFFER_OBJECT * bufferObj
 )
 {
-    PLIB_NVM_FlashAddressToModify(dObj->moduleId, _DRV_NVM_KVA_TO_PA((uint32_t)(bufferObj->flashMemPointer)));
-    PLIB_NVM_DataBlockSourceAddress(dObj->moduleId, _DRV_NVM_KVA_TO_PA((uint32_t)(bufferObj->appDataPointer))) ;
+    PLIB_NVM_FlashAddressToModify(dObj->moduleId, KVA_TO_PA((uint32_t)(bufferObj->flashMemPointer)));
+    PLIB_NVM_DataBlockSourceAddress(dObj->moduleId, KVA_TO_PA((uint32_t)(bufferObj->appDataPointer))) ;
     _DRV_NVM_UnlockSequence(dObj->moduleId, dObj, _DRV_ROW_PROGRAM_OPERATION);
 }
 
@@ -280,7 +280,7 @@ void _DRV_NVM_EraseBufferObjProcess
     DRV_NVM_BUFFER_OBJECT * bufferObj
 )
 {
-    PLIB_NVM_FlashAddressToModify(dObj->moduleId, _DRV_NVM_KVA_TO_PA((uint32_t)(bufferObj->flashMemPointer)));
+    PLIB_NVM_FlashAddressToModify(dObj->moduleId, KVA_TO_PA((uint32_t)(bufferObj->flashMemPointer)));
     _DRV_NVM_UnlockSequence(dObj->moduleId, dObj, _DRV_PAGE_ERASE_OPERATION);
 }
 
@@ -825,7 +825,7 @@ void DRV_NVM_Read
     int iEntry, i;
     DRV_NVM_BUFFER_OBJECT * bufferObj;
     DRV_NVM_CLIENT_OBJECT * clientObj;
-    uint8_t * source = NULL;
+    uint8_t *source = NULL;
     DRV_NVM_COMMAND_HANDLE * tempHandle1, tempHandle2;
     uint8_t *readBuffer = (uint8_t *)targetBuffer;
     OSAL_RESULT retVal;
@@ -854,7 +854,7 @@ void DRV_NVM_Read
 
     /* Update the block start address */
     dObj = (DRV_NVM_OBJECT *)clientObj->driverObj;
-    source = (uint8_t *)(dObj->blockStartAddress + blockStart);
+    source = (uint8_t *)KVA0_TO_KVA1(dObj->blockStartAddress + blockStart);
 
     /* The read buffer function does not need a task routine as it does not
      * block on hardware. A buffer object is still used to allow the client to

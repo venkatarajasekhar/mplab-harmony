@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.9">
+<configuration version="2.0.0.12">
   <General>
     <HarmonyPath path="../../../../.."/>
     <Processor name="PIC32MZ2048EFM144"/>
@@ -10,68 +10,24 @@
   <Manifest>
     <Files>
       <File>
-        <Name>system.h</Name>
-        <Path>Header Files/framework/system</Path>
-      </File>
-      <File>
-        <Name>drv_tmr.h</Name>
-        <Path>Header Files/framework/driver/tmr</Path>
-      </File>
-      <File>
-        <Name>sys_dma_local.h</Name>
-        <Path>Header Files/framework/system/dma/src</Path>
-      </File>
-      <File>
-        <Name>drv_usart_variant_mapping.h</Name>
-        <Path>Header Files/framework/driver/usart/src</Path>
+        <Name>osal_impl_basic.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
       </File>
       <File>
         <Name>drv_tmr_mapping.h</Name>
         <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
-        <Name>driver.h</Name>
+        <Name>drv_tmr_variant_mapping.h</Name>
+        <Path>Header Files/framework/driver/tmr/src</Path>
+      </File>
+      <File>
+        <Name>driver_common.h</Name>
         <Path>Header Files/framework/driver</Path>
       </File>
       <File>
-        <Name>sys_int_pic32.c</Name>
-        <Path>Source Files/framework/system/int/src</Path>
-      </File>
-      <File>
-        <Name>sys_int.h</Name>
-        <Path>Header Files/framework/system/int</Path>
-      </File>
-      <File>
-        <Name>sys_debug_local.h</Name>
-        <Path>Header Files/framework/system/debug/src</Path>
-      </File>
-      <File>
-        <Name>osal_impl_none.h</Name>
-        <Path>Header Files/framework/osal/src</Path>
-      </File>
-      <File>
-        <Name>sys_devcon_cache_pic32mz.S</Name>
-        <Path>Source Files/framework/system/devcon/src</Path>
-      </File>
-      <File>
-        <Name>sys_module.h</Name>
-        <Path>Header Files/framework/system/common</Path>
-      </File>
-      <File>
-        <Name>sys_devcon_pic32mz.c</Name>
-        <Path>Source Files/framework/system/devcon/src</Path>
-      </File>
-      <File>
-        <Name>sys_queue.h</Name>
-        <Path>Header Files/framework/system/common</Path>
-      </File>
-      <File>
-        <Name>sys_console_local.h</Name>
-        <Path>Header Files/framework/system/console/src</Path>
-      </File>
-      <File>
-        <Name>sys_console.h</Name>
-        <Path>Header Files/framework/system/console</Path>
+        <Name>drv_tmr.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
       </File>
       <File>
         <Name>sys_devcon.c</Name>
@@ -82,48 +38,28 @@
         <Path>Header Files/framework/system/dma</Path>
       </File>
       <File>
-        <Name>osal_definitions.h</Name>
+        <Name>osal.h</Name>
         <Path>Header Files/framework/osal</Path>
       </File>
       <File>
-        <Name>sys_devcon_local.h</Name>
-        <Path>Header Files/framework/system/devcon/src</Path>
-      </File>
-      <File>
-        <Name>sys_clk.h</Name>
-        <Path>Header Files/framework/system/clk</Path>
-      </File>
-      <File>
-        <Name>drv_usart.h</Name>
-        <Path>Header Files/framework/driver/usart</Path>
-      </File>
-      <File>
-        <Name>drv_tmr_variant_mapping.h</Name>
-        <Path>Header Files/framework/driver/tmr/src</Path>
+        <Name>sys_dma_local.h</Name>
+        <Path>Header Files/framework/system/dma/src</Path>
       </File>
       <File>
         <Name>sys_ports.h</Name>
         <Path>Header Files/framework/system/ports</Path>
       </File>
       <File>
-        <Name>osal_impl_basic.h</Name>
-        <Path>Header Files/framework/osal/src</Path>
+        <Name>driver.h</Name>
+        <Path>Header Files/framework/driver</Path>
       </File>
       <File>
-        <Name>osal.h</Name>
-        <Path>Header Files/framework/osal</Path>
+        <Name>sys_debug_local.h</Name>
+        <Path>Header Files/framework/system/debug/src</Path>
       </File>
       <File>
-        <Name>sys_int_mapping.h</Name>
-        <Path>Header Files/framework/system/int</Path>
-      </File>
-      <File>
-        <Name>sys_devcon.h</Name>
-        <Path>Header Files/framework/system/devcon</Path>
-      </File>
-      <File>
-        <Name>sys_debug.h</Name>
-        <Path>Header Files/framework/system/debug</Path>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
       </File>
       <File>
         <Name>sys_common.h</Name>
@@ -134,20 +70,96 @@
         <Path>Header Files/framework/system/common</Path>
       </File>
       <File>
+        <Name>sys_int_pic32.c</Name>
+        <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>sys_clk.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>osal_impl_none.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
         <Name>sys_clk_mapping.h</Name>
         <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
-        <Name>driver_common.h</Name>
-        <Path>Header Files/framework/driver</Path>
+        <Name>sys_devcon_cache_pic32mz.S</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>sys_int_mapping.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>osal_definitions.h</Name>
+        <Path>Header Files/framework/osal</Path>
       </File>
       <File>
         <Name>sys_int_private.h</Name>
         <Path>Header Files/framework/system/int/src</Path>
       </File>
       <File>
+        <Name>sys_devcon.h</Name>
+        <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
+      </File>
+      <File>
+        <Name>system.h</Name>
+        <Path>Header Files/framework/system</Path>
+      </File>
+      <File>
+        <Name>drv_usart.h</Name>
+        <Path>Header Files/framework/driver/usart</Path>
+      </File>
+      <File>
         <Name>sys_debug.c</Name>
         <Path>Source Files/framework/system/debug/src</Path>
+      </File>
+      <File>
+        <Name>sys_console.h</Name>
+        <Path>Header Files/framework/system/console</Path>
+      </File>
+      <File>
+        <Name>sys_debug.h</Name>
+        <Path>Header Files/framework/system/debug</Path>
+      </File>
+      <File>
+        <Name>drv_usart_variant_mapping.h</Name>
+        <Path>Header Files/framework/driver/usart/src</Path>
+      </File>
+      <File>
+        <Name>sys_module.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_pic32mz.c</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_local.h</Name>
+        <Path>Header Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>sys_queue.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_console_local.h</Name>
+        <Path>Header Files/framework/system/console/src</Path>
+      </File>
+      <File>
+        <Name>sys_int.h</Name>
+        <Path>Header Files/framework/system/int</Path>
       </File>
     </Files>
     <Templates>
@@ -160,7 +172,6 @@
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/bsp</Path>
         <Checksum>F17134C042B81B3876554237536D7229</Checksum>
-        <ProjectFileChecksum>CD27C5E81B9A7E55BA684A4CB9E4C3A4</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>sys_console_static.c</Name>
@@ -175,7 +186,7 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/system/clk/src</Path>
-        <Checksum>5382624B6F94F7F6DE3177E0830D223D</Checksum>
+        <Checksum>9DCB2BB28856A4537AB9488D70276FEF</Checksum>
       </Template>
       <Template>
         <Name>drv_usart_static_local.h</Name>
@@ -195,7 +206,7 @@
       <Template>
         <Name>drv_adc_static.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/driver/adc/src</Path>
-        <Checksum>D98928B4083002A5D3E4FBFD657DE3B9</Checksum>
+        <Checksum>F6EA81083EAB391EF912179393DE7B36</Checksum>
       </Template>
       <Template>
         <Name>drv_usart_static.c</Name>
@@ -210,7 +221,7 @@
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>B645C3CA141F2CE19E214B1D2FB39AEC</Checksum>
+        <Checksum>5A90AF49A9B530954C215195D9DEB0A5</Checksum>
       </Template>
       <Template>
         <Name>sys_dma_static.h</Name>
@@ -227,15 +238,10 @@
         <Path>Source Files/app</Path>
       </Template>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mz_ef_sk/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>system_interrupt.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk</Path>
         <Checksum>4BA687B95BA2E88C2B1470423BAB0695</Checksum>
-        <ProjectFileChecksum>EEB4F3722A7CCDF543024C91ED6AA3CD</ProjectFileChecksum>
+        <ProjectFileChecksum>7112C8F2BD804A3414A2FCFC88A4CFE4</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_tmr_static.h</Name>
@@ -245,8 +251,8 @@
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk</Path>
-        <Checksum>BD6512F6B8A4AD7C5EDD097D2E356575</Checksum>
-        <ProjectFileChecksum>604629E408F61BF74A1807C995395B6C</ProjectFileChecksum>
+        <Checksum>4B7A92A7091FC1833ABEBFBDE37AA19E</Checksum>
+        <ProjectFileChecksum>70938011DED6C538C8A96824F30389A8</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_tmr_static.c</Name>
@@ -266,7 +272,6 @@
         <Name>drv_usart_mapping.c</Name>
         <Path>Source Files/app/system_config/pic32mz_ef_sk/framework/driver/usart/src</Path>
         <Checksum>99B1234D6368258201525EBAE6D7FADE</Checksum>
-        <ProjectFileChecksum>0AD65EC9639B07E363BEF1F866358CA2</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>app.h</Name>
@@ -276,7 +281,6 @@
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mz_ef_sk/bsp</Path>
         <Checksum>8405F93FE0218536B85400099346BEF4</Checksum>
-        <ProjectFileChecksum>78B926C33EDE3AB570846FFF09631B17</ProjectFileChecksum>
       </Template>
       <Template>
         <Name>drv_usart_static_byte_model.c</Name>
@@ -291,11 +295,10 @@
     </Templates>
     <CompilerItems>
       <C32>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_3ch_dma\firmware\src"/>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_3ch_dma\firmware\src\system_config\pic32mz_ef_sk"/>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_3ch_dma\firmware\src\pic32mz_ef_sk"/>
-        <Include value="C:\Git_repository\core\framework"/>
-        <Include value="C:\Git_repository\core\apps\examples\peripheral\adchs\adchs_3ch_dma\firmware\src\system_config\pic32mz_ef_sk\framework"/>
+        <Include value="C:/Git_repository/core1/apps/examples/peripheral/adchs/adchs_3ch_dma/firmware/src"/>
+        <Include value="C:/Git_repository/core1/apps/examples/peripheral/adchs/adchs_3ch_dma/firmware/src/system_config/pic32mz_ef_sk"/>
+        <Include value="C:/Git_repository/core1/framework"/>
+        <Include value="C:/Git_repository/core1/apps/examples/peripheral/adchs/adchs_3ch_dma/firmware/src/system_config/pic32mz_ef_sk/framework"/>
         <Include value="../src/system_config/pic32mz_ef_sk/bsp"/>
       </C32>
     </CompilerItems>

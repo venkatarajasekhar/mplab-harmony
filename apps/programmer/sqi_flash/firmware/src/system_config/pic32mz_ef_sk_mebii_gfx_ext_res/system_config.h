@@ -18,7 +18,7 @@
     definitions for build-time configuration options that are not instantiated
     until used by another MPLAB Harmony module or application.
 
-    Created with MPLAB Harmony Version 2.00
+    Created with MPLAB Harmony Version 2.01
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -59,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 #include "bsp.h"
 
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -72,11 +73,6 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
-// *****************************************************************************
-/* Common System Service Configuration Options
-*/
-#define SYS_VERSION_STR           "2.00"
-#define SYS_VERSION               20000
 
 // *****************************************************************************
 /* Clock System Service Configuration Options
@@ -92,77 +88,11 @@ extern "C" {
 #define SYS_CLK_BUS_REFERENCE_2             100000000ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         24000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       32768ul
-   
-/*** Interrupt System Service Configuration ***/
-#define SYS_INT                     true
-
-/*** Ports System Service Configuration ***/
-
-#define SYS_PORT_A_ANSEL        0x422
-#define SYS_PORT_A_TRIS         0xc4ff
-#define SYS_PORT_A_LAT          0x0
-#define SYS_PORT_A_ODC          0x0
-#define SYS_PORT_A_CNPU         0x1
-#define SYS_PORT_A_CNPD         0x0
-#define SYS_PORT_A_CNEN         0x0
-
-#define SYS_PORT_B_ANSEL        0x8fc9
-#define SYS_PORT_B_TRIS         0xffc9
-#define SYS_PORT_B_LAT          0x0
-#define SYS_PORT_B_ODC          0x0
-#define SYS_PORT_B_CNPU         0x7000
-#define SYS_PORT_B_CNPD         0x0
-#define SYS_PORT_B_CNEN         0x0
-
-#define SYS_PORT_C_ANSEL        0xe01e
-#define SYS_PORT_C_TRIS         0xf01e
-#define SYS_PORT_C_LAT          0x0
-#define SYS_PORT_C_ODC          0x0
-#define SYS_PORT_C_CNPU         0x0
-#define SYS_PORT_C_CNPD         0x0
-#define SYS_PORT_C_CNEN         0x0
-
-#define SYS_PORT_F_ANSEL        0x1000
-#define SYS_PORT_F_TRIS         0x113f
-#define SYS_PORT_F_LAT          0x0
-#define SYS_PORT_F_ODC          0x0
-#define SYS_PORT_F_CNPU         0x0
-#define SYS_PORT_F_CNPD         0x0
-#define SYS_PORT_F_CNEN         0x0
-
-#define SYS_PORT_H_ANSEL        0x30
-#define SYS_PORT_H_TRIS         0xf7b0
-#define SYS_PORT_H_LAT          0x0
-#define SYS_PORT_H_ODC          0x0
-#define SYS_PORT_H_CNPU         0x0
-#define SYS_PORT_H_CNPD         0x0
-#define SYS_PORT_H_CNEN         0x0
-
-#define SYS_PORT_J_ANSEL        0xb00
-#define SYS_PORT_J_TRIS         0xeb27
-#define SYS_PORT_J_LAT          0x0
-#define SYS_PORT_J_ODC          0x0
-#define SYS_PORT_J_CNPU         0x0
-#define SYS_PORT_J_CNPD         0x0
-#define SYS_PORT_J_CNEN         0x0
-
-#define SYS_PORT_K_ANSEL        0x0
-#define SYS_PORT_K_TRIS         0xc6
-#define SYS_PORT_K_LAT          0x0
-#define SYS_PORT_K_ODC          0x0
-#define SYS_PORT_K_CNPU         0x0
-#define SYS_PORT_K_CNPD         0x0
-#define SYS_PORT_K_CNEN         0x0
-/*** Timer System Service Configuration ***/
-#define SYS_TMR_POWER_STATE             SYS_MODULE_POWER_RUN_FULL
-#define SYS_TMR_DRIVER_INDEX            DRV_TMR_INDEX_0
-#define SYS_TMR_MAX_CLIENT_OBJECTS      5
-#define SYS_TMR_FREQUENCY               1000
-#define SYS_TMR_FREQUENCY_TOLERANCE     10
-#define SYS_TMR_UNIT_RESOLUTION         10000
-#define SYS_TMR_CLIENT_TOLERANCE        10
-#define SYS_TMR_INTERRUPT_NOTIFICATION  false
-
+   // *****************************************************************************
+/* Common System Service Configuration Options
+*/
+#define SYS_VERSION_STR           "2.01"
+#define SYS_VERSION               20100
 
 /*** File System Service Configuration ***/
 
@@ -190,30 +120,106 @@ extern "C" {
 #define SYS_FS_MEDIA_IDX0_DEVICE_NAME_VOLUME_IDX0 			"/dev/sda1"
 
 
+/*** Interrupt System Service Configuration ***/
+#define SYS_INT                     true
+
+/*** Ports System Service Configuration ***/
+#define SYS_PORT_A_ANSEL        0x3D22
+#define SYS_PORT_A_TRIS         0xFDFF
+#define SYS_PORT_A_LAT          0x0000
+#define SYS_PORT_A_ODC          0x0000
+#define SYS_PORT_A_CNPU         0x0001
+#define SYS_PORT_A_CNPD         0x0000
+#define SYS_PORT_A_CNEN         0x0000
+
+#define SYS_PORT_B_ANSEL        0x8FC9
+#define SYS_PORT_B_TRIS         0xFFC9
+#define SYS_PORT_B_LAT          0x0000
+#define SYS_PORT_B_ODC          0x0000
+#define SYS_PORT_B_CNPU         0x7000
+#define SYS_PORT_B_CNPD         0x0000
+#define SYS_PORT_B_CNEN         0x0000
+
+#define SYS_PORT_C_ANSEL        0xEFFF
+#define SYS_PORT_C_TRIS         0xFFFF
+#define SYS_PORT_C_LAT          0x0000
+#define SYS_PORT_C_ODC          0x0000
+#define SYS_PORT_C_CNPU         0x0000
+#define SYS_PORT_C_CNPD         0x0000
+#define SYS_PORT_C_CNEN         0x0000
+
+#define SYS_PORT_D_ANSEL        0xC100
+#define SYS_PORT_D_TRIS         0xFFFF
+#define SYS_PORT_D_LAT          0x0000
+#define SYS_PORT_D_ODC          0x0000
+#define SYS_PORT_D_CNPU         0x0000
+#define SYS_PORT_D_CNPD         0x0000
+#define SYS_PORT_D_CNEN         0x0000
+
+#define SYS_PORT_E_ANSEL        0xFFF0
+#define SYS_PORT_E_TRIS         0xFFFF
+#define SYS_PORT_E_LAT          0x0000
+#define SYS_PORT_E_ODC          0x0000
+#define SYS_PORT_E_CNPU         0x0000
+#define SYS_PORT_E_CNPD         0x0000
+#define SYS_PORT_E_CNEN         0x0000
+
+#define SYS_PORT_F_ANSEL        0xDEC0
+#define SYS_PORT_F_TRIS         0xDFFF
+#define SYS_PORT_F_LAT          0x0000
+#define SYS_PORT_F_ODC          0x0000
+#define SYS_PORT_F_CNPU         0x0000
+#define SYS_PORT_F_CNPD         0x0000
+#define SYS_PORT_F_CNEN         0x0000
+
+#define SYS_PORT_G_ANSEL        0x8FFC
+#define SYS_PORT_G_TRIS         0xFFFF
+#define SYS_PORT_G_LAT          0x0000
+#define SYS_PORT_G_ODC          0x0000
+#define SYS_PORT_G_CNPU         0x0000
+#define SYS_PORT_G_CNPD         0x0000
+#define SYS_PORT_G_CNEN         0x0000
+
+#define SYS_PORT_H_ANSEL        0x0030
+#define SYS_PORT_H_TRIS         0xF7B0
+#define SYS_PORT_H_LAT          0x0000
+#define SYS_PORT_H_ODC          0x0000
+#define SYS_PORT_H_CNPU         0x0000
+#define SYS_PORT_H_CNPD         0x0000
+#define SYS_PORT_H_CNEN         0x0000
+
+#define SYS_PORT_J_ANSEL        0x0B00
+#define SYS_PORT_J_TRIS         0xEB27
+#define SYS_PORT_J_LAT          0x0000
+#define SYS_PORT_J_ODC          0x0000
+#define SYS_PORT_J_CNPU         0x0000
+#define SYS_PORT_J_CNPD         0x0000
+#define SYS_PORT_J_CNEN         0x0000
+
+#define SYS_PORT_K_ANSEL        0xFF00
+#define SYS_PORT_K_TRIS         0xFFC6
+#define SYS_PORT_K_LAT          0x0000
+#define SYS_PORT_K_ODC          0x0000
+#define SYS_PORT_K_CNPU         0x0000
+#define SYS_PORT_K_CNPD         0x0000
+#define SYS_PORT_K_CNEN         0x0000
+
+/*** Timer System Service Configuration ***/
+#define SYS_TMR_POWER_STATE             SYS_MODULE_POWER_RUN_FULL
+#define SYS_TMR_DRIVER_INDEX            DRV_TMR_INDEX_0
+#define SYS_TMR_MAX_CLIENT_OBJECTS      5
+#define SYS_TMR_FREQUENCY               1000
+#define SYS_TMR_FREQUENCY_TOLERANCE     10
+#define SYS_TMR_UNIT_RESOLUTION         10000
+#define SYS_TMR_CLIENT_TOLERANCE        10
+#define SYS_TMR_INTERRUPT_NOTIFICATION  false
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
-/*** Timer Driver Configuration ***/
-#define DRV_TMR_INTERRUPT_MODE             true
-#define DRV_TMR_INSTANCES_NUMBER           1
-#define DRV_TMR_CLIENTS_NUMBER             1
 
-/*** Timer Driver 0 Configuration ***/
-#define DRV_TMR_PERIPHERAL_ID_IDX0          TMR_ID_1
-#define DRV_TMR_INTERRUPT_SOURCE_IDX0       INT_SOURCE_TIMER_1
-#define DRV_TMR_INTERRUPT_VECTOR_IDX0       INT_VECTOR_T1
-#define DRV_TMR_ISR_VECTOR_IDX0             _TIMER_1_VECTOR
-#define DRV_TMR_INTERRUPT_PRIORITY_IDX0     INT_PRIORITY_LEVEL1
-#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX0 INT_SUBPRIORITY_LEVEL0
-#define DRV_TMR_CLOCK_SOURCE_IDX0           DRV_TMR_CLKSOURCE_INTERNAL
-#define DRV_TMR_PRESCALE_IDX0               TMR_PRESCALE_VALUE_256
-#define DRV_TMR_OPERATION_MODE_IDX0         DRV_TMR_OPERATION_MODE_16_BIT
-#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX0     false
-#define DRV_TMR_POWER_STATE_IDX0            SYS_MODULE_POWER_RUN_FULL
-
- 
 #define GFX_USE_DISPLAY_CONTROLLER_LCC
 #define DRV_GFX_LCC_INTERNAL_MEMORY
 #define DRV_GFX_LCC_DMA_CHANNEL_INDEX                 DMA_CHANNEL_1
@@ -247,7 +253,25 @@ extern "C" {
 #define TOUCHCAL_LRY                             0x033C
 
 // DOM-IGNORE-END
+/*** Timer Driver Configuration ***/
+#define DRV_TMR_INTERRUPT_MODE             true
+#define DRV_TMR_INSTANCES_NUMBER           1
+#define DRV_TMR_CLIENTS_NUMBER             1
 
+/*** Timer Driver 0 Configuration ***/
+#define DRV_TMR_PERIPHERAL_ID_IDX0          TMR_ID_1
+#define DRV_TMR_INTERRUPT_SOURCE_IDX0       INT_SOURCE_TIMER_1
+#define DRV_TMR_INTERRUPT_VECTOR_IDX0       INT_VECTOR_T1
+#define DRV_TMR_ISR_VECTOR_IDX0             _TIMER_1_VECTOR
+#define DRV_TMR_INTERRUPT_PRIORITY_IDX0     INT_PRIORITY_LEVEL1
+#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX0 INT_SUBPRIORITY_LEVEL0
+#define DRV_TMR_CLOCK_SOURCE_IDX0           DRV_TMR_CLKSOURCE_INTERNAL
+#define DRV_TMR_PRESCALE_IDX0               TMR_PRESCALE_VALUE_256
+#define DRV_TMR_OPERATION_MODE_IDX0         DRV_TMR_OPERATION_MODE_16_BIT
+#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX0     false
+#define DRV_TMR_POWER_STATE_IDX0            SYS_MODULE_POWER_RUN_FULL
+
+ 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Middleware & Other Library Configuration
@@ -281,6 +305,7 @@ extern "C" {
 #define GFX_CONFIG_FOCUS_DISABLE
 #define GFX_malloc(size)                                    malloc(size)
 #define GFX_free(pObj)                                      free(pObj)
+
 
 /*** USB Driver Configuration ***/
 
@@ -351,7 +376,6 @@ extern "C" {
 /* Number of Logical Units */
 #define USB_HOST_SCSI_INSTANCES_NUMBER        1
 #define USB_HOST_MSD_LUN_NUMBERS              1
-
 
 
 

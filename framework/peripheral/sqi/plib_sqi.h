@@ -1368,6 +1368,38 @@ bool PLIB_SQI_DDRModeGet(SQI_MODULE_ID index);
 
 //******************************************************************************
 /* Function:
+    void PLIB_SQI_DDRModeClear (SQI_MODULE_ID index)
+
+  Summary:
+    Sets the SQI data rate mode to SDR from DDR.
+
+  Description:
+    This function sets the SQI data rate mode to SDR from DDR.
+
+  Precondition:
+    None.
+
+  Parameters:
+    index           - Identifier for the device instance to be configured
+
+  Returns:
+    None.
+
+  Example:
+    <code>
+    // Where MY_SQI_INSTANCE, is the SQI instance selected for use by the
+    // application developer.
+    PLIB_SQI_DDRModeClear (MY_SQI_INSTANCE);
+    </code>
+
+  Remarks:
+    None.
+ */
+
+void PLIB_SQI_DDRModeClear (SQI_MODULE_ID index);
+
+//******************************************************************************
+/* Function:
     void PLIB_SQI_StatusCheckSet(SQI_MODULE_ID index,
 								 uint16_t statCheckCmd,
 								 uint8_t numStatBytes,
@@ -3007,6 +3039,39 @@ void PLIB_SQI_InterruptDisable(SQI_MODULE_ID index, SQI_INTERRUPTS interruptFlag
 
 //******************************************************************************
 /* Function:
+    void PLIB_SQI_InterruptDisableAll (SQI_MODULE_ID index)
+
+  Summary:
+   Disables all the interrupt sources.
+
+  Description:
+    This function disables all the interrupt sources.
+
+  Precondition:
+    None.
+
+  Parameters:
+    index           - Identifier for the device instance to be configured
+
+  Returns:
+    None.
+
+  Example:
+    <code>
+    // Where MY_SQI_INSTANCE, is the SQI instance selected for use by the
+    // application developer
+    PLIB_SQI_InterruptDisableAll(MY_SQI_INSTANCE);
+    </code>
+
+  Remarks:
+    None.
+ */
+
+void PLIB_SQI_InterruptDisableAll(SQI_MODULE_ID index);
+
+
+//******************************************************************************
+/* Function:
     bool PLIB_SQI_InterruptIsEnabled (SQI_MODULE_ID index, SQI_INTERRUPTS interruptFlag)
 
   Summary:
@@ -3115,6 +3180,39 @@ void PLIB_SQI_InterruptSignalDisable(SQI_MODULE_ID index, SQI_INTERRUPTS interru
 
 //******************************************************************************
 /* Function:
+    void PLIB_SQI_InterruptSignalDisableAll (SQI_MODULE_ID index)
+
+  Summary:
+   Disables all the interrupt signal source.
+
+  Description:
+    This function disables all the interrupt signal sources.
+
+  Precondition:
+    None.
+
+  Parameters:
+    index           - Identifier for the device instance to be configured
+
+  Returns:
+    None.
+
+  Example:
+    <code>
+    // Where MY_SQI_INSTANCE, is the SQI instance selected for use by the
+    // application developer.
+    PLIB_SQI_InterruptSignalDisableAll(MY_SQI_INSTANCE);
+    </code>
+
+  Remarks:
+    None.
+ */
+
+void PLIB_SQI_InterruptSignalDisableAll(SQI_MODULE_ID index);
+
+
+//******************************************************************************
+/* Function:
     bool PLIB_SQI_InterruptSignalIsEnabled (SQI_MODULE_ID index, SQI_INTERRUPTS interruptFlag)
 
   Summary:
@@ -3193,6 +3291,72 @@ bool PLIB_SQI_InterruptSignalIsEnabled(SQI_MODULE_ID index, SQI_INTERRUPTS inter
 */
 
 bool PLIB_SQI_InterruptFlagGet( SQI_MODULE_ID index, SQI_INTERRUPTS interruptFlag);
+
+
+// *****************************************************************************
+/* Function:
+    uint32_t PLIB_SQI_InterruptWordGet( SQI_MODULE_ID index )
+
+  Summary:
+    Return SQI Interrupt status.
+
+  Description:
+    This function returns the SQI interrupt status.
+
+  Precondition:
+    None.
+
+  Parameters:
+    index           - Identifier for the device instance of interest
+
+  Returns:
+    Interrupt status.
+
+  Example:
+  <code>
+    intStatus = PLIB_SQI_InterruptWordGet(MY_SQI_INSTANCE));
+  </code>
+
+  Remarks:
+    None.
+*/
+
+uint32_t PLIB_SQI_InterruptWordGet(SQI_MODULE_ID index);
+
+
+// *****************************************************************************
+/* Function:
+    void PLIB_SQI_InterruptWordClear(SQI_MODULE_ID index, uint32_t flags)
+
+  Summary:
+    Clear the requested interrupt status bits.
+
+  Description:
+    This function clears the requested interrupt status bits.
+
+  Precondition:
+    None.
+
+  Parameters:
+    index           - Identifier for the device instance of interest
+    flags           - Interrupts to be cleared.
+
+  Returns:
+    None.
+
+  Example:
+  <code>
+    intStatus = PLIB_SQI_InterruptWordGet(MY_SQI_INSTANCE);
+    // Do some operation
+    //
+    PLIB_SQI_InterruptWordClear (MY_SQI_INSTANCE, intStatus);
+  </code>
+
+  Remarks:
+    None.
+*/
+
+void PLIB_SQI_InterruptWordClear(SQI_MODULE_ID index, uint32_t flags);
 
 
 // *****************************************************************************
@@ -5276,7 +5440,8 @@ bool PLIB_SQI_ExistsStatusCheck( SQI_MODULE_ID index );
     the SQI module. When this function returns true, these functions are 
     supported on the device:
     - PLIB_SQI_DDRModeSet
-    - PLIB_SQI_DDRModeGet	
+    - PLIB_SQI_DDRModeGet
+    - PLIB_SQI_DDRModeClear
 
   Preconditions:
     None.
@@ -5708,6 +5873,7 @@ bool PLIB_SQI_ExistsTxBufIntThreshold( SQI_MODULE_ID index );
     When this function returns true, these functions are supported on the device:
     - PLIB_SQI_InterruptEnable
     - PLIB_SQI_InterruptDisable
+    - PLIB_SQI_InterruptDisableAll
     - PLIB_SQI_InterruptIsEnabled
 
   Preconditions:
@@ -5737,8 +5903,10 @@ bool PLIB_SQI_ExistsInterruptControl( SQI_MODULE_ID index );
   Description:
     This function identifies whether the InterruptStatus feature is available on 
 	the SQI module.
-    When this function returns true, this function is supported on the device:
+    When this function returns true, these functions are supported on the device:
     - PLIB_SQI_InterruptFlagGet
+    - PLIB_SQI_InterruptWordGet
+    - PLIB_SQI_InterruptWordClear
 
   Preconditions:
     None.
@@ -6581,6 +6749,7 @@ bool PLIB_SQI_ExistsConBufThreshold( SQI_MODULE_ID index );
     When this function returns true, these functions are supported on the device:
     - PLIB_SQI_InterruptSignalEnable
     - PLIB_SQI_InterruptSignalDisable
+    - PLIB_SQI_InterruptSignalDisableAll 
     - PLIB_SQI_InterruptSignalIsEnabled
 
   Preconditions:

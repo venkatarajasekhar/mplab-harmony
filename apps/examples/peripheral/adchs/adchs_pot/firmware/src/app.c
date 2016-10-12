@@ -175,8 +175,6 @@ void APP_Tasks ( void )
                 
                 DRV_ADC_DigitalComparator0_Open();
                 DRV_ADC_DigitalComparator1_Open();
-                DRV_ADC_DigitalComparator2_Open();
-                DRV_ADC_DigitalComparator3_Open();
                 
                 DRV_TMR0_Start();
              }
@@ -202,32 +200,19 @@ void APP_Tasks ( void )
         {
             if(true == DRV_ADC_DigitalComparator0_EventHasOccurred())
             {
-                BSP_LEDOff(BSP_LED_1);
+                BSP_LEDOn(BSP_LED_1);
                 BSP_LEDOff(BSP_LED_2);
                 BSP_LEDOff(BSP_LED_3);
-                SYS_PRINT("Comparator-1 has detected ADC value to be between 0 and 1000\r\n");
+                SYS_PRINT("Comparator-1 has detected ADC value to be between 0 and 2000\r\n");
             }
             if(true == DRV_ADC_DigitalComparator1_EventHasOccurred())
             {
                 BSP_LEDOn(BSP_LED_1);
-                BSP_LEDOff(BSP_LED_2);
+                BSP_LEDOn(BSP_LED_2);
                 BSP_LEDOff(BSP_LED_3);                
-                SYS_PRINT("Comparator-2 has detected ADC value to be between 1100 and 2000\r\n");
+                SYS_PRINT("Comparator-2 has detected ADC value to be between 2000 and 4000\r\n");
             } 
-            if(true == DRV_ADC_DigitalComparator2_EventHasOccurred())
-            {
-                BSP_LEDOn(BSP_LED_1);
-                BSP_LEDOn(BSP_LED_2);
-                BSP_LEDOff(BSP_LED_3);                
-                SYS_PRINT("Comparator-3 has detected ADC value to be between 2100 and 3000\r\n");
-            }            
-            if(true == DRV_ADC_DigitalComparator3_EventHasOccurred())
-            {
-                BSP_LEDOn(BSP_LED_1);
-                BSP_LEDOn(BSP_LED_2);
-                BSP_LEDOn(BSP_LED_3);                
-                SYS_PRINT("Comparator-4 has detected ADC value to be between 3100 and 4000\r\n");
-            }            
+          
             SYS_PRINT("Result: %d\r\n", appData.sampleResult);
 			appData.ADCInt = false;
             appData.state = APP_STATE_SPIN;

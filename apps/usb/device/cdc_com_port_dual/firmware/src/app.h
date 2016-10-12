@@ -8,7 +8,7 @@
     app.h
 
   Summary:
-    This header file provides prototypes and definitions for the application.
+    This header file provides prototypes and definitions for the application
 
   Description:
     This header file provides function prototypes and data type definitions for

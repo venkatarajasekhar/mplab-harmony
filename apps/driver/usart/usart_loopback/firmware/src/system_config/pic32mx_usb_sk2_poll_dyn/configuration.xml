@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration version="2.0.0.8">
+<configuration version="2.0.0.12">
   <Designer>
     <Assets>
       <Settings bpp="16">
@@ -36,6 +36,10 @@
       </Scheme>
     </Schemes>
   </Designer>
+  <DisplayManager>
+    <SystemInitScript/>
+    <SystemStartScript/>
+  </DisplayManager>
   <General>
     <HarmonyPath path="../../../.."/>
     <Processor name="PIC32MX795F512L"/>
@@ -92,6 +96,10 @@
       <File>
         <Name>sys_buffer.h</Name>
         <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_clk_compatibility.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
       </File>
       <File>
         <Name>sys_clk.h</Name>
@@ -156,23 +164,18 @@
     </Files>
     <Templates>
       <Template>
-        <Name>sys_clk_static.h</Name>
-        <Path>Header Files/app/system_config/pic32mx_usb_sk2_poll_dyn/framework/system/clk</Path>
-        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
-      </Template>
-      <Template>
         <Name>main.c</Name>
         <Path>Source Files/app</Path>
       </Template>
       <Template>
         <Name>system_definitions.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_poll_dyn</Path>
-        <Checksum>F2CC7176CA7B2E261F6C7B2E5024F707</Checksum>
+        <Checksum>9513FFDC1A2B1F0D98EB7405E871093F</Checksum>
       </Template>
       <Template>
         <Name>bsp.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_poll_dyn/bsp</Path>
-        <Checksum>7B9FD931A17D537767AA2404DA850D98</Checksum>
+        <Checksum>4BFD4ADFBD1349338DAF5682785F28A5</Checksum>
       </Template>
       <Template>
         <Name>app.c</Name>
@@ -190,12 +193,12 @@
       <Template>
         <Name>sys_clk_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_poll_dyn/framework/system/clk/src</Path>
-        <Checksum>DEA20F93FDBADA754C29D50EBF5283DA</Checksum>
+        <Checksum>810F692A508112FD7B1C78F2F25EF9BE</Checksum>
       </Template>
       <Template>
         <Name>bsp.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_poll_dyn/bsp</Path>
-        <Checksum>B4CEDFB7A5B7D6D5B767BEB1ECCC436F</Checksum>
+        <Checksum>13105A2EA4197BA6ED37EC35570DF96E</Checksum>
       </Template>
       <Template>
         <Name>system_init.c</Name>
@@ -205,12 +208,12 @@
       <Template>
         <Name>sys_ports_static.c</Name>
         <Path>Source Files/app/system_config/pic32mx_usb_sk2_poll_dyn/framework/system/ports/src</Path>
-        <Checksum>BD5D9BDDD9262C8D616C515AD5C5D1E6</Checksum>
+        <Checksum>83E28A9509BFB1178054925FE7ED2D75</Checksum>
       </Template>
       <Template>
         <Name>system_config.h</Name>
         <Path>Header Files/app/system_config/pic32mx_usb_sk2_poll_dyn</Path>
-        <Checksum>5F0069CA69007F02C278DDE776876CE5</Checksum>
+        <Checksum>C07E3F6E5E7CA884EEEB9A029BB7412B</Checksum>
       </Template>
       <Template>
         <Name>system_interrupt.c</Name>
@@ -227,7 +230,6 @@
       <C32>
         <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src"/>
         <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/system_config/pic32mx_usb_sk2_poll_dyn"/>
-        <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/pic32mx_usb_sk2_poll_dyn"/>
         <Include value="E:/Git/core/framework"/>
         <Include value="E:/Git/core/apps/driver/usart/usart_loopback/firmware/src/system_config/pic32mx_usb_sk2_poll_dyn/framework"/>
         <Include value="../src/system_config/pic32mx_usb_sk2_poll_dyn/bsp"/>

@@ -422,6 +422,7 @@ int32_t DRV_ENC28J60_ConfigStateTask(DRV_ENC28J60_DriverInfo * pDrvInst)
                 curSt->state = DRV_ENC28J60_CS_SET_ECOCON;
                 pDrvInst->stackParameters.processFlags = 0;
                 pDrvInst->stackParameters.macType = TCPIP_MAC_TYPE_ETH;
+                pDrvInst->stackParameters.linkMtu = TCPIP_MAC_LINK_MTU_ETH;
             }
             else if(busRes < 0)
             {   // some error, retry

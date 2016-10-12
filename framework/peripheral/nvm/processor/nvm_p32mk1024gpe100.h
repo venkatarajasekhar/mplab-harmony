@@ -86,13 +86,20 @@ typedef enum {
 
 typedef enum {
 
-    EEPROM_OPERATION_MODE_NONE
+    EEPROM_WORD_READ_OPERATION = 0x0,
+    EEPROM_WORD_WRITE_OPERATION = 0x1,
+    EEPROM_FORCED_WORD_ERASE_OPERATION = 0x2,
+    EEPROM_ERASE_ALL_OPERATION = 0x3,
+    EEPROM_CONFIG_WRITE_OPERATION = 0x4
 
 } EEPROM_OPERATION_MODE;
 
 typedef enum {
 
-    EEPROM_ERROR_NONE
+    NO_ERROR = 0x0,
+    VERIFY_ERROR = 0x1,
+    INVALID_OPERATION = 0x2,
+    BOR_ERROR = 0x3
 
 } EEPROM_ERROR;
 
@@ -117,17 +124,17 @@ typedef enum {
 #include "../templates/nvm_LockBootSelect_Default.h"
 #include "../templates/nvm_BootPageWriteProtect_Default.h"
 #include "../templates/nvm_SwapLockControl_Default.h"
-#include "../templates/nvm_EEPROMEnableControl_Unsupported.h"
-#include "../templates/nvm_EEPROMStopInIdleControl_Unsupported.h"
-#include "../templates/nvm_EEPROMOperationModeControl_Unsupported.h"
-#include "../templates/nvm_EEPROMAddressControl_Unsupported.h"
-#include "../templates/nvm_EEPROMDataControl_Unsupported.h"
-#include "../templates/nvm_EEPROMKeySequence_Unsupported.h"
-#include "../templates/nvm_EEPROMEnableOperationControl_Unsupported.h"
-#include "../templates/nvm_EEPROMStartOperationControl_Unsupported.h"
-#include "../templates/nvm_EEPROMLongWriteStatus_Unsupported.h"
-#include "../templates/nvm_EEPROMOperationAbortControl_Unsupported.h"
-#include "../templates/nvm_EEPROMErrorStatus_Unsupported.h"
+#include "../templates/nvm_EEPROMEnableControl_Default.h"
+#include "../templates/nvm_EEPROMStopInIdleControl_Default.h"
+#include "../templates/nvm_EEPROMOperationModeControl_Default.h"
+#include "../templates/nvm_EEPROMAddressControl_Default.h"
+#include "../templates/nvm_EEPROMDataControl_Default.h"
+#include "../templates/nvm_EEPROMKeySequence_Default.h"
+#include "../templates/nvm_EEPROMEnableOperationControl_Default.h"
+#include "../templates/nvm_EEPROMStartOperationControl_Default.h"
+#include "../templates/nvm_EEPROMLongWriteStatus_Default.h"
+#include "../templates/nvm_EEPROMOperationAbortControl_Default.h"
+#include "../templates/nvm_EEPROMErrorStatus_Default.h"
 
 /* Section 3 - PLIB dispatch function definitions */
 
@@ -378,172 +385,172 @@ PLIB_INLINE_API NVM_FLASH_SWAP_LOCK_TYPE PLIB_NVM_FlashSwapLockStatusGet(NVM_MOD
 
 PLIB_INLINE_API bool PLIB_NVM_ExistsEEPROMEnableControl(NVM_MODULE_ID index)
 {
-     return NVM_ExistsEEPROMEnableControl_Unsupported(index);
+     return NVM_ExistsEEPROMEnableControl_Default(index);
 }
 
-PLIB_INLINE_API void _PLIB_UNSUPPORTED PLIB_NVM_EEPROMEnable(NVM_MODULE_ID index)
+PLIB_INLINE_API void PLIB_NVM_EEPROMEnable(NVM_MODULE_ID index)
 {
-     NVM_EEPROMEnable_Unsupported(index);
+     NVM_EEPROMEnable_Default(index);
 }
 
-PLIB_INLINE_API void _PLIB_UNSUPPORTED PLIB_NVM_EEPROMDisable(NVM_MODULE_ID index)
+PLIB_INLINE_API void PLIB_NVM_EEPROMDisable(NVM_MODULE_ID index)
 {
-     NVM_EEPROMDisable_Unsupported(index);
+     NVM_EEPROMDisable_Default(index);
 }
 
-PLIB_INLINE_API bool _PLIB_UNSUPPORTED PLIB_NVM_EEPROMIsReady(NVM_MODULE_ID index)
+PLIB_INLINE_API bool PLIB_NVM_EEPROMIsReady(NVM_MODULE_ID index)
 {
-     return NVM_EEPROMIsReady_Unsupported(index);
+     return NVM_EEPROMIsReady_Default(index);
 }
 
 PLIB_INLINE_API bool PLIB_NVM_ExistsEEPROMStopInIdleControl(NVM_MODULE_ID index)
 {
-     return NVM_ExistsEEPROMStopInIdleControl_Unsupported(index);
+     return NVM_ExistsEEPROMStopInIdleControl_Default(index);
 }
 
-PLIB_INLINE_API void _PLIB_UNSUPPORTED PLIB_NVM_EEPROMStopInIdleEnable(NVM_MODULE_ID index)
+PLIB_INLINE_API void PLIB_NVM_EEPROMStopInIdleEnable(NVM_MODULE_ID index)
 {
-     NVM_EEPROMStopInIdleEnable_Unsupported(index);
+     NVM_EEPROMStopInIdleEnable_Default(index);
 }
 
-PLIB_INLINE_API void _PLIB_UNSUPPORTED PLIB_NVM_EEPROMStopInIdleDisable(NVM_MODULE_ID index)
+PLIB_INLINE_API void PLIB_NVM_EEPROMStopInIdleDisable(NVM_MODULE_ID index)
 {
-     NVM_EEPROMStopInIdleDisable_Unsupported(index);
+     NVM_EEPROMStopInIdleDisable_Default(index);
 }
 
-PLIB_INLINE_API bool _PLIB_UNSUPPORTED PLIB_NVM_EEPROMStopInIdleIsEnabled(NVM_MODULE_ID index)
+PLIB_INLINE_API bool PLIB_NVM_EEPROMStopInIdleIsEnabled(NVM_MODULE_ID index)
 {
-     return NVM_EEPROMStopInIdleIsEnabled_Unsupported(index);
+     return NVM_EEPROMStopInIdleIsEnabled_Default(index);
 }
 
 PLIB_INLINE_API bool PLIB_NVM_ExistsEEPROMOperationModeControl(NVM_MODULE_ID index)
 {
-     return NVM_ExistsEEPROMOperationModeControl_Unsupported(index);
+     return NVM_ExistsEEPROMOperationModeControl_Default(index);
 }
 
-PLIB_INLINE_API void _PLIB_UNSUPPORTED PLIB_NVM_EEPROMOperationSelect(NVM_MODULE_ID index, EEPROM_OPERATION_MODE mode)
+PLIB_INLINE_API void PLIB_NVM_EEPROMOperationSelect(NVM_MODULE_ID index, EEPROM_OPERATION_MODE mode)
 {
-     NVM_EEPROMOperationSelect_Unsupported(index, mode);
+     NVM_EEPROMOperationSelect_Default(index, mode);
 }
 
 PLIB_INLINE_API bool PLIB_NVM_ExistsEEPROMAddressControl(NVM_MODULE_ID index)
 {
-     return NVM_ExistsEEPROMAddressControl_Unsupported(index);
+     return NVM_ExistsEEPROMAddressControl_Default(index);
 }
 
-PLIB_INLINE_API bool _PLIB_UNSUPPORTED PLIB_NVM_EEPROMAddress(NVM_MODULE_ID index, uint32_t address)
+PLIB_INLINE_API bool PLIB_NVM_EEPROMAddress(NVM_MODULE_ID index, uint32_t address)
 {
-     return NVM_EEPROMAddress_Unsupported(index, address);
+     return NVM_EEPROMAddress_Default(index, address);
 }
 
 PLIB_INLINE_API bool PLIB_NVM_ExistsEEPROMDataControl(NVM_MODULE_ID index)
 {
-     return NVM_ExistsEEPROMDataControl_Unsupported(index);
+     return NVM_ExistsEEPROMDataControl_Default(index);
 }
 
-PLIB_INLINE_API void _PLIB_UNSUPPORTED PLIB_NVM_EEPROMDataToWrite(NVM_MODULE_ID index, uint32_t data)
+PLIB_INLINE_API void PLIB_NVM_EEPROMDataToWrite(NVM_MODULE_ID index, uint32_t data)
 {
-     NVM_EEPROMDataToWrite_Unsupported(index, data);
+     NVM_EEPROMDataToWrite_Default(index, data);
 }
 
-PLIB_INLINE_API uint32_t _PLIB_UNSUPPORTED PLIB_NVM_EEPROMRead(NVM_MODULE_ID index)
+PLIB_INLINE_API uint32_t PLIB_NVM_EEPROMRead(NVM_MODULE_ID index)
 {
-     return NVM_EEPROMRead_Unsupported(index);
+     return NVM_EEPROMRead_Default(index);
 }
 
 PLIB_INLINE_API bool PLIB_NVM_ExistsEEPROMKeySequence(NVM_MODULE_ID index)
 {
-     return NVM_ExistsEEPROMKeySequence_Unsupported(index);
+     return NVM_ExistsEEPROMKeySequence_Default(index);
 }
 
-PLIB_INLINE_API void _PLIB_UNSUPPORTED PLIB_NVM_EEPROMKeySequenceWrite(NVM_MODULE_ID index, uint32_t keysequence)
+PLIB_INLINE_API void PLIB_NVM_EEPROMKeySequenceWrite(NVM_MODULE_ID index, uint32_t keysequence)
 {
-     NVM_EEPROMKeySequenceWrite_Unsupported(index, keysequence);
+     NVM_EEPROMKeySequenceWrite_Default(index, keysequence);
 }
 
 PLIB_INLINE_API bool PLIB_NVM_ExistsEEPROMEnableOperationControl(NVM_MODULE_ID index)
 {
-     return NVM_ExistsEEPROMEnableOperationControl_Unsupported(index);
+     return NVM_ExistsEEPROMEnableOperationControl_Default(index);
 }
 
-PLIB_INLINE_API void _PLIB_UNSUPPORTED PLIB_NVM_EEPROMWriteEnable(NVM_MODULE_ID index)
+PLIB_INLINE_API void PLIB_NVM_EEPROMWriteEnable(NVM_MODULE_ID index)
 {
-     NVM_EEPROMWriteEnable_Unsupported(index);
+     NVM_EEPROMWriteEnable_Default(index);
 }
 
-PLIB_INLINE_API bool _PLIB_UNSUPPORTED PLIB_NVM_EEPROMWriteIsEnabled(NVM_MODULE_ID index)
+PLIB_INLINE_API bool PLIB_NVM_EEPROMWriteIsEnabled(NVM_MODULE_ID index)
 {
-     return NVM_EEPROMWriteIsEnabled_Unsupported(index);
+     return NVM_EEPROMWriteIsEnabled_Default(index);
 }
 
-PLIB_INLINE_API void _PLIB_UNSUPPORTED PLIB_NVM_EEPROMReadEnable(NVM_MODULE_ID index)
+PLIB_INLINE_API void PLIB_NVM_EEPROMReadEnable(NVM_MODULE_ID index)
 {
-     NVM_EEPROMReadEnable_Unsupported(index);
+     NVM_EEPROMReadEnable_Default(index);
 }
 
-PLIB_INLINE_API bool _PLIB_UNSUPPORTED PLIB_NVM_EEPROMReadIsEnabled(NVM_MODULE_ID index)
+PLIB_INLINE_API bool PLIB_NVM_EEPROMReadIsEnabled(NVM_MODULE_ID index)
 {
-     return NVM_EEPROMReadIsEnabled_Unsupported(index);
+     return NVM_EEPROMReadIsEnabled_Default(index);
 }
 
 PLIB_INLINE_API bool PLIB_NVM_ExistsEEPROMStartOperationControl(NVM_MODULE_ID index)
 {
-     return NVM_ExistsEEPROMStartOperationControl_Unsupported(index);
+     return NVM_ExistsEEPROMStartOperationControl_Default(index);
 }
 
-PLIB_INLINE_API void _PLIB_UNSUPPORTED PLIB_NVM_EEPROMReadStart(NVM_MODULE_ID index)
+PLIB_INLINE_API void PLIB_NVM_EEPROMReadStart(NVM_MODULE_ID index)
 {
-     NVM_EEPROMReadStart_Unsupported(index);
+     NVM_EEPROMReadStart_Default(index);
 }
 
-PLIB_INLINE_API void _PLIB_UNSUPPORTED PLIB_NVM_EEPROMWriteStart(NVM_MODULE_ID index)
+PLIB_INLINE_API void PLIB_NVM_EEPROMWriteStart(NVM_MODULE_ID index)
 {
-     NVM_EEPROMWriteStart_Unsupported(index);
+     NVM_EEPROMWriteStart_Default(index);
 }
 
-PLIB_INLINE_API void _PLIB_UNSUPPORTED PLIB_NVM_EEPROMEraseStart(NVM_MODULE_ID index)
+PLIB_INLINE_API void PLIB_NVM_EEPROMEraseStart(NVM_MODULE_ID index)
 {
-     NVM_EEPROMEraseStart_Unsupported(index);
+     NVM_EEPROMEraseStart_Default(index);
 }
 
-PLIB_INLINE_API bool _PLIB_UNSUPPORTED PLIB_NVM_EEPROMOperationHasCompleted(NVM_MODULE_ID index)
+PLIB_INLINE_API bool PLIB_NVM_EEPROMOperationHasCompleted(NVM_MODULE_ID index)
 {
-     return NVM_EEPROMOperationHasCompleted_Unsupported(index);
+     return NVM_EEPROMOperationHasCompleted_Default(index);
 }
 
 PLIB_INLINE_API bool PLIB_NVM_ExistsEEPROMLongWriteStatus(NVM_MODULE_ID index)
 {
-     return NVM_ExistsEEPROMLongWriteStatus_Unsupported(index);
+     return NVM_ExistsEEPROMLongWriteStatus_Default(index);
 }
 
-PLIB_INLINE_API bool _PLIB_UNSUPPORTED PLIB_NVM_EEPROMNextWriteCycleIsLong(NVM_MODULE_ID index)
+PLIB_INLINE_API bool PLIB_NVM_EEPROMNextWriteCycleIsLong(NVM_MODULE_ID index)
 {
-     return NVM_EEPROMNextWriteCycleIsLong_Unsupported(index);
+     return NVM_EEPROMNextWriteCycleIsLong_Default(index);
 }
 
 PLIB_INLINE_API bool PLIB_NVM_ExistsEEPROMOperationAbortControl(NVM_MODULE_ID index)
 {
-     return NVM_ExistsEEPROMOperationAbortControl_Unsupported(index);
+     return NVM_ExistsEEPROMOperationAbortControl_Default(index);
 }
 
-PLIB_INLINE_API void _PLIB_UNSUPPORTED PLIB_NVM_EEPROMOperationAbort(NVM_MODULE_ID index)
+PLIB_INLINE_API void PLIB_NVM_EEPROMOperationAbort(NVM_MODULE_ID index)
 {
-     NVM_EEPROMOperationAbort_Unsupported(index);
+     NVM_EEPROMOperationAbort_Default(index);
 }
 
 PLIB_INLINE_API bool PLIB_NVM_ExistsEEPROMErrorStatus(NVM_MODULE_ID index)
 {
-     return NVM_ExistsEEPROMErrorStatus_Unsupported(index);
+     return NVM_ExistsEEPROMErrorStatus_Default(index);
 }
 
-PLIB_INLINE_API EEPROM_ERROR _PLIB_UNSUPPORTED PLIB_NVM_EEPROMErrorGet(NVM_MODULE_ID index)
+PLIB_INLINE_API EEPROM_ERROR PLIB_NVM_EEPROMErrorGet(NVM_MODULE_ID index)
 {
-     return NVM_EEPROMErrorGet_Unsupported(index);
+     return NVM_EEPROMErrorGet_Default(index);
 }
 
-PLIB_INLINE_API void _PLIB_UNSUPPORTED PLIB_NVM_EEPROMErrorClear(NVM_MODULE_ID index)
+PLIB_INLINE_API void PLIB_NVM_EEPROMErrorClear(NVM_MODULE_ID index)
 {
-     NVM_EEPROMErrorClear_Unsupported(index);
+     NVM_EEPROMErrorClear_Default(index);
 }
 
 #endif

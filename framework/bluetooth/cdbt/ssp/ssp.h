@@ -1,41 +1,26 @@
 /*******************************************************************************
- Microchip Bluetooth Stack - Secure Simple Pairing
-
-  Company:
-    Searan LLC.
-
-  File Name:
-    ssp.h
-
-  Summary:
-    Bluetooth API Library interface to the SSP.
-
-  Description:
-    This is a portion of the API interface to the Bluetooth stack.  Other header files are
-	grouped in the section under the CDBT master directory.
-
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Source contains proprietary and confidential information of SEARAN LLC.
+* Contains proprietary and confidential information of SEARAN LLC.
 * May not be used or disclosed to any other party except in accordance
-* with a license from SEARAN LLC or Microchip Technology Inc.
-* Copyright (c) 2011, 2012 SEARAN LLC. All Rights Reserved.
+* with a license from SEARAN LLC.
+* Copyright (c) 2011-2016 SEARAN LLC. All Rights Reserved.
 *
+* SEARAN LLC is the exclusive licensee and developer of dotstack with
+* all its modifications and enhancements.
 *
+* Contains proprietary and confidential information of CandleDragon and
+* may not be used or disclosed to any other party except in accordance
+* with a license from SEARAN LLC.
+* Copyright (c) 2009, 2010, 2011 CandleDragon. All Rights Reserved.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 #ifndef __SSP_H
 #define __SSP_H
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 extern "C" {
 #endif
-// DOM-IGNORE-END
 
-#include "bluetooth/cdbt/hci/hci.h"
+#include "cdbt/hci/hci.h"
 
 #ifndef SSP_MAX_MANAGERS
 #define SSP_MAX_MANAGERS		1
@@ -147,7 +132,7 @@ typedef struct _bt_ssp_simple_pairing_complete
 	bt_bdaddr_t bdaddr_remote;
 } bt_ssp_simple_pairing_complete;
 
-#include "bluetooth/cdbt/ssp/ssp_event.h"
+#include "cdbt/ssp/ssp_event.h"
 
 bt_bool bt_ssp_set_mode(SSP_MODE mode, bt_hci_cmd_callback_fp callback);
 
@@ -180,12 +165,10 @@ bt_bool bt_ssp_set_io_capabilities(
 	bt_ssp_io_capability* io_caps,
 	bt_hci_cmd_callback_fp cb);
 
-#include "bluetooth/cdbt/ssp/ssp_event_handler.h"
+#include "cdbt/ssp/ssp_event_handler.h"
 
-// DOM-IGNORE-BEGIN
 extern void (*_bt_ssp_evt_handler)(bt_hci_event_t* evt);
 extern void (*_bt_ssp_init)(void);
-// DOM-IGNORE-END
 
 #ifdef __cplusplus
 }

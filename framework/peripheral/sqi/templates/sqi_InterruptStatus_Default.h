@@ -13,6 +13,8 @@
     and its Variant : Default
     For following APIs :
         PLIB_SQI_InterruptFlagGet
+        PLIB_SQI_InterruptWordGet
+        PLIB_SQI_InterruptWordClear
         PLIB_SQI_ExistsInterruptStatus
 
 *******************************************************************************/
@@ -91,6 +93,40 @@ PLIB_TEMPLATE bool SQI_InterruptFlagGet_Default( SQI_MODULE_ID index , SQI_INTER
 	}
 }
 
+//******************************************************************************
+/* Function :  SQI_InterruptWordGet_Default
+
+  Summary:
+    Implements Default variant of PLIB_SQI_InterruptWordGet 
+
+  Description:
+    This template implements the Default variant of the PLIB_SQI_InterruptWordGet function.
+*/
+
+PLIB_TEMPLATE uint32_t SQI_InterruptWordGet_Default( SQI_MODULE_ID index )
+{
+    volatile sqi_registers_t *sqi = (volatile sqi_registers_t *)index;
+    volatile uint32_t *reg =  (volatile uint32_t *)&sqi->SQIINTSTAT;
+    return *reg;
+}
+
+
+//******************************************************************************
+/* Function :  SQI_InterruptWordClear_Default
+
+  Summary:
+    Implements Default variant of PLIB_SQI_InterruptWordClear 
+
+  Description:
+    This template implements the Default variant of the PLIB_SQI_InterruptWordClear function.
+*/
+
+PLIB_TEMPLATE void SQI_InterruptWordClear_Default( SQI_MODULE_ID index , uint32_t flags )
+{
+    volatile sqi_registers_t *sqi = (volatile sqi_registers_t *)index;
+    volatile uint32_t *reg =  (volatile uint32_t *)&sqi->SQIINTSTAT;
+    *reg = flags;
+}
 
 //******************************************************************************
 /* Function :  SQI_ExistsInterruptStatus_Default
